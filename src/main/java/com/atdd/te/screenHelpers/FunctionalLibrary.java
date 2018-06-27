@@ -94,10 +94,10 @@ public class FunctionalLibrary extends CommonHelper{
 			
 			
 		//Create new account
-		Thread.sleep(1000);
+		
 		Mainframe_GlobalFunctionLib.sendText("4", "6", carrierID);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		Thread.sleep(1000);
+		
 			Mainframe_GlobalFunctionLib.sendText("10", "2", "7");
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			
@@ -115,7 +115,6 @@ public class FunctionalLibrary extends CommonHelper{
 			}
 			
 			//Create new group
-			Thread.sleep(1000);
 			Mainframe_GlobalFunctionLib.sendText("11", "2", "7");
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			if(!(func_SearchAndSelectADataEditMode("7,4" ,groupID ,"12,4" , groupID))){
