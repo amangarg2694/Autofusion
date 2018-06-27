@@ -1,0 +1,171 @@
+[
+  {
+    "line": 3,
+    "elements": [
+      {
+        "line": 11,
+        "name": "Vist  the homepage",
+        "description": "",
+        "id": "qademo-titles;vist--the-homepage",
+        "after": [
+          {
+            "result": {
+              "duration": 327768,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.Capture(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3131538476,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "I navigate to demo site",
+            "match": {
+              "location": "DemoQASteps.i_navigate_to_demo_site()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 32211035,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "the title of the page \"Demoqa | Just another WordPress site\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Demoqa | Just another WordPress site",
+                  "offset": 23
+                }
+              ],
+              "location": "DemoQASteps.the_title_of_the_page(String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 10,
+            "name": "@Sanity"
+          }
+        ]
+      },
+      {
+        "line": 17,
+        "name": "Check the Registration at About us page",
+        "description": "",
+        "id": "qademo-titles;check-the-registration-at-about-us-page",
+        "after": [
+          {
+            "result": {
+              "duration": 139769578,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.Capture(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1008230692,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "I navigate to demo site",
+            "match": {
+              "location": "DemoQASteps.i_navigate_to_demo_site()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 180668840569,
+              "error_message": "java.lang.AssertionError: Timeout occured  while searching for the element  About Us\r\n\tat org.testng.Assert.fail(Assert.java:94)\r\n\tat com.optumrx.autofusion.core.util.CustomAssertions.setExceptionMessage(CustomAssertions.java:114)\r\n\tat com.atdd.demo.ui.pageobjects.DemoQA.clickAboutUs(DemoQA.java:69)\r\n\tat com.atdd.demo.ui.stepdefinitons.DemoQASteps.i_click_on(DemoQASteps.java:68)\r\n\tat ✽.When i click on \"Aboutus\"(features/web/WebsiteLogin/US1234_Login.feature:19)\r\n",
+              "status": "failed"
+            },
+            "line": 19,
+            "name": "i click on \"Aboutus\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Aboutus",
+                  "offset": 12
+                }
+              ],
+              "location": "DemoQASteps.i_click_on(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 20,
+            "name": "the title of the page \"About us | Demoqa\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "About us | Demoqa",
+                  "offset": 23
+                }
+              ],
+              "location": "DemoQASteps.the_title_of_the_page(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 21,
+            "name": "the \"Registration\" button is displayed",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Registration",
+                  "offset": 5
+                }
+              ],
+              "location": "DemoQASteps.the_button_is_displayed(String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 16,
+            "name": "@Smoke"
+          }
+        ]
+      }
+    ],
+    "name": "QADemo Titles",
+    "description": "\nAs a webuser\nI want to browse the demoQA site\nto check if can register as a new user",
+    "id": "qademo-titles",
+    "keyword": "Feature",
+    "uri": "features/web/WebsiteLogin/US1234_Login.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@US1234"
+      },
+      {
+        "line": 1,
+        "name": "@Login"
+      }
+    ]
+  }
+]

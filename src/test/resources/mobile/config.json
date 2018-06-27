@@ -1,0 +1,24 @@
+{
+"browser name":"AndroidNative",
+    "CloudConnect":{
+     "browser version":"",
+     "platform name":"Android",
+     "test suite name":"jaitest",
+     "url":"",
+     "username":"srinivasreddy@optum.com",
+     "password":"perfecto",
+     "tunnel name":"",
+     "app package name":"com.sec.android.app.popupcalculator",
+     "app activity name":".Calculator",
+     "app bundleid":"",
+      "device id":"320456D5D4D0816B",
+      "platform version":"5.0.2",
+      "perfecto url":"https://optum.perfectomobile.com",
+      
+      
+       "perfecto token":"eyJhbGciOiJSUzI1NiJ9.eyJqdGkiOiIxMmQ1YzQwMi1iZWU3LTQwYWYtYTZiMC03ZDUyODhlMWJmNDUiLCJleHAiOjAsIm5iZiI6MCwiaWF0IjoxNTI2NTQ4MTcwLCJpc3MiOiJodHRwczovL2F1dGgucGVyZmVjdG9tb2JpbGUuY29tL2F1dGgvcmVhbG1zL29wdHVtLXBlcmZlY3RvbW9iaWxlLWNvbSIsImF1ZCI6Im9mZmxpbmUtdG9rZW4tZ2VuZXJhdG9yIiwic3ViIjoiYTc5NjlmMjMtNmU3MC00Y2ViLThmNmEtZDU4ZDk1OTNlYzM2IiwidHlwIjoiT2ZmbGluZSIsImF6cCI6Im9mZmxpbmUtdG9rZW4tZ2VuZXJhdG9yIiwic2Vzc2lvbl9zdGF0ZSI6Ijg1NDg1Nzc4LTdkYmMtNDAyNi1hOGZjLWYzMmU2Nzg0ODI3MCIsImNsaWVudF9zZXNzaW9uIjoiZDQwYzJiMWItYTFmMi00NWM5LTgyNDgtYzhlN2RjYWIyYjg0IiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsInZpZXctcHJvZmlsZSJdfX19.OqUhUQZGrtBwtJsRCNnOaoFv7rpBSsORR3LgRnC8wHoVtIiIOOMAqemQTUxkeeUwHgME3EGedOj0PlEAoqjUFdn9hup95z3QoPobhgEEIyAGAU1CRv7VAWBmuS4bOfMHpQbYWe28Yi_gH6e85zg4To58M1ZEAjck1ASMLIfSwToDWD90jh7-ozEnWRoZKtQd9os73xZyE4g1UfzbpwI3c_ZscKL3AFH30iLHbW915nwW9rNPS4oeYzrejrQhIzg_wzVjDgfy8U6mEodH8XftS0eYx8UrfLgh0ozYk5AiTCz_RCpQpdYIRw2oz7nc2n_6K_YUcKQRHOX6EAF0tgrAJA"
+    }
+            
+            
+          
+}

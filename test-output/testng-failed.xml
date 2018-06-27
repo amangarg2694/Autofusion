@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Testng Cucumber Suite]">
+  <parameter name="configFile" value="src/test/resources/ui/config.json"/>
+  <test name="Veirify Demo Site Features(failed)">
+    <parameter name="configFile" value="src/test/resources/ui/config.json"/>
+    <classes>
+      <class name="com.atdd.demo.runners.RunDemoTest">
+        <methods>
+          <include name="setup"/>
+          <include name="setUpClass"/>
+          <include name="teardown"/>
+          <include name="feature" invocation-numbers="0"/>
+          <include name="tearDownClass"/>
+        </methods>
+      </class> <!-- com.atdd.demo.runners.RunDemoTest -->
+    </classes>
+  </test> <!-- Veirify Demo Site Features(failed) -->
+</suite> <!-- Failed suite [Testng Cucumber Suite] -->

@@ -1,0 +1,14 @@
+{
+"browser name":"Chrome",
+    "CloudConnect":{
+    "browser version":"50",
+    "platform name":"Windows 7",
+    "test suite name":"Windows 7 Chrome 50 Tests",
+    "url":"http://%s:%s@ondemand.saucelabs.com:80/wd/hub",
+     "username":"jsingh96",
+      "password":"f3479515-c7b9-4692-bda9-abf7becc7dce",
+     "tunnel name":"OptumSharedTunnel-Stg"
+     
+
+    }
+}

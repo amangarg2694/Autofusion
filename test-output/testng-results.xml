@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Testng Cucumber Suite" duration-ms="36401" started-at="2018-03-19T07:16:14Z" finished-at="2018-03-19T07:16:51Z">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@43814d18]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Veirify Demo Site Features" duration-ms="36401" started-at="2018-03-19T07:16:14Z" finished-at="2018-03-19T07:16:51Z">
+      <class name="com.atdd.demo.runners.RunDemoTest">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@43814d18]" name="setUpClass" is-config="true" duration-ms="632" started-at="2018-03-19T12:46:14Z" finished-at="2018-03-19T12:46:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@43814d18]" name="setup" is-config="true" duration-ms="11586" started-at="2018-03-19T12:46:15Z" finished-at="2018-03-19T12:46:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[src/test/resources/ui/config.json]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@43814d18]" name="feature" duration-ms="19822" started-at="2018-03-19T12:46:27Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2018-03-19T12:46:47Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[QADemo Titles]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- feature -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@43814d18]" name="teardown" is-config="true" duration-ms="3356" started-at="2018-03-19T12:46:47Z" finished-at="2018-03-19T12:46:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@43814d18]" name="tearDownClass" is-config="true" duration-ms="733" started-at="2018-03-19T12:46:50Z" finished-at="2018-03-19T12:46:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+        <test-method status="PASS" signature="parser()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@43814d18]" name="parser" is-config="true" duration-ms="3421" started-at="2018-03-19T12:46:51Z" finished-at="2018-03-19T12:46:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- parser -->
+      </class> <!-- com.atdd.demo.runners.RunDemoTest -->
+    </test> <!-- Veirify Demo Site Features -->
+  </suite> <!-- Testng Cucumber Suite -->
+</testng-results>

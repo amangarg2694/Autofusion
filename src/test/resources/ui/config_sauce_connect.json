@@ -1,0 +1,12 @@
+{
+"browser name":"Firefox",
+    "CloudConnect":{
+    "browser version":"12",
+    "platform name":"windows",
+    "test suite name":"test",
+        "url":"http://%s:%s@ondemand.saucelabs.com:80/wd/hub",
+     "username":"jsingh96",
+      "password":"f3479515-c7b9-4692-bda9-abf7becc7dce",
+        "tunnel name":"OptumSharedTunnel-Prd"
+    }
+}

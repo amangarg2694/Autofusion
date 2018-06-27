@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Testng Cucumber Suite">
+
+	<!-- <suite name="Testng Cucumber Suite" parallel="classes" thread-count="2"> -->
+	<test name="Veirify Demo Site Features" parallel="none">
+
+	<parameter name="scrOption" value="Always" />  <!-- Always or OnError -->
+	<parameter name="configFile" value="src/test/resources/te/config_sxcd1.properties" /> 
+	<!-- <parameter name="configFile" value="src/test/resources/te/config_book1.properties" /> -->
+	<!-- <parameter name="configFile" value="src/test/resources/te/config_book2.properties" /> -->
+
+		<classes>
+			<class name="com.atdd.demo.runners.RunDemoTest"></class>
+			
+			
+			
+		</classes>
+
+	</test>
+
+</suite>

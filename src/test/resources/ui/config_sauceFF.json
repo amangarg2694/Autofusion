@@ -1,0 +1,12 @@
+{
+"browser name":"Firefox",
+    "CloudConnect":{
+    "browser version":"50",
+    "platform name":"Windows 8",
+    "test suite name":"Windows 8 Firefox 50 Tests",
+    "url":"http://%s:%s@ondemand.saucelabs.com:80/wd/hub",
+     "username":"jsingh96",
+      "password":"f3479515-c7b9-4692-bda9-abf7becc7dce",
+     "tunnel name":"OptumSharedTunnel-Stg"
+    }
+}
