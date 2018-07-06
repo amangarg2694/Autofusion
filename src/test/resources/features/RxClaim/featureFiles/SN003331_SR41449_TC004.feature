@@ -62,7 +62,8 @@ Feature: A manual claim is submitted with medicaid subrogation
    	
      
       Examples: 
-      |PlanSearch|NegativeDueValue|BIN|Proc Ctr|Grp|Pharmacy|Rx Nbr|Rf|Member ID|Payee Override|Medicaid Subrogation|Prod: ID|Disp Qty|DS|PSC|Cost|Rx Origin|
-      #|$20|N|777777|SN003331k|SN003331k|apharm|07209312397|00|SN003331-01|SN003331K|Y|00247064407|2|3|0|5|5|
-     	|$20|N|777777|SN003331k|SN003331k|apharm|07262092397|00|SN003331-01|SN003331K|N|00247064407|2|3|0|5|5|
+      |PlanSearch	|NegativeDueValue	|BIN		|Proc Ctr		|Grp				|Pharmacy	|Rx Nbr				|Rf	|Member ID		|Payee Override	|Medicaid Subrogation	|Prod: ID			|Disp Qty	|DS	|PSC	|Cost	|Rx Origin|
+      |$20				|N								|777777	|SN003331k	|SN003331k	|apharm		|07262092397	|00	|SN003331-01	|SN003331K			|N										|00247064407	|2				|3	|0		|5		|5				|
+     	
+     	#|$20|N|777777|SN003331k|SN003331k|apharm|07209312397|00|SN003331-01|SN003331K|Y|00247064407|2|3|0|5|5|
 

@@ -58,12 +58,17 @@ Feature: A manual claim is submitted with medicaid subrogation
     #Scenario Outline: Check by Submitting Claim with Medicaid Subrogation to Y and Verify Pricing
     And I press "F15" Key 
   	And I verify the pricingOutput "<pricingOutput>"
-    Then Validate "Approved Due Amount" on "Price Information Page 1 of 3"
-   	#Then I go Back to "RxClaim Plan Administrator Menu"
+    And Validate "Approved Due Amount" on "Price Information Page 1 of 3"
+   	Then I go Back to "RxClaim Plan Administrator Menu"
    	
      
       Examples: 
       |PlanSearch	|NegativeDueValue	|BIN		|Proc Ctr	|Grp		|Pharmacy	|Rx Nbr			|Rf	|Member ID			|Payee Override	|Medicaid Subrogation	|Prod: ID			|Disp Qty	|DS	|PSC|Cost	|Rx Origin|
-      |$1.00			|Y								|777777	|KDPCN1		|KDGRP1	|apharm		|9362770397	|00	|SN003331K3-01	|kiranpayee			|Y										|00247064407	|2				|3	|0	|5		|5				|
+      |$1.00			|Y								|777777	|KDPCN1		|KDGRP1	|apharm		|9360987657	|00	|SN003331K3-01	|kiranpayee			|Y										|00247064407	|2				|3	|0	|5		|5				|
       #|$1.00|Y|SR40760A|777777|KDPCN|KDGRP|apharm|1078759261|00|mem842-01|kiranpayee|N|00247064407|2|3|0|5|5|
+
+
+
+
+
 
