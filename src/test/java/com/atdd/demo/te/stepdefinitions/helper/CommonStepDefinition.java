@@ -69,14 +69,20 @@ public class CommonStepDefinition {
 		FunctionalLibrary.createCAG( carrierID, carrierName, processor, mailingAdd, city, state, zip, contractFromDt, contractThruDt, contractEnt, businessType, accountID, accountName, groupID, groupName, groupFromDt, groupThruDt, planCode);
 	}
 	
+	@Then("^I copy a Member with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_copy_a_Member_with(String memberID, String carrierID, String accountID, String groupID, String FromDate, String ThruDate) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.CopyMember(memberID, carrierID, accountID, groupID, FromDate, ThruDate);                     
+		
+}
+	
 	@When("^I submit a claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_submit_a_claim_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	    FunctionalLibrary.CreateTransaction(bin, proc, group, pharmacyID, rxNbr, refill, fillDate, memberID, productID, dspQty, ds, psc, cost);
 	    FunctionalLibrary.submitClaim();
 	}
-
-
+	
 	
 	
 	@Then("^Validate \"([^\"]*)\" message should displayed on \"([^\"]*)\"$")
@@ -86,5 +92,54 @@ public class CommonStepDefinition {
 		//Mainframe_GlobalFunctionLib.validateText(24 , 2, "Member Added.");
 		
 	}
+		
+	@When("^I do manual claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_do_manual_claim_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost, String qual) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.CreateTransaction1(bin, proc, group, pharmacyID, rxNbr, refill, fillDate, memberID, productID, dspQty, ds, psc, cost, qual);
+		FunctionalLibrary.submitClaim();
+	}
+
+	
+	@Then("^Validate \"([^\"]*)\" should displayed on \"([^\"]*)\"$")
+	public void validate_should_displayed_on(String Sts, String screenName) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		String[] coordinates = ReadPropertyFile.getProperty(screenName , "Sts");
+		FunctionalLibrary.validateText(coordinates[0] ,coordinates[1] , Sts);
+		//Mainframe_GlobalFunctionLib.validateText(24 , 2, "Member Added.");
+		//String Csts=FunctionalLibrary.getText(21, 6);
+		//System.out.println(Csts);
+	    
+	}
+	
+	@When("^I edit a member with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_edit_a_member_with(String memberID, String FromDate, String ThruDate) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.editMember(memberID, FromDate, ThruDate);
+		
+	}
+	
+	@Then("^Verify \"([^\"]*)\" message should displayed on \"([^\"]*)\"$")
+	public void verify_message_should_displayed_on(String Record, String screenname) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		String[] coordinates = ReadPropertyFile.getProperty(screenname , "Record");
+		FunctionalLibrary.validateText(coordinates[0] ,coordinates[1] , Record);
+	}
+	
+	@When("^I edit member details with \"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_edit_member_details_with(String memberID, String address) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.editMemberAddress(memberID, address);
+		
+	}
+		
+		
+	@Then("^Verify \"([^\"]*)\" field data on \"([^\"]*)\"$")
+	public void verify_field_data_on(String Address2, String screenname) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		String[] coordinates = ReadPropertyFile.getProperty(screenname , "Address2");
+		FunctionalLibrary.validateText(coordinates[0] ,coordinates[1] , Address2);
+	}
+
 	
 }

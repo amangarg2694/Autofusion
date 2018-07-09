@@ -1,12 +1,15 @@
 package com.atdd.te.screenHelpers;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.StringTokenizer;
 
 import org.testng.Assert;
 
 import com.cucumber.listener.Reporter;
+import com.hp.lft.report.ReportException;
 import com.hp.lft.sdk.GeneralLeanFtException;
+import com.itextpdf.text.log.SysoLogger;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 import com.optumrx.autofusion.core.te.util.Screenshot;
 import com.optumrx.autofusion.core.util.ReadPropertyFile;
@@ -153,6 +156,58 @@ public class FunctionalLibrary extends CommonHelper{
 	}
 	
 	
+	public static void editMemberAddress(String memberID, String address2) throws Throwable
+	{	
+		/*try {
+			navigateToRxClaimPlanAdministrator();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}*/
+		try{
+
+		   Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		   Mainframe_GlobalFunctionLib.pressKey("Enter");
+		   Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+		   Mainframe_GlobalFunctionLib.pressKey("Enter");
+		   Mainframe_GlobalFunctionLib.waitTillReady();
+           Mainframe_GlobalFunctionLib.click(4, 4 );
+           Mainframe_GlobalFunctionLib.sendText(4, 4 ,memberID );
+           Mainframe_GlobalFunctionLib.pressKey("Enter");
+           Mainframe_GlobalFunctionLib.waitTillReady();
+		   Mainframe_GlobalFunctionLib.pressKey("F8");
+		   Mainframe_GlobalFunctionLib.sendText(10, 2,"2" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(10, 10,address2 );
+			Mainframe_GlobalFunctionLib.pressKey("F24");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.sendText(10, 2,"5" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			String address3=Mainframe_GlobalFunctionLib.getText(9, 10);
+					if(address3=="test")
+					{
+						System.out.println("Address updated");
+					}
+					else
+					{
+						System.out.println("Address not updated and working as expected");
+					}
+							
+		   if(ScreenshotOption.equalsIgnoreCase("Always")){
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				}
+				}catch(Exception e)
+				{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					Assert.fail("An error has occured while creating the caim transaction.Screenshot is captured");
+					
+				}
+		
+		
+		
+	}
+
+	
+	
 	public static void CreateTransaction(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productId, String dspQty, String ds, String psc, String cost) throws Throwable
 	{	
 		try {
@@ -188,7 +243,7 @@ public class FunctionalLibrary extends CommonHelper{
 			//Mainframe_GlobalFunctionLib.sendText(8, 2,"1" );
 			//Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
-			Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate);			
+			Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate + "   ");			
 			Mainframe_GlobalFunctionLib.sendText(11, 20,productId );
 			Mainframe_GlobalFunctionLib.sendText(12, 11,dspQty );
 			Mainframe_GlobalFunctionLib.sendText(12, 26,ds );
@@ -211,6 +266,7 @@ public class FunctionalLibrary extends CommonHelper{
 			Mainframe_GlobalFunctionLib.sendText(5, 47, refill);			
 			//Mainframe_GlobalFunctionLib.click(7, 12 );
 			Mainframe_GlobalFunctionLib.sendText(7, 12, memberID);
+			Thread.sleep(4000);
 			//Mainframe_GlobalFunctionLib.pressKey("F4");
 			//Mainframe_GlobalFunctionLib.sendText(3, 4, memberID);
 			//Mainframe_GlobalFunctionLib.pressKey("Enter");         
@@ -242,11 +298,139 @@ public class FunctionalLibrary extends CommonHelper{
 		
 		
 	}
+	
+	public static void CreateTransaction1(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productId, String dspQty, String ds, String psc, String cost, String qual) throws Throwable
+	{	
+				
+			try {
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.click(11, 14 );
+				Mainframe_GlobalFunctionLib.pressKey("F4");
+				Thread.sleep(1000);
+				Mainframe_GlobalFunctionLib.sendText(4, 4, bin);
+				Mainframe_GlobalFunctionLib.sendText(4, 11, proc);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(10, 2,"1" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(11, 59,group );
+				Mainframe_GlobalFunctionLib.click(12, 14 );
+				Mainframe_GlobalFunctionLib.pressKey("F4");
+				Thread.sleep(1000);
+				Mainframe_GlobalFunctionLib.sendText(4, 4, pharmacyID);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(9, 2,"1" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				
+				Mainframe_GlobalFunctionLib.sendText(12, 41,rxNbr );
+				Mainframe_GlobalFunctionLib.sendText(12, 59,refill );
+				
+				Mainframe_GlobalFunctionLib.click(14, 41 );
+				Mainframe_GlobalFunctionLib.pressKey("F4");
+				Thread.sleep(1000);
+				Mainframe_GlobalFunctionLib.sendText(3, 4, memberID);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				
+				Mainframe_GlobalFunctionLib.sendText(8, 2,"1" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.waitTillReady();
+				Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate + "   ");	
+				Mainframe_GlobalFunctionLib.click(11, 20 );
+				Mainframe_GlobalFunctionLib.pressKey("F4");
+				Mainframe_GlobalFunctionLib.waitTillReady();
+				Mainframe_GlobalFunctionLib.sendText(4, 4, productId);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(9, 2,"1" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Thread.sleep(1000);
+				Mainframe_GlobalFunctionLib.sendText(12, 11,dspQty );
+				Mainframe_GlobalFunctionLib.sendText(12, 26,ds );
+				Mainframe_GlobalFunctionLib.sendText(14, 6,psc );
+				Thread.sleep(5000);
+				Mainframe_GlobalFunctionLib.sendText(10, 47,cost );
+				Mainframe_GlobalFunctionLib.sendText(5, 22,qual );
+				Mainframe_GlobalFunctionLib.waitTillReady();
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				
+				System.out.println("Claim is created");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("An error has occured while creating the caim transaction.Screenshot is captured");
+				
+			}
+			
+			
+			
+		}
+	
+	
+	
+	public static void CopyMember(String memberID, String carrierID, String accountID, String groupID, String FromDate, String ThruDate) throws Throwable
+	{	
+				
+			try {
+				Mainframe_GlobalFunctionLib.sendText(10, 2,"3" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(10, 52, carrierID );
+				Mainframe_GlobalFunctionLib.sendText(11, 52, accountID );
+				Mainframe_GlobalFunctionLib.sendText(12, 52, groupID );
+				Mainframe_GlobalFunctionLib.sendText(14, 52, FromDate );
+				Mainframe_GlobalFunctionLib.sendText(15, 52, ThruDate );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				System.out.println("Member Added");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("An error has occured while creating the caim transaction.Screenshot is captured");
+				
+			}
+			
+			
+			
+		}
+		
+	public static void editMember(String memberID, String FromDate, String ThruDate) throws ClassNotFoundException, GeneralLeanFtException, SQLException, ReportException, InterruptedException, IOException 
+	{
+		
+		
+		try {
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(4, 4 ,memberID );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F8");
+			Mainframe_GlobalFunctionLib.sendText(10, 2 ,"2" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.sendText(15, 2 ,"2" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(10, 15 ,FromDate+"   " );
+			Mainframe_GlobalFunctionLib.sendText(10, 38 ,ThruDate+"    ");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			Assert.fail("An error has occured while creating the caim transaction.Screenshot is captured");
+			
+		}
+	}
+			
 		
 	public static void submitClaim() throws GeneralLeanFtException, InterruptedException, IOException{
 		try{
 		Mainframe_GlobalFunctionLib.pressKey("F6");
 		Thread.sleep(2000);
+		Mainframe_GlobalFunctionLib.pressKey("F7");
+		
 		
 		if(ScreenshotOption.equalsIgnoreCase("Always")){
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
