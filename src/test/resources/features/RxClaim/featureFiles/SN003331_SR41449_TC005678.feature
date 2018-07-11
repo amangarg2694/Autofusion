@@ -29,6 +29,6 @@ Scenario Outline: SN003331_SR41449_TC005_Verify if note is added to batch claim 
     
       Examples: 
       |ExtractDate	|FileName |Library 		|FromDate	|ThruDate	|CarrierFrom	|CarrierThru	|AccountFrom	|AccountThru	|GroupFrom	|GroupThru	|PayeeFrom	|PayeeThru	|PharmacyFrom	|PharmacyThru	|SenderID	|ReceiverID	|FinancialAmountsUsed	|DBLibrary	|MedicaidSubrogation	|
-     	|07022018			|NICK28	  |USRVENKAT1	|010118		|073118		|KDCAR1				|KDCAR1				|KDACC1				|KDACC1				|SN003331K	|SN003331K	|SN003331K	|SN003331K	|apharm				|apharm				|VENK902	|VENK820		|	A										|dbu10			|Y										|
+      |07112018			|TRY		  |USRVENKAT1	|010118		|123118		|KDCAR1				|KDCAR1				|KDACC1				|KDACC1				|SN003331K	|SN003331K	|SN003331K	|SN003331K	|apharm				|apharm				|VENK902	|VENK820		|	A										|dbu10			|Y										|
      #|07022018			|NICK24	  |USRVENKAT1	|062918		|070318		|KDCAR1				|KDCAR1				|KDACC1				|KDACC1				|SN003331k3	|SN003331k3	|SN003331K3	|SN003331K3	|apharm				|apharm				|VENK902	|VENK820		|	A										|dbu10			|Y										|
 

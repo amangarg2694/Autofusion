@@ -1,7 +1,9 @@
 package com.atdd.demo.te.stepdefinitons;
 
 import com.atdd.te.screenHelpers.FunctionalLibrary;
+import com.cucumber.listener.Reporter;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
+import com.optumrx.autofusion.core.te.util.Screenshot;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -396,18 +398,21 @@ public class SN003331 {
 	 	Mainframe_GlobalFunctionLib.sendText(21, 7,dbuqry);
 		Mainframe_GlobalFunctionLib.pressKey("F4");
 		Thread.sleep(3000);
+		Mainframe_GlobalFunctionLib.sendText(5, 37,"        ");
 		Mainframe_GlobalFunctionLib.sendText(5, 37,FileName);
 		Mainframe_GlobalFunctionLib.sendText(6, 39,Library);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Thread.sleep(3000);
+		Mainframe_GlobalFunctionLib.pressKey("F21");
 		Mainframe_GlobalFunctionLib.sendText(6, 16,"chg");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		Mainframe_GlobalFunctionLib.pressKey("F21");
+		
 		Mainframe_GlobalFunctionLib.sendText(6, 16,"w170");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(10, 32,"8");
 		Mainframe_GlobalFunctionLib.sendText(10, 33,"4");
 		Mainframe_GlobalFunctionLib.sendText(10, 34,"1");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 		Mainframe_GlobalFunctionLib.sendText(8, 7,"1");
@@ -418,12 +423,17 @@ public class SN003331 {
 	@When("^I verify Batch Medicaid Subrogation Load \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" submitting$")
 	public void i_verify_Batch_Medicaid_Subrogation_Load_submitting(String FileName, String Library, String MedicaidSubrogation) throws Throwable {
 	    Mainframe_GlobalFunctionLib.sendText(21, 7,"21");
+	    Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(21, 7,"2");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(21, 7,"4");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(21, 7,"5");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(3, 31,FileName);
 		Mainframe_GlobalFunctionLib.sendText(4, 31,Library);
-		Mainframe_GlobalFunctionLib.sendText(4, 31,MedicaidSubrogation);
+		Mainframe_GlobalFunctionLib.sendText(20, 72,MedicaidSubrogation);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("F6");
 	}
 	
@@ -450,22 +460,37 @@ public class SN003331 {
 					Mainframe_GlobalFunctionLib.pressKey("Enter");
 					Mainframe_GlobalFunctionLib.sendText(11, 3,"5");
 					Mainframe_GlobalFunctionLib.pressKey("Enter");
-					Mainframe_GlobalFunctionLib.pressKey("PageDown");
-					Mainframe_GlobalFunctionLib.pressKey("PageDown");
-					String PassedRecords= Mainframe_GlobalFunctionLib.getText(8, 59);
-					if(PassedRecords.equals("0"))
-					{
-						System.out.println("Batch Job Submission Failed");
-					}
-					else
-					{
-						System.out.println("Batch Job Submission Passed, and the Passed Claims are:"+PassedRecords);
-					}
-					break;
+					//Mainframe_GlobalFunctionLib.pressKey("PageDown");
+					//Mainframe_GlobalFunctionLib.pressKey("PageDown");
+					Mainframe_GlobalFunctionLib.sendText(4,22,"RECORDS BYPASSED:");
+					Mainframe_GlobalFunctionLib.pressKey("Enter");
+					Mainframe_GlobalFunctionLib.pressKey("F16");
+					String[] Records =Mainframe_GlobalFunctionLib.getText(7, 30).split("                          ") ;
+					//String[] Record1 =Records.split("INVALID");
+					
+					String PassedRecords= Records[0].trim();
+					System.out.println("Value of records passed:" +PassedRecords);
+						if(PassedRecords.equals("0"))
+						{
+							System.out.println("RECORDS BYPASSED: 0 ");
+							Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+
+						}
+						else
+						{
+							System.out.println("RECORDS BYPASSED:  "+PassedRecords);
+							Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						}
+						break;
+				}
+				else
+				{
+					System.out.println("Job Status is: "+JobStatus);
 				}
 				Mainframe_GlobalFunctionLib.pressKey("F5");
+				Thread.sleep(6000);
 				i++;
-				Thread.sleep(3000);
+				
 			}while(i<MaxCount);
 			Mainframe_GlobalFunctionLib.pressKey("F3");
 			

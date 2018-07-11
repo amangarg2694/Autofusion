@@ -62,6 +62,7 @@
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Mainframe_GlobalFunctionLib.pressKey("F3");
+			System.out.println("CAG details added in to DBU ");
 			Mainframe_GlobalFunctionLib.sendText(8, 7,"1");
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 		}
@@ -120,7 +121,43 @@
 		}
 		
 		
-		//#5-Submit Claim adjudicated for HRA amount
+	
+		//#5-Run SQL Query retrieve data from "<ACMP_Table>" for the "<carrier>"
+		@When("^I run sql Query to retrieve data from \"([^\"]*)\" for the \"([^\"]*)\"$")
+		public void i_run_sql_Query_to_retrieve_data_from_for_the(String ACMPTable, String carrier) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			String strQuery="strsql";
+			Mainframe_GlobalFunctionLib.sendText(21, 7,strQuery);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Thread.sleep(3000);
+			String GetDataQuery="select * from "+ACMPTable+" where carrier = '"+carrier+"'";
+			Mainframe_GlobalFunctionLib.sendText(19, 7,GetDataQuery);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Thread.sleep(3000);
+			/*int i;
+			for(i=5;	i<=20;	i++)
+			{
+				//Mainframe_GlobalFunctionLib.click(i, 7);
+				String getdata=Mainframe_GlobalFunctionLib.getText(i, 7);
+				System.out.println("data .....is...."+getdata);
+				if(getdata.length()>0)
+				{
+					Thread.sleep(3000);
+					System.out.println("data .....is...."+getdata);
+					String GetDataQuery="select * from "+ACMPTable+" where carrier = '"+carrier+"'";
+					Mainframe_GlobalFunctionLib.sendText(i, 7,GetDataQuery);
+					Mainframe_GlobalFunctionLib.pressKey("Enter");
+					break;
+				}
+				else
+				{
+					System.out.println("Not able to hit Query.");
+				}
+				i++;*/
+			}
+			
+		
+		//#4-Submit Claim adjudicated for HRA amount
 		@When("^I submit claim with \"([^\"]*)\" by updating \"([^\"]*)\"$")
 		public void i_submit_claim_with_by_updating(String member, String RxNo) throws Throwable {
 				    // Write code here that turns the phrase above into concrete actions
@@ -169,40 +206,7 @@
 				    }
 				}	
 		
-		//#6-Run SQL Query retrieve data from "<ACMP_Table>" for the "<carrier>"
-		@When("^I run sql Query to retrieve data from \"([^\"]*)\" for the \"([^\"]*)\"$")
-		public void i_run_sql_Query_to_retrieve_data_from_for_the(String ACMPTable, String carrier) throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
-			String strQuery="strsql";
-			Mainframe_GlobalFunctionLib.sendText(21, 7,strQuery);
-			Mainframe_GlobalFunctionLib.pressKey("Enter");
-			Thread.sleep(3000);
-			String GetDataQuery="select * from "+ACMPTable+" where carrier = '"+carrier+"'";
-			Mainframe_GlobalFunctionLib.sendText(19, 7,GetDataQuery);
-			Mainframe_GlobalFunctionLib.pressKey("Enter");
-			Thread.sleep(3000);
-			/*int i;
-			for(i=5;	i<=20;	i++)
-			{
-				//Mainframe_GlobalFunctionLib.click(i, 7);
-				String getdata=Mainframe_GlobalFunctionLib.getText(i, 7);
-				System.out.println("data .....is...."+getdata);
-				if(getdata.length()>0)
-				{
-					Thread.sleep(3000);
-					System.out.println("data .....is...."+getdata);
-					String GetDataQuery="select * from "+ACMPTable+" where carrier = '"+carrier+"'";
-					Mainframe_GlobalFunctionLib.sendText(i, 7,GetDataQuery);
-					Mainframe_GlobalFunctionLib.pressKey("Enter");
-					break;
-				}
-				else
-				{
-					System.out.println("Not able to hit Query.");
-				}
-				i++;*/
-			}
-			
+		
 		//#6-Run SQL Query delete data from "<ACMP_Table>" for the "<carrier>"
 		@When("^I run sql Query to delete data from \"([^\"]*)\" for the \"([^\"]*)\"$")
 		public void i_run_sql_Query_to_delete_data_from_for_the(String ACMPTable, String carrier) throws Throwable {
@@ -235,23 +239,7 @@
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Thread.sleep(3000);
 			
-			/*int i;
-			for( i=5; i<20; i++)
-			{
-				String QueryColum=Mainframe_GlobalFunctionLib.getText(i, 7);
-				if(QueryColum.length()>0)
-				{
-					String CamsQuery="select * from "+CAMSTable+" where LGCLAIM# = '"+RxNumber+"'";
-					Mainframe_GlobalFunctionLib.sendText(i, 7, CamsQuery);
-					Mainframe_GlobalFunctionLib.pressKey("Enter");
-					break;
-				}
-				else
-				{
-					System.out.println("Not able to hit Query.");
-				}
-				i++;
-			}	*/
+			
 		}	
 		
 		// #7-verify the claims are added in the CAMS Dashboard after deletion
@@ -278,7 +266,7 @@
 			   {
 				   System.out.println("Carrier found in Table: "+carrier);
 				   Mainframe_GlobalFunctionLib.pressKey("F3");
-			   }
+			  }
 			   else
 			   {
 				   System.out.println("Carrier not found in Table: "+carrier);
