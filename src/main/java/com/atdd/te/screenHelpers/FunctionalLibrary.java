@@ -278,7 +278,7 @@ public class FunctionalLibrary extends CommonHelper{
 	{
 	
 	bRes=true;
-	Mainframe_GlobalFunctionLib.sendText(row, 2, "2");
+	Mainframe_GlobalFunctionLib.sendText(row, 2, "1");
 	Mainframe_GlobalFunctionLib.pressKey("Enter");
 	Thread.sleep(2000);
 	}

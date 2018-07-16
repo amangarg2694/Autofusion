@@ -16,7 +16,10 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import com.atdd.te.screenHelpers.FunctionalLibrary;
+import com.cucumber.listener.Reporter;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
+import com.optumrx.autofusion.core.te.util.Screenshot;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -113,6 +116,7 @@ public class ExternalTransactionProgramValidation {
 		if(current_year==year & JulianDay==juliandays)
 		{
 			System.out.println("Year and Julian day are populated correctly");
+			
 		}
 		else
 		{
@@ -147,11 +151,13 @@ public class ExternalTransactionProgramValidation {
 		{
 			System.out.println("Claim Type is: Single Amendment Claim and Paid");
 			System.out.println("Type,claim engine and claim origination is : "+Type+" & "+claim_engine+" & "+claim_origination);
+			
 		}
 		else if(Type.equals("5")&claim_engine.equals("0")&claim_origination.equals("T"))
 		{
 			System.out.println("Claim Type is: Electronic Claim");
 			System.out.println("Type,claim engine and claim origination is : "+Type+" & "+claim_engine+" & "+claim_origination);
+		
 		}
 		}
 	}
@@ -239,6 +245,19 @@ public class ExternalTransactionProgramValidation {
 			r.keyRelease(KeyEvent.VK_SHIFT);
 			Thread.sleep(2000);
 		}
+		else if(arg1.equals("End"))
+		{
+			r.keyPress(KeyEvent.VK_END);
+			r.keyRelease(KeyEvent.VK_END);
+		}
+		else if(arg1.equals("Delete"))
+		{
+			r.keyPress(KeyEvent.VK_SHIFT);
+			r.keyPress(KeyEvent.VK_END);
+			r.keyRelease(KeyEvent.VK_END);
+			r.keyRelease(KeyEvent.VK_SHIFT);
+		}
+		
 	}
 	
 	@When("^I submit trial claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -327,6 +346,7 @@ public class ExternalTransactionProgramValidation {
 	        }
 			
 				System.out.println("Claim is submitted");
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		}
 	@When("^I submit claim using \"([^\"]*)\" with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_submit_claim_using_with(String arg1, String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productId, String dspQty, String ds, String psc, String cost) throws Throwable {
@@ -427,6 +447,7 @@ public class ExternalTransactionProgramValidation {
         }
 		
 			System.out.println("Claim is submitted");
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 	}
 	
 	@Then("^Verify whether External Transaction Program field is blank$")
@@ -557,10 +578,12 @@ public class ExternalTransactionProgramValidation {
 		if(transaction_number_report.equals(External_Transaction))
 		{
 			System.out.println("Transaction Number is present in the report:" +transaction_number_report);
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		}
 		else 
 		{
 			System.out.println("Transaction Number is not present in the report");
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		}
 	}
 	
@@ -605,6 +628,8 @@ public class ExternalTransactionProgramValidation {
 			Mainframe_GlobalFunctionLib.sendText("14", "006",psc );
 			Mainframe_GlobalFunctionLib.sendText("10", "047","         " );
 			Mainframe_GlobalFunctionLib.sendText("10", "047",cost );
+			Mainframe_GlobalFunctionLib.sendText("19", "047","80" );
+			Mainframe_GlobalFunctionLib.sendText("20", "047","20" );
 			Mainframe_GlobalFunctionLib.pressKey("PageDown");
 			Mainframe_GlobalFunctionLib.click(4, 11);
 			for(int i=0;i<4;i++)
@@ -642,6 +667,8 @@ public class ExternalTransactionProgramValidation {
 			Mainframe_GlobalFunctionLib.sendText("14", "006",psc );
 			Mainframe_GlobalFunctionLib.sendText("10", "047","         " );
 			Mainframe_GlobalFunctionLib.sendText("10", "047",cost );
+			Mainframe_GlobalFunctionLib.sendText("19", "047","80" );
+			Mainframe_GlobalFunctionLib.sendText("20", "047","20" );
 			Mainframe_GlobalFunctionLib.pressKey("PageDown");
 			Mainframe_GlobalFunctionLib.click(4, 11);
 			for(int i=0;i<4;i++)
@@ -656,9 +683,11 @@ public class ExternalTransactionProgramValidation {
 		}
 		
 			System.out.println("Claim is created");	
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			Mainframe_GlobalFunctionLib.pressKey("F6");
 			 Thread.sleep(2000);
 			 Mainframe_GlobalFunctionLib.pressKey("F7");
+			 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 	}
 	@When("^I create CarrierAccountGroup with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_CarrierAccountGroup_with(String carrierID,String carrierName,String processor,String mail,String city,String state,String zip,String contractFromDate,String contractThruDate, String contractEnt,String businessType,String accountID,String accountName ,String groupID,String groupName,String gFromDate,String gThruDate,String planCode) throws Throwable {

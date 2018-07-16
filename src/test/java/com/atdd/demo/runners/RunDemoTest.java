@@ -23,13 +23,13 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
-		features = { "classpath:features/RxClaim/featureFiles/SR41787/SR41787_TC14.feature" },
+		features = { "classpath:features/RxClaim/featureFiles/SR41010/SR41010_TC24.feature" },
 
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 
 		glue = { "com.atdd.demo.te" }
-		//tags = {"@NonMedDValidation_ExceptionCode_P"}
+		//tags = {"@TC14"}
 		
 )
 public class RunDemoTest extends AbstractTestNGCucumberTests { 

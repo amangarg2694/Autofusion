@@ -3,7 +3,9 @@ package com.atdd.demo.te.stepdefinitons;
 import java.util.concurrent.TimeUnit;
 
 import com.atdd.te.screenHelpers.FunctionalLibrary;
+import com.cucumber.listener.Reporter;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
+import com.optumrx.autofusion.core.te.util.Screenshot;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -339,8 +341,10 @@ public class PDEValidation {
 		}
 		
 			System.out.println("Claim is created");	
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			Mainframe_GlobalFunctionLib.pressKey("F6");
 			 Thread.sleep(2000);
 			 Mainframe_GlobalFunctionLib.pressKey("F7");
+			 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 	}
 }

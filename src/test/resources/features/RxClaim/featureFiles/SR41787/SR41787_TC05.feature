@@ -72,7 +72,7 @@ Feature: Pricing exception code
     And I press "F6" Key
     When I create Part D profile with "<CarrierID>","<From Date>","<Thru Date>","<Contract>","<PBP>","<Benefit_Year>","<PlanCOB1>"
     And I press "F3" Key
-    And I select Option "20" to navigate to "RxClaim Plan Administrator Menu"
+    And I select Option "cct600" to navigate to "RxClaim Plan Administrator Menu"
     And I select Option "7" to navigate to "RxClaim Provider Maintenance" 
     And I select Option "2" to navigate to "Pharmacy Network" 
     When I create a Pharmacy Network with "<Network>","<Name>","<CarrierID>"
@@ -164,7 +164,7 @@ Feature: Pricing exception code
     And I press "F3" Key
     And I press "F3" Key
     And I press "F3" Key
-    When I select Option "21" to navigate to "RxClaim Operations Menu"
+    When I select Option "cct700" to navigate to "RxClaim Operations Menu"
     And I select Option "1" to navigate to "Batch Extract Process Menu"
     And I select Option "1" to navigate to "Submit Extract Job"
     And I enter "<FillDate>" in field "ExtractDate" on "SubmitExtractJobScreen"
@@ -176,7 +176,7 @@ Feature: Pricing exception code
     
      And I press "F3" Key
     And I press "F3" Key
-    When I select Option "20" to navigate to "RxClaim Plan Administrator Menu"
+    When I select Option "cct600" to navigate to "RxClaim Plan Administrator Menu"
 		And I select Option "1" to navigate to "RxClaim Eligibility/Claim Transaction Maintenance"
 		And I select Option "2" to navigate to "Active/Eligible Member by ID"
 		And I enter "<MemberID>" in field "MemberIDSearch" on "MemberDetailScreen"
@@ -196,7 +196,7 @@ Feature: Pricing exception code
     And I press "F3" Key
     And I press "F3" Key
     And I press "F3" Key
-    When I select Option "21" to navigate to "RxClaim Operations Menu"
+    When I select Option "cct700" to navigate to "RxClaim Operations Menu"
     And I select Option "2" to navigate to "RxClaim Batch Transaction Loads Menu"
     And I select Option "20" to navigate to "RxClaim Medicare Part D Batch Processing"
     ##And I enter "edtlibl" in field "SelectMenu" on "MenuSelection"
@@ -210,7 +210,7 @@ Feature: Pricing exception code
     And I press "F3" Key
     And I press "F3" Key
     
-    When I select Option "20" to navigate to "RxClaim Plan Administrator Menu"
+    When I select Option "cct600" to navigate to "RxClaim Plan Administrator Menu"
 		And I select Option "1" to navigate to "RxClaim Eligibility/Claim Transaction Maintenance"
 		And I select Option "2" to navigate to "Active/Eligible Member by ID"
 		And I enter "<MemberID>" in field "MemberIDSearch" on "MemberDetailScreen"
@@ -232,7 +232,7 @@ Feature: Pricing exception code
     Examples:
    
       | CarrierID | CarrierName | Processor | MailingAdd | City      | State | Zip   | ContractFromDt | ContractThruDt | ContractEnt | BusinessType | AccountID | AccountName | GroupID  | GroupName | GroupFromDt | GroupThruDt | PlanCOB1 | DescriptionCOB1 | MemberID   | First Name | Last Name | DOB      | BIN    | PCN     | Group | Pharmacy |RxNo          | Refill | FillDate | ProductID  | DspQty | DS | PSC | Cost | From Date | Thru Date | Contract | PBP | FormularyID | Benefit_Year | SubmitterID | Network | Name | Pharmacy Name | SupplementalID | PDEFromDt |  PDEThruDt | Library | DDPSCodeList | PEC | ExpectedPEC | 
-      | SR417871C | Carrier     |       712 | MAIL ADD   | Hyderabad | IL    | 78654 |         010101 |         123139 | *DEFAULT    | *DEFAULT     | SR41787A1 | Account     | SR417871C | Group     |      010101 |      123139 | SR417871C  |COB1 NonMed Plan | SR41787_1C | AUTOMEM    | AUTOMEM   | 12251987 | 777777 | AKAN | *    | PHARMC | 300019941002 | 00     | 7032018   | 00071015523|2      |2  |0   |100   | 010101 | 123139 | B1002 | 100 | 10009 | 2018 | 20001 | APharm | SR41787 | Pharmtest | 10001000 | 070218 | 070318 | USRPRIYA | AGR     | N |   |
+      | SR417871K | Carrier     | 9999999999 | MAIL ADD   | Hyderabad | IL    | 78654 |         010101 |         123139 | *DEFAULT    | *DEFAULT     | SR41787A1 | Account     | SR417871K | Group     |      010101 |      123139 | SR417871K  |COB1 NonMed Plan | SR41787_1K | AUTOMEM    | AUTOMEM   | 12251987 | 777777 | AKAN | *    | PHARMH | 300019941004 | 00     | 7162018   | 00071015523|2      |2  |0   |100   | 010101 | 123139 | B1007 | 100 | 10009 | 2018 | 20001 | APharm | SR41787 | Pharmtest | 10001000 | 071518 | 071618 | USRPRIYA | AGR     | N |   |
        
       
     
