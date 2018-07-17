@@ -158,12 +158,266 @@ public class FunctionalLibrary extends CommonHelper{
 	
 	public static void editMemberAddress(String memberID, String address2) throws Throwable
 	{	
-		/*try {
+		
+		try{
+	       Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		   Mainframe_GlobalFunctionLib.pressKey("Enter");
+		   Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+		   Mainframe_GlobalFunctionLib.pressKey("Enter");
+		   Mainframe_GlobalFunctionLib.waitTillReady();
+           Mainframe_GlobalFunctionLib.click(4, 4 );
+           Mainframe_GlobalFunctionLib.sendText(4, 4 ,memberID );
+           Mainframe_GlobalFunctionLib.pressKey("Enter");
+           Mainframe_GlobalFunctionLib.waitTillReady();
+		   Mainframe_GlobalFunctionLib.pressKey("F8");
+		   Mainframe_GlobalFunctionLib.sendText(10, 2,"2" );
+		   Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		   Mainframe_GlobalFunctionLib.pressKey("Enter");
+		   Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		   Mainframe_GlobalFunctionLib.sendText(10, 10,address2 );
+		    Mainframe_GlobalFunctionLib.pressKey("F24");
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.sendText(10, 2,"5" );
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+			String address3=Mainframe_GlobalFunctionLib.getText(10, 10);
+					if(address3=="test")
+					{
+						System.out.println("Address updated");
+						System.out.println(address3);
+					}
+					else
+					{
+						System.out.println("Address not updated and working as expected");
+					}
+					
+				
+					
+		if(ScreenshotOption.equalsIgnoreCase("Always")){
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		        }
+	      }	
+				catch(Exception e)
+				{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					Assert.fail("An error has occured while creating the caim transaction.Screenshot is captured");
+					
+				}
+	}
+	
+	public static void editMemberAddress2(String memberID, String address2) throws Throwable
+	{	
+		try{
+	       Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		   Mainframe_GlobalFunctionLib.pressKey("Enter");
+		   Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+		   Mainframe_GlobalFunctionLib.pressKey("Enter");
+		   Mainframe_GlobalFunctionLib.waitTillReady();
+           Mainframe_GlobalFunctionLib.click(4, 4 );
+           Mainframe_GlobalFunctionLib.sendText(4, 4 ,memberID );
+           Mainframe_GlobalFunctionLib.pressKey("Enter");
+           Mainframe_GlobalFunctionLib.waitTillReady();
+		   Mainframe_GlobalFunctionLib.pressKey("F8");
+		   Mainframe_GlobalFunctionLib.sendText(9, 2,"2" );
+		   Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		   Mainframe_GlobalFunctionLib.pressKey("Enter");
+		   Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		   Mainframe_GlobalFunctionLib.sendText(10, 10,address2 );
+		    Mainframe_GlobalFunctionLib.pressKey("F24");
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			
+			
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.sendText(9, 2,"5" );
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+			String address3=Mainframe_GlobalFunctionLib.getText(10, 10);
+			Mainframe_GlobalFunctionLib.waitTillReady();
+					if(address3=="test")
+					{
+						System.out.println("Address updated");
+						System.out.println("Address field value is----"+address3);
+					}
+					else
+					{
+						System.out.println("Address not updated and working as expected");
+					}
+							
+					
+		if(ScreenshotOption.equalsIgnoreCase("Always")){
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		        }
+	      }	
+		
+		
+				catch(Exception e)
+				{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					Assert.fail("An error has occured while creating the caim transaction.Screenshot is captured");
+					
+				}
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+	}
+	
+	public static void MemberDetailsCheck() throws IOException
+	{
+		
+	try{
+
+	   Mainframe_GlobalFunctionLib.sendText(21, 7 ,"STRSQL" );
+	   Mainframe_GlobalFunctionLib.pressKey("Enter");
+	   Mainframe_GlobalFunctionLib.sendText(16, 7 ,"SELECT * FROM TCL8402FIL/RCMBRP WHERE ABA1TX ='CHANDRA'" );
+	   Mainframe_GlobalFunctionLib.pressKey("Enter");
+	   Mainframe_GlobalFunctionLib.waitTillReady();
+	   Mainframe_GlobalFunctionLib.pressKey("F20");
+	   Mainframe_GlobalFunctionLib.pressKey("F20");
+	   
+	   if(ScreenshotOption.equalsIgnoreCase("Always"))
+	   {
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		}
+	}catch(Exception e)
+			{	
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("An error has occured while creating the caim transaction.Screenshot is captured");
+				
+			}
+}
+	public static void editMemberAddress3(String memberID, String address2) throws Throwable
+	{	
+		try{
+	       Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		   Mainframe_GlobalFunctionLib.pressKey("Enter");
+		   Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		   Mainframe_GlobalFunctionLib.pressKey("Enter");
+		   Mainframe_GlobalFunctionLib.waitTillReady();
+           Mainframe_GlobalFunctionLib.click(4, 4 );
+           Mainframe_GlobalFunctionLib.sendText(4, 4 ,memberID );
+           Mainframe_GlobalFunctionLib.pressKey("Enter");
+           Mainframe_GlobalFunctionLib.waitTillReady();
+		   Mainframe_GlobalFunctionLib.pressKey("F8");
+		   Mainframe_GlobalFunctionLib.waitTillReady();
+		   Mainframe_GlobalFunctionLib.sendText(9, 2,"2" );
+			   Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			   Mainframe_GlobalFunctionLib.pressKey("Enter");
+			   Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			   Mainframe_GlobalFunctionLib.sendText(10, 10,address2 );
+			    Mainframe_GlobalFunctionLib.pressKey("F24");
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.sendText(9, 2,"5" );
+			    Mainframe_GlobalFunctionLib.pressKey("Enter");
+			   
+		   
+			String address3=Mainframe_GlobalFunctionLib.getText(10, 10);
+			Mainframe_GlobalFunctionLib.waitTillReady();
+					if(address3=="test")
+					{
+						System.out.println("Address updated");
+						System.out.println(address3);
+					}
+					else
+					{
+						System.out.println("Address not updated and working as expected");
+					}
+				
+					
+		if(ScreenshotOption.equalsIgnoreCase("Always")){
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		        }
+	      }	
+				catch(Exception e)
+				{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					Assert.fail("An error has occured while creating the caim transaction.Screenshot is captured");
+					
+				}
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+	}
+	
+	public static void navigateToMainMenu()
+	{
+		try{
+			 Mainframe_GlobalFunctionLib.pressKey("F12");
+			 Mainframe_GlobalFunctionLib.pressKey("F12");
+			 Mainframe_GlobalFunctionLib.pressKey("F12");
+			 Thread.sleep(5000);
+			 Mainframe_GlobalFunctionLib.pressKey("F3");
+			 Thread.sleep(2000);
+			 String sysName=Mainframe_GlobalFunctionLib.getText(3, 70);
+			 if(sysName=="RXDV1")
+			 {
+				 System.out.println("User navigated to main menu");
+			 }
+			 else{
+				 System.out.println("User navigated to another menu");
+			 }
+			 
+		}	 
+			 catch (Exception e) {
+					
+					e.printStackTrace();
+			 
+		}
+	}
+	
+	public static void editMemberAddress4(String memberID, String address2) throws Throwable
+	{	
+		try{
+	       Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		   Mainframe_GlobalFunctionLib.pressKey("Enter");
+		   Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		   Mainframe_GlobalFunctionLib.pressKey("Enter");
+		   Mainframe_GlobalFunctionLib.waitTillReady();
+           Mainframe_GlobalFunctionLib.click(4, 4 );
+           Mainframe_GlobalFunctionLib.sendText(4, 4 ,memberID );
+           Mainframe_GlobalFunctionLib.pressKey("Enter");
+           Mainframe_GlobalFunctionLib.waitTillReady();
+		   Mainframe_GlobalFunctionLib.pressKey("F8");
+		   Mainframe_GlobalFunctionLib.waitTillReady();
+		  
+		   Mainframe_GlobalFunctionLib.sendText(10, 2,"2" );
+		   Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		   Mainframe_GlobalFunctionLib.pressKey("Enter");
+		   Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		   Mainframe_GlobalFunctionLib.sendText(10, 10,address2 );
+		    Mainframe_GlobalFunctionLib.pressKey("F24");
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.sendText(10, 2,"5" );
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		   
+			String address3=Mainframe_GlobalFunctionLib.getText(10, 10);
+					if(address3=="test")
+					{
+						System.out.println("Address updated");
+						System.out.println(address3);
+					}
+					else
+					{
+						System.out.println("Address not updated and working as expected");
+					}
+		 
+				
+						
+		if(ScreenshotOption.equalsIgnoreCase("Always")){
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		        }
+	      }	
+				catch(Exception e)
+				{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					Assert.fail("An error has occured while creating the caim transaction.Screenshot is captured");
+					
+				}
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+	}
+	
+	
+	
+	public static void editMemberDetails(String memberID, String address2) throws Throwable
+	{	
+		try {
 			navigateToRxClaimPlanAdministrator();
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-		}*/
+		}
 		try{
 
 		   Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
@@ -176,17 +430,18 @@ public class FunctionalLibrary extends CommonHelper{
            Mainframe_GlobalFunctionLib.pressKey("Enter");
            Mainframe_GlobalFunctionLib.waitTillReady();
 		   Mainframe_GlobalFunctionLib.pressKey("F8");
-		   Mainframe_GlobalFunctionLib.sendText(10, 2,"2" );
+		   Mainframe_GlobalFunctionLib.sendText(9, 2,"2" );
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Mainframe_GlobalFunctionLib.sendText(10, 10,address2 );
 			Mainframe_GlobalFunctionLib.pressKey("F24");
 			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.sendText(10, 2,"5" );
+			Mainframe_GlobalFunctionLib.sendText(9, 2,"5" );
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			String address3=Mainframe_GlobalFunctionLib.getText(9, 10);
 					if(address3=="test")
 					{
 						System.out.println("Address updated");
+						System.out.println(address3);
 					}
 					else
 					{

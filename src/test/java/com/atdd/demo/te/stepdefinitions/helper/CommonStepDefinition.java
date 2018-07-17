@@ -126,20 +126,46 @@ public class CommonStepDefinition {
 		FunctionalLibrary.validateText(coordinates[0] ,coordinates[1] , Record);
 	}
 	
-	@When("^I edit member details with \"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_edit_member_details_with(String memberID, String address) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		FunctionalLibrary.editMemberAddress(memberID, address);
-		
-	}
-		
-		
 	@Then("^Verify \"([^\"]*)\" field data on \"([^\"]*)\"$")
 	public void verify_field_data_on(String Address2, String screenname) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		String[] coordinates = ReadPropertyFile.getProperty(screenname , "Address2");
 		FunctionalLibrary.validateText(coordinates[0] ,coordinates[1] , Address2);
 	}
+	
+	@When("^I edit member details with \"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_edit_member_details_with(String memberID, String address) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.editMemberAddress(memberID, address);
+		
+	}
 
+	@When("^I update member details with \"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_update_member_details_with(String memberID, String address) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.editMemberAddress2(memberID, address);
+	}
+	
+	@When("^I modify member details with \"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_modify_member_details_with(String memberID, String address) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.editMemberAddress3(memberID, address);
+	}
+	
+	@When("^I update member data with \"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_update_member_data_with(String memberID, String address) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.editMemberAddress4(memberID, address);
+	}
+	@Then("^validate user navigated to Main menu$")
+	public void validate_user_navigated_to_Main_menu() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.navigateToMainMenu();
+	    
+	}
+
+	
+	
+	
 	
 }
