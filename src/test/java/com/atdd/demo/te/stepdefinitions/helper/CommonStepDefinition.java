@@ -80,7 +80,7 @@ public class CommonStepDefinition {
 	public void i_submit_a_claim_with_Retail_MO_Pharmacy(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost, String prequal, String preid, String ucw) throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
 		 FunctionalLibrary.CreateTransactionRetailMOPharmacy(bin, proc, group, pharmacyID, rxNbr, refill, fillDate, memberID, productID, dspQty, ds, psc, cost, prequal, preid, ucw);
-		    FunctionalLibrary.submitClaimF18();
+		 FunctionalLibrary.submitClaimF18();
 		}
 	
 	@When("^I submit a Reversal claim with Retail MO Pharmacy \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -91,6 +91,34 @@ public class CommonStepDefinition {
 		 FunctionalLibrary.submitReversalClaim();
 		    
 		}
+	
+	@When("^I Setup a Plan with Refill Limits \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_Setup_a_Plan_with_Refill_Limits(String plancode, String maxrefill, String period, String effectivedate) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    FunctionalLibrary.SetupPlanEdit15(plancode, maxrefill, period, effectivedate);
+	}
+	@When("^I submit a claim with new fill date \"([^\"]*)\"$")
+	public void i_submit_a_claim_with_new_fill_date(String FillDate2) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
+		Mainframe_GlobalFunctionLib.sendText(4, 65, FillDate2);
+		FunctionalLibrary.submitClaimF18WithoutRxOrigin();
+	}
+	
+	@When("^I submit a claim with different fill date \"([^\"]*)\"$")
+	public void i_submit_a_claim_with_different_fill_date(String FillDate3) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
+		Mainframe_GlobalFunctionLib.sendText(4, 65, FillDate3);
+		FunctionalLibrary.submitClaimF18WithoutRxOrigin();
+	}
+	@Then("^Validate Claim Reject Code is \"([^\"]*)\"$")
+	public void validate_Claim_Reject_Code_is(String claimRejCode) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.validateText("21" ,"12" , claimRejCode );
+	}
+
+	
 	@Then("^Validate \"([^\"]*)\" message should displayed on \"([^\"]*)\"$")
 	public void validate_message_should_displayed_on(String text, String screenName) throws Throwable {
 		String[] coordinates = ReadPropertyFile.getProperty(screenName , "MessageTextArea");

@@ -152,7 +152,36 @@ public class FunctionalLibrary extends CommonHelper{
 				}
 	}
 	
+	public static void SetupPlanEdit15(String plancode,String maxrefill,String period,String effectivedate) throws Throwable
+	{
+	try {
+		navigateToRxClaimPlanAdministrator();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	try{
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			func_SearchAndSelectADataEditMode("4,5" ,plancode ,"11,6" , plancode);
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.sendText(7, 21 ,"15" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(7, 22, maxrefill);
+			Mainframe_GlobalFunctionLib.sendText(8, 22, period);
+			Mainframe_GlobalFunctionLib.sendText(9, 22 ,"          ");
+			Mainframe_GlobalFunctionLib.sendText(9, 22, effectivedate);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
 	
+		  	if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The CAG is not created successfully.Screenshot is captured");
+			}
+	}
 	public static void CreateTransaction(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productId, String dspQty, String ds, String psc, String cost) throws Throwable
 	{	
 		try {
@@ -350,6 +379,22 @@ public class FunctionalLibrary extends CommonHelper{
 			}
 	}
 	
+	public static void submitClaimF18WithoutRxOrigin() throws GeneralLeanFtException, InterruptedException, IOException{
+		try{
+						
+		Mainframe_GlobalFunctionLib.pressKey("F18");
+		Thread.sleep(2000);
+		
+		if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			
+				Assert.fail("The Claim is not submitted successfully.Screenshot is captured");
+				
+			}
+	}
 	public static void submitReversalClaim() throws GeneralLeanFtException, InterruptedException, IOException{
 		try{
 			Mainframe_GlobalFunctionLib.pressKey("F7");

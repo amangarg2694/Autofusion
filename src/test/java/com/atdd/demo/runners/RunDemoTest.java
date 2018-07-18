@@ -23,7 +23,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
-		features = { "classpath:features/RxClaim/featureFiles/ClaimSubBrandGeneric.feature" },
+		features = { "classpath:features/RxClaim/featureFiles/ClaimSubWithRejectR76.feature" },
 
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
@@ -50,7 +50,7 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
 }	
 	@AfterClass
 	public static void teardown() throws Exception {
-//		Mainframe_GlobalFunctionLib.closeTE();
+		Mainframe_GlobalFunctionLib.closeTE();
 		SDK.cleanup();
 		try 
 		{
