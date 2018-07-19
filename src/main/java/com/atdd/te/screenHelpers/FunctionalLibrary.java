@@ -152,6 +152,42 @@ public class FunctionalLibrary extends CommonHelper{
 				}
 	}
 	
+	public static void SetupPlanEdit10(String plancode,String ndclist,String ndcfromdate,String ndcstatus) throws Throwable
+	{
+	try {
+		navigateToRxClaimPlanAdministrator();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	try{
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			func_SearchAndSelectADataEditMode("4,5" ,plancode ,"11,6" , plancode);
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.sendText(7, 21 ,"10" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(7, 8, ndclist);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(11, 2 ,"7" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(6, 57 ,"          ");
+			Mainframe_GlobalFunctionLib.sendText(6, 57, ndcfromdate);
+			Mainframe_GlobalFunctionLib.sendText(6, 78, ndcstatus);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+	
+		  	if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The CAG is not created successfully.Screenshot is captured");
+			}
+	}
+	
 	public static void SetupPlanEdit15(String plancode,String maxrefill,String period,String effectivedate) throws Throwable
 	{
 	try {

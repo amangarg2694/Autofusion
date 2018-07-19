@@ -97,6 +97,12 @@ public class CommonStepDefinition {
 	    // Write code here that turns the phrase above into concrete actions
 	    FunctionalLibrary.SetupPlanEdit15(plancode, maxrefill, period, effectivedate);
 	}
+	
+	@When("^I Setup a Plan with Prior Auth NDC \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_Setup_a_Plan_with_Prior_Auth_NDC(String plancode, String ndclist, String ndcfromdate, String ndcstatus) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    FunctionalLibrary.SetupPlanEdit10(plancode, ndclist, ndcfromdate, ndcstatus);
+	}
 	@When("^I submit a claim with new fill date \"([^\"]*)\"$")
 	public void i_submit_a_claim_with_new_fill_date(String FillDate2) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -116,14 +122,21 @@ public class CommonStepDefinition {
 	public void validate_Claim_Reject_Code_is(String claimRejCode) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		FunctionalLibrary.validateText("21" ,"12" , claimRejCode );
+		
 	}
 
+	@Then("^Validate Claim Message is \"([^\"]*)\"$")
+	public void validate_Claim_Message_is(String claimMessage) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.validateText("22" ,"6" , claimMessage );
+		
+	}
 	
 	@Then("^Validate \"([^\"]*)\" message should displayed on \"([^\"]*)\"$")
 	public void validate_message_should_displayed_on(String text, String screenName) throws Throwable {
 		String[] coordinates = ReadPropertyFile.getProperty(screenName , "MessageTextArea");
 		FunctionalLibrary.validateText(coordinates[0] ,coordinates[1] , text);
-		//Mainframe_GlobalFunctionLib.validateText(24 , 2, "Member Added.");
+//		Mainframe_GlobalFunctionLib.validateText(24 , 2, "Member Added.");
 		
 	}
 	
