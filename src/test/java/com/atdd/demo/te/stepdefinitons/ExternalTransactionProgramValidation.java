@@ -705,26 +705,26 @@ public class ExternalTransactionProgramValidation {
 		if(!(FunctionalLibrary.func_SearchAndSelectADataEditMode("4,6" ,carrierID ,"10,6" , carrierID))){
 			Mainframe_GlobalFunctionLib.pressKey("F6");
 			
-			Mainframe_GlobalFunctionLib.sendText(13, 14, carrierID);
+			Mainframe_GlobalFunctionLib.sendText("13", "014", carrierID);
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			
-			Mainframe_GlobalFunctionLib.sendText(4, 24, carrierName);
-			Mainframe_GlobalFunctionLib.sendText(5, 12, processor);
-			Mainframe_GlobalFunctionLib.sendText("11", "15", mail);
+			Mainframe_GlobalFunctionLib.sendText("04", "024", carrierName);
+			Mainframe_GlobalFunctionLib.sendText("05", "012", processor);
+			Mainframe_GlobalFunctionLib.sendText("011", "015", mail);
 			
 			
 			
-			Mainframe_GlobalFunctionLib.sendText("12", "15", city);
+			Mainframe_GlobalFunctionLib.sendText("12", "015", city);
 
            
-			Mainframe_GlobalFunctionLib.sendText("12", "47", state);
+			Mainframe_GlobalFunctionLib.sendText("12", "047", state);
 
            
-			Mainframe_GlobalFunctionLib.sendText("12", "56", zip);
+			Mainframe_GlobalFunctionLib.sendText("12", "056", zip);
                                 
-			Mainframe_GlobalFunctionLib.sendText("19", "27", contractFromDate);
-			Mainframe_GlobalFunctionLib.sendText("19", "42", contractThruDate);
-			Mainframe_GlobalFunctionLib.sendText("19", "65", contractEnt);
+			Mainframe_GlobalFunctionLib.sendText("19", "027", contractFromDate);
+			Mainframe_GlobalFunctionLib.sendText("19", "042", contractThruDate);
+			Mainframe_GlobalFunctionLib.sendText("19", "065", contractEnt);
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
             
 			Mainframe_GlobalFunctionLib.pressKey("F15");

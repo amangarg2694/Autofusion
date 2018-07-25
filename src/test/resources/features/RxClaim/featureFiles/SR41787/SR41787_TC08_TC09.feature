@@ -74,7 +74,7 @@ Feature: Pricing exception code
 		And I press "F3" Key
 		And I press "F3" Key
 		And I press "F3" Key
-		When I select Option "20" to navigate to "RxClaim Plan Administrator Menu"
+		When I select Option "cct600" to navigate to "RxClaim Plan Administrator Menu"
 		And I select Option "1" to navigate to "RxClaim Eligibility/Claim Transaction Maintenance"
 		And I select Option "2" to navigate to "Active/Eligible Member by ID"
     And I press "F6" Key
@@ -124,7 +124,7 @@ Feature: Pricing exception code
     And I press "F3" Key
     And I press "F3" Key
     And I press "F3" Key
-    When I select Option "21" to navigate to "RxClaim Operations Menu"
+    When I select Option "cct700" to navigate to "RxClaim Operations Menu"
     And I select Option "1" to navigate to "Batch Extract Process Menu"
     And I select Option "1" to navigate to "Submit Extract Job"
     And I enter "<FillDate>" in field "ExtractDate" on "SubmitExtractJobScreen"
@@ -137,7 +137,7 @@ Feature: Pricing exception code
   Examples:
    
       | CarrierID | CarrierName | Processor | MailingAdd | City      | State | Zip   | ContractFromDt | ContractThruDt | ContractEnt | BusinessType | AccountID | AccountName | GroupID  | GroupID2  | GroupName | GroupFromDt | GroupThruDt | PlanCOB1 | PlanCOB2 | DescriptionCOB1 | DescriptionCOB2 | MemberID   | MemberID2 | First Name | Last Name | DOB      | BIN    | PCN     | Group | PharmacyID  |RxNo          | Refill | FillDate | ProductID  | DspQty | DS | PSC | Cost | RxNo1 |
-      | SR41787C5 | Carrier     |       712 | MAIL ADD   | Hyderabad | IL    | 78654 |         010101 |         123139 | *DEFAULT    | *DEFAULT     | SR41787A1 | Account     | SR41787G8 | SR41787G9 | Group     |      010101 |      123139 | 41787CP1  | 41787CP2 | COB1 NonMed Plan | COB2 NonMed Plan | SR41787_M3 | SR41787_M4 | AUTOMEM    | AUTOMEM   | 12251987 | 777777 | AKAN | *     | APHARM      | 200019921003 | 00     | 7042018   | 00071015523|2      |2  |0   |100   | 200019921004 |
+      | SR41787C8 | Carrier     | 9999999999 | MAIL ADD   | Hyderabad | IL    | 78654 |         010101 |         123139 | *DEFAULT    | *DEFAULT     | SR41787A1 | Account     | SR41787G12 | SR41787G13 | Group     |      010101 |      123139 | 41787CP9  | 41787C10 | COB1 NonMed Plan | COB2 NonMed Plan | SR41787_M7 | SR41787_M8 | AUTOMEM    | AUTOMEM   | 12251987 | 777777 | AKAN | *     | APHARM      | 200019921007 | 00     | 7172018   | 00071015523|2      |2  |0   |100   | 200019921008 |
        
       
   @PDE_Job
@@ -145,7 +145,7 @@ Feature: Pricing exception code
    Scenario Outline: Triggering the PDE when the Exception code of N is selected and the network ID is  populated and the COB indicator is 1 and not 1 for a non-Med D claim  
     And I press "F3" Key
     And I press "F3" Key
-    When I select Option "20" to navigate to "RxClaim Plan Administrator Menu"
+    When I select Option "cct600" to navigate to "RxClaim Plan Administrator Menu"
 		And I select Option "1" to navigate to "RxClaim Eligibility/Claim Transaction Maintenance"
 		And I select Option "2" to navigate to "Active/Eligible Member by ID"
 		And I enter "<MemberID>" in field "MemberIDSearch" on "MemberDetailScreen"
@@ -182,7 +182,7 @@ Feature: Pricing exception code
     And I press "F3" Key
     And I press "F3" Key
     And I press "F3" Key
-    When I select Option "21" to navigate to "RxClaim Operations Menu"
+    When I select Option "cct700" to navigate to "RxClaim Operations Menu"
     And I select Option "2" to navigate to "RxClaim Batch Transaction Loads Menu"
     And I select Option "20" to navigate to "RxClaim Medicare Part D Batch Processing"
     And I select Option "3" to navigate to "Prescription Drug Event (PDE) File"
@@ -192,12 +192,12 @@ Feature: Pricing exception code
    Examples:
    
       | CarrierID | CarrierName | Processor | MailingAdd | City      | State | Zip   | ContractFromDt | ContractThruDt | ContractEnt | BusinessType | AccountID | AccountName | GroupID  | GroupID2  | GroupName | GroupFromDt | GroupThruDt | PlanCOB1 | PlanCOB2 | DescriptionCOB1 | DescriptionCOB2 | MemberID   | MemberID2 | First Name | Last Name | DOB      | BIN    | PCN     | Group | PharmacyID  |RxNo          | Refill | FillDate | ProductID  | DspQty | DS | PSC | Cost | RxNo1 | PDEFromDt | PDEThruDt | Library | DDPSCodeList | SubmitterID | PEC |
-      | SR41787C5 | Carrier     |       712 | MAIL ADD   | Hyderabad | IL    | 78654 |         010101 |         123139 | *DEFAULT    | *DEFAULT     | SR41787A1 | Account     | SR41787G8 | SR41787G9 | Group     |      010101 |      123139 | 41787CP1  | 41787CP2 | COB1 NonMed Plan | COB2 NonMed Plan | SR41787_M3 | SR41787_M4 | AUTOMEM    | AUTOMEM   | 12251987 | 777777 | AKAN | *     | APHARM      | 200019921003 | 00     | 7042018   | 00071015523|2      |2  |0   |100   | 200019921004 | 070318 | 070418 | USRPRIYA | AGR     | S41787 | N |
+      | SR41787C8 | Carrier     |        712  | MAIL ADD   | Hyderabad | IL    | 78654 |         010101 |         123139 | *DEFAULT    | *DEFAULT     | SR41787A1 | Account     | SR41787G12 | SR41787G13 | Group     |      010101 |      123139 | 41787CP9  | 41787C10 | COB1 NonMed Plan | COB2 NonMed Plan | SR41787_M7 | SR41787_M8 | AUTOMEM    | AUTOMEM   | 12251987 | 777777 | AKAN | *     | APHARM      | 200019921007 | 00     | 7172018   | 00071015523|2      |2  |0   |100   | 200019921008 | 071618 | 071718 | USRPRIYA | AGR     | S41787 | N |
        
   @Validation
    
   Scenario Outline: Verify the Pricing exception code when the Exception code of N is selected and the network ID is populated and the COB indicator is 1 and not 1 for a non-Med D claim
-    When I select Option "20" to navigate to "RxClaim Plan Administrator Menu"
+    When I select Option "cct600" to navigate to "RxClaim Plan Administrator Menu"
 		And I select Option "1" to navigate to "RxClaim Eligibility/Claim Transaction Maintenance"
 		And I select Option "2" to navigate to "Active/Eligible Member by ID"
 		And I enter "<MemberID>" in field "MemberIDSearch" on "MemberDetailScreen"
@@ -232,5 +232,5 @@ Feature: Pricing exception code
   Examples:
   
       | MemberID   | MemberID2 |
-      | SR41787_M3 | SR41787_M4 |
+      | SR41787_M7 | SR41787_M8 |
        
