@@ -21,13 +21,6 @@ public class CommonStepDefinition {
 	public void i_enter_in_field_on(String fieldValue, String fieldName, String screenName) throws Throwable {
 	    
 		FunctionalLibrary.enterText( fieldValue,  fieldName,  screenName);
-		/*System.out.println("Screename:" + screenName);
-	    System.out.println("Fieldname:" + fieldName);
-		String[] coordinates = ReadPropertyFile.getProperty(screenName , fieldName);
-		Thread.sleep(100);
-		System.out.println("row: "+ coordinates[0] + "col: " +coordinates[1] + " value: " +fieldValue);
-		Mainframe_GlobalFunctionLib.sendText(coordinates[0] ,coordinates[1] , fieldValue);
-		*/
 		
 	}
 	
@@ -69,13 +62,35 @@ public class CommonStepDefinition {
 		FunctionalLibrary.createCAG( carrierID, carrierName, processor, mailingAdd, city, state, zip, contractFromDt, contractThruDt, contractEnt, businessType, accountID, accountName, groupID, groupName, groupFromDt, groupThruDt, planCode);
 	}
 	
+	@When("^I create Carrier with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_Carrier_with(String carrierID, String carrierName, String processor, String mailingAdd, String city, String state, String zip, String contractFromDt, String contractThruDt, String contractEnt, String businessType) throws Throwable {		 
+		FunctionalLibrary.addCarrier( carrierID, carrierName, processor, mailingAdd, city, state, zip, contractFromDt, contractThruDt, contractEnt, businessType);
+	
+	}
+	
+	@When("^I create Account with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_Account_with(String carrierID, String accountID, String accountName) throws Throwable {
+		FunctionalLibrary.addAccount(carrierID,accountID,accountName );		
+	}
+
+	@When("^I create Group with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_Group_with(String carrierID, String accountID, String groupID, String groupName, String fromDate, String thruDate, String planCode) throws Throwable {
+		System.out.println("test 456");
+		FunctionalLibrary.addGroup(carrierID,accountID,groupID,groupName,fromDate,thruDate,planCode );		
+	}
+	
+	@When("^I create Member with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_Member_with(String carrierID, String accountID, String groupID, String memberID, String firstName, String lastName, String dob, String fromDate, String thruDate) throws Throwable {
+		FunctionalLibrary.CreateMember(carrierID, accountID, groupID, memberID, firstName, lastName, dob, fromDate, thruDate);
+	}
+	
 	@When("^I submit a claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_submit_a_claim_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	    FunctionalLibrary.CreateTransaction(bin, proc, group, pharmacyID, rxNbr, refill, fillDate, memberID, productID, dspQty, ds, psc, cost);
 	    FunctionalLibrary.submitClaim();
 	}
-
+	
 	@When("^I submit a claim with Retail MO Pharmacy \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_submit_a_claim_with_Retail_MO_Pharmacy(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost, String prequal, String preid, String ucw) throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
@@ -118,6 +133,20 @@ public class CommonStepDefinition {
 		Mainframe_GlobalFunctionLib.sendText(4, 65, FillDate3);
 		FunctionalLibrary.submitClaimF18WithoutRxOrigin();
 	}
+	
+	@When("^I submit a compound claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_submit_a_compound_claim_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productId, String dspQty, String ds, String psc, String cost, String prequal, String preid, String ucw, String compQualId, String compProductId, String compQuantity, String compCost, String compBasisOfCost) throws Throwable {
+		FunctionalLibrary.createCompoundClaim(bin, proc, group, pharmacyID, rxNbr, refill, fillDate, memberID, productId, dspQty, ds, psc, cost, prequal, preid, ucw, compQualId, compProductId, compQuantity, compCost, compBasisOfCost);
+		 FunctionalLibrary.submitClaimF18();
+	}
+	
+	
+	@When("^I submit a Multi Ingredient compound claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_submit_a_Multi_Ingredient_compound_claim_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productId, String dspQty, String ds, String psc, String cost, String prequal, String preid, String ucw, String compQualId_1, String compProductId_1, String compQuantity_1, String compCost_1, String compBasisOfCost_1 ,String compQualId_2, String compProductId_2, String compQuantity_2, String compCost_2, String compBasisOfCost_2) throws Throwable {
+		FunctionalLibrary.compoundClaimWithMultiIngredient(bin, proc, group, pharmacyID, rxNbr, refill, fillDate, memberID, productId, dspQty, ds, psc, cost, prequal, preid, ucw, compQualId_1, compProductId_1, compQuantity_1, compCost_1, compBasisOfCost_1 ,compQualId_2, compProductId_2, compQuantity_2, compCost_2, compBasisOfCost_2);
+		 FunctionalLibrary.submitClaimF18();
+	}
+	
 	@Then("^Validate Claim Reject Code is \"([^\"]*)\"$")
 	public void validate_Claim_Reject_Code_is(String claimRejCode) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
