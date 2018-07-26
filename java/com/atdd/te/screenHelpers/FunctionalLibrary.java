@@ -152,6 +152,218 @@ public class FunctionalLibrary extends CommonHelper{
 				}
 	}
 	
+	public static void addCarrier(String carrierID,String carrierName,String processor,String mail,String city,String state,String zip,String contractFromDate,String contractThruDate, String contractEnt,String businessType) throws IOException
+	//,String accountID,String accountName ,String groupID,String groupName,String gFromDate,String gThruDate,String planCode) throws Throwable
+	{			
+		try {
+			navigateToRxClaimPlanAdministrator();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		try{
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+		if(!(func_SearchAndSelectADataEditMode("4,6" ,carrierID ,"10,6" , carrierID))){
+			Mainframe_GlobalFunctionLib.pressKey("F6");			
+			Mainframe_GlobalFunctionLib.sendText(13, 14, carrierID);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(4, 24, carrierName);
+			Mainframe_GlobalFunctionLib.sendText(5, 12, processor);
+			Mainframe_GlobalFunctionLib.sendText("11", "15", mail);			
+			Mainframe_GlobalFunctionLib.sendText("12", "15", city);          
+			Mainframe_GlobalFunctionLib.sendText("12", "47", state);          
+			Mainframe_GlobalFunctionLib.sendText("12", "56", zip);                               
+			Mainframe_GlobalFunctionLib.sendText("19", "27", contractFromDate);
+			Mainframe_GlobalFunctionLib.sendText("19", "42", contractThruDate);
+			Mainframe_GlobalFunctionLib.sendText("19", "65", contractEnt);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");           
+			Mainframe_GlobalFunctionLib.pressKey("F15");
+			Mainframe_GlobalFunctionLib.pressKey("PageDown");
+			Mainframe_GlobalFunctionLib.sendText("12", "61", businessType);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("PageUp");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			
+            
+		}else
+		{
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+		}
+			
+		if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The Carrier is not created successfully.Screenshot is captured");
+				
+			}
+}		
+		//Create new account
+	public static void addAccount(String carrierID ,String accountID,String accountName) throws IOException	{
+		
+		try {
+			navigateToRxClaimPlanAdministrator();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		try{
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+		//Mainframe_GlobalFunctionLib.sendText("4", "5", accountID);
+		//Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+			//Mainframe_GlobalFunctionLib.sendText("10", "2", "7");
+			//Mainframe_GlobalFunctionLib.pressKey("Enter");
+			
+			if(!(func_SearchAndSelectADataEditMode("4,5" ,accountID ,"9,5" , accountID))){
+				
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(13, 14, carrierID);
+				//Mainframe_GlobalFunctionLib.pressKey("Enter");	
+				Mainframe_GlobalFunctionLib.sendText(14, 14, accountID);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(6, 27, accountName);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+			}
+			else
+			{
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+			}
+			
+			if(ScreenshotOption.equalsIgnoreCase("Always")){
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				}
+				}catch(Exception e)
+				{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					Assert.fail("The Account is not created successfully.Screenshot is captured");
+					
+				}
+	}
+	
+	public static void addGroup(String carrierID , String accountID ,String groupID,String groupName,String gFromDate,String gThruDate,String planCode ) throws IOException
+	{		//Create new group
+	System.out.println("test 123");
+	try {
+		navigateToRxClaimPlanAdministrator();
+	} catch (Exception e) {
+		
+		e.printStackTrace();
+	}
+	try{
+	Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+	Mainframe_GlobalFunctionLib.pressKey("Enter");
+	Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+	Mainframe_GlobalFunctionLib.pressKey("Enter");
+	Mainframe_GlobalFunctionLib.sendText(21, 7 ,"3" );
+	Mainframe_GlobalFunctionLib.pressKey("Enter");
+	
+	
+		//	Mainframe_GlobalFunctionLib.sendText("11", "2", "7");
+		//	Mainframe_GlobalFunctionLib.pressKey("Enter");
+			if(!(func_SearchAndSelectADataEditMode("4,4" ,groupID ,"9,4" , groupID))){
+			
+				Mainframe_GlobalFunctionLib.pressKey("F6");	
+				Mainframe_GlobalFunctionLib.sendText(13, 14, carrierID);
+				Mainframe_GlobalFunctionLib.sendText(14, 14, accountID);
+				Mainframe_GlobalFunctionLib.sendText(15, 14, groupID);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");					
+				Mainframe_GlobalFunctionLib.sendText(7, 27, groupName);
+				Mainframe_GlobalFunctionLib.sendText(17, 2, gFromDate);
+				Mainframe_GlobalFunctionLib.sendText(17, 12, gThruDate);
+				Mainframe_GlobalFunctionLib.click(17, 22 );
+  				Mainframe_GlobalFunctionLib.pressKey("F4");				
+				Mainframe_GlobalFunctionLib.sendText(4, 5, planCode);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");				
+				Mainframe_GlobalFunctionLib.sendText(10, 2, "1");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");				
+				Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.waitTillReady();
+				//Mainframe_GlobalFunctionLib.sendText(12, 2, "2");				
+				//Mainframe_GlobalFunctionLib.pressKey("Enter");
+				
+				
+				
+		}
+			else{
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+			}
+		
+			if(ScreenshotOption.equalsIgnoreCase("Always")){
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				}
+				}catch(Exception e)
+				{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					Assert.fail("The CAG is not created successfully.Screenshot is captured");
+					
+				}
+	}
+	
+	public static void CreateMember(String carrierID, String accountID, String groupID, String memberID, String firstName, String lastName, String dob, String fromDate, String thruDate) throws Throwable
+	{	
+		try {
+			navigateToRxClaimPlanAdministrator();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try{
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		if(!(func_SearchAndSelectADataEditMode("4,4" ,memberID ,"10,4" , memberID)))
+		{
+				Thread.sleep(1000);
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(4, 10, carrierID);
+				Mainframe_GlobalFunctionLib.sendText(5, 10, accountID);
+				Mainframe_GlobalFunctionLib.sendText(6, 10, groupID);
+				Mainframe_GlobalFunctionLib.sendText(7, 10, memberID);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(6 , 29 ,lastName);
+				Mainframe_GlobalFunctionLib.sendText(6, 57, firstName);
+				Mainframe_GlobalFunctionLib.sendText(7,40, dob);
+				Mainframe_GlobalFunctionLib.sendText(20, 2, fromDate);			
+				Mainframe_GlobalFunctionLib.sendText(20, 12, thruDate);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");				
+				Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				System.out.println("Member is created");
+				Reporter.addStepLog("Member is created");
+				}
+		else{
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			System.out.println("Member exists");
+			Reporter.addStepLog("Member exists");
+		}
+						
+		
+			if(ScreenshotOption.equalsIgnoreCase("Always")){
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				}
+				}catch(Exception e)
+				{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					Assert.fail("An error has occured while creating a member.Screenshot is captured");
+					e.printStackTrace();
+				}
+	}
+	
 	public static void SetupPlanEdit10(String plancode,String ndclist,String ndcfromdate,String ndcstatus) throws Throwable
 	{
 	try {
@@ -294,6 +506,7 @@ public class FunctionalLibrary extends CommonHelper{
 					Assert.fail("An error has occured while creating the caim transaction.Screenshot is captured");
 				}
 	}
+	
 	//Paid Claim with Retail Pharmacy
 	public static void CreateTransactionRetailMOPharmacy(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productId, String dspQty, String ds, String psc, String cost, String prequal, String preid, String ucw) throws Throwable
 	{	
@@ -379,6 +592,182 @@ public class FunctionalLibrary extends CommonHelper{
 				}
 	}
 	
+	//Compound Claim 
+		public static void createCompoundClaim(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productId, String dspQty, String ds, String psc, String cost, String prequal, String preid, String ucw , String compQualID , String compProductID , String compQuantity ,String compCost , String compBasisOfCost) throws Throwable
+		{	
+			try {
+				navigateToRxClaimPlanAdministrator();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			try{
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"3" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			if(func_SearchForMemberID("4,4" ,memberID ,"9,4" , memberID))
+			{
+					Thread.sleep(1000);
+					Mainframe_GlobalFunctionLib.click(4, 29 );
+					Mainframe_GlobalFunctionLib.sendText(4, 29, pharmacyID);
+					Mainframe_GlobalFunctionLib.sendText(5,29, rxNbr);
+					Mainframe_GlobalFunctionLib.sendText(5, 47, refill);	
+			}
+			else
+			{
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				//Mainframe_GlobalFunctionLib.pressKey("F4");
+				Mainframe_GlobalFunctionLib.sendText(11, 14,bin );
+				Mainframe_GlobalFunctionLib.sendText(11, 41,proc );
+				Mainframe_GlobalFunctionLib.sendText(11, 59,group );
+				Mainframe_GlobalFunctionLib.sendText(12, 14,pharmacyID );
+				Mainframe_GlobalFunctionLib.sendText(12, 41,rxNbr );
+				Mainframe_GlobalFunctionLib.sendText(12, 59,refill );
+				Mainframe_GlobalFunctionLib.sendText(14, 41,memberID );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+			}
+		//	Thread.sleep(10000);
+			
+					Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
+					Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate);
+					//Mainframe_GlobalFunctionLib.sendText(5,29, rxNbr);
+					//Mainframe_GlobalFunctionLib.sendText(5, 47, refill);			
+					Mainframe_GlobalFunctionLib.click(7, 12 );
+					Mainframe_GlobalFunctionLib.sendText(7, 12, memberID);
+					Mainframe_GlobalFunctionLib.pressKey("F4");
+					Mainframe_GlobalFunctionLib.sendText(3, 4, memberID);
+					Mainframe_GlobalFunctionLib.pressKey("Enter");         
+					Mainframe_GlobalFunctionLib.sendText(8, 2,"1" );
+					Mainframe_GlobalFunctionLib.pressKey("Enter");
+					Mainframe_GlobalFunctionLib.sendText(11, 20,productId );
+					Mainframe_GlobalFunctionLib.sendText(12, 11,"           " );
+					Mainframe_GlobalFunctionLib.sendText(12, 11,dspQty );
+					Mainframe_GlobalFunctionLib.sendText(12, 26,"   " );
+					Mainframe_GlobalFunctionLib.sendText(12, 26,ds);
+					Mainframe_GlobalFunctionLib.sendText(14, 6,psc );
+					Mainframe_GlobalFunctionLib.sendText(14, 14,"1" );
+					Mainframe_GlobalFunctionLib.sendText(10, 47,"         " );
+					Mainframe_GlobalFunctionLib.sendText(10, 47,cost );
+					Mainframe_GlobalFunctionLib.sendText(19, 19,prequal );
+					Mainframe_GlobalFunctionLib.sendText(19, 26,preid );
+					Mainframe_GlobalFunctionLib.sendText(20, 47,"         " );
+					Mainframe_GlobalFunctionLib.sendText(20, 47,ucw );
+					Mainframe_GlobalFunctionLib.pressKey("F14");
+					Mainframe_GlobalFunctionLib.sendText(5, 23,"5" );
+					Mainframe_GlobalFunctionLib.pressKey("Enter");
+					Mainframe_GlobalFunctionLib.pressKey("F6");
+					Mainframe_GlobalFunctionLib.sendText(12, 20,compQualID );
+					Mainframe_GlobalFunctionLib.sendText(13, 20,compProductID );
+					Mainframe_GlobalFunctionLib.sendText(15, 20,compQuantity );
+					Mainframe_GlobalFunctionLib.sendText(16, 20,compCost);
+					Mainframe_GlobalFunctionLib.sendText(18, 20,compBasisOfCost);
+					Mainframe_GlobalFunctionLib.pressKey("Enter");
+					Mainframe_GlobalFunctionLib.pressKey("F12");
+					Mainframe_GlobalFunctionLib.pressKey("F12");
+					System.out.println("Compound Claim is submitted");
+				if(ScreenshotOption.equalsIgnoreCase("Always")){
+					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					}
+					}catch(Exception e)
+			
+					{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					e.printStackTrace();
+						Assert.fail("An error has occured while creating the claim transaction.Screenshot is captured");
+					}
+		}
+		
+		
+				//Compound Claim with Multi Ingredient 
+				public static void compoundClaimWithMultiIngredient(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productId, String dspQty, String ds, String psc, String cost, String prequal, String preid, String ucw , String compQualID_1 , String compProductID_1 , String compQuantity_1 ,String compCost_1 , String compBasisOfCost_1 , String compQualID_2 , String compProductID_2 , String compQuantity_2 ,String compCost_2 , String compBasisOfCost_2) throws Throwable
+				{	
+					try {
+						navigateToRxClaimPlanAdministrator();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					try{
+					Mainframe_GlobalFunctionLib.sendText(21, 7 ,"3" );
+					Mainframe_GlobalFunctionLib.pressKey("Enter");
+					Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+					Mainframe_GlobalFunctionLib.pressKey("Enter");
+					Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+					Mainframe_GlobalFunctionLib.pressKey("Enter");
+					if(func_SearchForMemberID("4,4" ,memberID ,"9,4" , memberID))
+					{
+							Thread.sleep(1000);
+							Mainframe_GlobalFunctionLib.click(4, 29 );
+							Mainframe_GlobalFunctionLib.sendText(4, 29, pharmacyID);
+							Mainframe_GlobalFunctionLib.sendText(5,29, rxNbr);
+							Mainframe_GlobalFunctionLib.sendText(5, 47, refill);	
+					}
+					else
+					{
+						Mainframe_GlobalFunctionLib.pressKey("F6");
+						Mainframe_GlobalFunctionLib.sendText(11, 14,bin );
+						Mainframe_GlobalFunctionLib.sendText(11, 41,proc );
+						Mainframe_GlobalFunctionLib.sendText(11, 59,group );
+						Mainframe_GlobalFunctionLib.sendText(12, 14,pharmacyID );
+						Mainframe_GlobalFunctionLib.sendText(12, 41,rxNbr );
+						Mainframe_GlobalFunctionLib.sendText(12, 59,refill );
+						Mainframe_GlobalFunctionLib.sendText(14, 41,memberID );
+						Mainframe_GlobalFunctionLib.pressKey("Enter");
+					}
+				
+							Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
+							Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate);			
+							Mainframe_GlobalFunctionLib.click(7, 12 );
+							Mainframe_GlobalFunctionLib.sendText(7, 12, memberID);
+							Mainframe_GlobalFunctionLib.pressKey("F4");
+							Mainframe_GlobalFunctionLib.sendText(3, 4, memberID);
+							Mainframe_GlobalFunctionLib.pressKey("Enter");         
+							Mainframe_GlobalFunctionLib.sendText(8, 2,"1" );
+							Mainframe_GlobalFunctionLib.pressKey("Enter");
+							Mainframe_GlobalFunctionLib.sendText(11, 20,productId );
+							Mainframe_GlobalFunctionLib.sendText(12, 11,"           " );
+							Mainframe_GlobalFunctionLib.sendText(12, 11,dspQty );
+							Mainframe_GlobalFunctionLib.sendText(12, 26,"   " );
+							Mainframe_GlobalFunctionLib.sendText(12, 26,ds);
+							Mainframe_GlobalFunctionLib.sendText(14, 6,psc );
+							Mainframe_GlobalFunctionLib.sendText(14, 14,"1" );
+							Mainframe_GlobalFunctionLib.sendText(10, 47,"         " );
+							Mainframe_GlobalFunctionLib.sendText(10, 47,cost );
+							Mainframe_GlobalFunctionLib.sendText(19, 19,prequal );
+							Mainframe_GlobalFunctionLib.sendText(19, 26,preid );
+							Mainframe_GlobalFunctionLib.sendText(20, 47,"         " );
+							Mainframe_GlobalFunctionLib.sendText(20, 47,ucw );
+							Mainframe_GlobalFunctionLib.pressKey("F14");
+							Mainframe_GlobalFunctionLib.sendText(5, 23,"5" );
+							Mainframe_GlobalFunctionLib.pressKey("Enter");
+							Mainframe_GlobalFunctionLib.pressKey("F6");
+							Mainframe_GlobalFunctionLib.sendText(12, 20,compQualID_1 );
+							Mainframe_GlobalFunctionLib.sendText(13, 20,compProductID_1 );
+							Mainframe_GlobalFunctionLib.sendText(15, 20,compQuantity_1 );
+							Mainframe_GlobalFunctionLib.sendText(16, 20,compCost_1);
+							Mainframe_GlobalFunctionLib.sendText(18, 20,compBasisOfCost_1);
+							Mainframe_GlobalFunctionLib.pressKey("F6");
+							Mainframe_GlobalFunctionLib.sendText(12, 20,compQualID_2 );
+							Mainframe_GlobalFunctionLib.sendText(13, 20,compProductID_2 );
+							Mainframe_GlobalFunctionLib.sendText(15, 20,compQuantity_2 );
+							Mainframe_GlobalFunctionLib.sendText(16, 20,compCost_2);
+							Mainframe_GlobalFunctionLib.sendText(18, 20,compBasisOfCost_2);
+							Mainframe_GlobalFunctionLib.pressKey("Enter");
+							Mainframe_GlobalFunctionLib.pressKey("F12");
+							Mainframe_GlobalFunctionLib.pressKey("F12");
+							
+						System.out.println("Compound Claim is submitted");
+						if(ScreenshotOption.equalsIgnoreCase("Always")){
+							Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+							}
+							}catch(Exception e)
+					
+							{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+							e.printStackTrace();
+								Assert.fail("An error has occured while creating the claim transaction.Screenshot is captured");
+							}
+				}
+		
 	public static void submitClaim() throws GeneralLeanFtException, InterruptedException, IOException{
 		try{
 		Mainframe_GlobalFunctionLib.pressKey("F6");
@@ -553,9 +942,13 @@ public class FunctionalLibrary extends CommonHelper{
 	}
 		public static void validateText(String row , String col , String text) throws IOException{
 			try{
-				Mainframe_GlobalFunctionLib.validateText(row ,col , text );	
+				//boolean b = 
+					Mainframe_GlobalFunctionLib.validateText(row ,col , text );	
 				if(ScreenshotOption.equalsIgnoreCase("Always")){
 					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					//if( b == false)
+						//Assert.fail("The text "+ text +" does not match on the screen.Screenshot captured.");
+						
 					}
 					}catch(Exception e){
 						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -628,6 +1021,8 @@ public class FunctionalLibrary extends CommonHelper{
 		
 			
 		}
+		
+		
 	public static void main(String args[]) throws Throwable{
 		
 		FunctionalLibrary fb = new FunctionalLibrary();
