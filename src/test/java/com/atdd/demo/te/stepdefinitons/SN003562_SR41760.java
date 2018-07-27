@@ -26,6 +26,12 @@ public class SN003562_SR41760 {
 		Mainframe_GlobalFunctionLib.pressKey("enter");
 	}
 	
+	@When("^I enter \"([^\"]*)\", \"([^\"]*)\" on Plan Details Screen$")
+	public void i_enter_on_Plan_Details_Screen(String PlanCode, String FromDate) throws Throwable {
+	    Mainframe_GlobalFunctionLib.sendText(4, 13, PlanCode);
+	    Mainframe_GlobalFunctionLib.sendText(5, 13, FromDate);
+	    Mainframe_GlobalFunctionLib.pressKey("enter");
+	}
 	
 	@When("^I enter \"([^\"]*)\", \"([^\"]*)\" on RCPLN(\\d+) screen$")
 	public void i_enter_on_RCPLN_screen(String Flag, String DynamicPA, int arg3) throws Throwable {
@@ -35,18 +41,37 @@ public class SN003562_SR41760 {
 		 Thread.sleep(3000);
 		 Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
 		 Thread.sleep(3000);
-		// Mainframe_GlobalFunctionLib.pressKey("enter");
+	}
+	public String PACarrierListMain =null;
+	@When("^I enter \"([^\"]*)\" and check PACarrierList in RCPME(\\d+) screen$")
+	public void i_enter_and_check_PACarrierList_in_RCPME_screen(String PriorAuth, int arg2) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		 Mainframe_GlobalFunctionLib.sendText(11, 79, PriorAuth);
+		 PACarrierListMain=Mainframe_GlobalFunctionLib.getText(20, 30);
+		 Mainframe_GlobalFunctionLib.pressKey("enter");
+		 Thread.sleep(3000);
 	}
 	
 	@When("^I enter run mode \"([^\"]*)\" on RCPME(\\d+) screen$")
 	public void i_enter_run_mode_on_RCPME_screen(String RunMode, int arg2) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		Mainframe_GlobalFunctionLib.sendText(6, 53, RunMode);
+	   	Mainframe_GlobalFunctionLib.sendText(4, 69, RunMode);
 		Mainframe_GlobalFunctionLib.pressKey("enter");
 		Thread.sleep(3000);
 		Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
-		Mainframe_GlobalFunctionLib.pressKey("enter");
+		Thread.sleep(3000);
 	}
+	
+	@When("^I update run mode to ADD \"([^\"]*)\" PriorAuth \"([^\"]*)\" PACarrierList \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\" on RCPME(\\d+) screen$")
+	public void i_update_run_mode_to_ADD_PriorAuth_PACarrierList_on_RCPME_screen(String RunMode, String FlagN, String PACarrierList, String FlagL, String FlagY, int arg6) throws Throwable {
+		Mainframe_GlobalFunctionLib.sendText(4, 69, RunMode);
+		Mainframe_GlobalFunctionLib.sendText(6, 21, FlagN);
+		Mainframe_GlobalFunctionLib.sendText(6, 22, FlagL);
+		Mainframe_GlobalFunctionLib.sendText(14, 55, FlagN);
+		Mainframe_GlobalFunctionLib.sendText(14, 55, PACarrierList);
+		Mainframe_GlobalFunctionLib.pressKey("enter");
+		Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
+	}
+
 	
 	@When("^I verify error message in Display Responses window$")
 	public void i_verify_error_message_in_Display_Responses_window() throws Throwable {
@@ -229,7 +254,7 @@ public class SN003562_SR41760 {
 			Mainframe_GlobalFunctionLib.pressKey("F3");
 	}
 	
-	
+	//TC008
 	@Then("^I verify Change Plan edit for Member Eligibility \"([^\"]*)\" when update flag set to y and Member Eligibility set to Y$")
 	public void i_verify_Change_Plan_edit_for_Member_Eligibility_when_update_flag_set_to_y_and_Member_Eligibility_set_to_Y(String DynamicPA) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -247,8 +272,69 @@ public class SN003562_SR41760 {
 			Mainframe_GlobalFunctionLib.pressKey("F3");
 			Mainframe_GlobalFunctionLib.pressKey("F3");
 	}
+
 	
+	//TC009
+	
+	@Then("^verify Member Eligibility Detail in Plan detail \"([^\"]*)\" display mode i\\.e\\. RCPME(\\d+)I screen$")
+	public void verify_Member_Eligibility_Detail_in_Plan_detail_display_mode_i_e_RCPME_I_screen(String PlanCode, int arg2) throws Throwable {
+		Thread.sleep(3000);
+		Mainframe_GlobalFunctionLib.pressKey("F7");
+		Mainframe_GlobalFunctionLib.sendText(7, 21, "2");
+		Mainframe_GlobalFunctionLib.pressKey("enter");
+		String expectedErrorMsg="PME Plan Member Elig not found.";
+		
+		try
+		{
+			String actualErrorMsg=Mainframe_GlobalFunctionLib.getText(24, 2);
+			if(expectedErrorMsg.equals(actualErrorMsg))
+			{
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				System.out.println("Member Eligibilty Record got deleted and message displayed on screen as: "+actualErrorMsg);
+			}
+			
+		}catch(Exception e)
+		{	
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			System.out.println("We could not reach to Member Eligibilty Record screen.Screenshot captured");
+			
+		}
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
 	}
+	
+	//TC011
+	@Then("^verify Prior Aut \"([^\"]*)\" & PA Carrier LIst \"([^\"]*)\" flag value in Member Eligibility Detail Page in Plan ie RCPME(\\d+)I screen$")
+	public void verify_Prior_Aut_PA_Carrier_LIst_flag_value_in_Member_Eligibility_Detail_Page_in_Plan_ie_RCPME_I_screen(String PriorAuth, String PACarrierList, int arg3) throws Throwable {
+	    Mainframe_GlobalFunctionLib.pressKey("F7");
+		Mainframe_GlobalFunctionLib.sendText(7, 21, "2");
+		Mainframe_GlobalFunctionLib.pressKey("enter");
+		String valuePAAuth=Mainframe_GlobalFunctionLib.getText(11, 79);
+		String valuePACarrierList=Mainframe_GlobalFunctionLib.getText(20, 17);
+		if(valuePAAuth.equals(PriorAuth))
+		{
+			System.out.println("Prior Auth not been updated in Plan"+valuePAAuth);
+		}
+		else
+		{
+			System.out.println("Prior Auth has been updated in Plan"+valuePAAuth);
+		}
+		
+		if(valuePACarrierList.equals(PACarrierListMain))
+		{
+			System.out.println("PA Carrier List not been updated in Plan"+valuePACarrierList);
+		}
+		else
+		{
+			System.out.println("PA Carrier List has been updated in Plan"+valuePACarrierList);
+		}
+	}
+}
+
+
+	
+	
 
 
 
