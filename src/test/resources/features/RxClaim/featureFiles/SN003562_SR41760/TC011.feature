@@ -5,7 +5,7 @@ Scenario Outline: SN003331_SR41449_TC009_Verify Delete member Eligibility (PME) 
     When I enter query in command line for program RCPLN711
 		And I enter "<PlanCode>", "<FromDate>" on Plan Details Screen
 		And I enter "<PriorAuth>" and check PACarrierList in RCPME711 screen
-		And I update run mode to ADD "<RunMode>" PriorAuth "<PriorAuth>" PACarrierList "<PACarrierList>", "<FlagN>","<FlagL>" on RCPME712 screen
+		And I update run mode to ADD "<RunMode>","<FlagN>","<FlagL>", PACarrierList "<PACarrierList>" on RCPME712 screen
 		And I verify error message in Display Responses window
 	  And I press "F3" key to navigate back to RxClaim PlanAdministrator Menu
 	  And I navigate to "<PlanCode>" Plan Details Page

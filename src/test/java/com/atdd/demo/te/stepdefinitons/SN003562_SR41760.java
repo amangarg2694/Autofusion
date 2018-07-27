@@ -61,8 +61,8 @@ public class SN003562_SR41760 {
 		Thread.sleep(3000);
 	}
 	
-	@When("^I update run mode to ADD \"([^\"]*)\" PriorAuth \"([^\"]*)\" PACarrierList \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\" on RCPME(\\d+) screen$")
-	public void i_update_run_mode_to_ADD_PriorAuth_PACarrierList_on_RCPME_screen(String RunMode, String FlagN, String PACarrierList, String FlagL, String FlagY, int arg6) throws Throwable {
+	@When("^I update run mode to ADD \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\", PACarrierList \"([^\"]*)\" on RCPME(\\d+) screen$")
+	public void i_update_run_mode_to_ADD_PACarrierList_on_RCPME_screen(String RunMode, String FlagN, String FlagL, String PACarrierList, int arg5) throws Throwable {
 		Mainframe_GlobalFunctionLib.sendText(4, 69, RunMode);
 		Mainframe_GlobalFunctionLib.sendText(6, 21, FlagN);
 		Mainframe_GlobalFunctionLib.sendText(6, 22, FlagL);
@@ -88,8 +88,16 @@ public class SN003562_SR41760 {
 					 for(i=13;i<=18;i++)
 					 {
 						 String errorMessage= Mainframe_GlobalFunctionLib.getText(i, 6);
-						 System.out.println("Error message displayed as::"+errorMessage);
-						 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						 if(errorMessage.length()<0)
+						 {
+							break; 
+						 }
+						 else
+						 {
+							 System.out.println("Error message displayed as::"+errorMessage);
+							 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						 }
+						
 					 }
 					}
 					 else
@@ -311,7 +319,7 @@ public class SN003562_SR41760 {
 		Mainframe_GlobalFunctionLib.sendText(7, 21, "2");
 		Mainframe_GlobalFunctionLib.pressKey("enter");
 		String valuePAAuth=Mainframe_GlobalFunctionLib.getText(11, 79);
-		String valuePACarrierList=Mainframe_GlobalFunctionLib.getText(20, 17);
+		String valuePACarrierList=Mainframe_GlobalFunctionLib.getText(20, 30);
 		if(valuePAAuth.equals(PriorAuth))
 		{
 			System.out.println("Prior Auth not been updated in Plan"+valuePAAuth);
