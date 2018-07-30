@@ -52,7 +52,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Jul 20, 2018 01:41:54 AM</span>
+                    <span class='label suite-start-time blue darken-3'>Jul 30, 2018 01:22:43 PM</span>
 				</a>
 			</li>
 			<li>
@@ -158,7 +158,7 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>7</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>3</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
 					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -177,88 +177,45 @@
 				
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>Submit a claim with Reject code R 76</span>
-						<span class='test-time'>Jul 20, 2018 01:41:55 AM</span>
+						<span class='test-name'>Create New Member</span>
+						<span class='test-time'>Jul 30, 2018 01:22:43 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='scenariooutline node' test-id='2' status='pass'>
-	<span class='duration right label'>0h 5m 24s+815ms</span>
+	<span class='duration right label'>0h 0m 8s+803ms</span>
 	<div class='desc'>
 		<b>ScenarioOutline</b>
-		<span class="desc-text">Setup a Plan edit 15 for Refill Limits</span>
+		<span class="desc-text">Create a new member in RxClaim with existing CAG</span>
 	</div>
 	<ul class='steps'>
 		<li test-id='3' class='node scenario pass' status='pass'>
 			
 			<b>Scenario</b>
 			
-			<span class="bdd-step-name">Setup a Plan edit 15 for Refill Limits</span>
+			<span class="bdd-step-name">Create a new member in RxClaim with existing CAG</span>
 			
 				<ul class='steps'>
 					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
 						<span class="bdd-step-name">Given I am on RxClaim PlanAdministrator Menu</span>
 						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031116368.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Master\output\Screenshots\30-Jul-2018\Screen_1532937165609.jpg"><i class='material-icons'>panorama</i></a></li>
 						</ul>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='5' class='node when pass' status='pass'><b>When</b>
-						<span class="bdd-step-name">When I Setup a Plan with Prior Auth NDC "AUTONDCLST","PANL1","010118","P"</span>
+						<span class="bdd-step-name">When I create Member with "ACLAIMC1","AUTOCLAIMA1","AUTOCLAIMG1","RUPMEM0003","AUTOMEM","AUTOMEM","12251987","010101","123139"</span>
 						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031116853.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031130083.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Master\output\Screenshots\30-Jul-2018\Screen_1532937166014.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Master\output\Screenshots\30-Jul-2018\Screen_1532937172305.jpg"><i class='material-icons'>panorama</i></a></li>
 						</ul>
+							<div class='pre'>Member exists</div>
 							<div class='pre'>passed</div>
 					</li>
-					<li test-id='6' class='node given pass' status='pass'><b>Given</b>
-						<span class="bdd-step-name">Given I am on RxClaim PlanAdministrator Menu</span>
+					<li test-id='6' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Validate Member "RUPMEM0003" added</span>
 						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031130318.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031130630.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031130880.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031131207.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031131458.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031131786.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031132004.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031132363.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031132598.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031132910.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031133159.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031133487.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031133706.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031134003.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031134221.jpg"><i class='material-icons'>panorama</i></a></li>
-						</ul>
-							<div class='pre'>passed</div>
-					</li>
-					<li test-id='7' class='node when pass' status='pass'><b>When</b>
-						<span class="bdd-step-name">When I submit a claim with Retail MO Pharmacy "777777","QET","*ALL","0556540","765488397414","00","010118","AUTOMEMBER06","00071015523","10","10","1","1000","01","1821039694","1000"</span>
-						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031134440.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031145034.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031147967.jpg"><i class='material-icons'>panorama</i></a></li>
-						</ul>
-							<div class='pre'>passed</div>
-					</li>
-					<li test-id='8' class='node then pass' status='pass'><b>Then</b>
-						<span class="bdd-step-name">Then Validate Claim Status is "R"</span>
-						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031174646.jpg"><i class='material-icons'>panorama</i></a></li>
-						</ul>
-							<div class='pre'>passed</div>
-					</li>
-					<li test-id='9' class='node then pass' status='pass'><b>Then</b>
-						<span class="bdd-step-name">Then Validate Claim Reject Code is "75"</span>
-						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031193041.jpg"><i class='material-icons'>panorama</i></a></li>
-						</ul>
-							<div class='pre'>passed</div>
-					</li>
-					<li test-id='10' class='node then pass' status='pass'><b>Then</b>
-						<span class="bdd-step-name">Then Validate Claim Message is "Drug Requires Prior Authorization"</span>
-						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\20-Jul-2018\Screen_1532031439918.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Master\output\Screenshots\30-Jul-2018\Screen_1532937172586.jpg"><i class='material-icons'>panorama</i></a></li>
 						</ul>
 							<div class='pre'>passed</div>
 					</li>
@@ -315,25 +272,25 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>7</div>
+					<div class='panel-lead'>3</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Jul 20, 2018 01:41:54 AM</div>
+					<div class='panel-lead'>Jul 30, 2018 01:22:43 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Jul 20, 2018 01:47:20 AM</div>
+			 		<div class='panel-lead'>Jul 30, 2018 01:22:52 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>325,766ms</div>
+					<div class='panel-lead'>9,365ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -347,7 +304,7 @@
 						</tr>
 							<tr>
 								<td>user</td>
-								<td>r1053</td>
+								<td>r17</td>
 							</tr>
 							<tr>
 								<td>os</td>
@@ -392,7 +349,7 @@
 				infoChild: 0,
 				exceptionsChild: 0,
 				
-				passGrandChild: 7,
+				passGrandChild: 3,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
