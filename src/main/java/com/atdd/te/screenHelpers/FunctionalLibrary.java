@@ -1,11 +1,13 @@
 package com.atdd.te.screenHelpers;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.StringTokenizer;
 
 import org.testng.Assert;
 
 import com.cucumber.listener.Reporter;
+import com.hp.lft.report.ReportException;
 import com.hp.lft.sdk.GeneralLeanFtException;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 import com.optumrx.autofusion.core.te.util.Screenshot;
@@ -47,6 +49,7 @@ public class FunctionalLibrary extends CommonHelper{
 				
 			}
 		}
+		
 		
 		
 	public static void createCAG(String carrierID,String carrierName,String processor,String mail,String city,String state,String zip,String contractFromDate,String contractThruDate, String contractEnt,String businessType,String accountID,String accountName ,String groupID,String groupName,String gFromDate,String gThruDate,String planCode) throws Throwable
@@ -395,6 +398,13 @@ public class FunctionalLibrary extends CommonHelper{
 			}
 	}
 	
+	public static void submitpdejob() throws ClassNotFoundException, GeneralLeanFtException, SQLException, ReportException, InterruptedException
+	{
+		Mainframe_GlobalFunctionLib.sendText(21, 7, "21");
+		Mainframe_GlobalFunctionLib.sendText(21, 7, "2");
+		Mainframe_GlobalFunctionLib.pressKey("F6");
+		
+	}
 	public static void submitClaimF18() throws GeneralLeanFtException, InterruptedException, IOException{
 		try{
 			Mainframe_GlobalFunctionLib.pressKey("PageDown");

@@ -140,4 +140,11 @@ public class CommonStepDefinition {
 		
 	}
 	
+	@When("^I submit PDE extract$")
+	public void i_submit_PDE_extract() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.submitpdejob();
+		
+	}
+	
 }
