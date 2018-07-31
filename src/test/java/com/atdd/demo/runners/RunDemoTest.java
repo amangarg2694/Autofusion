@@ -23,13 +23,12 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
-		features = { "classpath:features/RxClaim/featureFiles/SR41813/SR41813_TC14.feature" },
+		features = { "classpath:features/RxClaim/featureFiles/CreateMember.feature" },
 
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 
 		glue = { "com.atdd.demo.te" }
-	//	tags = {"@Tier_Override_Flag"}
 		
 )
 public class RunDemoTest extends AbstractTestNGCucumberTests { 
@@ -108,3 +107,5 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
 
  
  } 
+
+
