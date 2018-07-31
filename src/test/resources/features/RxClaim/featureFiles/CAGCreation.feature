@@ -9,6 +9,6 @@ As a RxClaim User I want to create a New CAG
    
    Examples:
     | CarrierID | CarrierName   |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID  |AccountName  | GroupID   |GroupName  |GroupFromDt|GroupThruDt|PlanCode| 
-    | SR41354CR | SR41354CR-Test|712        |MAIL ADD  |City|CA   |78654|    010116    |    123139    |*DEFAULT   |*DEFAULT      |SR41354ACC1|Test Account | SR41354GR1|Test Group |010116     |123139     |EVUASHE | 
+    | TR41354CR | TR41354CR-Test|712        |MAIL ADD  |City|CA   |78654|    010116    |    123139    |*DEFAULT   |*DEFAULT      |TR41354ACC1|Test Account | TR41354GR1|Test Group |010116     |123139     |EVUASHE | 
     
    

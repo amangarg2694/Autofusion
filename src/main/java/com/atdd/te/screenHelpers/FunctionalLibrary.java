@@ -561,7 +561,7 @@ public class FunctionalLibrary extends CommonHelper{
 				Mainframe_GlobalFunctionLib.pressKey("F6");
 				Mainframe_GlobalFunctionLib.click(11, 14 );
 				Mainframe_GlobalFunctionLib.pressKey("F4");
-				Thread.sleep(1000);
+				Thread.sleep(3000);
 				Mainframe_GlobalFunctionLib.sendText(4, 4, bin);
 				Mainframe_GlobalFunctionLib.sendText(4, 11, proc);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -570,7 +570,7 @@ public class FunctionalLibrary extends CommonHelper{
 				Mainframe_GlobalFunctionLib.sendText(11, 59,group );
 				Mainframe_GlobalFunctionLib.click(12, 14 );
 				Mainframe_GlobalFunctionLib.pressKey("F4");
-				Thread.sleep(1000);
+				Thread.sleep(3000);
 				Mainframe_GlobalFunctionLib.sendText(4, 4, pharmacyID);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(9, 2,"1" );
@@ -581,15 +581,20 @@ public class FunctionalLibrary extends CommonHelper{
 				
 				Mainframe_GlobalFunctionLib.click(14, 41 );
 				Mainframe_GlobalFunctionLib.pressKey("F4");
-				Thread.sleep(1000);
+				Thread.sleep(3000);
 				Mainframe_GlobalFunctionLib.sendText(3, 4, memberID);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				
 				Mainframe_GlobalFunctionLib.sendText(8, 2,"1" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				Mainframe_GlobalFunctionLib.waitTillReady();
-				Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate + "   ");	
+				//Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Thread.sleep(5000);
+				//Mainframe_GlobalFunctionLib.waitTillReady();
+				//System.out.println("Reached here");
+				//Thread.sleep(5000);
+				//Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate);	
+				System.out.println("Entered fill date");
 				Mainframe_GlobalFunctionLib.click(11, 20 );
 				Mainframe_GlobalFunctionLib.pressKey("F4");
 				Mainframe_GlobalFunctionLib.waitTillReady();
@@ -597,7 +602,7 @@ public class FunctionalLibrary extends CommonHelper{
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(9, 2,"1" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				Thread.sleep(1000);
+				Thread.sleep(3000);
 				Mainframe_GlobalFunctionLib.sendText(12, 11,dspQty );
 				Mainframe_GlobalFunctionLib.sendText(12, 26,ds );
 				Mainframe_GlobalFunctionLib.sendText(14, 6,psc );
