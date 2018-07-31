@@ -90,12 +90,14 @@ case "BOOK1" :
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		
 		
-		if(ScreenshotOption.equalsIgnoreCase("Always")){
+		/*if(ScreenshotOption.equalsIgnoreCase("Always")){
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			}
+			*/
 			}catch(Exception e){
-				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				Assert.fail("Login is not successful.");
+				e.printStackTrace();
+			//	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			//	Assert.fail("Login is not successful.");
 				
 			}
 	
@@ -123,12 +125,14 @@ case "BOOK2" :
 		}
 		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		if(ScreenshotOption.equalsIgnoreCase("Always")){
+	/*	if(ScreenshotOption.equalsIgnoreCase("Always")){
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			}
+			*/
 			}catch(Exception e){
-				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				Assert.fail("Login is not successful.");
+				e.printStackTrace();
+			//	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			//	Assert.fail("Login is not successful.");
 				
 			}
 	break;
