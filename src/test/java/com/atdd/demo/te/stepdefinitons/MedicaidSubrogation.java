@@ -238,41 +238,16 @@ public class MedicaidSubrogation {
 @Then("^I create medicaid subrogation profile with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 public void i_create_medicaid_subrogation_profile_with(String ProfileID, String Description, String SDWD, String MCSDWD, String Code, String payee) throws Throwable {
     // Write code here that turns the phrase above into concrete actions
+	//String data = Mainframe_GlobalFunctionLib.getText(8,37);
 	Mainframe_GlobalFunctionLib.sendText("04", "005",ProfileID);
 	Mainframe_GlobalFunctionLib.pressKey("Enter");	
 	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-	String data = Mainframe_GlobalFunctionLib.getText(8,37);
-	if(data.equals(""))
+	String msg = Mainframe_GlobalFunctionLib.getText(24,2);
+	
+	if(msg.equals(""))
 	{
-	Mainframe_GlobalFunctionLib.pressKey("F6");
-	Mainframe_GlobalFunctionLib.sendText("14", "019",ProfileID);
-	Mainframe_GlobalFunctionLib.sendText("14", "035",Description);
-	Mainframe_GlobalFunctionLib.pressKey("Enter");	
-	Mainframe_GlobalFunctionLib.sendText("11", "041",SDWD);
-	Mainframe_GlobalFunctionLib.sendText("15", "041",MCSDWD);
-	Mainframe_GlobalFunctionLib.sendText("17", "041",Code);
-	Mainframe_GlobalFunctionLib.pressKey("Enter");	
-	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-	//Payee Add
-	Mainframe_GlobalFunctionLib.pressKey("F7");
-	Mainframe_GlobalFunctionLib.pressKey("F6");
-	Mainframe_GlobalFunctionLib.click(7, 12);
-	Mainframe_GlobalFunctionLib.pressKey("F4");
-	Mainframe_GlobalFunctionLib.sendText("03", "006",payee);
-	Mainframe_GlobalFunctionLib.pressKey("Enter");	
-	Mainframe_GlobalFunctionLib.sendText("08", "002","1");
-	Mainframe_GlobalFunctionLib.pressKey("Enter");
-	Mainframe_GlobalFunctionLib.pressKey("Enter");	
-	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-	Mainframe_GlobalFunctionLib.pressKey("F12");	
-	Mainframe_GlobalFunctionLib.pressKey("F3");
-	Mainframe_GlobalFunctionLib.pressKey("F3");
-	}
-	else
-	{
-	String apptext = Mainframe_GlobalFunctionLib.getText(9,5);
-	if(apptext.equals(ProfileID))
-	{
+		
+		
 		Mainframe_GlobalFunctionLib.sendText("09", "002","2");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");	
 		Mainframe_GlobalFunctionLib.sendText("17", "041",Code);
@@ -285,7 +260,32 @@ public void i_create_medicaid_subrogation_profile_with(String ProfileID, String 
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 		Mainframe_GlobalFunctionLib.pressKey("F3");
+		
 	}
+	else{
+		Mainframe_GlobalFunctionLib.pressKey("F6");
+		Mainframe_GlobalFunctionLib.sendText("14", "019",ProfileID);
+		Mainframe_GlobalFunctionLib.sendText("14", "035",Description);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");	
+		Mainframe_GlobalFunctionLib.sendText("11", "041",SDWD);
+		Mainframe_GlobalFunctionLib.sendText("15", "041",MCSDWD);
+		Mainframe_GlobalFunctionLib.sendText("17", "041",Code);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");	
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		//Payee Add
+		Mainframe_GlobalFunctionLib.pressKey("F7");
+		Mainframe_GlobalFunctionLib.pressKey("F6");
+		Mainframe_GlobalFunctionLib.click(7, 12);
+		Mainframe_GlobalFunctionLib.pressKey("F4");
+		Mainframe_GlobalFunctionLib.sendText("03", "006",payee);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");	
+		Mainframe_GlobalFunctionLib.sendText("08", "002","1");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");	
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("F12");	
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
 	}
 }
 
@@ -431,8 +431,8 @@ public void i_create_payee_claim_with(String RxNo, String Payee, String Subrogat
 		r.keyRelease(KeyEvent.VK_DELETE);
 	}
 	Mainframe_GlobalFunctionLib.sendText("11", "020",ProductID);
-	Mainframe_GlobalFunctionLib.sendText("12", "011",DspQty);
-	Mainframe_GlobalFunctionLib.sendText("12", "026",DS);
+	//Mainframe_GlobalFunctionLib.sendText("12", "011",DspQty);
+	//Mainframe_GlobalFunctionLib.sendText("12", "026",DS);
 	Mainframe_GlobalFunctionLib.sendText("14", "006",PSC);
 	Mainframe_GlobalFunctionLib.sendText("17", "019",Type);
 	Mainframe_GlobalFunctionLib.sendText("17", "026",PANum);
@@ -525,6 +525,13 @@ public void validate_the_Plan_details_with(String plancode, String plancode1) th
 	Mainframe_GlobalFunctionLib.pressKey("F3");
 	Mainframe_GlobalFunctionLib.pressKey("F12");
 	Mainframe_GlobalFunctionLib.pressKey("F12");
+	Mainframe_GlobalFunctionLib.click(4,5);
+	Robot f = new Robot();
+	for(int i=0;i<11;i++)
+	{
+		f.keyPress(KeyEvent.VK_DELETE);
+		f.keyRelease(KeyEvent.VK_DELETE);
+	}
 	Mainframe_GlobalFunctionLib.sendText("04", "005",plancode1);
 	Mainframe_GlobalFunctionLib.pressKey("Enter");
 	Mainframe_GlobalFunctionLib.sendText("11", "002","5");
@@ -539,5 +546,36 @@ public void validate_the_Plan_details_with(String plancode, String plancode1) th
 	Mainframe_GlobalFunctionLib.pressKey("F12");
 	Mainframe_GlobalFunctionLib.pressKey("F12");
 	Mainframe_GlobalFunctionLib.pressKey("F12");
+}
+
+@Then("^I Validate the Group and Member details with \"([^\"]*)\" and \"([^\"]*)\"$")
+public void i_Validate_the_Group_and_Member_details_with_and(String groupid, String memberid) throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+	Mainframe_GlobalFunctionLib.sendText("21", "007","1");
+	Mainframe_GlobalFunctionLib.pressKey("Enter");
+	Mainframe_GlobalFunctionLib.sendText("21", "007","1");
+	Mainframe_GlobalFunctionLib.pressKey("Enter");
+	Mainframe_GlobalFunctionLib.sendText("21", "007","3");
+	Mainframe_GlobalFunctionLib.pressKey("Enter");
+	Mainframe_GlobalFunctionLib.sendText("04", "004",groupid);
+	Mainframe_GlobalFunctionLib.pressKey("Enter");
+	Mainframe_GlobalFunctionLib.sendText("09", "002","5");
+	Mainframe_GlobalFunctionLib.pressKey("Enter");
+	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+	Mainframe_GlobalFunctionLib.pressKey("F12");
+	Mainframe_GlobalFunctionLib.sendText("09", "002","7");
+	Mainframe_GlobalFunctionLib.pressKey("Enter");
+	Mainframe_GlobalFunctionLib.sendText("07", "004",memberid);
+	Mainframe_GlobalFunctionLib.pressKey("Enter");
+	String memid = Mainframe_GlobalFunctionLib.getText(12, 4).trim();
+	if(memid.equals(memberid))
+	{
+		Mainframe_GlobalFunctionLib.sendText("12", "002","5");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+	}
+	Mainframe_GlobalFunctionLib.pressKey("F3");
+	Mainframe_GlobalFunctionLib.pressKey("F12");
+	
 }
 }

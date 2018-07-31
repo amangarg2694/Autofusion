@@ -1,7 +1,7 @@
 Feature: Medicaid Subrogation Profile 
   As a RxClaim User I want to check claim is getting rejected and notes not stamped
 
-## Using CAG,subrogation profile data from TC08
+
 
   Scenario Outline: Verify if claim is getting Rejected with R75.Notes related to override R75 should not be stamped.Override flag as 'Y'
    	Given I am on RxClaim PlanAdministrator Menu
