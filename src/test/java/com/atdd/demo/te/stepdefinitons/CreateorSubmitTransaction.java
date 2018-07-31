@@ -7,10 +7,16 @@ import cucumber.api.java.en.Then;
 
 public class CreateorSubmitTransaction {
 
-	
 	@Then("^Validate Claim Status is \"([^\"]*)\"$")
 	public void validate_Claim_Status_is(String claimStatus) throws Throwable {
 	 
 		FunctionalLibrary.validateText("21" ,"6" , claimStatus );
+		
+	}
+	
+	@Then("^Validate Reversal Claim Status is \"([^\"]*)\"$")
+	public void validate_Reversal_Claim_Status_is(String claimStatus) throws Throwable {
+	 	
+		FunctionalLibrary.validateText("20" ,"6" , claimStatus );
 	}
 }
