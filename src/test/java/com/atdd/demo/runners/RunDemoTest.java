@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 import com.atdd.te.screenHelpers.CommonHelper;
+//import com.atdd.te.screenHelpers.CommonHelper;
 import com.cucumber.listener.ExtentProperties;
 import com.cucumber.listener.Reporter;
 import com.hp.lft.sdk.SDK;
@@ -24,7 +25,9 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
 		//features = { "classpath:features/RxClaim/featureFiles/CAGCreation.feature" },
-		features = { "classpath:features/RxClaim/SR41397/SR41397_Claim.feature" },
+		//features = { "classpath:features/RxClaim/SR41846/Sm1.feature" },
+		//features = { "classpath:features/RxClaim/SR41355/" },
+		features = { "classpath:features/RxClaim/SR41386/41386_TC1.feature" },
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 

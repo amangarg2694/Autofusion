@@ -257,6 +257,11 @@ public class ContingentTherapy {
 	
 	public static void kPress(String arg1) throws Throwable{
 	Robot r=new Robot();
+	if(arg1.equals("F1")){
+		r.keyPress(KeyEvent.VK_F1);
+		r.keyRelease(KeyEvent.VK_F1);
+		Thread.sleep(3000);
+	}
     if(arg1.equals("F21"))
     {
     r.keyPress(KeyEvent.VK_SHIFT);
@@ -1228,5 +1233,8 @@ public void i_am_on_OptumRx_RxClaim_RxServer_Main_Menu() throws Throwable {
     // Write code here that turns the phrase above into concrete actions
     
 }
+
+
+
 
 	}
