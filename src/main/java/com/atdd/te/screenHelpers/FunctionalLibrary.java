@@ -746,6 +746,7 @@ public class FunctionalLibrary extends CommonHelper{
 							Mainframe_GlobalFunctionLib.sendText(15, 20,compQuantity_1 );
 							Mainframe_GlobalFunctionLib.sendText(16, 20,compCost_1);
 							Mainframe_GlobalFunctionLib.sendText(18, 20,compBasisOfCost_1);
+							Mainframe_GlobalFunctionLib.pressKey("Enter");
 							Mainframe_GlobalFunctionLib.pressKey("F6");
 							Mainframe_GlobalFunctionLib.sendText(12, 20,compQualID_2 );
 							Mainframe_GlobalFunctionLib.sendText(13, 20,compProductID_2 );
@@ -858,7 +859,7 @@ public class FunctionalLibrary extends CommonHelper{
 	{
 	
 	bRes=true;
-	Mainframe_GlobalFunctionLib.sendText(row, 2, "1");
+	Mainframe_GlobalFunctionLib.sendText(row, 2, "2");
 	Mainframe_GlobalFunctionLib.pressKey("Enter");
 	Thread.sleep(2000);
 	}
@@ -878,6 +879,7 @@ public class FunctionalLibrary extends CommonHelper{
 	boolean bRes=false;
 	try{
 	
+		
 	StringTokenizer stData=new StringTokenizer(RowColOfData,",");
 	StringTokenizer stDataSearch=new StringTokenizer(StartRowColToSearch,",");
 	int row=Integer.valueOf(stDataSearch.nextToken());
