@@ -23,7 +23,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
-		features = { "classpath:features/RxClaim/featureFiles/CreateMember.feature" },
+		features = { "classpath:features/RxClaim/featureFiles/SR41404/SR41405backup.feature" },
 
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
