@@ -60,18 +60,19 @@ public class SN003562_SR41760 {
 		Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
 		Thread.sleep(3000);
 	}
-	
-	@When("^I update run mode to ADD \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\", PACarrierList \"([^\"]*)\" on RCPME(\\d+) screen$")
-	public void i_update_run_mode_to_ADD_PACarrierList_on_RCPME_screen(String RunMode, String FlagN, String FlagL, String PACarrierList, int arg5) throws Throwable {
+		
+	@When("^I enter run mode \"([^\"]*)\", value at \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", PACarrierList \"([^\"]*)\" at Position(\\d+) on RCPME(\\d+) screen$")
+	public void i_enter_run_mode_value_at_PACarrierList_at_Position_on_RCPME_screen(String RunMode,String Position20, String Position21, String Position354, String PACarrierList, int arg5, int arg6) throws Throwable {
 		Mainframe_GlobalFunctionLib.sendText(4, 69, RunMode);
-		Mainframe_GlobalFunctionLib.sendText(6, 21, FlagN);
-		Mainframe_GlobalFunctionLib.sendText(6, 22, FlagL);
-		Mainframe_GlobalFunctionLib.sendText(14, 55, FlagN);
-		Mainframe_GlobalFunctionLib.sendText(14, 55, PACarrierList);
+		Mainframe_GlobalFunctionLib.sendText(6, 21, Position20);
+		Mainframe_GlobalFunctionLib.sendText(6, 22, Position21);
+		Mainframe_GlobalFunctionLib.sendText(14, 55, Position354);
+		Mainframe_GlobalFunctionLib.sendText(14, 56, PACarrierList);
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("enter");
 		Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
 	}
-
+	
 	
 	@When("^I verify error message in Display Responses window$")
 	public void i_verify_error_message_in_Display_Responses_window() throws Throwable {
@@ -81,35 +82,31 @@ public class SN003562_SR41760 {
 				if(displayWindow.equals("Display Responses"))
 				{
 					String indicatorMessage= Mainframe_GlobalFunctionLib.getText(12, 8);
-					System.out.println("Indicator displayed as::"+indicatorMessage);
+					System.out.println("Responses Indicator displayed as::"+indicatorMessage);
 					if(indicatorMessage.equals("E"))
 					{
 					 int i;
 					 for(i=13;i<=18;i++)
 					 {
 						 String errorMessage= Mainframe_GlobalFunctionLib.getText(i, 6);
-						 if(errorMessage.length()<0)
-						 {
-							break; 
-						 }
-						 else
+						 /*int errorLength=errorMessage.length();
+						 System.out.println("The length is ::"+errorLength);*/
+						 if(errorMessage.length()>0)
 						 {
 							 System.out.println("Error message displayed as::"+errorMessage);
 							 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 						 }
-						
 					 }
 					}
-					 else
-					 {
+				 else
+				 {
 						 System.out.println(" Able to get display responses window with blank error and response message.");
-					 }
+				 }
 				}
 			}catch(Exception e)
 				{	
 					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 					Assert.fail("We could not reach to Display Responses screen.Screenshot captured");
-					
 				}
 		}
 	
@@ -305,7 +302,6 @@ public class SN003562_SR41760 {
 		{	
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			System.out.println("We could not reach to Member Eligibilty Record screen.Screenshot captured");
-			
 		}
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 		Mainframe_GlobalFunctionLib.pressKey("F3");
@@ -313,8 +309,8 @@ public class SN003562_SR41760 {
 	}
 	
 	//TC011
-	@Then("^verify Prior Aut \"([^\"]*)\" & PA Carrier LIst \"([^\"]*)\" flag value in Member Eligibility Detail Page in Plan ie RCPME(\\d+)I screen$")
-	public void verify_Prior_Aut_PA_Carrier_LIst_flag_value_in_Member_Eligibility_Detail_Page_in_Plan_ie_RCPME_I_screen(String PriorAuth, String PACarrierList, int arg3) throws Throwable {
+	@When("^I verify Prior Aut \"([^\"]*)\" & PA Carrier LIst \"([^\"]*)\" flag value in Member Eligibility Details Page in Plan ie RCPME(\\d+)I screen$")
+	public void i_verify_Prior_Aut_PA_Carrier_LIst_flag_value_in_Member_Eligibility_Details_Page_in_Plan_ie_RCPME_I_screen(String PriorAuth, String PACarrierList, int arg3) throws Throwable {
 	    Mainframe_GlobalFunctionLib.pressKey("F7");
 		Mainframe_GlobalFunctionLib.sendText(7, 21, "2");
 		Mainframe_GlobalFunctionLib.pressKey("enter");
@@ -322,22 +318,60 @@ public class SN003562_SR41760 {
 		String valuePACarrierList=Mainframe_GlobalFunctionLib.getText(20, 30);
 		if(valuePAAuth.equals(PriorAuth))
 		{
-			System.out.println("Prior Auth not been updated in Plan"+valuePAAuth);
+			System.out.println("Prior Auth not been updated in Plan and the value is : "+valuePAAuth);
 		}
 		else
 		{
-			System.out.println("Prior Auth has been updated in Plan"+valuePAAuth);
+			System.out.println("Prior Auth has been updated in Plan and the value is : "+valuePAAuth);
 		}
 		
-		if(valuePACarrierList.equals(PACarrierListMain))
+		if(valuePACarrierList.length()>0)
 		{
-			System.out.println("PA Carrier List not been updated in Plan"+valuePACarrierList);
+			if(valuePACarrierList.equals(PACarrierListMain))
+			{
+				System.out.println("PA Carrier List not been updated in Plan and the value is : "+valuePACarrierList);
+			}
+			else
+			{
+				System.out.println("PA Carrier List has been updated in Plan and the value is : "+valuePACarrierList);
+			}
 		}
 		else
-		{
-			System.out.println("PA Carrier List has been updated in Plan"+valuePACarrierList);
+			{
+				System.out.println("PA Carrier List not found");
+			}
+		
 		}
+	
+	@When("^I verify Member Eligibility Detail in Plan \"([^\"]*)\" ie RCPME(\\d+)I screen\\.$")
+	public void i_verify_Member_Eligibility_Detail_in_Plan_ie_RCPME_I_screen(String PlanCode, int arg2) throws Throwable {
+		Thread.sleep(3000);
+		Mainframe_GlobalFunctionLib.pressKey("F7");
+		Mainframe_GlobalFunctionLib.sendText(7, 21, "2");
+		Mainframe_GlobalFunctionLib.pressKey("enter");
+		String expectedErrorMsg="PME Plan Member Elig not found.";
+		try
+		{
+			String actualErrorMsg=Mainframe_GlobalFunctionLib.getText(24, 2);
+			if(expectedErrorMsg.equals(actualErrorMsg))
+			{
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				System.out.println("Member Eligibilty Record not found and message displayed on screen as: "+actualErrorMsg);
+			}
+			else
+			{
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				System.out.println("Member Eligibilty Record found");
+			}
+			
+		}catch(Exception e)
+		{	
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			System.out.println("We could not reach to Member Eligibilty Record screen.Screenshot captured");
+		}
+	    
 	}
+	
 }
 
 
