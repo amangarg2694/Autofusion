@@ -169,7 +169,7 @@ public class FunctionalLibrary extends CommonHelper{
 		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		
-		if(!(func_SearchAndSelectADataEditMode("4,4" ,memberID ,"9,4" , memberID))){
+		if(!(func_SearchAndSelectADataEditMode("4,4" ,memberID ,"10,2" , memberID))){
 			
 			Mainframe_GlobalFunctionLib.pressKey("F6");
 			Mainframe_GlobalFunctionLib.sendText(11, 14,bin );
@@ -195,11 +195,12 @@ public class FunctionalLibrary extends CommonHelper{
 			Mainframe_GlobalFunctionLib.sendText(14, 6,psc );
 			Mainframe_GlobalFunctionLib.sendText(10, 47,"         " );
 			Mainframe_GlobalFunctionLib.sendText(10, 47,cost );
+			//Mainframe_GlobalFunctionLib.sendText(11, 51, Fee);
 			
 		}
 		else{
 			
-		Mainframe_GlobalFunctionLib.sendText(9, 2,"1" );
+		Mainframe_GlobalFunctionLib.sendText(10, 2,"1" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Thread.sleep(1000);
 		Mainframe_GlobalFunctionLib.click(4, 29 );
