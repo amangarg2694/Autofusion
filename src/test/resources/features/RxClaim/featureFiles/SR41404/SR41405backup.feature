@@ -1,47 +1,31 @@
 Feature: Addition of new menu item Eligibility Load Tracking Extract
-As a RxClaim User I want to check whether anew menu item Eligibility Load Tracking Extract is added in Utility Program
+As a RxClaim User I want to check whether a new menu item Eligibility Load Tracking Extract is added in Utility Program
 
-Scenario Outline: Validating new menu item Eligibility Load Tracking Extract in RxClaim Utility Programs
+Scenario Outline: User should able to submit the job in Eligibility Load Tracking Extract Screen
 Given I am on RxClaim PlanAdministrator Menu
 When I select Option "CCT700" to navigate to "RxClaim Operations Menu"
 And I select Option "7" to navigate to "RxClaim Utility Programs"
-And I press "PageDown" Key 
-And I press "PageDown" Key 
-And I press "PageDown" Key 
-And I press "PageDown" Key 
-Then Validate the new menu Eligibility Load Tracking Extract in RxClaim Utility Programs
+And I select Option "65" to navigate to "Eligibility Load Tracking Extract" 
+And I enter "<DateFrom>" in field "DateFrom" on "EligibilityLoadTrackingExtractScreen"
+And I enter "<DateThru>" in field "DateThru" on "EligibilityLoadTrackingExtractScreen"
+And I enter "<CarrierFrom>" in field "CarrierFrom" on "EligibilityLoadTrackingExtractScreen"
+And I enter "<CarrierThru>" in field "CarrierThru" on "EligibilityLoadTrackingExtractScreen"
+And I enter "<FileName>" in field "FileName" on "EligibilityLoadTrackingExtractScreen"
+And I enter "<Library>" in field "Library" on "EligibilityLoadTrackingExtractScreen"
+And I press "F6" Key
+And I select yes to continue
+
+
+Then Job should completed with user "<Juser>" and job name "<Jname>"
+And I Validate the spool file is generated with "<ReportName>","<CarrierFrom>","<CarrierThru>","<FileName>","<Library>"
+
+
+
+
+
+
 
 
 Examples:
-|NoField  |
-|No Value|
-
-Scenario Outline: Validating Eligibility Load Tracking Extract screen
-Given I am on RxClaim Utility Programs
-When I select Option "65" to navigate to "Eligibility Load Tracking Extract"
-Then Validate the Eligibility Load Tracking Extract screen
-
-
-Examples:
-|NoField  |
-|No Value|
-
-
-Scenario Outline: Validating help message and length of the File Name field  
-Given I am on Eligibility Load Tracking Extract screen
-When I navigate to the field File Name
-Then Validate the help message and length of the field File Name
-
-
-Examples:
-|NoField  |
-|No Value|
-
-Scenario Outline: Validating help message and length of the Library field  
-Given I am on Eligibility Load Tracking Extract screen
-When I navigate to the field Library
-Then Validate the help message and length of the field Library
-
-Examples:
-|NoField  |
-|No Value|
+| DateFrom | DateThru | CarrierFrom | CarrierThru | FileName  | Library |NewScreen              | Juser | Jname    |ReportName            |  
+| 010101   | 123117   | BHUCAR      | VAH         | SR414046  | USRSAKK |File Conversion Request| SAKK  | RCELGEXT |Eligibility Reporting |

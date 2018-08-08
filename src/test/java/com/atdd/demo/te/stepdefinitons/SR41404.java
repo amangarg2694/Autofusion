@@ -1123,7 +1123,376 @@ public class SR41404 {
 			
 		}
 	}
-}
 	
+	@Then("^User should navigate to RxClaim Utility Programs$")
+	public void user_should_navigate_to_RxClaim_Utility_Programs() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+		
+		Mainframe_GlobalFunctionLib.validateText("1", "13", "RxClaim Utility Programs");
+	}
+
+	@Then("^I Validate the new screen file Conversion Request \"([^\"]*)\" is added$")
+	public void i_Validate_the_new_screen_file_Conversion_Request_is_added(String NewScreen) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	   
+		Mainframe_GlobalFunctionLib.validateText("8", "23", NewScreen);
+	}
+	
+	@Then("^I Validate \"([^\"]*)\" and \"([^\"]*)\" field values appear in File Conversion Request screen$")
+	public void i_Validate_and_field_values_appear_in_File_Conversion_Request_screen(String FileName, String Library) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+		
+		//String Library1 = Mainframe_GlobalFunctionLib.getText(17, 19);
+		//String Library2 = Mainframe_GlobalFunctionLib.getText(18, 19);
+		String ActDataFile= Mainframe_GlobalFunctionLib.getText(13, 21);
+		String ExpDataFile=Library+"/"+FileName;
+		System.out.println(ActDataFile);
+		System.out.println(ExpDataFile);
+		Mainframe_GlobalFunctionLib.validateText("13", "21", ExpDataFile);
+
+		
+	}
+	
+	@Then("^I Validate the help message and length of the field Data File Conversion Type$")
+	public void i_validate_the_help_message_and_length_of_the_field_Data_File_Conversion_Type() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+		Mainframe_GlobalFunctionLib.click(13, 48 );
+		Robot r=new Robot();
+		r.keyPress(KeyEvent.VK_F1);
+		r.keyRelease(KeyEvent.VK_F1);
+		Thread.sleep(3000);
+
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		String DatafileCTHelp1 = Mainframe_GlobalFunctionLib.getText(17, 5);
+		String DatafileCTHelp2 = Mainframe_GlobalFunctionLib.getText(18, 5);
+		String ActDataFileCTHelptext=DatafileCTHelp1+" "+DatafileCTHelp2;
+		System.out.println(ActDataFileCTHelptext);
+		String ExpDataFileCTHelptext=("Indicates into what format the data file is to be converted.");
+
+		if(ExpDataFileCTHelptext.equals(ActDataFileCTHelptext.trim()))
+		{	
+			System.out.println("Text matching");
+				
+		}
+		else
+		{   
+			System.out.println("Text is not same");
+			Assert.fail("The text "+ ExpDataFileCTHelptext +" does not match on the screen.Screenshot captured.");			
+				
+		}
+
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+	    
+		
+		Mainframe_GlobalFunctionLib.sendText("13","48", "ABCD");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+
+		String DataFileCT = Mainframe_GlobalFunctionLib.getText(13, 48);
+		int lenDataFileCT = DataFileCT.length();
+
+		if(lenDataFileCT==3)
+		{
+			System.out.println("Length of the Field Data File Conversion Type : "+lenDataFileCT);
+		}
+		
+		else{
+			System.out.println("Length of the Field Data File Conversion Type : "+lenDataFileCT);
+			
+		}
+
+	}
+	
+	@Then("^I Validate the Data File Conversion Type field selection values$")
+	public void i_validate_the_Data_File_Conversion_Type_field_selection_values() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	   
+		Mainframe_GlobalFunctionLib.sendText("13","48", "   ");
+		Mainframe_GlobalFunctionLib.sendText("14","48", "   ");
+		Mainframe_GlobalFunctionLib.click(13, 48 );
+		Mainframe_GlobalFunctionLib.pressKey("F4");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.sendText(3, 19,"CSV");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+	   	Mainframe_GlobalFunctionLib.validateText("6", "10", "CSV"); 
+	   	Thread.sleep(2000);
+	   	Mainframe_GlobalFunctionLib.sendText(3, 19,"TXT");		
+	   	Mainframe_GlobalFunctionLib.pressKey("Enter");
+	   	Mainframe_GlobalFunctionLib.validateText("6", "10", "TXT");
+	   	Thread.sleep(2000);
+	   	Mainframe_GlobalFunctionLib.sendText(3, 19,"XLS");		
+	   	Mainframe_GlobalFunctionLib.pressKey("Enter");
+	   	Mainframe_GlobalFunctionLib.validateText("6", "10", "XLS");
+	   	Thread.sleep(2000);
+	   	Mainframe_GlobalFunctionLib.sendText(3, 19,"XML");		
+	   	Mainframe_GlobalFunctionLib.pressKey("Enter");
+	   	Mainframe_GlobalFunctionLib.validateText("6", "10", "XML");
+	   	Thread.sleep(2000);
+	   	Mainframe_GlobalFunctionLib.sendText(3, 19,"*BLANK");		
+	   	Mainframe_GlobalFunctionLib.pressKey("Enter");
+	   	Mainframe_GlobalFunctionLib.validateText("6", "10", "*BLANK");
+	   	Mainframe_GlobalFunctionLib.pressKey("F3");
+	   	
+	}
+
+	@Then("^I Validate the help message and length of the field Spool File Conversion Type$")
+	public void i_Validate_the_help_message_and_length_of_the_field_Spool_File_Conversion_Type() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+		Mainframe_GlobalFunctionLib.click(14, 48 );
+		Robot r=new Robot();
+		r.keyPress(KeyEvent.VK_F1);
+		r.keyRelease(KeyEvent.VK_F1);
+		Thread.sleep(3000);
+
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		String SpoolfileCTHelp1 = Mainframe_GlobalFunctionLib.getText(7, 19);
+		String SpoolfileCTHelp2 = Mainframe_GlobalFunctionLib.getText(8, 19);
+		String ActSpoolFileCTHelptext=SpoolfileCTHelp1+" "+SpoolfileCTHelp2;
+		System.out.println(ActSpoolFileCTHelptext);
+		String ExpDataFileCTHelptext=("Indicates into what format the spool file is to be converted.");
+
+		if(ExpDataFileCTHelptext.equals(ActSpoolFileCTHelptext.trim()))
+		{	
+			System.out.println("Text matching");
+				
+		}
+		else
+		{   
+			System.out.println("Text is not same");
+			Assert.fail("The text "+ ExpDataFileCTHelptext +" does not match on the screen.Screenshot captured.");			
+				
+		}
+
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+	    
+		
+		Mainframe_GlobalFunctionLib.sendText("14","48", "ABCD");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+
+		String SpoolFileCT = Mainframe_GlobalFunctionLib.getText(14, 48);
+		int lenSpoolFileCT = SpoolFileCT.length();
+
+		if(lenSpoolFileCT==3)
+		{
+			System.out.println("Length of the Field Spool File Conversion Type : "+lenSpoolFileCT);
+		}
+		
+		else{
+			System.out.println("Length of the Field Spool File Conversion Type : "+lenSpoolFileCT);
+			
+		}
+	}
+	
+	@Then("^I Validate the Spool File Conversion Type field selection values$")
+	public void i_Validate_the_Spool_File_Conversion_Type_field_selection_values() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	   
+		Mainframe_GlobalFunctionLib.sendText("14","48", "   ");
+		Mainframe_GlobalFunctionLib.sendText("16","69", " ");
+		Mainframe_GlobalFunctionLib.click(14, 48 );
+		Mainframe_GlobalFunctionLib.pressKey("F4");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.sendText(3, 19,"PDF");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+	   	Mainframe_GlobalFunctionLib.validateText("6", "10", "PDF"); 
+	   	Thread.sleep(2000);
+	   	Mainframe_GlobalFunctionLib.sendText(3, 19,"TXT");		
+	   	Mainframe_GlobalFunctionLib.pressKey("Enter");
+	   	Mainframe_GlobalFunctionLib.validateText("6", "10", "TXT");
+	   	Thread.sleep(2000);
+	   	
+	   	Mainframe_GlobalFunctionLib.sendText(3, 19,"*BLANK");		
+	   	Mainframe_GlobalFunctionLib.pressKey("Enter");
+	   	Mainframe_GlobalFunctionLib.validateText("6", "10", "*BLANK");
+	   	Mainframe_GlobalFunctionLib.pressKey("F3");
+	}
+	
+	@Then("^I Validate the Exit and Previous function keys of File Conversion Request screen$")
+	public void i_Validate_the_Exit_and_Previous_function_keys_of_File_Conversion_Request_screen() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.validateText("2", "25", "Eligibility Load Tracking Extract");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		System.out.println("User is navigated to Previous screen : "+"Eligibility Load Tracking Extract");
+		Thread.sleep(2000);
+		Mainframe_GlobalFunctionLib.pressKey("F6");
+		Thread.sleep(2000);
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.validateText("1", "13", "RxClaim Utility Programs");
+		System.out.println("User is navigated to the screen : "+"RxClaim Utility Programs");
+	}
+	
+	@When("^I select yes to continue$")
+	public void i_select_yes_to_continue() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	   
+		Mainframe_GlobalFunctionLib.sendText(16, 69,"Y" );
+		Thread.sleep(1000);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+	}
+	
+	@Then("^Job should completed with user \"([^\"]*)\" and job name \"([^\"]*)\"$")
+	public void job_should_completed_with_user_and_job_name(String Juser, String Jname) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	   
+		String qry="WRKJOB JOB("+Juser+"/"+Jname+")";
+	    Mainframe_GlobalFunctionLib.sendText(21, 7,qry);
+	    Thread.sleep(2000);
+	    Mainframe_GlobalFunctionLib.pressKey("Enter");
+	    Thread.sleep(2000);
+	    Mainframe_GlobalFunctionLib.validateText("8", "10", Jname);
+	    String status = Mainframe_GlobalFunctionLib.getText(8, 52);
+	    Thread.sleep(2000);
+	    	if(status.contains("JOBQ"))
+	   
+	    	{
+	    			Thread.sleep(2000);
+			    		String jobN = Mainframe_GlobalFunctionLib.getText(8, 34);
+			    		Thread.sleep(2000);
+			    		Mainframe_GlobalFunctionLib.pressKey("F12");
+			    		Mainframe_GlobalFunctionLib.pressKey("F12");
+			    		String qry2="CHGJOB";
+			    		Thread.sleep(2000);
+			    		Mainframe_GlobalFunctionLib.sendText(21, 7,qry2);   
+			    		Thread.sleep(2000);
+			    		Mainframe_GlobalFunctionLib.pressKey("F4");  	
+			    		Thread.sleep(3000);
+			    		Mainframe_GlobalFunctionLib.sendText(5, 37,Jname);
+			    		Thread.sleep(1000);
+			    		Mainframe_GlobalFunctionLib.sendText(6, 39,Juser);
+			    		Thread.sleep(1000);
+			    		Mainframe_GlobalFunctionLib.sendText(7, 39,jobN);
+			    		Thread.sleep(1000);
+			    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+			    		Thread.sleep(1000);
+			    		Mainframe_GlobalFunctionLib.pressKey("F10");    
+			    		Thread.sleep(2000);
+			    		Mainframe_GlobalFunctionLib.sendText(17, 37,"QPGMR");
+			    		Thread.sleep(3000);
+			    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+			    		
+			    		System.out.println("Job Completed Successfully: "+status);
+			    		//Mainframe_GlobalFunctionLib.pressKey("F12"); 
+			    		//Mainframe_GlobalFunctionLib.click(21, 7 );
+						//Thread.sleep(1000);
+						//Mainframe_GlobalFunctionLib.sendText(21, 7,"                              " );
+						Thread.sleep(3000);
+	    			}
+
+	    	 else if(status.contains("ACTIVE")) {
+	    		 
+	    		 do{
+	    		 
+	    		 Mainframe_GlobalFunctionLib.pressKey("F12");
+	    		 Mainframe_GlobalFunctionLib.sendText(21, 7,qry);
+	    		 Mainframe_GlobalFunctionLib.pressKey("Enter");
+	    		 Thread.sleep(5000);
+	    		 } while(Mainframe_GlobalFunctionLib.getText(8, 52).contains("ACTIVE"));
+	    		 
+	    		 //Mainframe_GlobalFunctionLib.pressKey("F12");
+	    		// Mainframe_GlobalFunctionLib.click(21, 7 );
+	    			//Thread.sleep(1000);
+	    			//Mainframe_GlobalFunctionLib.sendText(21, 7,"                            " );
+	    			Thread.sleep(3000);
+	    			System.out.println("Job Completed Successfully: "+status);
+	    	 }
+	    		 
+	    	else
+	    		{
+	    	System.out.println("Job Completed Successfully: "+status);
+	    	//Mainframe_GlobalFunctionLib.pressKey("F12");
+	    	//Mainframe_GlobalFunctionLib.click(21, 7 );
+			//Thread.sleep(1000);
+			//Mainframe_GlobalFunctionLib.sendText(21, 7,"                            " );
+			Thread.sleep(3000);
+	    	 
+	    		}
+		
+
+	}
+	
+	@Then("^I Validate the spool file is generated with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_Validate_the_spool_file_is_generated_with(String ReportName, String CarrierFrom, String CarrierThru, String FileName, String Library) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	
+		Mainframe_GlobalFunctionLib.sendText(8, 4,"1");
+    	Mainframe_GlobalFunctionLib.pressKey("Enter");
+    	Mainframe_GlobalFunctionLib.sendText(21, 7,"4");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(11, 3,"5");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(4, 22,ReportName);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F16");
+		Mainframe_GlobalFunctionLib.validateText("7", "53", ReportName);
+		System.out.println("Spool file report name: "+ReportName);
+		Mainframe_GlobalFunctionLib.sendText(4, 22,"                       ");
+		Mainframe_GlobalFunctionLib.sendText(4, 22,CarrierFrom);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F16");
+		Mainframe_GlobalFunctionLib.validateText("7", "76", CarrierFrom);
+		System.out.println("Spool file Carrier From field value: "+CarrierFrom);
+		Mainframe_GlobalFunctionLib.sendText(4, 22,"                       ");
+		Mainframe_GlobalFunctionLib.sendText(4, 22,CarrierThru);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F16");
+		Mainframe_GlobalFunctionLib.validateText("7", "76", CarrierThru);
+		System.out.println("Spool file Carrier Thru field value: "+CarrierThru);
+		Mainframe_GlobalFunctionLib.sendText(4, 22,"                       ");
+		Mainframe_GlobalFunctionLib.sendText(4, 22,FileName);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F16");
+		Mainframe_GlobalFunctionLib.validateText("7", "76", FileName);
+		System.out.println("Spool file FileName: "+FileName);
+		Mainframe_GlobalFunctionLib.sendText(4, 22,"                       ");
+		Mainframe_GlobalFunctionLib.sendText(4, 22,Library);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F16");
+		Mainframe_GlobalFunctionLib.validateText("7", "76", Library);
+		System.out.println("Spool file Library Name: "+Library);
+		Mainframe_GlobalFunctionLib.sendText(4, 22,"                       ");
+		
+		Mainframe_GlobalFunctionLib.pressKey("PageDown");
+		String NumberRecord= Mainframe_GlobalFunctionLib.getText(6,2);
+		System.out.println("Spool file Bottom Content: "+NumberRecord);
+
+		if(NumberRecord.contains("NUMBER OF RECORDS ADDED TO FILE:" ))
+		{
+			System.out.println("Eligibility Reporting contains: "+"NonZeroValue");
+			
+			Mainframe_GlobalFunctionLib.sendText(4, 22,"                       ");
+			Mainframe_GlobalFunctionLib.sendText(4, 22,"NUMBER OF RECORDS");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F16");
+
+			String NumberRecord2= Mainframe_GlobalFunctionLib.getText(7,59).substring(23,26).trim();
+			System.out.println("Number of Record Value: "+NumberRecord2);
+			int i = Integer.parseInt(NumberRecord2);
+			if (i > 0){
+				
+			System.out.println("NUMBER OF RECORDS ADDED TO FILE is Non Zero: "+NumberRecord2); }
+		}
+		else
+		{
+			System.out.println("Eligibility Reporting contains: "+"NoValue");
+		}
+		
+
+	}
+}
+
+
+
+
+	
+	
+
+
 	
 

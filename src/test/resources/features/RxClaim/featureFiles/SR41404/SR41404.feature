@@ -187,3 +187,24 @@ Then Validate the help message and length of the field Library
 Examples:
 |NoField  |
 |No Value|
+
+Scenario Outline: Validating the function keys F3 of Eligibility Load Tracking Extract screen   
+Given I am on Eligibility Load Tracking Extract screen
+When I press "F3" Key
+Then User should navigate to RxClaim Utility Programs
+
+
+Examples:
+|NoField  |
+|No Value|
+
+Scenario Outline: Validating the function keys F12 of Eligibility Load Tracking Extract screen   
+Given I am on RxClaim Utility Programs
+When I select Option "65" to navigate to "Eligibility Load Tracking Extract screen"
+And I press "F12" Key
+Then User should navigate to RxClaim Utility Programs
+
+
+Examples:
+|NoField  |
+|No Value|
