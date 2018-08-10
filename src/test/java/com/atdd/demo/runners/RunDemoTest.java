@@ -20,13 +20,14 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
-		features = { "classpath:features/RxClaim/featureFiles/SN374521_SR41821/TC002.feature" },
+		features = { "classpath:features/RxClaim/featureFiles/SN003148_SR41452/TestCase2.feature" },
 		//features = { "classpath:features/RxClaim/featureFiles/PlanCreation.feature" },
 
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 
-		glue = { "com.atdd.demo.te" }
+		glue = { "com.atdd.demo.te" } 
+		//tags = { "@tag1" }
 
 )
 public class RunDemoTest extends AbstractTestNGCucumberTests {
