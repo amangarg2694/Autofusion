@@ -208,3 +208,16 @@ Then User should navigate to RxClaim Utility Programs
 Examples:
 |NoField  |
 |No Value|
+
+Scenario Outline: User should able to submit the job in Eligibility Load Tracking Extract Screen with below field values polulated
+Given I am on RxClaim Utility Programs
+When I select Option "65" to navigate to "Eligibility Load Tracking Extract" 
+And I have entered the values "<DateFrom>","<DateThru>","<CarrierFrom>","<CarrierThru>","<AccountFrom>","<AccountThru>","<GroupFrom>","<GroupThru>","<FileName>","<Library>","<DFCT>","<SPCT>", in the screen EligibilityLoadTrackingExtractScreen
+
+Then Job should completed with user "<Juser>" and job name "<Jname>"
+And I Validate the spool file is generated with "<ReportName>","<CarrierFrom>","<CarrierThru>","<FileName>","<Library>"
+
+
+Examples:
+| DateFrom | DateThru | CarrierFrom | CarrierThru | AccountFrom|AccountThru |GroupFrom |GroupThru |FileName  | Library |DFCT| SPCT |NewScreen              | Juser | Jname    |ReportName            |  
+| 010101   | 123117   | BHUCAR      | VAH         | BHUVACC    |VAH         | BHUGRP   |SB        |SR414046  | USRSAKK |XLS | PDF  |File Conversion Request| SAKK  | RCELGEXT |Eligibility Reporting |

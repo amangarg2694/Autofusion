@@ -371,7 +371,11 @@ public class SR41404 {
 	@Then("^Carrier status field values$")
 	public void carrier_status_field_values() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    
+		Mainframe_GlobalFunctionLib.sendText(5, 21,"        ");
+		Mainframe_GlobalFunctionLib.sendText(5, 21,"010101");
+		Mainframe_GlobalFunctionLib.sendText(5, 39,"        ");
+		Mainframe_GlobalFunctionLib.sendText(5, 21,"12317");
+		Thread.sleep(3000);
 		Mainframe_GlobalFunctionLib.click(6, 72 );
 		Thread.sleep(3000);
 		Mainframe_GlobalFunctionLib.pressKey("F4");
@@ -1427,33 +1431,39 @@ public class SR41404 {
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(11, 3,"5");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.sendText(4, 22,ReportName);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("F16");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.validateText("7", "53", ReportName);
 		System.out.println("Spool file report name: "+ReportName);
 		Mainframe_GlobalFunctionLib.sendText(4, 22,"                       ");
 		Mainframe_GlobalFunctionLib.sendText(4, 22,CarrierFrom);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("F16");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.validateText("7", "76", CarrierFrom);
 		System.out.println("Spool file Carrier From field value: "+CarrierFrom);
 		Mainframe_GlobalFunctionLib.sendText(4, 22,"                       ");
 		Mainframe_GlobalFunctionLib.sendText(4, 22,CarrierThru);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("F16");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.validateText("7", "76", CarrierThru);
 		System.out.println("Spool file Carrier Thru field value: "+CarrierThru);
 		Mainframe_GlobalFunctionLib.sendText(4, 22,"                       ");
 		Mainframe_GlobalFunctionLib.sendText(4, 22,FileName);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("F16");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.validateText("7", "76", FileName);
 		System.out.println("Spool file FileName: "+FileName);
 		Mainframe_GlobalFunctionLib.sendText(4, 22,"                       ");
 		Mainframe_GlobalFunctionLib.sendText(4, 22,Library);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("F16");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.validateText("7", "76", Library);
 		System.out.println("Spool file Library Name: "+Library);
 		Mainframe_GlobalFunctionLib.sendText(4, 22,"                       ");
@@ -1461,7 +1471,7 @@ public class SR41404 {
 		Mainframe_GlobalFunctionLib.pressKey("PageDown");
 		String NumberRecord= Mainframe_GlobalFunctionLib.getText(6,2);
 		System.out.println("Spool file Bottom Content: "+NumberRecord);
-
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		if(NumberRecord.contains("NUMBER OF RECORDS ADDED TO FILE:" ))
 		{
 			System.out.println("Eligibility Reporting contains: "+"NonZeroValue");
@@ -1484,6 +1494,83 @@ public class SR41404 {
 		}
 		
 
+	}
+	
+	@When("^I have entered the values \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\", in the screen EligibilityLoadTrackingExtractScreen$")
+	public void i_have_entered_the_values_in_the_screen(String DateFrom, String DateThru, String CarrierFrom, String CarrierThru , String AccountFrom, String AccountThru, String GroupFrom , String GroupThru, String FileName, String Library, String DFCT, String SPCT ) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+		Mainframe_GlobalFunctionLib.sendText("5","21", DateFrom);
+		Mainframe_GlobalFunctionLib.sendText("5","39", DateThru);
+		Mainframe_GlobalFunctionLib.click(6, 21 );
+		Mainframe_GlobalFunctionLib.pressKey("F4");
+		Mainframe_GlobalFunctionLib.sendText("4","6", CarrierFrom);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText("9","2", "1");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+		Mainframe_GlobalFunctionLib.click(6, 39 );
+		Mainframe_GlobalFunctionLib.pressKey("F4");
+		Mainframe_GlobalFunctionLib.sendText("4","6", CarrierThru);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText("9","2", "1");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+		Mainframe_GlobalFunctionLib.click(7, 21 );
+		Mainframe_GlobalFunctionLib.pressKey("F4");
+		Mainframe_GlobalFunctionLib.sendText("6","5", AccountFrom);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText("11","2", "1");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+		Mainframe_GlobalFunctionLib.click(7, 39 );
+		Mainframe_GlobalFunctionLib.pressKey("F4");
+		Mainframe_GlobalFunctionLib.sendText("6","5", AccountThru);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText("11","2", "1");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+		Mainframe_GlobalFunctionLib.click(8, 21 );
+		Mainframe_GlobalFunctionLib.pressKey("F4");
+		Mainframe_GlobalFunctionLib.sendText("4","33", GroupFrom);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText("9","2", "1");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+		Mainframe_GlobalFunctionLib.click(8, 39 );
+		Mainframe_GlobalFunctionLib.pressKey("F4");
+		Mainframe_GlobalFunctionLib.sendText("4","33", GroupThru);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText("9","2", "1");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+		Mainframe_GlobalFunctionLib.sendText("10","21", FileName);
+		Mainframe_GlobalFunctionLib.sendText("11","21", Library);
+		Thread.sleep(3000);
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("F6");
+		
+		Mainframe_GlobalFunctionLib.click(13, 48 );
+		Mainframe_GlobalFunctionLib.pressKey("F4");
+		Mainframe_GlobalFunctionLib.sendText("3","19", DFCT);
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText("6","7", "1");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+		Mainframe_GlobalFunctionLib.click(14, 48 );
+		Mainframe_GlobalFunctionLib.pressKey("F4");
+		Mainframe_GlobalFunctionLib.sendText("3","19", SPCT);
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText("6","7", "1");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.click(16, 69 );
+		Mainframe_GlobalFunctionLib.sendText("16","69", "Y");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+		
 	}
 }
 
