@@ -13,8 +13,8 @@ Then Validate the new menu Eligibility Load Tracking Extract in RxClaim Utility 
 
 
 Examples:
-|NoField  |
-|No Value|
+|Field  |
+|Value|
 
 Scenario Outline: Validating Eligibility Load Tracking Extract screen
 Given I am on RxClaim Utility Programs
@@ -23,8 +23,8 @@ Then Validate the Eligibility Load Tracking Extract screen
 
 
 Examples:
-|NoField  |
-|No Value|
+|Field  |
+|Value|
 
 Scenario Outline: Validating help message and length of the field Form Date  
 Given I am on Eligibility Load Tracking Extract screen
@@ -33,8 +33,8 @@ Then Validate the help message for the field From Date
 
 
 Examples:
-|NoField  |
-|No Value|
+|Field  |
+|Value|
 
 Scenario Outline: Validating help message and length of the field Thru Date  
 Given I am on Eligibility Load Tracking Extract screen
@@ -43,8 +43,8 @@ Then Validate the help message for the field Thru Date
 
 
 Examples:
-|NoField  |
-|No Value|
+|Field  |
+|Value|
 
 Scenario Outline: Validating help message and length of the Carrier From field  
 Given I am on Eligibility Load Tracking Extract screen
@@ -53,8 +53,8 @@ Then Validate the help message and length of the field Carrier From
 
 
 Examples:
-|NoField  |
-|No Value|
+|Field  |
+|Value|
 
 Scenario Outline: Validating help message and length of the Carrier Thru field  
 Given I am on Eligibility Load Tracking Extract screen
@@ -63,8 +63,8 @@ Then Validate the help message and length of the field Carrier Thru
 
 
 Examples:
-|NoField  |
-|No Value|
+|Field  |
+|Value|
 
 Scenario Outline: Validating help message and length of the Carrier List field  
 Given I am on Eligibility Load Tracking Extract screen
@@ -73,8 +73,8 @@ Then Validate the help message and length of the field Carrier List
 
 
 Examples:
-|NoField  |
-|No Value|
+|Field  |
+|Value|
 
 Scenario Outline: Validating help message and length of the Carrier Status field  
 Given I am on Eligibility Load Tracking Extract screen
@@ -84,8 +84,8 @@ And Carrier status field values
 
 
 Examples:
-|NoField  |
-|No Value|
+|Field  |
+|Value|
 
 Scenario Outline: Validating help message and length of the Account From field  
 Given I am on Eligibility Load Tracking Extract screen
@@ -94,8 +94,8 @@ Then Validate the help message and length of the field Account From
 
 
 Examples:
-|NoField  |
-|No Value|
+|Field  |
+|Value|
 
 Scenario Outline: Validating help message and length of the Account Thru field  
 Given I am on Eligibility Load Tracking Extract screen
@@ -104,8 +104,8 @@ Then Validate the help message and length of the field Account Thru
 
 
 Examples:
-|NoField  |
-|No Value|
+|Field  |
+|Value|
 
 Scenario Outline: Validating help message and length of the Account List field  
 Given I am on Eligibility Load Tracking Extract screen
@@ -114,8 +114,8 @@ Then Validate the help message and length of the field Account List
 
 
 Examples:
-|NoField  |
-|No Value|
+|Field  |
+|Value|
 
 Scenario Outline: Validating help message and length of the Account Status field  
 Given I am on Eligibility Load Tracking Extract screen
