@@ -15,5 +15,6 @@ Scenario Outline: SN003331_SR41449_TC009_Verify Delete member Eligibility (PME) 
 		   
     Examples: 
       | PlanCode  | FromDate | RunMode  | Flag	|	DynamicPA	|
-      | TESTLFT99 | 010118	 | D				|	Y			|	Y					|
+      | SN003562A | 010118	 | D				|	Y			|	Y					|
+      #| TESTLFT99 | 010118	 | D				|	Y			|	Y					|
      

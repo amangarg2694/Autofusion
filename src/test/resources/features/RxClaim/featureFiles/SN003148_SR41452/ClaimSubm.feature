@@ -5,7 +5,7 @@ Feature: SN002941_SR40694:Part D: PAS OutReach - Web Service - Return NPI when S
     Given I am on RxClaim PlanAdministrator Menu 
     When I submit a claim for rejected soft with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>"
     And I Validate Claim Status, Response with RxClaimID
-    And I navigate back to RxClaim PlanAdministrator Menu
+    
    
   	#ID 00536329710 
     #ID 00056016975  C 

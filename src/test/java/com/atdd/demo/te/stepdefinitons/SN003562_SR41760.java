@@ -10,7 +10,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class SN003562_SR41760 {
-
+	public String MemberEligibility=null;
 	
 	@When("^I enter query$")
 	public void i_enter_query() throws Throwable {
@@ -18,6 +18,13 @@ public class SN003562_SR41760 {
 		Mainframe_GlobalFunctionLib.sendText(21, 7, query);
 		Mainframe_GlobalFunctionLib.pressKey("enter");
 	}	 
+	
+	
+	@When("^I verify Member Eligibility flag$")
+	public void i_verify_Member_Eligibility_flag() throws Throwable {
+		MemberEligibility=Mainframe_GlobalFunctionLib.getText(7, 24);
+		System.out.println("Member Eligibility flag is :"+MemberEligibility);
+		}   
 	
 	@When("^I enter query in command line for program RCPLN(\\d+)$")
 	public void i_enter_query_in_command_line_for_program_RCPLN(int arg1) throws Throwable {
@@ -52,6 +59,16 @@ public class SN003562_SR41760 {
 		 Thread.sleep(3000);
 	}
 	
+	
+	@When("^I verify PriorAuth , PACarrierList in RCPME(\\d+) screen$")
+	public void i_verify_PriorAuth_PACarrierList_in_RCPME_screen(int arg1) throws Throwable {
+		String PriorAuth=Mainframe_GlobalFunctionLib.getText(11, 79);
+		 PACarrierListMain=Mainframe_GlobalFunctionLib.getText(20, 30);
+		 Mainframe_GlobalFunctionLib.pressKey("enter");
+		 Thread.sleep(3000);
+	}
+	
+
 	@When("^I enter run mode \"([^\"]*)\" on RCPME(\\d+) screen$")
 	public void i_enter_run_mode_on_RCPME_screen(String RunMode, int arg2) throws Throwable {
 	   	Mainframe_GlobalFunctionLib.sendText(4, 69, RunMode);
@@ -134,7 +151,7 @@ public class SN003562_SR41760 {
 	
 	//TC001
 	@Then("^I verify Change Plan edit for Member Eligibility \"([^\"]*)\" when update flag set to N and Member Eligibility set to D$")
-	public void i_verify_Change_Plan_edit_for_Member_Eligibility_when_update_flag_set_to_N_and_Member_Eligibility_set_to_D(String MemberEligibility) throws Throwable {
+	public void i_verify_Change_Plan_edit_for_Member_Eligibility_when_update_flag_set_to_N_and_Member_Eligibility_set_to_D(String arg1) throws Throwable {
 		 String ReturnMemberEligibilityFlag= Mainframe_GlobalFunctionLib.getText(7, 24);
 		 if(ReturnMemberEligibilityFlag.equals(MemberEligibility))
 		 {
@@ -318,11 +335,11 @@ public class SN003562_SR41760 {
 		String valuePACarrierList=Mainframe_GlobalFunctionLib.getText(20, 30);
 		if(valuePAAuth.equals(PriorAuth))
 		{
-			System.out.println("Prior Auth not been updated in Plan and the value is : "+valuePAAuth);
+			System.out.println("Prior Auth has been updated in Plan and the value is : "+valuePAAuth);
 		}
 		else
 		{
-			System.out.println("Prior Auth has been updated in Plan and the value is : "+valuePAAuth);
+			System.out.println("Prior Auth not been updated in Plan and the value is : "+valuePAAuth);
 		}
 		
 		if(valuePACarrierList.length()>0)

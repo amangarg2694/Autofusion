@@ -1,6 +1,7 @@
 Feature: SN002941_SR40694:Part D: PAS OutReach - Web Service - Return NPI when Searching By Member
  
   #@tag1
+  #Please Do not use this Test case
   Scenario Outline: Submit a claim in RxClaim
     Given I am on RxClaim PlanAdministrator Menu 
     When I submit a claim for rejected soft with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>"

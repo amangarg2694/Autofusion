@@ -12,6 +12,7 @@ Scenario Outline: SN003562_SR41760 _TC023_RCPME_Change_YACG_blank: Verify Change
 		And I verify Prior Aut "<PriorAuth>" & PA Carrier LIst "<PACarrierList>" flag value in Member Eligibility Details Page in Plan ie RCPME001I screen
 		Then I go Back to "RxClaim Plan Administrator Menu"
 		
+		# Note: Delete the PA carrier list manually in Claim and reuse.
 		# CALL PGM(RCPME711) PARM('') 
 		# SN003562A, TESTLFT99, TESTLFT98, TESTLFT97, TESTVM87
 		# Carrier: SN1629LST1

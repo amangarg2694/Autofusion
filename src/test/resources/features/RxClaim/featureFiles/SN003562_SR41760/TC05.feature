@@ -6,7 +6,8 @@ Scenario Outline: SN003331_SR41449_TC005_Verify Change Plan edit for Member Elig
 		And I enter "<PlanCode>" in field "PlanCode" on "PlanDetailScreen"
 		And I enter "<FromDate>" in field "FromDate" on "PlanDetailScreen"
 		And I press "Enter" Key
-		And I enter "<MemberEligibility>" in field "MemberEligibility" on "PlanDetailScreen"
+		And I verify Member Eligibility flag
+		#And I enter "<MemberEligibility>" in field "MemberEligibility" on "PlanDetailScreen"
 		And I press "Enter" Key
 		And I enter "<Flag>", "<DynamicPA>" on RCPLN712 screen
 		And I verify error message in Display Responses window
@@ -16,6 +17,6 @@ Scenario Outline: SN003331_SR41449_TC005_Verify Change Plan edit for Member Elig
 		# CALL PGM(RCPLN711) PARM('')       
 		   
     Examples: 
-      | PlanCode  | FromDate | MemberEligibility  | Flag	|	DynamicPA	|
-      | TESTLFT99 | 010118	 | Y									|	N			|	P					|
+      | PlanCode  | FromDate | Flag	|	DynamicPA	|
+      | TESTLFT99 | 010118	 | 	N		|	P					|
      

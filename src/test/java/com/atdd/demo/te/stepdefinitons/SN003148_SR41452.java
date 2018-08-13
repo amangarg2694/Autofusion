@@ -4,6 +4,8 @@ import java.util.StringTokenizer;
 
 import com.atdd.te.screenHelpers.FunctionalLibrary;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
+
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -240,5 +242,37 @@ public class SN003148_SR41452 {
 			 System.out.println("Expected Field not shown in Spool file");
 		 }
 	}
+	
+	@Given("^I verify RXClaim-Number \"([^\"]*)\", RXClaim-Status in Spool file$")
+	public void i_verify_RXClaim_Number_RXClaim_Status_in_Spool_file(String rxclaimnumber) throws Throwable {
+		Mainframe_GlobalFunctionLib.sendText(4, 22, rxclaimnumber);
+		System.out.println("The Given RxClaim Number is: "+rxclaimnumber);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F16");
+		
+		String RxClaimNoResult=Mainframe_GlobalFunctionLib.getText(7,2);
+		String[] SplitRxClaim=RxClaimNoResult.split("-");
+		if(SplitRxClaim[0].contains(rxClaimNo))
+		{
+			System.out.println("RxClaim Number shown in Spool file as: "+RxClaimNoResult);
+		}
+		else
+		{
+			System.out.println("RxClaim Number not shown in Spool file");
+		}
+	}
+	
+	@When("^I go back to RxClaim PlanAdministrator Menu$")
+	public void i_go_back_to_RxClaim_PlanAdministrator_Menu() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		//Mainframe_GlobalFunctionLib.pressKey("F3");
+	}
 
-}
+	
+	}
+
+

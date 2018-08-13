@@ -4,7 +4,8 @@ Scenario Outline: SN003331_SR41449_TC011_Verify Add Member Eligibility (PME) rec
     Given I am on RxClaim PlanAdministrator Menu
     When I enter query in command line for program RCPLN711
 		And I enter "<PlanCode>", "<FromDate>" on Plan Details Screen
-		And I enter "<PriorAuth>" and check PACarrierList in RCPME711 screen
+		And I verify PriorAuth , PACarrierList in RCPME711 screen
+		#And I enter "<PriorAuth>" and check PACarrierList in RCPME711 screen
 		And I enter run mode "<RunMode>", value at "<Position20>", "<Position21>", "<Position354>", PACarrierList "<PACarrierList>" at Position355 on RCPME712 screen
 		And I verify error message in Display Responses window
 	  And I press "F3" key to navigate back to RxClaim PlanAdministrator Menu
@@ -18,7 +19,7 @@ Scenario Outline: SN003331_SR41449_TC011_Verify Add Member Eligibility (PME) rec
 		
     Examples: 
       | PlanCode  | FromDate | RunMode  |	PriorAuth	|	Position20	|	Position21	|	Position354	| PACarrierList	|
-      | SN003562A | 010118	 | A				|	G					|	N						|	L						|	N						|	TESTVMCAR			|
-      | SN003562A | 010118	 | A				|	G					|	Y						|	L						|	Y						|	TESTVMCAR			|
+      | SN003562A | 010118	 | A				|	G					|	N						|	L						|	N						|	SN003356A			|
+      #| SN003562A | 010118	 | A				|	G					|	Y						|	L						|	Y						|	TESTVMCAR			|
       #| SN003562A | 010118	 | A				|	G					|	Y						|	L						|	N						|	TESTVMCAR			|
     	#| SN003562A | 010118	 | A				|	G					|	Y						|	L						|	N						|	TESTVMCAR			|
