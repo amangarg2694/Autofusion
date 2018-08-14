@@ -52,7 +52,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Jun 27, 2018 07:07:28 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Aug 14, 2018 04:52:37 PM</span>
 				</a>
 			</li>
 			<li>
@@ -158,7 +158,7 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>3</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>27</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
 					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -177,48 +177,313 @@
 				
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>Create New Carrier/Account/Group</span>
-						<span class='test-time'>Jun 27, 2018 07:07:30 PM</span>
+						<span class='test-name'>SR41384: WO: Plan Code Conversion Request</span>
+						<span class='test-time'>Aug 14, 2018 04:52:38 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='scenariooutline node' test-id='2' status='pass'>
-	<span class='duration right label'>0h 0m 20s+320ms</span>
+	<span class='duration right label'>0h 2m 45s+859ms</span>
 	<div class='desc'>
 		<b>ScenarioOutline</b>
-		<span class="desc-text">Create a new CAG in RxClaim</span>
+		<span class="desc-text">SR40892_TC09_ Verifying if Plan Code "P" and Durg Sts " G" &  Multi source ind " M" then Tier Value "4" should be populated at 247 position in BCBSAZ Paid Claim File.</span>
 	</div>
 	<ul class='steps'>
 		<li test-id='3' class='node scenario pass' status='pass'>
 			
 			<b>Scenario</b>
 			
-			<span class="bdd-step-name">Create a new CAG in RxClaim</span>
+			<span class="bdd-step-name">SR40892_TC09_ Verifying if Plan Code "P" and Durg Sts " G" &  Multi source ind " M" then Tier Value "4" should be populated at 247 position in BCBSAZ Paid Claim File.</span>
 			
 				<ul class='steps'>
 					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
 						<span class="bdd-step-name">Given I am on RxClaim PlanAdministrator Menu</span>
 						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\r17\git\Autofusion_ATDD_LeanFTDemo\output\Screenshots\27-Jun-2018\Screen_1530106654445.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245759895.jpg"><i class='material-icons'>panorama</i></a></li>
 						</ul>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='5' class='node when pass' status='pass'><b>When</b>
-						<span class="bdd-step-name">When I create CAG with "TESTAOTC9","Test Carrier","712","MAIL ADD","City","IL","78654","010101","123139","*DEFAULT","*DEFAULT","TESTAOTA10","Test Account","TESTAOTG8","Test Group","010101","123139","AUTOEGWP"</span>
+						<span class="bdd-step-name">When I select Option "4" to navigate to "RxClaim Plan Maintenance"</span>
 						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\r17\git\Autofusion_ATDD_LeanFTDemo\output\Screenshots\27-Jun-2018\Screen_1530106656412.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r17\git\Autofusion_ATDD_LeanFTDemo\output\Screenshots\27-Jun-2018\Screen_1530106670144.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245760768.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245761471.jpg"><i class='material-icons'>panorama</i></a></li>
 						</ul>
-							<div class='pre'>Navigated to RxClaim .Plan Administrator Menu Screen</div>
+							<div class='pre'>Entered text at position 21,7on screen</div>
 							<div class='pre'>passed</div>
 					</li>
-					<li test-id='6' class='node then pass' status='pass'><b>Then</b>
-						<span class="bdd-step-name">Then Validate CAG created with details "TESTAOTC9" ,"TESTAOTA10","TESTAOTG8"</span>
+					<li test-id='6' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I select Option "1" to navigate to "Active Plan by Plan Code"</span>
 						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\r17\git\Autofusion_ATDD_LeanFTDemo\output\Screenshots\27-Jun-2018\Screen_1530106670613.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r17\git\Autofusion_ATDD_LeanFTDemo\output\Screenshots\27-Jun-2018\Screen_1530106670863.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r17\git\Autofusion_ATDD_LeanFTDemo\output\Screenshots\27-Jun-2018\Screen_1530106671097.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245761924.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245762736.jpg"><i class='material-icons'>panorama</i></a></li>
 						</ul>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='7' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I select Active Plan in "Active Plan by Plan Code" to check the Plan Status as P & Drug status as G</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='8' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I select Option "20" to navigate to "RxClaim Plan Administrator Menu"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245766466.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245767263.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='9' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I select Option "2" to navigate to "RxClaim Product Information Maintenance"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245767778.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245768528.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='10' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I select Option "1" to navigate to "Active Products by Name"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245769183.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245770166.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='11' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I select Active Product to set Multi source ind as M</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='12' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I select Option "20" to navigate to "RxClaim Plan Administrator Menu"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245775412.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245776114.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='13' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I submit a claim with "777777","AKAN","*","APHARM","222141255566","00","081418","SR41320DSK","59676031000","10","10","00","100","10"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='14' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Validate Claim Status is "P"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245792047.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='15' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I press "F7" Key</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245793358.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='16' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I press "F3" Key</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245795434.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='17' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I press "F3" Key</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245797697.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='18' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I press "F3" Key</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245799538.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='19' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I select Option "21" to navigate to "RxClaim Operations Menu"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245801036.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245801723.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='20' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I select Option "1" to navigate to "Batch Extract Process Menu"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245802144.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245802785.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='21' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I select Option "1" to navigate to "Batch Extract Process Menu"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245803191.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245804221.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='22' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter values for "Submit Extract Job"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='23' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I submit the job & verify the records</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245807406.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245808404.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245808764.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245810013.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245810855.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245811557.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245812463.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245812775.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245813634.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245817144.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245818018.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245818268.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245819033.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245822590.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245823652.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245823995.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245824792.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245828302.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245829254.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245829520.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245830238.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245833764.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245834794.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245835137.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245835794.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245839335.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245840272.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245840553.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245841224.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245844750.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245845703.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245846046.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245846733.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245850352.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245851367.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245851710.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245852569.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245856189.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245857094.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245857438.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245858094.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245861682.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245862712.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245863055.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245863774.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245867331.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245868455.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245868783.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245870063.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245873620.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245874713.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245875040.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245875774.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245879315.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245880159.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245880486.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245881065.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245884699.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245885590.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245885824.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245886511.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245890005.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245891114.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245891396.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245892020.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245895639.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245897075.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245897403.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245898137.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245901772.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245902599.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245902880.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245903536.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245907266.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='24' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I select Option "21" to navigate to "RxClaim Operations Menu"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245909825.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245910507.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='25' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I select Option "10" to navigate to "Select Client"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245911022.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245912083.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='26' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I select Option "3" to navigate to "IRX Client Specific Menu"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245912583.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245913239.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='27' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I select Option "29" to navigate to "Blue Cross Blue Shield of Arizona Custom Menu"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245913785.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245914503.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='28' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I select Option "3" to navigate to "BCBSAZ Paid Claims File 2"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245914956.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\sdasar20\git\RxClaim_ATDD\output\Screenshots\14-Aug-2018\Screen_1534245915955.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='29' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter values "010118","123118","SR41320C1","SR41320C1","SR41320A1","SR41320A1","SR41320G1","SR41320G1","SR41320SH","USRSANDEEP"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='30' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I verify the "Tier Value "4" should be populated at 247 position in BCBSAZ Paid Claim File2</span>
 							<div class='pre'>passed</div>
 					</li>
 				</ul>
@@ -274,25 +539,25 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>3</div>
+					<div class='panel-lead'>27</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Jun 27, 2018 07:07:28 PM</div>
+					<div class='panel-lead'>Aug 14, 2018 04:52:37 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Jun 27, 2018 07:07:54 PM</div>
+			 		<div class='panel-lead'>Aug 14, 2018 04:55:25 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>25,297ms</div>
+					<div class='panel-lead'>167,248ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -306,7 +571,7 @@
 						</tr>
 							<tr>
 								<td>user</td>
-								<td>r17</td>
+								<td>sdasar20</td>
 							</tr>
 							<tr>
 								<td>os</td>
@@ -351,7 +616,7 @@
 				infoChild: 0,
 				exceptionsChild: 0,
 				
-				passGrandChild: 3,
+				passGrandChild: 27,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
