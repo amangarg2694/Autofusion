@@ -25,8 +25,8 @@
     And Validate "Member Added." message should displayed on "AddMemberScreen"
     And I am on RxClaim PlanAdministrator Menu 
     And I submitt a compound claim withh "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>","<com>"
-    And I validate the MIC claim process with drug status overriden when Primary ROA is  found
-    
+    Then I validate the MIC claim process with drug status overriden when Primary ROA is  found
+
     
     Examples: 
    |CarrierID |AccountID|GroupID  |MemberID		 | First Name      | Last Name     | DOB      | From Date | Thru Date   |Plan		|BIN     | ProcCtrl | Group | PharmacyID  |RxNo         |RxNo1			   | Refill| FillDate |ProductID  | DspQty | DS   | PSC   | Cost |com|

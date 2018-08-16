@@ -1,8 +1,13 @@
 package com.atdd.demo.te.stepdefinitons;
 
+import static org.testng.Assert.fail;
+
+import org.testng.Assert;
+
 import com.atdd.te.screenHelpers.FunctionalLibrary;
 import com.itextpdf.text.log.SysoCounter;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
+import com.optumrx.autofusion.core.te.util.Screenshot;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -13,9 +18,12 @@ public class GAM {
 	static int i;
 	@When("^I add \"([^\"]*)\" library in library list$")
 	public void i_add_library_in_library_list(String lib) throws Throwable {
-	   FunctionalLibrary.enterText(7, 12, lib);
+		if(!(FunctionalLibrary.getText(8, 12).trim().equals(lib))){
+		
+		FunctionalLibrary.enterText(7, 12, lib);
 	   FunctionalLibrary.pressEnter();
 	   FunctionalLibrary.pressEnter();
+		}
 	   FunctionalLibrary.pressKey("F6");
 	   if(FunctionalLibrary.getText(8, 4).trim().startsWith("From")){
 		   
@@ -46,6 +54,17 @@ public class GAM {
 	public void i_wait_until_the_job_moves_to(String jobN, String user, String status) throws Throwable {
 		FunctionalLibrary.enterText(21, 7, "WRKJOB JOB("+user+"/"+jobN+")");
 		FunctionalLibrary.pressEnter();
+		/*if(FunctionalLibrary.getText(1, 33).trim().equals("Work with Job")){
+			FunctionalLibrary.enterText(21, 7, "4");
+			FunctionalLibrary.pressEnter();
+			FunctionalLibrary.enterText(11, 3, "5");
+			FunctionalLibrary.pressEnter();
+			FunctionalLibrary.enterText(3, 22, "w20");
+			FunctionalLibrary.pressEnter();
+			Screenshot.screenshot();
+			FunctionalLibrary.pressKey("F12");
+			
+		}*/
 		String status1=FunctionalLibrary.getText(8, 52).trim();
 		jobnum=FunctionalLibrary.getText(8, 34).trim();
 		FunctionalLibrary.pressKey("F12");
@@ -64,6 +83,9 @@ public class GAM {
 	    	 FunctionalLibrary.pressKey("Enter");
 			  Thread.sleep(1000);
 	 }
+		else if(status1.equals("MSGW")){
+			Assert.fail();
+		}
 		while(status1.equals("ACTIVE")){
 			FunctionalLibrary.enterText(21, 7, "WRKJOB JOB("+user+"/"+jobN+")");
 			FunctionalLibrary.pressEnter();

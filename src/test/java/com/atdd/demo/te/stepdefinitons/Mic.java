@@ -9,7 +9,7 @@ import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class mic {
+public class Mic {
 	@When("^I add a new Schedule \"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_add_a_new_Schedule(String sch1, String desc) throws Throwable {
 		FunctionalLibrary.enterText(4, 5, sch1);
