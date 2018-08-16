@@ -1,7 +1,7 @@
 Feature: Submit a claim with Reject code R 76
 As a RxClaim User I want to submit a Reject claim
    
-   Scenario Outline: Setup a Plan edit 15 for Refill Limits
+   Scenario Outline: Setup a Plan edit 15 for Refill Limits and Submit the Claim
     Given I am on RxClaim PlanAdministrator Menu 
     When I Setup a Plan with Refill Limits "<PlanCode>","<MaximumRefill>","<Period>","<EffectiveDate>"
        
@@ -16,6 +16,6 @@ As a RxClaim User I want to submit a Reject claim
       
     Examples:
      | PlanCode   | MaximumRefill| Period | EffectiveDate  | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate |FillDate2|FillDate3| MemberID     | ProductID  | DspQty | DS | PSC | Cost | PreQual| PreID | UCW |
-	   | AUTOREFLMT | 02     			 |	A  		| 010118| 777777  | QET     |	*ALL  | 0556540     | 765488397412 | 00     | 010118   |011118|012118| AUTOMEMBER06 | 00777310402|10      |10  |1   |1000  |01 |1821039694 |1000 |
+	   | AUTOREFLMT | 02     			 |	A  		| 010118| 777777  | QET     |	*ALL  | 0556540     | 765488397422 | 00     | 010118   |011118|012118| AUTOMEMBER08 | 00777310402|10      |10  |1   |1000  |01 |1821039694 |1000 |
     
         

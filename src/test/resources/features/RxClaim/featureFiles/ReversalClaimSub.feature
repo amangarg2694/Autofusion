@@ -9,6 +9,6 @@ As a RxClaim User I want to submit a claim
        
     Examples:
     | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID  | DspQty | DS | PSC | Cost | PreQual| PreID | UCW |
-	  | 777777  | QET     |	*ALL  | 2400101     | 765488397405 | 00     | 060116   | AUTOMEMBER02 | 00777310402|30      |30  |1   |1000  |01 |1821039694 |1000 |
+	  | 777777  | QET     |	*ALL  | 2400101     | 765488397425 | 00     | 060116   | AUTOMEMBER07 | 00777310402|30      |30  |1   |1000  |01 |1821039694 |1000 |
     
         
