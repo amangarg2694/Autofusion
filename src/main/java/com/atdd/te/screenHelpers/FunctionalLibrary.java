@@ -925,6 +925,7 @@ public class FunctionalLibrary extends CommonHelper{
 	public static void addAccumulators(String TrOOPfromdate,String TrOOPthrudate,String accumulationlevel,String accumulationcode, String TrOOPschedule,String CMSlabelerlist) throws Throwable
 	{
 	try{
+			
 			Mainframe_GlobalFunctionLib.sendText(14, 77 ,"Y");
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
