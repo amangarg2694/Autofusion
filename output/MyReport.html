@@ -52,7 +52,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Aug 16, 2018 02:29:12 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Aug 21, 2018 10:09:36 PM</span>
 				</a>
 			</li>
 			<li>
@@ -158,7 +158,7 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>3</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>5</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
 					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -177,44 +177,58 @@
 				
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>Create Plan with Pricing</span>
-						<span class='test-time'>Aug 16, 2018 02:29:12 PM</span>
+						<span class='test-name'>Create New Plan with NDC List</span>
+						<span class='test-time'>Aug 21, 2018 10:09:37 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='scenariooutline node' test-id='2' status='pass'>
-	<span class='duration right label'>0h 0m 13s+374ms</span>
+	<span class='duration right label'>0h 0m 18s+554ms</span>
 	<div class='desc'>
 		<b>ScenarioOutline</b>
-		<span class="desc-text">Create a Plan with Pricing Setup in RxClaim</span>
+		<span class="desc-text">Create a new Plan with NDC List in RxClaim</span>
 	</div>
 	<ul class='steps'>
 		<li test-id='3' class='node scenario pass' status='pass'>
 			
 			<b>Scenario</b>
 			
-			<span class="bdd-step-name">Create a Plan with Pricing Setup in RxClaim</span>
+			<span class="bdd-step-name">Create a new Plan with NDC List in RxClaim</span>
 			
 				<ul class='steps'>
 					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
 						<span class="bdd-step-name">Given I am on RxClaim PlanAdministrator Menu</span>
 						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\16-Aug-2018\Screen_1534409954742.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\21-Aug-2018\Screen_1534869579130.jpg"><i class='material-icons'>panorama</i></a></li>
 						</ul>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='5' class='node when pass' status='pass'><b>When</b>
-						<span class="bdd-step-name">When I create plan with pricing "EVU30976P1","010101","EVU30976P1","123139","EVUAREG","EVUAREG"</span>
+						<span class="bdd-step-name">When I create plan with member eligibility and pricing option "AUTNDCGPIL","010110","AUTO PLAN FOR NDC GPI LST","123139","EVUAREG","EVUAREG"</span>
 						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\16-Aug-2018\Screen_1534409955304.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\16-Aug-2018\Screen_1534409965523.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\21-Aug-2018\Screen_1534869579536.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\21-Aug-2018\Screen_1534869589895.jpg"><i class='material-icons'>panorama</i></a></li>
 						</ul>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='6' class='node then pass' status='pass'><b>Then</b>
-						<span class="bdd-step-name">Then Validate plan code "EVU30976P1"</span>
+						<span class="bdd-step-name">Then Validate Plan "AUTNDCGPIL"</span>
 						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\16-Aug-2018\Screen_1534409965867.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\21-Aug-2018\Screen_1534869590146.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='7' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I add Plan With NDC List "PANL1","20","010118","123139"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\21-Aug-2018\Screen_1534869594733.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='8' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Validate NDC List is "PANL1"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\r1053\git\RxClaim_ATDD\output\Screenshots\21-Aug-2018\Screen_1534869594953.jpg"><i class='material-icons'>panorama</i></a></li>
 						</ul>
 							<div class='pre'>passed</div>
 					</li>
@@ -271,25 +285,25 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>3</div>
+					<div class='panel-lead'>5</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Aug 16, 2018 02:29:12 PM</div>
+					<div class='panel-lead'>Aug 21, 2018 10:09:36 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Aug 16, 2018 02:29:26 PM</div>
+			 		<div class='panel-lead'>Aug 21, 2018 10:09:57 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>14,294ms</div>
+					<div class='panel-lead'>20,380ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -348,7 +362,7 @@
 				infoChild: 0,
 				exceptionsChild: 0,
 				
-				passGrandChild: 3,
+				passGrandChild: 5,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
