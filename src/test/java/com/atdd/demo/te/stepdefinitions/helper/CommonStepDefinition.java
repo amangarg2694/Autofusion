@@ -1,5 +1,6 @@
 package com.atdd.demo.te.stepdefinitions.helper;
 
+import com.atdd.te.screenHelpers.CommonHelper;
 import com.atdd.te.screenHelpers.FunctionalLibrary;
 //import com.hp.lft.sdk.Desktop;
 //import com.hp.lft.sdk.java.Window;
@@ -12,7 +13,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class CommonStepDefinition {
+public class CommonStepDefinition extends CommonHelper{
 
 	
 	
@@ -26,6 +27,9 @@ public class CommonStepDefinition {
 	
 	@Given("^I am on RxClaim PlanAdministrator Menu$")
 	public void i_am_on_RxClaim_PlanAdministrator_Menu() throws Throwable {
+		
+	
+		
 		String text = FunctionalLibrary.getText(1, 13);
 				
 				while(!(text.equalsIgnoreCase("RxClaim Plan Administrator Menu"))){
@@ -34,6 +38,8 @@ public class CommonStepDefinition {
 					text = FunctionalLibrary.getText(1, 13);
 					
 				}
+		
+		
 	}	
 	
 	@When("^I press \"([^\"]*)\" Key$")
