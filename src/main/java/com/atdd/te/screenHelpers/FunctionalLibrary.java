@@ -1,19 +1,25 @@
 package com.atdd.te.screenHelpers;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.util.Calendar;
 import java.util.StringTokenizer;
 
 import org.testng.Assert;
 
 import com.cucumber.listener.Reporter;
+import com.hp.lft.report.ReportException;
 import com.hp.lft.sdk.GeneralLeanFtException;
+
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 import com.optumrx.autofusion.core.te.util.Screenshot;
 import com.optumrx.autofusion.core.util.ReadPropertyFile;
 
 public class FunctionalLibrary extends CommonHelper{
 
-	
+	public static String sPriorAuthNumber="";
 	public static void navigateToRxClaimPlanAdministrator() throws Exception  {
 		try{
 		String text = Mainframe_GlobalFunctionLib.getText(1, 13);				
@@ -47,6 +53,7 @@ public class FunctionalLibrary extends CommonHelper{
 				
 			}
 		}
+		
 		
 		
 	public static void createCAG(String carrierID,String carrierName,String processor,String mail,String city,String state,String zip,String contractFromDate,String contractThruDate, String contractEnt,String businessType,String accountID,String accountName ,String groupID,String groupName,String gFromDate,String gThruDate,String planCode) throws Throwable
@@ -364,6 +371,490 @@ public class FunctionalLibrary extends CommonHelper{
 				}
 	}
 	
+	//PA Member
+	public static void CreateMemberPA(String carrierID, String accountID, String groupID, String memberID, String firstName, String lastName, String dob, String fromDate, String thruDate) throws Throwable
+	{	
+		try {
+			navigateToRxClaimPlanAdministrator();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try{
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		if(!(func_SearchAndSelectADataEditMode("4,4" ,memberID ,"10,4" , memberID)))
+		{
+				Thread.sleep(1000);
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(4, 10, carrierID);
+				Mainframe_GlobalFunctionLib.sendText(5, 10, accountID);
+				Mainframe_GlobalFunctionLib.sendText(6, 10, groupID);
+				Mainframe_GlobalFunctionLib.sendText(7, 10, memberID);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(6 , 29 ,lastName);
+				Mainframe_GlobalFunctionLib.sendText(6, 57, firstName);
+				Mainframe_GlobalFunctionLib.sendText(7,40, dob);
+				Mainframe_GlobalFunctionLib.sendText(20, 2, fromDate);			
+				Mainframe_GlobalFunctionLib.sendText(20, 12, thruDate);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");				
+				Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+//				Mainframe_GlobalFunctionLib.pressKey("F12");
+//				Mainframe_GlobalFunctionLib.pressKey("F12");
+				System.out.println("Member is created");
+				Reporter.addStepLog("Member is created");
+			}
+		else{
+//			Mainframe_GlobalFunctionLib.pressKey("F12");
+			System.out.println("Member exists");
+			Reporter.addStepLog("Member exists");
+		}
+						
+		
+			if(ScreenshotOption.equalsIgnoreCase("Always")){
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				}
+				}catch(Exception e)
+				{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					Assert.fail("An error has occured while creating a member.Screenshot is captured");
+					e.printStackTrace();
+				}
+		
+		
+	}
+
+	public static void SetSupplementalIDbyType(String SupplementalIDFromDate,String SupplementalIDThruDate,String SupplementalIDType,String SupplementalID, String Text) throws Throwable
+	{
+	try{
+			Mainframe_GlobalFunctionLib.pressKey("F8");
+			Mainframe_GlobalFunctionLib.sendText(4, 20 ,"10");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(4, 20 ,"3" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F6");
+			Mainframe_GlobalFunctionLib.sendText(10, 12, SupplementalIDFromDate);
+			Mainframe_GlobalFunctionLib.sendText(10, 33, SupplementalIDThruDate);
+			Mainframe_GlobalFunctionLib.sendText(12, 19, SupplementalIDType);
+			Mainframe_GlobalFunctionLib.sendText(13, 19, SupplementalID);
+			
+			if(Text.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(15, 19, "    ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(15, 19, Text);
+			}
+			
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+		  	if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The Supplemental ID by Type is not set successfully.Screenshot is captured");
+			}
+	}
+	
+	public static void func_SetMedicare(String memberID,String PARTDfromdate,String PARTDthrudate,String contract, String pbp, String segment, String subsidylevel, String copaycategory, String PARTDeffectivedate, String enrollmentsource) throws Throwable
+	{
+		try {
+			navigateToRxClaimPlanAdministrator();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+	try{
+			Mainframe_GlobalFunctionLib.sendText(4, 4, memberID);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(10, 2 ,"2" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F8");
+			Mainframe_GlobalFunctionLib.sendText(4, 20 ,"17");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(4, 20 ,"4" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F6");
+			Mainframe_GlobalFunctionLib.sendText(10, 17, PARTDfromdate);
+			Mainframe_GlobalFunctionLib.sendText(10, 41, PARTDthrudate);
+			Mainframe_GlobalFunctionLib.sendText(12, 20, contract);
+			Mainframe_GlobalFunctionLib.sendText(13, 22, pbp);
+			if(segment.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(15, 22, "    ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(15, 22, segment);
+			}
+			
+			if(subsidylevel.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(16, 22, "    ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(16, 22, subsidylevel);
+			}
+			
+			if(copaycategory.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(18, 24, "    ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(18, 24, copaycategory);
+			}
+			if(PARTDeffectivedate.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(19, 17, "    ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(19, 17, PARTDeffectivedate);
+			}
+			if(enrollmentsource.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(21, 24, " ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(21, 24, enrollmentsource);
+			}
+			
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+		  	if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The Medicare is not set successfully.Screenshot is captured");
+			}
+	
+	}
+	public static void SetPBP(String carrierID,String contract,String pbp,String benefityear, String medicaretype) throws Throwable
+	{
+		try {
+			navigateToRxClaimPlanAdministrator();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try{
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"14" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"16" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			if(func_SearchAndEditContractAndPBP(contract,pbp))
+			{
+				Mainframe_GlobalFunctionLib.sendText(5, 16, carrierID);
+				Mainframe_GlobalFunctionLib.sendText(11, 16, medicaretype);
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+			}
+			else
+			{
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(5, 16, carrierID);
+				Mainframe_GlobalFunctionLib.sendText(7, 16, contract);
+				Mainframe_GlobalFunctionLib.sendText(8, 16, pbp);
+				Mainframe_GlobalFunctionLib.sendText(9, 16, benefityear);
+				Mainframe_GlobalFunctionLib.sendText(10, 16, medicaretype);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+			}
+			
+		  	if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The PBP is not set successfully.Screenshot is captured");
+			}
+	}
+	
+	public static void func_SetPartDMasterProfileDetail(String carrierID,String accountID,String groupID,String plancode,String fromdate,String masterprofilefromdate, String masterprofilethrudate, String drugcoveragestatusschedule, String contract, String pbp) throws Throwable
+	{
+		try {
+			navigateToRxClaimPlanAdministrator();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try{
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"14" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+
+			if(func_SearchAndEditPartDMasterProfile(carrierID,accountID,groupID,plancode))
+			{
+				Mainframe_GlobalFunctionLib.sendText(8, 13, "        ");
+				Mainframe_GlobalFunctionLib.sendText(8, 13, masterprofilefromdate);
+				Mainframe_GlobalFunctionLib.sendText(8, 41, "        ");
+				Mainframe_GlobalFunctionLib.sendText(8, 41, masterprofilethrudate);
+				Mainframe_GlobalFunctionLib.sendText(14, 34, drugcoveragestatusschedule);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+			}
+			else
+			{
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(4, 13, carrierID);
+				Mainframe_GlobalFunctionLib.sendText(5, 13, accountID);
+				Mainframe_GlobalFunctionLib.sendText(6, 13, groupID);
+				Mainframe_GlobalFunctionLib.click(7, 13 );
+				Mainframe_GlobalFunctionLib.pressKey("F4");
+				Mainframe_GlobalFunctionLib.sendText(4, 5, plancode);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(10, 2, "1");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(7, 13, plancode);
+				Mainframe_GlobalFunctionLib.sendText(7, 70, fromdate);
+				Mainframe_GlobalFunctionLib.sendText(8, 13, masterprofilefromdate);
+				Mainframe_GlobalFunctionLib.sendText(8, 41, masterprofilethrudate);
+				Mainframe_GlobalFunctionLib.sendText(14, 34, drugcoveragestatusschedule);
+				Mainframe_GlobalFunctionLib.click(9, 11 );
+				Mainframe_GlobalFunctionLib.pressKey("F4");
+				func_SearchAndSelectContractAndPBP(contract,pbp);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				
+			}
+			
+		  	if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The Part D Master Profile Detail is not set successfully.Screenshot is captured");
+			}
+	}
+	public static void SetPatientPaySchedule(String PPdetailschedule,String PPdetaildescription,String planusequalifier) throws Throwable
+	{
+	try {
+		navigateToRxClaimPlanAdministrator();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	try{
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"5" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			
+			if(!(func_SearchAndSelectADataEditMode("4,6" ,PPdetailschedule ,"10,6" , PPdetailschedule)))
+			{
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(5, 12, PPdetailschedule);
+				Mainframe_GlobalFunctionLib.sendText(5, 25, PPdetaildescription);
+				if(planusequalifier.length()==0) {  
+					Mainframe_GlobalFunctionLib.sendText(7, 21, "    ");  
+				}
+				else{
+					Mainframe_GlobalFunctionLib.sendText(7, 21, planusequalifier);
+				}
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+			}
+			else
+			{
+				Mainframe_GlobalFunctionLib.pressKey("F12");	
+			}
+	
+		  	if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The Patient Pay Schedule is not set successfully.Screenshot is captured");
+			}
+	}
+	
+	public static void Createplanwithmembereligibilityandpricingoption(String plancode,String fromdate,String description,String thruDate, String pricechedule, String patientpayschedule) throws Throwable
+	{
+	try {
+		navigateToRxClaimPlanAdministrator();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	try{
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			if(!(func_SearchAndSelectADataEditMode("4,5" ,plancode ,"11,6" , plancode)))
+			{
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(13, 19 ,plancode);
+				Mainframe_GlobalFunctionLib.sendText(14, 19, fromdate);
+				Mainframe_GlobalFunctionLib.sendText(15, 19 ,description);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+				Mainframe_GlobalFunctionLib.sendText(7, 24 ,"Y");
+				Mainframe_GlobalFunctionLib.sendText(13, 77 ,"Y");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+				Mainframe_GlobalFunctionLib.pressKey("F7");
+				Mainframe_GlobalFunctionLib.sendText(7, 21 ,"28" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(21, 12 ,"1" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(8, 12, fromdate);
+				Mainframe_GlobalFunctionLib.sendText(8, 36, thruDate);
+				Mainframe_GlobalFunctionLib.sendText(10, 26 ,pricechedule);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.sendText(21, 12 ,"3" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(9, 2, fromdate);
+				Mainframe_GlobalFunctionLib.sendText(9, 12, thruDate);
+				Mainframe_GlobalFunctionLib.sendText(9, 22 ,patientpayschedule);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");				
+			}
+			
+			else
+			{
+				Mainframe_GlobalFunctionLib.sendText(7, 24 ,"Y");
+				Mainframe_GlobalFunctionLib.sendText(13, 77 ,"Y");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+				Mainframe_GlobalFunctionLib.pressKey("F7");
+				Mainframe_GlobalFunctionLib.sendText(7, 21 ,"28" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(21, 12 ,"1" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(8, 12, fromdate);
+				Mainframe_GlobalFunctionLib.sendText(8, 36, thruDate);
+				Mainframe_GlobalFunctionLib.sendText(10, 26 ,pricechedule);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.sendText(21, 12 ,"3" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(9, 2, fromdate);
+				Mainframe_GlobalFunctionLib.sendText(9, 12, thruDate);
+				Mainframe_GlobalFunctionLib.sendText(9, 22 ,patientpayschedule);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				
+			}
+	
+		  	if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The Plan edit 2 Member Eligibility and 28 Pricing are not set successfully.Screenshot is captured");
+			}
+	}
+	
+	public static void Createplanwithpricing(String plancode,String fromdate,String description,String thruDate, String pricechedule, String patientpayschedule) throws Throwable
+	{
+	try {
+		navigateToRxClaimPlanAdministrator();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	try{
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			if(!(func_SearchAndSelectADataEditMode("4,5" ,plancode ,"11,6" , plancode)))
+			{
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(13, 19 ,plancode);
+				Mainframe_GlobalFunctionLib.sendText(14, 19, fromdate);
+				Mainframe_GlobalFunctionLib.sendText(15, 19 ,description);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+				Mainframe_GlobalFunctionLib.sendText(7, 24 ,"Y");
+				Mainframe_GlobalFunctionLib.sendText(13, 77 ,"Y");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+				Mainframe_GlobalFunctionLib.pressKey("F7");
+				Mainframe_GlobalFunctionLib.sendText(7, 21 ,"28" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(21, 12 ,"1" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(8, 12, fromdate);
+				Mainframe_GlobalFunctionLib.sendText(8, 36, thruDate);
+				Mainframe_GlobalFunctionLib.sendText(10, 26 ,pricechedule);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				FunctionalLibrary.validateText("12" ,"27" , pricechedule );
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.sendText(21, 12 ,"3" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(9, 2, fromdate);
+				Mainframe_GlobalFunctionLib.sendText(9, 12, thruDate);
+				Mainframe_GlobalFunctionLib.sendText(9, 22 ,patientpayschedule);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+				FunctionalLibrary.validateText("11" ,"23" , patientpayschedule );
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");				
+			}
+			
+			else
+			{
+				Mainframe_GlobalFunctionLib.sendText(7, 24 ,"Y");
+				Mainframe_GlobalFunctionLib.sendText(13, 77 ,"Y");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+				Mainframe_GlobalFunctionLib.pressKey("F7");
+				Mainframe_GlobalFunctionLib.sendText(7, 21 ,"28" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(21, 12 ,"1" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(8, 12, fromdate);
+				Mainframe_GlobalFunctionLib.sendText(8, 36, thruDate);
+				Mainframe_GlobalFunctionLib.sendText(10, 26 ,pricechedule);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.sendText(21, 12 ,"3" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(9, 2, fromdate);
+				Mainframe_GlobalFunctionLib.sendText(9, 12, thruDate);
+				Mainframe_GlobalFunctionLib.sendText(9, 22 ,patientpayschedule);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				
+			}
+	
+		  	if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The Plan edit 2 Member Eligibility and 28 Pricing are not set successfully.Screenshot is captured");
+			}
+	}
 	public static void SetupPlanEdit10(String plancode,String ndclist,String ndcfromdate,String ndcstatus) throws Throwable
 	{
 	try {
@@ -396,7 +887,7 @@ public class FunctionalLibrary extends CommonHelper{
 			}
 			}catch(Exception e)
 			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				Assert.fail("The CAG is not created successfully.Screenshot is captured");
+				Assert.fail("The Plan edit 10 is not set successfully.Screenshot is captured");
 			}
 	}
 	
@@ -430,6 +921,116 @@ public class FunctionalLibrary extends CommonHelper{
 				Assert.fail("The CAG is not created successfully.Screenshot is captured");
 			}
 	}
+	
+	public static void addAccumulators(String TrOOPfromdate,String TrOOPthrudate,String accumulationlevel,String accumulationcode, String TrOOPschedule,String CMSlabelerlist) throws Throwable
+	{
+	try{
+			
+			Mainframe_GlobalFunctionLib.sendText(14, 77 ,"Y");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.sendText(7, 21 ,"29" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(15, 12 ,"6" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F6");
+			Mainframe_GlobalFunctionLib.sendText(8, 13, TrOOPfromdate);
+			Mainframe_GlobalFunctionLib.sendText(8, 41, TrOOPthrudate);
+			Mainframe_GlobalFunctionLib.sendText(10, 28, accumulationlevel);
+			/*System.out.println("size of Accumulation Code"+accumulationcode.length());
+			if(accumulationcode.length()>0) {  
+				Mainframe_GlobalFunctionLib.sendText(12, 28, accumulationcode);  
+			} */ 
+			if(accumulationcode.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(12, 28, "    ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(12, 28, accumulationcode);
+			}
+			Mainframe_GlobalFunctionLib.sendText(14, 28, TrOOPschedule);
+			Mainframe_GlobalFunctionLib.sendText(16, 28, CMSlabelerlist);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			
+		  	if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The Plan edit 29 is not set successfully.Screenshot is captured");
+			}
+	}
+	
+	public static void SetCoveredPlanPaidAmount(String CPPFromDate,String CPPThruDate,String CPPAccumulationLevel,String CPPAccumulationCode, String CPPPatientPaySchedule,String CPPTrOOPSchedule, String Qualifier) throws Throwable
+	{
+	try{
+			Mainframe_GlobalFunctionLib.pressKey("F19");
+			Mainframe_GlobalFunctionLib.sendText(13, 34 ,"Y");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.sendText(8, 21 ,"6");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F6");
+			Mainframe_GlobalFunctionLib.sendText(7, 13, CPPFromDate);
+			Mainframe_GlobalFunctionLib.sendText(7, 40, CPPThruDate);
+			Mainframe_GlobalFunctionLib.sendText(8, 23, CPPAccumulationLevel);
+			if(CPPAccumulationCode.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(10, 23, "    ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(10, 23, CPPAccumulationCode);
+			}
+			Mainframe_GlobalFunctionLib.sendText(12, 23, CPPPatientPaySchedule);
+			Mainframe_GlobalFunctionLib.sendText(13, 23, CPPTrOOPSchedule);
+			Mainframe_GlobalFunctionLib.sendText(15, 23, Qualifier);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+		  	if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The Set Covered Plan Paid Amount is not set successfully.Screenshot is captured");
+			}
+	}
+	public static void func_CreatePlanWithRefill(String plancode,String maxrefill,String period,String effectivedate) throws Throwable
+	{
+	try {
+		navigateToRxClaimPlanAdministrator();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	try{
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			func_SearchAndSelectADataEditMode("4,5" ,plancode ,"11,6" , plancode);
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.sendText(7, 21 ,"15" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(7, 22, maxrefill);
+			Mainframe_GlobalFunctionLib.sendText(8, 22, period);
+			Mainframe_GlobalFunctionLib.sendText(9, 22 ,"          ");
+			Mainframe_GlobalFunctionLib.sendText(9, 22, effectivedate);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+	
+		  	if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The Max Refill is not created successfully.Screenshot is captured");
+			}
+	}
 	public static void CreateTransaction(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productId, String dspQty, String ds, String psc, String cost) throws Throwable
 	{	
 		try {
@@ -452,7 +1053,7 @@ public class FunctionalLibrary extends CommonHelper{
 				///Thread.sleep(3000);
 				Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
 				Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate);
-				Mainframe_GlobalFunctionLib.sendText(5,29, rxNbr);
+				Mainframe_GlobalFunctionLib.sendText(5,29, func_GenerateDynamicRxNo());
 				Mainframe_GlobalFunctionLib.sendText(5, 47, refill);			
 				Mainframe_GlobalFunctionLib.click(7, 12 );
 				Mainframe_GlobalFunctionLib.sendText(7, 12, memberID);
@@ -477,7 +1078,7 @@ public class FunctionalLibrary extends CommonHelper{
 			Mainframe_GlobalFunctionLib.sendText(11, 41,proc );
 			Mainframe_GlobalFunctionLib.sendText(11, 59,group );
 			Mainframe_GlobalFunctionLib.sendText(12, 14,pharmacyID );
-			Mainframe_GlobalFunctionLib.sendText(12, 41,rxNbr );
+			Mainframe_GlobalFunctionLib.sendText(12, 41,func_GenerateDynamicRxNo());
 			Mainframe_GlobalFunctionLib.sendText(12, 59,refill );
 			Mainframe_GlobalFunctionLib.sendText(14, 41,memberID );
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -530,7 +1131,7 @@ public class FunctionalLibrary extends CommonHelper{
 				///Thread.sleep(3000);
 				Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
 				Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate);
-				Mainframe_GlobalFunctionLib.sendText(5,29, rxNbr);
+				Mainframe_GlobalFunctionLib.sendText(5,29, func_GenerateDynamicRxNo());
 				Mainframe_GlobalFunctionLib.sendText(5, 47, refill);			
 				Mainframe_GlobalFunctionLib.click(7, 12 );
 				Mainframe_GlobalFunctionLib.sendText(7, 12, memberID);
@@ -558,7 +1159,7 @@ public class FunctionalLibrary extends CommonHelper{
 			Mainframe_GlobalFunctionLib.sendText(11, 41,proc );
 			Mainframe_GlobalFunctionLib.sendText(11, 59,group );
 			Mainframe_GlobalFunctionLib.sendText(12, 14,pharmacyID );
-			Mainframe_GlobalFunctionLib.sendText(12, 41,rxNbr );
+			Mainframe_GlobalFunctionLib.sendText(12, 41,func_GenerateDynamicRxNo());
 			Mainframe_GlobalFunctionLib.sendText(12, 59,refill );
 			Mainframe_GlobalFunctionLib.sendText(14, 41,memberID );
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -612,7 +1213,7 @@ public class FunctionalLibrary extends CommonHelper{
 					Thread.sleep(1000);
 					Mainframe_GlobalFunctionLib.click(4, 29 );
 					Mainframe_GlobalFunctionLib.sendText(4, 29, pharmacyID);
-					Mainframe_GlobalFunctionLib.sendText(5,29, rxNbr);
+					Mainframe_GlobalFunctionLib.sendText(5,29, func_GenerateDynamicRxNo());
 					Mainframe_GlobalFunctionLib.sendText(5, 47, refill);	
 			}
 			else
@@ -623,7 +1224,7 @@ public class FunctionalLibrary extends CommonHelper{
 				Mainframe_GlobalFunctionLib.sendText(11, 41,proc );
 				Mainframe_GlobalFunctionLib.sendText(11, 59,group );
 				Mainframe_GlobalFunctionLib.sendText(12, 14,pharmacyID );
-				Mainframe_GlobalFunctionLib.sendText(12, 41,rxNbr );
+				Mainframe_GlobalFunctionLib.sendText(12, 41,func_GenerateDynamicRxNo());
 				Mainframe_GlobalFunctionLib.sendText(12, 59,refill );
 				Mainframe_GlobalFunctionLib.sendText(14, 41,memberID );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -632,7 +1233,7 @@ public class FunctionalLibrary extends CommonHelper{
 			
 					Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
 					Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate);
-					//Mainframe_GlobalFunctionLib.sendText(5,29, rxNbr);
+					//Mainframe_GlobalFunctionLib.sendText(5,29, func_GenerateDynamicRxNo());
 					//Mainframe_GlobalFunctionLib.sendText(5, 47, refill);			
 					Mainframe_GlobalFunctionLib.click(7, 12 );
 					Mainframe_GlobalFunctionLib.sendText(7, 12, memberID);
@@ -699,7 +1300,7 @@ public class FunctionalLibrary extends CommonHelper{
 							Thread.sleep(1000);
 							Mainframe_GlobalFunctionLib.click(4, 29 );
 							Mainframe_GlobalFunctionLib.sendText(4, 29, pharmacyID);
-							Mainframe_GlobalFunctionLib.sendText(5,29, rxNbr);
+							Mainframe_GlobalFunctionLib.sendText(5,29, func_GenerateDynamicRxNo());
 							Mainframe_GlobalFunctionLib.sendText(5, 47, refill);	
 					}
 					else
@@ -709,7 +1310,7 @@ public class FunctionalLibrary extends CommonHelper{
 						Mainframe_GlobalFunctionLib.sendText(11, 41,proc );
 						Mainframe_GlobalFunctionLib.sendText(11, 59,group );
 						Mainframe_GlobalFunctionLib.sendText(12, 14,pharmacyID );
-						Mainframe_GlobalFunctionLib.sendText(12, 41,rxNbr );
+						Mainframe_GlobalFunctionLib.sendText(12, 41,func_GenerateDynamicRxNo());
 						Mainframe_GlobalFunctionLib.sendText(12, 59,refill );
 						Mainframe_GlobalFunctionLib.sendText(14, 41,memberID );
 						Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -784,6 +1385,7 @@ public class FunctionalLibrary extends CommonHelper{
 				
 			}
 	}
+	
 	
 	public static void submitClaimF18() throws GeneralLeanFtException, InterruptedException, IOException{
 		try{
@@ -874,6 +1476,106 @@ public class FunctionalLibrary extends CommonHelper{
 	 return bRes;
 	}
 	
+	public static boolean func_SearchAndEditContractAndPBP(String contract, String pbp) throws IOException
+	{
+
+		boolean bRes=false;
+		try{
+		
+		/*StringTokenizer stData=new StringTokenizer(RowColOfData,",");
+		StringTokenizer stDataSearch=new StringTokenizer(StartRowColToSearch,",");*/
+//		int row=Integer.valueOf(stDataSearch.nextToken());
+//		String col=stDataSearch.nextToken();
+		
+		
+//			Mainframe_GlobalFunctionLib.sendText(stData.nextToken(),stData.nextToken(), Data);
+			Mainframe_GlobalFunctionLib.sendText(4, 5, contract);
+			Mainframe_GlobalFunctionLib.sendText(4, 16, pbp);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+//	 System.out.println("check the row value"+row);
+		
+			if(Mainframe_GlobalFunctionLib.getText(10,5).trim().toLowerCase().contentEquals(contract.trim().toLowerCase())&&Mainframe_GlobalFunctionLib.getText(10,15).trim().toLowerCase().contentEquals(pbp.trim().toLowerCase()))
+		{
+		
+		bRes=true;
+		Mainframe_GlobalFunctionLib.sendText(10, 2, "2");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Thread.sleep(2000);
+		}
+		}
+		catch(Exception e){
+			
+			return bRes;
+			
+		}
+		
+		
+		 return bRes;
+		
+	}
+	
+	public static boolean func_SearchAndSelectContractAndPBP(String contract, String pbp) throws IOException
+	{
+
+		boolean bResult= false;
+		try{
+		Mainframe_GlobalFunctionLib.sendText(4, 5, contract);
+		Mainframe_GlobalFunctionLib.sendText(4, 16, pbp);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+		Loop:	for (int i = 10; i <=11; i++) {
+
+			if(Mainframe_GlobalFunctionLib.getText(i, 5).trim().toLowerCase().contains(contract.toLowerCase())&&Mainframe_GlobalFunctionLib.getText(i, 16).trim().toLowerCase().contains(pbp.toLowerCase()))
+			{
+
+				bResult= true;
+				Mainframe_GlobalFunctionLib.sendText(i, 2, "1");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				break Loop;
+			}
+			i=i+3;
+		}
+		}
+		catch(Exception e){
+			
+			return bResult;
+			
+		}
+		return bResult;
+	}
+	
+	public static boolean func_SearchAndEditPartDMasterProfile(String carrierID, String accountID, String groupID, String plancode) throws IOException
+	{
+
+		boolean bResult= false;
+		try{
+		Mainframe_GlobalFunctionLib.sendText(4, 5, carrierID);
+		Mainframe_GlobalFunctionLib.sendText(4, 16, accountID);
+		Mainframe_GlobalFunctionLib.sendText(4, 33, groupID);
+		Mainframe_GlobalFunctionLib.sendText(4, 50, plancode);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+		Loop:	for (int i = 9; i <=10; i++) {
+
+			if(Mainframe_GlobalFunctionLib.getText(i, 5).trim().toLowerCase().contains(carrierID.toLowerCase())&&Mainframe_GlobalFunctionLib.getText(i, 16).trim().toLowerCase().contains(accountID.toLowerCase())&&Mainframe_GlobalFunctionLib.getText(i, 33).trim().toLowerCase().contains(groupID.toLowerCase())&&Mainframe_GlobalFunctionLib.getText(i, 50).trim().toLowerCase().contains(plancode.toLowerCase()))
+			{
+
+				bResult= true;
+				Mainframe_GlobalFunctionLib.sendText(i, 2, "2");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				break Loop;
+			}
+			i=i+1;
+		}
+		}
+		catch(Exception e){
+			
+			return bResult;
+			
+		}
+		return bResult;
+	}
 	public static boolean func_SearchForMemberID(String RowColOfData,String Data,String StartRowColToSearch,String DataSearch) throws IOException
 	{
 	boolean bRes=false;
@@ -961,6 +1663,25 @@ public class FunctionalLibrary extends CommonHelper{
 			
 		}
 
+		public static boolean msgvalidation(String row , String col , String text) throws IOException{
+			try{
+				boolean bRes= false;
+					Mainframe_GlobalFunctionLib.validateText(row ,col , text );	
+				if(ScreenshotOption.equalsIgnoreCase("Always")){
+					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					//if( b == false)
+						//Assert.fail("The text "+ text +" does not match on the screen.Screenshot captured.");
+					
+					}
+					}catch(Exception e){
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Assert.fail("The text "+ text +" does not match on the screen.Screenshot captured.");
+						
+					}
+			return true;
+		
+			
+		}
 		public static String getText(int row , int col) throws IOException{
 			String text = null;
 			try{
@@ -1024,7 +1745,169 @@ public class FunctionalLibrary extends CommonHelper{
 			
 		}
 		
+		//Dynamic RxNumber
+		public static String func_GenerateDynamicRxNo()throws Throwable
+		{
+
+			long seconds = 1299671538L;
+			Calendar currentDate = java.util.Calendar.getInstance();
+			SimpleDateFormat formatter = new SimpleDateFormat("hmmss", Locale.getDefault());
+			String dateString = formatter.format(currentDate.getTime());
+			return (func_GetJulianDateFromCurrentDate()+dateString);
+
+		}
+		public static String func_GetJulianDateFromCurrentDate() throws Throwable
+		{
+
+			int M=Integer.valueOf(func_GetCurrentMonth());
+			int Y=Integer.valueOf(func_GetCurrentYear());
+			int D=Integer.valueOf(func_GetCurrentDay());
+
+			int M1 = (M-14)/12;
+			int Y1 = Y + 4800 ;
+
+			//Then the Julian date J is
+
+			int J = 1451*(Y1+M1)/4 + 367*(M-2-12*M1)/12 - (3*((Y1+M1+100)/100))/4
+			+ D - 32075  ;
+			return Integer.toString(J);
+
+		}
 		
+		public static String func_GetCurrentMonth( )throws Throwable
+		{
+			try
+			{
+
+
+				Calendar calendar = Calendar.getInstance();
+
+				return(String.format("%02d",calendar.get(Calendar.MONTH)+1));
+
+			}
+			catch(Throwable e)
+			{
+//				logInfo("<font size=2 face=Tahoma Color=Red>File Name:SAPDate,Error at Line Number: " + Thread.currentThread().getStackTrace()[2].getLineNumber()+"</font>");
+				throw e;
+			}
+		}
+		public static String func_GetCurrentDay( )throws Throwable
+		{
+			try
+			{
+
+
+				Calendar calendar = Calendar.getInstance();
+
+				return(String.format("%02d",calendar.get(Calendar.DATE)));
+
+			}
+			catch(Throwable e)
+			{
+//				logInfo("<font size=2 face=Tahoma Color=Red>File Name:SAPDate,Error at Line Number: " + Thread.currentThread().getStackTrace()[2].getLineNumber()+"</font>");
+				throw e;
+			}
+		}
+
+		public static String func_GetCurrentYear( )throws Throwable
+		{
+			try
+
+			{
+				Calendar calendar = Calendar.getInstance();
+				int iSAPDate=calendar.get(Calendar.YEAR);
+				return (Integer.toString(iSAPDate));
+			}
+			catch(Throwable e)
+			{
+//				logInfo("<font size=2 face=Tahoma Color=Red>File Name:SAPDate,Error at Line Number: " + Thread.currentThread().getStackTrace()[2].getLineNumber()+"</font>");
+				throw e;
+			}
+		}
+		//Member PA Creation
+		public static void func_SetPriorAuth(String number, String type, String ndcgpilist, String from, String thru, String agent, String reason, String ignoredrugstatus) throws Throwable
+		{
+
+			String sValue=number;
+			Mainframe_GlobalFunctionLib.pressKey("F8");
+			Mainframe_GlobalFunctionLib.sendText(4, 20 ,"9" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F6");
+			
+			if(!(func_ValidateAnyPAAttached(number)))
+			{
+
+				try{
+					Mainframe_GlobalFunctionLib.sendText(9, 5 ,sValue);
+				}
+				catch (Exception e) {
+					Mainframe_GlobalFunctionLib.pressKey("F6");
+					Mainframe_GlobalFunctionLib.sendText(9, 5 ,sValue);
+				}
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(16, 5,"           " );
+				Mainframe_GlobalFunctionLib.sendText(16, 5 ,sValue);
+				Mainframe_GlobalFunctionLib.sendText(16, 23,"*");
+				Mainframe_GlobalFunctionLib.sendText(16, 18, type);
+				Mainframe_GlobalFunctionLib.sendText(16, 26, ndcgpilist);
+				Mainframe_GlobalFunctionLib.sendText(16, 42,"        " );
+				Mainframe_GlobalFunctionLib.sendText(16, 42, from);
+				Mainframe_GlobalFunctionLib.sendText(16, 51,"        " );
+				Mainframe_GlobalFunctionLib.sendText(16, 51, thru);
+				Mainframe_GlobalFunctionLib.sendText(16, 61, agent);
+				Mainframe_GlobalFunctionLib.sendText(16, 66, reason);
+				Mainframe_GlobalFunctionLib.sendText(16, 71, ignoredrugstatus);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+							
+				/*while(msgvalidation("24","2","Member Prior Authorization number already exists"))
+				{
+					sValue=Integer.toString(Integer.valueOf(sValue)+1);
+					Mainframe_GlobalFunctionLib.sendText(16, 5 ,sValue);
+					Mainframe_GlobalFunctionLib.pressKey("Enter");
+				}
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");*/
+				sPriorAuthNumber=sValue;
+
+			}
+			sPriorAuthNumber=sValue;
+		}
+		
+		public static boolean func_ValidateAnyPAAttached(String Number)throws Throwable
+		{
+		boolean bRes= false;
+		try
+		{
+			Mainframe_GlobalFunctionLib.sendText(9, 5 ,Number);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+		}
+		catch (Exception e) {
+			Mainframe_GlobalFunctionLib.pressKey("F6");
+			Mainframe_GlobalFunctionLib.sendText(9, 5 ,Number);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+		}
+
+		Loop:for(int i=16; i<=20;i++)
+		{
+			try
+			{
+				Mainframe_GlobalFunctionLib.getText(1, 13);
+				if (Mainframe_GlobalFunctionLib.getText(16, 5).trim().contentEquals(Number)) {
+
+					bRes= true;
+					break Loop;
+				}
+				i=i+1;
+			}
+			catch (Exception e) {
+				break Loop;
+			}
+		}
+		return bRes;
+
+		}
 	public static void main(String args[]) throws Throwable{
 		
 		FunctionalLibrary fb = new FunctionalLibrary();
