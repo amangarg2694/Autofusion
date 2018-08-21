@@ -25,12 +25,8 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
 
-<<<<<<< HEAD
 		features = { "classpath:features/RxClaim/featureFiles/CreatePlanWithNDCList.feature" },
 
-=======
-features = { "classpath:features/RxClaim/featureFiles/createCarrier.feature" },
->>>>>>> 656ac65c041d483b46117aee42e88a78594902e4
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 
