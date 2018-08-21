@@ -219,7 +219,12 @@ public class CommonStepDefinition extends CommonHelper{
 	    // Write code here that turns the phrase above into concrete actions
 		FunctionalLibrary.Createplanwithmembereligibilityandpricingoption(plancode, fromdate, description, thruDate, pricechedule, patientpayschedule);
 	}
-
+	
+	@Then("^Validate Plan \"([^\"]*)\"$")
+	public void validate_Plan(String plancode) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.validateText("3" ,"13" , plancode );
+	}
 	@When("^I add accumulators to plan \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_add_accumulators_to_plan(String TrOOPfromdate, String TrOOPthrudate, String accumulationlevel, String accumulationcode, String TrOOPschedule, String CMSlabelerlist) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -286,6 +291,39 @@ public class CommonStepDefinition extends CommonHelper{
 	public void validate_plan_code(String plancode) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		FunctionalLibrary.validateText("3" ,"13" , plancode);
+	}
+	
+	@When("^I Setup Plan with NDC List \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_Setup_Plan_with_NDC_List(String plancode, String ndclist, String ndcsq, String ndcfromdate, String ndcthrudate) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    FunctionalLibrary.PlanWithNDCList(plancode, ndclist, ndcsq, ndcfromdate, ndcthrudate);
+	}
+
+	@When("^I add Plan With NDC List \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void I_add_Plan_With_NDC_List(String ndclist, String ndcsq, String ndcfromdate, String ndcthrudate) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.CreatePlanWithNDCList(ndclist, ndcsq, ndcfromdate, ndcthrudate);
+	}
+	@Then("^Validate NDC List is \"([^\"]*)\"$")
+	public void validate_NDC_List_is(String ndclist) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.validateText("11" ,"8" , ndclist);
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+	}
+
+	@When("^I Setup Plan with GPI List \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_Setup_Plan_with_GPI_List(String plancode, String gpilist, String gpisq, String gpifromdate, String gpithrudate) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.PlanWithGPIList(plancode, gpilist, gpisq, gpifromdate, gpithrudate);
+	}
+
+	@Then("^Validate GPI List is \"([^\"]*)\"$")
+	public void validate_GPI_List_is(String gpilist) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.validateText("11" ,"8" , gpilist);
 	}
 
 }

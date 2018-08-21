@@ -765,6 +765,19 @@ public class FunctionalLibrary extends CommonHelper{
 			}
 	}
 	
+	public static void func_setMemberEligibility() throws ClassNotFoundException, GeneralLeanFtException, SQLException, ReportException, InterruptedException
+	{
+		Mainframe_GlobalFunctionLib.sendText(7, 24 ,"Y");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");	
+	}
+	
+	public static void func_setPricing() throws ClassNotFoundException, GeneralLeanFtException, SQLException, ReportException, InterruptedException
+	{
+		Mainframe_GlobalFunctionLib.sendText(13, 77 ,"Y");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+	}
 	public static void Createplanwithpricing(String plancode,String fromdate,String description,String thruDate, String pricechedule, String patientpayschedule) throws Throwable
 	{
 	try {
@@ -891,6 +904,155 @@ public class FunctionalLibrary extends CommonHelper{
 			}
 	}
 	
+	public static void PlanWithNDCList(String plancode,String ndclist,String ndcsq, String ndcfromdate,String ndcthrudate) throws Throwable
+	{
+	try {
+		navigateToRxClaimPlanAdministrator();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	try{
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			func_SearchAndSelectADataEditMode("4,5" ,plancode ,"11,6" , plancode);
+			Mainframe_GlobalFunctionLib.sendText(15, 24 ,"Y" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y" );
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.sendText(7, 21 ,"10" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			if(func_SearchAndEditPlanNDCGPIList(ndclist))
+			{
+				Mainframe_GlobalFunctionLib.sendText(13, 17 ,"   ");
+				Mainframe_GlobalFunctionLib.sendText(13, 17, ndcsq);
+				Mainframe_GlobalFunctionLib.sendText(14, 17 ,"        ");
+				Mainframe_GlobalFunctionLib.sendText(14, 17, ndcfromdate);
+				Mainframe_GlobalFunctionLib.sendText(14, 41 ,"        ");
+				Mainframe_GlobalFunctionLib.sendText(14, 41, ndcthrudate);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y" );
+			}
+			else
+			{
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				func_SearchAndSelectMode("4, 5" ,ndclist ,"9,5" , ndclist);
+				Mainframe_GlobalFunctionLib.sendText(13, 17 ,"   ");
+				Mainframe_GlobalFunctionLib.sendText(13, 17, ndcsq);
+				Mainframe_GlobalFunctionLib.sendText(14, 17 ,"        ");
+				Mainframe_GlobalFunctionLib.sendText(14, 17, ndcfromdate);
+				Mainframe_GlobalFunctionLib.sendText(14, 41 ,"        ");
+				Mainframe_GlobalFunctionLib.sendText(14, 41, ndcthrudate);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y" );
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+			}	
+		  	if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The Plan with NDC List is not set successfully.Screenshot is captured");
+			}
+	}
+	
+	public static void CreatePlanWithNDCList(String ndclist,String ndcsq, String ndcfromdate,String ndcthrudate) throws Throwable
+	{
+	
+	try{
+			Mainframe_GlobalFunctionLib.sendText(15, 24 ,"Y" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y" );
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.sendText(7, 21 ,"10" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			if(func_SearchAndEditPlanNDCGPIList(ndclist))
+			{
+				Mainframe_GlobalFunctionLib.sendText(13, 17 ,"   ");
+				Mainframe_GlobalFunctionLib.sendText(13, 17, ndcsq);
+				Mainframe_GlobalFunctionLib.sendText(14, 17 ,"        ");
+				Mainframe_GlobalFunctionLib.sendText(14, 17, ndcfromdate);
+				Mainframe_GlobalFunctionLib.sendText(14, 41 ,"        ");
+				Mainframe_GlobalFunctionLib.sendText(14, 41, ndcthrudate);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y" );
+			}
+			else
+			{
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				func_SearchAndSelectMode("4, 5" ,ndclist ,"9,5" , ndclist);
+				Mainframe_GlobalFunctionLib.sendText(13, 17 ,"   ");
+				Mainframe_GlobalFunctionLib.sendText(13, 17, ndcsq);
+				Mainframe_GlobalFunctionLib.sendText(14, 17 ,"        ");
+				Mainframe_GlobalFunctionLib.sendText(14, 17, ndcfromdate);
+				Mainframe_GlobalFunctionLib.sendText(14, 41 ,"        ");
+				Mainframe_GlobalFunctionLib.sendText(14, 41, ndcthrudate);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y" );
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+			}	
+		  	if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The Add Plan with NDC List is not set successfully.Screenshot is captured");
+			}
+	}
+	
+	public static void PlanWithGPIList(String plancode,String gpilist,String gpisq, String gpifromdate,String gpithrudate) throws Throwable
+	{
+	try {
+		navigateToRxClaimPlanAdministrator();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	try{
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			func_SearchAndSelectADataEditMode("4,5" ,plancode ,"11,6" , plancode);
+			Mainframe_GlobalFunctionLib.sendText(6, 51 ,"Y" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y" );
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.sendText(7, 21 ,"11" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			if(func_SearchAndEditPlanNDCGPIList(gpilist))
+			{
+				Mainframe_GlobalFunctionLib.sendText(13, 17 ,"   ");
+				Mainframe_GlobalFunctionLib.sendText(13, 17, gpisq);
+				Mainframe_GlobalFunctionLib.sendText(14, 17 ,"        ");
+				Mainframe_GlobalFunctionLib.sendText(14, 17, gpifromdate);
+				Mainframe_GlobalFunctionLib.sendText(14, 41 ,"        ");
+				Mainframe_GlobalFunctionLib.sendText(14, 41, gpithrudate);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y" );
+			}
+			else
+			{
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				func_SearchAndSelectMode("4, 5" ,gpilist ,"9,5" , gpilist);
+				Mainframe_GlobalFunctionLib.sendText(13, 17 ,"   ");
+				Mainframe_GlobalFunctionLib.sendText(13, 17, gpisq);
+				Mainframe_GlobalFunctionLib.sendText(14, 17 ,"        ");
+				Mainframe_GlobalFunctionLib.sendText(14, 17, gpifromdate);
+				Mainframe_GlobalFunctionLib.sendText(14, 41 ,"        ");
+				Mainframe_GlobalFunctionLib.sendText(14, 41, gpithrudate);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y" );
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+			}	
+		  	if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The Plan with NDC List is not set successfully.Screenshot is captured");
+			}
+	}
 	public static void SetupPlanEdit15(String plancode,String maxrefill,String period,String effectivedate) throws Throwable
 	{
 	try {
@@ -1476,6 +1638,69 @@ public class FunctionalLibrary extends CommonHelper{
 	 return bRes;
 	}
 	
+	public static boolean func_SearchAndEditPlanNDCGPIList(String ndcgpilist) throws IOException
+	{
+
+		boolean bResult= false;
+		try{
+		Mainframe_GlobalFunctionLib.sendText(7, 8, ndcgpilist);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+		Loop:	for (int i = 11; i <=12; i++) {
+
+			if(Mainframe_GlobalFunctionLib.getText(i, 8).trim().toLowerCase().contains(ndcgpilist.toLowerCase()))
+			{
+
+				bResult= true;
+				Mainframe_GlobalFunctionLib.sendText(i, 2, "2");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				break Loop;
+			}
+			i=i+1;
+		}
+		}
+		catch(Exception e){
+			
+			return bResult;
+			
+		}
+		return bResult;
+	}
+	public static boolean func_SearchAndSelectMode(String RowColOfData,String Data,String StartRowColToSearch,String DataSearch) throws IOException
+	{
+	boolean bRes=false;
+	try{
+	
+	StringTokenizer stData=new StringTokenizer(RowColOfData,",");
+	StringTokenizer stDataSearch=new StringTokenizer(StartRowColToSearch,",");
+	int row=Integer.valueOf(stDataSearch.nextToken());
+	String col=stDataSearch.nextToken();
+	
+	
+		Mainframe_GlobalFunctionLib.sendText(stData.nextToken(),stData.nextToken(), Data);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+	
+ System.out.println("check the row value"+row);
+	
+		if(Mainframe_GlobalFunctionLib.getText(row, Integer.parseInt(col)).trim().toLowerCase().contentEquals(DataSearch.trim().toLowerCase()))
+	{
+	
+	bRes=true;
+	Mainframe_GlobalFunctionLib.sendText(row, 2, "1");
+	Mainframe_GlobalFunctionLib.pressKey("Enter");
+	Thread.sleep(2000);
+	}
+	}
+	catch(Exception e){
+		
+		return bRes;
+		
+	}
+	
+	
+	 return bRes;
+	}
+	
 	public static boolean func_SearchAndEditContractAndPBP(String contract, String pbp) throws IOException
 	{
 
@@ -1700,6 +1925,7 @@ public class FunctionalLibrary extends CommonHelper{
 			
 		}
 		
+		
 		public static void pressKey(String key) throws IOException{
 			try{
 				Mainframe_GlobalFunctionLib.pressKey(key);
@@ -1894,6 +2120,7 @@ public class FunctionalLibrary extends CommonHelper{
 			try
 			{
 				Mainframe_GlobalFunctionLib.getText(1, 13);
+				
 				if (Mainframe_GlobalFunctionLib.getText(16, 5).trim().contentEquals(Number)) {
 
 					bRes= true;
@@ -1908,6 +2135,7 @@ public class FunctionalLibrary extends CommonHelper{
 		return bRes;
 
 		}
+		
 	public static void main(String args[]) throws Throwable{
 		
 		FunctionalLibrary fb = new FunctionalLibrary();
