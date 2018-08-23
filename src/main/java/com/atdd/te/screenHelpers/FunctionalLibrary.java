@@ -760,7 +760,8 @@ public class FunctionalLibrary extends CommonHelper{
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			}
 			}catch(Exception e)
-			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			{	
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Assert.fail("The Plan edit 2 Member Eligibility and 28 Pricing are not set successfully.Screenshot is captured");
 			}
 	}

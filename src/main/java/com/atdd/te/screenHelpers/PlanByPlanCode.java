@@ -13,15 +13,13 @@ public class PlanByPlanCode extends CommonHelper{
 
 	
 	//Set the Accumulator Edit on  in the Plan Detail Screen
-		public void func_SetPlanAccumulatorDetails(String planCode , String from , String thru , String deductibleAccumLevel, String deductibleSchedule, String oopMaxAccumLevel, String oopMaxDeductibleSchedule , String benefitMaxAccumLevel, String benefitMaxDeductibleSchedule)throws Throwable
+		public static void func_SetPlanAccumulatorDetails(String planCode , String from , String thru , String deductibleAccumLevel, String deductibleSchedule, String oopMaxAccumLevel, String oopMaxDeductibleSchedule , String benefitMaxAccumLevel, String benefitMaxDeductibleSchedule)throws Throwable
 		{
 			try{
 			setAccumulatorOption(planCode);
 			Mainframe_GlobalFunctionLib.pressKey("F7"); 
 			Mainframe_GlobalFunctionLib.sendText(7, 21 ,"29" ); 
-			Mainframe_GlobalFunctionLib.pressKey("Enter"); 
-			//Mainframe_GlobalFunctionLib.sendText(15, 12 ,"6" ); 
-			//Mainframe_GlobalFunctionLib.pressKey("Enter"); 
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
 
 			setDeductibleDetails(deductibleAccumLevel, deductibleSchedule, from,thru);
 			setOutOfPocketDetails(oopMaxAccumLevel, oopMaxDeductibleSchedule, from, thru);

@@ -2,6 +2,7 @@ package com.atdd.demo.te.stepdefinitions.helper;
 
 import com.atdd.te.screenHelpers.CommonHelper;
 import com.atdd.te.screenHelpers.FunctionalLibrary;
+import com.atdd.te.screenHelpers.PlanByPlanCode;
 //import com.hp.lft.sdk.Desktop;
 //import com.hp.lft.sdk.java.Window;
 //import com.hp.lft.sdk.java.WindowDescription;
@@ -325,5 +326,18 @@ public class CommonStepDefinition extends CommonHelper{
 	    // Write code here that turns the phrase above into concrete actions
 		FunctionalLibrary.validateText("11" ,"8" , gpilist);
 	}
-
+	
+	@When("^I create plan with Accumulators with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_plan_with_Accumulators_with(String planCode, String fromDate, String desc, String thruDate, String priceSchedule, String patientPaySchedule, String deductibleAccumLevel, String deductibleSchedule, String oopMaxAccumLevel, String oopMaxDeductibleSchedule, String benefitMaxAccumLevel, String benefitMaxDeductibleSchedule) throws Throwable {
+		FunctionalLibrary.Createplanwithmembereligibilityandpricingoption(planCode, fromDate, desc, thruDate, priceSchedule, patientPaySchedule);
+	    PlanByPlanCode.func_SetPlanAccumulatorDetails(planCode, fromDate, thruDate, deductibleAccumLevel, deductibleSchedule, oopMaxAccumLevel, oopMaxDeductibleSchedule, benefitMaxAccumLevel, benefitMaxDeductibleSchedule);
+	
+	}
+	
+	@Then("^Validate Accumulators are set to Y$")
+	public void validate_Accumulators_are_set_to_Y() throws Throwable {
+		FunctionalLibrary.validateText("9" ,"28" , "Y");
+		FunctionalLibrary.validateText("10" ,"28" , "Y");
+		FunctionalLibrary.validateText("11" ,"28" , "Y");
+	}
 }
