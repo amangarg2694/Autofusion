@@ -351,4 +351,15 @@ public class CommonStepDefinition extends CommonHelper{
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new PendingException();
 	}
+	
+	@When("^I create Plan with Compound Option \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_Plan_with_Compound_Option(String planCode, String fromDate, String planDesc, String thruDate, String priceSchedule, String patientpayschedule) throws Throwable {
+	    PlanByPlanCode.func_CreatePlanWithCompoundOption(planCode, fromDate, planDesc, thruDate, priceSchedule, patientpayschedule);
+	    
+	}
+
+	@Then("^Validate Plan is set with Compound Option$")
+	public void validate_Plan_is_set_with_Compound_Option() throws Throwable {
+		FunctionalLibrary.validateText("14" ,"24" , "Y");
+	}
 }

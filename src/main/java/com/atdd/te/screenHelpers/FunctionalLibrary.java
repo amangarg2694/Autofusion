@@ -696,6 +696,7 @@ public class FunctionalLibrary extends CommonHelper{
 				Mainframe_GlobalFunctionLib.sendText(15, 19 ,description);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+				Thread.sleep(3);
 				Mainframe_GlobalFunctionLib.sendText(7, 24 ,"Y");
 				Mainframe_GlobalFunctionLib.sendText(13, 77 ,"Y");
 				Mainframe_GlobalFunctionLib.pressKey("Enter");

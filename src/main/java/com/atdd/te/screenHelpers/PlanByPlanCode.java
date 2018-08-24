@@ -492,7 +492,7 @@ public class PlanByPlanCode extends CommonHelper{
 			
 			
 			// To turn on the NDC List option
-			public void func_SetNDCList(String planCode) throws Exception
+			public static void func_SetNDCList(String planCode) throws Exception
 			{
 				try{
 					String text = Mainframe_GlobalFunctionLib.getText(2, 29);
@@ -515,7 +515,7 @@ public class PlanByPlanCode extends CommonHelper{
 			}
 			
 			// To turn on the GPI List option
-				public void func_SetGPIList(String planCode) throws Exception
+				public static void func_SetGPIList(String planCode) throws Exception
 				{
 					try {
 						String text = Mainframe_GlobalFunctionLib.getText(2, 29);
@@ -538,7 +538,7 @@ public class PlanByPlanCode extends CommonHelper{
 						}
 				
 				// To turn on the compound option
-				public void func_SetCompoundOption(String planCode) throws Exception
+				public static void func_SetCompoundOption(String planCode) throws Exception
 				{
 					try {
 						String text = Mainframe_GlobalFunctionLib.getText(2, 29);
@@ -562,7 +562,7 @@ public class PlanByPlanCode extends CommonHelper{
 				
 				
 				//Create a Plan with Compund,Member Eligibility and Pricing Edit turned On
-				public void func_CreatePlanWithCompoundOption(String planCode, String fromDate, String planDesc , String thruDate , String priceSchedule , String patientpayschedule) throws Throwable
+				public static void func_CreatePlanWithCompoundOption(String planCode, String fromDate, String planDesc , String thruDate , String priceSchedule , String patientpayschedule) throws Throwable
 				{
 					try {
 						FunctionalLibrary.Createplanwithmembereligibilityandpricingoption(planCode, fromDate, planDesc, thruDate, priceSchedule, patientpayschedule);
