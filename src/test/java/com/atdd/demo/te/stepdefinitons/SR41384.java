@@ -202,7 +202,7 @@ public void i_select_Active_Product_to_set_Multi_source_ind_as_Y() throws Throwa
 @When("^I enter values for \"([^\"]*)\"$")
 public void i_enter_values_for(String arg1) throws Throwable {
     // Write code here that turns the phrase above into concrete actions
-       Mainframe_GlobalFunctionLib.sendText(7, 33, "081418");
+       Mainframe_GlobalFunctionLib.sendText(7, 33, "081618");
        Mainframe_GlobalFunctionLib.pressKey("Enter");
        Mainframe_GlobalFunctionLib.sendText(24, 73, "Y");
        //Mainframe_GlobalFunctionLib.pressKey("Enter");
