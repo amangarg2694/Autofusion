@@ -79,7 +79,9 @@ public class GAM {
 	    	 FunctionalLibrary.pressKey("Enter");
 	    	 FunctionalLibrary.pressKey("F10");
 	    	 Thread.sleep(1000);
-	    	 FunctionalLibrary.enterText(17, 37,"QPGMR");
+	    	 FunctionalLibrary.enterText(17, 37,"QPGMR  ");
+	    	 FunctionalLibrary.enterText(18, 39,"          ");
+	    	 FunctionalLibrary.pressKey("Enter");
 	    	 FunctionalLibrary.pressKey("Enter");
 			  Thread.sleep(1000);
 	 }

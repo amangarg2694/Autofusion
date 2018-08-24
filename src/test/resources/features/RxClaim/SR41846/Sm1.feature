@@ -29,5 +29,5 @@
 
     
     Examples: 
-   |CarrierID |AccountID|GroupID  |MemberID		 | First Name      | Last Name     | DOB      | From Date | Thru Date   |Plan		|BIN     | ProcCtrl | Group | PharmacyID  |RxNo         |RxNo1			   | Refill| FillDate |ProductID  | DspQty | DS   | PSC   | Cost |com|
-   |SN3353_R  |SN3353_G |SN3353_GG|MEM_41846 |   MEM_41846    | MEM_41846  | 12251987	| 010101    | 123139      |SR41846_1|777777  |ASHE      |*      |APHARM   |144245565114 |144334465114  |00     |071918  |00000000000|10      |2     |0      | 100  | 2 |
+   |CarrierID |AccountID |GroupID    |MemberID		 | First Name      | Last Name     | DOB      | From Date | Thru Date   |Plan		|BIN     | ProcCtrl | Group | PharmacyID  |RxNo         |RxNo1			   | Refill| FillDate |ProductID  | DspQty | DS   | PSC   | Cost |com|
+   |naresh01  |NARESH_ACC01 |NARESH GRP|MEM02_41845 |   MEM_41846    | MEM_41846  | 12251987	| 010101    | 123139      |NAR_TEST1|777777  |ASHE      |*      |APHARM   |144110065114 |141001465114  |00     |071918  |00000000000|10      |2     |0      | 100  | 2 |
