@@ -66,18 +66,30 @@ public class PlanByPlanCode extends CommonHelper{
 			{
 				
 				try {
-					String text = Mainframe_GlobalFunctionLib.getText(2, 29);
-					if((text.trim().equalsIgnoreCase("Active Plan by Plan Code")))
-						FunctionalLibrary.func_SearchAndSelectADataEditMode("4,5" ,planCode ,"11,6" , planCode);
-					else{					
-						FunctionalLibrary.navigateToRxClaimPlanAdministrator();
-						Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4" );
-						Mainframe_GlobalFunctionLib.pressKey("Enter");
-						Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
-						Mainframe_GlobalFunctionLib.pressKey("Enter");
-						FunctionalLibrary.func_SearchAndSelectADataEditMode("4,5" ,planCode ,"11,6" , planCode);
-					}														
+						if(Mainframe_GlobalFunctionLib.getText(1, 13).equalsIgnoreCase("RxClaim Plan Administrator Menu")){
+							System.out.println("plan in edit mode" );
+							//FunctionalLibrary.navigateToRxClaimPlanAdministrator();
+							Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4" );
+							Mainframe_GlobalFunctionLib.pressKey("Enter");
+							Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+							Mainframe_GlobalFunctionLib.pressKey("Enter");
+							FunctionalLibrary.func_SearchAndSelectADataEditMode("4,5" ,planCode ,"11,6" , planCode);
 						
+						 }
+						 else if(Mainframe_GlobalFunctionLib.getText(2, 29).equalsIgnoreCase("Active Plan by Plan Code"))						
+						FunctionalLibrary.func_SearchAndSelectADataEditMode("4,5" ,planCode ,"11,6" , planCode);
+																			
+						 else
+						 {
+								
+								FunctionalLibrary.navigateToRxClaimPlanAdministrator();
+								Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4" );
+								Mainframe_GlobalFunctionLib.pressKey("Enter");
+								Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+								Mainframe_GlobalFunctionLib.pressKey("Enter");
+								FunctionalLibrary.func_SearchAndSelectADataEditMode("4,5" ,planCode ,"11,6" , planCode);
+							
+							 }
 					if(ScreenshotOption.equalsIgnoreCase("Always")){
 						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 						}
@@ -85,11 +97,10 @@ public class PlanByPlanCode extends CommonHelper{
 						{	try {
 							Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 						} catch (IOException e1) {							
-							e1.printStackTrace();
-						}
+							e1.printStackTrace();						
 							Assert.fail("The Plan is not opened in Edit mode.Screenshot is captured");
 						}
-			}
+			}}
 			
 			public static void setDeductibleDetails(String accumulationLevel,String deductibleSchedule , String from , String thru) throws IOException{
 				try{				
@@ -495,9 +506,12 @@ public class PlanByPlanCode extends CommonHelper{
 			public static void func_SetNDCList(String planCode) throws Exception
 			{
 				try{
-					String text = Mainframe_GlobalFunctionLib.getText(2, 29);
-					if(!(text.equalsIgnoreCase("Plan Detail  Page 1 of 2")))
-					openThePlanInEditMode(planCode);
+
+					if((Mainframe_GlobalFunctionLib.getText(1,13).equalsIgnoreCase("RxClaim Plan Administrator Menu"))){
+						openThePlanInEditMode(planCode);
+					}else if(!(Mainframe_GlobalFunctionLib.getText(2,29).equalsIgnoreCase("Plan Detail  Page 1 of 2"))){
+						openThePlanInEditMode(planCode);
+					}
 								
 				if((Mainframe_GlobalFunctionLib.getText(15, 24).equalsIgnoreCase("N"))){
 					Mainframe_GlobalFunctionLib.sendText(15, 24, "Y");
@@ -517,11 +531,13 @@ public class PlanByPlanCode extends CommonHelper{
 			// To turn on the GPI List option
 				public static void func_SetGPIList(String planCode) throws Exception
 				{
-					try {
-						String text = Mainframe_GlobalFunctionLib.getText(2, 29);
-						if(!(text.equalsIgnoreCase("Plan Detail  Page 1 of 2")))
-						openThePlanInEditMode(planCode);
-										
+					try{
+
+						if((Mainframe_GlobalFunctionLib.getText(1,13).equalsIgnoreCase("RxClaim Plan Administrator Menu"))){
+							openThePlanInEditMode(planCode);
+						}else if(!(Mainframe_GlobalFunctionLib.getText(2,29).equalsIgnoreCase("Plan Detail  Page 1 of 2"))){
+							openThePlanInEditMode(planCode);
+						}											
 						if((Mainframe_GlobalFunctionLib.getText(6, 51).equalsIgnoreCase("N"))){
 							Mainframe_GlobalFunctionLib.sendText(6, 51, "Y");
 							Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -540,11 +556,13 @@ public class PlanByPlanCode extends CommonHelper{
 				// To turn on the compound option
 				public static void func_SetCompoundOption(String planCode) throws Exception
 				{
-					try {
-						String text = Mainframe_GlobalFunctionLib.getText(2, 29);
-						if(!(text.equalsIgnoreCase("Plan Detail  Page 1 of 2")))
-						openThePlanInEditMode(planCode);
-										
+					try{
+
+						if((Mainframe_GlobalFunctionLib.getText(1,13).equalsIgnoreCase("RxClaim Plan Administrator Menu"))){
+							openThePlanInEditMode(planCode);
+						}else if(!(Mainframe_GlobalFunctionLib.getText(2,29).equalsIgnoreCase("Plan Detail  Page 1 of 2"))){
+							openThePlanInEditMode(planCode);
+						}										
 						if((Mainframe_GlobalFunctionLib.getText(14, 24).equalsIgnoreCase("N"))){
 							Mainframe_GlobalFunctionLib.sendText(14, 24, "Y");
 							Mainframe_GlobalFunctionLib.pressKey("Enter");

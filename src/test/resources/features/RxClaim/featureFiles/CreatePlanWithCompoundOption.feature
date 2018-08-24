@@ -10,4 +10,4 @@ As a RxClaim User I want to create Plan with Compound Option
    
    Examples:
    |PlanCode  |FromDate|Description|ThruDate|PriceSchedule|PatientPaySchedule|
-   |Sep1011   |010110  |AUTO PLAN  |123139  |EVUAREG      |EVUAREG           |
+   |Sep1015   |010110  |AUTO PLAN  |123139  |EVUAREG      |EVUAREG           |

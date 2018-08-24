@@ -362,4 +362,20 @@ public class CommonStepDefinition extends CommonHelper{
 	public void validate_Plan_is_set_with_Compound_Option() throws Throwable {
 		FunctionalLibrary.validateText("14" ,"24" , "Y");
 	}
+	
+	@When("^I set NDC List in Plan \"([^\"]*)\"$")
+	public void i_set_NDC_List_in_Plan(String planCode) throws Throwable {
+		PlanByPlanCode.func_SetNDCList(planCode);
+	}
+
+	@Then("^Validate NDC List is set to Y$")
+	public void validate_NDC_List_is_set_to_Y() throws Throwable {
+		FunctionalLibrary.validateText("15" ,"24" , "Y"); 
+		FunctionalLibrary.validateText("6" ,"51" , "Y"); 
+	}
+	
+	@When("^I set GPI List in Plan \"([^\"]*)\"$")
+	public void i_set_GPI_List_in_Plan(String planCode) throws Throwable {
+		PlanByPlanCode.func_SetGPIList(planCode);
+	}
 }

@@ -22,12 +22,13 @@ public class FunctionalLibrary extends CommonHelper{
 	public static String sPriorAuthNumber="";
 	public static void navigateToRxClaimPlanAdministrator() throws Exception  {
 		try{
-		String text = Mainframe_GlobalFunctionLib.getText(1, 13);				
+		String text = Mainframe_GlobalFunctionLib.getText(1, 13);
+		if(!(text.equalsIgnoreCase("RxClaim Plan Administrator Menu"))){
 		while(!(text.equalsIgnoreCase("RxClaim Plan Administrator Menu"))){
-			
 			Mainframe_GlobalFunctionLib.pressKey("F12");
 			text = Mainframe_GlobalFunctionLib.getText(1, 13);
 			break;
+		}
 		}
 		if(ScreenshotOption.equalsIgnoreCase("Always")){
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
