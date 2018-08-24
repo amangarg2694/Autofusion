@@ -340,4 +340,15 @@ public class CommonStepDefinition extends CommonHelper{
 		FunctionalLibrary.validateText("10" ,"28" , "Y");
 		FunctionalLibrary.validateText("11" ,"28" , "Y");
 	}
+	
+	@When("^I create DUR Table with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_DUR_Table_with(String durTable, String durTableDesc, String durStatus, String DURPPSRequired, String durServiceOverideTable,String durServiceType, String medGPIList, String exclPatResCodeList, String medLookBackPeriod, String perFillDS, String perFillResp,String perfillMsgCode, String dglDiagList, String exclDiagCode, String exclGPIList, String exclTaxonomyList, String taxonomyMedLimit, String durPharmacyResponse, String medTaxonomyList, String percentageTherapeutic, String medLimit, String durServiceResponse, String messageCode, String prescriberThreshold, String pharmacyThreshold, String serviceQualifier, String serviceNewMember, String serviceIR) throws Throwable {
+		 PlanByPlanCode.createORUpdateMEDLIMITDURTable(durTable, durTableDesc, durStatus, DURPPSRequired, durServiceOverideTable,durServiceType, medGPIList, exclPatResCodeList, medLookBackPeriod, perFillDS,perFillResp, perfillMsgCode, dglDiagList, exclDiagCode, exclGPIList, exclTaxonomyList, taxonomyMedLimit, durPharmacyResponse, medTaxonomyList, percentageTherapeutic, medLimit, durServiceResponse, messageCode, prescriberThreshold, pharmacyThreshold, serviceQualifier, serviceNewMember, serviceIR);
+	}
+	
+	@Then("^Validate DUR Table \"([^\"]*)\" created$")
+	public void validate_DUR_Table_created(String arg1) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    //throw new PendingException();
+	}
 }

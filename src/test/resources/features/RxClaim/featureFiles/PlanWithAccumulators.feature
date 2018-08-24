@@ -1,5 +1,5 @@
-Feature: Create Plan with Accumulator
-As a RxClaim User I want to create Plan with Pricing
+Feature: Create Plan with Accumulators
+As a RxClaim User I want to setup Plan with Accumulators 
     
              
     Scenario Outline: Create a Plan with Accumulators 

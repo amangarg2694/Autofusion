@@ -267,9 +267,8 @@ public class PlanByPlanCode extends CommonHelper{
 					}
 			
 			//DURTable create/update for Functional Testing
-			public void createORUpdateMEDLIMITDURTable(String durTable ,String durTableDesc , String durStatus , String DURPPSRequired , String durServiceType ,String medGPIList , String exclPatResCodeList , String medLookBackPeriod , String perFillDS , String perfillMsgCode , String dglDiagList , String exclDiagCode , String exclGPIList , String exclTaxonomyList , String taxonomyMedLimit , String durPharmacyResponse , String medTaxonomyList, String percentageTherapeutic , String medLimit , String durServiceResponse , String messageCode , String prescriberThreshold , String pharmacyThreshold , String serviceQualifier , String serviceNewMember , String serviceIR) throws Throwable
+			public static void createORUpdateMEDLIMITDURTable(String durTable ,String durTableDesc , String durStatus , String DURPPSRequired , String serviceOverrideTable,String durServiceType ,String medGPIList , String exclPatResCodeList , String medLookBackPeriod , String perFillDS , String perFillResp , String perfillMsgCode , String dglDiagList , String exclDiagCode , String exclGPIList , String exclTaxonomyList , String taxonomyMedLimit , String durPharmacyResponse , String medTaxonomyList, String percentageTherapeutic , String medLimit , String durServiceResponse , String messageCode , String prescriberThreshold , String pharmacyThreshold , String serviceQualifier , String serviceNewMember , String serviceIR) throws Throwable
 			{
-//				
 				try {
 					FunctionalLibrary.navigateToRxClaimPlanAdministrator();
 				} catch (Exception e) {
@@ -300,12 +299,14 @@ public class PlanByPlanCode extends CommonHelper{
 						//sleep(1);
 						if(medGPIList.length()!=0)
 						Mainframe_GlobalFunctionLib.sendText(9, 69,medGPIList);
-						if(medGPIList.length()!=0)
+						if(exclPatResCodeList.length()!=0)
 						Mainframe_GlobalFunctionLib.sendText(10, 28,exclPatResCodeList);
 						if(medLookBackPeriod.length()!=0)
 						Mainframe_GlobalFunctionLib.sendText(10, 69,medLookBackPeriod);
-						if(perFillDS.length()!=0)
-						Mainframe_GlobalFunctionLib.sendText(11, 69,perFillDS);
+						if(perFillDS.length()!=0){
+							Mainframe_GlobalFunctionLib.sendText(11, 59,"   ");
+							Mainframe_GlobalFunctionLib.sendText(11, 59,perFillDS);
+						}
 						if(perfillMsgCode.length()!=0)
 						Mainframe_GlobalFunctionLib.sendText(12, 69,perfillMsgCode);
 						if(dglDiagList.length()!=0)
@@ -353,8 +354,10 @@ public class PlanByPlanCode extends CommonHelper{
 					Mainframe_GlobalFunctionLib.sendText(10, 28,exclPatResCodeList);
 					if(medLookBackPeriod.length()!=0)
 					Mainframe_GlobalFunctionLib.sendText(10, 69,medLookBackPeriod);
-					if(perFillDS.length()!=0)
-					Mainframe_GlobalFunctionLib.sendText(11, 69,perFillDS);
+					if(perFillDS.length()!=0){
+						Mainframe_GlobalFunctionLib.sendText(11, 59,"   ");
+						Mainframe_GlobalFunctionLib.sendText(11, 69,perFillDS);
+					}
 					if(perfillMsgCode.length()!=0)
 					Mainframe_GlobalFunctionLib.sendText(12, 69,perfillMsgCode);
 					if(dglDiagList.length()!=0)
@@ -390,8 +393,8 @@ public class PlanByPlanCode extends CommonHelper{
 					if(DURPPSRequired.equalsIgnoreCase("yes"))
 						
 					{
-						
-						Mainframe_GlobalFunctionLib.sendText(10, 27,"AUTODUR");
+						if(serviceOverrideTable.length()!=0)
+						Mainframe_GlobalFunctionLib.sendText(10, 27,serviceOverrideTable);
 						Mainframe_GlobalFunctionLib.pressKey("Enter");
 					}
 					Mainframe_GlobalFunctionLib.pressKey("F7");
@@ -403,21 +406,37 @@ public class PlanByPlanCode extends CommonHelper{
 					Mainframe_GlobalFunctionLib.pressKey("Enter");
 					Mainframe_GlobalFunctionLib.sendText(11, 2,"2");
 					Mainframe_GlobalFunctionLib.pressKey("Enter");
+					if(medGPIList.length()!=0)
 					Mainframe_GlobalFunctionLib.sendText(9, 69,medGPIList);
+					if(exclPatResCodeList.length()!=0)
 					Mainframe_GlobalFunctionLib.sendText(10, 28,exclPatResCodeList);
+					if(medLookBackPeriod.length()!=0)
 					Mainframe_GlobalFunctionLib.sendText(10, 69,medLookBackPeriod);
-					Mainframe_GlobalFunctionLib.sendText(11, 69,perFillDS);
+					if(perFillDS.length()!=0)
+					Mainframe_GlobalFunctionLib.sendText(11, 59,perFillDS);
+					if(perFillResp.length()!=0)
+						Mainframe_GlobalFunctionLib.sendText(11, 63,perFillResp);
 					///BK1 func_SetValue(12, 69,db.func_ReadData("DUR Message Code"));
+					if(perfillMsgCode.length()!=0)
 					Mainframe_GlobalFunctionLib.sendText(12, 69,perfillMsgCode);
+					if(dglDiagList.length()!=0)
 					Mainframe_GlobalFunctionLib.sendText(11, 28,dglDiagList);
+					if(exclDiagCode.length()!=0)
 					Mainframe_GlobalFunctionLib.sendText(11, 35,exclDiagCode);
+					if(exclGPIList.length()!=0)
 					Mainframe_GlobalFunctionLib.sendText(12, 28,exclGPIList);
+					if(exclTaxonomyList.length()!=0)
 					Mainframe_GlobalFunctionLib.sendText(13, 28,exclTaxonomyList);
+					if(taxonomyMedLimit.length()!=0)
 					Mainframe_GlobalFunctionLib.sendText(16, 2,taxonomyMedLimit);
+					if(durPharmacyResponse.length()!=0)
 					Mainframe_GlobalFunctionLib.sendText(16, 12,durPharmacyResponse);
+					if(medTaxonomyList.length()!=0)
 					Mainframe_GlobalFunctionLib.sendText(16, 48,medTaxonomyList);
+					if(percentageTherapeutic.length()!=0)
 					Mainframe_GlobalFunctionLib.sendText(19, 44,percentageTherapeutic);
 					Mainframe_GlobalFunctionLib.pressKey("Enter");
+					Thread.sleep(3000);
 					Mainframe_GlobalFunctionLib.pressKey("F7");
 					//DUR Service Creation;
 					StringTokenizer MessageCode = null;
@@ -436,15 +455,15 @@ public class PlanByPlanCode extends CommonHelper{
 					{
 					
 						Mainframe_GlobalFunctionLib.pressKey("F6");
-						Mainframe_GlobalFunctionLib.sendText(8, 23,MedLimit.nextToken());
-						Mainframe_GlobalFunctionLib.sendText(9, 23,ServiceResponse.nextToken());
+						Mainframe_GlobalFunctionLib.sendText(7, 23,MedLimit.nextToken());
+						Mainframe_GlobalFunctionLib.sendText(8, 23,ServiceResponse.nextToken());
 					if(messageCode.length() >0)
-						Mainframe_GlobalFunctionLib.sendText(10, 23,MessageCode.nextToken());
-					Mainframe_GlobalFunctionLib.sendText(11, 23,PresThreshold.nextToken());
-					Mainframe_GlobalFunctionLib.sendText(12, 23,PharThreshold.nextToken());
-					Mainframe_GlobalFunctionLib.sendText(13, 23,ServiceQualifier.nextToken());
-					Mainframe_GlobalFunctionLib.sendText(14, 23,ServiceNewMember.nextToken());
-					Mainframe_GlobalFunctionLib.sendText(15, 23,ServiceIR.nextToken());
+						Mainframe_GlobalFunctionLib.sendText(9, 23,MessageCode.nextToken());
+					Mainframe_GlobalFunctionLib.sendText(10, 23,PresThreshold.nextToken());
+					Mainframe_GlobalFunctionLib.sendText(11, 23,PharThreshold.nextToken());
+					Mainframe_GlobalFunctionLib.sendText(12, 23,ServiceQualifier.nextToken());
+					Mainframe_GlobalFunctionLib.sendText(13, 23,ServiceNewMember.nextToken());
+					Mainframe_GlobalFunctionLib.sendText(14, 23,ServiceIR.nextToken());
 					Mainframe_GlobalFunctionLib.pressKey("Enter");
 					
 					//func_ScreenCaptureWithPassMsg("DUR Service Created successfully");
@@ -465,7 +484,8 @@ public class PlanByPlanCode extends CommonHelper{
 					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 					}
 					}catch(Exception e)
-					{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					{	e.printStackTrace();
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 						Assert.fail("The DUR Table is not created/updated successfully.Screenshot is captured");
 					}
 				}
@@ -488,7 +508,8 @@ public class PlanByPlanCode extends CommonHelper{
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				}
 				}catch(Exception e)
-				{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				{	e.printStackTrace();
+					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 					Assert.fail("The NDC List Option is not set to 'Y' in the Plan.Screenshot is captured");
 				}			
 			}
