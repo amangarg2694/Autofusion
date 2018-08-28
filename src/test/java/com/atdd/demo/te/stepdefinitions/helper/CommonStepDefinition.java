@@ -3,6 +3,7 @@ package com.atdd.demo.te.stepdefinitions.helper;
 import com.atdd.te.screenHelpers.CommonHelper;
 import com.atdd.te.screenHelpers.FunctionalLibrary;
 import com.atdd.te.screenHelpers.PlanByPlanCode;
+import com.atdd.te.screenHelpers.Pricing;
 //import com.hp.lft.sdk.Desktop;
 //import com.hp.lft.sdk.java.Window;
 //import com.hp.lft.sdk.java.WindowDescription;
@@ -378,4 +379,39 @@ public class CommonStepDefinition extends CommonHelper{
 	public void i_set_GPI_List_in_Plan(String planCode) throws Throwable {
 		PlanByPlanCode.func_SetGPIList(planCode);
 	}
+	
+	@When("^I setup Drug Cost Comparison Schedule with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_setup_Drug_Cost_Comparison_Schedule_with(String ccSchedule, String desc, String sequence, String source, String code, String ratePercent) throws Throwable {
+	    Pricing.func_CreateOrMaintainDrugCostComparisonSchedule(ccSchedule, desc, sequence, source, code, ratePercent);
+	}
+
+	@When("^I setup Drug Cost Schedule with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_setup_Drug_Cost_Schedule_with(String costSchedule, String scheduleDesc, String costScheduleSequence, String schedulePSC, String comparisonSchedule, String comparisonType) throws Throwable {
+	    Pricing.func_CreateOrMaintainDrugCostSchedule(costSchedule, scheduleDesc, costScheduleSequence, schedulePSC, comparisonSchedule, comparisonType);
+	}
+	
+	@When("^I setup Patient Pay Schedule with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_setup_Patient_Pay_Schedule_with(String patientPaySchedule, String ppScheduleDesc, String patientPaySeq, String ppTableSchedule) throws Throwable {
+	    Pricing.func_CreateOrMaintainPatientPaySchedule(patientPaySchedule, ppScheduleDesc, patientPaySeq, ppTableSchedule);
+	}
+
+	@When("^I setup Patient Pay Table with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_setup_Patient_Pay_Table_with(String patientPayTable, String patientPayTableDesc, String negativeDue, String ppCC, String brandAmount, String brandCalcBasis, String genericAmount, String genericCalcBasis) throws Throwable {
+	    Pricing.func_CreateOrMaintainPatientPayTable(patientPayTable, patientPayTableDesc, negativeDue, ppCC, brandAmount, brandCalcBasis, genericAmount, genericCalcBasis);
+	}
+	
+	@When("^I setup Price Schedule with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_setup_Price_Schedule_with(String priceSchedule, String psDescription, String psSequence, String psCriteriaTable) throws Throwable {
+	    Pricing.func_CreateOrMaintainPriceSchedule(priceSchedule, psDescription, psSequence, psCriteriaTable);
+	}
+
+	@When("^I setup Price Table with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_setup_Price_Table_with(String priceTable, String priceTableDesc, String ptFrom, String ptThru, String dcSchedule, String ptFee, String ptTax, String priceCC, String calcCode) throws Throwable {
+	    Pricing.func_CreateOrMaintainPriceTable(priceTable, priceTableDesc, ptFrom, ptThru, dcSchedule, ptFee, ptTax, priceCC, calcCode);
+	}
+
+
+
+
+	
 }
