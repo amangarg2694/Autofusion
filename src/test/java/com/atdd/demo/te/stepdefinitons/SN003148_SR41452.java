@@ -264,12 +264,11 @@ public class SN003148_SR41452 {
 	
 	@When("^I go back to RxClaim PlanAdministrator Menu$")
 	public void i_go_back_to_RxClaim_PlanAdministrator_Menu() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
+	    Mainframe_GlobalFunctionLib.pressKey("F3");
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 		Mainframe_GlobalFunctionLib.pressKey("F3");
-		Mainframe_GlobalFunctionLib.pressKey("F3");
-		//Mainframe_GlobalFunctionLib.pressKey("F3");
+	
 	}
 
 	
