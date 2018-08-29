@@ -172,8 +172,8 @@ public class SR41923 {
 	@And("^I add GPI list \"([^\"]*)\"$")
 	public void i_add_GPI_list(String GPIList) throws Throwable {
 		 Mainframe_GlobalFunctionLib.sendText(4, 5, GPIList);
-		 originGPIList=GPIList;
 		 Mainframe_GlobalFunctionLib.pressKey("enter");
+		 originGPIList=GPIList;
 		 String GPIListResult=Mainframe_GlobalFunctionLib.getText(9, 5);
 		 if(GPIListResult.equals(GPIListResult))
 		 {
@@ -453,19 +453,35 @@ public class SR41923 {
 			 Mainframe_GlobalFunctionLib.pressKey("PageDown");
 			 String actualClientPatientPayGPI=Mainframe_GlobalFunctionLib.getText(16, 55);
 			 System.out.println("The Client Patient Pay GPI is taken as: "+actualClientPatientPayGPI);
-			 if(actualClientPatientPayGPI.equals(ClientPatientpay)){
-				System.out.println("GPI is taken from Client Plan level GPI List"); 
+			 if(actualClientPatientPayGPI.equals(originClientPaySchedule))
+			 {
+				 System.out.println("Claim is taken from Plan Pricing level: "+actualClientPatientPayGPI); 
+			 }
+			 else if(actualClientPatientPayGPI.equals(ClientPatientpay))
+			 {
+					System.out.println("Claim is taken from GPI pricing level: "+actualClientPatientPayGPI); 
 			 }
 			 else
-			 {
-				 if(actualClientPatientPayGPI.equals(originClientPaySchedule))
-				 {
-					 System.out.println("GPI is taken from Pricing leaven Plan: "+actualClientPatientPayGPI); 
-				 }
-						 
-				 System.out.println("GPI is not taken from Plan GPI List"); 
+			 {						 
+			 System.out.println("Claim is not taken from Plan/GPI Pricing level: "+actualClientPatientPayGPI);
 			 }
+		}	
+			 
+		
+		@Then("^I Submit claim second time by changing Refill value$")
+		public void i_Submit_claim_second_time_by_changing_Refill_value() throws Throwable {
+		   Mainframe_GlobalFunctionLib.sendText(5, 47, "01");
+		   Mainframe_GlobalFunctionLib.pressKey("enter");
+		   Mainframe_GlobalFunctionLib.pressKey("F6");
+		}	
+		
+		@Then("^I Submit claim third time by changing Refill value$")
+		public void i_Submit_claim_third_time_by_changing_Refill_value() throws Throwable {
+			Mainframe_GlobalFunctionLib.sendText(5, 47, "02");
+			Mainframe_GlobalFunctionLib.pressKey("enter");
+			Mainframe_GlobalFunctionLib.pressKey("F6");
 		}
+
 		
 
 }

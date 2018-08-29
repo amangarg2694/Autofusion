@@ -25,10 +25,10 @@ Feature: Title of your feature
 	   # 49452-1012-01
 	   # SR#41819
 	   # 00536-3984-01
-
+	  
 	 Examples: 
       | PlanCode  	| From Date	|	Description	|	
-      | VSR4192362	| 010118		|	Test Plan		|
+      | VSR4192348	| 010118		|	Test Plan		|
                
    Scenario Outline: Verify Pricing setup
     Given I select Pricing list on "Plan Options Screen"
@@ -49,17 +49,18 @@ Feature: Title of your feature
     And I verify GPI list "<GPIList>" and fill type, days, maximum
     And I verify patient pay in Plan GPI List GPI Price Detail Page
     Then I navigate Back to "RxClaim Plan Administrator Menu"
-		
+    
+    #78100000000100
+		#3612FIXIT[8402]
     Examples: 
-      |	GPIList		|
-      |	3612FIXIT	|	
+      |	GPIList	|
+      |	SR41923 |	
     
   Scenario Outline: Verify Member setup
     Given I select Option "1" to navigate to "RxClaim Eligibility/Claim Transaction Maintenance"
     When I select Option "2" to navigate to "Active/Eligible Member by ID"
     And I add plan to a "<MemberID>" Member
-      
-		# TESTVMGRP
+ 
 		# Member  VSR419231
     Examples: 
       |	MemberID	|
@@ -82,12 +83,26 @@ Feature: Title of your feature
     And I press "F12" Key
     And I press "F12" Key
     And I press "F12" Key
+    And I Submit claim second time by changing Refill value
+    And I press "F7" Key
+    And I Validate GPI ID
+    And I press "F7" Key
+    And I Validate client Patient Pay in price info screen
+    And I press "F12" Key
+    And I press "F12" Key
+    And I press "F12" Key
+    And I Submit claim third time by changing Refill value
+    And I press "F7" Key
+    And I Validate GPI ID
+    And I press "F7" Key
+    Then I Validate client Patient Pay in price info screen
   
-  ## 00536398401
+  # 00536398401[8402]
+  # 49452101201
   #Note: Please change the RxNO and MemberID
    Examples: 
     | BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   | ProductID  |	DspQty | DS | PSC | Cost |
-		|	777777  | QET     |	*ALL  | APHARM      | 195238967432 | 00     | 082818   | VSR419231	| 00536398401|	30     | 30 | 00  | 100  |
+		|	777777  | QET     |	*ALL  | APHARM      | 202648967432 | 00     | 082918   | VSR419231	| 49452101201|	30     | 30 | 0	  | 100  |
 		
 		
 		
