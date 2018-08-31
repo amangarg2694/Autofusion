@@ -24,7 +24,6 @@ public class MedicaidSubrogation {
 			FunctionalLibrary.navigateToRxClaimPlanAdministrator();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		FunctionalLibrary.navigateToScreen("1");
 		FunctionalLibrary.navigateToScreen("1");
@@ -548,6 +547,8 @@ public void validate_the_Plan_details_with(String plancode, String plancode1) th
 	Mainframe_GlobalFunctionLib.pressKey("F12");
 }
 
+
+
 @Then("^I Validate the Group and Member details with \"([^\"]*)\" and \"([^\"]*)\"$")
 public void i_Validate_the_Group_and_Member_details_with_and(String groupid, String memberid) throws Throwable {
     // Write code here that turns the phrase above into concrete actions
@@ -578,4 +579,5 @@ public void i_Validate_the_Group_and_Member_details_with_and(String groupid, Str
 	Mainframe_GlobalFunctionLib.pressKey("F12");
 	
 }
+
 }

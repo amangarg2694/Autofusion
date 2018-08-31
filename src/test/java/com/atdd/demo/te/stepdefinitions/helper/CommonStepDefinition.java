@@ -2,6 +2,8 @@ package com.atdd.demo.te.stepdefinitions.helper;
 
 import com.atdd.te.screenHelpers.CommonHelper;
 import com.atdd.te.screenHelpers.FunctionalLibrary;
+import com.atdd.te.screenHelpers.PlanByPlanCode;
+import com.atdd.te.screenHelpers.Pricing;
 //import com.hp.lft.sdk.Desktop;
 //import com.hp.lft.sdk.java.Window;
 //import com.hp.lft.sdk.java.WindowDescription;
@@ -325,5 +327,91 @@ public class CommonStepDefinition extends CommonHelper{
 	    // Write code here that turns the phrase above into concrete actions
 		FunctionalLibrary.validateText("11" ,"8" , gpilist);
 	}
+	
+	@When("^I create plan with Accumulators with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_plan_with_Accumulators_with(String planCode, String fromDate, String desc, String thruDate, String priceSchedule, String patientPaySchedule, String deductibleAccumLevel, String deductibleSchedule, String oopMaxAccumLevel, String oopMaxDeductibleSchedule, String benefitMaxAccumLevel, String benefitMaxDeductibleSchedule) throws Throwable {
+		FunctionalLibrary.Createplanwithmembereligibilityandpricingoption(planCode, fromDate, desc, thruDate, priceSchedule, patientPaySchedule);
+	    PlanByPlanCode.func_SetPlanAccumulatorDetails(planCode, fromDate, thruDate, deductibleAccumLevel, deductibleSchedule, oopMaxAccumLevel, oopMaxDeductibleSchedule, benefitMaxAccumLevel, benefitMaxDeductibleSchedule);
+	
+	}
+	
+	@Then("^Validate Accumulators are set to Y$")
+	public void validate_Accumulators_are_set_to_Y() throws Throwable {
+		FunctionalLibrary.validateText("9" ,"28" , "Y");
+		FunctionalLibrary.validateText("10" ,"28" , "Y");
+		FunctionalLibrary.validateText("11" ,"28" , "Y");
+	}
+	
+	@When("^I create DUR Table with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_DUR_Table_with(String durTable, String durTableDesc, String durStatus, String DURPPSRequired, String durServiceOverideTable,String durServiceType, String medGPIList, String exclPatResCodeList, String medLookBackPeriod, String perFillDS, String perFillResp,String perfillMsgCode, String dglDiagList, String exclDiagCode, String exclGPIList, String exclTaxonomyList, String taxonomyMedLimit, String durPharmacyResponse, String medTaxonomyList, String percentageTherapeutic, String medLimit, String durServiceResponse, String messageCode, String prescriberThreshold, String pharmacyThreshold, String serviceQualifier, String serviceNewMember, String serviceIR) throws Throwable {
+		 PlanByPlanCode.createORUpdateMEDLIMITDURTable(durTable, durTableDesc, durStatus, DURPPSRequired, durServiceOverideTable,durServiceType, medGPIList, exclPatResCodeList, medLookBackPeriod, perFillDS,perFillResp, perfillMsgCode, dglDiagList, exclDiagCode, exclGPIList, exclTaxonomyList, taxonomyMedLimit, durPharmacyResponse, medTaxonomyList, percentageTherapeutic, medLimit, durServiceResponse, messageCode, prescriberThreshold, pharmacyThreshold, serviceQualifier, serviceNewMember, serviceIR);
+	}
+	
+	@Then("^Validate DUR Table \"([^\"]*)\" created$")
+	public void validate_DUR_Table_created(String arg1) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    //throw new PendingException();
+	}
+	
+	@When("^I create Plan with Compound Option \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_Plan_with_Compound_Option(String planCode, String fromDate, String planDesc, String thruDate, String priceSchedule, String patientpayschedule) throws Throwable {
+	    PlanByPlanCode.func_CreatePlanWithCompoundOption(planCode, fromDate, planDesc, thruDate, priceSchedule, patientpayschedule);
+	    
+	}
 
+	@Then("^Validate Plan is set with Compound Option$")
+	public void validate_Plan_is_set_with_Compound_Option() throws Throwable {
+		FunctionalLibrary.validateText("14" ,"24" , "Y");
+	}
+	
+	@When("^I set NDC List in Plan \"([^\"]*)\"$")
+	public void i_set_NDC_List_in_Plan(String planCode) throws Throwable {
+		PlanByPlanCode.func_SetNDCList(planCode);
+	}
+
+	@Then("^Validate NDC List is set to Y$")
+	public void validate_NDC_List_is_set_to_Y() throws Throwable {
+		FunctionalLibrary.validateText("15" ,"24" , "Y"); 
+		FunctionalLibrary.validateText("6" ,"51" , "Y"); 
+	}
+	
+	@When("^I set GPI List in Plan \"([^\"]*)\"$")
+	public void i_set_GPI_List_in_Plan(String planCode) throws Throwable {
+		PlanByPlanCode.func_SetGPIList(planCode);
+	}
+	
+	@When("^I setup Drug Cost Comparison Schedule with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_setup_Drug_Cost_Comparison_Schedule_with(String ccSchedule, String desc, String sequence, String source, String code, String ratePercent) throws Throwable {
+	    Pricing.func_CreateOrMaintainDrugCostComparisonSchedule(ccSchedule, desc, sequence, source, code, ratePercent);
+	}
+
+	@When("^I setup Drug Cost Schedule with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_setup_Drug_Cost_Schedule_with(String costSchedule, String scheduleDesc, String costScheduleSequence, String schedulePSC, String comparisonSchedule, String comparisonType) throws Throwable {
+	    Pricing.func_CreateOrMaintainDrugCostSchedule(costSchedule, scheduleDesc, costScheduleSequence, schedulePSC, comparisonSchedule, comparisonType);
+	}
+	
+	@When("^I setup Patient Pay Schedule with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_setup_Patient_Pay_Schedule_with(String patientPaySchedule, String ppScheduleDesc, String patientPaySeq, String ppTableSchedule) throws Throwable {
+	    Pricing.func_CreateOrMaintainPatientPaySchedule(patientPaySchedule, ppScheduleDesc, patientPaySeq, ppTableSchedule);
+	}
+
+	@When("^I setup Patient Pay Table with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_setup_Patient_Pay_Table_with(String patientPayTable, String patientPayTableDesc, String negativeDue, String ppCC, String brandAmount, String brandCalcBasis, String genericAmount, String genericCalcBasis) throws Throwable {
+	    Pricing.func_CreateOrMaintainPatientPayTable(patientPayTable, patientPayTableDesc, negativeDue, ppCC, brandAmount, brandCalcBasis, genericAmount, genericCalcBasis);
+	}
+	
+	@When("^I setup Price Schedule with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_setup_Price_Schedule_with(String priceSchedule, String psDescription, String psSequence, String psCriteriaTable) throws Throwable {
+	    Pricing.func_CreateOrMaintainPriceSchedule(priceSchedule, psDescription, psSequence, psCriteriaTable);
+	}
+
+	@When("^I setup Price Table with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_setup_Price_Table_with(String priceTable, String priceTableDesc, String ptFrom, String ptThru, String dcSchedule, String ptFee, String ptTax, String priceCC, String calcCode) throws Throwable {
+	    Pricing.func_CreateOrMaintainPriceTable(priceTable, priceTableDesc, ptFrom, ptThru, dcSchedule, ptFee, ptTax, priceCC, calcCode);
+	}
+
+
+
+
+	
 }

@@ -22,12 +22,13 @@ public class FunctionalLibrary extends CommonHelper{
 	public static String sPriorAuthNumber="";
 	public static void navigateToRxClaimPlanAdministrator() throws Exception  {
 		try{
-		String text = Mainframe_GlobalFunctionLib.getText(1, 13);				
+		String text = Mainframe_GlobalFunctionLib.getText(1, 13).trim();
+		if(!(text.equalsIgnoreCase("RxClaim Plan Administrator Menu"))){
 		while(!(text.equalsIgnoreCase("RxClaim Plan Administrator Menu"))){
-			
 			Mainframe_GlobalFunctionLib.pressKey("F12");
 			text = Mainframe_GlobalFunctionLib.getText(1, 13);
-			break;
+			//break;
+		}
 		}
 		if(ScreenshotOption.equalsIgnoreCase("Always")){
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -696,6 +697,7 @@ public class FunctionalLibrary extends CommonHelper{
 				Mainframe_GlobalFunctionLib.sendText(15, 19 ,description);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+				Thread.sleep(3);
 				Mainframe_GlobalFunctionLib.sendText(7, 24 ,"Y");
 				Mainframe_GlobalFunctionLib.sendText(13, 77 ,"Y");
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -760,7 +762,8 @@ public class FunctionalLibrary extends CommonHelper{
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			}
 			}catch(Exception e)
-			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			{	
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Assert.fail("The Plan edit 2 Member Eligibility and 28 Pricing are not set successfully.Screenshot is captured");
 			}
 	}
