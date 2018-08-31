@@ -33,6 +33,11 @@ As a RxClaim User I want to validate
   
   Given I am on RxClaim PlanAdministrator Menu 
   When  I go to Transaction Control Table
+  And I press "F3" Key
+  And I press "F12" Key
+  //And   I change the TBD Flag to No
+  //And I press "F3" Key
+  //And I press "F12" Key
   
   
   

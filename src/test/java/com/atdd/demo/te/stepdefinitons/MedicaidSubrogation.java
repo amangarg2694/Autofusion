@@ -547,13 +547,7 @@ public void validate_the_Plan_details_with(String plancode, String plancode1) th
 	Mainframe_GlobalFunctionLib.pressKey("F12");
 }
 
-///This is reggie adding a new step definition@SR41698
-@When("^I go to Transaction Control Table \"$")
-	public void TranscationControlTable() throws Throwable {
-	FunctionalLibrary.navigateToScreen("20");
-	FunctionalLibrary.navigateToScreen("8");
-	FunctionalLibrary.navigateToScreen("2");
-}
+
 
 @Then("^I Validate the Group and Member details with \"([^\"]*)\" and \"([^\"]*)\"$")
 public void i_Validate_the_Group_and_Member_details_with_and(String groupid, String memberid) throws Throwable {
