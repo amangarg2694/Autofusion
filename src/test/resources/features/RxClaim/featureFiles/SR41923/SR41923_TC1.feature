@@ -1,42 +1,29 @@
 
 Feature: Title of your feature
   I want to use this template for my feature file
-
-	Scenario Outline: Create a new plan in RxClaim
+  
+Scenario Outline: Verify plan in RxClaim
 		Given I am on RxClaim PlanAdministrator Menu
 		When I select Option "4" to navigate to "RxClaim Plan Maintenance"
 		And I select Option "1" to navigate to "Active Plan by Plan code"
-		And I press "F6" Key
-		And I enter "<PlanCode>" in field "PlanCode" on "AddPlanScreen"
-		And I enter "<From Date>" in field "FromDate" on "AddPlanScreen"
-		And I enter "<Description>" in field "Description" on "AddPlanScreen"
-		And I press "Enter" Key
-		And I enter "Y" in field "CommandPrompt" on "AddPlanScreen"
-		And I enter "Y" in field "NDCList" on "PlanDetailScreen"
-		And I enter "Y" in field "GPILists" on "PlanDetailScreen"
-		And I enter "Y" in field "Pricing" on "PlanDetailScreen"
-		And I press "Enter" Key
-		And I enter "Y" in field "CommandPrompt" on "PlanDetailScreen"
-		Then Validate "<PlanCode>" message should displayed on "PlanDetailScreen"
-		Then I Validate "<PlanCode>" is created or not
+		And I verify NDC, GPI and pricing in plan "<PlanCode>"
 		And I press "F7" Key 
-	   
-	   #Note: Please change plan code
-	   # 49452-1012-01
-	   # SR#41819
-	   # 00536-3984-01
-	  
-	 Examples: 
-      | PlanCode  	| From Date	|	Description	|	
-      | VSR4192348	| 010118		|	Test Plan		|
-               
+    #public static String originPlanCode=null;
+    
+   Examples: 
+      | PlanCode  | From Date	|	Description	|	
+      | SR4192359	| 010118		|	Test Plan		|    
+      
+	      
    Scenario Outline: Verify Pricing setup
     Given I select Pricing list on "Plan Options Screen"
     And I Activate Plan Pharmacy Reimbursement Price Schedule with From Date "<FromDate>", Thru Date "<ThruDate>", Pharm Price Schedule "<PharmPriceSchedule>"
     And I Activate Plan Pharmacy Patient Pay Price Schedule with From Date "<FromDate>", Thru Date "<ThruDate>", Patient Pay Schedule "<PharmPatientPaySchedule>" 
+    #public static String originPharmPaySchedule=null;
     And I Activate Plan Client Price for Billing with From Date "<FromDate>", Thru Date "<ThruDate>", Client Pay Schedule "<ClientPriceSchedule>"
     And I Activate Plan Client Patient Pay with From Date "<FromDate>", Thru Date "<ThruDate>", Client Pay Schedule "<ClientPaySchedule>"
-      
+    #public static String originClientPaySchedule=null; 
+     
     Examples: 
       |	FromDate	|	ThruDate	|	PharmPriceSchedule	|	PharmPatientPaySchedule	|	ClientPriceSchedule	|	ClientPaySchedule	|
       |	010118		|	123118		|	*(A)								|	$0											|	*(A)								|	$0								|
@@ -47,19 +34,20 @@ Feature: Title of your feature
     And I add GPI list "<GPIList>"
     And I press "F12" Key 
     And I verify GPI list "<GPIList>" and fill type, days, maximum
-    And I verify Pharmacy patient pay in Plan GPI List GPI Price Detail Page
-    Then I navigate Back to "RxClaim Plan Administrator Menu"
-    
-    #78100000000100
-		#3612FIXIT[8402]
+    Then I verify Pharmacy patient pay in Plan GPI List GPI Price Detail Page
+    #public static String ClientPatientpay=null;
+        
+  	#3612FIXIT[8402]
+  	#ClientPatientpay=VISHPPS
     Examples: 
       |	GPIList	|
       |	SR41923 |	
     
   Scenario Outline: Verify Member setup
-    Given I select Option "1" to navigate to "RxClaim Eligibility/Claim Transaction Maintenance"
-    When I select Option "2" to navigate to "Active/Eligible Member by ID"
-    And I add plan to a "<MemberID>" Member
+    Given I select Option "20" to navigate to "RxClaim Plan Administrator Menu"
+    When I select Option "1" to navigate to "RxClaim Eligibility/Claim Transaction Maintenance"
+    And I select Option "2" to navigate to "Active/Eligible Member by ID"
+    And I add plan to a "<MemberID>" Member for GPI
  
 		# Member  VSR419231
     Examples: 
@@ -69,7 +57,8 @@ Feature: Title of your feature
   Scenario Outline: Submit a claim in RxClaim
     Given I select Option "20" to navigate to "RxClaim Plan Administrator Menu"
     When I submit claim for refill with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>"
-    Then Validate Claim Status is "P"
+    Then I Validate Claim Status
+    #Then Validate Claim Status is "P"
     And I Validate RxClaim ID 
     And I press "F7" Key 
     And I Validate GPI ID
@@ -84,25 +73,27 @@ Feature: Title of your feature
     And I press "F12" Key
     And I press "F12" Key
     And I Submit claim second time by changing Refill value
+    And I Validate RxClaim ID 
     And I press "F7" Key
     And I Validate GPI ID
     And I press "F7" Key
-    And I Validate client Patient Pay in price info screen
+    And I Validate client Patient Pay in price info screen for GPI
     And I press "F12" Key
     And I press "F12" Key
     And I press "F12" Key
     And I Submit claim third time by changing Refill value
+    And I Validate RxClaim ID 
     And I press "F7" Key
     And I Validate GPI ID
     And I press "F7" Key
-    Then I Validate client Patient Pay in price info screen
+    Then I Validate client Patient Pay in price info screen for GPI
   
   # 00536398401[8402]
   # 49452101201
   #Note: Please change the RxNO and MemberID
    Examples: 
     | BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   | ProductID  |	DspQty | DS | PSC | Cost |
-		|	777777  | QET     |	*ALL  | APHARM      | 202648967432 | 00     | 082918   | VSR419231	| 49452101201|	30     | 30 | 0	  | 100  |
+		|	777777  | QET     |	*ALL  | APHARM      | 902289967432 | 00     | 090218   | VSR419231	| 49452101201|	30     | 30 | 0	  | 100  |
 		
 		
 		

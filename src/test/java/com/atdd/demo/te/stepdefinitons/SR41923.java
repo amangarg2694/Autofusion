@@ -33,6 +33,10 @@ public class SR41923 {
 		Mainframe_GlobalFunctionLib.pressKey("enter");
 	}	
 	
+	@When("^I wait for some time$")
+	public void i_wait_for_some_time() throws Throwable {
+		Thread.sleep(3000);
+	}
 	@When("^I Wait for the sometime$")
 	public void i_Wait_for_the_sometime() throws Throwable {
 	Thread.sleep(3000);
@@ -337,12 +341,12 @@ public class SR41923 {
 		 Mainframe_GlobalFunctionLib.pressKey("enter");
 		 ClientPatientpay=Mainframe_GlobalFunctionLib.getText(14, 27);
 		 System.out.println("Client Patient pay is: "+ClientPatientpay);
-		/* Mainframe_GlobalFunctionLib.pressKey("F3");
 		Mainframe_GlobalFunctionLib.pressKey("F3");
-			Mainframe_GlobalFunctionLib.pressKey("F3");
-			Mainframe_GlobalFunctionLib.pressKey("F3");
-			Mainframe_GlobalFunctionLib.pressKey("F3");
-		 Mainframe_GlobalFunctionLib.pressKey("F3");*/
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		
 	}	 
 	
 	public static String PharmacyPatientpay=null;
@@ -375,9 +379,9 @@ public class SR41923 {
 		 System.out.println("Client Patient pay is: "+ClientPatientpay);
 	}
 
-	
-	@Given("^I add plan to a \"([^\"]*)\" Member$")
-	public void i_add_plan_to_a_Member(String MemberID) throws Throwable {
+	@When("^I add plan to a \"([^\"]*)\" Member for GPI$")
+	public void i_add_plan_to_a_Member_for_GPI(String MemberID) throws Throwable {
+
 		Mainframe_GlobalFunctionLib.sendText(4, 4, "          ");
 		Mainframe_GlobalFunctionLib.sendText(4, 4, MemberID);
 		Mainframe_GlobalFunctionLib.pressKey("enter");
@@ -394,6 +398,58 @@ public class SR41923 {
 			Mainframe_GlobalFunctionLib.click(12, 14);
 			Mainframe_GlobalFunctionLib.pressKey("F4");
 			System.out.println("Actual Plan Code is: "+originPlanCode);
+			Mainframe_GlobalFunctionLib.sendText(4, 5, "          ");
+			Thread.sleep(3000);
+			Mainframe_GlobalFunctionLib.sendText(4, 5, originPlanCode);
+			Mainframe_GlobalFunctionLib.pressKey("enter");
+			String resultPlanCode=Mainframe_GlobalFunctionLib.getText(10, 5);
+			if(resultPlanCode.equals(originPlanCode))
+			{
+				System.out.println("Plan Code found: "+originPlanCode);
+				Mainframe_GlobalFunctionLib.sendText(10, 2, "1");
+				Mainframe_GlobalFunctionLib.pressKey("enter");
+			}
+			else
+			{
+				System.out.println(" Plan Code not found: "+resultPlanCode);
+				System.exit(0);
+			}
+			Mainframe_GlobalFunctionLib.pressKey("F3");
+			Mainframe_GlobalFunctionLib.pressKey("F3");
+			Mainframe_GlobalFunctionLib.pressKey("F3");
+			Mainframe_GlobalFunctionLib.pressKey("F3");
+			Mainframe_GlobalFunctionLib.pressKey("F3");
+			
+		}
+		else
+		{
+			System.out.println("Member ID not Found in List: "+MemberID);
+			System.exit(0);
+	}
+	
+	}
+	
+	
+	@When("^I add plan to a \"([^\"]*)\" Member for NDC$")
+	public void i_add_plan_to_a_Member_for_NDC(String MemberID) throws Throwable {
+		Mainframe_GlobalFunctionLib.sendText(4, 4, "          ");
+		Mainframe_GlobalFunctionLib.sendText(4, 4, MemberID);
+		Mainframe_GlobalFunctionLib.pressKey("enter");
+		String actualMember=Mainframe_GlobalFunctionLib.getText(10, 4);
+		if(actualMember.equals(MemberID))
+		{
+			System.out.println("Member ID Found in List: "+ MemberID);
+			Mainframe_GlobalFunctionLib.sendText(10, 2, "2");
+			Mainframe_GlobalFunctionLib.pressKey("enter");
+			Mainframe_GlobalFunctionLib.click(20, 22);
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.sendText(15, 2, "2");
+			Mainframe_GlobalFunctionLib.pressKey("enter");
+			Mainframe_GlobalFunctionLib.click(12, 14);
+			Mainframe_GlobalFunctionLib.pressKey("F4");
+			System.out.println("Actual Plan Code is: "+originPlanCode);
+			Mainframe_GlobalFunctionLib.sendText(4, 5, "          ");
+			Thread.sleep(3000);
 			Mainframe_GlobalFunctionLib.sendText(4, 5, originPlanCode);
 			Mainframe_GlobalFunctionLib.pressKey("enter");
 			String resultPlanCode=Mainframe_GlobalFunctionLib.getText(10, 5);
@@ -567,19 +623,45 @@ public class SR41923 {
 		
 		@Then("^I validate GPI in Plan list$")
 		public void i_validate_GPI_in_Plan_list() throws Throwable {
-			String actualGPIList=Mainframe_GlobalFunctionLib.getText(11, 33);
-			System.out.println("NDC in Plan list screen is: "+actualGPIList);
-			if(originGPIList.equals(actualGPIList))
+			String actualGPIList=Mainframe_GlobalFunctionLib.getText(11, 52);
+			if(actualGPIList.length()>0)
 			{
-				System.out.println("Origin GPI list shown in Claim Transaction Additional Info screen "+actualGPIList);
+				System.out.println("GPI in Plan list screen is: "+actualGPIList);
+				
+				if(originGPIList.equals(actualGPIList))
+				{
+					System.out.println("Origin GPI list shown in Claim Transaction Additional Info screen: "+actualGPIList);
+				}
+				else
+				{
+					System.out.println("Origin GPI list not shown in Claim Transaction Additional Info screen: "+actualGPIList);
+				}
 			}
 			else
 			{
-				System.out.println("Origin GPI list not shown in Claim Transaction Additional Info screen "+actualGPIList);
+				System.out.println("NULL value shown in Origin GPI list Claim Transaction Additional Info screen ");
 			}
+			
 		}
 		
-		
+		@Then("^I Validate Claim Status$")
+		public void i_Validate_Claim_Status() throws Throwable {
+		  String claimStatus=Mainframe_GlobalFunctionLib.getText(21, 6);
+		  if(claimStatus.equals("P"))
+		  {
+			  System.out.println("Claim Status is Passed: "+claimStatus);
+		  }
+		  else if(claimStatus.equals("R"))
+		  {
+			  System.out.println("Claim Status is Rejected, so stops execution: "+claimStatus);
+			  System.exit(0);
+		  }
+		  else
+		  {
+			  System.out.println("Claim Status is: "+claimStatus);
+		  }
+		}
+
 		@Then("^I Validate NDC in Plan List$")
 		public void i_Validate_NDC_in_Plan_List() throws Throwable {
 			String actualNDCList=Mainframe_GlobalFunctionLib.getText(11, 33);
@@ -600,14 +682,16 @@ public class SR41923 {
 			 Mainframe_GlobalFunctionLib.pressKey("enter");
 			 Mainframe_GlobalFunctionLib.pressKey("PageDown");
 			 String actualClientPatientPayGPI=Mainframe_GlobalFunctionLib.getText(16, 55);
-			 System.out.println("The Client Patient Pay GPI is taken as: "+actualClientPatientPayGPI);
+			 System.out.println("The Client - Patient Pay GPI is taken as: "+actualClientPatientPayGPI);
 			 if(actualClientPatientPayGPI.equals(originClientPaySchedule))
 			 {
 				 System.out.println("Claim is taken from Plan Pricing level: "+actualClientPatientPayGPI); 
+				 Thread.sleep(3000);
 			 }
 			 else if(actualClientPatientPayGPI.equals(ClientPatientpay))
 			 {
 					System.out.println("Claim is taken from GPI pricing level: "+actualClientPatientPayGPI); 
+					Thread.sleep(3000);
 			 }
 			 else
 			 {						 
