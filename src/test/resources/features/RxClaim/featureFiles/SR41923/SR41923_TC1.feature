@@ -1,6 +1,6 @@
 
-Feature: Title of your feature
-  I want to use this template for my feature file
+Feature: Fix Price Override after the specific "#" of fills have been exceeded
+				 Verify Price override on Plan GPI screen (RCPGO003)
   
 Scenario Outline: Verify plan in RxClaim
 		Given I am on RxClaim PlanAdministrator Menu
