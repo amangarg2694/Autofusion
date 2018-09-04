@@ -249,7 +249,7 @@ public void i_create_medicaid_subrogation_profile_with(String ProfileID, String 
 		
 		Mainframe_GlobalFunctionLib.sendText("09", "002","2");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");	
-		Mainframe_GlobalFunctionLib.sendText("17", "041",Code);
+		Mainframe_GlobalFunctionLib.sendText("18", "041",Code);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");	
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F12");
@@ -263,18 +263,18 @@ public void i_create_medicaid_subrogation_profile_with(String ProfileID, String 
 	}
 	else{
 		Mainframe_GlobalFunctionLib.pressKey("F6");
-		Mainframe_GlobalFunctionLib.sendText("14", "019",ProfileID);
-		Mainframe_GlobalFunctionLib.sendText("14", "035",Description);
+		Mainframe_GlobalFunctionLib.sendText("14", "015",ProfileID);
+		Mainframe_GlobalFunctionLib.sendText("14", "031",Description);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");	
-		Mainframe_GlobalFunctionLib.sendText("11", "041",SDWD);
-		Mainframe_GlobalFunctionLib.sendText("15", "041",MCSDWD);
-		Mainframe_GlobalFunctionLib.sendText("17", "041",Code);
+		Mainframe_GlobalFunctionLib.sendText("12", "041",SDWD);
+		Mainframe_GlobalFunctionLib.sendText("16", "041",MCSDWD);
+		Mainframe_GlobalFunctionLib.sendText("18", "041",Code);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");	
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		//Payee Add
 		Mainframe_GlobalFunctionLib.pressKey("F7");
 		Mainframe_GlobalFunctionLib.pressKey("F6");
-		Mainframe_GlobalFunctionLib.click(7, 12);
+		Mainframe_GlobalFunctionLib.click(8, 12);
 		Mainframe_GlobalFunctionLib.pressKey("F4");
 		Mainframe_GlobalFunctionLib.sendText("03", "006",payee);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");	
@@ -288,6 +288,8 @@ public void i_create_medicaid_subrogation_profile_with(String ProfileID, String 
 	}
 }
 
+
+
 @Then("^I create payee override claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 public void i_create_payee_override_claim_with(String BIN, String PCN, String Group, String Pharmacy, String RxNo, String Refill, String MemberID, String Payee, String Code, String ProductID, String DspQty, String DS, String PSC, String Cost, String Fee, String UCW, String Type, String PANum) throws Throwable {
     // Write code here that turns the phrase above into concrete actions
@@ -295,20 +297,24 @@ public void i_create_payee_override_claim_with(String BIN, String PCN, String Gr
 	FunctionalLibrary.navigateToScreen("2");
 	FunctionalLibrary.navigateToScreen("10");
 	Mainframe_GlobalFunctionLib.pressKey("F6");
-	Mainframe_GlobalFunctionLib.sendText("11", "014",BIN);
-	Mainframe_GlobalFunctionLib.sendText("11", "041",PCN);
-	Mainframe_GlobalFunctionLib.sendText("11", "059",Group);
-	Mainframe_GlobalFunctionLib.sendText("12", "014",Pharmacy);
-	Mainframe_GlobalFunctionLib.sendText("12", "041",RxNo);
-	Mainframe_GlobalFunctionLib.sendText("12", "059",Refill);
-	Mainframe_GlobalFunctionLib.sendText("14", "041",MemberID);
-	Mainframe_GlobalFunctionLib.sendText("16", "020",Payee);
-	Mainframe_GlobalFunctionLib.sendText("17", "026",Code);
+	Mainframe_GlobalFunctionLib.sendText("04", "11",BIN);
+	Mainframe_GlobalFunctionLib.sendText("04", "38",PCN);
+	Mainframe_GlobalFunctionLib.sendText("04", "56",Group);
+	Mainframe_GlobalFunctionLib.sendText("05", "11",Pharmacy);
+	Mainframe_GlobalFunctionLib.sendText("05", "38",RxNo);
+	Mainframe_GlobalFunctionLib.sendText("05", "56",Refill);
+	Mainframe_GlobalFunctionLib.sendText("07", "38",MemberID);
+	Mainframe_GlobalFunctionLib.sendText("09", "17",Payee);
+	Mainframe_GlobalFunctionLib.sendText("10", "17",Code);
 	Mainframe_GlobalFunctionLib.pressKey("Enter");	
 	TimeUnit.SECONDS.sleep(10);
+	
 	Mainframe_GlobalFunctionLib.sendText("08", "012","AUTOMEM");
 	Mainframe_GlobalFunctionLib.sendText("08", "030","AUTOMEM");
+	Mainframe_GlobalFunctionLib.sendText("08", "053","001");
+	Mainframe_GlobalFunctionLib.sendText("08", "068","1");
 	Mainframe_GlobalFunctionLib.sendText("09", "012","12251987");
+	Mainframe_GlobalFunctionLib.sendText("09", "029","2");
 	Mainframe_GlobalFunctionLib.sendText("11", "020",ProductID);
 	Mainframe_GlobalFunctionLib.sendText("12", "011",DspQty);
 	Mainframe_GlobalFunctionLib.sendText("12", "026",DS);
@@ -318,10 +324,11 @@ public void i_create_payee_override_claim_with(String BIN, String PCN, String Gr
 	Mainframe_GlobalFunctionLib.sendText("10", "047",Cost);
 	Mainframe_GlobalFunctionLib.sendText("11", "047",Fee);
 	Mainframe_GlobalFunctionLib.sendText("20", "047",UCW);
+	Mainframe_GlobalFunctionLib.sendText("22", "060","00");
 	Mainframe_GlobalFunctionLib.pressKey("PageDown");	
 	TimeUnit.SECONDS.sleep(10);
 	Mainframe_GlobalFunctionLib.click(4, 55);
-	Mainframe_GlobalFunctionLib.sendText("04", "055","5");
+	Mainframe_GlobalFunctionLib.sendText("04", "055","1");
 	Mainframe_GlobalFunctionLib.pressKey("Enter");	
 	Mainframe_GlobalFunctionLib.pressKey("F6");	
 	Mainframe_GlobalFunctionLib.pressKey("F7");	
@@ -377,17 +384,17 @@ public void i_edit_the_subrogation_profile_with(String profileid, String flag, S
 	Mainframe_GlobalFunctionLib.sendText("09", "002","2");
 	Mainframe_GlobalFunctionLib.pressKey("Enter");
 	TimeUnit.SECONDS.sleep(3);
-	Mainframe_GlobalFunctionLib.sendText("17", "041",flag);
-	String carrier = Mainframe_GlobalFunctionLib.getText(18, 30);
+	Mainframe_GlobalFunctionLib.sendText("18", "041",flag);
+	String carrier = Mainframe_GlobalFunctionLib.getText(19, 30);
 	if(carrier.equals(""))
 	{
-		Mainframe_GlobalFunctionLib.sendText("18", "030",carrierid);
+		Mainframe_GlobalFunctionLib.sendText("19", "030",carrierid);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());	
 	}
 	else
 	{
-		Mainframe_GlobalFunctionLib.click(18, 30);
+		Mainframe_GlobalFunctionLib.click(19, 30);
 		Robot ro = new Robot();
 		for(int j=0;j<11;j++)
 		{
@@ -412,7 +419,7 @@ public void i_create_payee_claim_with(String RxNo, String Payee, String Subrogat
 	Mainframe_GlobalFunctionLib.sendText("09", "002","1");
 	Mainframe_GlobalFunctionLib.pressKey("Enter");
 	Mainframe_GlobalFunctionLib.sendText("13", "021",Payee);
-	Mainframe_GlobalFunctionLib.sendText("16", "026",SubrogationFlag);
+	Mainframe_GlobalFunctionLib.sendText("16", "021",SubrogationFlag);
 	Mainframe_GlobalFunctionLib.pressKey("Enter");
 	Mainframe_GlobalFunctionLib.sendText("16", "064","Y");
 	TimeUnit.SECONDS.sleep(4);
@@ -435,12 +442,14 @@ public void i_create_payee_claim_with(String RxNo, String Payee, String Subrogat
 	Mainframe_GlobalFunctionLib.sendText("14", "006",PSC);
 	Mainframe_GlobalFunctionLib.sendText("17", "019",Type);
 	Mainframe_GlobalFunctionLib.sendText("17", "026",PANum);
-	Mainframe_GlobalFunctionLib.sendText("10", "051",Cost);
-	Mainframe_GlobalFunctionLib.sendText("11", "051",Fee);
+	Mainframe_GlobalFunctionLib.sendText("10", "047","         ");
+	Mainframe_GlobalFunctionLib.sendText("10", "047",Cost);
+	Mainframe_GlobalFunctionLib.sendText("11", "047","         ");
+	Mainframe_GlobalFunctionLib.sendText("11", "047",Fee);
 	Mainframe_GlobalFunctionLib.pressKey("PageDown");	
 	TimeUnit.SECONDS.sleep(10);
 	Mainframe_GlobalFunctionLib.click(4, 55);
-	Mainframe_GlobalFunctionLib.sendText("04", "055","5");
+	Mainframe_GlobalFunctionLib.sendText("04", "055","1");
 	Mainframe_GlobalFunctionLib.pressKey("Enter");	
 	Mainframe_GlobalFunctionLib.pressKey("F6");	
 	Mainframe_GlobalFunctionLib.pressKey("F7");	
