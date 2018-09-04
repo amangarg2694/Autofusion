@@ -12,6 +12,8 @@ import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.Row;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ExcelWriter {
 	int rownum = 0;
@@ -22,12 +24,20 @@ public class ExcelWriter {
 	static HSSFWorkbook workbook;
 	static HSSFFont font ;
 	static HSSFCellStyle style;
-	static final String OUTPUT_RESULT_FILE = System.getProperty("user.dir")+"\\test-output\\FileValidationReport.xls";
+	static final String OUTPUT_RESULT_FILE = System.getProperty("user.dir")+"\\test-output\\CHFFileValidationReport"+GetCurrentTimeStamp().replace(":","_").replace(".","_")+".xls";
 
 	static { 			
 		workbook = new HSSFWorkbook();
 		row = null;
 		cell = null;
+	}
+
+	// Get current system time
+	public static String GetCurrentTimeStamp() {
+	    SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// dd/MM/yyyy
+	    Date now = new Date();
+	    String strDate = sdfDate.format(now);
+	    return strDate;
 	}
 
 	public static void createWorkBookSheet(String sheetName){			  

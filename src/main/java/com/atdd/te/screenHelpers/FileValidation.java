@@ -13,14 +13,12 @@ import java.util.Scanner;
 
 import com.cucumber.listener.Reporter;
 import com.opencsv.CSVReader;
-import com.optumrx.autofusion.core.util.ReadPropertyFile;
+
 
 public class FileValidation {
 	private static Properties properties;
 	ExcelWriter excelwrite = new ExcelWriter();
 	static LinkedHashMap<String, List<Integer>> positionMap = new LinkedHashMap<>();
-	//static final String CHF_ACTUAL_FILE = "C:/RxClaims/CHF/UHCCOMM20180903_RXCHF70CL.txt";
-	//static final String CHF_EXPECTED_FILE = "C:/RxClaims/CHF/Expected CHF Data.csv";
 	static String CHF_ACTUAL_FILE = "C:\\RxClaims\\CHF";
 	static String CHF_EXPECTED_FILE = "C:\\RxClaims\\CHF";
 	static final String OUTPUT_POSITION_FILE = System.getProperty("user.dir") + "\\src\\test\\resources\\te\\CHF\\CHF_FieldPositions.properties";
