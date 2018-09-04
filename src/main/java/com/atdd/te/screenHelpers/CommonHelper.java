@@ -11,12 +11,14 @@ import com.optumrx.autofusion.core.util.ReadPropertyFile;
 
 public class CommonHelper {
 	
-	public static String ScreenshotOption = null;		
+	public static String ScreenshotOption = null;
+	public static String env = null;	
 	public static void login() throws IOException{
 
 	String Username = ReadPropertyFile.getUsername();
 	String Password = ReadPropertyFile.getPassword();
-	String env = ReadPropertyFile.getEnv();
+	env = ReadPropertyFile.getEnv();
+	
 	
 	String[] coordinates = null;
 	
@@ -136,6 +138,36 @@ case "BOOK2" :
 				
 			}
 	break;
+	
+	case "BK1TST" :
+	
+try {
+			
+			System.out.println("Logging to BK1TST");
+		Mainframe_GlobalFunctionLib.launchTE(env);
+		coordinates = ReadPropertyFile.getProperty("Login" , "Book1_Username");			
+		Mainframe_GlobalFunctionLib.sendText(coordinates[0] ,coordinates[1] , Username);			
+    	coordinates = ReadPropertyFile.getProperty("Login" , "Book1_Password");
+    	Mainframe_GlobalFunctionLib.sendText(coordinates[0] ,coordinates[1] , Password);				
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		try{
+			if(Mainframe_GlobalFunctionLib.getText(19, 2).contains("Press Enter to continue")){							
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+		}
+		}
+		catch(Exception e){
+			System.out.println("Select the env");
+		}
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+
+			}catch(Exception e){
+				e.printStackTrace();
+			
+			}
+	
+		break;
 		}
 	
 }
