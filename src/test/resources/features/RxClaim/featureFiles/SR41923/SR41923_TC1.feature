@@ -1,6 +1,6 @@
 
 Feature: Fix Price Override after the specific "#" of fills have been exceeded
-				 Verify Price override on Plan GPI screen (RCPGO003)
+				 TC01_Verify the O/R Patient Pay stamped under the client schedule for 3rd fill for  GPI List Quantity Limits Ovrd Criteria (RCPGG003)
   
 Scenario Outline: Verify plan in RxClaim
 		Given I am on RxClaim PlanAdministrator Menu
@@ -49,10 +49,10 @@ Scenario Outline: Verify plan in RxClaim
     And I select Option "2" to navigate to "Active/Eligible Member by ID"
     And I add plan to a "<MemberID>" Member for GPI
  
-		# Member  VSR419231
+		# Member  VSR419233
     Examples: 
       |	MemberID	|
-      |	VSR419231	|	
+      |	VSR419233	|	
     
   Scenario Outline: Submit a claim in RxClaim
     Given I select Option "20" to navigate to "RxClaim Plan Administrator Menu"
@@ -69,31 +69,35 @@ Scenario Outline: Verify plan in RxClaim
     Then I press "F12" Key
     Then I press "F12" Key
     And I Validate client Patient Pay in price info screen for GPI
-    And I press "F12" Key
-    And I press "F12" Key
-    And I press "F12" Key
+    And I navigate back to Transaction Submission Page
     And I Submit claim second time by changing Refill value
     And I Validate RxClaim ID 
     And I press "F7" Key
     And I Validate GPI ID
     And I press "F7" Key
     And I Validate client Patient Pay in price info screen for GPI
-    And I press "F12" Key
-    And I press "F12" Key
-    And I press "F12" Key
+		 And I navigate back to Transaction Submission Page
     And I Submit claim third time by changing Refill value
     And I Validate RxClaim ID 
     And I press "F7" Key
     And I Validate GPI ID
     And I press "F7" Key
+    And I Validate client Patient Pay in price info screen for GPI
+ 		And I navigate back to Transaction Submission Page
+    And I Submit claim fourth time by changing Refill value
+    And I Validate RxClaim ID 
+    And I press "F7" Key
+    And I Validate GPI ID
+    And I press "F7" Key
     Then I Validate client Patient Pay in price info screen for GPI
-  
+    
   # 00536398401[8402]
   # 49452101201
   #Note: Please change the RxNO and MemberID
+  #MemberID: VSR419233
    Examples: 
     | BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   | ProductID  |	DspQty | DS | PSC | Cost |
-		|	777777  | QET     |	*ALL  | APHARM      | 902289967432 | 00     | 090218   | VSR419231	| 49452101201|	30     | 30 | 0	  | 100  |
+		|	777777  | QET     |	*ALL  | APHARM      | 948464767432 | 00     | 090518   | VSR419233	| 49452101201|	30     | 30 | 0	  | 100  |
 		
 		
 		

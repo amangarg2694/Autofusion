@@ -628,7 +628,7 @@ public class SR41923 {
 			{
 				System.out.println("GPI in Plan list screen is: "+actualGPIList);
 				
-				if(originGPIList.equals(actualGPIList))
+				if(originGPIList.contains(actualGPIList))
 				{
 					System.out.println("Origin GPI list shown in Claim Transaction Additional Info screen: "+actualGPIList);
 				}
@@ -699,6 +699,12 @@ public class SR41923 {
 			 }
 		}	
 			 
+		@Then("^I navigate back to Transaction Submission Page$")
+		public void i_navigate_back_to_Transaction_Submission_Page() throws Throwable {
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+		}
 		//public static String originPharmPaySchedule=null; $0
 		@Then("^I Validate pharmacy Patient Pay in price info screen for NDC$")
 		public void i_Validate_pharmacy_Patient_Pay_in_price_info_screen_for_NDC() throws Throwable {
@@ -737,7 +743,13 @@ public class SR41923 {
 			Mainframe_GlobalFunctionLib.pressKey("enter");
 			Mainframe_GlobalFunctionLib.pressKey("F6");
 		}
-
+		
+		@Then("^I Submit claim fourth time by changing Refill value$")
+		public void i_Submit_claim_fourth_time_by_changing_Refill_value() throws Throwable {
+			Mainframe_GlobalFunctionLib.sendText(5, 47, "03");
+			Mainframe_GlobalFunctionLib.pressKey("enter");
+			Mainframe_GlobalFunctionLib.pressKey("F6");
+		}
 		
 
 }

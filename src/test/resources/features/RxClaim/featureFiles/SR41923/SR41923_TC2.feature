@@ -1,6 +1,6 @@
 
 Feature: Fix Price Override after the specific "#" of fills have been exceeded
-				 Verify Plan NDC Detail (RCPNO003).
+				 TC02_Verify the O/R Patient Pay stamped under the client schedule for 3rd fill for NDC List Quantity Limits Ovrd Criteria (RCPNG003)
 
    Scenario Outline: Verify plan in RxClaim
 		Given I am on RxClaim PlanAdministrator Menu
@@ -68,30 +68,32 @@ Feature: Fix Price Override after the specific "#" of fills have been exceeded
     Then I press "F12" Key
     Then I press "F12" Key
     And I Validate pharmacy Patient Pay in price info screen for NDC
-    And I press "F12" Key
-    And I press "F12" Key
-    And I press "F12" Key
+    And I navigate back to Transaction Submission Page
     And I Submit claim second time by changing Refill value
     And I Validate RxClaim ID 
     And I press "F7" Key
     And I press "F7" Key
     And I Validate pharmacy Patient Pay in price info screen for NDC
-    And I press "F12" Key
-    And I press "F12" Key
-    And I press "F12" Key
+    And I navigate back to Transaction Submission Page
     And I Submit claim third time by changing Refill value
     And I Validate RxClaim ID 
     And I press "F7" Key
     And I press "F7" Key
     And I Validate pharmacy Patient Pay in price info screen for NDC
+    And I navigate back to Transaction Submission Page
+    And I Submit claim fourth time by changing Refill value
+    And I Validate RxClaim ID 
+    And I press "F7" Key
+    And I press "F7" Key
+    Then I Validate client Patient Pay in price info screen for GPI
   
   # 00536398401[8402]
   # NDC: 88512 6060 10[PROD-ID]
-  # Note: Please change the RxNO, FillDate and MemberID.
+  # Note: Please change the RxNO, FillDate.
   
    Examples: 
     | BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   | ProductID  	|	DspQty | DS | PSC | Cost |
-		|	777777  | QET     |	*ALL  | APHARM      | 565332967432 | 00     | 090118   | VSR419231	| 88512606010 |	30     | 30 | 0	  | 100  |
+		|	777777  | QET     |	*ALL  | APHARM      | 854332967432 | 00     | 090518   | VSR419231	| 88512606010 |	30     | 30 | 0	  | 100  |
 		
 		
 		
