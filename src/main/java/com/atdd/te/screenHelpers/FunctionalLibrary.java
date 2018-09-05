@@ -164,7 +164,9 @@ public class FunctionalLibrary extends CommonHelper{
 		try{
 		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"3" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
 		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+		
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");

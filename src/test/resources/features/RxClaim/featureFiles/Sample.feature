@@ -1,8 +1,8 @@
-Feature: Create New Member
-As a RxClaim User I want to create a New Member with existing CAG
-    
+Feature: Member with Part D setup
+   
              
-   Scenario Outline: Create a new member in RxClaim with existing CAG
+   Scenario Outline: Create a new member in RxClaim with existing CAG for Medicare Part D 
+   
     Given I am on RxClaim PlanAdministrator Menu  
     When I select Option "1" to navigate to "Eligibility/Claim Transaction Maintenance"
     And I select Option "2" to navigate to "Active/Eligible Member by ID"
@@ -13,20 +13,19 @@ As a RxClaim User I want to create a New Member with existing CAG
     And I enter "<MemberID>" in field "MemberID" on "AddMemberScreen"
     And I press "Enter" Key 
     And I enter "<First Name>" in field "FirstName" on "MemberDetailScreen"
-    And I enter "<Last Name>" in field "LastName" on "MemberDetailScreen" 
+    And I enter "<Last Name>" in field "LastName" on "MemberDetailScreen"  
     And I enter "<DOB>" in field "DOB" on "MemberDetailScreen"
     And I enter "<From Date>" in field "FromDate" on "MemberDetailScreen" 
     And I enter "<Thru Date>" in field "ThruDate" on "MemberDetailScreen"
     And I press "Enter" Key
     And I enter "Y" in field "CommandPrompt" on "MemberDetailScreen"
-    And I press "F12" Key
-    Then Validate "Member Added." message should displayed on "AddMemberScreen"
-   
-   
+    And I press "F8" Key
+    And I send values for member medicare setup "<From Date>","<Thru Date>","<SupplyType>","<SupplyID>","<MMDFromDate>","<MMDThruDate>","<Contract>","<SubsidyLevel>","<CopayCat>"
+    Then Member for Part D created
+    
+    
+    
+    
     Examples:
-    | CarrierID| AccountID   | GroupID    | MemberID  | First Name | Last Name  | DOB      | From Date | Thru Date   |
-		|	CAR3036  | ACC3036      |	GRP3036    | pra1 | JOSHY      | MEM        | 01011984	| 010111    | 123122      |
-    |	CAR3036  | ACC3036      |	GRP3036    | pra2 | LIZASTRAT  | MEM        | 01011986	| 010115    | 123119      |
-    |	CAR3036  | ACC3036      |	GRP3036    | pra3 | AMYGILL    | MEM        | 01012012	| 010116    | 123119      |    
-    
-    
+    | CarrierID| AccountID   | GroupID    | MemberID    | First Name | Last Name    | DOB       | From Date | Thru Date   |SupplyType|SupplyID|MMDFromDate|MMDThruDate|Contract|SubsidyLevel|CopayCat|
+		|	CAR3036  | ACC3036     |	GRP3036    | MEDCARE2 | JOSHY        | MEM          | 01011970	| 010101    | 123139      |   06    |SN3036  |010118     |123118     |A3036   |000         |0       |

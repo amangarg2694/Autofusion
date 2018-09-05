@@ -50,12 +50,14 @@ public class CommonStepDefinition {
 		Thread.sleep(1000);
 	}
 	
+	
 
 	@When("^I select Option \"([^\"]*)\" to navigate to \"([^\"]*)\"$")
 	public void i_select_Option_to_navigate_to(String option, String screen) throws Throwable {
 		FunctionalLibrary.enterText(21,7 ,option );
 		FunctionalLibrary.pressEnter();
 	}
+	
 	
 	@Given("^I open RxClaim Application in \"([^\"]*)\"$")
 	public void i_open_RxClaim_Application_in(String env) throws Throwable {
