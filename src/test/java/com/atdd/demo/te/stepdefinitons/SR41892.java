@@ -1,5 +1,8 @@
 package com.atdd.demo.te.stepdefinitons;
 
+import java.util.StringTokenizer;
+
+import com.atdd.te.screenHelpers.FunctionalLibrary;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 
 import cucumber.api.java.en.Then;
@@ -7,16 +10,19 @@ import cucumber.api.java.en.When;
 
 public class SR41892 {
 	
-	public String PlanCode=null;
+	public static String PlanCode="";
+	public static String Plan="";
 	@When("^I verify plan \"([^\"]*)\"$")
 	public void i_verify_plan(String PlanCode) throws Throwable {
 		Mainframe_GlobalFunctionLib.sendText(4, 5, PlanCode);
 		Mainframe_GlobalFunctionLib.pressKey("enter");
 	  String resultListPlan=Mainframe_GlobalFunctionLib.getText(11, 6);
+	  PlanCode=resultListPlan;
 	  if(resultListPlan.equals(PlanCode))
 	  {
-		  System.out.println("Expected Plan found in result List"+resultListPlan);
-		  resultListPlan=PlanCode;
+		  System.out.println("Expected Plan found in result List: "+resultListPlan);
+		  //PlanCode=resultListPlan;
+		  System.out.println("Expected Plan Code is: "+PlanCode);
 		  Mainframe_GlobalFunctionLib.sendText(11, 2, "2");
 		  Mainframe_GlobalFunctionLib.pressKey("enter");
 	  }
@@ -25,6 +31,7 @@ public class SR41892 {
 		  System.out.println("Expected Plan not found in result List"+resultListPlan);
 		  System.exit(0);
 	  }
+	  Plan=resultListPlan; 
 	}
 	
 	@When("^I verify Compounds in Plan details page$")
@@ -237,17 +244,22 @@ public class SR41892 {
 		 String status=Mainframe_GlobalFunctionLib.getText(i, 54);
 		 if(status.equals("C"))
 		 {
-			 int j=12;
-			 NDC_ID_C=Mainframe_GlobalFunctionLib.getText(j, 37);
-			 System.out.println("NDC ID is: "+NDC_ID_C);
-			 j++;
+			 String NDC_ID_C1=Mainframe_GlobalFunctionLib.getText(i, 37);
+			 String NDC_ID_C2=Mainframe_GlobalFunctionLib.getText(i, 43);
+			 String NDC_ID_C3=Mainframe_GlobalFunctionLib.getText(i, 48);
+			 NDC_ID_C=NDC_ID_C1+NDC_ID_C2+NDC_ID_C3;
+			 System.out.println("NDC ID with Status 'C' is: "+NDC_ID_C1+NDC_ID_C2+NDC_ID_C3);
+			 
+		
 		 }
 		 else if(status.equals("F"))
 		 {
-			 int j=12;
-			 NDC_ID_F=Mainframe_GlobalFunctionLib.getText(j, 37);
-			 System.out.println("NDC ID is: "+NDC_ID_F);
-			 j++;
+			 String NDC_ID_F1=Mainframe_GlobalFunctionLib.getText(i, 37);
+			 String NDC_ID_F2=Mainframe_GlobalFunctionLib.getText(i, 43);
+			 String NDC_ID_F3=Mainframe_GlobalFunctionLib.getText(i, 48);
+			 NDC_ID_F=NDC_ID_F1+NDC_ID_F2+NDC_ID_F3;
+			 System.out.println("NDC ID with Status 'F' is: "+NDC_ID_F1+NDC_ID_F2+NDC_ID_F3);
+			 
 		 }
 			 
 	 }
@@ -265,9 +277,14 @@ public class SR41892 {
 			Mainframe_GlobalFunctionLib.sendText(10, 2, "2");
 			Mainframe_GlobalFunctionLib.pressKey("enter");
 			String memberPlanCode=Mainframe_GlobalFunctionLib.getText(20, 22);
-			if(memberPlanCode.equals(PlanCode))
+			System.out.println("Plan Code in Member is : "+memberPlanCode);
+			System.out.println("Expected PlanCode in Member: "+Plan);
+			if(memberPlanCode.equals(Plan))
 			{
-				System.out.println("Expected PlanCode found in Member: "+PlanCode);
+				System.out.println("Expected PlanCode found in Member: "+Plan);
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
 			}
 			else
 			{
@@ -278,15 +295,15 @@ public class SR41892 {
 				Mainframe_GlobalFunctionLib.pressKey("enter");
 				Mainframe_GlobalFunctionLib.click(12, 14);
 				Mainframe_GlobalFunctionLib.pressKey("F4");
-				System.out.println("Actual Plan Code is: "+PlanCode);
+				System.out.println("Actual Plan Code is: "+Plan);
 				Mainframe_GlobalFunctionLib.sendText(4, 5, "          ");
 				Thread.sleep(3000);
-				Mainframe_GlobalFunctionLib.sendText(4, 5, PlanCode);
+				Mainframe_GlobalFunctionLib.sendText(4, 5, Plan);
 				Mainframe_GlobalFunctionLib.pressKey("enter");
 				String resultPlanCode=Mainframe_GlobalFunctionLib.getText(10, 5);
-				if(resultPlanCode.equals(PlanCode))
+				if(resultPlanCode.equals(Plan))
 				{
-					System.out.println("Plan Code found in Results list ie RCPLN018 Screen:"+PlanCode);
+					System.out.println("Plan Code found in Results list ie RCPLN018 Screen:"+Plan);
 					Mainframe_GlobalFunctionLib.sendText(10, 2, "1");
 					Mainframe_GlobalFunctionLib.pressKey("enter");
 				}
@@ -295,8 +312,13 @@ public class SR41892 {
 					System.out.println(" Plan Code not found: "+resultPlanCode);
 					System.exit(0);
 				}
-			
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
 			}
+			
 		}
 		else
 		{
@@ -314,7 +336,140 @@ public class SR41892 {
 		Mainframe_GlobalFunctionLib.pressKey("F12");
 		Mainframe_GlobalFunctionLib.pressKey("F12");	
 }
+	
+	
+	@When("^I submit MIC claims with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_submit_MIC_claims_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost) throws Throwable {
+		 CreateTransaction1(bin, proc, group, pharmacyID, rxNbr, refill, fillDate, memberID, productID, dspQty, ds, psc, cost);
+		    FunctionalLibrary.submitClaim();
+	}
+	public static void CreateTransaction1(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productId, String dspQty, String ds, String psc, String cost) throws Throwable
+	{      
+	       try {
+	              FunctionalLibrary.navigateToRxClaimPlanAdministrator();
+	       } catch (Exception e) {
+	             // TODO Auto-generated catch block
+	             e.printStackTrace();
+	       }
+	       FunctionalLibrary.navigateToScreen("3");
+	       FunctionalLibrary.navigateToScreen("2");
+	       FunctionalLibrary.navigateToScreen("1");
+	       
+	       if(!(func_SearchAndSelectADataEditMode1("4,4" ,memberID ,"9,4" , memberID))){
+	             
+	             Mainframe_GlobalFunctionLib.pressKey("F6");
+	             Thread.sleep(1000);
+	             Mainframe_GlobalFunctionLib.sendText(11, 14,bin );
+	             Mainframe_GlobalFunctionLib.sendText(11, 41,proc );
+	             Mainframe_GlobalFunctionLib.sendText(11, 59,group );
+	             Mainframe_GlobalFunctionLib.sendText(12, 14,pharmacyID );
+	             Mainframe_GlobalFunctionLib.sendText(12, 41,rxNbr );
+	             Mainframe_GlobalFunctionLib.sendText(12, 59,refill );
+	             Mainframe_GlobalFunctionLib.sendText(14, 41,memberID );
+	             Mainframe_GlobalFunctionLib.pressKey("Enter");
+	             //Mainframe_GlobalFunctionLib.click(7, 12 );
+	             //Mainframe_GlobalFunctionLib.pressKey("F4");
+	             //Thread.sleep(1000);
+	             //Mainframe_GlobalFunctionLib.sendText(3, 4, memberID);
+	             //Mainframe_GlobalFunctionLib.pressKey("Enter");
+	             //Mainframe_GlobalFunctionLib.sendText(8, 2,"1" );
+	             //Mainframe_GlobalFunctionLib.pressKey("Enter");
+	             //Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
+	             Thread.sleep(1000);
+	             Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate+"    ");                 
+	             Mainframe_GlobalFunctionLib.sendText(11, 20,productId );
+	             Mainframe_GlobalFunctionLib.sendText(12, 11,dspQty );
+	             Mainframe_GlobalFunctionLib.sendText(12, 26,ds );
+	             Mainframe_GlobalFunctionLib.sendText(14, 6,psc );
+	             Mainframe_GlobalFunctionLib.sendText(10, 47,"         " );
+	             Mainframe_GlobalFunctionLib.sendText(10, 47,cost );
+	             
+	       }
+	       else{
+	        
+	       Mainframe_GlobalFunctionLib.sendText(9, 2,"1" );
+	       Mainframe_GlobalFunctionLib.pressKey("Enter");
+	       Thread.sleep(1000);
+	       Mainframe_GlobalFunctionLib.click(4, 29 );
+	             Mainframe_GlobalFunctionLib.sendText(4, 29, pharmacyID);
+	             ///Thread.sleep(3000);
+	             Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
+	             Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate);
+	             Mainframe_GlobalFunctionLib.sendText(5,29, rxNbr);
+	             Mainframe_GlobalFunctionLib.sendText(5, 47, refill);              
+	             //Mainframe_GlobalFunctionLib.click(7, 12 );
+	             Mainframe_GlobalFunctionLib.sendText(7, 12, memberID);
+	             //Mainframe_GlobalFunctionLib.pressKey("F4");
+	             //Mainframe_GlobalFunctionLib.sendText(3, 4, memberID);
+	             //Mainframe_GlobalFunctionLib.pressKey("Enter");         
+	             //Mainframe_GlobalFunctionLib.sendText(8, 2,"1" );
+	             //Mainframe_GlobalFunctionLib.pressKey("Enter");
+	             Mainframe_GlobalFunctionLib.sendText(11, 20,productId );
+	             Mainframe_GlobalFunctionLib.sendText(12, 11,"           " );
+	             Mainframe_GlobalFunctionLib.sendText(12, 11,dspQty );
+	             Mainframe_GlobalFunctionLib.sendText(12, 26,"   " );
+	             Mainframe_GlobalFunctionLib.sendText(12, 26,ds);
+	             Mainframe_GlobalFunctionLib.sendText(14, 6,psc );
+	             Mainframe_GlobalFunctionLib.sendText(10, 47,"         " );
+	             Mainframe_GlobalFunctionLib.sendText(10, 47,cost );
+	             //Mainframe_GlobalFunctionLib.pressKey("F6");
+	         }
+	              System.out.println("Claim is created");
+	}
 
+	public static boolean func_SearchAndSelectADataEditMode1(String RowColOfData,String Data,String StartRowColToSearch,String DataSearch)
+	{
+	StringTokenizer stData=new StringTokenizer(RowColOfData,",");
+	StringTokenizer stDataSearch=new StringTokenizer(StartRowColToSearch,",");
+	int row=Integer.valueOf(stDataSearch.nextToken());
+	String col=stDataSearch.nextToken();
+	boolean bRes=false;
+	try {
+	       Mainframe_GlobalFunctionLib.sendText(stData.nextToken(),stData.nextToken(), Data);
+	       Mainframe_GlobalFunctionLib.pressKey("Enter");
+	       Thread.sleep(2000);
+	} catch (Exception e1) {
+	// TODO Auto-generated catch block
+	e1.printStackTrace();
+	}      
+	//Loop:for(int i =row;i<=21;i++)
+	//{
+	System.out.println("check the row value"+row);
+	try {
+	if(Mainframe_GlobalFunctionLib.getText(row, Integer.parseInt(col)).trim().toLowerCase().contentEquals(DataSearch.trim().toLowerCase()))
+	{
+
+	bRes=true;
+	//func_SetValue(Integer.toString(i), "2", "2");
+	//Mainframe_GlobalFunctionLib.sendText(row, 2, "1");
+	//func_SetENTER();
+	//Mainframe_GlobalFunctionLib.pressKey("Enter");
+	//break Loop;
+	}
+
+	} catch (Exception e) {
+	//break Loop;
+	//}
+	}
+	return bRes;
+	}
+
+	@When("^I select Compound option in Transaction Submission Detail List screen$")
+	public void i_select_Compound_option_in_Transaction_Submission_Detail_List_screen() throws Throwable {
+		Mainframe_GlobalFunctionLib.sendText(5, 23, "5");
+		Mainframe_GlobalFunctionLib.pressKey("enter");
+	}
+	
+	@When("^I add Compound Submission Details with \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
+	public void i_add_Compound_Submission_Details_with(String Qualifier, String ID, String Quantity, String Cost, String BasicCost) throws Throwable {
+			Mainframe_GlobalFunctionLib.pressKey("F6");
+			Mainframe_GlobalFunctionLib.sendText(12, 20, Qualifier);
+			Mainframe_GlobalFunctionLib.sendText(13, 20, ID);
+			Mainframe_GlobalFunctionLib.sendText(15, 20, Quantity);
+			Mainframe_GlobalFunctionLib.sendText(16, 20, Cost);
+			Mainframe_GlobalFunctionLib.sendText(18, 23, BasicCost);
+	}
+	
 
 	
 }

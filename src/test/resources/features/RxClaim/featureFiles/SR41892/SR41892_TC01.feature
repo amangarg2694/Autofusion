@@ -52,12 +52,24 @@ Scenario Outline: Verify Member setup
     When I select Option "1" to navigate to "RxClaim Eligibility/Claim Transaction Maintenance"
     And I select Option "2" to navigate to "Active/Eligible Member by ID"
     And I verify Plan Override in MemberID "<MemberID>"
-		Then I navigate back to Plan Administrator Menu
-		
+			
 		#Member: MAUT41892
 	  Examples: 
       | MemberID 	| 
       | MAUT41892	| 
       
-	
+ Scenario Outline: Submit a claim in RxClaim
+    And I select Option "3" to navigate to "RxClaim Manual Claim Menu"
+    When I submit MIC claims with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>"
+    And I Validate RxClaim ID
+    And I Validate Claim Status
+    And I press "F14" Key
+    And I select Compound option in Transaction Submission Detail List screen 
+    And I add Compound Submission Details with "<Qualifier>", "<ID>","<Quantity>", "<Cost>", "<BasicCost>" 
+    
+    
+	 Examples: 
+    | BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   | ProductID 	|	DspQty | DS | PSC | Cost |	Qualifier	|	ID					|	Quantity	|	Cost 	|	BasicCost	|
+		|	777777  | QET     |	*ALL  | APHARM      | 343464767432 | 00     | 090618   | MAUT41892	| 0000000000	|	30     | 30 | 0	  | 100  |	03				|	00071015523	|	30				|	100		|	01				|
+		
 	
