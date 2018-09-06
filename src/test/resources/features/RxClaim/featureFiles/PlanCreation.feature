@@ -18,5 +18,10 @@ And I enter "Y" in field "CommandPrompt" on "PlanDetailScreen"
 Then Validate "<PlanCode>" message should displayed on "PlanDetailScreen"
 
 Examples:
+<<<<<<< HEAD
 |PlanCode		|From Date	|Description	|
 |TESTLFT55	|010118			|Test Plan		|
+=======
+|PlanCode|From Date|Description|
+|TESTLFTA19|010101|Test Plan|
+>>>>>>> 452505b4e81e2e3b104f2336618d4cb3ce34fa0f
