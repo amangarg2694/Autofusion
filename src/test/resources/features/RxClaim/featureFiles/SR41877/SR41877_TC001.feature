@@ -22,11 +22,12 @@ Feature: Create New Plan with NDC and GPI List for TC001
      And I add product IDs "<ID1>", "<ID2>" to the Plan "<PlanCode>" NDC list "<NDCList>" with status "<Status1>","<Status2>","<PFromDate>","<PThruDate>" 
      And I add product IDs "<ID3>", "<ID4>" to the Plan "<PlanCode>" GPI list "<GPIList>" with status "<Status1>" ,"<Status2>","<PFromDate>","<PThruDate>"   
      And I create CAG with "<CarrierID>","<CarrierName>","<Processor>","<MailingAdd>","<City>","<State>","<Zip>","<ContractFromDt>","<ContractThruDt>","<ContractEnt>","<BusinessType>","<AccountID>","<AccountName>","<GroupID>","<GroupName>","<GroupFromDt>","<GroupThruDt>","<PlanCode>"
-     
-     
+     And I create Member with "<CarrierID>","<AccountID>","<GroupID>","<MemberID>","<FirstName>","<LastName>","<DOB>","<MemFromDate>","<MemThruDate>"
+     And I create MemberPA1 "<PANumber>","<Type>","<NDCGPIList>","<From>","<Thru>","<Agent>","<Reason>","<IgnoreDrugStatus>"
+     And I submit a Multi Ingredient compound claim with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>","<UCW>","<compQualID_1>","<ID1>","<compQuantity_1>","<compCost_1>","<compBasisOfCost_1>","<compQualID_2>","<ID2>","<compQuantity_2>","<compCost_2>","<compBasisOfCost_2>"
      
      Examples: 
-     |PlanCode  |NDCList  | Status1 | Status2 |GPIList |ID1          |ID2           |ID3           |ID4           |PFromDate|PThruDate|
-     |Planpass07|NDCL01   | R       | F       |GPIL01  |88512606010  |88512705010   |00002197590   |00002322730   |010101   |123139   |
+     |PlanCode  |NDCList  | Status1 | Status2 |GPIList |ID1          |ID2           |ID3           |ID4           |PFromDate|PThruDate| CarrierID  | CarrierName |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID  |AccountName | GroupID   |GroupName  |GroupFromDt|GroupThruDt|PlanCode | MemberID  |FirstName |LastName  |DOB      |MemFromDate|MemThruDate|PANumber |Type|NDCGPIList     |From  |Thru   |Agent|Reason|IgnoreDrugStatus|
+     |Planpass07|NDCL01   | R       | F       |GPIL01  |88512606010  |88512705010   |00002197590   |00002322730   |010101   |123139   | SR41710AC1 | SR41710AC1  |712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |SR41710AA1 |SR41710AA1  | SR41710AG1|SR41710AG1 |010101     |123139     |SR41710C1| SR41710AM1|SR41710AM1|SR41710AM1|01011988 |010101     |123139     |SR41710P1|3   |00000000000000 |010101|123139 |O    |AC    |N               |       
      
      

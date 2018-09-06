@@ -460,5 +460,74 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 	    
 	}
+	
+	@Given("^I create MemberPA1 \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_MemberPA1(String number, String type, String ndcgpilist, String from, String thru, String agent, String reason, String ignoredrugstatus) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+		{ 
 
-}
+			 
+			String sValue=number; 
+			Mainframe_GlobalFunctionLib.pressKey("F8"); 
+			Mainframe_GlobalFunctionLib.sendText(4, 20 ,"9" ); 
+			Mainframe_GlobalFunctionLib.pressKey("Enter"); 
+ 			Mainframe_GlobalFunctionLib.pressKey("F6"); 
+			 
+			/*if(!(func_ValidateAnyPAAttached(number))) 
+			{ 
+
+ 
+				try{ 
+					Mainframe_GlobalFunctionLib.sendText(9, 5 ,sValue); 
+				} 
+				catch (Exception e) { 
+					Mainframe_GlobalFunctionLib.pressKey("F6"); 
+					Mainframe_GlobalFunctionLib.sendText(9, 5 ,sValue); 
+				} */
+				Mainframe_GlobalFunctionLib.pressKey("F6"); 
+				Mainframe_GlobalFunctionLib.sendText(16, 5,"           " ); 
+				Mainframe_GlobalFunctionLib.sendText(16, 5 ,sValue); 
+				Mainframe_GlobalFunctionLib.sendText(16, 23,"*"); 
+				Mainframe_GlobalFunctionLib.sendText(16, 18, type); 
+				Mainframe_GlobalFunctionLib.sendText(16, 26, ndcgpilist); 
+				Mainframe_GlobalFunctionLib.sendText(16, 42,"        " ); 
+				Mainframe_GlobalFunctionLib.sendText(16, 42, from); 
+				Mainframe_GlobalFunctionLib.sendText(16, 51,"        " ); 
+				Mainframe_GlobalFunctionLib.sendText(16, 51, thru); 
+				Mainframe_GlobalFunctionLib.sendText(16, 61, agent); 
+				Mainframe_GlobalFunctionLib.sendText(16, 66, reason); 
+				Mainframe_GlobalFunctionLib.sendText(16, 71, ignoredrugstatus); 
+				Mainframe_GlobalFunctionLib.pressKey("Enter"); 
+				Mainframe_GlobalFunctionLib.sendText(16, 2,"2" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				String ActCompSet = Mainframe_GlobalFunctionLib.getText(15, 53);
+				System.out.println("Member level compound set to: "+ActCompSet);
+				String ActMemPriANum = Mainframe_GlobalFunctionLib.getText(4, 66);
+				System.out.println("Member PA number: "+ActMemPriANum);
+				
+				
+ 							 
+ 				/*while(msgvalidation("24","2","Member Prior Authorization number already exists")) 
+				{ 
+ 					sValue=Integer.toString(Integer.valueOf(sValue)+1); 
+ 					Mainframe_GlobalFunctionLib.sendText(16, 5 ,sValue); 
+ 					Mainframe_GlobalFunctionLib.pressKey("Enter"); 
+ 				} */
+				Mainframe_GlobalFunctionLib.pressKey("F12"); 
+				Mainframe_GlobalFunctionLib.pressKey("F12"); 
+				Mainframe_GlobalFunctionLib.pressKey("F12"); 
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F12"); 
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+ 
+ 
+			} 
+
+	}
+	
+
+	}
+
+
+
