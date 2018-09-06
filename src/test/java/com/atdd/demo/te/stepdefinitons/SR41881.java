@@ -35,7 +35,7 @@ public class SR41881 {
 		//a=0;
 	label1:	for (int j = 11; j < 40; ++j) {
 			Mainframe_GlobalFunctionLib.pressKey("PageDown");
-		for (int i = 11; i < 19; ++i) {
+			 for (int i = 11; i < 19; ++i) {
 			String ActJob= Mainframe_GlobalFunctionLib.getText(i, 7);
 				
 				if(ActJob.equals(Job))
@@ -47,6 +47,7 @@ public class SR41881 {
 								System.out.println("Job is status is correct: "+ActStatus);
 								//a=1;
 								break label1;
+								
 							}
 							else
 							{
@@ -63,6 +64,7 @@ public class SR41881 {
 			}
 		//if(a==1)
 			//break;
+			
 	}
 	}
 	
@@ -79,9 +81,20 @@ public class SR41881 {
 		Mainframe_GlobalFunctionLib.validateText("1", "29", Workobj);
 		Mainframe_GlobalFunctionLib.sendText(8, 2,"4");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		
-		
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F5");
 		
 		
 	}
+	
+	@Then("^Exit the screen$")
+	public void exit_the_screen() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+	}
+
 }

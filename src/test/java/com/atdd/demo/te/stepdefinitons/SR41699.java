@@ -204,4 +204,115 @@ public class SR41699 {
 			Mainframe_GlobalFunctionLib.pressKey("F12");
 			Thread.sleep(2000);
 	}
+	
+	@Given("^I submit a Claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_submit_a_Claim_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String memberID, String fillDate, String productId, String dspQty, String ds, String psc, String cost, String due) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+		try {
+			FunctionalLibrary.navigateToRxClaimPlanAdministrator();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+			Thread.sleep(1000);
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"3" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Thread.sleep(1000);
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Thread.sleep(1000);
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Thread.sleep(1000);
+	
+		
+			
+			Mainframe_GlobalFunctionLib.pressKey("F6");
+			Thread.sleep(2000);
+			Mainframe_GlobalFunctionLib.sendText(11, 14,bin );
+			Thread.sleep(1000);
+			Mainframe_GlobalFunctionLib.sendText(11, 41,proc );
+			Thread.sleep(1000);
+			Mainframe_GlobalFunctionLib.sendText(11, 59,group );
+			Thread.sleep(1000);
+			Mainframe_GlobalFunctionLib.sendText(12, 14,pharmacyID );
+			Thread.sleep(1000);
+			Mainframe_GlobalFunctionLib.sendText(12, 41,rxNbr );
+			Thread.sleep(1000);
+			Mainframe_GlobalFunctionLib.sendText(12, 59,refill );
+			Thread.sleep(1000);
+			//Mainframe_GlobalFunctionLib.click(14, 14 );
+			//Mainframe_GlobalFunctionLib.sendText(14, 14,"          " );
+			//Mainframe_GlobalFunctionLib.sendText(14, 14, fillDate);	
+			Mainframe_GlobalFunctionLib.sendText(14, 41,memberID );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Thread.sleep(3000);
+			Mainframe_GlobalFunctionLib.click(7, 12 );
+			Thread.sleep(2000);
+			Mainframe_GlobalFunctionLib.pressKey("F4");
+			Thread.sleep(2000);
+			Mainframe_GlobalFunctionLib.click(3, 4 );
+			Thread.sleep(2000);
+			Mainframe_GlobalFunctionLib.sendText(3, 4, memberID);
+			Thread.sleep(2000);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Thread.sleep(2000);
+			Mainframe_GlobalFunctionLib.click(8, 2 );
+			Thread.sleep(2000);
+			Mainframe_GlobalFunctionLib.sendText(8, 2,"1" );
+			Thread.sleep(2000);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Thread.sleep(2000);
+			Mainframe_GlobalFunctionLib.click(4, 65 );
+			Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
+			Thread.sleep(2000);
+			Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate);	
+			Thread.sleep(2000);
+			Mainframe_GlobalFunctionLib.sendText(11, 20,productId );
+			Mainframe_GlobalFunctionLib.sendText(12, 11,dspQty );
+			Thread.sleep(2000);
+			Mainframe_GlobalFunctionLib.sendText(12, 26,ds );
+			Thread.sleep(2000);
+			Mainframe_GlobalFunctionLib.sendText(14, 6,psc );
+			Mainframe_GlobalFunctionLib.sendText(10, 47,"         " );
+			Mainframe_GlobalFunctionLib.sendText(10, 47,cost );
+			Thread.sleep(500);
+			Mainframe_GlobalFunctionLib.sendText(19, 47,due );
+			Thread.sleep(500);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Thread.sleep(1000);
+			Mainframe_GlobalFunctionLib.pressKey("F6");
+			Thread.sleep(1000);
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Thread.sleep(1000);
+			
+			//Capture data in screen Price Information Page 1 of 3
+			Mainframe_GlobalFunctionLib.pressKey("F15");
+			
+			//Capture data in screen Accumulator Information by F10=Accum Info
+			Mainframe_GlobalFunctionLib.pressKey("F10");
+			
+			//Capture data in screen Accumulation Schedule Detail by F10=Accum Schedules
+			Mainframe_GlobalFunctionLib.pressKey("F10");
+			
+			//Capture data in screen "Covered Plan Pay Accumulation Schedule Detail" by F16=CPP Detail
+			
+			Mainframe_GlobalFunctionLib.pressKey("F16");
+			String ActCPPAMT= Mainframe_GlobalFunctionLib.getText(10, 69);
+			String ExpCPPAMT="300";
+			
+			if(ActCPPAMT.equals(ExpCPPAMT)) 
+			{
+				System.out.println("Test Passed:Amount is correct: "+ActCPPAMT);
+				
+			}
+			else
+			{
+				System.out.println("Test Failed:Amount is incorrect: "+ActCPPAMT);	
+				Assert.fail("The Amount "+ ExpCPPAMT +" does not match on the screen.Screenshot captured.");
+			}
+	}
 }

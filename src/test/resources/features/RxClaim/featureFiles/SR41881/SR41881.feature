@@ -11,7 +11,7 @@ Then I Validate the job "<Job>" in 'Work with Subsystem Jobs' screen as ACTIVE s
 
 Examples:
 | Command 					  | Job        | Status |
-| WRKSBSJOB COMTSTQ23 | SERVICR001 | ACTIVE |
+| WRKSBSJOB RXCOM8403 | SERVICER001| ACTIVE |
 
 
 Scenario Outline: User should able to see Job SERVICER001 in ACTIVE after deleting the workobj SERIVCEIN 
@@ -21,10 +21,14 @@ And I press "Enter" Key
 And I delete the work object "<Workobj>"
 And I enter the command "<Command>" in command line
 And I press "Enter" Key
+And I press "Enter" Key
+And I enter the command "<Command>" in command line
+And I press "Enter" Key
 
 Then I Validate the job "<Job>" in 'Work with Subsystem Jobs' screen as ACTIVE status "<Status>"
+And Exit the screen
 
 
 Examples:
-| Command 					  | Job        | Status |Command1         |Workobj|
-| WRKSBSJOB COMTSTQ23 | SERVICR001 | ACTIVE |WRKOBJ SERIVCEIN |SERIVCEIN|
+| Command 					  | Job        | Status |Command1     |Workobj  |
+| WRKSBSJOB RXCOM8403 | SERVICER001| ACTIVE |WRKOBJ SRVIN |SRVIN    |

@@ -31,6 +31,7 @@ public class SR41807 {
 		else
 		{
 			System.out.println("Test Failed for mandatory field for Class Field ");
+			Assert.fail("Test Failed for mandatory field for Class Field.");
 		}
 		
 		Thread.sleep(2000);
@@ -73,6 +74,7 @@ public class SR41807 {
 		else
 		{
 			System.out.println("Test Failed:Error message not dispaying for invalid entry as: "+ActInvErrorMessage);
+			Assert.fail("Test Failed:Error message not dispaying for invalid entry.");
 		}
 		Mainframe_GlobalFunctionLib.pressKey("F12");
 }
@@ -99,6 +101,7 @@ public class SR41807 {
 		else
 		{
 			System.out.println("Test Failed:Cursor is not placed on Transaction From Date field");
+			Assert.fail("Test Failed:Cursor is not placed on Transaction From Date field.");
 		}
 		
 		Mainframe_GlobalFunctionLib.pressKey("F12");
@@ -121,6 +124,7 @@ public class SR41807 {
 		else
 		{
 			System.out.println("Test Failed:Cursor is not placed on Sort Criteria field");
+			Assert.fail("Test Failed:Cursor is not placed on Sort Criteria field.");
 		}
 		
 	}
@@ -162,13 +166,16 @@ public class SR41807 {
 			    		Thread.sleep(1000);
 			    		Mainframe_GlobalFunctionLib.pressKey("F10");    
 			    		Thread.sleep(2000);
-			    		Mainframe_GlobalFunctionLib.sendText(17, 37,"QPGMR");
+			    		Mainframe_GlobalFunctionLib.sendText(17, 37,"QPGMR ");
 			    		Thread.sleep(3000);
 			    		Mainframe_GlobalFunctionLib.pressKey("Enter");
 			    		
 			    		System.out.println("Job Completed Successfully: "+status);
 			    		
 						Thread.sleep(3000);
+						Mainframe_GlobalFunctionLib.sendText(21, 7,qry);
+					    Thread.sleep(2000);
+					    Mainframe_GlobalFunctionLib.pressKey("Enter");
 	    			}
 
 	    	 else if(status.contains("ACTIVE")) {
@@ -338,6 +345,8 @@ public class SR41807 {
 	@Then("^I Validate the Class codes \"([^\"]*)\",\"([^\"]*)\"\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" in file \"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_Validate_the_Class_codes_in_file(String ClassField1, String ClassField2, String ClassField3, String ClassField4, String ClassField5, String Library, String FileName) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
+	    
+		
 		String ExpClassCodes= ClassField1+ClassField2+ClassField3+ClassField4+ClassField5;
 		System.out.println("Expected Class Codes : "+ExpClassCodes);
 
@@ -350,29 +359,49 @@ public class SR41807 {
 			Thread.sleep(3000);
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			
-			//label1:	for (int j = 7; j < 894; ++j) {
-				
-			 for (int i = 7; i < 894; ++i) {
-				String ActClassCode= Mainframe_GlobalFunctionLib.getText(i, 9);
+			label1:	for (int j = 7; j < 894; ++j) {
+			Mainframe_GlobalFunctionLib.pressKey("PageDown");
+			
+						label2:for (int i = 6; i < 25; ++i) {
+							String ActClassCode= Mainframe_GlobalFunctionLib.getText(i, 9);
 					
-					if(ExpClassCodes.contains(ActClassCode))
-						{
-							System.out.println("Class Code is: "+ActClassCode);
-							Mainframe_GlobalFunctionLib.pressKey("PageDown");																	
-						}
-					else
-					{
-					System.out.println("Class Code not found : "+ActClassCode);
-					}
-				
-						
+									//if(ActClassCode==ClassField1)
+							if(ActClassCode.equals(ClassField1))
+										{
+							             System.out.println("Class Code is: "+ActClassCode);
+																								
+										}
+									   else if(ActClassCode.equals(ClassField2))
+									   {
+										   System.out.println("Class Code is: "+ActClassCode);
+									   }
+									   else if(ActClassCode.equals(ClassField3))
+									   {
+										   System.out.println("Class Code is: "+ActClassCode);
+									   }
+									   else if(ActClassCode.equals(ClassField4))
+									   {
+										   System.out.println("Class Code is: "+ActClassCode);
+									   }
+									   else if(ActClassCode.equals(ClassField5))
+									   {
+										   System.out.println("Class Code is: "+ActClassCode);
+									   }
+									   else
+									   {
+									    System.out.println("Class Code not found : "+ActClassCode);
+									   }
+				String ActEndofFile=Mainframe_GlobalFunctionLib.getText(24, 9);
+				if(ActEndofFile.contains("End of report"))	{
+					break label1;
 				}
-			//if(a==1)
-				//break;
-		}
+						}
+	          }
+			
+	  }
 		
-	@Then("^I Validate the Class codes \"([^\"]*)\" displays in Spool file Report \"([^\"]*)\" for Carrier \"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_Validate_the_Class_codes_displays_in_Spool_file_Report_for_Carrier(String ClassField, String Report, String CarrierFrom, String CarrierThru) throws Throwable {
+	@Then("^I Validate the Class codes \"([^\"]*)\",\"([^\"]*)\" displays in Spool file Report \"([^\"]*)\" for Carrier \"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_Validate_the_Class_codes_displays_in_Spool_file_Report_for_Carrier(String ClassField, String ClassField1,String Report, String CarrierFrom, String CarrierThru) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	    
 		
@@ -415,6 +444,8 @@ public class SR41807 {
 		 Mainframe_GlobalFunctionLib.validateText("7", "76", "CLASS");
 		 System.out.println("Spool file has field name as : "+"CLASS");
 		 
+		 Mainframe_GlobalFunctionLib.sendText(3, 22,"20");
+		 Mainframe_GlobalFunctionLib.pressKey("Enter");
 		 Mainframe_GlobalFunctionLib.sendText(4, 22,"                       ");
 		 Mainframe_GlobalFunctionLib.sendText(4, 22,"NONE SELECTED");
 		 Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -430,12 +461,27 @@ public class SR41807 {
 		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		 Mainframe_GlobalFunctionLib.validateText("7", "117", ClassField);
 		 System.out.println("Spool file has Class field Value as : "+ClassField);
+		 Thread.sleep(3000);
+		 
+		 //Mainframe_GlobalFunctionLib.pressKey("F12");
+		 //Mainframe_GlobalFunctionLib.sendText(11, 3,"5");
+		 //Mainframe_GlobalFunctionLib.pressKey("Enter");
+		 Mainframe_GlobalFunctionLib.sendText(4, 22,"                       ");
+		 Mainframe_GlobalFunctionLib.sendText(4, 22,ClassField1);
+		 Thread.sleep(3000);
+		 Mainframe_GlobalFunctionLib.pressKey("Enter");
+		 Thread.sleep(3000);
+		 Mainframe_GlobalFunctionLib.pressKey("F16");
+		 Thread.sleep(3000);
+		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		 Mainframe_GlobalFunctionLib.validateText("7", "114", ClassField1);
+		 System.out.println("Spool file has Class field Value as : "+ClassField1);
 	
 		 Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
 	
 	@Then("^I Validate the Class codes \"([^\"]*)\" in file \"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_Validate_the_Class_codes_in_file(String arg1, String Library, String FileName) throws Throwable {
+	public void i_Validate_the_Class_codes_in_file(String ClassField, String Library, String FileName) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	  
 		String runqry="RUNQRY QRYFILE(("+Library+"/"+FileName+"))";
@@ -475,7 +521,104 @@ public class SR41807 {
 		}
 	}
 
+	@Then("^I Second Validate the Class codes \"([^\"]*)\",\"([^\"]*)\"\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" in file \"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_Second_Validate_the_Class_codes_in_file(String ClassField1, String ClassField2, String ClassField3, String ClassField4, String ClassField5, String Library, String FileName) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+		//Practice code to remove for Scenario Reg
+		String ExpClassCodes= ClassField1+ClassField2+ClassField3+ClassField4+ClassField5;
+		System.out.println("Expected Class Codes : "+ExpClassCodes);
+
+			String runqry="RUNQRY QRYFILE(("+Library+"/"+FileName+"))";
+			Thread.sleep(3000);
+			Mainframe_GlobalFunctionLib.sendText(22,7, runqry);
+			Thread.sleep(3000);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(3, 126,"68" );
+			Thread.sleep(3000);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			
+			label1:	for (int j = 7; j < 894; ++j) {
+			Mainframe_GlobalFunctionLib.pressKey("PageDown");
+			
+						label2:for (int i = 6; i < 25; ++i) {
+							String ActClassCode= Mainframe_GlobalFunctionLib.getText(i, 9);
+					
+									//if(ActClassCode==ClassField1)
+							if(ActClassCode.equals(ClassField1))
+										{
+							             System.out.println("Class Code is: "+ActClassCode);
+																								
+										}
+									   else if(ActClassCode.equals(ClassField2))
+									   {
+										   System.out.println("Class Code is: "+ActClassCode);
+									   }
+									   else if(ActClassCode.equals(ClassField3))
+									   {
+										   System.out.println("Class Code is: "+ActClassCode);
+									   }
+									   else if(ActClassCode.equals(ClassField4))
+									   {
+										   System.out.println("Class Code is: "+ActClassCode);
+									   }
+									   else if(ActClassCode.equals(ClassField5))
+									   {
+										   System.out.println("Class Code is: "+ActClassCode);
+									   }
+									   else
+									   {
+									    System.out.println("Class Code not found : "+ActClassCode);
+									   }
+				String ActEndofFile=Mainframe_GlobalFunctionLib.getText(24, 9);
+				if(ActEndofFile.contains("End of report"))	{
+					break label1;
+				}
+						}
+	          }
+			
+	  }
+	
+	@Given("^I am on Display Report Screen$")
+	public void i_am_on_Display_Report_Screen() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		Mainframe_GlobalFunctionLib.validateText("1", "27", "Display Report");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		 /*String text = FunctionalLibrary.getText(1, 13);
+			
+			while(!(text.contains("Report Management"))){
+				
+				FunctionalLibrary.pressKey("F12");
+				text = FunctionalLibrary.getText(1, 13);
+				
+			}*/
+		 
+	}	
+	@Given("^I am on Productivity Reporting Screen$")
+	public void i_am_on_Productivity_Reporting_Screen() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+		Mainframe_GlobalFunctionLib.validateText("2", "30", "Productivity Reporting");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
+	
+	@Given("^I am on RxInterACT Main Menu Screen$")
+	public void i_am_on_RxInterACT_Main_Menu_Screen() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+		String text = FunctionalLibrary.getText(1, 13);
+		
+		while(!(text.equalsIgnoreCase("RxInterACT Main Menu"))){
+			
+			FunctionalLibrary.pressKey("F12");
+			text = FunctionalLibrary.getText(1, 13);
+			
+		}
+	}
+
+}
 
 
 
