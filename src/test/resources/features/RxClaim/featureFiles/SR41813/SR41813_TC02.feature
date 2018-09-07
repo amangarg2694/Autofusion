@@ -50,11 +50,9 @@ Feature: Medicaid Subrogation Profile
     And I press "Enter" Key
     And I enter "1" in field "Selection" on "MemberDetailScreen"
     And I press "Enter" Key
-    And I enter "Y" in field "FamilyFlag" on "MemberDetailScreen"
-    And I press "F4" Key
-    And I enter "X" in field "FtypeOption" on "MemberDetailScreen"
-    And I press "Enter" Key
-    And I enter "12001200" in field "ID" on "MemberDetailScreen"
+    And I enter "001" in field "Person" on "MemberDetailScreen"
+    And I enter "1" in field "Rel" on "MemberDetailScreen"
+    And I enter "F" in field "Sex" on "MemberDetailScreen"
     And I press "Enter" Key
     And I enter "Y" in field "CommandPrompt" on "MemberDetailScreen"
     Then Validate "Member Added." message should displayed on "AddMemberScreen"
@@ -73,5 +71,5 @@ Feature: Medicaid Subrogation Profile
 		 Examples:
    
       | CarrierID | CarrierName | Processor | MailingAdd | City      | State | Zip   | ContractFromDt | ContractThruDt | ContractEnt | BusinessType | AccountID | AccountName | GroupID  | GroupName | GroupFromDt | GroupThruDt | PlanCode | Description | MemberID   | First Name | Last Name | DOB      | BIN    | PCN     | Group | Pharmacy |RxNo          | Refill | ProductID  | DspQty | DS | PSC | Cost | From Date | Thru Date | SubrogationFlag | Fee | UCW | Type | PANum | Payee | Name | ProfileID | PDescription | SDWD | MCSDWD | Code |
-      | SR41813A6 | Carrier     |        712 | MAIL ADD   | Hyderabad | IL    | 78654 |         010101 |         123139 | *DEFAULT    | COMMERCIAL  | SR41813A1 | Account     | SR41813A6 | Group    |  010101 | 123139 | SR41813YC | SR41813 Plan | SR41813YA | AUTOMEM    | AUTOMEM   | 12251987 | 777777 | * | SN002215 | APHARM | 310019946000 | 00     | 00310075139 |1      |1  |0   |10   | 010101 | 123139 | Y | 10 | 10 | 1 | 17621929891 | SR41813A | Test | SR41813A | Testing | 9999 | 9999 | Y |
+      | SR41813B3 | Carrier     |        712 | MAIL ADD   | Hyderabad | IL    | 78654 |         010101 |         123139 | *DEFAULT    | COMMERCIAL  | SR41813B3 | Account     | SR41813B3 | Group    |  010101 | 123139 | SR41813YC | SR41813 Plan | SR41813YA | AUTOMEM    | AUTOMEM   | 12251987 | 777777 | * | SN002215 | APHARM | 310019946000 | 00     | 00071015523 |1      |1  |0   |10   | 010101 | 123139 | Y | 10 | 10 | 1 | 17621929891 | SR41813G | Test | SR41813G | Testing | 9999 | 9999 | Y |
        

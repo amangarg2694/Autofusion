@@ -785,15 +785,15 @@ public class ExternalTransactionProgramValidation {
 				
 				Mainframe_GlobalFunctionLib.sendText(17, 12, gThruDate);
 				//Mainframe_GlobalFunctionLib.Transmit();
-				
-				Mainframe_GlobalFunctionLib.click(17, 22 );
+				Mainframe_GlobalFunctionLib.sendText(17, 22, planCode);
+				/*Mainframe_GlobalFunctionLib.click(17, 22 );
   				Mainframe_GlobalFunctionLib.pressKey("F4");
 				
 				Mainframe_GlobalFunctionLib.sendText("04", "005", planCode);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Thread.sleep(3000);
 				Mainframe_GlobalFunctionLib.sendText("10", "002", "1");
-				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");*/
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				
 				
@@ -812,7 +812,7 @@ public class ExternalTransactionProgramValidation {
 	@When("^I trigger the SQL command with \"([^\"]*)\"$")
 	public void i_trigger_the_SQL_command_with(String SQLCommand) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		Path readFile = Paths.get("C:\\Users\\spriya7\\git\\Autofusion_ATDD_LeanFTDemo\\src\\test\\resources\\features\\RxClaim\\featureFiles\\SR41632\\TestData.txt");
+		Path readFile = Paths.get("C:\\Users\\spriya7\\git\\RxClaim_ATDD\\src\\test\\resources\\features\\RxClaim\\featureFiles\\SR41632\\TestData.txt");
 		String RxClaimNumber = "";
 		try (BufferedReader reader = 
                  Files.newBufferedReader(readFile, StandardCharsets.UTF_8)) {
@@ -845,7 +845,7 @@ public class ExternalTransactionProgramValidation {
 	public void capture_the_Claim_Number_and_write_in_text_file() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		String RxClaim_Number = Mainframe_GlobalFunctionLib.getText(3, 12);
-		Path FileName = Paths.get("C:\\Users\\spriya7\\git\\Autofusion_ATDD_LeanFTDemo\\src\\test\\resources\\features\\RxClaim\\featureFiles\\SR41632\\TestData.txt");
+		Path FileName = Paths.get("C:\\Users\\spriya7\\git\\RxClaim_ATDD\\src\\test\\resources\\features\\RxClaim\\featureFiles\\SR41632\\TestData.txt");
 		BufferedWriter writer = Files.newBufferedWriter(FileName , StandardOpenOption.TRUNCATE_EXISTING);
 		writer.write(RxClaim_Number);
 		writer.close();
