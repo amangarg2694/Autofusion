@@ -1,8 +1,7 @@
-Feature: Create New PartD Setup
-As a RxClaim User I want to create Part D Setup
-    
-             
-    Scenario Outline: Create a new PartD Setup in RxClaim 
+Feature: Validate New TBD Feature 
+As a RxClaim User I want to validate 
+
+  Scenario Outline: SETUP_TC01_Create a new PartD Setup in RxClaim 
     
     Given I am on RxClaim PlanAdministrator Menu 
     When I create plan with member eligibility and pricing option "<PlanCode>","<FromDate>","<Description>","<ThruDate>","<PriceSchedule>","<PatientPaySchedule>"
@@ -23,9 +22,23 @@ As a RxClaim User I want to create Part D Setup
    	And I Set Medicare "<MemberID>","<PARTDFromDate>","<PARTDThruDate>","<Contract>","<PBP>","<Segment>","<SubsidyLevel>","<CopayCategory>","<PARTDEffectiveDate>","<EnrollmentSource>"
    	And I Set PartD Master Profile Detail "<CarrierID>","<AccountID>","<GroupID>","<PlanCode>","<FromDate>","<MasterProfileFromDate>","<MasterProfileThruDate>","<DrugCoverageStatusSchedule>","<Contract>","<PBP>"
    	Then Validate PartD Master Profile created with details "<CarrierID>" ,"<AccountID>","<GroupID>","<PlanCode>"
-    
-   
-   
+   	
+   	
    Examples:
    |PlanCode|FromDate|ThruDate|Description|PriceSchedule|PatientPaySchedule|TrOOPFromDate|TrOOPThruDate|AccumulationLevel|AccumulationCode|TrOOPSchedule|CMSLabelerList|CPPFromDate|CPPThruDate|CPPAccumulationLevel|CPPAccumulationCode|CPPPatientPaySchedule|CPPTrOOPSchedule|Qualifier| CarrierID | CarrierName |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID |AccountName  | GroupID    |GroupName  |GroupFromDt|GroupThruDt|PlanCode|PPDetailSchedule|PPDetailDescription|PlanUseQualifier|MemberID    | FirstName  | LastName  | DOB     | FromDate  | ThruDate |HIC|SupplementalIDFromDate|SupplementalIDThruDate|SupplementalIDType|SupplementalID|Text|Contract|PBP|BenefitYear|MedicareType|PARTDFromDate|PARTDThruDate|Segment|SubsidyLevel|CopayCategory|PARTDEffectiveDate|EnrollmentSource|MasterProfileFromDate|MasterProfileThruDate|DrugCoverageStatusSchedule| 
-   |EVU30976P1|010101|123139|EVU30976P1|EVUAREG|EVUAREG|010114|123114|C| |EVUBKOT|EVUBKOT|010114|123114|C||EVUBKOT|EVUBKOT|A|EVU30976C | EVU30976C|712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |EVU30976A1|EVU30976A1| EVU30976G1  |EVU30976G1 |010101     |123139     |EVU30976P1|EVUBKOT|TEST||EVU30976M1| EVU30976M2 |EVU30976M2 |12251987|010101|123139|123956781|010114|123114|06|123456781||A9364|121|2014|S|010114|123114| | | | | |010114|123114|EVUBKOT|
+   |EVU666RM|010101|123139|EVU666RM|EVUAREG|EVUARMG|010114|123114|C| |EVU666RM|EVU666RM|010114|123114|C||EVU666RM|EVU666RM|A|EVU666RM | EVU666RM|712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |EVU666RM|EVU666RM| EVU666RM  |EVU666RM |010101     |123139     |EVU30976P1|EVUBKOT|TEST||EVU30976M1| EVU30976M2 |EVU30976M2 |12251987|010101|123139|123956781|010114|123114|06|123456781||A9364|121|2014|S|010114|123114| | | | | |010114|123114|EVUBKOT|
+  
+  
+  Scenario Outline: SR41698_TC01_VerifyTBDCLaim_outsideTBSChedule
+  
+  Given I am on RxClaim PlanAdministrator Menu 
+  When  I go to Transaction Control Table
+  And I press "F3" Key
+  And I press "F12" Key
+  //And   I change the TBD Flag to No
+  //And I press "F3" Key
+  //And I press "F12" Key
+  
+  
+  
+  
