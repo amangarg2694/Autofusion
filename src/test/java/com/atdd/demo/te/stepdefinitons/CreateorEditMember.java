@@ -9,6 +9,6 @@ public class CreateorEditMember {
 	
 	@Then("^Validate Member \"([^\"]*)\" added$")
 	public void validate_Member_added(String memberID) throws Throwable {
-		FunctionalLibrary.validateText("10" ,"4" , memberID );
+		FunctionalLibrary.validateText("6" ,"10" , memberID );
 	}
 }

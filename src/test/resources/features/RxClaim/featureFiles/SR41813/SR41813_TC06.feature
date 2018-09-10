@@ -2,6 +2,8 @@ Feature: Medicaid Subrogation Profile
   As a RxClaim User I want to check claim is getting rejected for reason code 75 
 
   Scenario Outline: Verify if claim is getting Rejected with R75 and Notes related to override R75 should not be stamped Override flag as 'Y' with Part D and Non Part D plan
+  	## Use data from TC01 for PlanCode1 column
+  
    	Given I am on RxClaim PlanAdministrator Menu
    	When I select Option "1" to navigate to "Eligibility/Claim Transaction Maintenance"
     And I select Option "2" to navigate to "Active/Eligible Member by ID"
@@ -22,11 +24,9 @@ Feature: Medicaid Subrogation Profile
     And I press "Enter" Key
     And I enter "1" in field "Selection" on "MemberDetailScreen"
     And I press "Enter" Key
-    And I enter "Y" in field "FamilyFlag" on "MemberDetailScreen"
-    And I press "F4" Key
-    And I enter "X" in field "FtypeOption" on "MemberDetailScreen"
-    And I press "Enter" Key
-    And I enter "12001200" in field "ID" on "MemberDetailScreen"
+    And I enter "001" in field "Person" on "MemberDetailScreen"
+    And I enter "1" in field "Rel" on "MemberDetailScreen"
+    And I enter "F" in field "Sex" on "MemberDetailScreen"
     And I press "Enter" Key
     And I enter "Y" in field "CommandPrompt" on "MemberDetailScreen"
     Then Validate "Member Added." message should displayed on "AddMemberScreen"
@@ -59,5 +59,5 @@ Feature: Medicaid Subrogation Profile
   Examples:
    
       | CarrierID | CarrierName | Processor | MailingAdd | City      | State | Zip   | ContractFromDt | ContractThruDt | ContractEnt | BusinessType | AccountID | AccountName | GroupID  | GroupName | GroupFromDt | GroupThruDt | PlanCode | Description | MemberID   | First Name | Last Name | DOB      | BIN    | PCN     | Group | Pharmacy |RxNo          | Refill | ProductID  | DspQty | DS | PSC | Cost | From Date | Thru Date | Fee | UCW | Type | PANum | Payee | Name | ProfileID | PDescription | SDWD | MCSDWD | Code | SubrogationFlag | PL1From Date | PL1Thru Date | PlanCode1 |
-      | SR41813AA | Carrier     |        712 | MAIL ADD   | Hyderabad | IL    | 78654 |         010101 |         123139 | *DEFAULT    | COMMERCIAL  | SR41813A1 | Account     | SR41813AA | Group    | 010101 | 123139 | SR41813AA |SR41813 Plan | SR41813ZA | AUTOMEM    | AUTOMEM   | 12251987 | 777777 | * | SN002215 | APHARM | 310019945000 | 00     | 00310075139 |1      |1  |0   |10   | 010118 | 123118 | 10 | 10 | 1 | 17621929891 | A41813 | Test | A41813 | Testing | 9999 | 9999 | Y | Y | 010117 | 123117 | SR41813A6 |
+      | SR41813AA | Carrier     |        712 | MAIL ADD   | Hyderabad | IL    | 78654 |         010101 |         123139 | *DEFAULT    | COMMERCIAL  | SR41813A1 | Account     | SR41813AA | Group    | 010101 | 123139 | SR41813AA |SR41813 Plan | SR41813ZA | AUTOMEM    | AUTOMEM   | 12251987 | 777777 | * | SN002215 | APHARM | 310019945000 | 00     | 00071015523 |1      |1  |0   |10   | 010118 | 123118 | 10 | 10 | 1 | 17621929891 | A41813 | Test | A41813 | Testing | 9999 | 9999 | Y | Y | 010117 | 123117 | SR41813B3 |
        
