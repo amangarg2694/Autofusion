@@ -2,7 +2,7 @@ Feature: A manual claim is submitted with medicaid subrogation
  As a RxClaim User I want to A submit manual claim is with medicaid subrogation to Y in RxClaim
  
  
- Scenario Outline: SN003331_SR41449_TC002_Verify  manual claim when Medicaid Subrogation = Y and Negative Amount Due = N
+ Scenario Outline: SN003331_SR41449_TC001_Verify if note is added to manual claim when Medicaid Subrogation = Y and Negative Amount Due = Y
     Given I am on RxClaim PlanAdministrator Menu
     When I select Option "5" to navigate to "RxClaim Price Maintenance"
     And I select Option "2" to navigate to "RxClaim Patient Pay Maintenance"
@@ -17,7 +17,7 @@ Feature: A manual claim is submitted with medicaid subrogation
     And I press "Enter" Key
     And I press "F3" Key 
 	  And I press "F3" Key 
-        
+       
     #Scenario Outline: Check by Submitting Claim with Medicaid Subrogation to Y in RxClaim
     And I select Option "20" to navigate to "RxClaim Plan Administrator Menu"
     And I select Option "3" to navigate to "RxClaim Manual Claim Menu"
@@ -51,19 +51,25 @@ Feature: A manual claim is submitted with medicaid subrogation
     
     #Scenario Outline: Check Claim note when Claim Submitted with Medicaid Subrogation to Y in RxClaim 
     And I press "F14" Key
-    And I verify the "<Claim Note>" of Prevented negative amount due or Medicaid Subrogation pricing logic exists in "Claim NoteTable Details"
+    And I verify the Medicaid Subrogation pricing logic "<Claim Note>" exists in "ClaimNoteTable Details"
+    And I verify the Prevented negative amount due "<Claim Note>" exists in "ClaimNoteTable Details"
     And I press "F12" Key
     
     #Scenario Outline: Check by Submitting Claim with Medicaid Subrogation to Y and Verify Pricing
     And I press "F15" Key 
   	And I verify the pricingOutput "<pricingOutput>"
-    And Validate "Approved Due Amount" on "Price InformationPage1of3"
+    #And Validate "Approved Due Amount" on "Price Information Page 1 of 3"
+    And I verify Approved Due Amount in "Price Information Page 1 of 3"
    	Then I go Back to "RxClaim Plan Administrator Menu"
    	
      
       Examples: 
-      |PlanSearch	|NegativeDueValue	|BIN		|Proc Ctr		|Grp				|Pharmacy	|Rx Nbr				|Rf	|Member ID		|Payee Override	|Medicaid Subrogation	|Prod: ID			|Disp Qty	|DS	|PSC	|Cost	|Rx Origin|
-      |$20				|N								|777777	|SN003331k	|SN003331k	|apharm		|07202036397	|00	|SN003331-01	|SN003331K			|Y										|00247064407	|2				|3	|0		|5		|5				|
-     
-     	#|$20|N|777777|SN003331k|SN003331k|apharm|07262379897|00|SN003331-01|SN003331K|N|00247064407|2|3|0|5|5|
+      |PlanSearch	|NegativeDueValue	|BIN		|Proc Ctr	|Grp		|Pharmacy	|Rx Nbr			|Rf	|Member ID			|Payee Override	|Medicaid Subrogation	|Prod: ID			|Disp Qty	|DS	|PSC|Cost	|Rx Origin|
+      |$1.00			|Y								|777777	|KDPCN1		|KDGRP1	|apharm		|9360987657	|00	|SN003331K3-01	|kiranpayee			|Y										|00247064407	|2				|3	|0	|5		|5				|
+      #|$1.00|Y|SR40760A|777777|KDPCN|KDGRP|apharm|1078759261|00|mem842-01|kiranpayee|N|00247064407|2|3|0|5|5|
+
+
+
+
+
 

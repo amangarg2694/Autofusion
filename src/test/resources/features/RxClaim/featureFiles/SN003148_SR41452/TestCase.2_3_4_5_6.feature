@@ -11,7 +11,11 @@ Scenario Outline: SN003148_SR41452_TS001_Verify that additional field is present
     And I enter value in "<DateFrom>", "<DateThru>", "<CarrierFrom>", "<CarrierThru>" to submit batch
     And I verify fields CLAIM STATUS,DDI-DTMS INTERACTING GPI,DDI-DTMS Response
     And I verify RXClaim-Number "<rxclaimnumber>", RXClaim-Status in Spool file
-		Then I go back to RxClaim PlanAdministrator Menu
+		#Then I go back to PlanAdministrator Menu
+			And I press "F3" Key
+			And I press "F3" Key
+			And I press "F3" Key
+			And I press "F3" Key
 		
    Examples: 
     | DateFrom	| DateThru	|	CarrierFrom	|	CarrierThru	|	rxclaimnumber		|

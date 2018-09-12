@@ -200,6 +200,37 @@ public class SN003331 {
 	    
 	}
 	
+	@When("^I verify Approved Due Amount in \"([^\"]*)\"$")
+	public void i_verify_Approved_Due_Amount_in(String arg1) throws Throwable {
+		String CostApproved = Mainframe_GlobalFunctionLib.getText(9, 32);
+		if(CostApproved.equals("10.00"))
+		{
+			System.out.println("Cost Approved value is shown as: "+CostApproved);
+		}
+		else
+		{
+			System.out.println("Cost Approved value is show wrong as: "+CostApproved);
+		}
+		String PatApproved = Mainframe_GlobalFunctionLib.getText(16, 32);
+		if(PatApproved.equals("10.00"))
+		{
+			System.out.println("PAT Approved value is shown as: "+PatApproved);
+		}
+		else
+		{
+			System.out.println("PAT Approved value is shown wrong as: "+PatApproved);
+		}
+		String DueApproved = Mainframe_GlobalFunctionLib.getText(20, 32);
+		if(DueApproved.equals(""))
+		{
+			System.out.println("Due Approved value is shown as NULL");
+		}
+		else
+		{
+			System.out.println("Due Approved value is shown wrong as: "+DueApproved);
+		}
+	}
+/*	
 	@Then("^Validate \"([^\"]*)\" on \"([^\"]*)\"$")
 	public void validate_on(String arg1, String arg2) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -230,7 +261,7 @@ public class SN003331 {
 		{
 			System.out.println("Due Approved value is shown wrong as: "+DueApproved);
 		}
-	}
+	}*/
 	
 	@Then("^Validate \"([^\"]*)\" when Medicaid Subrogation = N and Negative amount Due = Y$")
 	public void validate_when_Medicaid_Subrogation_N_and_Negative_amount_Due_Y(String arg1) throws Throwable {

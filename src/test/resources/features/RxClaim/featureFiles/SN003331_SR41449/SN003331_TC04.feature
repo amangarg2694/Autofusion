@@ -57,7 +57,8 @@ Feature: A manual claim is submitted with medicaid subrogation
     #Scenario Outline: Check by Submitting Claim with Medicaid Subrogation to Y and Verify Pricing
     And I press "F15" Key 
   	And I verify the pricingOutput "<pricingOutput>"
-    Then Validate "Approved Due Amount" on "Price InformationPage1of3"
+    #Then Validate "Approved Due Amount" on "Price InformationPage1of3"
+    And I verify Approved Due Amount in "Price Information Page 1 of 3"
    	#Then I go Back to "RxClaim Plan Administrator Menu"
    	
      

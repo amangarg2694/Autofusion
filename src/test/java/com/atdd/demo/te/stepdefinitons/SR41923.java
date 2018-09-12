@@ -653,7 +653,7 @@ public class SR41923 {
 		  }
 		  else if(claimStatus.equals("R"))
 		  {
-			  System.out.println("Claim Status is Rejected, so stops execution: "+claimStatus);
+			  System.out.println("Claim Status is Rejected, Status is: "+claimStatus);
 			  System.exit(0);
 		  }
 		  else

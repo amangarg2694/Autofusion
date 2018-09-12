@@ -90,42 +90,41 @@ public class SR41892 {
 		else
 		{
 			System.out.println("Claim Product Status is not as Expected: "+ClaimProductStatus);
-			Mainframe_GlobalFunctionLib.sendText(14, 27,"F");
+			Mainframe_GlobalFunctionLib.sendText(14, 27,"C");
 			System.out.println("Claim Product Status is UPDATED to Expected: "+Mainframe_GlobalFunctionLib.getText(14, 27));
 		}
 		
 		//Claim Product Status Option level
 		String optionLevelClaimProductStatus=Mainframe_GlobalFunctionLib.getText(14, 44);
 		System.out.println("Claim Product Status, Option Level is: "+optionLevelClaimProductStatus);
-		if(optionLevelClaimProductStatus.equals("a"))
+		if(optionLevelClaimProductStatus.equals("F"))
 		{
 			System.out.println("Claim Product Status, Option Level is as Expected: "+optionLevelClaimProductStatus);
 		}
 		else
 		{
 			System.out.println("Claim Product Status, Option Level is not as Expected: "+optionLevelClaimProductStatus);
-			Mainframe_GlobalFunctionLib.sendText(14, 44,"a");
+			Mainframe_GlobalFunctionLib.sendText(14, 44,"F");
 			System.out.println("Claim Product Status, Option Level is UPDATED to as Expected: "+Mainframe_GlobalFunctionLib.getText(14, 44));
 		}
 		
 		//Claim Multi-Source Code
-		
 		String ClaimMultiSource=Mainframe_GlobalFunctionLib.getText(15, 27);
 		System.out.println("Claim Multi Source Code is: "+ClaimMultiSource);
-		if(ClaimMultiSource.equals("G"))
+		if(ClaimMultiSource.equals("O"))
 		{
 			System.out.println("Claim Multi Source Code is as Expected: "+ClaimMultiSource);
 		}
 		else
 		{
 			System.out.println("Claim Multi Source Code is not as Expected: "+ClaimMultiSource);
-			Mainframe_GlobalFunctionLib.sendText(15, 27,"G");
+			Mainframe_GlobalFunctionLib.sendText(15, 27,"O");
 			System.out.println("Claim Multi Source Code is UPDATED to Expected, it is: "+ClaimMultiSource);
 		}
 		
 		//Claim Multi-Source Code option level
-				String optionLevelClaimMultiSource=Mainframe_GlobalFunctionLib.getText(15, 44);
-				System.out.println("Claim Multi Source, Option Level is: "+optionLevelClaimMultiSource);
+		String optionLevelClaimMultiSource=Mainframe_GlobalFunctionLib.getText(15, 44);
+		System.out.println("Claim Multi Source, Option Level is: "+optionLevelClaimMultiSource);
 				if(optionLevelClaimMultiSource.equals("N"))
 				{
 					System.out.println("Claim Multi Source, Option Level is as Expected: "+optionLevelClaimMultiSource);
@@ -154,7 +153,7 @@ public class SR41892 {
 	  }
 	}
 	
-	@Then("^I go back to Plan Maintenance Screen$")
+/*	@Then("^I go back to Plan Maintenance Screen$")
 	public void i_go_back_to_Plan_Maintenance_Screen() throws Throwable {
 	 Mainframe_GlobalFunctionLib.pressKey("F12");
 	 Mainframe_GlobalFunctionLib.pressKey("F12");
@@ -162,7 +161,7 @@ public class SR41892 {
 	 Mainframe_GlobalFunctionLib.pressKey("F12");
 	 Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
-	
+	*/
 //Scenario Outline: Verify Pricing setup	
 		@When("^I select Pricing Option in Plan Options screen$")
 		public void i_select_Pricing_Option_in_Plan_Options_screen() throws Throwable {
@@ -193,7 +192,76 @@ public class SR41892 {
 		 	
 		}
 		
+ // Scenario Outline: Verify NDC List setup
+		@When("^NDC list option selected in Plan screen$")
+		public void ndc_list_option_selected_in_Plan_screen() throws Throwable {
+			  Mainframe_GlobalFunctionLib.sendText(7, 21, "10");
+			  Mainframe_GlobalFunctionLib.pressKey("enter");
+		}
 		
+		public static String NDCList=null;
+		@When("^I validate  Active Plan NDC List \"([^\"]*)\"$")
+		public void i_validate_Active_Plan_NDC_List(String NDCList) throws Throwable {
+		 String actualNDCList=Mainframe_GlobalFunctionLib.getText(11, 8);
+		 System.out.println("Actual NDC List is: "+actualNDCList);
+		 NDCList=actualNDCList;
+		 if(NDCList.equals(actualNDCList))
+		 {
+			 System.out.println("Active NDC List is: "+actualNDCList);
+		}
+		 else
+		 {
+			 System.out.println("Active NDC List not found");
+			 System.exit(0);
+		 }
+		}
+		
+		public static String NDC_ID_F1=null;
+		public static String NDC_ID_B1=null;
+		@When("^I validate NDC_ID with status \"([^\"]*)\"$")
+		public void i_validate_NDC_ID_with_status(String Status) throws Throwable {
+			Mainframe_GlobalFunctionLib.sendText(11, 2, "7");
+			Mainframe_GlobalFunctionLib.pressKey("enter");
+			for(int i=11; i<20; i++)
+			{
+				try
+				{
+					String actualStatus=Mainframe_GlobalFunctionLib.getText(i, 59);
+					System.out.println("NDC ID Actual status is: "+actualStatus);
+					if(actualStatus.length()>0)
+					{
+						String NDC1=Mainframe_GlobalFunctionLib.getText(i, 4);
+						String NDC2=Mainframe_GlobalFunctionLib.getText(i, 10);
+						String NDC3=Mainframe_GlobalFunctionLib.getText(i, 15);
+						String NDC_ID=NDC1+NDC2+NDC3;
+						System.out.println("NDC ID is: "+NDC_ID);
+						if(actualStatus.equals(Status))
+						{
+							if(Status.equals("F"))
+									{
+										System.out.println("NDC ID for status "+Status+" is: "+NDC_ID);
+										NDC_ID_F1=NDC_ID;
+									}
+							else if (Status.equals("b"))
+							{
+								System.out.println("NDC ID for status "+Status+" is: "+NDC_ID);
+								NDC_ID_B1=NDC_ID;
+							}
+						}
+						else
+						{
+							System.out.println("Expected NDC ID status not found");
+						}
+				}
+				}catch (Exception e) {
+		            System.out.println("Records doesnt exists");
+		            break;
+				}		
+			}		
+		}	
+					
+		
+
 //Scenario Outline: Verify Multi-Ingredient Compound NDC List setup
 	@When("^I select Product List option$")
 	public void i_select_Product_List_option() throws Throwable {
@@ -224,6 +292,7 @@ public class SR41892 {
 		}
 	}
 	
+
 	public String NDC_ID=null;			
 	@When("^I verify NDC ID$")
 	public void i_verify_NDC_ID() throws Throwable {
@@ -257,7 +326,7 @@ public class SR41892 {
 			 String NDC_ID_F1=Mainframe_GlobalFunctionLib.getText(i, 37);
 			 String NDC_ID_F2=Mainframe_GlobalFunctionLib.getText(i, 43);
 			 String NDC_ID_F3=Mainframe_GlobalFunctionLib.getText(i, 48);
-			 NDC_ID_F=NDC_ID_F1+NDC_ID_F2+NDC_ID_F3;
+			 NDC_ID_F1=NDC_ID_F1+NDC_ID_F2+NDC_ID_F3;
 			 System.out.println("NDC ID with Status 'F' is: "+NDC_ID_F1+NDC_ID_F2+NDC_ID_F3);
 			 
 		 }
@@ -265,6 +334,8 @@ public class SR41892 {
 	 }
 	}
 	
+	
+//Scenario Outline: Verify Member setup
 	@When("^I verify Plan Override in MemberID \"([^\"]*)\"$")
 	public void i_verify_Plan_Override_in_MemberID(String MemberID) throws Throwable {
 		Mainframe_GlobalFunctionLib.sendText(4, 4, "          ");
@@ -282,9 +353,6 @@ public class SR41892 {
 			if(memberPlanCode.equals(Plan))
 			{
 				System.out.println("Expected PlanCode found in Member: "+Plan);
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
 			}
 			else
 			{
@@ -318,7 +386,6 @@ public class SR41892 {
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 			}
-			
 		}
 		else
 		{
@@ -327,6 +394,68 @@ public class SR41892 {
 	}
 	}
 	
+	@When("^I select option (\\d+) Medicare in Member Detail List Screen$")
+	public void i_select_option_Medicare_in_Member_Detail_List_Screen(int arg1) throws Throwable {
+		Mainframe_GlobalFunctionLib.sendText(4, 20, "17");
+		Mainframe_GlobalFunctionLib.pressKey("enter");
+	}
+
+	@When("^I select option (\\d+) Medicare Part D in Medicare screen$")
+	public void i_select_option_Medicare_Part_D_in_Medicare_screen(int arg1) throws Throwable {
+		Mainframe_GlobalFunctionLib.sendText(4, 20, "4");
+		Mainframe_GlobalFunctionLib.pressKey("enter");
+	}
+	
+	@When("^I verify details in Active Medicare Part D screen$")
+	public void i_verify_details_in_Active_Medicare_Part_D_screen() throws Throwable {
+	 String fromDate=Mainframe_GlobalFunctionLib.getText(15, 5);
+	 System.out.println("From date in Active Medicare Part D is : "+fromDate);
+	 String thruDate=Mainframe_GlobalFunctionLib.getText(15, 15);
+	 System.out.println("Thru date in Active Medicare Part D is : "+thruDate);
+	 String Contract=Mainframe_GlobalFunctionLib.getText(15, 27);
+	 System.out.println("Contract in Active Medicare Part D is : "+Contract);
+	 String PBP=Mainframe_GlobalFunctionLib.getText(15, 37);
+	 System.out.println("PBP in Active Medicare Part D is : "+PBP);
+	 String Copay_Category=Mainframe_GlobalFunctionLib.getText(15, 62);
+	 System.out.println("Copay_Category in Active Medicare Part D is : "+Copay_Category);
+	}
+	
+	@When("^I select option (\\d+) Member Information in Member Detail List Screen$")
+	public void i_select_option_Member_Information_in_Member_Detail_List_Screen(int arg1) throws Throwable {
+		Mainframe_GlobalFunctionLib.sendText(4, 20, "10");
+		Mainframe_GlobalFunctionLib.pressKey("enter");
+	}
+		
+	@When("^I select Option (\\d+) Supplemental ID in Member Information screen$")
+	public void i_select_Option_Supplemental_ID_in_Member_Information_screen(int arg1) throws Throwable {
+		Mainframe_GlobalFunctionLib.sendText(4, 20, "3");
+		Mainframe_GlobalFunctionLib.pressKey("enter");
+	}
+	
+	@When("^I verify details in Active Supplemental ID by Type screen$")
+	public void i_verify_details_in_Active_Supplemental_ID_by_Type_screen() throws Throwable {
+	   	 String Type=Mainframe_GlobalFunctionLib.getText(16, 5);
+		 System.out.println("Supplemental ID Type is: "+Type);
+		 String desc=Mainframe_GlobalFunctionLib.getText(16, 9);
+		 System.out.println("Supplemental ID desciption is: "+desc);
+		 String id=Mainframe_GlobalFunctionLib.getText(16, 20);
+		 System.out.println("Supplemental ID is: "+id);
+		 String fromDate=Mainframe_GlobalFunctionLib.getText(16, 60);
+		 System.out.println("Supplemental ID from Date is: "+fromDate);
+		 String thruDate=Mainframe_GlobalFunctionLib.getText(16, 69);
+		 System.out.println("Supplemental ID thru Date is: "+thruDate);
+	}		
+		
+	
+	@Then("^I navigate back to Plan Administrator Men$")
+	public void i_navigate_back_to_Plan_Administrator_Men() throws Throwable {
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+	}
 	
 	@Then("^I navigate back to Plan Administrator Menu$")
 	public void i_navigate_back_to_Plan_Administrator_Menu() throws Throwable {
@@ -334,16 +463,17 @@ public class SR41892 {
 		Mainframe_GlobalFunctionLib.pressKey("F12");
 		Mainframe_GlobalFunctionLib.pressKey("F12");
 		Mainframe_GlobalFunctionLib.pressKey("F12");
-		Mainframe_GlobalFunctionLib.pressKey("F12");	
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
 }
 	
 	
-	@When("^I submit MIC claims with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_submit_MIC_claims_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost) throws Throwable {
-		 CreateTransaction1(bin, proc, group, pharmacyID, rxNbr, refill, fillDate, memberID, productID, dspQty, ds, psc, cost);
-		    FunctionalLibrary.submitClaim();
+	@When("^I submit MIC claims with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\"$")
+	public void i_submit_MIC_claims_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID,String Qual, String productID, String dspQty, String ds, String psc, String cost, String Cmpnd) throws Throwable {
+		 CreateTransaction1(bin, proc, group, pharmacyID, rxNbr, refill, fillDate, memberID, Qual, productID, dspQty, ds, psc, cost, Cmpnd);
+		    //FunctionalLibrary.submitClaim();
 	}
-	public static void CreateTransaction1(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productId, String dspQty, String ds, String psc, String cost) throws Throwable
+	public static void CreateTransaction1(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String Qual, String productId, String dspQty, String ds, String psc, String cost, String Cmpnd) throws Throwable
 	{      
 	       try {
 	              FunctionalLibrary.navigateToRxClaimPlanAdministrator();
@@ -362,6 +492,7 @@ public class SR41892 {
 	             Mainframe_GlobalFunctionLib.sendText(11, 14,bin );
 	             Mainframe_GlobalFunctionLib.sendText(11, 41,proc );
 	             Mainframe_GlobalFunctionLib.sendText(11, 59,group );
+	             Mainframe_GlobalFunctionLib.sendText(11, 14,Qual );
 	             Mainframe_GlobalFunctionLib.sendText(12, 14,pharmacyID );
 	             Mainframe_GlobalFunctionLib.sendText(12, 41,rxNbr );
 	             Mainframe_GlobalFunctionLib.sendText(12, 59,refill );
@@ -383,6 +514,7 @@ public class SR41892 {
 	             Mainframe_GlobalFunctionLib.sendText(14, 6,psc );
 	             Mainframe_GlobalFunctionLib.sendText(10, 47,"         " );
 	             Mainframe_GlobalFunctionLib.sendText(10, 47,cost );
+	             Mainframe_GlobalFunctionLib.sendText(14, 14,Cmpnd );
 	             
 	       }
 	       else{
@@ -404,6 +536,7 @@ public class SR41892 {
 	             //Mainframe_GlobalFunctionLib.pressKey("Enter");         
 	             //Mainframe_GlobalFunctionLib.sendText(8, 2,"1" );
 	             //Mainframe_GlobalFunctionLib.pressKey("Enter");
+	             Mainframe_GlobalFunctionLib.sendText(11, 14,Qual );
 	             Mainframe_GlobalFunctionLib.sendText(11, 20,productId );
 	             Mainframe_GlobalFunctionLib.sendText(12, 11,"           " );
 	             Mainframe_GlobalFunctionLib.sendText(12, 11,dspQty );
@@ -412,6 +545,7 @@ public class SR41892 {
 	             Mainframe_GlobalFunctionLib.sendText(14, 6,psc );
 	             Mainframe_GlobalFunctionLib.sendText(10, 47,"         " );
 	             Mainframe_GlobalFunctionLib.sendText(10, 47,cost );
+	             Mainframe_GlobalFunctionLib.sendText(14, 14,Cmpnd );
 	             //Mainframe_GlobalFunctionLib.pressKey("F6");
 	         }
 	              System.out.println("Claim is created");
@@ -453,9 +587,82 @@ public class SR41892 {
 	}
 	return bRes;
 	}
+	
+	@When("^I submit claim$")
+	public void i_submit_claim() throws Throwable {
+		FunctionalLibrary.submitClaim();
+	}
 
-	@When("^I select Compound option in Transaction Submission Detail List screen$")
-	public void i_select_Compound_option_in_Transaction_Submission_Detail_List_screen() throws Throwable {
+	@When("^I select (\\d+) Compound Detail in Submission Detail	List screen$")
+	public void i_select_Compound_Detail_in_Submission_Detail_List_screen(int arg1) throws Throwable {
+		Mainframe_GlobalFunctionLib.sendText(4, 23, "5");
+		Mainframe_GlobalFunctionLib.pressKey("enter");
+	}
+	
+	@When("^I verify Compound Information Details for Product ID \"([^\"]*)\", \"([^\"]*)\"$")
+	public void i_verify_Compound_Information_Details_for_Product_ID(String ID1, String ID2) throws Throwable {
+	   try{
+		   for(int i=14; i <20; i++)
+		   {
+			   String productID=Mainframe_GlobalFunctionLib.getText(i, 16);
+			   if(productID.equals(ID1))
+			   {
+				   System.out.println("Product ID is : "+productID);
+				   String Status=Mainframe_GlobalFunctionLib.getText(i, 74);
+				   System.out.println("Submitted Compound Information: Product ID "+productID+" Status is "+Status);
+				   Mainframe_GlobalFunctionLib.sendText(i, 2, "5");
+				   Mainframe_GlobalFunctionLib.pressKey("enter");
+				   Mainframe_GlobalFunctionLib.pressKey("PageDown");
+				   String submittedCost=Mainframe_GlobalFunctionLib.getText(13, 7);
+				   System.out.println("Submitted Cost is : "+submittedCost);
+				   String calculatedCost=Mainframe_GlobalFunctionLib.getText(13, 18);
+				   System.out.println("Calculated Cost is : "+calculatedCost);
+				   String approvedCost=Mainframe_GlobalFunctionLib.getText(13, 29);
+				   System.out.println("Approved Cost is : "+approvedCost);
+				   String clientCost=Mainframe_GlobalFunctionLib.getText(13, 40);
+				   System.out.println("Client Cost is : "+clientCost);
+				   Mainframe_GlobalFunctionLib.pressKey("F12");
+			   }
+			   else if(productID.equals(ID2))
+			   {
+				   System.out.println("Product ID is : "+productID);
+				   String Status=Mainframe_GlobalFunctionLib.getText(i, 74);
+				   System.out.println("Submitted Compound Information:  Product ID "+productID+" Status is "+Status);
+				   Mainframe_GlobalFunctionLib.sendText(i, 2, "5");
+				   Mainframe_GlobalFunctionLib.pressKey("enter");
+				   Mainframe_GlobalFunctionLib.pressKey("PageDown");
+				   String submittedCost=Mainframe_GlobalFunctionLib.getText(13, 7);
+				   System.out.println("Submitted Cost is : "+submittedCost);
+				   String calculatedCost=Mainframe_GlobalFunctionLib.getText(13, 18);
+				   System.out.println("Calculated Cost is : "+calculatedCost);
+				   String approvedCost=Mainframe_GlobalFunctionLib.getText(13, 29);
+				   System.out.println("Approved Cost is : "+approvedCost);
+				   String clientCost=Mainframe_GlobalFunctionLib.getText(13, 40);
+				   System.out.println("Client Cost is : "+clientCost);
+				   Mainframe_GlobalFunctionLib.pressKey("F12");
+			   }
+				   
+		   	}
+	   		} catch (Exception e) {
+	   			System.out.println("End of SEARCH");
+	   		}	  
+		}   
+	
+	@When("^I select option (\\d+) Medicare Part D$")
+	public void i_select_option_Medicare_Part_D(int arg1) throws Throwable {
+		  Mainframe_GlobalFunctionLib.sendText(4, 23, "13");
+		   Mainframe_GlobalFunctionLib.pressKey("enter");
+	}
+	
+	
+	@When("^I verify TrOOP/Drug Spend Accumulation Phase Details$")
+	public void i_verify_TrOOP_Drug_Spend_Accumulation_Phase_Details() throws Throwable {
+	  String totalApprovedAmount=Mainframe_GlobalFunctionLib.getText(11, 49);
+	  System.out.println("The Total Approved Amount is : "+totalApprovedAmount);
+	}
+
+	@When("^I select option (\\d+) Compound in Transaction Submission Detail List screen$")
+	public void i_select_option_Compound_in_Transaction_Submission_Detail_List_screen(int arg1) throws Throwable {
 		Mainframe_GlobalFunctionLib.sendText(5, 23, "5");
 		Mainframe_GlobalFunctionLib.pressKey("enter");
 	}
@@ -467,7 +674,8 @@ public class SR41892 {
 			Mainframe_GlobalFunctionLib.sendText(13, 20, ID);
 			Mainframe_GlobalFunctionLib.sendText(15, 20, Quantity);
 			Mainframe_GlobalFunctionLib.sendText(16, 20, Cost);
-			Mainframe_GlobalFunctionLib.sendText(18, 23, BasicCost);
+			Mainframe_GlobalFunctionLib.sendText(18, 20, BasicCost);
+			Mainframe_GlobalFunctionLib.pressKey("enter");
 	}
 	
 
