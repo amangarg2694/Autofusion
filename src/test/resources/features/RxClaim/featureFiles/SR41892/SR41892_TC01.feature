@@ -21,7 +21,7 @@ Scenario Outline: Verify plan setup
     # VENKATPLN, PLAN8, PLAN2643
    Examples: 
       | PlanCode 		| NonPartDCovered	|	
-      | PLAN2643		| 	0							|   
+      | PLAN2643		| 0								|   
        
  Scenario Outline: Verify Pricing setup
 		When I select Pricing Option in Plan Options screen
