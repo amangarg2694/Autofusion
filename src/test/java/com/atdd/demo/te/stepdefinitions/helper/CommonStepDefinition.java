@@ -1,6 +1,7 @@
 package com.atdd.demo.te.stepdefinitions.helper;
 
 import com.atdd.te.screenHelpers.CommonHelper;
+import com.atdd.te.screenHelpers.FileValidation;
 import com.atdd.te.screenHelpers.FunctionalLibrary;
 import com.atdd.te.screenHelpers.PlanByPlanCode;
 import com.atdd.te.screenHelpers.Pricing;
@@ -410,8 +411,22 @@ public class CommonStepDefinition extends CommonHelper{
 	    Pricing.func_CreateOrMaintainPriceTable(priceTable, priceTableDesc, ptFrom, ptThru, dcSchedule, ptFee, ptTax, priceCC, calcCode);
 	}
 
+	@When("^I submit a SQLQuery and FTP the file \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_submit_a_SQLQuery_and_FTP_the_file(String filename, String libraryname, String FTPCmd) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    FunctionalLibrary.submitsqlquerywithftp(filename,libraryname,FTPCmd);
+	}
+	
+	@When("^I submit job CMD  for Expected File$")
+	public void i_submit_job_CMD_for_Expected_File() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+	}
 
-
-
+	@Then("^Validate Acutal CHF file \"([^\"]*)\" with the expected file \"([^\"]*)\"$")
+	public void validate_Acutal_CHF_file_with_the_expected_file(String actualFile, String expectedFile) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    FileValidation.compareFile(actualFile, expectedFile);
+	}
 	
 }
