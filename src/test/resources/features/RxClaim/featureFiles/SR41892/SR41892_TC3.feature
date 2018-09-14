@@ -24,8 +24,8 @@ Scenario Outline: Verify plan setup
     # TC3: PLAN2643   [NonPartD=1]
     # TC4: PLAN2643T4 [NonPartD=1][ID: 00006 0735 31]
    Examples: 
-      | PlanCode 		| NonPartDCovered	|	
-      | PLAN2643T2	| 0								|   
+      | PlanCode 	| NonPartDCovered	|	
+      | PLAN2643	| 1								|   
        
  Scenario Outline: Verify Pricing setup
 		When I select Pricing Option in Plan Options screen
@@ -42,7 +42,7 @@ Scenario Outline: Verify plan setup
   #Add 10: NDC List
   Scenario Outline: Verify NDC List setup
 		When NDC list option selected in Plan screen
-		And I validate Active Plan NDC List
+		And I validate  Active Plan NDC List "<NDCList>"
 		And I validate NDC_ID with status "<Status>"
 	  Then I navigate back to Plan Administrator Menu
    

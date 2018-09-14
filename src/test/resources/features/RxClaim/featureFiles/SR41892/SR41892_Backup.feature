@@ -19,13 +19,13 @@ Scenario Outline: Verify plan setup
 		# public static String Plan="";
     # public String NDC_MIC=null;
     # VENKATPLN, PLAN8, 
-    # TC1: PLAN2643S3 [NonPartD=0]
-    # TC2: PLAN2643T2 [NonPartD=0][ID: 00006 0735 31]
-    # TC3: PLAN2643   [NonPartD=1]
-    # TC4: PLAN2643T4 [NonPartD=1][ID: 00006 0735 31]
+    # TC1: PLAN2643S3[NonPartD]
+    # TC2: PLAN2643T2 [ID: 00006 0735 31]
+    # TC3: PLAN2643[PARTD]
+    # TC4: PLAN2643T4 [ID: 00006 0735 31]
    Examples: 
       | PlanCode 		| NonPartDCovered	|	
-      | PLAN2643T2	| 0								|   
+      | PLAN2643		| 1								|   
        
  Scenario Outline: Verify Pricing setup
 		When I select Pricing Option in Plan Options screen
@@ -42,7 +42,7 @@ Scenario Outline: Verify plan setup
   #Add 10: NDC List
   Scenario Outline: Verify NDC List setup
 		When NDC list option selected in Plan screen
-		And I validate Active Plan NDC List
+		And I validate  Active Plan NDC List "<NDCList>"
 		And I validate NDC_ID with status "<Status>"
 	  Then I navigate back to Plan Administrator Menu
    
@@ -81,6 +81,7 @@ Scenario Outline: Verify Member setup
     And I select option 5 Compound in Transaction Submission Detail List screen 
     And I add Compound Submission Details with "<Qualifier>", "<ID1>","<Quantity>", "<Cost>", "<BasicCost>" 
     And I add Compound Submission Details with "<Qualifier>", "<ID2>","<Quantity>", "<Cost>", "<BasicCost>" 
+    #00006 0735 31
     And I press "F12" Key
     And I press "F12" Key
     And I submit claim

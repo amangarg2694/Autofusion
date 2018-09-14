@@ -5,6 +5,7 @@ import java.util.StringTokenizer;
 import com.atdd.te.screenHelpers.FunctionalLibrary;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -20,9 +21,8 @@ public class SR41892 {
 	  PlanCode=resultListPlan;
 	  if(resultListPlan.equals(PlanCode))
 	  {
-		  System.out.println("Expected Plan found in result List: "+resultListPlan);
+		  System.out.println("Expected Plan found in result List and its is: "+resultListPlan);
 		  //PlanCode=resultListPlan;
-		  System.out.println("Expected Plan Code is: "+PlanCode);
 		  Mainframe_GlobalFunctionLib.sendText(11, 2, "2");
 		  Mainframe_GlobalFunctionLib.pressKey("enter");
 	  }
@@ -83,7 +83,7 @@ public class SR41892 {
 		//Claim Product Status
 		String ClaimProductStatus=Mainframe_GlobalFunctionLib.getText(14, 27);
 		System.out.println("Claim Product Status is: "+ClaimProductStatus);
-		if(ClaimProductStatus.equals("F"))
+		/*if(ClaimProductStatus.equals("F"))
 		{
 			System.out.println("Claim Product Status is as Expected: "+ClaimProductStatus);
 		}
@@ -93,11 +93,11 @@ public class SR41892 {
 			Mainframe_GlobalFunctionLib.sendText(14, 27,"C");
 			System.out.println("Claim Product Status is UPDATED to Expected: "+Mainframe_GlobalFunctionLib.getText(14, 27));
 		}
-		
+		*/
 		//Claim Product Status Option level
 		String optionLevelClaimProductStatus=Mainframe_GlobalFunctionLib.getText(14, 44);
 		System.out.println("Claim Product Status, Option Level is: "+optionLevelClaimProductStatus);
-		if(optionLevelClaimProductStatus.equals("F"))
+		/*if(optionLevelClaimProductStatus.equals("F"))
 		{
 			System.out.println("Claim Product Status, Option Level is as Expected: "+optionLevelClaimProductStatus);
 		}
@@ -106,12 +106,12 @@ public class SR41892 {
 			System.out.println("Claim Product Status, Option Level is not as Expected: "+optionLevelClaimProductStatus);
 			Mainframe_GlobalFunctionLib.sendText(14, 44,"F");
 			System.out.println("Claim Product Status, Option Level is UPDATED to as Expected: "+Mainframe_GlobalFunctionLib.getText(14, 44));
-		}
+		}*/
 		
 		//Claim Multi-Source Code
 		String ClaimMultiSource=Mainframe_GlobalFunctionLib.getText(15, 27);
 		System.out.println("Claim Multi Source Code is: "+ClaimMultiSource);
-		if(ClaimMultiSource.equals("O"))
+		/*if(ClaimMultiSource.equals("O"))
 		{
 			System.out.println("Claim Multi Source Code is as Expected: "+ClaimMultiSource);
 		}
@@ -120,12 +120,12 @@ public class SR41892 {
 			System.out.println("Claim Multi Source Code is not as Expected: "+ClaimMultiSource);
 			Mainframe_GlobalFunctionLib.sendText(15, 27,"O");
 			System.out.println("Claim Multi Source Code is UPDATED to Expected, it is: "+ClaimMultiSource);
-		}
+		}*/
 		
 		//Claim Multi-Source Code option level
 		String optionLevelClaimMultiSource=Mainframe_GlobalFunctionLib.getText(15, 44);
 		System.out.println("Claim Multi Source, Option Level is: "+optionLevelClaimMultiSource);
-				if(optionLevelClaimMultiSource.equals("N"))
+			/*	if(optionLevelClaimMultiSource.equals("N"))
 				{
 					System.out.println("Claim Multi Source, Option Level is as Expected: "+optionLevelClaimMultiSource);
 				}
@@ -134,7 +134,7 @@ public class SR41892 {
 					System.out.println("Claim Multi Source, Option Level is not as Expected: "+optionLevelClaimMultiSource);
 					Mainframe_GlobalFunctionLib.sendText(15, 44,"N");
 					System.out.println("Claim Multi Source, Option Level is UPDATED to Expected, it is: "+Mainframe_GlobalFunctionLib.getText(15, 44));
-				}
+				}*/
 		}
 	
 	@When("^I verify Non Part D Covered \"([^\"]*)\"$")
@@ -148,20 +148,11 @@ public class SR41892 {
 	  else
 	  { 
 		  System.out.println("The Value at Non PartD Covered is not as expected: "+valueNonPartDCovered);
-		  Mainframe_GlobalFunctionLib.sendText(10, 60, NonPartDCovered);
-		  System.out.println("The Value at Non PartD Covered is UPDATED to expected, it is: "+valueNonPartDCovered);
+		 /* Mainframe_GlobalFunctionLib.sendText(10, 60, NonPartDCovered);
+		  System.out.println("The Value at Non PartD Covered is UPDATED to expected, it is: "+valueNonPartDCovered);*/
 	  }
 	}
 	
-/*	@Then("^I go back to Plan Maintenance Screen$")
-	public void i_go_back_to_Plan_Maintenance_Screen() throws Throwable {
-	 Mainframe_GlobalFunctionLib.pressKey("F12");
-	 Mainframe_GlobalFunctionLib.pressKey("F12");
-	 Mainframe_GlobalFunctionLib.pressKey("F12");
-	 Mainframe_GlobalFunctionLib.pressKey("F12");
-	 Mainframe_GlobalFunctionLib.pressKey("F12");
-	}
-	*/
 //Scenario Outline: Verify Pricing setup	
 		@When("^I select Pricing Option in Plan Options screen$")
 		public void i_select_Pricing_Option_in_Plan_Options_screen() throws Throwable {
@@ -199,12 +190,12 @@ public class SR41892 {
 			  Mainframe_GlobalFunctionLib.pressKey("enter");
 		}
 		
-		public static String NDCList=null;
-		@When("^I validate  Active Plan NDC List \"([^\"]*)\"$")
-		public void i_validate_Active_Plan_NDC_List(String NDCList) throws Throwable {
+		//public static String NDCList=null;
+		@When("^I validate Active Plan NDC List$")
+		public void i_validate_Active_Plan_NDC_List() throws Throwable {
 		 String actualNDCList=Mainframe_GlobalFunctionLib.getText(11, 8);
 		 System.out.println("Actual NDC List is: "+actualNDCList);
-		 NDCList=actualNDCList;
+		 /*NDCList=actualNDCList;
 		 if(NDCList.equals(actualNDCList))
 		 {
 			 System.out.println("Active NDC List is: "+actualNDCList);
@@ -214,50 +205,73 @@ public class SR41892 {
 			 System.out.println("Active NDC List not found");
 			 System.exit(0);
 		 }
-		}
+		}*/
 		
-		public static String NDC_ID_F1=null;
-		public static String NDC_ID_B1=null;
-		@When("^I validate NDC_ID with status \"([^\"]*)\"$")
-		public void i_validate_NDC_ID_with_status(String Status) throws Throwable {
+		}
+		public static String NDC_ID_Base_1=null;
+		public static String NDC_ID_Base_2=null;
+		public static String NDC_ID_Base_3=null;
+
+
+		@When("^I validate NDC_ID \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\" with status$")
+		public void i_validate_NDC_ID_with_status(String NDC1, String NDC2, String NDC3) throws Throwable {
 			Mainframe_GlobalFunctionLib.sendText(11, 2, "7");
 			Mainframe_GlobalFunctionLib.pressKey("enter");
 			for(int i=11; i<20; i++)
 			{
+				try{
+					String NDCPart1=Mainframe_GlobalFunctionLib.getText(i, 4);
+					String NDCPart2=Mainframe_GlobalFunctionLib.getText(i, 10);
+					String NDCPart3=Mainframe_GlobalFunctionLib.getText(i, 15);
+					String actualNDC_ID=NDCPart1+NDCPart2+NDCPart3;
+					System.out.println("Actual NDC ID in Current Plan NDCs by Name is: "+actualNDC_ID);
+					String actualStatus=Mainframe_GlobalFunctionLib.getText(i, 59);
+					System.out.println("NDC Actual status is: "+actualStatus);
+					if(actualNDC_ID.equals(NDC1))
+						{
+							NDC_ID_Base_1=actualNDC_ID;
+							System.out.println("NDC_ID_Base_1 is: "+NDC_ID_Base_1);
+						}
+						else if(actualNDC_ID.equals(NDC2))
+						{
+							NDC_ID_Base_2=actualNDC_ID;
+							System.out.println("NDC_ID_Base_2 is: "+NDC_ID_Base_2);
+						}
+						else if(actualNDC_ID.equals(NDC3))
+						{
+							NDC_ID_Base_3=actualNDC_ID;
+							System.out.println("NDC_ID_Base_3 is: "+NDC_ID_Base_3);
+						}
+					
+					}catch (Exception e) {
+					System.out.println("Records doesnt exists");
+		            break;
+				}
+			}
+		/*	for(int i=11; i<20; i++)
+			{
 				try
 				{
 					String actualStatus=Mainframe_GlobalFunctionLib.getText(i, 59);
-					System.out.println("NDC ID Actual status is: "+actualStatus);
 					if(actualStatus.length()>0)
 					{
+						System.out.println("NDC ID Actual status is: "+actualStatus);
 						String NDC1=Mainframe_GlobalFunctionLib.getText(i, 4);
 						String NDC2=Mainframe_GlobalFunctionLib.getText(i, 10);
 						String NDC3=Mainframe_GlobalFunctionLib.getText(i, 15);
 						String NDC_ID=NDC1+NDC2+NDC3;
+						NDC_ID_Base=NDC_ID;
 						System.out.println("NDC ID is: "+NDC_ID);
-						if(actualStatus.equals(Status))
-						{
-							if(Status.equals("F"))
-									{
-										System.out.println("NDC ID for status "+Status+" is: "+NDC_ID);
-										NDC_ID_F1=NDC_ID;
-									}
-							else if (Status.equals("b"))
-							{
-								System.out.println("NDC ID for status "+Status+" is: "+NDC_ID);
-								NDC_ID_B1=NDC_ID;
-							}
-						}
-						else
-						{
-							System.out.println("Expected NDC ID status not found");
-						}
-				}
+					}
+					else
+					{
+						System.out.println("NDC ID Actual status not found");
+					}
 				}catch (Exception e) {
 		            System.out.println("Records doesnt exists");
 		            break;
 				}		
-			}		
+			}	*/	
 		}	
 					
 		
@@ -370,21 +384,19 @@ public class SR41892 {
 				Mainframe_GlobalFunctionLib.pressKey("enter");
 				String resultPlanCode=Mainframe_GlobalFunctionLib.getText(10, 5);
 				if(resultPlanCode.equals(Plan))
-				{
-					System.out.println("Plan Code found in Results list ie RCPLN018 Screen:"+Plan);
-					Mainframe_GlobalFunctionLib.sendText(10, 2, "1");
-					Mainframe_GlobalFunctionLib.pressKey("enter");
-				}
-				else
-				{
-					System.out.println(" Plan Code not found: "+resultPlanCode);
-					System.exit(0);
-				}
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
+					{
+						System.out.println("Plan Code found in Results list ie in RCPLN018 Screen: "+Plan);
+						Mainframe_GlobalFunctionLib.sendText(10, 2, "1");
+						Mainframe_GlobalFunctionLib.pressKey("enter");
+						Mainframe_GlobalFunctionLib.pressKey("enter");
+						Mainframe_GlobalFunctionLib.pressKey("F12");
+						Mainframe_GlobalFunctionLib.pressKey("F12");
+					}
+					else
+					{
+						System.out.println(" Plan Code not found: "+resultPlanCode);
+						System.exit(0);
+					}
 			}
 		}
 		else
@@ -599,17 +611,17 @@ public class SR41892 {
 		Mainframe_GlobalFunctionLib.pressKey("enter");
 	}
 	
-	@When("^I verify Compound Information Details for Product ID \"([^\"]*)\", \"([^\"]*)\"$")
-	public void i_verify_Compound_Information_Details_for_Product_ID(String ID1, String ID2) throws Throwable {
+	@When("^I verify Compound Information Details for Product ID$")
+	public void i_verify_Compound_Information_Details_for_Product_ID() throws Throwable {
 	   try{
 		   for(int i=14; i <20; i++)
 		   {
 			   String productID=Mainframe_GlobalFunctionLib.getText(i, 16);
-			   if(productID.equals(ID1))
+			   if(productID.equals(NDC_ID_Base_1))
 			   {
-				   System.out.println("Product ID is : "+productID);
+				   System.out.println("Submitted Compound Information- Product ID is : "+productID);
 				   String Status=Mainframe_GlobalFunctionLib.getText(i, 74);
-				   System.out.println("Submitted Compound Information: Product ID "+productID+" Status is "+Status);
+				   System.out.println("Submitted Compound Information- Product ID "+productID+" Status is "+Status);
 				   Mainframe_GlobalFunctionLib.sendText(i, 2, "5");
 				   Mainframe_GlobalFunctionLib.pressKey("enter");
 				   Mainframe_GlobalFunctionLib.pressKey("PageDown");
@@ -623,11 +635,11 @@ public class SR41892 {
 				   System.out.println("Client Cost is : "+clientCost);
 				   Mainframe_GlobalFunctionLib.pressKey("F12");
 			   }
-			   else if(productID.equals(ID2))
+			   else if(productID.equals(NDC_ID_Base_2))
 			   {
-				   System.out.println("Product ID is : "+productID);
+				   System.out.println("Submitted Compound Information- Product ID is : "+productID);
 				   String Status=Mainframe_GlobalFunctionLib.getText(i, 74);
-				   System.out.println("Submitted Compound Information:  Product ID "+productID+" Status is "+Status);
+				   System.out.println("Submitted Compound Information- Product ID "+productID+" Status is "+Status);
 				   Mainframe_GlobalFunctionLib.sendText(i, 2, "5");
 				   Mainframe_GlobalFunctionLib.pressKey("enter");
 				   Mainframe_GlobalFunctionLib.pressKey("PageDown");
@@ -641,7 +653,25 @@ public class SR41892 {
 				   System.out.println("Client Cost is : "+clientCost);
 				   Mainframe_GlobalFunctionLib.pressKey("F12");
 			   }
-				   
+			   else if(productID.equals(NDC_ID_Base_3))
+			   {
+				   System.out.println("Submitted Compound Information- Product ID is : "+productID);
+				   String Status=Mainframe_GlobalFunctionLib.getText(i, 74);
+				   System.out.println("Submitted Compound Information- Product ID "+productID+" Status is "+Status);
+				   Mainframe_GlobalFunctionLib.sendText(i, 2, "5");
+				   Mainframe_GlobalFunctionLib.pressKey("enter");
+				   Mainframe_GlobalFunctionLib.pressKey("PageDown");
+				   String submittedCost=Mainframe_GlobalFunctionLib.getText(13, 7);
+				   System.out.println("Submitted Cost is : "+submittedCost);
+				   String calculatedCost=Mainframe_GlobalFunctionLib.getText(13, 18);
+				   System.out.println("Calculated Cost is : "+calculatedCost);
+				   String approvedCost=Mainframe_GlobalFunctionLib.getText(13, 29);
+				   System.out.println("Approved Cost is : "+approvedCost);
+				   String clientCost=Mainframe_GlobalFunctionLib.getText(13, 40);
+				   System.out.println("Client Cost is : "+clientCost);
+				   Mainframe_GlobalFunctionLib.pressKey("F12");
+			   }
+		   	   
 		   	}
 	   		} catch (Exception e) {
 	   			System.out.println("End of SEARCH");
@@ -668,10 +698,10 @@ public class SR41892 {
 	}
 	
 	@When("^I add Compound Submission Details with \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
-	public void i_add_Compound_Submission_Details_with(String Qualifier, String ID, String Quantity, String Cost, String BasicCost) throws Throwable {
+	public void i_add_Compound_Submission_Details_with(String Qualifier, String NDC1, String Quantity, String Cost, String BasicCost) throws Throwable {
 			Mainframe_GlobalFunctionLib.pressKey("F6");
 			Mainframe_GlobalFunctionLib.sendText(12, 20, Qualifier);
-			Mainframe_GlobalFunctionLib.sendText(13, 20, ID);
+			Mainframe_GlobalFunctionLib.sendText(13, 20, NDC1);
 			Mainframe_GlobalFunctionLib.sendText(15, 20, Quantity);
 			Mainframe_GlobalFunctionLib.sendText(16, 20, Cost);
 			Mainframe_GlobalFunctionLib.sendText(18, 20, BasicCost);
