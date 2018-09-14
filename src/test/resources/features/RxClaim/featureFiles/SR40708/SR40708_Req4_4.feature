@@ -17,7 +17,7 @@ Examples:
 |SR40708D|AAAAA|
 
 ## Help features
-@Req4.4
+
 Scenario Outline: Validating the help features in Prescriber State Taxonomy Create Record Detail screen
 Given I am on RxClaim PlanAdministrator Menu
 When I select Option "13" to navigate to "RxClaim Utilities"
