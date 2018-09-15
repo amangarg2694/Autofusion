@@ -1,6 +1,6 @@
 
 Feature: Part D: MIC update Non Part D Covered flag 1 to not accumulate toward Troop/DS
-  SN003284_SR41691_TC001_Req 4.1:Non-Part D Covered = 0 AND Total Covered Ingredient Cost is Lesser than OR Equal to Claims Approved Ingredient Cost
+  SN003284_SR41691_TC002_Req 4.1:Non-Part D Covered = 0 AND Total Covered Ingredient Cost is Higher than Claims Approved Ingredient Cost
   
 Scenario Outline: Verify plan setup
 		Given I am on RxClaim PlanAdministrator Menu
@@ -11,10 +11,13 @@ Scenario Outline: Verify plan setup
 		And I press "F7" Key 
 		And I select Compounds options and Multiple Ingredient Compound option in Plan Option
 		And I verify Option Levels for Claim Product Status and Claim Multi-Source Code
-  	And I verify Non Part D Covered "<NonPartDCovered>"
-  	And I press "F12" Key 
+	  And I verify Non Part D Covered "<NonPartDCovered>"
+	  And I press "F12" Key 
 		And I press "F12" Key
-
+		
+		#	public static String PlanCode="";
+		# public static String Plan="";
+    # public String NDC_MIC=null;
     # VENKATPLN, PLAN8, 
     # TC1: PLAN2643S3 [NonPartD=0]
     # TC2: PLAN2643T2 [NonPartD=0][ID: 00006 0735 31]
@@ -22,7 +25,7 @@ Scenario Outline: Verify plan setup
     # TC4: PLAN2643T4 [NonPartD=1][ID: 00006 0735 31]
    Examples: 
       | PlanCode 		| NonPartDCovered	|	
-      | PLAN2643S3	| 0								|   
+      | PLAN2643T2	| 0								|   
        
  Scenario Outline: Verify Pricing setup
 		When I select Pricing Option in Plan Options screen
@@ -31,6 +34,7 @@ Scenario Outline: Verify plan setup
 		And I press "F12" Key 
 		And I press "F12" Key
       
+   #public String PriceSchedule=null;
    Examples: 
       | PriceSchedule | 
       | PRCSCH2647		|    
@@ -40,7 +44,10 @@ Scenario Outline: Verify plan setup
 		And I validate Active Plan NDC List
 		And I validate NDC_ID "<NDC1>", "<NDC2>", "<NDC3>" with status
 	  Then I navigate back to Plan Administrator Menu
-
+   
+   # public String PriceSchedule=null;
+   # public static String NDC_ID_F1=null;
+	 # public static String NDC_ID_B1=null;
    Examples: 
       | NDC1 				| NDC2				|	NDC3				|
       | 51927486300	| 00087134541	|	00006073531	|
@@ -73,6 +80,7 @@ Scenario Outline: Verify Member setup
     And I select option 5 Compound in Transaction Submission Detail List screen 
     And I add Compound Submission Details with "<Qualifier>", "<NDC1>","<Quantity>", "<Cost>", "<BasicCost>" 
     And I add Compound Submission Details with "<Qualifier>", "<NDC2>","<Quantity>", "<Cost>", "<BasicCost>" 
+    And I add Compound Submission Details with "<Qualifier>", "<NDC3>","<Quantity>", "<Cost>", "<BasicCost>"
     And I press "F12" Key
     And I press "F12" Key
     And I submit claim
@@ -93,8 +101,9 @@ Scenario Outline: Verify Member setup
     And I verify TrOOP/Drug Spend Accumulation Phase Details
 
     # PROD-ID 51927486300, 00087134541, 00006073531
+    # RxClaim # 182543003283000
 	 Examples: 
     | BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   |	Qual	| ProductID 	|	DspQty | DS | PSC | Cost |	Cmpnd	|	Qualifier	|	NDC1					|	NDC2				|	NDC3				|	Quantity	|	Cost 	|	BasicCost	|
-		|	777777  | QET     |	*ALL  | APHARM      | 291324985709 | 00     | 091418   | PUJANEW		|	00		|	0000000000	|	30     | 30 | 0	  | 100  |	2			|	03				|	51927486300		|	00087134541	|	00006073531	|	30				|	100		|	01				|
+		|	777777  | QET     |	*ALL  | APHARM      | 393409085709 | 00     | 091418   | PUJANEW		|	00		|	0000000000	|	30     | 30 | 0	  | 100  |	2			|	03				|	51927486300		|	00087134541	|	00006073531	|	30				|	100		|	01				|
 		
-	
+	#public static void waitTillReady() throws GeneralLeanFtException, InterruptedException

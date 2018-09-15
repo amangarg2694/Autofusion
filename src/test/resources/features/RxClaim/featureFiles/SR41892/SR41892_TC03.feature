@@ -1,6 +1,6 @@
 
-Feature: Title of your feature
-  I want to use this template for my feature file
+Feature: Part D: MIC update Non Part D Covered flag 1 to not accumulate toward Troop/DS
+SN003284_SR41691_TC003_Req 4.1:Non-Part D Covered = 1 AND Total Covered Ingredient Cost is Lesser than OR Equal to Claims Approved Ingredient Cost
   
 Scenario Outline: Verify plan setup
 		Given I am on RxClaim PlanAdministrator Menu
@@ -11,8 +11,8 @@ Scenario Outline: Verify plan setup
 		And I press "F7" Key 
 		And I select Compounds options and Multiple Ingredient Compound option in Plan Option
 		And I verify Option Levels for Claim Product Status and Claim Multi-Source Code
-  	And I verify Non Part D Covered "<NonPartDCovered>"
-  	And I press "F12" Key 
+	  And I verify Non Part D Covered "<NonPartDCovered>"
+	  And I press "F12" Key 
 		And I press "F12" Key
 		
 		#	public static String PlanCode="";
@@ -24,8 +24,8 @@ Scenario Outline: Verify plan setup
     # TC3: PLAN2643   [NonPartD=1]
     # TC4: PLAN2643T4 [NonPartD=1][ID: 00006 0735 31]
    Examples: 
-      | PlanCode 		| NonPartDCovered	|	
-      | PLAN2643T4	| 1								|   
+      | PlanCode	| NonPartDCovered	|	
+      | PLAN2643	| 1								|   
        
  Scenario Outline: Verify Pricing setup
 		When I select Pricing Option in Plan Options screen
@@ -39,19 +39,18 @@ Scenario Outline: Verify plan setup
       | PriceSchedule | 
       | PRCSCH2647		|    
       
-  #Add 10: NDC List
   Scenario Outline: Verify NDC List setup
 		When NDC list option selected in Plan screen
-		And I validate  Active Plan NDC List "<NDCList>"
-		And I validate NDC_ID with status "<Status>"
+		And I validate Active Plan NDC List
+		And I validate NDC_ID "<NDC1>", "<NDC2>", "<NDC3>" with status
 	  Then I navigate back to Plan Administrator Menu
    
    # public String PriceSchedule=null;
    # public static String NDC_ID_F1=null;
 	 # public static String NDC_ID_B1=null;
    Examples: 
-      | NDCList | Status	|
-      | 2647		|   F			|
+      | NDC1 				| NDC2				|	NDC3				|
+      | 51927486300	| 00087134541	|	00006073531	|
       
 Scenario Outline: Verify Member setup
     #Given I select Option "20" to navigate to "RxClaim 	Plan Administrator Menu"
@@ -72,25 +71,26 @@ Scenario Outline: Verify Member setup
 		#Member: MAUT41892, PUJANEW
 	  Examples: 
       | MemberID 	| 
-      | MAUT41892	| 
+      | PUJANEW		| 
       
  Scenario Outline: Submit a claim in RxClaim
     And I select Option "3" to navigate to "RxClaim Manual Claim Menu"
     When I submit MIC claims with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<Qual>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>", "<Cmpnd>"
     And I press "F14" Key
     And I select option 5 Compound in Transaction Submission Detail List screen 
-    And I add Compound Submission Details with "<Qualifier>", "<ID1>","<Quantity>", "<Cost>", "<BasicCost>" 
-    And I add Compound Submission Details with "<Qualifier>", "<ID2>","<Quantity>", "<Cost>", "<BasicCost>" 
+    And I add Compound Submission Details with "<Qualifier>", "<NDC1>","<Quantity>", "<Cost>", "<BasicCost>" 
+    And I add Compound Submission Details with "<Qualifier>", "<NDC2>","<Quantity>", "<Cost>", "<BasicCost>" 
     And I press "F12" Key
     And I press "F12" Key
     And I submit claim
     And I Validate RxClaim ID
     And I Validate Claim Status
+    And I verify Approved amount
     And I press "F7" Key
     And I press "F16" Key
     And I press "F14" Key 
     And I select 5 Compound Detail in Submission Detail	List screen
-    And I verify Compound Information Details for Product ID "<ID1>", "<ID2>"
+    And I verify Compound Information Details for Product ID
     And I press "F12" Key
     And I press "F12" Key
     And I press "F12" Key
@@ -99,10 +99,10 @@ Scenario Outline: Verify Member setup
     And I press "F10" Key
     And I verify TrOOP/Drug Spend Accumulation Phase Details
 
-    # PROD-ID 51927486300, 00087134541, 00006 0735 31
-    # RxClaim#  182543003283000
+    # PROD-ID 51927486300, 00087134541, 00006073531
+    # RxClaim # 182543003283000
 	 Examples: 
-    | BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   |	Qual	| ProductID 	|	DspQty | DS | PSC | Cost |	Cmpnd	|	Qualifier	|	ID1					|	ID2					|	Quantity	|	Cost 	|	BasicCost	|
-		|	777777  | QET     |	*ALL  | APHARM      | 309440367432 | 00     | 091118   | MAUT41892	|	00		|	0000000000	|	30     | 30 | 0	  | 100  |	2			|	03				|	51927486300	|	00087134541	|	30				|	100		|	01				|
+    | BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   |	Qual	| ProductID 	|	DspQty | DS | PSC | Cost |	Cmpnd	|	Qualifier	|	NDC1					|	NDC2				|	NDC3				|	Quantity	|	Cost 	|	BasicCost	|
+		|	777777  | QET     |	*ALL  | APHARM      | 390809385709 | 00     | 091518   | PUJANEW		|	00		|	0000000000	|	30     | 30 | 0	  | 100  |	2			|	03				|	51927486300		|	00087134541	|	00006073531	|	30				|	100		|	01				|
 		
-	
+	#public static void waitTillReady() throws GeneralLeanFtException, InterruptedException

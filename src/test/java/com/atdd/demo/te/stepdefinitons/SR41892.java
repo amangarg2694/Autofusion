@@ -83,58 +83,15 @@ public class SR41892 {
 		//Claim Product Status
 		String ClaimProductStatus=Mainframe_GlobalFunctionLib.getText(14, 27);
 		System.out.println("Claim Product Status is: "+ClaimProductStatus);
-		/*if(ClaimProductStatus.equals("F"))
-		{
-			System.out.println("Claim Product Status is as Expected: "+ClaimProductStatus);
-		}
-		else
-		{
-			System.out.println("Claim Product Status is not as Expected: "+ClaimProductStatus);
-			Mainframe_GlobalFunctionLib.sendText(14, 27,"C");
-			System.out.println("Claim Product Status is UPDATED to Expected: "+Mainframe_GlobalFunctionLib.getText(14, 27));
-		}
-		*/
 		//Claim Product Status Option level
 		String optionLevelClaimProductStatus=Mainframe_GlobalFunctionLib.getText(14, 44);
 		System.out.println("Claim Product Status, Option Level is: "+optionLevelClaimProductStatus);
-		/*if(optionLevelClaimProductStatus.equals("F"))
-		{
-			System.out.println("Claim Product Status, Option Level is as Expected: "+optionLevelClaimProductStatus);
-		}
-		else
-		{
-			System.out.println("Claim Product Status, Option Level is not as Expected: "+optionLevelClaimProductStatus);
-			Mainframe_GlobalFunctionLib.sendText(14, 44,"F");
-			System.out.println("Claim Product Status, Option Level is UPDATED to as Expected: "+Mainframe_GlobalFunctionLib.getText(14, 44));
-		}*/
-		
 		//Claim Multi-Source Code
 		String ClaimMultiSource=Mainframe_GlobalFunctionLib.getText(15, 27);
 		System.out.println("Claim Multi Source Code is: "+ClaimMultiSource);
-		/*if(ClaimMultiSource.equals("O"))
-		{
-			System.out.println("Claim Multi Source Code is as Expected: "+ClaimMultiSource);
-		}
-		else
-		{
-			System.out.println("Claim Multi Source Code is not as Expected: "+ClaimMultiSource);
-			Mainframe_GlobalFunctionLib.sendText(15, 27,"O");
-			System.out.println("Claim Multi Source Code is UPDATED to Expected, it is: "+ClaimMultiSource);
-		}*/
-		
 		//Claim Multi-Source Code option level
 		String optionLevelClaimMultiSource=Mainframe_GlobalFunctionLib.getText(15, 44);
 		System.out.println("Claim Multi Source, Option Level is: "+optionLevelClaimMultiSource);
-			/*	if(optionLevelClaimMultiSource.equals("N"))
-				{
-					System.out.println("Claim Multi Source, Option Level is as Expected: "+optionLevelClaimMultiSource);
-				}
-				else
-				{
-					System.out.println("Claim Multi Source, Option Level is not as Expected: "+optionLevelClaimMultiSource);
-					Mainframe_GlobalFunctionLib.sendText(15, 44,"N");
-					System.out.println("Claim Multi Source, Option Level is UPDATED to Expected, it is: "+Mainframe_GlobalFunctionLib.getText(15, 44));
-				}*/
 		}
 	
 	@When("^I verify Non Part D Covered \"([^\"]*)\"$")
@@ -148,8 +105,7 @@ public class SR41892 {
 	  else
 	  { 
 		  System.out.println("The Value at Non PartD Covered is not as expected: "+valueNonPartDCovered);
-		 /* Mainframe_GlobalFunctionLib.sendText(10, 60, NonPartDCovered);
-		  System.out.println("The Value at Non PartD Covered is UPDATED to expected, it is: "+valueNonPartDCovered);*/
+
 	  }
 	}
 	
@@ -195,18 +151,7 @@ public class SR41892 {
 		public void i_validate_Active_Plan_NDC_List() throws Throwable {
 		 String actualNDCList=Mainframe_GlobalFunctionLib.getText(11, 8);
 		 System.out.println("Actual NDC List is: "+actualNDCList);
-		 /*NDCList=actualNDCList;
-		 if(NDCList.equals(actualNDCList))
-		 {
-			 System.out.println("Active NDC List is: "+actualNDCList);
-		}
-		 else
-		 {
-			 System.out.println("Active NDC List not found");
-			 System.exit(0);
-		 }
-		}*/
-		
+			
 		}
 		public static String NDC_ID_Base_1=null;
 		public static String NDC_ID_Base_2=null;
@@ -244,34 +189,11 @@ public class SR41892 {
 						}
 					
 					}catch (Exception e) {
-					System.out.println("Records doesnt exists");
-		            break;
-				}
+						System.out.println("Records doesnt exists");
+			            break;
+						}
 			}
-		/*	for(int i=11; i<20; i++)
-			{
-				try
-				{
-					String actualStatus=Mainframe_GlobalFunctionLib.getText(i, 59);
-					if(actualStatus.length()>0)
-					{
-						System.out.println("NDC ID Actual status is: "+actualStatus);
-						String NDC1=Mainframe_GlobalFunctionLib.getText(i, 4);
-						String NDC2=Mainframe_GlobalFunctionLib.getText(i, 10);
-						String NDC3=Mainframe_GlobalFunctionLib.getText(i, 15);
-						String NDC_ID=NDC1+NDC2+NDC3;
-						NDC_ID_Base=NDC_ID;
-						System.out.println("NDC ID is: "+NDC_ID);
-					}
-					else
-					{
-						System.out.println("NDC ID Actual status not found");
-					}
-				}catch (Exception e) {
-		            System.out.println("Records doesnt exists");
-		            break;
-				}		
-			}	*/	
+	
 		}	
 					
 		
@@ -605,6 +527,13 @@ public class SR41892 {
 		FunctionalLibrary.submitClaim();
 	}
 
+	
+	@When("^I verify Approved amount$")
+	public void i_verify_Approved_amount() throws Throwable {
+	   String approvedAmount=Mainframe_GlobalFunctionLib.getText(10, 69);
+	   System.out.println("Approved Amount is: "+approvedAmount);
+	}
+
 	@When("^I select (\\d+) Compound Detail in Submission Detail	List screen$")
 	public void i_select_Compound_Detail_in_Submission_Detail_List_screen(int arg1) throws Throwable {
 		Mainframe_GlobalFunctionLib.sendText(4, 23, "5");
@@ -685,18 +614,28 @@ public class SR41892 {
 	}
 	
 	
-	@When("^I verify TrOOP/Drug Spend Accumulation Phase Details$")
-	public void i_verify_TrOOP_Drug_Spend_Accumulation_Phase_Details() throws Throwable {
-	  String totalApprovedAmount=Mainframe_GlobalFunctionLib.getText(11, 49);
-	  System.out.println("The Total Approved Amount is : "+totalApprovedAmount);
-	}
-
 	@When("^I select option (\\d+) Compound in Transaction Submission Detail List screen$")
 	public void i_select_option_Compound_in_Transaction_Submission_Detail_List_screen(int arg1) throws Throwable {
 		Mainframe_GlobalFunctionLib.sendText(5, 23, "5");
 		Mainframe_GlobalFunctionLib.pressKey("enter");
+		for(int i=1; i<8; i++)
+		{	
+			try{
+					String existingNDC=Mainframe_GlobalFunctionLib.getText(13, 16);
+					System.out.println("Existing NDCs found in the list: "+existingNDC);
+					Mainframe_GlobalFunctionLib.sendText(13, 2, "4");
+					Mainframe_GlobalFunctionLib.pressKey("enter");
+					Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
+					Mainframe_GlobalFunctionLib.pressKey("enter");
+							
+			}catch (Exception e)
+			{
+				break;
+			}
+		}
 	}
-	
+			
+		
 	@When("^I add Compound Submission Details with \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
 	public void i_add_Compound_Submission_Details_with(String Qualifier, String NDC1, String Quantity, String Cost, String BasicCost) throws Throwable {
 			Mainframe_GlobalFunctionLib.pressKey("F6");
@@ -708,6 +647,14 @@ public class SR41892 {
 			Mainframe_GlobalFunctionLib.pressKey("enter");
 	}
 	
+	@When("^I verify TrOOP/Drug Spend Accumulation Phase Details$")
+	public void i_verify_TrOOP_Drug_Spend_Accumulation_Phase_Details() throws Throwable {
+	  String totalApprovedAmount=Mainframe_GlobalFunctionLib.getText(11, 49);
+	  System.out.println("The Total Approved Amount is : "+totalApprovedAmount);
+	 String CoverageGapAmount=Mainframe_GlobalFunctionLib.getText(14, 49);
+	  System.out.println("The Total Coverage Gap Amount is : "+CoverageGapAmount);
+	}
+}
 
 	
-}
+
