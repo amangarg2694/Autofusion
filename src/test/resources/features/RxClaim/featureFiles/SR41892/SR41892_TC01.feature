@@ -16,10 +16,6 @@ Scenario Outline: Verify plan setup
 		And I press "F12" Key
 
     # VENKATPLN, PLAN8, 
-    # TC1: PLAN2643S3 [NonPartD=0]
-    # TC2: PLAN2643T2 [NonPartD=0][ID: 00006 0735 31]
-    # TC3: PLAN2643   [NonPartD=1]
-    # TC4: PLAN2643T4 [NonPartD=1][ID: 00006 0735 31]
    Examples: 
       | PlanCode 		| NonPartDCovered	|	
       | PLAN2643S3	| 0								|   
@@ -97,4 +93,7 @@ Scenario Outline: Verify Member setup
     | BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   |	Qual	| ProductID 	|	DspQty | DS | PSC | Cost |	Cmpnd	|	Qualifier	|	NDC1					|	NDC2				|	NDC3				|	Quantity	|	Cost 	|	BasicCost	|
 		|	777777  | QET     |	*ALL  | APHARM      | 291324985709 | 00     | 091418   | PUJANEW		|	00		|	0000000000	|	30     | 30 | 0	  | 100  |	2			|	03				|	51927486300		|	00087134541	|	00006073531	|	30				|	100		|	01				|
 		
-	
+		# TC1: PLAN2643S3 [NonPartD=0][ID:51927486300, 00087134541]
+    # TC2: PLAN2643T2 [NonPartD=0][ID:51927486300, 00087134541, 00006073531]
+    # TC3: PLAN2643   [NonPartD=1][ID:51927486300, 00087134541]
+    # TC4: PLAN2643T4 [NonPartD=1][ID:51927486300, 00087134541, 00006073531]
