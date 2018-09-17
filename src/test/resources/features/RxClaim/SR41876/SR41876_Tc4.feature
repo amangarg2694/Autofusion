@@ -1,7 +1,6 @@
-Feature: Verify that the Reimbursement ID in the Insurance Segment is populated with same as Network ID from Compound Claim Transaction Additional Info
+Feature: Verify that the Reimbursement ID in the Insurance Segment is populated with same as Network ID from Claim Transaction Additional Info
 
 Scenario Outline: Verify that the Reimbursement ID in the Insurance Segment is populated with same as Network ID from Claim Transaction Additional Info
-#TC2/TC4
 
 Given I am on RxClaim PlanAdministrator Menu
 When I select Option "1" to navigate to "Eligibility/Claim Transaction Maintenance"
@@ -23,21 +22,18 @@ And I enter "Y" in field "CommandPrompt" on "MemberDetailScreen"
 And I press "F12" Key
 And Validate "Member Added." message should displayed on "AddMemberScreen"
 And I am on RxClaim PlanAdministrator Menu 
-And I submitt a compound claim withh "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>","<com>" with F18 option
-And Validate Claim Status is "P"
+And I submit a claim with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>","<rxorg>" with F18 option
+And Validate Claim Status is "R"
 And I get the network id value from the claim
 And I am on RxClaim PlanAdministrator Menu
 And I select Option "CCT800" to navigate to "RxClaim System Administration Menu"
 And I select Option "13" to navigate to "Communication Logs Menu"
 And I select Option "1" to navigate to "Communications Log by Req Date/Req Time"
-And I search  for pharmacy "<PharmacyID>" for the claim and check for reimbursement id
+Then I search  for pharmacy "<PharmacyID>" for the claim and check for reimbursement id
 And I goback to RxClaim Plan Administrator Menu screen from Communication log screen
- 
-
-
 
 
 Examples: 
-|Plan1   |CarrierID | AccountID   | GroupID     | MemberID  | First Name | Last Name | DOB      | From Date | Thru Date | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | ProductID  | DspQty | DS | PSC | Cost |rxorg|com| 
-|RUSH_TEST |SN3513    |SN3513_A     |	SN3513_G    | 3513_Mo15 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |122112231646  |00      |081718    | 00000000000|30      |30  |00   |100   |1|2|
-|MADHU_N |SN3513    |SN3513_A     |	SN3513_G    | 3513_Mo13 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |122114442246  |00      |081718    | 00000000000|30      |30  |00   |100   |1|2|
+|Plan1   |CarrierID | AccountID   | GroupID     | MemberID  | First Name | Last Name | DOB      | From Date | Thru Date | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | ProductID  | DspQty | DS | PSC | Cost |rxorg| 
+|RUSH_TEST|SN3513    |SN3513_A     |	SN3513_G    | 3513_MOE1 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |APHARM       |110112214446  |00      |081718    | 00591571501|30      |30  |00   |100   |1|
+#|RUSH_TEST|SN3513    |SN3513_A     |	SN3513_G    | 3513_MME2| AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |101132135546  |00      |081718    | 00591571501|30      |30  |00   |100   |1|

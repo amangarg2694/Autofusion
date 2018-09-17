@@ -1,6 +1,6 @@
 Feature: Verify that the Reimbursement ID in the Insurance Segment is populated with same as Network ID from Compound Claim Transaction Additional Info
 
-Scenario Outline: Verify that the Reimbursement ID in the Insurance Segment is populated with same as Network ID from Claim Transaction Additional Info
+Scenario Outline: Verify that the Reimbursement ID in the Insurance Segment is NOT populated with same as Network ID from Claim Transaction Additional Info
 #TC2/TC4
 
 Given I am on RxClaim PlanAdministrator Menu
@@ -24,7 +24,7 @@ And I press "F12" Key
 And Validate "Member Added." message should displayed on "AddMemberScreen"
 And I am on RxClaim PlanAdministrator Menu 
 And I submitt a compound claim withh "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>","<com>" with F18 option
-And Validate Claim Status is "P"
+And Validate Claim Status is "R"
 And I get the network id value from the claim
 And I am on RxClaim PlanAdministrator Menu
 And I select Option "CCT800" to navigate to "RxClaim System Administration Menu"
@@ -39,5 +39,5 @@ And I goback to RxClaim Plan Administrator Menu screen from Communication log sc
 
 Examples: 
 |Plan1   |CarrierID | AccountID   | GroupID     | MemberID  | First Name | Last Name | DOB      | From Date | Thru Date | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | ProductID  | DspQty | DS | PSC | Cost |rxorg|com| 
-|RUSH_TEST |SN3513    |SN3513_A     |	SN3513_G    | 3513_Mo15 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |122112231646  |00      |081718    | 00000000000|30      |30  |00   |100   |1|2|
-|MADHU_N |SN3513    |SN3513_A     |	SN3513_G    | 3513_Mo13 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |122114442246  |00      |081718    | 00000000000|30      |30  |00   |100   |1|2|
+|RUSH_TEST |SN3513    |SN3513_A     |	SN3513_G    | 3513_MEo15 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |APHARM       |122112288846  |00      |081718    | 00000000000|30      |30  |00   |100   |1|2|
+

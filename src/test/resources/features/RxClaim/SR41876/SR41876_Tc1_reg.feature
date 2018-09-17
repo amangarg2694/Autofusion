@@ -38,8 +38,8 @@ And I goback to RxClaim Plan Administrator Menu screen from Communication log sc
 
 Examples: 
 |Plan1   |CarrierID | AccountID   | GroupID     | MemberID  | First Name | Last Name | DOB      | From Date | Thru Date | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | ProductID  | DspQty | DS | PSC | Cost |rxorg| 
-|MADHU_N1|SN3513    |SN3513_A     |	SN3513_G    | 3513_ME1 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |110112235646  |00      |081718    | 00591571501|30      |30  |00   |100   |1|
-|RUSH_TEST||SN3513    |SN3513_A     |	SN3513_G    | 3513_ME2| AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |101112235546  |00      |081718    | 00591571501|30      |30  |00   |100   |1|
-|RUSH_TEST1||SN3513    |SN3513_A     |	SN3513_G    | 3513_ME3 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |APHARM       |144112235546  |00      |081718    | 00591571501|30      |30  |00   |100   |1|
-|RUSH_TEST2||SN3513    |SN3513_A     |	SN3513_G    | 3513_ME4 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |133112235546  |00      |081718    | 00591571501|30      |30  |00   |100   |1|
-|RUSH_TEST3||SN3513    |SN3513_A     |	SN3513_G    | 3513_ME5 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |176112235546  |00      |081718    | 00591571501|30      |30  |00   |100   |1|
+|MADHU_N|SN3513    |SN3513_A     |	SN3513_G    | 3513_MME1 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |110112212346  |00      |081718    | 00591571501|30      |30  |00   |100   |1|
+|RUSH_TEST|SN3513    |SN3513_A     |	SN3513_G    | 3513_MME2| AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |101132135546  |00      |081718    | 00591571501|30      |30  |00   |100   |1|
+|RUSH_TEST1|SN3513    |SN3513_A     |	SN3513_G    | 3513_MME3 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |APHARM       |144112231236  |00      |081718    | 00591571501|30      |30  |00   |100   |1|
+|RUSH_TEST2|SN3513    |SN3513_A     |	SN3513_G    | 3513_MME4 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |133112235123  |00      |081718    | 00591571501|30      |30  |00   |100   |1|
+|RUSH_TEST3|SN3513    |SN3513_A     |	SN3513_G    | 3513_MME5 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |171222235546  |00      |081718    | 00591571501|30      |30  |00   |100   |1|

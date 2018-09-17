@@ -31,7 +31,7 @@ And I select Option "CCT800" to navigate to "RxClaim System Administration Menu"
 And I select Option "13" to navigate to "Communication Logs Menu"
 And I select Option "1" to navigate to "Communications Log by Req Date/Req Time"
 Then I search  for pharmacy "<PharmacyID>" for the claim and check for reimbursement id
-
+And I goback to RxClaim Plan Administrator Menu screen from Communication log screen
  
 
 
@@ -39,5 +39,5 @@ Then I search  for pharmacy "<PharmacyID>" for the claim and check for reimburse
 
 Examples: 
 |Plan1   |CarrierID | AccountID   | GroupID     | MemberID  | First Name | Last Name | DOB      | From Date | Thru Date | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | ProductID  | DspQty | DS | PSC | Cost |rxorg|com| 
-|RUSH_TEST |SN3513    |SN3513_A     |	SN3513_G    | 3513_MEM16 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |122115234446  |00      |081718    | 00000000000|30      |30  |00   |100   |1|2|
+|RUSH_TEST |SN3513    |SN3513_A     |	SN3513_G    | 3513_MoM16 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |122115111446  |00      |081718    | 00000000000|30      |30  |00   |100   |1|2|
 #|MADHU_N |SN3513    |SN3513_A     |	SN3513_G    | 3513_MEM13 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |122111235646  |00      |081718    | 00000000000|30      |30  |00   |100   |1|2|
