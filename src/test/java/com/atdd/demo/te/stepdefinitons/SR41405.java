@@ -68,5 +68,26 @@ public class SR41405 {
 			Mainframe_GlobalFunctionLib.sendText(14, 27, MemberID);
 			Mainframe_GlobalFunctionLib.pressKey("enter");
 		}
+		
+		@When("^I add Member Prior Authorization \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
+		public void i_add_Member_Prior_Authorization(String Number, String Type, String MSC, String NDC_GPI_List_ID, String FromDate, String ThruDate, String IgnoreDrgSts, String Rsn) throws Throwable {
+			Mainframe_GlobalFunctionLib.pressKey("F6");
+			Mainframe_GlobalFunctionLib.sendText(16, 5, Number);
+			Mainframe_GlobalFunctionLib.sendText(16, 18, Type);
+			Mainframe_GlobalFunctionLib.sendText(16, 26, MSC);
+			Mainframe_GlobalFunctionLib.sendText(16, 42, FromDate);
+			Mainframe_GlobalFunctionLib.sendText(16, 51, ThruDate);
+			Mainframe_GlobalFunctionLib.sendText(16, 66, Rsn);
+			Mainframe_GlobalFunctionLib.sendText(16, 71, IgnoreDrgSts);
+			Thread.sleep(3000);
+			Mainframe_GlobalFunctionLib.pressKey("enter");
+			Mainframe_GlobalFunctionLib.sendText(16, 02, "2");
+			Mainframe_GlobalFunctionLib.pressKey("enter");
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.pressKey("F10");
+			Mainframe_GlobalFunctionLib.pressKey("F6");
+			
+		}
+	
 
 }

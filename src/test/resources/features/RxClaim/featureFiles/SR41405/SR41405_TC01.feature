@@ -10,7 +10,11 @@ Scenario Outline: Verify plan setup
 		And I verify Override Plan with Plan "<Plan>"
 		And I provide family type and ID details "<MemberID>"
 		And I press "F16" Key 
-		
+		And I add Member Prior Authorization "<Number>", "<Type>", "<MSC>", "<NDC/GPI/List_ID>", "<FromDate>", "<ThruDate>", "<IgnoreDrgSts>", "<Rsn>"
+		                      
+		                      
+		                      
+		                                                    
 		When I select Option "4" to navigate to "RxClaim Plan Maintenance"
 		And I select Option "1" to navigate to "Active Plan by Plan code"
 		And I verify plan "<PlanCode>"
@@ -27,6 +31,6 @@ Scenario Outline: Verify plan setup
  #CarrierID: SN003280
  
     Examples: 
-      | MemberID		| Plan			|
-      | SN003280M1	| SN003280	|	 
+      | MemberID		| Plan			|	Number	|	Type	|	MSC	| NDC_GPI_List_ID |	FromDate	|	ThruDate	|	Rsn	|	IgnoreDrgSts	|
+      | SN003280M1	| SN003280	|	8728783	|	N			| M		|	12108085002020	|	010111		|	123139		|	AA	|	N							|
 
