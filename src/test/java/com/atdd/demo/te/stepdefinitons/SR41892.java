@@ -3,6 +3,7 @@ package com.atdd.demo.te.stepdefinitons;
 import java.util.StringTokenizer;
 
 import com.atdd.te.screenHelpers.FunctionalLibrary;
+import com.hp.lft.sdk.GeneralLeanFtException;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 
 import cucumber.api.java.en.And;
@@ -522,11 +523,23 @@ public class SR41892 {
 	return bRes;
 	}
 	
+	@When("^I enter UCW value in \"([^\"]*)\"$")
+	public void i_enter_UCW_value_in(String UCW) throws Throwable {
+		Mainframe_GlobalFunctionLib.sendText(20, 47, "         ");
+		Mainframe_GlobalFunctionLib.sendText(20, 47, UCW);
+		Mainframe_GlobalFunctionLib.pressKey("enter");
+	}
+	
+	@When("^I delete UCW value$")
+	public void i_delete_UCW_value() throws Throwable {
+		Mainframe_GlobalFunctionLib.sendText(20, 47, "         ");
+		Mainframe_GlobalFunctionLib.pressKey("enter");
+	}
+	
 	@When("^I submit claim$")
 	public void i_submit_claim() throws Throwable {
 		FunctionalLibrary.submitClaim();
 	}
-
 	
 	@When("^I verify Approved amount$")
 	public void i_verify_Approved_amount() throws Throwable {
@@ -636,17 +649,39 @@ public class SR41892 {
 	}
 			
 		
-	@When("^I add Compound Submission Details with \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
-	public void i_add_Compound_Submission_Details_with(String Qualifier, String NDC1, String Quantity, String Cost, String BasicCost) throws Throwable {
+	@When("^I add Compound Submission Details for first NDC	 with \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
+	public void i_add_Compound_Submission_Details_for_first_NDC_with(String Qualifier1, String NDC1, String Quantity1, String Cost1, String BasicCost1) throws Throwable {
 			Mainframe_GlobalFunctionLib.pressKey("F6");
-			Mainframe_GlobalFunctionLib.sendText(12, 20, Qualifier);
+			Mainframe_GlobalFunctionLib.sendText(12, 20, Qualifier1);
 			Mainframe_GlobalFunctionLib.sendText(13, 20, NDC1);
-			Mainframe_GlobalFunctionLib.sendText(15, 20, Quantity);
-			Mainframe_GlobalFunctionLib.sendText(16, 20, Cost);
-			Mainframe_GlobalFunctionLib.sendText(18, 20, BasicCost);
+			Mainframe_GlobalFunctionLib.sendText(15, 20, Quantity1);
+			Mainframe_GlobalFunctionLib.sendText(16, 20, Cost1);
+			Mainframe_GlobalFunctionLib.sendText(18, 20, BasicCost1);
 			Mainframe_GlobalFunctionLib.pressKey("enter");
 	}
 	
+	@When("^I add Compound Submission Details for Second NDC with \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
+	public void i_add_Compound_Submission_Details_for_Second_NDC_with(String Qualifier2, String NDC2, String Quantity2, String Cost2, String BasicCost2) throws Exception
+	{
+		Mainframe_GlobalFunctionLib.pressKey("F6");
+		Mainframe_GlobalFunctionLib.sendText(12, 20, Qualifier2);
+		Mainframe_GlobalFunctionLib.sendText(13, 20, NDC2);
+		Mainframe_GlobalFunctionLib.sendText(15, 20, Quantity2);
+		Mainframe_GlobalFunctionLib.sendText(16, 20, Cost2);
+		Mainframe_GlobalFunctionLib.sendText(18, 20, BasicCost2);
+		Mainframe_GlobalFunctionLib.pressKey("enter");
+	}
+	
+	@When("^I add Compound Submission Details for third  NDC with \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
+	public void i_add_Compound_Submission_Details_for_third_NDC_with(String Qualifier3, String NDC3, String Quantity3, String Cost3, String BasicCost3) throws Throwable {
+		Mainframe_GlobalFunctionLib.pressKey("F6");
+		Mainframe_GlobalFunctionLib.sendText(12, 20, Qualifier3);
+		Mainframe_GlobalFunctionLib.sendText(13, 20, NDC3);
+		Mainframe_GlobalFunctionLib.sendText(15, 20, Quantity3);
+		Mainframe_GlobalFunctionLib.sendText(16, 20, Cost3);
+		Mainframe_GlobalFunctionLib.sendText(18, 20, BasicCost3);
+		Mainframe_GlobalFunctionLib.pressKey("enter");
+	}
 	@When("^I verify TrOOP/Drug Spend Accumulation Phase Details$")
 	public void i_verify_TrOOP_Drug_Spend_Accumulation_Phase_Details() throws Throwable {
 	  String totalApprovedAmount=Mainframe_GlobalFunctionLib.getText(11, 49);

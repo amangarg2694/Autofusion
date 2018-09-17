@@ -1,7 +1,7 @@
 
 Feature: Part D: MIC update Non Part D Covered flag 1 to not accumulate toward Troop/DS
- SN003284_SR41691_TC006_Req 4.1:Non-Part D Covered = 0 AND Total Covered Ingredient Cost is Lesser than OR Equal to Claims Approved Ingredient Cost
- 
+  SN003284_SR41691_TC001_Req 4.1:Non-Part D Covered = 0 AND Total Covered Ingredient Cost is Lesser than OR Equal to Claims Approved Ingredient Cost
+  
 Scenario Outline: Verify plan setup
 		Given I am on RxClaim PlanAdministrator Menu
 		When I select Option "4" to navigate to "RxClaim Plan Maintenance"
@@ -14,7 +14,7 @@ Scenario Outline: Verify plan setup
   	And I verify Non Part D Covered "<NonPartDCovered>"
   	And I press "F12" Key 
 		And I press "F12" Key
-		
+
     # VENKATPLN, PLAN8, 
    Examples: 
       | PlanCode 		| NonPartDCovered	|	
@@ -36,10 +36,10 @@ Scenario Outline: Verify plan setup
 		And I validate Active Plan NDC List
 		And I validate NDC_ID "<NDC1>", "<NDC2>", "<NDC3>" with status
 	  Then I navigate back to Plan Administrator Menu
-   
+
    Examples: 
       | NDC1 				| NDC2				|	NDC3				|
-      | 51927486300	| 00087134541	|	00006073531	|
+      | 00087134541 |51927486300	| 00006073531	|
       
 Scenario Outline: Verify Member setup
     #Given I select Option "20" to navigate to "RxClaim 	Plan Administrator Menu"
@@ -67,10 +67,11 @@ Scenario Outline: Verify Member setup
     When I submit MIC claims with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<Qual>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>", "<Cmpnd>"
     And I press "F14" Key
     And I select option 5 Compound in Transaction Submission Detail List screen 
-    And I add Compound Submission Details with "<Qualifier>", "<NDC1>","<Quantity>", "<Cost>", "<BasicCost>" 
-    And I add Compound Submission Details with "<Qualifier>", "<NDC2>","<Quantity>", "<Cost>", "<BasicCost>" 
+    And I add Compound Submission Details for first NDC	 with "<Qualifier1>", "<NDC1>","<Quantity1>", "<Cost1>", "<BasicCost1>" 
+    And I add Compound Submission Details for Second NDC with "<Qualifier2>", "<NDC2>","<Quantity2>", "<Cost2>", "<BasicCost2>" 
     And I press "F12" Key
     And I press "F12" Key
+    And I delete UCW value
     And I submit claim
     And I Validate RxClaim ID
     And I Validate Claim Status
@@ -90,11 +91,10 @@ Scenario Outline: Verify Member setup
 
     # PROD-ID 51927486300, 00087134541, 00006073531
 	 Examples: 
-    | BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   |	Qual	| ProductID 	|	DspQty | DS | PSC | Cost |	Cmpnd	|	Qualifier	|	NDC1					|	NDC2				|	NDC3				|	Quantity	|	Cost 	|	BasicCost	|
-		|	777777  | QET     |	*ALL  | APHARM      | 291355985709 | 00     | 091418   | PUJANEW		|	00		|	0000000000	|	30     | 30 | 0	  | 100  |	2			|	03				|	51927486300		|	00087134541	|	00006073531	|	30				|	100		|	01				|
+    | BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   |	Qual	| ProductID 	|	DspQty | DS | PSC | Cost |	Cmpnd	|	Qualifier1	|	NDC1					|	Quantity1	|	Cost1	|	BasicCost1|	Qualifier2	|	NDC2				|	Quantity2	|	Cost2	|	BasicCost2|
+		|	777777  | QET     |	*ALL  | APHARM      | 209334985759 | 00     | 091718   | PUJANEW		|	00		|	0000000000	|	30     | 30 | 0	  | 000  |	2			|	03					|	00087134541		|	30				|	30		|	01				| 03					|	51927486300 |	10				|	10		|	01				|
 		
 		# TC1: PLAN2643S3 [NonPartD=0][ID:51927486300, 00087134541]
     # TC2: PLAN2643T2 [NonPartD=0][ID:51927486300, 00087134541, 00006073531]
     # TC3: PLAN2643   [NonPartD=1][ID:51927486300, 00087134541]
     # TC4: PLAN2643T4 [NonPartD=1][ID:51927486300, 00087134541, 00006073531]
-	

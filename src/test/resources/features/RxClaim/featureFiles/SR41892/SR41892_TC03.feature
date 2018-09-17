@@ -39,7 +39,7 @@ Scenario Outline: Verify plan setup
    
    Examples: 
       | NDC1 				| NDC2				|	NDC3				|
-      | 51927486300	| 00087134541	|	00006073531	|
+      | 00087134541 |51927486300	| 00006073531	|
       
 Scenario Outline: Verify Member setup
     #Given I select Option "20" to navigate to "RxClaim 	Plan Administrator Menu"
@@ -66,9 +66,9 @@ Scenario Outline: Verify Member setup
     And I select Option "3" to navigate to "RxClaim Manual Claim Menu"
     When I submit MIC claims with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<Qual>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>", "<Cmpnd>"
     And I press "F14" Key
-    And I select option 5 Compound in Transaction Submission Detail List screen 
-    And I add Compound Submission Details with "<Qualifier>", "<NDC1>","<Quantity>", "<Cost>", "<BasicCost>" 
-    And I add Compound Submission Details with "<Qualifier>", "<NDC2>","<Quantity>", "<Cost>", "<BasicCost>" 
+    And I select option 5 Compound in Transaction Submission Detail List screen
+    And I add Compound Submission Details for Second NDC with "<Qualifier2>", "<NDC2>","<Quantity2>", "<Cost2>", "<BasicCost2>"
+    And I add Compound Submission Details for first NDC	 with "<Qualifier1>", "<NDC1>","<Quantity1>", "<Cost1>", "<BasicCost1>" 
     And I press "F12" Key
     And I press "F12" Key
     And I submit claim
@@ -89,9 +89,10 @@ Scenario Outline: Verify Member setup
     And I verify TrOOP/Drug Spend Accumulation Phase Details
 
     # PROD-ID 51927486300, 00087134541, 00006073531
+    # RxClaim#  182600547504000 
 	 Examples: 
-    | BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   |	Qual	| ProductID 	|	DspQty | DS | PSC | Cost |	Cmpnd	|	Qualifier	|	NDC1					|	NDC2				|	NDC3				|	Quantity	|	Cost 	|	BasicCost	|
-		|	777777  | QET     |	*ALL  | APHARM      | 390809385709 | 00     | 091518   | PUJANEW		|	00		|	0000000000	|	30     | 30 | 0	  | 100  |	2			|	03				|	51927486300		|	00087134541	|	00006073531	|	30				|	100		|	01				|
+    | BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   |	Qual	| ProductID 	|	DspQty | DS | PSC | Cost |	Cmpnd	|Qualifier1	|	NDC1					|	Quantity1	|	Cost1	|	BasicCost1|	Qualifier2	|	NDC2				|	Quantity2	|	Cost2	|	BasicCost2|
+		|	777777  | QET     |	*ALL  | APHARM      | 122244857309 | 00     | 091718   | PUJANEW		|	00		|	0000000000	|	5	     | 5	| 0	  | 000  |	2			|03					|	00087134541		|	30				|	.83		|	01				| 03					|	51927486300 |	1					|	3.75	|	01				|
 		
 	  # TC1: PLAN2643S3 [NonPartD=0][ID:51927486300, 00087134541]
     # TC2: PLAN2643T2 [NonPartD=0][ID:51927486300, 00087134541, 00006073531]
