@@ -22,12 +22,12 @@ public class FunctionalLibrary extends CommonHelper{
 	public static String sPriorAuthNumber="";
 	public static void navigateToRxClaimPlanAdministrator() throws Exception  {
 		try{
-		String text = Mainframe_GlobalFunctionLib.getText(1, 13);
+		String text = Mainframe_GlobalFunctionLib.getText(1, 13).trim();
 		if(!(text.equalsIgnoreCase("RxClaim Plan Administrator Menu"))){
 		while(!(text.equalsIgnoreCase("RxClaim Plan Administrator Menu"))){
 			Mainframe_GlobalFunctionLib.pressKey("F12");
 			text = Mainframe_GlobalFunctionLib.getText(1, 13);
-			break;
+			//break;
 		}
 		}
 		if(ScreenshotOption.equalsIgnoreCase("Always")){
@@ -1626,8 +1626,8 @@ public class FunctionalLibrary extends CommonHelper{
 	{
 	
 	bRes=true;
-	Mainframe_GlobalFunctionLib.sendText(row, 2, "2");
-	Mainframe_GlobalFunctionLib.pressKey("Enter");
+	//Mainframe_GlobalFunctionLib.sendText(row, 2, "2");
+	//Mainframe_GlobalFunctionLib.pressKey("Enter");
 	Thread.sleep(2000);
 	}
 	}
@@ -2139,6 +2139,56 @@ public class FunctionalLibrary extends CommonHelper{
 
 		}
 		
+		public static void submitsqlquerywithftp(String filename, String libraryname, String FTPCmd) throws ClassNotFoundException, GeneralLeanFtException, SQLException, ReportException, InterruptedException
+		{
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"STRSQL" );  
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			//FOR QUERY
+			Mainframe_GlobalFunctionLib.pressKey("F13");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(6, 37 ,"3" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(9, 37 ,"          " );
+			Mainframe_GlobalFunctionLib.sendText(9, 37 ,filename );
+			Mainframe_GlobalFunctionLib.sendText(10, 39 ,"          " );
+			Mainframe_GlobalFunctionLib.sendText(10, 39 , libraryname );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.sendText(5, 7 ,"SELECT RXCLAIMNBR,MBRFSTNME,MBRLSTNME,MBRBIRTH,MEMBERID,MBRZIP FROM clmprdext2/rce11808 WHERE DATESBM ='20180826' and CARRIERID = 'PSI2500'and CLAIMSTS = 'P'" ); 
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.sendText(5, 31 ," " );
+			Mainframe_GlobalFunctionLib.sendText(5, 31 ,"2" ); 
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			
+			//FTP Steps
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"edtlibl");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(7, 12 ,"ZMODLIB10");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"STRFTPSSN RMTSYS(RXSNT01)");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Thread.sleep(1000);
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"CHGRDIR RMTDIR('depts/common/QA')");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Thread.sleep(1000);
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,FTPCmd);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Thread.sleep(2000);
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"ENDFTPSSN");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Thread.sleep(1000);
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"ENDFTPSSN");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Thread.sleep(1000);
+		}
+		
+		public static void submitjobcmd() throws ClassNotFoundException, GeneralLeanFtException, SQLException, ReportException, InterruptedException
+		{
+			Mainframe_GlobalFunctionLib.pressKey("10");
+		}
 	public static void main(String args[]) throws Throwable{
 		
 		FunctionalLibrary fb = new FunctionalLibrary();

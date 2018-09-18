@@ -54,8 +54,10 @@ public class Pricing extends CommonHelper{
 					{						
 						Mainframe_GlobalFunctionLib.sendText(8,16, source);
 						Mainframe_GlobalFunctionLib.sendText(9,16, code);
+						if(ratePercent.length()!=0){
+							Mainframe_GlobalFunctionLib.sendText(14,16, "      ");
 						Mainframe_GlobalFunctionLib.sendText(14,16, ratePercent);
-								
+						}
 						//Mainframe_GlobalFunctionLib.func_ScreenCaptureWithPassMsg("Create Drug Cost Comparison Schedule Sequence with Required details");
 						Mainframe_GlobalFunctionLib.pressKey("Enter");
 						Mainframe_GlobalFunctionLib.pressKey("F12");
@@ -94,8 +96,10 @@ public class Pricing extends CommonHelper{
 						//CommonFunction.func_SetValue(6,11, db.func_ReadData("Schedule Sequence"));
 						Mainframe_GlobalFunctionLib.sendText(8,16, source);
 						Mainframe_GlobalFunctionLib.sendText(9,16, code);
+						if(ratePercent.length()!=0){
+							Mainframe_GlobalFunctionLib.sendText(14,16, "      ");
 						Mainframe_GlobalFunctionLib.sendText(14,16, ratePercent);
-								
+						}		
 						//Mainframe_GlobalFunctionLib.func_ScreenCaptureWithPassMsg("Create Drug Cost Comparison Schedule Sequence with Required details");
 						Mainframe_GlobalFunctionLib.pressKey("Enter");
 						Mainframe_GlobalFunctionLib.pressKey("F12");
@@ -182,7 +186,7 @@ public class Pricing extends CommonHelper{
 								
 						//Mainframe_GlobalFunctionLib.func_ScreenCaptureWithPassMsg("Create Drug Cost Schedule Sequence with Required details");
 						Mainframe_GlobalFunctionLib.pressKey("Enter");
-//						CommonFunction.func_SetF12();
+						
 					}
 					
 				
@@ -233,6 +237,7 @@ public class Pricing extends CommonHelper{
 						Mainframe_GlobalFunctionLib.pressKey("Enter");
 					}
 				}
+			Mainframe_GlobalFunctionLib.pressKey("F12");
 			Mainframe_GlobalFunctionLib.pressKey("F12");
 			Mainframe_GlobalFunctionLib.pressKey("F12");
 				
@@ -311,11 +316,17 @@ public class Pricing extends CommonHelper{
 				Mainframe_GlobalFunctionLib.sendText(5,31, "        ");				
 				Mainframe_GlobalFunctionLib.sendText(5,31, ptThru);
 				Mainframe_GlobalFunctionLib.sendText(11,37,dcSchedule);
+				if(ptFee.length()!=0){
 				Mainframe_GlobalFunctionLib.sendText(13,9, "        ");
 				Mainframe_GlobalFunctionLib.sendText(13,9, ptFee);
+				}
+				if(ptTax.length()!=0){
 				Mainframe_GlobalFunctionLib.sendText(13,46,"      ");
 				Mainframe_GlobalFunctionLib.sendText(13,46,ptTax);
+				}
+				if(priceCC.length()!=0)
 				Mainframe_GlobalFunctionLib.sendText(13,79,priceCC);
+				if(calcCode.length()!=0)
 				Mainframe_GlobalFunctionLib.sendText(16,46,calcCode);
 				//Mainframe_GlobalFunctionLib.func_ScreenCaptureWithPassMsg("Create Price Table with Required details");
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -331,9 +342,13 @@ public class Pricing extends CommonHelper{
 				Mainframe_GlobalFunctionLib.sendText(5,14, ptFrom);
 				Mainframe_GlobalFunctionLib.sendText(5,31, ptThru);
 				Mainframe_GlobalFunctionLib.sendText(11,37, dcSchedule);
+				if(ptFee.length()!=0)
 				Mainframe_GlobalFunctionLib.sendText(13,9, ptFee);
+				if(ptFee.length()!=0)
 				Mainframe_GlobalFunctionLib.sendText(13,46,ptTax);
+				if(priceCC.length()!=0)
 				Mainframe_GlobalFunctionLib.sendText(13,79, priceCC);
+				if(calcCode.length()!=0)
 				Mainframe_GlobalFunctionLib.sendText(16,47, calcCode);
 				//Mainframe_GlobalFunctionLib.func_ScreenCaptureWithPassMsg("Create Price Table with Required details");
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -344,7 +359,7 @@ public class Pricing extends CommonHelper{
 				}
 				}catch(Exception e)
 				{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-					Assert.fail("Price Schedule is not created/updated successfully.Screenshot is captured");
+					Assert.fail("Price Table is not created/updated successfully.Screenshot is captured");
 				}
 		}
 		
@@ -449,7 +464,7 @@ public class Pricing extends CommonHelper{
 		public static void func_CreateOrMaintainPatientPayTable(String patientPayTable , String patientPayTableDesc , String negativeDue , String ppCC , String brandAmount , String brandCalcBasis , String genericAmount , String genericCalcBasis ) throws Exception
 		{
 			try{
-				String text = Mainframe_GlobalFunctionLib.getText(1, 13);				
+				String text = Mainframe_GlobalFunctionLib.getText(1, 13).trim();				
 				if((text.equalsIgnoreCase("RxClaim Price Schedule Maintenance"))){
 					Mainframe_GlobalFunctionLib.pressKey("F12");
 					Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
@@ -490,9 +505,11 @@ public class Pricing extends CommonHelper{
 //				CommonFunction.func_SetValue(9,24, db.func_ReadData("Negative Due Fee"));
 				Mainframe_GlobalFunctionLib.sendText(11,21, "      ");
 				Mainframe_GlobalFunctionLib.sendText(11,21, brandAmount);
+				if(brandCalcBasis.length()!=0)
 				Mainframe_GlobalFunctionLib.sendText(12,46, brandCalcBasis);
 				Mainframe_GlobalFunctionLib.sendText(17,21, "      ");
 				Mainframe_GlobalFunctionLib.sendText(17,21, genericAmount);
+				if(genericCalcBasis.length()!=0)
 				Mainframe_GlobalFunctionLib.sendText(18,46, genericCalcBasis);
 				//Mainframe_GlobalFunctionLib.func_ScreenCaptureWithPassMsg("Create Patient Pay Table with Required details");
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -508,8 +525,10 @@ public class Pricing extends CommonHelper{
 				Mainframe_GlobalFunctionLib.sendText(6,30,ppCC);
 //			CommonFunction.func_SetValue(9,24, db.func_ReadData("Negative Due Fee"));
 				Mainframe_GlobalFunctionLib.sendText(11,21,brandAmount);
+				if(brandCalcBasis.length()!=0)
 				Mainframe_GlobalFunctionLib.sendText(12,46,brandCalcBasis);
 				Mainframe_GlobalFunctionLib.sendText(17,21, genericAmount);
+				if(genericCalcBasis.length()!=0)
 				Mainframe_GlobalFunctionLib.sendText(18,46, genericCalcBasis);
 				//Mainframe_GlobalFunctionLib.func_ScreenCaptureWithPassMsg("Create Patient Pay Table with Required details");
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -530,7 +549,7 @@ public class Pricing extends CommonHelper{
 		public static void func_CreateOrMaintainPatientPaySchedule(String patientPaySchedule , String ppScheduleDesc , String patientPaySeq , String ppTableSchedule) throws Exception
 		{
 			try{
-				String text = Mainframe_GlobalFunctionLib.getText(1, 13);				
+				String text = Mainframe_GlobalFunctionLib.getText(1, 13).trim();				
 				if((text.equalsIgnoreCase("RxClaim Price Schedule Maintenance"))){
 					Mainframe_GlobalFunctionLib.pressKey("F12");
 					Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
