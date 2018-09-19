@@ -7,6 +7,7 @@ Scenario Outline: Verify Product setup
 		Given I am on RxClaim PlanAdministrator Menu
 		When I select Option "2" to navigate to "Product"
 		And I select Option "1" to navigate to "Product Master"
+		And I press "F15" Key 
 		And I search Product "<ProductName>", "<ProductID>" and take option 7 to check the list
 		And I add Product "<ProductID>", "<Type>"
 		#navigates to 20. CCT600 -> 2.Product ->1. Product Master ->
@@ -14,8 +15,8 @@ Scenario Outline: Verify Product setup
 
 		#49502-0101-0
 Examples: 
-      | ProductName	|	ProductID		|	Type	|
-      | TEST				|	4950201010	|	BC		|
+      | ProductName|ProductID		|	Type	|
+      | TEST			 |00378813045	|	OTH		|
       
 Scenario Outline: Verify Member PA setup
 		Given I am on RxClaim PlanAdministrator Menu
