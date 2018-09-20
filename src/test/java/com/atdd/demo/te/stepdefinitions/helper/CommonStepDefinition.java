@@ -176,7 +176,7 @@ public class CommonStepDefinition extends CommonHelper{
 	public void validate_Claim_Reject_Code_is(String claimRejCode) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		FunctionalLibrary.validateText("21" ,"12" , claimRejCode );
-		
+		String ExpectedClaimCount = Mainframe_GlobalFunctionLib.getText(6, 9).replaceAll(",", "");
 	}
 
 	@Then("^Validate Claim Message is \"([^\"]*)\"$")
@@ -325,5 +325,18 @@ public class CommonStepDefinition extends CommonHelper{
 	    // Write code here that turns the phrase above into concrete actions
 		FunctionalLibrary.validateText("11" ,"8" , gpilist);
 	}
+	
+	@When("^I submit a SQLQuery and FTP the file \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_submit_a_SQLQuery_and_FTP_the_file(String filename, String libraryname, String FTPCmd) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    FunctionalLibrary.submitsqlquerywithftp(filename,libraryname,FTPCmd);
+	}
+	
+	@When("^I submit job CMD  for Expected File$")
+	public void i_submit_job_CMD_for_Expected_File() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+	}
+
 
 }
