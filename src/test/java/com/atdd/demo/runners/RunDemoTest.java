@@ -25,7 +25,12 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
 
+<<<<<<< HEAD
 		features = { "classpath:features/RxClaim/featureFiles/CHFValidation.feature" },
+=======
+
+		features = { "classpath:features/RxClaim/featureFiles/CHFFileValidation.feature" },
+>>>>>>> af5c398ad1a9fa9ec869dfe53476096bc1b855b4
 
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
