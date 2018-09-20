@@ -1158,7 +1158,7 @@ public class SR40708 {
         		Mainframe_GlobalFunctionLib.pressKey("Enter");
         		Mainframe_GlobalFunctionLib.pressKey("F10");
         		Mainframe_GlobalFunctionLib.sendText(17, 37,"          ");
-        		Mainframe_GlobalFunctionLib.sendText(17, 37,"*QINTER");
+        		Mainframe_GlobalFunctionLib.sendText(17, 37,"QINTER");
         		Mainframe_GlobalFunctionLib.pressKey("Enter");
         		Mainframe_GlobalFunctionLib.pressKey("F5");
         		String jobstat = Mainframe_GlobalFunctionLib.getText(11,40);
