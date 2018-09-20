@@ -1626,8 +1626,8 @@ public class FunctionalLibrary extends CommonHelper{
 	{
 	
 	bRes=true;
-	//Mainframe_GlobalFunctionLib.sendText(row, 2, "2");
-	//Mainframe_GlobalFunctionLib.pressKey("Enter");
+	Mainframe_GlobalFunctionLib.sendText(row, 2, "2");
+	Mainframe_GlobalFunctionLib.pressKey("Enter");
 	Thread.sleep(2000);
 	}
 	}
@@ -1743,6 +1743,28 @@ public class FunctionalLibrary extends CommonHelper{
 		
 	}
 	
+	
+	public static boolean func_SearchAndEditProfileAndType(String profile, String type) throws IOException
+	{
+		boolean bRes=false;
+		try{
+			Mainframe_GlobalFunctionLib.sendText(4, 5, profile);
+			Mainframe_GlobalFunctionLib.sendText(4, 50, type);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			if(Mainframe_GlobalFunctionLib.getText(9,5).trim().toLowerCase().contentEquals(profile.trim().toLowerCase())&&Mainframe_GlobalFunctionLib.getText(9,50).trim().toLowerCase().contentEquals(type.trim().toLowerCase()))
+		{
+		bRes=true;
+		Mainframe_GlobalFunctionLib.sendText(10, 2, "2");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Thread.sleep(2000);
+		}
+		}
+		catch(Exception e){
+			return bRes;	
+		}
+		 return bRes;
+		
+	}
 	public static boolean func_SearchAndSelectContractAndPBP(String contract, String pbp) throws IOException
 	{
 
@@ -2185,9 +2207,101 @@ public class FunctionalLibrary extends CommonHelper{
 			Thread.sleep(1000);
 		}
 		
+		public static void func_NavigateToAScreen(String sPathNameSeparatedByDash) throws Exception
+		{
+			
+			StringTokenizer stPath= new StringTokenizer(sPathNameSeparatedByDash, "-");
+			while (stPath.hasMoreTokens()) {
+				func_SetCommandLine(stPath.nextToken());
+				
+			}
+			
+		}
+		public static void func_SetCommandLine(String sCommand) throws Exception
+		{
+			
+			Mainframe_GlobalFunctionLib.click(21, 7 );
+			Mainframe_GlobalFunctionLib.pressKey("Delete");
+			Mainframe_GlobalFunctionLib.pressKey("Tab");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,sCommand);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			
+		}
+		
+		public static void func_CompareStrings(String sActualStr,String sExpectedStr)throws Throwable
+		{
+//			if(sActualStr.contains(sExpectedStr))
+			if(sActualStr.equals(sExpectedStr))
+			{
+				
+				System.out.println("String matching");
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			else
+			{
+				System.out.println("String is not same");
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The text "+ sExpectedStr +" does not match on the screen.Screenshot captured.");
+			}
+		}
 		public static void submitjobcmd() throws ClassNotFoundException, GeneralLeanFtException, SQLException, ReportException, InterruptedException
 		{
-			Mainframe_GlobalFunctionLib.pressKey("10");
+			Mainframe_GlobalFunctionLib.pressKey("F10");
+		}
+		public static void SubrogationTypeValidation(int row,int lastrow,String arg1) throws Exception 
+		{
+	        try{
+	               do{
+	                     try{
+	                     if(row<lastrow)
+	                            {
+	                                   
+	                    	 		
+	                    	 		String getValue;
+									try {
+										getValue = Mainframe_GlobalFunctionLib.getText(row,50);
+										if(getValue != null && getValue !="" && !getValue.isEmpty() && !getValue.trim().isEmpty())
+		                                   {
+		                                          if(getValue.equals(arg1))
+		                                          {
+		                                          }else
+		                                          {
+		                                                 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		                                                 Assert.fail("The Terminal sesssion is not closed.Screenshot captured.");
+		                                                 break;
+		                                          }
+		                                   }else
+		                                   {
+		                                          break;
+		                                   }
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										System.out.println("Value not found on screen");
+										break;
+									}
+	                                   
+	                                                                    
+	                            }else
+	                            {
+	                                   String pageDownCheck = Mainframe_GlobalFunctionLib.getText(21,79);
+	                                   if(pageDownCheck != null && !pageDownCheck.isEmpty() && !pageDownCheck.trim().isEmpty())
+	                                   {
+	                                          row = 9; 
+	                                          Mainframe_GlobalFunctionLib.pressKey("PageDown");
+	                                          Thread.sleep(3000);
+	                                   }else
+	                                   {
+	                                          break;
+	                                   }
+	                            }
+	                     }catch(Exception e){}
+
+	                     row++;
+	                     }while(row<23);
+	               
+	               Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+
+	               }catch(Exception e){}
 		}
 	public static void main(String args[]) throws Throwable{
 		
@@ -2203,5 +2317,7 @@ public class FunctionalLibrary extends CommonHelper{
 		//fb.submitClaim();
 		//Mainframe_GlobalFunctionLib.validateText("21" ,"6" , "R" );
 	}
+
+	
 
 }
