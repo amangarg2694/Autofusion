@@ -9,7 +9,7 @@ Scenario Outline: Create a new member in RxClaim with existing CAG
     And I press "F15" Key 
     And I search Product by "<ProductID>"
     And I Add Product Override with "<CarrierID>","<AccountID>","<GroupID>"
-    Then I select Patient Pay MSC "<PatientPay_MSC>" value
+    Then I select Multi-Source "<Product_MSC>" value
     And I press "F12" Key 
 		And I press "F12" Key
 		And I press "F12" Key 
@@ -17,11 +17,11 @@ Scenario Outline: Create a new member in RxClaim with existing CAG
 		
    #Note: ProductID=NDC_ID
     Examples:
-    | ProductID 	| CarrierID | AccountID    | GroupID     |PatientPay_MSC	| 
-    |	00002850101 | SN003280  | SN003280ACC1 | SN003280GRP1|	Y				      |
+    | ProductID 	| CarrierID | AccountID    | GroupID     |Product_MSC	| 
+    |	00002850101 | SN003280  | SN003280ACC1 | SN003280GRP1|	Y				  |
     
 Scenario Outline: Create a new member in RxClaim with existing CAG
-    When I create Member with "<CarrierID>","<AccountID>","<GroupID>","<MemberID>","<FirstName>","<LastName>","<DOB>","<FromDate>","<ThruDate>"
+     When I create Member with "<CarrierID>","<AccountID>","<GroupID>","<MemberID>","<FirstName>","<LastName>","<DOB>","<FromDate>","<ThruDate>"
     And I search Member by MemberID "<MemberID>"
    
    #public static String baseMemberID=null;
@@ -47,7 +47,7 @@ Scenario Outline: Verify Member Prior Authorization setup
 	 #00069098301-M-7
  Examples: 
    |PANumber	|PAType|OTC	|PAMSC|NDC_GPI_List_ID|FromDate|ThruDate|Agt	|	Rsn	|IgnoreDrgSts|PSC	|MEM_NDC_PA_MSC|Status|MSC_Override	|
-   |40066045  |N		 |*		|N		|00002850101		|010111	 |123139	|a		|	AA	|N					 |A		|A	 			 		 |A			|O						|
+   |40066045  |N		 |*		|N		|00002850101		|010111	 |123139	|a		|	AA	|N					 |A		|A	 			 		 |A			| 						|
    
    Scenario Outline: Verify Pricing setup in Plan	
   	And I select Option "4" to navigate to "Plan"
