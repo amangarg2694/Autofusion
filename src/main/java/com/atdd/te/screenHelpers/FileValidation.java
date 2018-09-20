@@ -119,11 +119,5 @@ public class FileValidation {
 		return positionMap;
 	}
 
-	public static void main(String args[]) throws IOException {
-		String actualFileName="UHCCOMM20180903_RXCHF70CL.txt";
-		String expectedFileName="Expected CHF Data.csv";
-		compareFile(actualFileName, expectedFileName);
-	}
-
 }
 

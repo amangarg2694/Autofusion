@@ -10,11 +10,8 @@
       <class name="com.atdd.demo.runners.RunDemoTest">
         <methods>
           <include name="setup"/>
-          <include name="parser"/>
           <include name="setUpClass"/>
-          <include name="teardown"/>
-          <include name="feature" invocation-numbers="0"/>
-          <include name="tearDownClass"/>
+          <include name="feature"/>
         </methods>
       </class> <!-- com.atdd.demo.runners.RunDemoTest -->
     </classes>
