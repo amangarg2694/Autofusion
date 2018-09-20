@@ -885,3 +885,173 @@ As a RxClaim User I want to Verify the Part D Update Manufacturer Discount and B
     Examples:
    |NDCList|GPIList|ErrorMsg|
    |TESTNDCEXC|TESTBSAM01|Value Required for Process Thru Date|
+   
+   @TC110        
+   Scenario Outline: Verify is there a change in the title of existing display screen Plan Biosimilar Product List maintenance fields with Action = Add
+    Then Verify is there a change in the title of existing display screen with Add Action  "<ScreenTitle>"
+    
+    Examples:
+   |ScreenTitle|
+   |Plan Biosimilar Product List Create Record Detail|
+   
+    @TC111        
+   Scenario Outline: Verify From date field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add. 
+    Then Verify From date field on Plan Biosimilar Product List Create Record Detail screen with Add Action  "<FromDate>","<FromDateF1Text>"
+    
+    Examples:
+   |FromDate|FromDateF1Text|
+   |1/01/01|The first date Biosimilar Product List is effective for the selected plan.| 
+   
+    @TC112        
+   Scenario Outline: Verify Thru date Process field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add. 
+    Then Verify Thru date Process field on Plan Biosimilar Product List Create Record Detail screen with Add Action  "<ThruDateProcessF1Text>"
+    
+    Examples:
+   |ThruDateProcessF1Text|
+   |Indicator used to specify the applicable condition when a field can be updated.|
+   
+    @TC113        
+   Scenario Outline: Verify Thru date Existing field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add 
+    Then Verify Thru date Existing field on Plan Biosimilar Product List Create Record Detail screen with Add Action "<ThruDateExistingF1Text>"
+    
+    Examples:
+   |ThruDateExistingF1Text|
+   |Value of existing Plan Biosimilar Product List Thru Date to be updated.|
+   
+    @TC114        
+   Scenario Outline: Verify Thru date New field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add. 
+    Then Verify Thru date New field on Plan Biosimilar Product List Create Record Detail screen with Add Action  "<ThruDateNew>","<ThruDateNewF1Text>"
+    
+    Examples:
+   |ThruDateNew|ThruDateNewF1Text|
+   |1/01/18|New value of Plan Biosimilar Product List Thru Date.|
+   
+    @TC115        
+   Scenario Outline: Verify NDC List Process field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add. 
+    Then Verify NDC List Process field on Plan Biosimilar Product List Create Record Detail screen with Add Action "<NDCListProcessF1Text>"
+    
+    Examples:
+   |NDCListProcessF1Text|
+   |Indicator used to specify the applicable condition when a field can be updated.|
+   
+    @TC116        
+   Scenario Outline: Verify NDC List Existing field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add 
+    Then Verify NDC List Existing field on Plan Biosimilar Product List Create Record Detail screen with Add Action "<NDCListExistingF1Text>"
+    
+    Examples:
+   |NDCListExistingF1Text|
+   |Value of existing NDC List to be updated.|
+   
+    @TC117        
+   Scenario Outline: Verify NDC List New field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add. 
+    Then Verify NDC List New field on Plan Biosimilar Product List Create Record Detail screen with Add Action "<NDCListNew>","<NDCListNewF1Text>"
+    
+    Examples:
+   |NDCListNew|NDCListNewF1Text|
+   |TESTNDCEXC|New value of NDC List.|
+   
+    @TC118        
+   Scenario Outline: Verify GPI List Process field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add. 
+    Then Verify GPI List Process field on Plan Biosimilar Product List Create Record Detail screen with Add Action "<GPIListProcessF1Text>"
+    
+    Examples:
+   |GPIListProcessF1Text|
+   |Indicator used to specify the applicable condition when a field can be updated.|
+   
+    @TC119        
+   Scenario Outline: Verify GPI List Existing field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add 
+    Then Verify GPI List Existing field on Plan Biosimilar Product List Create Record Detail screen  with Add Action "<GPIListExistingF1Text>"
+    
+    Examples:
+   |GPIListExistingF1Text|
+   |Value of existing GPI List to be updated.|
+   
+    @TC120        
+   Scenario Outline: Verify GPI List New field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add. 
+    Then Verify GPI List New field on Plan Biosimilar Product List Create Record Detail screen with Add Action "<GPIListNew>","<GPIListNewF1Text>"
+    
+    Examples:
+   |GPIListNew|GPIListNewF1Text|
+   |TESTBSAM01|New value of GPI List.|
+   
+   @TC121        
+   Scenario Outline: Verify Coverage Gap Discount Process field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add 
+    Then Verify Coverage Gap Discount Process field on Plan Biosimilar Product List Create Record Detail screen with Add Action "<CoverageGapDiscountProcessF1Text>"
+    
+    Examples:
+   |CoverageGapDiscountProcessF1Text|
+   |Indicator used to specify the applicable condition when a field can be updated.|
+   
+    @TC122        
+   Scenario Outline: Verify Coverage Gap Discount Existing field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add 
+    Then Verify Coverage Gap Discount Existing field on Plan Biosimilar Product List Create Record Detail screen  with Add Action "<CoverageGapDiscountExistingF1Text>"
+    
+    Examples:
+   |CoverageGapDiscountExistingF1Text|
+   |Value of existing Coverage Gap Discount to be updated.|
+   
+    @TC123        
+   Scenario Outline: Verify Coverage Gap Discount New field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add. 
+    Then Verify Coverage Gap Discount New field on Plan Biosimilar Product List Create Record Detail screen with Add Action "<CoverageGapDiscountNew>","<CoverageGapDiscountNewF1Text>"
+    
+    Examples:
+   |CoverageGapDiscountNew|CoverageGapDiscountNewF1Text|
+   |N|New value of of Coverage Gap Discount.|
+   
+    @TC124        
+   Scenario Outline: Verify LICS Generic Cost–Share Process field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add 
+    Then Verify LICS Generic Cost Share Process field on Plan Biosimilar Product List Create Record Detail screen  with Add Action "<LICSGenericCostShareProcessF1Text>"
+    
+    Examples:
+   |LICSGenericCostShareProcessF1Text|
+   |Indicator used to specify the applicable condition when a field can be updated.|
+   
+    @TC125        
+   Scenario Outline: Verify LICS Generic Cost–Share Existing field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add 
+    Then Verify LICS Generic Cost Share Existing field on Plan Biosimilar Product List Create Record Detail screen with Add Action "<LICSGenericCostShareExistF1Text>"
+    
+    Examples:
+   |LICSGenericCostShareExistF1Text|
+   |Value of existing LICS Generic Cost-Share to be updated.|
+   
+    @TC126        
+   Scenario Outline: Verify LICS Generic Cost–Share New field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add. 
+    Then Verify LICS Generic Cost Share New field on Plan Biosimilar Product List Create Record Detail screen with Add Action "<LICSGenericCostShareNew>","<LICSGenericCostShareNewF1Text>"
+    
+    Examples:
+   |LICSGenericCostShareNew|LICSGenericCostShareNewF1Text|
+   |N|New value of of LICS Generic Cost-Share.|
+   
+    @TC127        
+   Scenario Outline: Verify Non LICS Catastrophic Generic Cost–Share  Process field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add 
+    Then Verify Non LICS Generic Cost Share Process field on Plan Biosimilar Product List Create Record Detail screen with Add Action "<NonLICSGenericCostShareProcessF1Text>"
+    
+    Examples:
+   |NonLICSGenericCostShareProcessF1Text|
+   |Indicator used to specify the applicable condition when a field can be updated.|
+   
+    @TC128        
+   Scenario Outline: Verify Non LICS Generic Cost–Share Existing field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add 
+    Then Verify Non LICS Generic Cost Share Existing field on Plan Biosimilar Product List Create Record Detail screen with Add Action "<NonLICSGenericCostShareProcessExistF1Text>"
+    
+    Examples:
+   |NonLICSGenericCostShareProcessExistF1Text|
+   |Value of existing Non-LICS Catastrophic Generic Cost-Share to be updated.|
+   
+    @TC129        
+   Scenario Outline: Verify Non LICS Generic Cost–Share New field on Plan Biosimilar Product List Create Record Detail display screen with Action = Add. 
+    Then Verify Non LICS Generic Cost Share New field on Plan Biosimilar Product List Create Record Detail screen with Add Action "<NonLICSGenericCostShareNew>","<NonLICSGenericCostShareNewF1Text>"
+    
+    Examples:
+   |NonLICSGenericCostShareNew|NonLICSGenericCostShareNewF1Text|
+   |N|New value of of Non-LICS Catastrophic Generic Cost-Share.|
+   
+    @TC130        
+   Scenario Outline: Verify help text of Discount Eligible Amount on TrOOP/Drug Spend Accumulation Phase Detail screen.
+    Given I am on RxClaim PlanAdministrator Menu
+    When I am on TrOOP/Drug Spend Accumulation Phase Detail screen
+    Then Verify help text of Discount Eligible Amount on TrOOP Drug Spend Accumulation Phase Detail screen "<DiscElgAmt>","<DiscElgAmtFText>"
+    
+    Examples:
+   |DiscElgAmt|DiscElgAmtFText|
+   |.00|Gap Eligible Amount for Manufacturer Discount. If product qualifies but member is a LICS member, this amount is still calculated but manufacturer discount will not be be applied. If product does not qualify, this amount is $0.00|

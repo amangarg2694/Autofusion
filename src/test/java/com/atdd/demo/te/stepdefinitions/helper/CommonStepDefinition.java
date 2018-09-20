@@ -328,21 +328,7 @@ public class CommonStepDefinition extends CommonHelper{
 	    // Write code here that turns the phrase above into concrete actions
 		FunctionalLibrary.validateText("11" ,"8" , gpilist);
 	}
-	
-<<<<<<< HEAD
-	@When("^I submit a SQLQuery and FTP the file \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_submit_a_SQLQuery_and_FTP_the_file(String filename, String libraryname, String FTPCmd) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    FunctionalLibrary.submitsqlquerywithftp(filename,libraryname,FTPCmd);
-	}
-	
-	@When("^I submit job CMD  for Expected File$")
-	public void i_submit_job_CMD_for_Expected_File() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    
-	}
 
-=======
 	@When("^I create plan with Accumulators with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_plan_with_Accumulators_with(String planCode, String fromDate, String desc, String thruDate, String priceSchedule, String patientPaySchedule, String deductibleAccumLevel, String deductibleSchedule, String oopMaxAccumLevel, String oopMaxDeductibleSchedule, String benefitMaxAccumLevel, String benefitMaxDeductibleSchedule) throws Throwable {
 		FunctionalLibrary.Createplanwithmembereligibilityandpricingoption(planCode, fromDate, desc, thruDate, priceSchedule, patientPaySchedule);
@@ -383,7 +369,7 @@ public class CommonStepDefinition extends CommonHelper{
 	public void i_set_NDC_List_in_Plan(String planCode) throws Throwable {
 		PlanByPlanCode.func_SetNDCList(planCode);
 	}
->>>>>>> af5c398ad1a9fa9ec869dfe53476096bc1b855b4
+
 
 	@Then("^Validate NDC List is set to Y$")
 	public void validate_NDC_List_is_set_to_Y() throws Throwable {

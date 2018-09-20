@@ -1229,4 +1229,53 @@ public class SR_41709 {
 		Mainframe_GlobalFunctionLib.sendText(11 , 63 ,gpilist);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 	}
+
+	@Then("^Verify is there a change in the title of existing display screen with Add Action  \"([^\"]*)\"$")
+	public void verify_is_there_a_change_in_the_title_of_existing_display_screen_with_Add_Action(String screentitle) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		Mainframe_GlobalFunctionLib.sendText(10 , 63 , "TESTNDCEXC");
+		Mainframe_GlobalFunctionLib.sendText(11 , 63 , "TESTBSAM01");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.sendText(13 , 2 ,"5");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		FunctionalLibrary.validateText("2" ,"17" , screentitle );
+	}
+	
+	@When("^I am on TrOOP/Drug Spend Accumulation Phase Detail screen$")
+	public void i_am_on_TrOOP_Drug_Spend_Accumulation_Phase_Detail_screen() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		Mainframe_GlobalFunctionLib.sendText(21 , 7 ,"1");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(21 , 7 ,"6");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F8");
+		Mainframe_GlobalFunctionLib.sendText(4 , 4 ,"101395174300000");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(10 , 2 ,"5");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F7");
+		Mainframe_GlobalFunctionLib.sendText(4 , 23 ,"13");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F10");
+		
+	}
+
+	@Then("^Verify help text of Discount Eligible Amount on TrOOP Drug Spend Accumulation Phase Detail screen \"([^\"]*)\",\"([^\"]*)\"$")
+	public void verify_help_text_of_Discount_Eligible_Amount_on_TrOOP_Drug_Spend_Accumulation_Phase_Detail_screen(String discelgamt, String discelgamtF1text) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.validateText("14" ,"65" , discelgamt );
+		Mainframe_GlobalFunctionLib.click(14, 65);
+		Mainframe_GlobalFunctionLib.pressKey("F1");
+		String F1Text1=Mainframe_GlobalFunctionLib.getText(7, 19);
+		String F1Text2=Mainframe_GlobalFunctionLib.getText(8, 19);
+		Mainframe_GlobalFunctionLib.pressKey("PageDown");
+		String F1Text3=Mainframe_GlobalFunctionLib.getText(5, 19);
+		String F1Text4=Mainframe_GlobalFunctionLib.getText(6, 19);
+		String F1Text5=Mainframe_GlobalFunctionLib.getText(7, 19);
+		String F1Text6=Mainframe_GlobalFunctionLib.getText(8, 19);
+		String actualvalue=F1Text1+" "+F1Text2+F1Text3+" "+F1Text4+" "+F1Text5+F1Text6;
+		FunctionalLibrary.func_CompareStrings(actualvalue, discelgamtF1text);
+		
+	}
 }

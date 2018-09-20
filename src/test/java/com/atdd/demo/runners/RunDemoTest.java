@@ -25,16 +25,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
 
-<<<<<<< HEAD
-		features = { "classpath:features/RxClaim/featureFiles/CHFValidation.feature" },
-=======
-
-<<<<<<< HEAD
 		features = { "classpath:features/RxClaim/featureFiles/SR41709/SR41709_TC01-TC130.feature" },
-=======
-		features = { "classpath:features/RxClaim/featureFiles/CHFFileValidation.feature" },
->>>>>>> af5c398ad1a9fa9ec869dfe53476096bc1b855b4
->>>>>>> f0f2c4dc0e631436fb939c182ee20b42f31e3412
 
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
