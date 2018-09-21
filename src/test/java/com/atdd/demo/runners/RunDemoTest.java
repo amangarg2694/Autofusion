@@ -26,13 +26,14 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 
 
-		features = { "classpath:features/RxClaim/featureFiles/SR40745/SR40745_TC20-TC30.feature" },
+		features = { "classpath:features/RxClaim/featureFiles/SR41709/SR41709_TC01-TC130.feature" },
+
 
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 
-		glue = { "com.atdd.demo.te" }
-		//tags ={"@TC03"}
+		glue = { "com.atdd.demo.te" }/*,
+		tags ={"@TC01_01,@TC01_02,@TC02,@TC03,@TC04,@TC05,@TC06,@TC07,@TC08,@TC09,@TC10"}*/
 		
 )
 public class RunDemoTest extends AbstractTestNGCucumberTests { 
@@ -52,7 +53,7 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
    		System.out.println("Starting @before clas"); 
    		ReadPropertyFile.setPropertyMap(System.getProperty("user.dir")+"//src//test//resources//features//RxClaim//OR");  		 
    		ReadPropertyFile.configFileReader(configFile); 
-    		CommonHelper.ScreenshotOption = scrOption; 
+    	CommonHelper.ScreenshotOption = scrOption; 
    		CommonHelper.login(); 
     		 
  }	 
