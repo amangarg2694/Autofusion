@@ -26,7 +26,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 
 
-		features = { "classpath:features/RxClaim/featureFiles/CHFFileValidation.feature" },
+		features = { "classpath:features/RxClaim/featureFiles/SN003284/SN003284_TC01.feature" },
 
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
