@@ -1,43 +1,25 @@
 #Author: Venkateshwarlu M
 
 Feature: SN003280_SR41405_TS001_Req 7.3: verify when  Claim is submitted with PA MSC Override =N and Pat pay MSC override is not Y
-
-Scenario Outline: Create a new member in RxClaim with existing CAG
-    Given I am on RxClaim PlanAdministrator Menu 
-    When I select Option "2" to navigate to "RxClaim Product Information Maintenance"
-    And I select Option "1" to navigate to "Active Products"
-    And I press "F15" Key 
-    And I search Product by "<ProductID>"
-    And I Add Product Override with "<CarrierID>","<AccountID>","<GroupID>"
-    Then I select Multi-Source "<Product_MSC>" value
-    And I press "F12" Key 
-		And I press "F12" Key
-		And I press "F12" Key 
-		And I press "F12" Key
-		
-   #Note: ProductID=NDC_ID
-    Examples:
-    | ProductID 	| CarrierID | AccountID    | GroupID     |Product_MSC	| 
-    |	00002850101 | SN003280  | SN003280ACC1 | SN003280GRP1|	Y				  |
     
 Scenario Outline: Create a new member in RxClaim with existing CAG
-     When I create Member with "<CarrierID>","<AccountID>","<GroupID>","<MemberID>","<FirstName>","<LastName>","<DOB>","<FromDate>","<ThruDate>"
+		Given I am on RxClaim PlanAdministrator Menu 
+    When I create Member with "<CarrierID>","<AccountID>","<GroupID>","<MemberID>","<FirstName>","<LastName>","<DOB>","<FromDate>","<ThruDate>"
     And I search Member by MemberID "<MemberID>"
    
    #public static String baseMemberID=null;
     Examples:
     | CarrierID | AccountID    | GroupID      | MemberID   | FirstName  | LastName  | DOB      | FromDate  | ThruDate |
-		|	SN003280  | SN003280ACC1 | SN003280GRP1 | MEM4140514 | AUTOMEM    | AUTOMEM   | 12251987 | 010101    | 123139   |
+		|	SN003280  | SN003280ACC1 | SN003280GRP1 | MEM4140558 | AUTOMEM    | AUTOMEM   | 12251987 | 010101    | 123139   |
 		
 Scenario Outline: Verify Member Prior Authorization setup
 		Given I provide family type and ID details in MemberID
 		And I press "F16" Key 
 		And I add Member Prior Authorization "<PANumber>", "<PAType>", "<OTC>", "<PAMSC>", "<NDC_GPI_List_ID>", "<FromDate>", "<ThruDate>", "<Agt>", "<Rsn>", "<IgnoreDrgSts>" 
-		And I edit Member Prior Authorization list
-		And I press "F7" Key 
-		And I press "F10" Key 
-		And I add Member NDC Prior Authorization Price "<PSC>", "<MEM_NDC_PA_MSC>", "<Status>", "<MSC_Override>"
-		And I navigate back to RxClaim Plan Administrator Menu 
+		And I press "F12" Key 
+		And I press "F12" Key
+		And I press "F12" Key 
+		And I press "F12" Key
 	 #MSC_Override: public static String Member_NDC_PA_MSC_Override=null;
 	 #PAMSC: public static String basePA_MSC=null;
 	 #NOTE: Please change the PA Number for every Run
@@ -47,7 +29,7 @@ Scenario Outline: Verify Member Prior Authorization setup
 	 #00069098301-M-7
  Examples: 
    |PANumber	|PAType|OTC	|PAMSC|NDC_GPI_List_ID|FromDate|ThruDate|Agt	|	Rsn	|IgnoreDrgSts|PSC	|MEM_NDC_PA_MSC|Status|MSC_Override	|
-   |40066045  |N		 |*		|N		|00002850101		|010111	 |123139	|a		|	AA	|N					 |A		|A	 			 		 |A			| 						|
+   |40776045  |N		 |*		|O		|00003161112		|010111	 |123139	|a		|	AA	|N					 |A		|A	 			 		 |A			| 						|
    
    Scenario Outline: Verify Pricing setup in Plan	
   	And I select Option "4" to navigate to "Plan"
@@ -68,7 +50,27 @@ Scenario Outline: Verify Member Prior Authorization setup
    Examples: 
       |Plan 	 | 
       |SN003280|   
-      
+        
+ Scenario Outline: Add Product Override in Product with existing CAG
+    When I select Option "2" to navigate to "RxClaim Product Information Maintenance"
+    And I select Option "1" to navigate to "Active Products"
+    And I press "F15" Key 
+    And I search Product by "<ProductID>"
+    And I search for existing Active Product Override "<CarrierID>"
+    And I Add Product Override with "<CarrierID>","<AccountID>","<GroupID>"
+    And I select Patient Pay MSC "<PatientPay_MSC>" and Multi Source "<MSC_Product>"
+    Then I verify added Product Override Details with "<CarrierID>"
+    And I press "F12" Key 
+		And I press "F12" Key
+		And I press "F12" Key 
+		And I press "F12" Key
+		And I press "F12" Key
+		
+   #Note: ProductID=NDC_ID
+    Examples:
+    | ProductID 	| CarrierID | AccountID    | GroupID     |PatientPay_MSC| MSC_Product	|
+    |	00003161112 | SN003280  | SN003280ACC1 | SN003280GRP1|* 			      |		Y					|
+    
   Scenario Outline: Submit a claim in RxClaim
     Given I select Option "3" to navigate to "Manual Claim Menu"
     When I select Option "2" to navigate to "Manual Claim Maintenance"
@@ -93,4 +95,4 @@ Scenario Outline: Verify Member Prior Authorization setup
    
    Examples:
     | BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   | ProductID	  |	DspQty | DS | PSC | Cost |
-		|	777777  | QET     |	*ALL  | APHARM      | 765765367432 | 00     | 090918   | MEM4140514	| 00002850101 |	30     | 30 | 0	  | 100  | 
+		|	777777  | QET     |	*ALL  | APHARM      | 765765367432 | 00     | 092118   | MEM4140557	| 00003161112 |	30     | 30 | 0	  | 100  | 

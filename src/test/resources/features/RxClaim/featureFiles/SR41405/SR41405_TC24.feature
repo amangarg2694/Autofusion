@@ -3,14 +3,14 @@
 Feature: SN003280_SR41405_TS001_Req 7.3: verify when  Claim is submitted with PA MSC Override =N and Pat pay MSC override is not Y
 
 Scenario Outline: Create a new member in RxClaim with existing CAG
-    Given I am on RxClaim PlanAdministrator Menu 
+		Given I am on RxClaim PlanAdministrator Menu 
     When I create Member with "<CarrierID>","<AccountID>","<GroupID>","<MemberID>","<FirstName>","<LastName>","<DOB>","<FromDate>","<ThruDate>"
     And I search Member by MemberID "<MemberID>"
    
    #public static String baseMemberID=null;
     Examples:
     | CarrierID | AccountID    | GroupID      | MemberID   | FirstName  | LastName  | DOB      | FromDate  | ThruDate |
-		|	SN003280  | SN003280ACC1 | SN003280GRP1 | MEM4140516 | AUTOMEM    | AUTOMEM   | 12251987 | 010101    | 123139   |
+		|	SN003280  | SN003280ACC1 | SN003280GRP1 | MEM4140520 | AUTOMEM    | AUTOMEM   | 12251987 | 010101    | 123139   |
 		
 Scenario Outline: Verify Member Prior Authorization setup
 		Given I provide family type and ID details in MemberID
@@ -31,7 +31,7 @@ Scenario Outline: Verify Member Prior Authorization setup
 	 #00069130501-M
  Examples: 
    |PANumber	|PAType|OTC	|PAMSC|NDC_GPI_List_ID|FromDate|ThruDate|Agt	|	Rsn	|IgnoreDrgSts|PSC	|MEM_NDC_PA_MSC|Status|MSC_Override	|
-   |49894755  |N		 |*		|M		|00069130501		|010111	 |123139	|a		|	AA	|N					 |A		|A	 			 		 |A			|N						|
+   |22230947  |N		 |*		|M		|00069130501		|010111	 |123139	|a		|	AA	|N					 |A		|A	 			 		 |A			|N						|
    
    Scenario Outline: Verify Pricing setup in Plan	
   	And I select Option "4" to navigate to "Plan"
@@ -71,9 +71,10 @@ Scenario Outline: Verify Member Prior Authorization setup
     And I press "F12" Key
     And I press "F7" Key
     And I take 21 Formulary Management Services
+    #Note: When ever this Formulary Management Services is down, we need to restart the script.
     And I verify Tier details
     And I verify Formulary Status
    
    Examples:
     | BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   | ProductID  |	DspQty | DS | PSC | Cost |
-		|	777777  | QET     |	*ALL  | APHARM      | 765765367432 | 00     | 090918   | MEM4140516	| 00069130501|	30     | 30 | 0	  |100   | 
+		|	777777  | QET     |	*ALL  | APHARM      | 765765367432 | 00     | 090918   | MEM4140520	| 00069130501|	30     | 30 | 0	  |100   | 

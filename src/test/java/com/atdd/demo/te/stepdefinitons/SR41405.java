@@ -196,7 +196,7 @@ public class SR41405 {
 			    }
 		    String actualPatientPayTable=Mainframe_GlobalFunctionLib.getText(17, 16);
 		    System.out.println("Pharmacy: Schedule Patient Pay Table is: "+actualPatientPayTable);
-			String[] SplitRxClaim=actualPatientPayTable.split("-");
+			/*String[] SplitRxClaim=actualPatientPayTable.split("-");
 			if(SplitRxClaim[0].contains(Member_NDC_PA_MSC_Override))
 					{
 					 	System.out.println("Pharmacy: Expected Patient Pay Table with Generic Indicator is shows as: "+actualPatientPayTable);
@@ -208,7 +208,7 @@ public class SR41405 {
 					{
 						System.out.println("Pharmacy: The Value is not as expected");
 						Reporter.addStepLog("Pharmacy: The Value is not as expected");
-					}
+					}*/
 			String actualPriceTableSeq=Mainframe_GlobalFunctionLib.getText(12, 35);
 		    System.out.println("Pharmacy: Schedule price table Sequence is: "+actualPriceTableSeq);
 		    Reporter.addStepLog("Pharmacy: Schedule price table Sequence is: "+actualPriceTableSeq);
@@ -268,7 +268,7 @@ public class SR41405 {
 			    }
 		    String actualPatientPayTable=Mainframe_GlobalFunctionLib.getText(17, 55);
 		    System.out.println("Client: Schedule Patient Pay Table is: "+actualPatientPayTable);
-			String[] SplitRxClaim=actualPatientPayTable.split("-");
+			/*String[] SplitRxClaim=actualPatientPayTable.split("-");
 			if(SplitRxClaim[0].contains(Member_NDC_PA_MSC_Override))
 					{
 					 	System.out.println("Client: Expected Patient Pay Table with Generic Indicator is shows as: "+actualPatientPayTable);
@@ -280,7 +280,7 @@ public class SR41405 {
 					{
 						System.out.println("Client: The Value is not as expected");
 						Reporter.addStepLog("Client: The Value is not as expected");
-					}
+					}*/
 			String actualPriceTableSeq=Mainframe_GlobalFunctionLib.getText(12, 74);
 		    System.out.println("Client: Schedule price table Sequence is: "+actualPriceTableSeq);
 		    Reporter.addStepLog("Client: Schedule price table Sequence is: "+actualPriceTableSeq);
@@ -325,7 +325,8 @@ public class SR41405 {
 				Mainframe_GlobalFunctionLib.pressKey("enter");
 				try{	
 					String errorFurmulary=Mainframe_GlobalFunctionLib.getText(24, 2);
-					System.out.println(" Formulary Mgmt Services detail does not exist ");
+					System.out.println("Formulary_Management_Services screen - Message shown as: "+errorFurmulary);
+					Reporter.addStepLog("Formulary_Management_Services screen - Message shown as: "+errorFurmulary);
 					System.exit(0);
 				}catch (Exception e) {
 					
@@ -367,13 +368,39 @@ public class SR41405 {
 				}
 			}
 			
+			@When("^I search for existing Active Product Override \"([^\"]*)\"$")
+			public void i_search_for_existing_Active_Product_Override(String CarrierID) throws Throwable {
+				try{
+					for (int i=1; i<7; i++)
+					{
+						Mainframe_GlobalFunctionLib.sendText(10, 5, CarrierID);
+						Mainframe_GlobalFunctionLib.pressKey("enter");
+						String actualCarrierID=Mainframe_GlobalFunctionLib.getText(15, 5);
+						if(actualCarrierID.equals(CarrierID))
+						{
+							System.out.println("Expected CarrierID: "+CarrierID+" Found in Active Product Override screen search list: "+actualCarrierID);
+							Reporter.addStepLog("Expected CarrierID: "+CarrierID+" Found in Active Product Override screen search list: "+actualCarrierID);
+							Mainframe_GlobalFunctionLib.sendText(15, 2, "4");
+							Mainframe_GlobalFunctionLib.pressKey("enter");
+							Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
+							Mainframe_GlobalFunctionLib.pressKey("enter");
+							System.out.println("Expected CarrierID: "+CarrierID+" Deleted in Active Product Override screen");
+							Reporter.addStepLog("Expected CarrierID: "+CarrierID+" Deleted in Active Product Override screen");
+						}
+					}
+		    	}catch (Exception e) {
+					System.out.println("End of Search: No records found");
+				}
+			}
+						
 			@When("^I Add Product Override with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 			public void i_Add_Product_Override_with(String CarrierID, String AccountID, String GroupID) throws Throwable {
 				Mainframe_GlobalFunctionLib.pressKey("F6");
 				Mainframe_GlobalFunctionLib.sendText(9, 10, CarrierID);
 				Mainframe_GlobalFunctionLib.sendText(10, 10, AccountID);
 				Mainframe_GlobalFunctionLib.sendText(11, 10, GroupID);
-			}    
+			} 
+		   
 			
 			@Then("^I select Multi-Source \"([^\"]*)\" value$")
 			public void i_select_Multi_Source_value(String Product_MSC) throws Throwable {
@@ -382,14 +409,6 @@ public class SR41405 {
 				Mainframe_GlobalFunctionLib.sendText(12, 36, "123139");
 				Mainframe_GlobalFunctionLib.pressKey("enter");
 			}
-			
-			@When("^I add library RXBSYSQA$")
-			public void i_add_library_RXBSYSQA() throws Throwable {
-				String Query="CHGCURLIB RXBSYSQA";
-				Mainframe_GlobalFunctionLib.sendText(21, 7, Query);
-				Mainframe_GlobalFunctionLib.pressKey("enter");
-			}
-
 		
 		@When("^I add Product \"([^\"]*)\", \"([^\"]*)\"$")
 		public void i_add_Product(String ProductID, String Type) throws Throwable {
@@ -401,11 +420,56 @@ public class SR41405 {
 		
 		@Then("^I select Patient Pay MSC \"([^\"]*)\" value$")
 		public void i_select_Patient_Pay_MSC_value(String PatientPay_MSC) throws Throwable {
-		    /Mainframe_GlobalFunctionLib.sendText(14, 58, PatientPay_MSC);
+		    Mainframe_GlobalFunctionLib.sendText(14, 58, PatientPay_MSC);
 			Mainframe_GlobalFunctionLib.sendText(12, 15, "010111");
 			Mainframe_GlobalFunctionLib.sendText(12, 36, "123139");
 			Mainframe_GlobalFunctionLib.pressKey("enter");
 		}
+		
 
+		@When("^I select Patient Pay MSC \"([^\"]*)\" and Multi Source \"([^\"]*)\"$")
+		public void i_select_Patient_Pay_MSC_and_Multi_Source(String PatientPay_MSC, String MSC_Product) throws Throwable {
+			Mainframe_GlobalFunctionLib.sendText(14, 27, MSC_Product);    
+			Mainframe_GlobalFunctionLib.sendText(14, 58, PatientPay_MSC);
+				Mainframe_GlobalFunctionLib.sendText(12, 15, "010111");
+				Mainframe_GlobalFunctionLib.sendText(12, 36, "123139");
+				Mainframe_GlobalFunctionLib.pressKey("enter");
+		}
 
+		@Then("^I verify added Product Override Details with \"([^\"]*)\"$")
+		public void i_verify_added_Product_Override_Details_with(String CarrierID) throws Throwable {
+			Mainframe_GlobalFunctionLib.sendText(10, 5, CarrierID);
+			Mainframe_GlobalFunctionLib.pressKey("enter");
+			String actualCarrierID=Mainframe_GlobalFunctionLib.getText(15, 5);
+			if(actualCarrierID.equals(CarrierID))
+			{
+				System.out.println("Expected CarrierID: "+CarrierID+" Found in added list in Active Product Override screen: "+actualCarrierID);
+				Reporter.addStepLog("Expected CarrierID: "+CarrierID+" Found in added list in Active Product Override screen: "+actualCarrierID);
+				Mainframe_GlobalFunctionLib.sendText(15, 2, "2");
+				Mainframe_GlobalFunctionLib.pressKey("enter");
+				String ProductOverrideCarrierID=Mainframe_GlobalFunctionLib.getText(9, 10);
+				System.out.println("Expected CarrierID: "+CarrierID+" Found in Product Override Details: "+ProductOverrideCarrierID);
+				Reporter.addStepLog("Expected CarrierID: "+CarrierID+" Found in Product Override Details: "+ProductOverrideCarrierID);
+				String ProductOverrideMultiSource=Mainframe_GlobalFunctionLib.getText(14, 27);
+				System.out.println("Product Override MultiSource Code is: "+ProductOverrideMultiSource);
+				Reporter.addStepLog("Product Override MultiSource Code is: "+ProductOverrideMultiSource);
+				String ProductOverridePatientPayMSC=Mainframe_GlobalFunctionLib.getText(14, 58);
+				System.out.println("Product Override Patient Pay MSC Code is: "+ProductOverridePatientPayMSC);
+				Reporter.addStepLog("Product Override Patient Pay MSC Code is: "+ProductOverridePatientPayMSC);
+			}
+		}
+		
+		@When("^I add library RXBSYSQA$")
+		public void i_add_library_RXBSYSQA() throws Throwable {
+			String Query="CHGCURLIB RXBSYSQA2";
+			System.out.println("The Query to add library is: "+Query);
+			Reporter.addStepLog("The Query to add library is: "+Query);
+			Mainframe_GlobalFunctionLib.sendText(21, 7, Query);
+			Mainframe_GlobalFunctionLib.pressKey("enter");
+			String libMessage= Mainframe_GlobalFunctionLib.getText(24, 2);
+			System.out.println("The Message displayed is: "+libMessage);
+			Reporter.addStepLog("The Message displayed is: "+libMessage);
+		}	
 }
+
+

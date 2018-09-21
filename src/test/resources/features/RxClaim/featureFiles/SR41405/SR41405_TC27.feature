@@ -1,16 +1,36 @@
 #Author: Venkateshwarlu M
 
-Feature: SN003280_SR41405_TS001_Req 7.3: verify when Claim is submitted with PA MSC Override =N and Pat pay MSC override is not Y
+Feature: SN003280_SR41405_TS001_Req 7.3: verify when  Claim is submitted with PA MSC Override =N and Pat pay MSC override is not Y
+
+Scenario Outline: Add Product Override in Product with existing CAG
+    Given I am on RxClaim PlanAdministrator Menu 
+    When I select Option "2" to navigate to "RxClaim Product Information Maintenance"
+    And I select Option "1" to navigate to "Active Products"
+    And I press "F15" Key 
+    And I search Product by "<ProductID>"
+    And I search for existing Active Product Override "<CarrierID>"
+    And I Add Product Override with "<CarrierID>","<AccountID>","<GroupID>"
+    And I select Patient Pay MSC "<PatientPay_MSC>" value
+    Then I verify added Product Override Details with "<CarrierID>"
+    And I press "F12" Key 
+		And I press "F12" Key
+		And I press "F12" Key 
+		And I press "F12" Key
+		And I press "F12" Key
+		
+   #Note: ProductID=NDC_ID
+    Examples:
+    | ProductID 	| CarrierID | AccountID    | GroupID     |PatientPay_MSC| 
+    |	00002850101 | SN003280  | SN003280ACC1 | SN003280GRP1|Y				      |
     
 Scenario Outline: Create a new member in RxClaim with existing CAG
-   Given I am on RxClaim PlanAdministrator Menu 
     When I create Member with "<CarrierID>","<AccountID>","<GroupID>","<MemberID>","<FirstName>","<LastName>","<DOB>","<FromDate>","<ThruDate>"
     And I search Member by MemberID "<MemberID>"
    
    #public static String baseMemberID=null;
     Examples:
     | CarrierID | AccountID    | GroupID      | MemberID   | FirstName  | LastName  | DOB      | FromDate  | ThruDate |
-		|	SN003280  | SN003280ACC1 | SN003280GRP1 | MEM4140524 | AUTOMEM    | AUTOMEM   | 12251987 | 010101    | 123139   |
+		|	SN003280  | SN003280ACC1 | SN003280GRP1 | MEM4140521 | AUTOMEM    | AUTOMEM   | 12251987 | 010101    | 123139   |
 		
 Scenario Outline: Verify Member Prior Authorization setup
 		Given I provide family type and ID details in MemberID
@@ -30,7 +50,7 @@ Scenario Outline: Verify Member Prior Authorization setup
 	 #00069098301-M-7
  Examples: 
    |PANumber	|PAType|OTC	|PAMSC|NDC_GPI_List_ID|FromDate|ThruDate|Agt	|	Rsn	|IgnoreDrgSts|PSC	|MEM_NDC_PA_MSC|Status|MSC_Override	|
-   |88933665  |N		 |*		|N		|00002850101		|010111	 |123139	|a		|	AA	|N					 |A		|A	 			 		 |A			|O						|
+   |40033545  |N		 |*		|N		|00002850101		|010111	 |123139	|a		|	AA	|N					 |A		|A	 			 		 |A			|O						|
    
    Scenario Outline: Verify Pricing setup in Plan	
   	And I select Option "4" to navigate to "Plan"
@@ -51,26 +71,6 @@ Scenario Outline: Verify Member Prior Authorization setup
    Examples: 
       |Plan 	 | 
       |SN003280|   
-      
-  Scenario Outline: Add Product Override in Product with existing CAG
-    When I select Option "2" to navigate to "RxClaim Product Information Maintenance"
-    And I select Option "1" to navigate to "Active Products"
-    And I press "F15" Key 
-    And I search Product by "<ProductID>"
-    And I search for existing Active Product Override "<CarrierID>"
-    And I Add Product Override with "<CarrierID>","<AccountID>","<GroupID>"
-    And I select Patient Pay MSC "<PatientPay_MSC>" value
-    Then I verify added Product Override Details with "<CarrierID>"
-    And I press "F12" Key 
-		And I press "F12" Key
-		And I press "F12" Key 
-		And I press "F12" Key
-		And I press "F12" Key
-		
-   #Note: ProductID=NDC_ID
-    Examples:
-    | ProductID 	| CarrierID | AccountID    | GroupID     |PatientPay_MSC| 
-    |	00002850101 | SN003280  | SN003280ACC1 | SN003280GRP1|Y				      |
       
   Scenario Outline: Submit a claim in RxClaim
     Given I select Option "3" to navigate to "Manual Claim Menu"
@@ -96,4 +96,4 @@ Scenario Outline: Verify Member Prior Authorization setup
    
    Examples:
     | BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   | ProductID	  |	DspQty | DS | PSC | Cost |
-		|	777777  | QET     |	*ALL  | APHARM      | 765765367432 | 00     | 092118   | MEM4140524	| 00002850101 |	30     | 30 | 0	  | 100  | 
+		|	777777  | QET     |	*ALL  | APHARM      | 765765367432 | 00     | 092118   | MEM4140521	| 00002850101 |	30     | 30 | 0	  | 100  | 
