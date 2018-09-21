@@ -16,7 +16,7 @@ import com.optumrx.autofusion.core.te.util.Screenshot;
 
 import cucumber.api.java.en.Then;
 
-public class SR40708 {
+public class ValidationofTaxonomyCodes {
 	@Then("^Validating the \"([^\"]*)\" screen$")
 	public void validating_the_screen(String screenname) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions

@@ -21,7 +21,7 @@ import com.optumrx.autofusion.core.te.util.MainframeOR.TeWindow;
 
 import cucumber.api.java.en.Then;
 
-public class SR40745 {
+public class MSCUpdateBatchProcess {
 	@Then("^Validating the option Product MSC Batch Update is available in Product Load Pre-Processing Profile screen$")
 	public void validating_the_option_Product_MSC_Batch_Update_is_available_in_Product_Load_Pre_Processing_Profile_screen() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions

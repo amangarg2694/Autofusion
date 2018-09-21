@@ -16,7 +16,7 @@ import com.optumrx.autofusion.core.te.util.Screenshot;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SR42039 {
+public class DEDOOPAmountCorrection {
 	
 	@Then("^I create Deductible and OOP schedule with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_Deductible_and_OOP_schedule_with(String Schedule, String ScheduleDesc, String Basis, String StepNo, String DedCompCode, String OOPCompCode, String Ind, String MaxInd, String BrandCopay, String GenericCopay, String PercentBasis) throws Throwable {

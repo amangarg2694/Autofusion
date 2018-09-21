@@ -10,7 +10,7 @@ import com.optumrx.autofusion.core.te.util.Screenshot;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SN003493 {
+public class PartDDFTICalculation {
 	@Then("^I create GPI list with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_GPI_list_with(String list, String audit, String name1, String name2) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
