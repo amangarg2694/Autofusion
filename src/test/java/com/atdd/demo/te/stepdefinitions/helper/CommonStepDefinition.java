@@ -18,7 +18,13 @@ import cucumber.api.java.en.When;
 
 public class CommonStepDefinition extends CommonHelper{
 
-	
+	public String PDEFileStore="";
+	public String ActualClaimCount = ""; 
+	public String ExpectedClaimCount = ""; 
+	public String RemoveComma = "";
+	public String DTAQProgram = "";
+	public String DataexitProgram = "";
+	public String RemoveC = "";
 	
 	
 	@When("^I enter \"([^\"]*)\" in field \"([^\"]*)\" on \"([^\"]*)\"$")
@@ -430,5 +436,253 @@ public class CommonStepDefinition extends CommonHelper{
 	    // Write code here that turns the phrase above into concrete actions
 	    FileValidation.compareFile(actualFile, expectedFile);
 	}
+	
+	@When("^I create a prod library stage library \"([^\"]*)\" ,\"([^\"]*)\"$")
+    public void i_create_a_prod_library_stage_library(String prodlibrary, String stagelibrary) throws Throwable {
+     	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"crtlib");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter"); 
+  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,prodlibrary);
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter"); 
+  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"crtlib");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter"); 
+  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,stagelibrary);
+  	  Mainframe_GlobalFunctionLib.sendText(6, 38 ,"    ");
+  	  Mainframe_GlobalFunctionLib.sendText(6, 38 ,"TEST");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");     	  
+    }
+
+    @When("^I copy objects from prod library \"([^\"]*)\", \"([^\"]*)\" ,\"([^\"]*)\"$")
+    public void i_copy_objects_from_prod_library(String File, String TCLlibrary1, String prodlibrary) throws Throwable {
+      
+  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"crtdupobj");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.pressKey("F9");
+  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,File);
+  	  Mainframe_GlobalFunctionLib.sendText(6, 37 ,TCLlibrary1);
+  	  Mainframe_GlobalFunctionLib.sendText(7, 37 ,"*ALL");
+  	  Mainframe_GlobalFunctionLib.sendText(9, 37 ,"          ");
+  	  Mainframe_GlobalFunctionLib.sendText(9, 37 ,prodlibrary);
+  	  Mainframe_GlobalFunctionLib.sendText(13, 37 ,"   ");
+  	  Mainframe_GlobalFunctionLib.sendText(13, 37 ,"*YES");
+  	  Mainframe_GlobalFunctionLib.sendText(15, 37 ,"    ");
+  	  Mainframe_GlobalFunctionLib.sendText(15, 37 ,"*NO");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Thread.sleep(24000);
+  	  
+    }
+
+
+    @When("^I copy objects from stage library \"([^\"]*)\", \"([^\"]*)\" ,\"([^\"]*)\"$")
+    public void i_copy_objects_from_stage_library(String File, String TCLlibrary2, String stagelibrary) throws Throwable {
+
+  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"crtdupobj");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.pressKey("F9");
+  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,File);
+  	  Mainframe_GlobalFunctionLib.sendText(6, 37 ,TCLlibrary2);
+  	  Mainframe_GlobalFunctionLib.sendText(7, 37 ,"*ALL");
+  	  Mainframe_GlobalFunctionLib.sendText(9, 37 ,"          ");
+  	  Mainframe_GlobalFunctionLib.sendText(9, 37 ,stagelibrary);
+  	  Mainframe_GlobalFunctionLib.sendText(13, 37 ,"    ");
+  	  Mainframe_GlobalFunctionLib.sendText(13, 37 ,"*NO");
+  	  Mainframe_GlobalFunctionLib.sendText(15, 37 ,"    ");
+  	  Mainframe_GlobalFunctionLib.sendText(15, 37 ,"*NO");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Thread.sleep(24);
+  	  Mainframe_GlobalFunctionLib.pressKey("F3");
+  	  Mainframe_GlobalFunctionLib.pressKey("F3");
+    
+    }
+
+       @When("^I copy Data Program Conversion program to stage library  \"([^\"]*)\",\"([^\"]*)\"$")
+       public void i_copy_Data_Program_Conversion_program_to_stage_library(String sr, String stagelibrary) throws Throwable {
+  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"97");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"9");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(4, 17 ,sr);
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(9, 2 ,"2");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  DTAQProgram = Mainframe_GlobalFunctionLib.getText(15, 15);
+    	  DataexitProgram = Mainframe_GlobalFunctionLib.getText(15, 45);
+    	 // RemoveC = DTAQProgram.replaceAll("SXCPGO843C","SXCPGO843");
+    	    RemoveC = DTAQProgram.substring(0, 9);
+    	  System.out.println (RemoveC);
+    	  Mainframe_GlobalFunctionLib.pressKey("F3");
+    	  Mainframe_GlobalFunctionLib.pressKey("F3");
+        Mainframe_GlobalFunctionLib.pressKey("F3");
+        Mainframe_GlobalFunctionLib.sendText(21, 7 ,"6");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(6,41 ,"8403");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"20");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"WRKOBJ");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,DTAQProgram);
+  	  Mainframe_GlobalFunctionLib.sendText(6, 39 ,"TCL8403OBJ");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(8, 2 ,"3");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	//  Mainframe_GlobalFunctionLib.pressKey("F9");
+  	  Mainframe_GlobalFunctionLib.sendText(8, 37 ,"          ");
+  	  Mainframe_GlobalFunctionLib.sendText(8, 37 ,stagelibrary);
+  	/*  Mainframe_GlobalFunctionLib.sendText(12, 37 ,"    ");
+  	  Mainframe_GlobalFunctionLib.sendText(12, 37 ,"*YES");
+  	  Mainframe_GlobalFunctionLib.sendText(14, 37 ,"    ");
+  	  Mainframe_GlobalFunctionLib.sendText(14, 37 ,"*NO"); */
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.pressKey("F12");
+  	  //2ND PROGRAM
+  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"WRKOBJ");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,DataexitProgram);
+  	  Mainframe_GlobalFunctionLib.sendText(6, 39 ,"TCL8403OBJ");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(8, 2 ,"3");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	//  Mainframe_GlobalFunctionLib.pressKey("F9");
+  	  Mainframe_GlobalFunctionLib.sendText(8, 37 ,"          ");
+  	  Mainframe_GlobalFunctionLib.sendText(8, 37 ,stagelibrary);
+  	/*  Mainframe_GlobalFunctionLib.sendText(12, 37 ,"    ");
+  	  Mainframe_GlobalFunctionLib.sendText(12, 37 ,"*YES");
+  	  Mainframe_GlobalFunctionLib.sendText(14, 37 ,"    ");
+  	  Mainframe_GlobalFunctionLib.sendText(14, 37 ,"*NO"); */
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.pressKey("F12");
+  	 
+  	  //3RD PROGRAM
+  	  
+  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"WRKOBJ");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Thread.sleep(1000);
+  	//  Mainframe_GlobalFunctionLib.sendText(5, 37 ,DataCProgram);
+  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,RemoveC);
+  	  Mainframe_GlobalFunctionLib.sendText(6, 39 ,"TCL8403OBJ");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(8, 2 ,"3");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	//  Mainframe_GlobalFunctionLib.pressKey("F9");
+  	  Mainframe_GlobalFunctionLib.sendText(8, 37 ,"          ");
+  	  Mainframe_GlobalFunctionLib.sendText(8, 37 ,stagelibrary);
+  	/*  Mainframe_GlobalFunctionLib.sendText(12, 37 ,"    ");
+  	  Mainframe_GlobalFunctionLib.sendText(12, 37 ,"*YES");
+  	  Mainframe_GlobalFunctionLib.sendText(14, 37 ,"    ");
+  	  Mainframe_GlobalFunctionLib.sendText(14, 37 ,"*NO"); */
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.pressKey("F12");
+   }
+
+
+     @When("^I copy CV file to stage library with data \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+     public void i_copy_CV_file_to_stage_library_with_data(String cvfile, String bllibrary, String stagelibrary) throws Throwable {
+
+  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"WRKOBJ");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,cvfile);
+  	  Mainframe_GlobalFunctionLib.sendText(6, 39 ,bllibrary);
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(8, 2 ,"3");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.pressKey("F9");
+  	  Mainframe_GlobalFunctionLib.sendText(8, 37 ,"          ");
+  	  Mainframe_GlobalFunctionLib.sendText(8, 37 ,stagelibrary);
+  	  Mainframe_GlobalFunctionLib.sendText(12, 37 ,"    ");
+  	  Mainframe_GlobalFunctionLib.sendText(12, 37 ,"*YES");
+  	  Mainframe_GlobalFunctionLib.sendText(14, 37 ,"    ");
+  	  Mainframe_GlobalFunctionLib.sendText(14, 37 ,"*NO");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+    }
+
+       @When("^I create Journal Receiver \"([^\"]*)\",\"([^\"]*)\"$")
+       public void i_create_Journal_Receiver(String jrnrcv, String prodlibrary) throws Throwable {
+       Mainframe_GlobalFunctionLib.pressKey("F12");
+  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"CRTJRNRCV");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,jrnrcv);
+  	  Mainframe_GlobalFunctionLib.sendText(6, 39 ,"          ");
+  	  Mainframe_GlobalFunctionLib.sendText(6, 39 ,prodlibrary);
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+    }
+
+       @When("^I create Journal  \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+       public void i_create_Journal(String jrn, String prodlibrary, String jrnrcv , String prodlibrary1) throws Throwable {
+  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"CRTJRN");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(5, 37, jrn);
+  	  Mainframe_GlobalFunctionLib.sendText(6, 39, prodlibrary);
+  	  Mainframe_GlobalFunctionLib.sendText(7, 37, jrnrcv);
+  	  Mainframe_GlobalFunctionLib.sendText(8, 39 ,prodlibrary1);
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+    }
+
+       @When("^I start Journal \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\"$")
+       public void i_start_Journal(String physicalfile, String prodlibrary, String jrnrcv, String prodlibrary1) throws Throwable {
+  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"STRJRNPF");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,physicalfile);
+  	  Mainframe_GlobalFunctionLib.sendText(6, 39 ,prodlibrary);
+  	  Mainframe_GlobalFunctionLib.sendText(9, 37 ,jrnrcv);
+  	  Mainframe_GlobalFunctionLib.sendText(10, 39 ,prodlibrary1);
+  	  Mainframe_GlobalFunctionLib.sendText(11, 37 ,"      ");
+  	  Mainframe_GlobalFunctionLib.sendText(11, 37,"*BOTH");    	  
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.pressKey("F3");
+  	  Mainframe_GlobalFunctionLib.pressKey("F3");
+  	  Mainframe_GlobalFunctionLib.pressKey("F3");
+    }
+
+       @When("^I navigate to staging area to create a new stg area \"([^\"]*)\" ,\"([^\"]*)\" ,\"([^\"]*)\"$")
+       public void i_navigate_to_staging_area_to_create_a_new_stg_area(String stagearea, String stagelibrary, String prodlibrary) throws Throwable {
+   	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"97");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"10");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.pressKey("F6");
+  	  Mainframe_GlobalFunctionLib.sendText(9, 17 ,stagearea);
+  	  Mainframe_GlobalFunctionLib.sendText(10, 17 ,stagearea);
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(9, 2 ,"7");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.pressKey("F6");
+  	  Mainframe_GlobalFunctionLib.pressKey("F4");
+  	  Mainframe_GlobalFunctionLib.sendText(13, 2 ,"1");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(6, 27 ,stagelibrary);
+  	  Mainframe_GlobalFunctionLib.sendText(6, 61 ,stagelibrary);
+  	  Mainframe_GlobalFunctionLib.sendText(7, 27 ,prodlibrary);
+  	  Mainframe_GlobalFunctionLib.sendText(9, 13 ,"RXCONVERT");
+  	  Mainframe_GlobalFunctionLib.sendText(9, 26  ,"RXCONVERT");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.pressKey("F12");
+  	  Mainframe_GlobalFunctionLib.pressKey("F12");
+  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(4, 5 ,stagearea);
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(9, 2 ,"1");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+    }
+
+    @Then("^I start conversion process$")
+    public void i_start_conversion_process() throws Throwable {
+  	  Mainframe_GlobalFunctionLib.sendText(11, 2 ,"10");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+  	  Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
+    }
+
+    @Then("^Validate if Copy is hundred percent$")
+    public void validate_if_Copy_is_hundred_percent() throws Throwable {
+       
+    }
 	
 }
