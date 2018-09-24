@@ -27,7 +27,6 @@ public class FunctionalLibrary extends CommonHelper{
 		while(!(text.equalsIgnoreCase("RxClaim Plan Administrator Menu"))){
 			Mainframe_GlobalFunctionLib.pressKey("F12");
 			text = Mainframe_GlobalFunctionLib.getText(1, 13);
-			//break;
 		}
 		}
 		if(ScreenshotOption.equalsIgnoreCase("Always")){
@@ -2229,9 +2228,385 @@ public class FunctionalLibrary extends CommonHelper{
 			
 		}
 		
+		
+		//Member PA Creation with OTC
+		public static void func_SetPriorAuthWithOTC(String number, String type, String ndcgpilist, String from, String thru, String agent, String reason, String ignoredrugstatus) throws Throwable
+		{
+			try{
+			String sValue=number;
+			if(Mainframe_GlobalFunctionLib.getText(1, 2).equalsIgnoreCase("RCMBR009")){
+			Mainframe_GlobalFunctionLib.pressKey("F8");
+			Mainframe_GlobalFunctionLib.sendText(4, 20 ,"9" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			//Mainframe_GlobalFunctionLib.pressKey("F6");
+			}
+			else if(Mainframe_GlobalFunctionLib.getText(1, 2).equalsIgnoreCase("RCMPP001"))
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+			else if(Mainframe_GlobalFunctionLib.getText(1,2).trim().contentEquals("RCMGO002") || Mainframe_GlobalFunctionLib.getText(1,2).trim().contentEquals("RCMNO002")){
+					Mainframe_GlobalFunctionLib.pressKey("F12");
+					Mainframe_GlobalFunctionLib.pressKey("F12");
+				}
+			if(!(func_ValidateAnyPAAttached(number)))
+			{
+
+				try{
+					Mainframe_GlobalFunctionLib.sendText(9, 5 ,sValue);
+				}
+				catch (Exception e) {
+					Mainframe_GlobalFunctionLib.pressKey("F6");
+					Mainframe_GlobalFunctionLib.sendText(9, 5 ,sValue);
+				}
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(16, 5,"           " );
+				Mainframe_GlobalFunctionLib.sendText(16, 5 ,sValue);
+				Mainframe_GlobalFunctionLib.sendText(16, 23,"*");
+				Mainframe_GlobalFunctionLib.sendText(16, 27,"*");
+				Mainframe_GlobalFunctionLib.sendText(16, 18, type);
+				Mainframe_GlobalFunctionLib.sendText(16, 30, ndcgpilist);
+				Mainframe_GlobalFunctionLib.sendText(16, 46,"        " );
+				Mainframe_GlobalFunctionLib.sendText(16, 46, from);
+				Mainframe_GlobalFunctionLib.sendText(16, 55,"        " );
+				Mainframe_GlobalFunctionLib.sendText(16, 55, thru);
+				Mainframe_GlobalFunctionLib.sendText(16, 65, agent);
+				Mainframe_GlobalFunctionLib.sendText(16, 70, reason);
+				Mainframe_GlobalFunctionLib.sendText(16, 75, ignoredrugstatus);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				sPriorAuthNumber=sValue;
+				Reporter.addStepLog("PA Number "+ number+" is added." );
+			}
+			else 
+				Reporter.addStepLog("PA Number "+ number+" exists." );
+			sPriorAuthNumber=sValue;
+		
+			if(ScreenshotOption.equalsIgnoreCase("Always")){
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				}
+				}catch(Exception e)
+	
+				{	e.printStackTrace();
+					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					Assert.fail("PA Number"+ number+ " is not added.Screenshot captured.");
+				}
+		}
+
+
+
+
+		public static void func_AttachDSTOnPA(String memberID , String paNumber, String dstTable ) throws Throwable
+		{
+			try{
+			String sValue=paNumber;
+			if(Mainframe_GlobalFunctionLib.getText(1,2).trim().contentEquals("RCMPA001")){
+				//System.out.println("entered 1st loop");
+				Mainframe_GlobalFunctionLib.sendText(9, 5 ,"           ");
+				Mainframe_GlobalFunctionLib.sendText(9, 5 ,sValue);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 2 ,"2");
+				//System.out.println("entered 2nd step");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				//System.out.println("entered 3rd step");
+				Mainframe_GlobalFunctionLib.pressKey("F7");
+				Mainframe_GlobalFunctionLib.sendText(7, 67 ,"             ");
+				Mainframe_GlobalFunctionLib.sendText(7, 67 ,dstTable);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				
+			}
+			else if(Mainframe_GlobalFunctionLib.getText(1,2).trim().contentEquals("RCMPP001")){
+				Mainframe_GlobalFunctionLib.pressKey("F7");
+				Mainframe_GlobalFunctionLib.sendText(7, 67 ,"             ");
+				Mainframe_GlobalFunctionLib.sendText(7, 67 ,dstTable);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				
+				
+			}else if(Mainframe_GlobalFunctionLib.getText(1,2).trim().contentEquals("RCMBR009"))
+			{
+			Mainframe_GlobalFunctionLib.pressKey("F24");
+			Mainframe_GlobalFunctionLib.pressKey("F16");
+			Mainframe_GlobalFunctionLib.sendText(9, 5 ,sValue);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(16, 2 ,"2");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.sendText(7, 67 ,"             ");
+			Mainframe_GlobalFunctionLib.sendText(7, 67 ,dstTable);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			}
+			else 
+			{
+				FunctionalLibrary.navigateToRxClaimPlanAdministrator();
+				
+				Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				
+				if(!(func_SearchAndSelectADataEditMode("4,4" ,memberID ,"10,4" , memberID)))
+				{
+					Assert.fail("Member does not exists");
+				}
+				Mainframe_GlobalFunctionLib.pressKey("F24");
+				Mainframe_GlobalFunctionLib.pressKey("F16");
+				Mainframe_GlobalFunctionLib.sendText(9, 5 ,sValue);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 2 ,"2");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.pressKey("F7");
+				Mainframe_GlobalFunctionLib.sendText(7, 67 ,"             ");
+				Mainframe_GlobalFunctionLib.sendText(7, 67 ,dstTable);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				
+			}
+				if(ScreenshotOption.equalsIgnoreCase("Always")){
+					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					if(dstTable.trim().length()==0)
+						Reporter.addStepLog("DSt Table not attached on PA "+ paNumber );
+					else
+					Reporter.addStepLog("DST Table "+ dstTable+" is attached on PA "+ paNumber );
+					}
+					}catch(Exception e)
+		
+					{	e.printStackTrace();
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Assert.fail("DSt Table "+ dstTable+ " is not attached on PA "+ paNumber);
+					}
+			
+			}
+	
+		public static void addDrugStatusOnPA(String memberID , String paNumber, String drugStatus ) throws Throwable
+		{
+			try{
+				
+				if(Mainframe_GlobalFunctionLib.getText(1,2).trim().contentEquals("RCMGO002")) {
+					if(Mainframe_GlobalFunctionLib.getText(2,16).trim().contains("Detail Page 1 of 3"))
+					{
+											
+					Mainframe_GlobalFunctionLib.sendText(6,78,drugStatus);
+					}
+					else if(Mainframe_GlobalFunctionLib.getText(2,16).trim().contains("Detail Page 3 of 3"))
+					{
+						Mainframe_GlobalFunctionLib.pressKey("PageUp");
+						Mainframe_GlobalFunctionLib.pressKey("PageUp");
+						Mainframe_GlobalFunctionLib.sendText(6,78,drugStatus);
+						Mainframe_GlobalFunctionLib.pressKey("Enter");
+					}
+					
+				}
+				else if( Mainframe_GlobalFunctionLib.getText(1,2).trim().contentEquals("RCMNO002")){
+					if(Mainframe_GlobalFunctionLib.getText(2,14).trim().contains("Detail Page 1 of 3"))
+					{
+											
+					Mainframe_GlobalFunctionLib.sendText(6,78,drugStatus);
+					}
+					else if(Mainframe_GlobalFunctionLib.getText(2,14).trim().contains("Detail Page 3 of 3"))
+					{
+						Mainframe_GlobalFunctionLib.pressKey("PageUp");
+						Mainframe_GlobalFunctionLib.pressKey("PageUp");
+						Mainframe_GlobalFunctionLib.sendText(6,78,drugStatus);
+						Mainframe_GlobalFunctionLib.pressKey("Enter");
+					}
+				}	
+				else if(Mainframe_GlobalFunctionLib.getText(1,2).trim().contentEquals("RCMPP001")){
+					Mainframe_GlobalFunctionLib.pressKey("F7");
+					Mainframe_GlobalFunctionLib.sendText(6,78,drugStatus);
+					Mainframe_GlobalFunctionLib.pressKey("Enter");
+					
+				}
+				else if(Mainframe_GlobalFunctionLib.getText(1,2).trim().contentEquals("RCMPA001")){
+				Mainframe_GlobalFunctionLib.sendText(9, 5 ,paNumber);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 2 ,"2");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.pressKey("F7");
+				Mainframe_GlobalFunctionLib.sendText(6, 78 ,drugStatus);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				
+			}
+			else if(Mainframe_GlobalFunctionLib.getText(1,2).trim().contentEquals("RCMPP001")){
+				Mainframe_GlobalFunctionLib.pressKey("F7");
+				Mainframe_GlobalFunctionLib.sendText(6, 78 ,drugStatus);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				
+				
+			}else if(Mainframe_GlobalFunctionLib.getText(1,2).trim().contentEquals("RCMBR009"))
+			{
+			Mainframe_GlobalFunctionLib.pressKey("F24");
+			Mainframe_GlobalFunctionLib.pressKey("F16");
+			Mainframe_GlobalFunctionLib.sendText(9, 5 ,paNumber);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(16, 2 ,"2");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.sendText(6, 78 ,drugStatus);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			
+			}
+			else 
+			{
+				FunctionalLibrary.navigateToRxClaimPlanAdministrator();
+				
+				Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+			
+				if(!(func_SearchAndSelectADataEditMode("4,4" ,memberID ,"10,4" , memberID)))
+				{
+					Assert.fail("Member does not exists");
+				}
+				Mainframe_GlobalFunctionLib.pressKey("F24");
+				Mainframe_GlobalFunctionLib.pressKey("F16");
+				Mainframe_GlobalFunctionLib.sendText(9, 5 ,paNumber);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 2 ,"2");
+				Mainframe_GlobalFunctionLib.pressKey("F7");
+				Mainframe_GlobalFunctionLib.sendText(6, 78 ,drugStatus);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				
+			}
+				if(ScreenshotOption.equalsIgnoreCase("Always")){
+					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					Reporter.addStepLog("Drug Status "+ drugStatus+" is set on PA "+ paNumber );
+					}
+					}catch(Exception e)
+		
+					{	e.printStackTrace();
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Assert.fail("Drug Status "+ drugStatus+" is not added on PA "+ paNumber);
+					}
+			
+			}
+		public static void func_AttachPRCListOnPA(String memberID , String paNumber, String prcList , String prcListQual  ) throws Throwable
+		{
+			try{
+			String sValue=paNumber;
+			if(prcListQual.length()==0)
+			{
+				prcListQual = " ";
+			}
+			if(Mainframe_GlobalFunctionLib.getText(1,2).trim().contentEquals("RCMGO002")){
+				if(Mainframe_GlobalFunctionLib.getText(2,16).trim().endsWith("Detail Page 1 of 3"))
+				{
+				Mainframe_GlobalFunctionLib.pressKey("PageDown");
+				Mainframe_GlobalFunctionLib.pressKey("PageDown");
+				Mainframe_GlobalFunctionLib.sendText(18, 21 ,"          ");
+				Mainframe_GlobalFunctionLib.sendText(18, 21,prcList);						
+				Mainframe_GlobalFunctionLib.sendText(18, 64,prcListQual);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				}
+				else if(Mainframe_GlobalFunctionLib.getText(2,16).trim().endsWith("Detail Page 3 of 3"))
+				{
+					Mainframe_GlobalFunctionLib.sendText(18, 21 ,"          ");
+					Mainframe_GlobalFunctionLib.sendText(18, 21,prcList);
+					Mainframe_GlobalFunctionLib.sendText(18, 64,prcListQual);
+					Mainframe_GlobalFunctionLib.pressKey("Enter");
+				}
+				
+			}
+			else if (Mainframe_GlobalFunctionLib.getText(1,2).trim().contentEquals("RCMNO002")){
+				if(Mainframe_GlobalFunctionLib.getText(2,14).trim().endsWith("Detail Page 1 of 3")){
+				
+				Mainframe_GlobalFunctionLib.pressKey("PageDown");
+				Mainframe_GlobalFunctionLib.pressKey("PageDown");
+				Mainframe_GlobalFunctionLib.sendText(18, 21 ,"          ");
+				Mainframe_GlobalFunctionLib.sendText(18, 21,prcList);						
+				Mainframe_GlobalFunctionLib.sendText(18, 64,prcListQual);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				}
+				else if(Mainframe_GlobalFunctionLib.getText(2,14).trim().endsWith("Detail Page 3 of 3"))
+				{
+					Mainframe_GlobalFunctionLib.sendText(18, 21 ,"          ");
+					Mainframe_GlobalFunctionLib.sendText(18, 21,prcList);
+					Mainframe_GlobalFunctionLib.sendText(18, 64,prcListQual);
+					Mainframe_GlobalFunctionLib.pressKey("Enter");
+				}
+				
+			}
+			else if(Mainframe_GlobalFunctionLib.getText(1,2).trim().contentEquals("RCMPP001")){
+				Mainframe_GlobalFunctionLib.pressKey("F7");
+				Mainframe_GlobalFunctionLib.pressKey("PageDown");
+				Mainframe_GlobalFunctionLib.pressKey("PageDown");
+				Mainframe_GlobalFunctionLib.sendText(18, 21 ,"          ");
+				Mainframe_GlobalFunctionLib.sendText(18, 21,prcList);
+				Mainframe_GlobalFunctionLib.sendText(18, 21,prcListQual);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				
+				
+			}
+			else if(Mainframe_GlobalFunctionLib.getText(1,2).trim().contentEquals("RCMPA001")){
+				Mainframe_GlobalFunctionLib.sendText(9, 5 ,sValue);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 2 ,"2");
+				Mainframe_GlobalFunctionLib.pressKey("F7");
+				Mainframe_GlobalFunctionLib.pressKey("PageDown");
+				Mainframe_GlobalFunctionLib.pressKey("PageDown");
+				Mainframe_GlobalFunctionLib.sendText(18, 21 ,"          ");
+				Mainframe_GlobalFunctionLib.sendText(18, 21,prcList);
+				Mainframe_GlobalFunctionLib.sendText(18, 21,prcListQual);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				
+			}
+			else if(Mainframe_GlobalFunctionLib.getText(1,2).trim().contentEquals("RCMBR009"))
+			{
+			Mainframe_GlobalFunctionLib.pressKey("F24");
+			Mainframe_GlobalFunctionLib.pressKey("F16");
+			Mainframe_GlobalFunctionLib.sendText(9, 5 ,sValue);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(16, 2 ,"2");
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.pressKey("PageDown");
+			Mainframe_GlobalFunctionLib.pressKey("PageDown");
+			Mainframe_GlobalFunctionLib.sendText(18, 21 ,"          ");
+			Mainframe_GlobalFunctionLib.sendText(18, 21,prcList);
+			Mainframe_GlobalFunctionLib.sendText(18, 21,prcListQual);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			
+			}
+			else 
+			{
+				FunctionalLibrary.navigateToRxClaimPlanAdministrator();
+				
+				Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				
+				if(!(func_SearchAndSelectADataEditMode("4,4" ,memberID ,"10,4" , memberID)))
+				{
+					Assert.fail("Member does not exists");
+				}
+				Mainframe_GlobalFunctionLib.pressKey("F24");
+				Mainframe_GlobalFunctionLib.pressKey("F16");
+				Mainframe_GlobalFunctionLib.sendText(9, 5 ,sValue);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 2 ,"2");
+				Mainframe_GlobalFunctionLib.pressKey("F7");
+				Mainframe_GlobalFunctionLib.pressKey("PageDown");
+				Mainframe_GlobalFunctionLib.pressKey("PageDown");
+				Mainframe_GlobalFunctionLib.sendText(18, 21 ,"          ");
+				Mainframe_GlobalFunctionLib.sendText(18, 21,prcList);
+				Mainframe_GlobalFunctionLib.sendText(18, 21,prcListQual);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				
+			}
+				if(ScreenshotOption.equalsIgnoreCase("Always")){
+					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());	
+					if(prcList.trim().length()==0)
+						Reporter.addStepLog("PRC List not attached on PA "+ paNumber );
+					else
+					{Reporter.addStepLog("PRC List "+ prcList+" is attached on PA "+ paNumber );
+					Reporter.addStepLog("PRC List Qualifier is "+ prcListQual );
+					}}
+					}catch(Exception e)
+		
+					{	e.printStackTrace();
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Assert.fail("PRC List "+prcList+" is not attached on PA "+ paNumber);
+					}
+			
+			}
+		
 		public static void func_CompareStrings(String sActualStr,String sExpectedStr)throws Throwable
 		{
-//			if(sActualStr.contains(sExpectedStr))
 			if(sActualStr.equals(sExpectedStr))
 			{
 				
@@ -2303,6 +2678,28 @@ public class FunctionalLibrary extends CommonHelper{
 	               Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 
 	               }catch(Exception e){}
+		}
+		
+		public static void compareText( String actualValue , String expectedValue) throws IOException{
+			try{
+				
+				boolean b = false;
+					if(actualValue.trim().equals(expectedValue.trim())){
+						b = true;
+				}else{					
+						Assert.fail("The actual text "+ actualValue +" does not match with expected text "+expectedValue+" .Screenshot captured.");
+				}		
+				if(ScreenshotOption.equalsIgnoreCase("Always")){
+					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					Reporter.addStepLog("Actual Value : "+actualValue);
+					Reporter.addStepLog("Expected Value : "+expectedValue);
+						
+					}
+					}catch(Exception e){
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Assert.fail("The actual text "+ actualValue +" does not match with expected text "+expectedValue+".Screenshot captured.");
+						
+					}
 		}
 	public static void main(String args[]) throws Throwable{
 		
