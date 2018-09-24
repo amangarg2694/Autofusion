@@ -31,6 +31,7 @@ public class CommonStepDefinition extends CommonHelper{
 	public void i_enter_in_field_on(String fieldValue, String fieldName, String screenName) throws Throwable {
 	    
 		FunctionalLibrary.enterText( fieldValue,  fieldName,  screenName);
+
 		
 	}
 	
@@ -185,7 +186,7 @@ public class CommonStepDefinition extends CommonHelper{
 	public void validate_Claim_Reject_Code_is(String claimRejCode) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		FunctionalLibrary.validateText("21" ,"12" , claimRejCode );
-		
+		String ExpectedClaimCount = Mainframe_GlobalFunctionLib.getText(6, 9).replaceAll(",", "");
 	}
 
 	@Then("^Validate Claim Message is \"([^\"]*)\"$")
@@ -334,7 +335,7 @@ public class CommonStepDefinition extends CommonHelper{
 	    // Write code here that turns the phrase above into concrete actions
 		FunctionalLibrary.validateText("11" ,"8" , gpilist);
 	}
-	
+
 	@When("^I create plan with Accumulators with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_plan_with_Accumulators_with(String planCode, String fromDate, String desc, String thruDate, String priceSchedule, String patientPaySchedule, String deductibleAccumLevel, String deductibleSchedule, String oopMaxAccumLevel, String oopMaxDeductibleSchedule, String benefitMaxAccumLevel, String benefitMaxDeductibleSchedule) throws Throwable {
 		FunctionalLibrary.Createplanwithmembereligibilityandpricingoption(planCode, fromDate, desc, thruDate, priceSchedule, patientPaySchedule);
@@ -375,6 +376,7 @@ public class CommonStepDefinition extends CommonHelper{
 	public void i_set_NDC_List_in_Plan(String planCode) throws Throwable {
 		PlanByPlanCode.func_SetNDCList(planCode);
 	}
+
 
 	@Then("^Validate NDC List is set to Y$")
 	public void validate_NDC_List_is_set_to_Y() throws Throwable {
