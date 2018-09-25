@@ -162,7 +162,8 @@ public class ContingentTherapySchedule {
 		Thread.sleep(3000);
 		
 		for (int i = 0; i < 8; i++) {
-		Mainframe_GlobalFunctionLib.pressKey("F12");}
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Thread.sleep(2000);}
 		
 	  }
 	catch (Exception e) {
@@ -293,8 +294,11 @@ public class ContingentTherapySchedule {
 	public void validate_the_claim_status_is(String claimStatus) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		FunctionalLibrary.validateText("21" ,"6" , claimStatus );
-	}
-
-
-	
+		String Rej=Mainframe_GlobalFunctionLib.getText(21, 8);
+		System.out.println(Rej);
+		String Msg=Mainframe_GlobalFunctionLib.getText(22, 2);
+		System.out.println(Msg);
+		Mainframe_GlobalFunctionLib.pressKey("F7");
+		
+	}	
 }

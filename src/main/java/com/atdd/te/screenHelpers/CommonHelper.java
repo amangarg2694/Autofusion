@@ -94,6 +94,7 @@ case "BOOK1" :
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			}
 			}catch(Exception e){
+				e.printStackTrace();
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Assert.fail("Login is not successful.");
 				

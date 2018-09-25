@@ -1,7 +1,10 @@
 Feature: Create New Member
 As a RxClaim User I want to create a New Member with existing CAG
-    
-             
+   
+   
+   #Create CAGM with the member eligibility and submit the claim , claim shoulb be submitted and should display the member e;igibility
+   #Provide the test data for all the 7 test cases with the differrnt eligibility as per the test cases
+   @TC01         
    Scenario Outline: Create a new member in RxClaim with existing CAG
     Given I am on RxClaim PlanAdministrator Menu  
     When I select Option "1" to navigate to "Eligibility/Claim Transaction Maintenance"
@@ -32,9 +35,14 @@ As a RxClaim User I want to create a New Member with existing CAG
        
        
     Examples:
-    | CarrierID | AccountID  | GroupID   | MemberID1  | First Name | Last Name | DOB     | From Date | Thru Date| BIN      | ProcCtrl | Group  | PharmacyID  |RxNo          | Refill |fillDate| MemberID | ProductID | DspQty | DS | PSC | Cost | qual |                                                
-		|	SR4097CR1 | SR4097ACC1 | SR4097GR1 | EXEMEMR012  | FIRST      | LAST      | 01011990| 010116    | 123116   |	333333  | SN002456|	SN002456| APHARM     |966000555551  | 00     |07022018| EXEMEMR07| LIPITOR   | 10     |10  |00   |100   | 1    | 
+    | CarrierID | AccountID  | GroupID   | MemberID1  | First Name | Last Name | DOB     | From Date | Thru Date| BIN     | ProcCtrl | Group  | PharmacyID   |RxNo          | Refill |fillDate| MemberID | ProductID | DspQty | DS | PSC | Cost | qual |                                                
+	  |	SR4097CR1 | SR4097ACC1 | SR4097GR1 | EXEMEMR09  | FIRST      | LAST      | 01011990| 010116    | 123116   |	333333  | SN002456|	SN002456| APHARM       |955000555551  | 00     |07022018| EXEMEMR07| LIPITOR   | 10     |10  |00   |100   | 1    | 
+    |	SR4097CR1 | SR4097ACC1 | SR4097GR1 | EXEMEMR010 | FIRST      | LAST      | 01011990| 010116    | 123116   |	333333  | SN002456|	SN002456| APHARM       |955000555552  | 00     |07022018| EXEMEMR08| LIPITOR   | 10     |10  |00   |100   | 1    |
+    |	SR4097CR1 | SR4097ACC1 | SR4097GR1 | EXEMEMR011 | FIRST      | LAST      | 01011990| 010116    | 123116   |	333333  | SN002456|	SN002456| APHARM       |955000555552  | 00     |07022018| EXEMEMR09| LIPITOR   | 10     |10  |00   |100   | 1    |
+    |	SR4097CR1 | SR4097ACC1 | SR4097GR1 | EXEMEMR07  | FIRST      | LAST      | 01011990| 010116    | 123116   |	333333  | SN002456|	SN002456| APHARM       |955000555551  | 00     |07022018| EXEMEMR03| LIPITOR   | 10     |10  |00   |100   | 1    | 
+    |	SR4097CR1 | SR4097ACC1 | SR4097GR1 | EXEMEMR08  | FIRST      | LAST      | 01011990| 010116    | 123116   |	333333  | SN002456|	SN002456| APHARM       |955000555552  | 00     |07022018| EXEMEMR04| LIPITOR   | 10     |10  |00   |100   | 1    |
+    |	SR4097CR1 | SR4097ACC1 | SR4097GR1 | EXEMEMR012 | FIRST      | LAST      | 01011990| 010116    | 123116   |	333333  | SN002456|	SN002456| APHARM       |966000555551  | 00     |07022018| EXEMEMR07| LIPITOR   | 10     |10  |00   |100   | 1    | 
     |	SR4097CR1 | SR4097ACC1 | SR4097GR1 | EXEMEMR013 | FIRST      | LAST      | 01011990| 010116    | 123116   |	333333  | SN002456|	SN002456| APHARM       |966000555552  | 00     |07022018| EXEMEMR08| LIPITOR   | 10     |10  |00   |100   | 1    |
     |	SR4097CR1 | SR4097ACC1 | SR4097GR1 | EXEMEMR014 | FIRST      | LAST      | 01011990| 010116    | 123116   |	333333  | SN002456|	SN002456| APHARM       |966000555552  | 00     |07022018| EXEMEMR09| LIPITOR   | 10     |10  |00   |100   | 1    |
     
-    
+   
