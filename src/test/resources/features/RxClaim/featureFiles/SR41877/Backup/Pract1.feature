@@ -1,5 +1,5 @@
-Feature: Create New Plan with GPI List for Compound claim is accepted when Member PA compound set to Y
- As a RxClaim User I want to create Plan with GPI List 
+Feature: Create New Plan with GPI List1 
+ As a RxClaim User I want to create Plan with GPI List1 
       
               
 #Scenario Outline: Create a new Plan with NDC GPI List in RxClaim  
@@ -54,21 +54,16 @@ Feature: Create New Plan with GPI List for Compound claim is accepted when Membe
     # |Planpass13|GPIL02   | 61354015100110  |23100030002020 |00002197590 |00002322730 |010101   |123139   | 5      |10     | SR41877C7 | SR41877C7   |712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |SR41877A7  |SR41877A7   | SR41877G7 |SR41877G7  |010101     |123139     | SR41877M19 |SR41877M19 |SR41877M19  |01011988 |010101     |123139     |SR41877P16|4   |00000000000000 |010101|123139 |O    |AC    |N               | 777777  | ASHE     |*      | APHARM      | 165488397000  | 00     | 090918   | 00000000000|30      |30  |0    | 100	 |100  |01          |20             |45        |00               |02         |30             |46        |01               |R          |F         |76        |Plan Limitations Exceeded |Y      |P           |f          | 
      
  
- Scenario Outline: Verify Compound claim is accepted when Member PA compound set to Y for Age limt range(SN003374_SR41877_TC016_Req_8.1) #Update MemberId, PAnumber
+ Scenario Outline: Verify Compound claim is accepted when Member PA compound set to Y for Age limt rangew(SN003374_SR41877_TC016_Req_8.1) #Update MemberId, PAnumber
     
        
      Given I am on RxClaim PlanAdministrator Menu      
-     And I update the product ID`s "<GPINo1>", "<GPINo2>" to the Plan "<PlanCode>" GPI list "<GPIList>" with age limits "<Agemin>","<Agemax>"
-     And I create Member with "<CarrierID>","<AccountID>","<GroupID>","<MemberID>","<FirstName>","<LastName>","<DOB>","<MemFromDate>","<MemThruDate>"
-     And I create MemberPrioAuth "<MemberID>","<CarrierID>","<AccountID>","<GroupID>","<PANumber>","<Type>","<NDCGPIList>","<From>","<Thru>","<Agent>","<Reason>","<IgnoreDrugStatus>"
-     And I submit a Multi Ingredient compound claim with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>","<UCW>","<compQualID_1>","<ID1>","<compQuantity_1>","<compCost_1>","<compBasisOfCost_1>","<compQualID_2>","<ID2>","<compQuantity_2>","<compCost_2>","<compBasisOfCost_2>"
-     		Then I validate the status for Claim "<ClaimStatus>","<DrugStatus>","<RejectCode>","<RejectMessage>"
-     And I set MemberPrioAuth "<MemberID>","<CarrierID>","<AccountID>","<GroupID>" to allow compound "<MemComp>" and I will add GPI drugs "<ID1>","<ID2>" at member PA level
-     And I submit a Multi Ingredient compound claim two with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>","<UCW>","<compQualID_1>","<ID1>","<compQuantity_1>","<compCost_1>","<compBasisOfCost_1>","<compQualID_2>","<ID2>","<compQuantity_2>","<compCost_2>","<compBasisOfCost_2>"
+     And I navigate to claim screen
      
-     Then I validate the Claim status "<ClaimStatus2>","<DrugStatus2>"
+     Then I validate the Claim status "<ClaimStatus2>","<DrugStatus2>" and messages should not appear
+     
      
      Examples: 
-     |PlanCode  |GPIList  | GPINo1          |GPINo2         |ID1         | ID2        |PFromDate|PThruDate| Agemin  |Agemax  |CarrierID  | CarrierName |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID  |AccountName | GroupID   |GroupName  |GroupFromDt|GroupThruDt| MemberID   |FirstName  |LastName    |DOB      |MemFromDate|MemThruDate|PANumber  |Type|NDCGPIList     |From  |Thru   |Agent|Reason|IgnoreDrugStatus| BIN     | ProcCtrl | Group | PharmacyID  | RxNo          | Refill | FillDate | ProductID  | DspQty | DS | PSC | Cost | UCW |compQualID_1|compQuantity_1|compCost_1|compBasisOfCost_1|compQualID_2|compQuantity_2|compCost_2|compBasisOfCost_2|ClaimStatus|DrugStatus|RejectCode|RejectMessage              |MemComp|ClaimStatus2|DrugStatus2|
-     |Planpass13|GPIL02   | 61354015100110  |23100030002020 |00002197590 |00002322730 |010101   |123139   | 5       |10      | SR41877C7 | SR41877C7   |712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |SR41877A7  |SR41877A7   | SR41877G7 |SR41877G7  |010101     |123139     | SR41877M21 |SR41877M21 |SR41877M21  |01011991 |010101     |123139     |SR41877P17|4   |00000000000000 |010101|123139 |O    |AC    |N               | 777777  | ASHE     |*      | APHARM      | 165488397000  | 00     | 091018   | 00000000000|30      |30  |0    | 100	 |100  |01          |20            |45        |00               |02         |30             |46        |01               |R          |F         |76        |Plan Limitations Exceeded  |Y      |P           |f          | 
+     |PlanCode  |NDCList  | Status1 | Status2 |ID1          |ID2           |PFromDate|PThruDate| msg1 |msg2  |CarrierID  | CarrierName |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID  |AccountName | GroupID   |GroupName  |GroupFromDt|GroupThruDt| MemberID   |FirstName  |LastName    |DOB      |MemFromDate|MemThruDate|PANumber  |Type|NDCGPIList     |From  |Thru   |Agent|Reason|IgnoreDrugStatus| BIN     | ProcCtrl | Group | PharmacyID  | RxNo          | Refill | FillDate | ProductID  | DspQty | DS | PSC | Cost | UCW |compQualID_1|compQuantity_1|compCost_1|compBasisOfCost_1|compQualID_2|compQuantity_2|compCost_2|compBasisOfCost_2|ClaimStatus|DrugStatus|MemComp|ClaimStatus2|DrugStatus2|ID1msg               |ID2msg                                 |
+     |Planpass16|NDCL03   | F       | F       |88512606010  |88512705010   |010101   |123139   | SLOI |SLOI2 | S41877C11 | S41877C11   |712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |S41877A11  |S41877A11   | S41877G11 |S41877G11  |010101     |123139     | SR41877M35 |SR41877M35 |SR41877M35  |01011988 |010101     |123139     |SR41877P31|3   |00000000000000 |010101|123139 |O    |AC    |N               | 777777  | ASHE     |*      | APHARM      | 165488397000  | 00     | 091418   | 00000000000|30      |30  |0    | 100	|100  |01          |20             |45        |00               |02         |30             |46        |01               |P          |F         |Y      |P           |f          |Have more proteins!!!|Drink a cup of water every 17.2 seconds| 
      

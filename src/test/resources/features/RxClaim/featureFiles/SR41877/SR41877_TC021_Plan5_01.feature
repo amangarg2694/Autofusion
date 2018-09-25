@@ -1,20 +1,21 @@
-Feature: Create New Plan with NDC List for TC001
- As a RxClaim User I want to create Plan with NDC List 
+Feature: Create New Plan with NDC List for TC021
+ As a RxClaim User I want to Verify Compound claim is accepted for GPI Drugs  when Member PA compound set to Y 
       
               
-Scenario Outline: Create a new Plan with NDC GPI List in RxClaim  
+Scenario Outline: Create a new Plan with GPI List in RxClaim 
       
     Given I am on RxClaim PlanAdministrator Menu  
     When I create plan with member eligibility pricing option "<PlanCode>","<FromDate>","<Description>","<ThruDate>","<PriceSchedule>","<PatientPaySchedule>" 
+    And I create the GPI list with "<GPIList>", "<GPIDecs>"
     And I Setup plan with GPI list "<PlanCode>","<GPIList>","<GPISeq>","<GPIFromDate>","<GPIThruDate>"
     And I Setup plan "<PlanCode>" with GPI Compounds multiple ingredient option "<CMIPlan>"  
       
     Examples: 
-    |PlanCode  |FromDate|ThruDate |Description       |PriceSchedule|PatientPaySchedule|GPIList|GPISeq| GPIFromDate | GPIThruDate  | CMIPlan | 
-    |Planpass12 |010110 |123139   |Planpass12 GPILST |EVUAREG      |EVUAREG           |GPIL01 |20    |	010118  	  |123139       | L       |
+    |PlanCode  |FromDate|ThruDate |Description       |PriceSchedule|PatientPaySchedule|GPIList|GPIDecs |GPISeq| GPIFromDate | GPIThruDate  | CMIPlan | 
+    |Planpass15 |010110 |123139   |Planpass15 GPILST |EVUAREG      |EVUAREG           |GPIL03 |GPIL03  |20    |	010118  	  |123139        | M       |
     
 
-Scenario Outline: Verify Compound claim is accepted for GPI Drug Status R when Member PA compound set to Y(SN003374_SR41877_TC002_Req_8.1)
+Scenario Outline: Verify Compound claim is accepted for GPI Drug Status R when Member PA compound set to Y for CMI Plan M(SN003374_SR41877_TC021_Req_8.1)
     
        
      Given I am on RxClaim PlanAdministrator Menu
@@ -30,7 +31,7 @@ Scenario Outline: Verify Compound claim is accepted for GPI Drug Status R when M
      Then I validate the Claim status "<ClaimStatus2>","<DrugStatus2>"
      
      Examples: 
-     |PlanCode  |GPIList  | Status1 | Status2 |ID1          |ID2           |PFromDate|PThruDate| CarrierID | CarrierName |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID  |AccountName | GroupID   |GroupName  |GroupFromDt|GroupThruDt| MemberID   |FirstName |LastName    |DOB      |MemFromDate|MemThruDate|PANumber |Type|NDCGPIList     |From  |Thru   |Agent|Reason|IgnoreDrugStatus| BIN     | ProcCtrl | Group | PharmacyID  | RxNo          | Refill | FillDate | ProductID  | DspQty | DS | PSC | Cost | UCW |compQualID_1|compQuantity_1|compCost_1|compBasisOfCost_1|compQualID_2|compQuantity_2|compCost_2|compBasisOfCost_2|ClaimStatus|DrugStatus|RejectCode|RejectMessage             |MemComp|ClaimStatus2|DrugStatus2|
-     |Planpass12|GPIL01   | R       | F       |00002197590  |00002322730   |010101   |123139   | SR41877C5 | SR41877C5   |712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |SR41877A5  |SR41877A5   | SR41877G5 |SR41877G5  |010101     |123139     | SR41877M11 |SR41877M11 |SR41877M11 |01011988 |010101     |123139     |SR41877P7|4   |00000000000000 |010101|123139 |O    |AC    |N               | 777777  | ASHE     |*      | APHARM      | 165488397000  | 00     | 090818   | 00000000000|30      |30  |0    | 100	 |100  |01          |1             |45        |00               |02          |2             |46        |01               |R          |R         |70        |Prod/Service Not Covered |Y      |P           |f          | 
+     |PlanCode  |GPIList  | Status1 | Status2 |ID1          |ID2           |PFromDate|PThruDate| CarrierID | CarrierName |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID  |AccountName | GroupID   |GroupName  |GroupFromDt|GroupThruDt| MemberID   |FirstName |LastName    |DOB      |MemFromDate|MemThruDate|PANumber  |Type|NDCGPIList     |From  |Thru   |Agent|Reason|IgnoreDrugStatus| BIN     | ProcCtrl | Group | PharmacyID  | RxNo          | Refill | FillDate | ProductID  | DspQty | DS | PSC | Cost | UCW |compQualID_1|compQuantity_1|compCost_1|compBasisOfCost_1|compQualID_2|compQuantity_2|compCost_2|compBasisOfCost_2|ClaimStatus|DrugStatus|RejectCode|RejectMessage             |MemComp|ClaimStatus2|DrugStatus2|
+     |Planpass15|GPIL03   | R       | F       |00002197590  |00002322730   |010101   |123139   | SR41877C9 | SR41877C9   |712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |SR41877A9  |SR41877A9   | SR41877G9 |SR41877G9  |010101     |123139     | SR41877M25 |SR41877M25 |SR41877M25 |01011988 |010101     |123139     |SR41877P21|4   |00000000000000 |010101|123139 |O    |AC    |N               | 777777  | ASHE     |*      | APHARM      | 165488397000  | 00     | 090818   | 00000000000|30      |30  |0    | 100	 |100 |01          |1             |45        |00               |02          |2             |46        |01               |R          |R         |70        |Prod/Service Not Covered  |Y      |P           |f          | 
      
      
