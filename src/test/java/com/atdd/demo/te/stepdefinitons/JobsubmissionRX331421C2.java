@@ -5,7 +5,7 @@ import com.atdd.te.screenHelpers.FunctionalLibrary;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SR42001 {
+public class JobsubmissionRX331421C2 {
 	@When("^I submit job \"([^\"]*)\"$")
 	public void i_submit_job(String arg1) throws Throwable {
 	    FunctionalLibrary.pressKey("F10");

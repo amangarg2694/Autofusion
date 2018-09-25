@@ -45,7 +45,35 @@ Examples:
 
 
 
+Scenario Outline: Validate the output from the load file which include type A record that is invalid or for a nonexistent Plan GPI List 
+Given I am on RxClaim PlanAdministrator Menu
+When  I select Option "CCT700" to navigate to "RxClaim Operations Menu"
+And I select Option "2" to navigate to "RxClaim Batch Transaction Loads Menu" 
+And I select Option "6" to navigate to "NDC/GPI List Loads"
+And I select Option "1" to navigate to "Plan GPI List Load"
+And I enter "<Library>","<File>","<Format>"in Plan GPI List Load screen
+And I press "F6" Key
+Then I validate the spool file for "INVALID GPI LIST NAME" message
+And I goback to PlanAdministrator Menu
 
+Examples:
+|Library |File    |Format  |
+|usrmadhu|sr41697G1|RCPGO038|
+
+Scenario Outline: Validate the output from the load file which include type B record that is invalid or for a nonexistent Plan GPI List 
+Given I am on RxClaim PlanAdministrator Menu
+When  I select Option "CCT700" to navigate to "RxClaim Operations Menu"
+And I select Option "2" to navigate to "RxClaim Batch Transaction Loads Menu" 
+And I select Option "6" to navigate to "NDC/GPI List Loads"
+And I select Option "1" to navigate to "Plan GPI List Load"
+And I enter "<Library>","<File>","<Format>"in Plan GPI List Load screen
+And I press "F6" Key
+Then I validate the spool file for "INVALID GPI LIST NAME" message
+And I goback to PlanAdministrator Menu
+
+Examples:
+|Library |File      |Format  |
+|usrmadhu|sr41697bg1|RCPGO038|
 
 
 Scenario Outline: Validate the Plan GPI List Export File by submitting with a range that includes Plan GPI Lists which have both Plan GPI List Notes and Plan GPI Notes
@@ -122,7 +150,7 @@ And  I select Option "CCT600" to navigate to "RxClaim Plan Administrator Menu"
 
 Examples: 
 |NdcListFrom|NdcListThru|ExportVer  |Library   |File      |
-|S41697     |S41697     |83         |usrmadhu  |S41697_O2 |
+|S41697     |S41697     |83       |usrmadhu  |S41697_O2 |
 
 
 

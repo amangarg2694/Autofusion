@@ -388,6 +388,57 @@ public class FunctionalLibrary extends CommonHelper{
 			
 		}
 		
+		public static void CreateMember(String carrierID, String accountID, String groupID, String memberID, String firstName, String lastName, String dob, String fromDate, String thruDate) throws Throwable
+		{	
+			try {
+				navigateToRxClaimPlanAdministrator();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			try{
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			if(!(func_SearchAndSelectADataEditMode("4,4" ,memberID ,"10,4" , memberID)))
+			{
+					Thread.sleep(1000);
+					Mainframe_GlobalFunctionLib.pressKey("F6");
+					Mainframe_GlobalFunctionLib.sendText(4, 10, carrierID);
+					Mainframe_GlobalFunctionLib.sendText(5, 10, accountID);
+					Mainframe_GlobalFunctionLib.sendText(6, 10, groupID);
+					Mainframe_GlobalFunctionLib.sendText(7, 10, memberID);
+					Mainframe_GlobalFunctionLib.pressKey("Enter");
+					Mainframe_GlobalFunctionLib.sendText(6 , 29 ,lastName);
+					Mainframe_GlobalFunctionLib.sendText(6, 57, firstName);
+					Mainframe_GlobalFunctionLib.sendText(7,40, dob);
+					Mainframe_GlobalFunctionLib.sendText(20, 2, fromDate);			
+					Mainframe_GlobalFunctionLib.sendText(20, 12, thruDate);
+					Mainframe_GlobalFunctionLib.pressKey("Enter");				
+					Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
+					Mainframe_GlobalFunctionLib.pressKey("Enter");
+					Mainframe_GlobalFunctionLib.pressKey("F12");
+					Mainframe_GlobalFunctionLib.pressKey("F12");
+					System.out.println("Member is created");
+					Reporter.addStepLog("Member is created");
+					}
+			else{
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				System.out.println("Member exists");
+				Reporter.addStepLog("Member exists");
+			}
+							
+			
+				if(ScreenshotOption.equalsIgnoreCase("Always")){
+					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					}
+					}catch(Exception e)
+					{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Assert.fail("An error has occured while creating a member.Screenshot is captured");
+						e.printStackTrace();
+					}
+		}
+		
 		public static void closeTE() throws IOException{
 			try{
 				Mainframe_GlobalFunctionLib.closeTE();

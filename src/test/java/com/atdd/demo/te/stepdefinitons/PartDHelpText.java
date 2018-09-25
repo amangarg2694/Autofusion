@@ -11,7 +11,7 @@ import com.optumrx.autofusion.core.te.util.Screenshot;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SR41890 {
+public class PartDHelpText {
 
 	@When("^I submit to claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_submit_to_claim_with(String BIN, String ProcCtrl, String Group, String PharmacyID, String RxNo, String Refill, String FillDate, String MemberID, String ProductID, String DspQty, String DS, String PSC, String Cost, String PRC) throws Throwable {

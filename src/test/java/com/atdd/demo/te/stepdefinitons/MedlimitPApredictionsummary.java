@@ -8,7 +8,7 @@ import com.itextpdf.text.log.SysoLogger;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SR41696 {
+public class MedlimitPApredictionsummary {
 	
 	@Then("^I enter option \"([^\"]*)\" in DUR/PPS Information screen$")
 	public void i_enter_option_in_DUR_PPS_Information_screen(String arg1) throws Throwable {
@@ -19,6 +19,12 @@ public class SR41696 {
 	@Then("^I validate the Medlimit PA Prediction Summary screen$")
 	public void i_validate_the_Medlimit_PA_Prediction_Summary_screen() throws Throwable {
 	 FunctionalLibrary.pressEnter();
+	}
+	
+	
+	@Then("^Validate Member \"([^\"]*)\" added$")
+	public void validate_Member_added(String memberID) throws Throwable {
+		FunctionalLibrary.validateText("10" ,"4" , memberID );
 	}
 	
 	@When("^I submit a claim for medlimit with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")

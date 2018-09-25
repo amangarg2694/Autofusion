@@ -7,7 +7,7 @@ import com.optumrx.autofusion.core.te.util.Screenshot;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SR41697 {
+public class TypeATypeBforGPINDC {
 
 	@When("^I enter \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"in Plan GPI List Load screen$")
 	public void i_enter_in_Plan_GPI_List_Load_screen(String Library, String File, String Format) throws Throwable {

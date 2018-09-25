@@ -5,7 +5,7 @@ import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 
 import cucumber.api.java.en.When;
 
-public class SR41353 {
+public class Deleteplan {
 	
 	@When("^I navigate to the plans \"([^\"]*)\" to copy to new plan \"([^\"]*)\"$")
 	public void i_navigate_to_the_plans_to_copy_to_new_plan(String arg1, String arg2) throws Throwable {
