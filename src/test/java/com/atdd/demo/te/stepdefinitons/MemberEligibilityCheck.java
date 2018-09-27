@@ -1,14 +1,17 @@
 package com.atdd.demo.te.stepdefinitons;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 
+import com.atdd.te.screenHelpers.CommonHelper;
 import com.cucumber.listener.Reporter;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 import com.optumrx.autofusion.core.te.util.Screenshot;
 
 import cucumber.api.java.en.When;
 
-public class MemberEligibilityCheck {
+public class MemberEligibilityCheck extends CommonHelper {
 	
 	
 	@When("^I do manual claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -82,6 +85,30 @@ public class MemberEligibilityCheck {
 			
 			
 		}
+	public static void MemberDetailsCheck() throws IOException
+	{
+		
+	try{
+
+	   Mainframe_GlobalFunctionLib.sendText(21, 7 ,"STRSQL" );
+	   Mainframe_GlobalFunctionLib.pressKey("Enter");
+	   Mainframe_GlobalFunctionLib.sendText(16, 7 ,"SELECT * FROM TCL8402FIL/RCMBRP WHERE ABA1TX ='CHANDRA'" );
+	   Mainframe_GlobalFunctionLib.pressKey("Enter");
+	   Mainframe_GlobalFunctionLib.waitTillReady();
+	   Mainframe_GlobalFunctionLib.pressKey("F20");
+	   Mainframe_GlobalFunctionLib.pressKey("F20");
+	   
+	   if(ScreenshotOption.equalsIgnoreCase("Always"))
+	   {
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		}
+	}catch(Exception e)
+			{	
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("An error has occured while creating the caim transaction.Screenshot is captured");
+				
+			}
+}
 	
 	
 	}

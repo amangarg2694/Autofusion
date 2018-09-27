@@ -104,12 +104,7 @@ public class CommonStepDefinition {
 	    
 	}
 	
-	@When("^I edit a member with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_edit_a_member_with(String memberID, String FromDate, String ThruDate) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		FunctionalLibrary.editMember(memberID, FromDate, ThruDate);
-		
-	}
+	
 	
 	@Then("^Verify \"([^\"]*)\" message should displayed on \"([^\"]*)\"$")
 	public void verify_message_should_displayed_on(String Record, String screenname) throws Throwable {
