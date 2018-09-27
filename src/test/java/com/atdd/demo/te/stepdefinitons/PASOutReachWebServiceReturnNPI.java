@@ -9,7 +9,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SN003148_SR41452 {
+public class PASOutReachWebServiceReturnNPI {
 	public static String rxClaimNo="";
 	public static String rxclaimnumber="";
 	public String claimStatus=null;

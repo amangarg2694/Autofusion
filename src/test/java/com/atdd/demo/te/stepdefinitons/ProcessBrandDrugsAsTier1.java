@@ -1,6 +1,7 @@
 package com.atdd.demo.te.stepdefinitons;
 
 import com.cucumber.listener.Reporter;
+import com.hp.lft.sdk.internal.common.MessageFieldNames.Report;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 
 import cucumber.api.java.en.And;
@@ -8,7 +9,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SR41405 {
+public class ProcessBrandDrugsAsTier1 {
 
 	public static String globalMemberID=null;
 	@When("^I search Member by MemberID \"([^\"]*)\"$")
@@ -104,7 +105,6 @@ public class SR41405 {
 			Mainframe_GlobalFunctionLib.pressKey("enter");
 		}
 		
-
 		@When("^I navigate back to RxClaim Plan Administrator Menu$")
 		public void i_navigate_back_to_RxClaim_Plan_Administrator_Menu() throws Throwable {
 			Mainframe_GlobalFunctionLib.pressKey("F12");
@@ -116,7 +116,6 @@ public class SR41405 {
 			Mainframe_GlobalFunctionLib.pressKey("F12");
 		}
 		
-
 		public static String Plan=null;
 		@And("^I verify Plan \"([^\"]*)\" in Active Plan by Plan Code screen$")
 		public void i_verify_Plan_in_Active_Plan_by_Plan_Code_screen(String Plan) throws Throwable {
@@ -147,7 +146,169 @@ public class SR41405 {
 			 Mainframe_GlobalFunctionLib.pressKey("enter");
 		}
 
-		public static String activePriceSchedule=null;
+		@And("^I select option (\\d+) for NDC List$")
+		public void i_select_option_for_NDC_List(int arg1) throws Throwable {
+			 Mainframe_GlobalFunctionLib.sendText(07, 21, "10");
+			 Mainframe_GlobalFunctionLib.pressKey("enter");
+		}
+		
+		@And("^I Add NDC List with \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
+		public void i_Add_NDC_List_with(String NDCList, String Seq, String FromDate, String ThruDate) throws Throwable {
+			Mainframe_GlobalFunctionLib.pressKey("F6");
+			Mainframe_GlobalFunctionLib.sendText(04, 05, NDCList);
+			Mainframe_GlobalFunctionLib.pressKey("enter");
+			String actualNDCList=Mainframe_GlobalFunctionLib.getText(9, 5);
+			if(actualNDCList.equals(NDCList))
+			{
+				Mainframe_GlobalFunctionLib.sendText(9, 02, "1");
+				Mainframe_GlobalFunctionLib.pressKey("enter");
+				Mainframe_GlobalFunctionLib.sendText(13, 17, Seq);
+				Mainframe_GlobalFunctionLib.sendText(14, 17, FromDate);
+				Mainframe_GlobalFunctionLib.sendText(14, 41, ThruDate);
+				Mainframe_GlobalFunctionLib.pressKey("enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				String actuaAddedlNDCList=Mainframe_GlobalFunctionLib.getText(11, 8);
+				if(actuaAddedlNDCList.equals(NDCList))
+				{
+					System.out.println("NDC List added to Plan: "+actuaAddedlNDCList);
+					Reporter.addStepLog("NDC List added to Plan: "+actuaAddedlNDCList);
+				}
+				else
+				{
+					System.out.println("NDC List not been added to Plan: "+actuaAddedlNDCList);
+					Reporter.addStepLog("NDC List not been added to Plan: "+actuaAddedlNDCList);
+				}
+			}
+			else
+			{
+				System.out.println("NDC List not found in Plan: "+actualNDCList);
+				Reporter.addStepLog("NDC List not found in Plan: "+actualNDCList);
+			}
+		 }
+		
+		@And("^I Add Product with \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
+		public void i_Add_Product_with(String ProductID, String FromDate, String ThruDate) throws Throwable {
+			Mainframe_GlobalFunctionLib.sendText(11, 02, "7");
+			Mainframe_GlobalFunctionLib.pressKey("enter");
+			try{
+				for(int i=1; i<3; i++)
+				{
+					String actualProductID=Mainframe_GlobalFunctionLib.getText(11, 4);
+					if(actualProductID.length()>0)
+					{
+						System.out.println("Existing Expected product found in added list: "+actualProductID);
+						Reporter.addStepLog("Existing Expected product found in added list: "+actualProductID);
+						Mainframe_GlobalFunctionLib.sendText(11, 02, "4");
+						Mainframe_GlobalFunctionLib.pressKey("enter");
+						Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
+						Mainframe_GlobalFunctionLib.pressKey("enter");
+					}
+					else
+					{
+						System.out.println("Existing product not found in added list ");
+					}
+				}
+				
+			}catch (Exception e) {
+				System.out.println("Existing product not found in added list ");
+				Reporter.addStepLog("Existing product not found in added list ");
+			}
+			Mainframe_GlobalFunctionLib.pressKey("F6");
+			Mainframe_GlobalFunctionLib.pressKey("F16");
+			Mainframe_GlobalFunctionLib.sendText(7, 04, ProductID);
+			Mainframe_GlobalFunctionLib.pressKey("enter");
+			String actualProductID=Mainframe_GlobalFunctionLib.getText(12, 4);
+			System.out.println("Existing Expected product found in list: "+actualProductID);
+			Reporter.addStepLog("Existing Expected product found in list: "+actualProductID);
+				Mainframe_GlobalFunctionLib.sendText(12, 02, "1");
+				Mainframe_GlobalFunctionLib.pressKey("enter");
+				Mainframe_GlobalFunctionLib.sendText(06, 57, "        ");
+				Mainframe_GlobalFunctionLib.sendText(06, 57, FromDate);
+				Mainframe_GlobalFunctionLib.sendText(06, 67, "        ");
+				Mainframe_GlobalFunctionLib.sendText(06, 67, ThruDate);
+				Mainframe_GlobalFunctionLib.pressKey("enter");
+			}
+			
+		
+		
+		@And("^I add price to Plan NDC List with \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\" and MSC_Override \"([^\"]*)\"$")
+		public void i_add_price_to_Plan_NDC_List_with_and_MSC_Override(String PSC, String FromDate, String ThruDate, String Plan_Price_MSC_Override) throws Throwable {
+			Mainframe_GlobalFunctionLib.pressKey("F10");
+			try{
+				for(int i=1; i <3; i ++)
+				{
+					String actualFromDate=Mainframe_GlobalFunctionLib.getText(14, 4);
+					if(actualFromDate.length()>0)
+					{
+						System.out.println("Existing record found in list ");
+						Reporter.addStepLog("Existing record found in list ");
+						Mainframe_GlobalFunctionLib.sendText(14, 02, "4");
+						Mainframe_GlobalFunctionLib.pressKey("enter");
+						Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
+						Mainframe_GlobalFunctionLib.pressKey("enter");
+					}
+					else
+					{
+						System.out.println("Existing record not found in list ");
+						Reporter.addStepLog("Existing record not found in list ");
+					}	
+				}
+			}catch (Exception e) {
+				System.out.println("End of Search");
+				Reporter.addStepLog("End of Search");
+				}
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(05, 20, PSC);
+				Mainframe_GlobalFunctionLib.sendText(07, 20, FromDate);
+				Mainframe_GlobalFunctionLib.sendText(8, 20, ThruDate);
+				Mainframe_GlobalFunctionLib.pressKey("enter");
+				Mainframe_GlobalFunctionLib.sendText(10, 29, Plan_Price_MSC_Override);
+				Mainframe_GlobalFunctionLib.pressKey("enter");
+				String actualNDCPrice=Mainframe_GlobalFunctionLib.getText(14, 4);
+				System.out.println("New NDC Price added now"+actualNDCPrice);
+				Reporter.addStepLog("New NDC Price added now"+actualNDCPrice);
+				Mainframe_GlobalFunctionLib.sendText(14, 02, "2");
+				Mainframe_GlobalFunctionLib.pressKey("enter");
+				String actualMSCOverride=Mainframe_GlobalFunctionLib.getText(10, 29);
+				if(actualMSCOverride.equals(Plan_Price_MSC_Override))
+				{
+					System.out.println("New NDC Price added successfully with "+Plan_Price_MSC_Override);
+					Reporter.addStepLog("New NDC Price added successfully with "+Plan_Price_MSC_Override);
+				}
+				else
+				{
+					System.out.println("New NDC Price not been added with "+Plan_Price_MSC_Override);
+					Reporter.addStepLog("New NDC Price not been added with "+Plan_Price_MSC_Override);
+				}
+				
+			}	
+
+		@And("^I Inactivate active NDC list for \"([^\"]*)\"$")
+		public void i_Inactivate_active_NDC_list_for(String NDCList) throws Throwable {
+			String actuaAddedlNDCList=Mainframe_GlobalFunctionLib.getText(11, 8);
+			if(actuaAddedlNDCList.equals(NDCList))
+			{
+				System.out.println("NDC List exists to Plan: "+actuaAddedlNDCList);
+				Reporter.addStepLog("NDC List exists to Plan: "+actuaAddedlNDCList);
+				Mainframe_GlobalFunctionLib.sendText(11, 2, "4");
+				Mainframe_GlobalFunctionLib.pressKey("enter");
+				Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
+				String actuaAddedlNDCListValidate=Mainframe_GlobalFunctionLib.getText(11, 8);
+				if(actuaAddedlNDCListValidate.equals(NDCList))
+				{
+					System.out.println("New NDC Price added now"+actuaAddedlNDCListValidate);
+					Reporter.addStepLog("New NDC Price added now"+actuaAddedlNDCListValidate);
+				}
+			}
+			else
+			{
+				System.out.println("NDC List doesnt exists to Plan: "+actuaAddedlNDCList);
+				Reporter.addStepLog("NDC List doesnt exists to Plan: "+actuaAddedlNDCList);
+			}
+		}
+		
+ 	public static String activePriceSchedule=null;
 		@And("^I verify Active Plan Pharmacy Price Schedule$")
 		public void i_verify_Active_Plan_Pharmacy_Price_Schedule() throws Throwable {
 			 Mainframe_GlobalFunctionLib.sendText(21, 12, "1");
@@ -196,19 +357,6 @@ public class SR41405 {
 			    }
 		    String actualPatientPayTable=Mainframe_GlobalFunctionLib.getText(17, 16);
 		    System.out.println("Pharmacy: Schedule Patient Pay Table is: "+actualPatientPayTable);
-			/*String[] SplitRxClaim=actualPatientPayTable.split("-");
-			if(SplitRxClaim[0].contains(Member_NDC_PA_MSC_Override))
-					{
-					 	System.out.println("Pharmacy: Expected Patient Pay Table with Generic Indicator is shows as: "+actualPatientPayTable);
-					 	Reporter.addStepLog("Pharmacy: Expected Patient Pay Table with Generic Indicator is shows as: "+actualPatientPayTable);
-					 	System.out.println("Pharmacy: The Generic Indicator "+Member_NDC_PA_MSC_Override+ " has been taken from Member NDC Prior Auth Price Details page");
-					 	Reporter.addStepLog("Pharmacy: The Generic Indicator "+Member_NDC_PA_MSC_Override+ " has been taken from Member NDC Prior Auth Price Details page");
-					}
-					else
-					{
-						System.out.println("Pharmacy: The Value is not as expected");
-						Reporter.addStepLog("Pharmacy: The Value is not as expected");
-					}*/
 			String actualPriceTableSeq=Mainframe_GlobalFunctionLib.getText(12, 35);
 		    System.out.println("Pharmacy: Schedule price table Sequence is: "+actualPriceTableSeq);
 		    Reporter.addStepLog("Pharmacy: Schedule price table Sequence is: "+actualPriceTableSeq);
@@ -268,19 +416,6 @@ public class SR41405 {
 			    }
 		    String actualPatientPayTable=Mainframe_GlobalFunctionLib.getText(17, 55);
 		    System.out.println("Client: Schedule Patient Pay Table is: "+actualPatientPayTable);
-			/*String[] SplitRxClaim=actualPatientPayTable.split("-");
-			if(SplitRxClaim[0].contains(Member_NDC_PA_MSC_Override))
-					{
-					 	System.out.println("Client: Expected Patient Pay Table with Generic Indicator is shows as: "+actualPatientPayTable);
-					 	Reporter.addStepLog("Client: Expected Patient Pay Table with Generic Indicator is shows as: "+actualPatientPayTable);
-					 	System.out.println("Client: The Generic Indicator "+Member_NDC_PA_MSC_Override+ " has been taken from Member NDC Prior Auth Price Details page");
-					 	Reporter.addStepLog("Client: The Generic Indicator "+Member_NDC_PA_MSC_Override+ " has been taken from Member NDC Prior Auth Price Details page");
-					}
-					else
-					{
-						System.out.println("Client: The Value is not as expected");
-						Reporter.addStepLog("Client: The Value is not as expected");
-					}*/
 			String actualPriceTableSeq=Mainframe_GlobalFunctionLib.getText(12, 74);
 		    System.out.println("Client: Schedule price table Sequence is: "+actualPriceTableSeq);
 		    Reporter.addStepLog("Client: Schedule price table Sequence is: "+actualPriceTableSeq);
@@ -461,15 +596,74 @@ public class SR41405 {
 		
 		@When("^I add library RXBSYSQA$")
 		public void i_add_library_RXBSYSQA() throws Throwable {
-			String Query="CHGCURLIB RXBSYSQA2";
-			System.out.println("The Query to add library is: "+Query);
-			Reporter.addStepLog("The Query to add library is: "+Query);
-			Mainframe_GlobalFunctionLib.sendText(21, 7, Query);
+			/*String Query="CHGCURLIB RXBSYSQA";
+			String edilibtQuery="edtlibl";
+			Mainframe_GlobalFunctionLib.sendText(21, 7, edilibtQuery);
 			Mainframe_GlobalFunctionLib.pressKey("enter");
-			String libMessage= Mainframe_GlobalFunctionLib.getText(24, 2);
+			System.out.println("The Query to add library is: "+Query);
+			Reporter.addStepLog("The Query to add library is: "+Query);*/
+			Mainframe_GlobalFunctionLib.sendText(21, 7, "edtlibl");
+			Mainframe_GlobalFunctionLib.pressKey("enter");
+			Mainframe_GlobalFunctionLib.sendText(7, 12, "RXBSYSQA");
+			Mainframe_GlobalFunctionLib.pressKey("enter");
+			Thread.sleep(3000);
+			Mainframe_GlobalFunctionLib.pressKey("F3");
+		/*	String libMessage= Mainframe_GlobalFunctionLib.getText(24, 2);
 			System.out.println("The Message displayed is: "+libMessage);
 			Reporter.addStepLog("The Message displayed is: "+libMessage);
+			Thread.sleep(20000);*/
 		}	
+		
+		//Conversion Scenarios:
+		@Given("^I navigate to Development Control File Input screen$")
+		public void i_navigate_to_Development_Control_File_Input_screen() throws Throwable {
+			Mainframe_GlobalFunctionLib.pressKey("F3");
+			Mainframe_GlobalFunctionLib.pressKey("F3");
+			Mainframe_GlobalFunctionLib.sendText(21, 7, "97");
+			Mainframe_GlobalFunctionLib.pressKey("enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7, "9");
+			Mainframe_GlobalFunctionLib.pressKey("enter");
+		}
+		
+		@Given("^I search with SR number \"([^\"]*)\" and verify SR related conversion files$")
+		public void i_search_with_SR_number_and_verify_SR_related_conversion_files(String SRNumber) throws Throwable {
+			Mainframe_GlobalFunctionLib.sendText(04, 17, SRNumber);
+			Mainframe_GlobalFunctionLib.pressKey("enter");
+			try{
+				for(int i=9; i<15; i++)
+				{
+					String actualSRNumber=Mainframe_GlobalFunctionLib.getText(i, 17);
+					System.out.println("SR41405 Conversion files found: "+actualSRNumber);
+					Reporter.addStepLog("SR41405 Conversion files found: "+actualSRNumber);
+					if(actualSRNumber.equals("SR41405"))
+					{
+						String actualApplication=Mainframe_GlobalFunctionLib.getText(i, 5);
+						System.out.println("SR41405 Application is: "+actualApplication);
+						Reporter.addStepLog("SR41405 Application is: "+actualApplication);
+						String actualCtrlID=Mainframe_GlobalFunctionLib.getText(i, 33);
+						System.out.println("SR41405 CtrlID is: "+actualCtrlID);
+						Reporter.addStepLog("SR41405 CtrlID is: "+actualCtrlID);
+						String actualProdFile=Mainframe_GlobalFunctionLib.getText(i, 41);
+						System.out.println("SR41405 Prod File is: "+actualProdFile);
+						Reporter.addStepLog("SR41405 Prod File is: "+actualProdFile);
+						String actualCmnPgmDTAQ=Mainframe_GlobalFunctionLib.getText(i, 53);
+						System.out.println("SR41405 Cmn Pgm DTAQ is: "+actualCmnPgmDTAQ);
+						Reporter.addStepLog("SR41405 Cmn Pgm DTAQ is: "+actualCmnPgmDTAQ);
+						String actualDataExit=Mainframe_GlobalFunctionLib.getText(i, 53);
+						System.out.println("SR41405 Data Exit is: "+actualDataExit);
+						Reporter.addStepLog("SR41405 Data Exit is: "+actualDataExit);
+						Mainframe_GlobalFunctionLib.pressKey("F12");
+					}
+					else
+					{
+						System.out.println("SR41405 Conversion files not found");
+					}
+				}
+			 }catch (Exception e) {
+				
+			}
+		}
+		
 }
 
 

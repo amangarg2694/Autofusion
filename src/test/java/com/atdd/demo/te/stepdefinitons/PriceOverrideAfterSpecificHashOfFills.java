@@ -10,8 +10,8 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SR41923 {
-
+public class PriceOverrideAfterSpecificHashOfFills {
+//SR41923-SN003612
 	public static String ActualPlanCode=null;
 	@Then("^I Validate \"([^\"]*)\" is created or not$")
 	public void i_Validate_is_created_or_not(String PlanCode) throws Throwable {
@@ -242,11 +242,7 @@ public class SR41923 {
 			   Mainframe_GlobalFunctionLib.pressKey("F12");
 			   originNDC=Mainframe_GlobalFunctionLib.getText(11, 4);
 			   System.out.println("Origin NDC ID is: "+originNDC);
-			 /*  Mainframe_GlobalFunctionLib.pressKey("F12");
-			   Mainframe_GlobalFunctionLib.pressKey("F12");
-			   Mainframe_GlobalFunctionLib.pressKey("F12");
-			   Mainframe_GlobalFunctionLib.pressKey("F12");
-			   Mainframe_GlobalFunctionLib.pressKey("F12");*/
+			
 			}
 		   else
 			 {
@@ -399,7 +395,6 @@ public class SR41923 {
 			Mainframe_GlobalFunctionLib.pressKey("F4");
 			System.out.println("Actual Plan Code is: "+originPlanCode);
 			Mainframe_GlobalFunctionLib.sendText(4, 5, "          ");
-			Thread.sleep(3000);
 			Mainframe_GlobalFunctionLib.sendText(4, 5, originPlanCode);
 			Mainframe_GlobalFunctionLib.pressKey("enter");
 			String resultPlanCode=Mainframe_GlobalFunctionLib.getText(10, 5);
@@ -449,7 +444,6 @@ public class SR41923 {
 			Mainframe_GlobalFunctionLib.pressKey("F4");
 			System.out.println("Actual Plan Code is: "+originPlanCode);
 			Mainframe_GlobalFunctionLib.sendText(4, 5, "          ");
-			Thread.sleep(3000);
 			Mainframe_GlobalFunctionLib.sendText(4, 5, originPlanCode);
 			Mainframe_GlobalFunctionLib.pressKey("enter");
 			String resultPlanCode=Mainframe_GlobalFunctionLib.getText(10, 5);
@@ -480,120 +474,10 @@ public class SR41923 {
 		
 		@When("^I submit claim for refill with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 		public void i_submit_claim_for_refill_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost) throws Throwable {
-			 CreateTransaction1(bin, proc, group, pharmacyID, rxNbr, refill, fillDate, memberID, productID, dspQty, ds, psc, cost);
+			FunctionalLibrary.CreateTransaction(bin, proc, group, pharmacyID, rxNbr, refill, fillDate, memberID, productID, dspQty, ds, psc, cost);
 			    FunctionalLibrary.submitClaim();
 		}
 		
-		public static boolean func_SearchAndSelectADataEditMode1(String RowColOfData,String Data,String StartRowColToSearch,String DataSearch)
-		{
-		StringTokenizer stData=new StringTokenizer(RowColOfData,",");
-		StringTokenizer stDataSearch=new StringTokenizer(StartRowColToSearch,",");
-		int row=Integer.valueOf(stDataSearch.nextToken());
-		String col=stDataSearch.nextToken();
-		boolean bRes=false;
-		try {
-		       Mainframe_GlobalFunctionLib.sendText(stData.nextToken(),stData.nextToken(), Data);
-		       Mainframe_GlobalFunctionLib.pressKey("Enter");
-		       Thread.sleep(2000);
-		} catch (Exception e1) {
-		// TODO Auto-generated catch block
-		e1.printStackTrace();
-		}      
-		//Loop:for(int i =row;i<=21;i++)
-		//{
-		System.out.println("check the row value"+row);
-		try {
-		if(Mainframe_GlobalFunctionLib.getText(row, Integer.parseInt(col)).trim().toLowerCase().contentEquals(DataSearch.trim().toLowerCase()))
-		{
-
-		bRes=true;
-		//func_SetValue(Integer.toString(i), "2", "2");
-		//Mainframe_GlobalFunctionLib.sendText(row, 2, "1");
-		//func_SetENTER();
-		//Mainframe_GlobalFunctionLib.pressKey("Enter");
-		//break Loop;
-		}
-
-		} catch (Exception e) {
-		//break Loop;
-		//}
-		}
-		return bRes;
-		}
-		
-		public static void CreateTransaction1(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productId, String dspQty, String ds, String psc, String cost) throws Throwable
-		{      
-		       try {
-		              FunctionalLibrary.navigateToRxClaimPlanAdministrator();
-		       } catch (Exception e) {
-		             // TODO Auto-generated catch block
-		             e.printStackTrace();
-		       }
-		       FunctionalLibrary.navigateToScreen("3");
-		       FunctionalLibrary.navigateToScreen("2");
-		       FunctionalLibrary.navigateToScreen("1");
-		       
-		       if(!(func_SearchAndSelectADataEditMode1("4,4" ,memberID ,"9,4" , memberID))){
-		             
-		             Mainframe_GlobalFunctionLib.pressKey("F6");
-		             Thread.sleep(1000);
-		             Mainframe_GlobalFunctionLib.sendText(11, 14,bin );
-		             Mainframe_GlobalFunctionLib.sendText(11, 41,proc );
-		             Mainframe_GlobalFunctionLib.sendText(11, 59,group );
-		             Mainframe_GlobalFunctionLib.sendText(12, 14,pharmacyID );
-		             Mainframe_GlobalFunctionLib.sendText(12, 41,rxNbr );
-		             Mainframe_GlobalFunctionLib.sendText(12, 59,refill );
-		             Mainframe_GlobalFunctionLib.sendText(14, 41,memberID );
-		             Mainframe_GlobalFunctionLib.pressKey("Enter");
-		             //Mainframe_GlobalFunctionLib.click(7, 12 );
-		             //Mainframe_GlobalFunctionLib.pressKey("F4");
-		             //Thread.sleep(1000);
-		             //Mainframe_GlobalFunctionLib.sendText(3, 4, memberID);
-		             //Mainframe_GlobalFunctionLib.pressKey("Enter");
-		             //Mainframe_GlobalFunctionLib.sendText(8, 2,"1" );
-		             //Mainframe_GlobalFunctionLib.pressKey("Enter");
-		             //Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
-		             Thread.sleep(1000);
-		             Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate+"    ");                 
-		             Mainframe_GlobalFunctionLib.sendText(11, 20,productId );
-		             Mainframe_GlobalFunctionLib.sendText(12, 11,dspQty );
-		             Mainframe_GlobalFunctionLib.sendText(12, 26,ds );
-		             Mainframe_GlobalFunctionLib.sendText(14, 6,psc );
-		             Mainframe_GlobalFunctionLib.sendText(10, 47,"         " );
-		             Mainframe_GlobalFunctionLib.sendText(10, 47,cost );
-		             
-		       }
-		       else{
-		        
-		       Mainframe_GlobalFunctionLib.sendText(9, 2,"1" );
-		       Mainframe_GlobalFunctionLib.pressKey("Enter");
-		       Thread.sleep(1000);
-		       Mainframe_GlobalFunctionLib.click(4, 29 );
-		             Mainframe_GlobalFunctionLib.sendText(4, 29, pharmacyID);
-		             ///Thread.sleep(3000);
-		             Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
-		             Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate);
-		             Mainframe_GlobalFunctionLib.sendText(5,29, rxNbr);
-		             Mainframe_GlobalFunctionLib.sendText(5, 47, refill);              
-		             //Mainframe_GlobalFunctionLib.click(7, 12 );
-		             Mainframe_GlobalFunctionLib.sendText(7, 12, memberID);
-		             //Mainframe_GlobalFunctionLib.pressKey("F4");
-		             //Mainframe_GlobalFunctionLib.sendText(3, 4, memberID);
-		             //Mainframe_GlobalFunctionLib.pressKey("Enter");         
-		             //Mainframe_GlobalFunctionLib.sendText(8, 2,"1" );
-		             //Mainframe_GlobalFunctionLib.pressKey("Enter");
-		             Mainframe_GlobalFunctionLib.sendText(11, 20,productId );
-		             Mainframe_GlobalFunctionLib.sendText(12, 11,"           " );
-		             Mainframe_GlobalFunctionLib.sendText(12, 11,dspQty );
-		             Mainframe_GlobalFunctionLib.sendText(12, 26,"   " );
-		             Mainframe_GlobalFunctionLib.sendText(12, 26,ds);
-		             Mainframe_GlobalFunctionLib.sendText(14, 6,psc );
-		             Mainframe_GlobalFunctionLib.sendText(10, 47,"         " );
-		             Mainframe_GlobalFunctionLib.sendText(10, 47,cost );
-		             //Mainframe_GlobalFunctionLib.pressKey("F6");
-		         }
-		              System.out.println("Claim is created");
-		}
 		
 		@When("^I select Option \"([^\"]*)\" Additional Claim Info to navigate to \"([^\"]*)\"$")
 		public void i_select_Option_Additional_Claim_Info_to_navigate_to(String arg1, String arg2) throws Throwable {

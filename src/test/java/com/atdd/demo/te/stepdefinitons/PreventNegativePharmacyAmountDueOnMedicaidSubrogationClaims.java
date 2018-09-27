@@ -8,7 +8,7 @@ import com.optumrx.autofusion.core.te.util.Screenshot;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SN003331 {
+public class PreventNegativePharmacyAmountDueOnMedicaidSubrogationClaims {
 	//Venkats
 	
 	@When("^I verify the PatientPayTable exists in \"([^\"]*)\"$")

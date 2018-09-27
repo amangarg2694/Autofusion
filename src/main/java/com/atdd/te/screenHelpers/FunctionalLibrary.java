@@ -1236,6 +1236,7 @@ public class FunctionalLibrary extends CommonHelper{
 //				Mainframe_GlobalFunctionLib.sendText(14, 14,"0" );
 				Mainframe_GlobalFunctionLib.sendText(10, 47,"         " );
 				Mainframe_GlobalFunctionLib.sendText(10, 47,cost );
+				Thread.sleep(3000);
 		}
 		else{
 			Mainframe_GlobalFunctionLib.pressKey("F6");
@@ -1539,6 +1540,7 @@ public class FunctionalLibrary extends CommonHelper{
 		try{
 		Mainframe_GlobalFunctionLib.pressKey("F6");
 		Thread.sleep(2000);
+		Thread.sleep(3000);
 		
 		if(ScreenshotOption.equalsIgnoreCase("Always")){
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());

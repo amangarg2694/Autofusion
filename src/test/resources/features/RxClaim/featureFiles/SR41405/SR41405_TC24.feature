@@ -1,6 +1,7 @@
 #Author: Venkateshwarlu M
 
-Feature: SN003280_SR41405_TS001_Req 7.3: verify when  Claim is submitted with PA MSC Override =N and Pat pay MSC override is not Y
+Feature: Process Brand Drugs As Tier 1 for Members
+SN003280_SR41405_TC024_Req 7.3: verify when  Claim is submitted with PA MSC Override =N and Pat pay MSC override is not Y        
 
 Scenario Outline: Create a new member in RxClaim with existing CAG
 		Given I am on RxClaim PlanAdministrator Menu 
@@ -31,7 +32,7 @@ Scenario Outline: Verify Member Prior Authorization setup
 	 #00069130501-M
  Examples: 
    |PANumber	|PAType|OTC	|PAMSC|NDC_GPI_List_ID|FromDate|ThruDate|Agt	|	Rsn	|IgnoreDrgSts|PSC	|MEM_NDC_PA_MSC|Status|MSC_Override	|
-   |22230947  |N		 |*		|M		|00069130501		|010111	 |123139	|a		|	AA	|N					 |A		|A	 			 		 |A			|N						|
+   |22230947  |N		 |*		|M		|00069130501		|010111	 |123139	|a		|	AA	|N					 |A		|A	 			 		 |A			|*						|
    
    Scenario Outline: Verify Pricing setup in Plan	
   	And I select Option "4" to navigate to "Plan"

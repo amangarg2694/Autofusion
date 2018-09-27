@@ -9,7 +9,7 @@ import com.optumrx.autofusion.core.te.util.Screenshot;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SN003562_SR41760 {
+public class UpdateRCPMERecompileRCPLN {
 	public String MemberEligibility=null;
 	
 	@When("^I enter query$")

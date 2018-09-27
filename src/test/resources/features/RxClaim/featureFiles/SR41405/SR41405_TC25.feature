@@ -1,9 +1,10 @@
 #Author: Venkateshwarlu M
 
-Feature: SN003280_SR41405_TS001_Req 7.3: verify when Claim is submitted with PA MSC Override =N and Pat pay MSC override is not Y
+Feature: Process Brand Drugs As Tier 1 for Members
+	SN003280_SR41405_TC025_Req 7.3:verify when  Claim is submitted with PA MSC Override =N and Pat pay MSC override is not Y                                                               
     
 Scenario Outline: Create a new member in RxClaim with existing CAG
-   Given I am on RxClaim PlanAdministrator Menu 
+    Given I am on RxClaim PlanAdministrator Menu 
     When I create Member with "<CarrierID>","<AccountID>","<GroupID>","<MemberID>","<FirstName>","<LastName>","<DOB>","<FromDate>","<ThruDate>"
     And I search Member by MemberID "<MemberID>"
    

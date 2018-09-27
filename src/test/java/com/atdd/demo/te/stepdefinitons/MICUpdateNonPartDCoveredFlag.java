@@ -10,7 +10,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SR41892 {
+public class MICUpdateNonPartDCoveredFlag {
 	
 	public static String PlanCode="";
 	public static String Plan="";

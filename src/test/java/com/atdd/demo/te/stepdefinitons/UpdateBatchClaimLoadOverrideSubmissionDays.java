@@ -5,7 +5,7 @@ import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SN374521_SR41821 {
+public class UpdateBatchClaimLoadOverrideSubmissionDays {
 	public String cmdToCallPgm= "CALL   PGM(RX12215C1) PARM('20180604' '20180604' '0000001' '0009999' 'RX12215PF2' 'CUSTLIB' 'RX12215PFR' 'CUSTLIB' '19970101' 'N' 'INPQ')";
 	public String cmdToCallPgm1= "CALL   PGM(RX12215C1) PARM('20180604' '20180604' '0000001' '0009999' 'RX12      215PF2' 'CUSTLIB' 'RX12215PFR' 'CUSTLIB' '19970101' 'N' 'INPQ')";
 	public String cmdToCallPgmLib= "CALL   PGM(IRIPRDOBJ/RX12215C1) PARM('20180604' '20180604' '0000001' '0009999' 'RX12215PF2' 'CUSTLIB' 'RX12215PFR' 'CUSTLIB' '19970101' 'N' 'INPQ')";
