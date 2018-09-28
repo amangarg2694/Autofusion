@@ -9,5 +9,5 @@ As a RxClaim User I want to create a New Carrier
    
    Examples:
     | CarrierID | CarrierName |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType | 
-    | TESTA1TC9 | Test Carrier|712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      | 
+    | TESTA1TC9 | Test Carrier|4659       |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      | 
     
