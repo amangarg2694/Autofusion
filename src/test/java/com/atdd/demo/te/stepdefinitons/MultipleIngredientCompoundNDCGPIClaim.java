@@ -14,7 +14,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SR41877 {
+public class MultipleIngredientCompoundNDCGPIClaim {
 
 	
 	@When("^I create plan with member eligibility pricing option \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -65,10 +65,7 @@ public class SR41877 {
 					Mainframe_GlobalFunctionLib.pressKey("F12"); 
 					Mainframe_GlobalFunctionLib.pressKey("F12"); 
 					Mainframe_GlobalFunctionLib.pressKey("F12"); 
-					//Mainframe_GlobalFunctionLib.pressKey("F12");
-					Thread.sleep(5000);
 				} 
-				 
 				else 
 				{ 
 					Mainframe_GlobalFunctionLib.sendText(7, 24 ,"Y"); 
@@ -97,11 +94,9 @@ public class SR41877 {
 					Mainframe_GlobalFunctionLib.pressKey("F12"); 
 					Mainframe_GlobalFunctionLib.pressKey("F12"); 
 					Mainframe_GlobalFunctionLib.pressKey("F12"); 
-					Thread.sleep(5000);
-					 
+						 
 				} 
-		 
-			  	if(FunctionalLibrary.ScreenshotOption.equalsIgnoreCase("Always")){ 
+		 	  	if(FunctionalLibrary.ScreenshotOption.equalsIgnoreCase("Always")){ 
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot()); 
 				} 
 				}
@@ -111,17 +106,9 @@ public class SR41877 {
 				} 
 	}
 
-	/*@Then("^Validate plan \"([^\"]*)\"$")
-	public void validate_plan(String arg1) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions*
-	    
-	}*/
-
 	@Then("^I add plan With NDC list \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_add_plan_With_NDC_list(String ndclist,String ndcsq, String ndcfromdate,String ndcthrudate) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-
-		
 		try{ 
 			Mainframe_GlobalFunctionLib.sendText(15, 24 ,"Y" ); 
 			Mainframe_GlobalFunctionLib.pressKey("Enter"); 
@@ -129,10 +116,8 @@ public class SR41877 {
 			Mainframe_GlobalFunctionLib.pressKey("F7"); 
 			Mainframe_GlobalFunctionLib.sendText(7, 21 ,"10" ); 
 			Mainframe_GlobalFunctionLib.pressKey("Enter"); 
-						
-				Mainframe_GlobalFunctionLib.pressKey("F6"); 
-				Thread.sleep(5000);
-
+			Mainframe_GlobalFunctionLib.pressKey("F6"); 
+			Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(4, 5 ,ndclist);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(9, 2 ,"1" );
@@ -162,17 +147,10 @@ public class SR41877 {
 			} 
 	}
 
-	/*@Then("^Validate NDC list is \"([^\"]*)\"$")
-	public void validate_NDC_list_is(String arg1) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    
-	}*/
-
 	@When("^I Setup plan with GPI list \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_Setup_plan_with_GPI_list(String plancode,String gpilist,String gpisq, String gpifromdate,String gpithrudate) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    
-		 
+	 
 		try { 
 			FunctionalLibrary.navigateToRxClaimPlanAdministrator(); 
 		} catch (Exception e) { 
@@ -196,7 +174,6 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("Enter"); 
 				 
 					Mainframe_GlobalFunctionLib.pressKey("F6"); 
-					//FunctionalLibrary.func_SearchAndSelectMode("4, 5" ,gpilist ,"9,5" , gpilist); 
 					Mainframe_GlobalFunctionLib.sendText(4, 5 ,gpilist);
 					Mainframe_GlobalFunctionLib.pressKey("Enter");
 					Mainframe_GlobalFunctionLib.sendText(9, 2 ,"1" );
@@ -226,12 +203,6 @@ public class SR41877 {
 					Assert.fail("The Plan with GPI List is not set successfully.Screenshot is captured"); 
 				}
 	}
-
-	/*@Then("^Validate GPI list is \"([^\"]*)\"$")
-	public void validate_GPI_list_is(String arg1) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    
-	}*/
 	
 	@When("^I Setup plan \"([^\"]*)\" with Compounds multiple ingredient option \"([^\"]*)\"$")
 	public void i_Setup_plan_with_Compounds_multiple_ingredient_option(String PlanCode, String CMIPlan) throws Throwable {
@@ -278,12 +249,8 @@ public class SR41877 {
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
+			FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-6
+
 	}
 
 	@When("^I Setup plan \"([^\"]*)\" with GPI Compounds multiple ingredient option \"([^\"]*)\"$")
@@ -308,35 +275,22 @@ public class SR41877 {
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y" );
 			Mainframe_GlobalFunctionLib.pressKey("F7");
-			Thread.sleep(2000);
 			Mainframe_GlobalFunctionLib.sendText(7, 21 ,"9" ); 
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Mainframe_GlobalFunctionLib.sendText(13, 12 ,"2" );
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Mainframe_GlobalFunctionLib.sendText(8, 23 ,"  " );
-			Thread.sleep(1000);
 			Mainframe_GlobalFunctionLib.sendText(8, 23 ,"1" );
-			Thread.sleep(1000);
 			Mainframe_GlobalFunctionLib.sendText(9, 37 ,"Y" );
-			Thread.sleep(1000);
 			Mainframe_GlobalFunctionLib.sendText(10, 37 ,"Y" );
-			Thread.sleep(1000);
 			Mainframe_GlobalFunctionLib.sendText(10, 60 ,"1" );
-			Thread.sleep(1000);
 			Mainframe_GlobalFunctionLib.sendText(14, 44 ,"F" );
-			Thread.sleep(1000);
 			Mainframe_GlobalFunctionLib.sendText(15, 44 ,"M" );
-			Thread.sleep(1000);
 			Mainframe_GlobalFunctionLib.sendText(21, 24 ,CMIPlan);
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
+			FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-6
 	}
 	
 	@Given("^I add product IDs \"([^\"]*)\", \"([^\"]*)\" to the Plan \"([^\"]*)\" NDC list \"([^\"]*)\" with status \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -358,7 +312,6 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2" ); 
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.pressKey("F7");
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(7, 21 ,"10" ); 
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(7, 8 ,NDCList);
@@ -372,60 +325,43 @@ public class SR41877 {
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("F16");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(7, 4 ,ID1);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(12, 2 ,"1" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,"        ");
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,PFromdate);
 				Mainframe_GlobalFunctionLib.sendText(6, 67 ,PThrudate);
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(6, 78 );
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 78 ,Status1);
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				
-				   //Second product Id adding to NDC list
+					   //Second product Id adding to NDC list
 				Mainframe_GlobalFunctionLib.pressKey("F6");
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("F16");
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(7, 4 ,ID2);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(12, 2 ,"1" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,"        ");
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,PFromdate);
 				Mainframe_GlobalFunctionLib.sendText(6, 67 ,PThrudate);
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(6, 78 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 78 ,Status2);
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Thread.sleep(3000);
-				
+				FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-6
 	}
 
 	@Given("^I add product IDs \"([^\"]*)\", \"([^\"]*)\" to the Plan \"([^\"]*)\" GPI list \"([^\"]*)\" with status \"([^\"]*)\" ,\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -437,7 +373,6 @@ public class SR41877 {
 		} catch (Exception e) { 
 			e.printStackTrace(); 
 		} 
-		
 				Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4" ); 
 				Mainframe_GlobalFunctionLib.pressKey("Enter"); 
 				Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" ); 
@@ -447,7 +382,6 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2" ); 
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.pressKey("F7");
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(7, 21 ,"11" ); 
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(7, 8 ,GPIList);
@@ -458,64 +392,44 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("F6");
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("F17");
-				Thread.sleep(2000);
-				 				
 				Mainframe_GlobalFunctionLib.sendText(6, 4 ,ID3);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"1" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,"        ");
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,PFromdate);
 				Mainframe_GlobalFunctionLib.sendText(6, 67 ,"        ");
 				Mainframe_GlobalFunctionLib.sendText(6, 67 ,PThrudate);
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(6, 78 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 78 ,Status1);
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				
 				//Second product Id adding to GPI list
 				Mainframe_GlobalFunctionLib.pressKey("F6");
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("F17");
-				Thread.sleep(2000);
-				 				
 				Mainframe_GlobalFunctionLib.sendText(6, 4 ,ID4);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"1" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,"        ");
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,PFromdate);
 				Mainframe_GlobalFunctionLib.sendText(6, 67 ,PThrudate);
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(6, 78 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 78 ,Status2);
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-	    
+				FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-6
 	}
 	
 	@Given("^I create MemberPrioAuth \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -527,7 +441,6 @@ public class SR41877 {
 			} catch (Exception e) { 
 				e.printStackTrace(); 
 			} 
-
 			 
 				String sValue=number; 
 				Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
@@ -541,14 +454,12 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(10, 2 ,"2" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				
 				Mainframe_GlobalFunctionLib.pressKey("F8"); 
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.sendText(4, 20 ,"9" ); 
 				Mainframe_GlobalFunctionLib.pressKey("Enter"); 
 	 			Mainframe_GlobalFunctionLib.pressKey("F6"); 
 	 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot()); 
-
 				Mainframe_GlobalFunctionLib.pressKey("F6"); 
 				Mainframe_GlobalFunctionLib.sendText(16, 5,"           " ); 
 				Mainframe_GlobalFunctionLib.sendText(16, 5 ,sValue);
@@ -565,9 +476,7 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.sendText(16, 70, reason); 
 				Mainframe_GlobalFunctionLib.sendText(16, 75, ignoredrugstatus); 
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				Thread.sleep(3000);
 				Mainframe_GlobalFunctionLib.pressKey("Enter"); 
-				Thread.sleep(3000);
 				Mainframe_GlobalFunctionLib.sendText(16, 2,"2" );
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -575,25 +484,8 @@ public class SR41877 {
 				System.out.println("Member level compound set to: "+ActCompSet);
 				String ActMemPriANum = Mainframe_GlobalFunctionLib.getText(4, 66);
 				System.out.println("Member PA number: "+ActMemPriANum);
-				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				
- 							 
- 				/*while(msgvalidation("24","2","Member Prior Authorization number already exists")) 
-				{ 
- 					sValue=Integer.toString(Integer.valueOf(sValue)+1); 
- 					Mainframe_GlobalFunctionLib.sendText(16, 5 ,sValue); 
- 					Mainframe_GlobalFunctionLib.pressKey("Enter"); 
- 				} */
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
- 
- 
-			
-
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());				 
+				FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-6
 	}
 	
 	@Given("^I submit a Multi Ingredient compound claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -666,20 +558,14 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("F6"); 
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.sendText(12, 20,compQualID_1 ); 
-								
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(13, 20 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("F4");
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("F16");
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(4, 4,ID1 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(9, 2,"1" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				
 				Mainframe_GlobalFunctionLib.sendText(15, 20,compQuantity_1 ); 
 				Mainframe_GlobalFunctionLib.sendText(16, 20,compCost_1); 
 				Mainframe_GlobalFunctionLib.sendText(18, 20,compBasisOfCost_1);
@@ -689,7 +575,6 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("F6"); 
 				Mainframe_GlobalFunctionLib.sendText(12, 20,compQualID_2 ); 
 				//Mainframe_GlobalFunctionLib.sendText(13, 20, ID2 );
-				
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(13, 20 );
 				Thread.sleep(2000);
@@ -698,11 +583,9 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("F16");
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(4, 4,ID2 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(9, 2,"1" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				
 				Mainframe_GlobalFunctionLib.sendText(15, 20,compQuantity_2 ); 
 				Mainframe_GlobalFunctionLib.sendText(16, 20,compCost_2); 
 				Mainframe_GlobalFunctionLib.sendText(18, 20,compBasisOfCost_2); 
@@ -711,13 +594,8 @@ public class SR41877 {
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("F12"); 
 				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				
 				Mainframe_GlobalFunctionLib.pressKey("F6"); 
-				
-				
-				//verification
-				
-				 
+				//verification								 
 			System.out.println("Compound Claim is submitted"); 
 			if(FunctionalLibrary.ScreenshotOption.equalsIgnoreCase("Always")){ 
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot()); 
@@ -733,12 +611,10 @@ public class SR41877 {
 	@Then("^I validate the Claim status \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_validate_the_Claim_status(String ClaimStatus, String DrugStatus, String RejectCode, String RejectMessage) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	   
-				Mainframe_GlobalFunctionLib.validateText("21", "6",ClaimStatus );
+	   			Mainframe_GlobalFunctionLib.validateText("21", "6",ClaimStatus );
 				Mainframe_GlobalFunctionLib.pressKey("F7");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("F7");
-				
 				Mainframe_GlobalFunctionLib.sendText(4, 23 ,"3" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.pressKey("F14");
@@ -769,25 +645,14 @@ public class SR41877 {
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.validateText("6", "30", "R");
 				Mainframe_GlobalFunctionLib.validateText("7", "23", "F");
-				
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				
+				FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-10
+	
 	}
 
 	@Given("^I set MemberPrioAuth \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" to allow compound \"([^\"]*)\" and I will add drugs \"([^\"]*)\",\"([^\"]*)\" at member PA level$")
 	public void i_set_MemberPrioAuth_to_allow_compound_and_I_will_add_drugs_at_member_PA_level(String MemberID, String CarrierID, String AccountID, String GroupID, String MemComp, String ID1, String ID2) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    
-		
+	    		
 				try { 
 					FunctionalLibrary.navigateToRxClaimPlanAdministrator(); 
 				} catch (Exception e) { 
@@ -805,33 +670,24 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(10, 2 ,"2" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				
 				Mainframe_GlobalFunctionLib.pressKey("F8"); 
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.sendText(4, 20 ,"9" ); 
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				
 				Mainframe_GlobalFunctionLib.sendText(16, 2 ,"2" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.pressKey("F7");
-				
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(6, 78 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 78 ,"f");
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(15, 53 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(15, 53 ,MemComp);
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				
 				Mainframe_GlobalFunctionLib.pressKey("F12"); 
 				 //adding Drugs to Member PA
 				Mainframe_GlobalFunctionLib.sendText(16, 2 ,"10" );
@@ -848,11 +704,9 @@ public class SR41877 {
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("F12"); 
 				Mainframe_GlobalFunctionLib.pressKey("F12");
-				
 				Mainframe_GlobalFunctionLib.pressKey("F6");
 				Thread.sleep(2000);				
 				Mainframe_GlobalFunctionLib.pressKey("F16");
-				Thread.sleep(2000);	
 				Mainframe_GlobalFunctionLib.sendText(7, 4 ,ID2);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(12, 2 ,"1" );
@@ -860,19 +714,10 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.pressKey("F12"); 
 				Mainframe_GlobalFunctionLib.pressKey("F12");			
-				
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				System.out.println("Drugs added to Member PA level");
-				
-				 //navigate to main menu		
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				
-		
+				FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-6
+
 	}
 	
 	@Then("^I set MemberPrioAuth \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" to allow compound \"([^\"]*)\" and I will add GPI drugs \"([^\"]*)\",\"([^\"]*)\" at member PA level$")
@@ -896,34 +741,25 @@ public class SR41877 {
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(10, 2 ,"2" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		
 		Mainframe_GlobalFunctionLib.pressKey("F8"); 
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.sendText(4, 20 ,"9" ); 
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		
 		Mainframe_GlobalFunctionLib.sendText(16, 2 ,"2" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("F7");
-		
 		Thread.sleep(2000);
 		Mainframe_GlobalFunctionLib.click(6, 78 );
-		Thread.sleep(2000);
 		Mainframe_GlobalFunctionLib.sendText(6, 78 ,"f");
-		Thread.sleep(2000);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		
 		Thread.sleep(2000);
 		Mainframe_GlobalFunctionLib.click(15, 53 );
-		Thread.sleep(2000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.sendText(15, 53 ,MemComp);
-		Thread.sleep(2000);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-		
 		Mainframe_GlobalFunctionLib.pressKey("F12"); 
 		 //adding Drugs to Member PA
 		Mainframe_GlobalFunctionLib.sendText(16, 2 ,"10" );
@@ -940,11 +776,9 @@ public class SR41877 {
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F12"); 
 		Mainframe_GlobalFunctionLib.pressKey("F12");
-		
 		Mainframe_GlobalFunctionLib.pressKey("F6");
 		Thread.sleep(2000);				
 		Mainframe_GlobalFunctionLib.pressKey("F17");
-		Thread.sleep(2000);	
 		Mainframe_GlobalFunctionLib.sendText(6, 4 ,ID2);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(11, 2 ,"1" );
@@ -952,17 +786,10 @@ public class SR41877 {
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("F12"); 
 		Mainframe_GlobalFunctionLib.pressKey("F12");			
-		
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		System.out.println("Drugs added to Member PA level");
-		
-		 //navigate to main menu		
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
+		FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-6
+
 	}
 	
 	@Then("^I submit a Multi Ingredient compound claim two with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -982,7 +809,6 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" ); 
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				
 				Mainframe_GlobalFunctionLib.pressKey("F6"); 
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.sendText(11, 14,BIN ); 
@@ -1025,20 +851,16 @@ public class SR41877 {
 					Mainframe_GlobalFunctionLib.pressKey("F6"); 
 					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 					Mainframe_GlobalFunctionLib.sendText(12, 20,compQualID_1 ); 
-									
 					Thread.sleep(2000);
 					Mainframe_GlobalFunctionLib.click(13, 20 );
 					Thread.sleep(2000);
 					Mainframe_GlobalFunctionLib.pressKey("F4");
 					Thread.sleep(2000);
 					Mainframe_GlobalFunctionLib.pressKey("F16");
-					Thread.sleep(2000);
 					Mainframe_GlobalFunctionLib.sendText(4, 4,ID1 );
-					Thread.sleep(2000);
 					Mainframe_GlobalFunctionLib.pressKey("Enter");
 					Mainframe_GlobalFunctionLib.sendText(9, 2,"1" );
-					Mainframe_GlobalFunctionLib.pressKey("Enter");
-					
+					Mainframe_GlobalFunctionLib.pressKey("Enter");					
 					Mainframe_GlobalFunctionLib.sendText(15, 20,compQuantity_1 ); 
 					Mainframe_GlobalFunctionLib.sendText(16, 20,compCost_1); 
 					Mainframe_GlobalFunctionLib.sendText(18, 20,compBasisOfCost_1);
@@ -1048,20 +870,16 @@ public class SR41877 {
 					Mainframe_GlobalFunctionLib.pressKey("F6"); 
 					Mainframe_GlobalFunctionLib.sendText(12, 20,compQualID_2 ); 
 					//Mainframe_GlobalFunctionLib.sendText(13, 20, ID2 );
-					
 					Thread.sleep(2000);
 					Mainframe_GlobalFunctionLib.click(13, 20 );
 					Thread.sleep(2000);
 					Mainframe_GlobalFunctionLib.pressKey("F4");
 					Thread.sleep(2000);
 					Mainframe_GlobalFunctionLib.pressKey("F16");
-					Thread.sleep(2000);
 					Mainframe_GlobalFunctionLib.sendText(4, 4,ID2 );
-					Thread.sleep(2000);
 					Mainframe_GlobalFunctionLib.pressKey("Enter");
 					Mainframe_GlobalFunctionLib.sendText(9, 2,"1" );
 					Mainframe_GlobalFunctionLib.pressKey("Enter");
-					
 					Mainframe_GlobalFunctionLib.sendText(15, 20,compQuantity_2 ); 
 					Mainframe_GlobalFunctionLib.sendText(16, 20,compCost_2); 
 					Mainframe_GlobalFunctionLib.sendText(18, 20,compBasisOfCost_2); 
@@ -1070,21 +888,17 @@ public class SR41877 {
 					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 					Mainframe_GlobalFunctionLib.pressKey("F12"); 
 					Mainframe_GlobalFunctionLib.pressKey("F12"); 
-					
 					Mainframe_GlobalFunctionLib.pressKey("F6"); 
 			
-		
 	}
 	
 	@Then("^I validate the Claim status \"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_validate_the_Claim_status(String ClaimStatus2, String DrugStatus2) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	  
-				Mainframe_GlobalFunctionLib.validateText("21", "6",ClaimStatus2 );
+	  			Mainframe_GlobalFunctionLib.validateText("21", "6",ClaimStatus2 );
 				Mainframe_GlobalFunctionLib.pressKey("F7");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("F7");
-				
 				Mainframe_GlobalFunctionLib.sendText(4, 23 ,"3" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.pressKey("F14");
@@ -1096,7 +910,6 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.validateText("6", "30", ClaimStatus2);
 				String ActClaimStatus = Mainframe_GlobalFunctionLib.getText(6, 30);
 				System.out.println("Actual Claim Status: "+ActClaimStatus);
-				
 				Mainframe_GlobalFunctionLib.validateText("7", "23", DrugStatus2);
 				String ActDrugStatus = Mainframe_GlobalFunctionLib.getText(7, 23);
 				System.out.println("Actual Drug Status: "+ActDrugStatus);
@@ -1108,17 +921,8 @@ public class SR41877 {
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.validateText("6", "30", "P");
 				Mainframe_GlobalFunctionLib.validateText("7", "23", "f");
-				
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
+				FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-10
+
 	}
 	
 	@Given("^I update plan \"([^\"]*)\" with Compounds multiple ingredient NDC option \"([^\"]*)\"$")
@@ -1140,23 +944,15 @@ public class SR41877 {
 					Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2" ); 
 					Mainframe_GlobalFunctionLib.pressKey("Enter");
 					Mainframe_GlobalFunctionLib.pressKey("F7");
-					Thread.sleep(2000);
 					Mainframe_GlobalFunctionLib.sendText(7, 21 ,"9" ); 
 					Mainframe_GlobalFunctionLib.pressKey("Enter");
 					Mainframe_GlobalFunctionLib.sendText(13, 12 ,"2" ); 
 					Mainframe_GlobalFunctionLib.pressKey("Enter");
-					Thread.sleep(3000);
 					Mainframe_GlobalFunctionLib.sendText(21, 11 ,CMIPlan);
-					Thread.sleep(1000);
 					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 					Mainframe_GlobalFunctionLib.pressKey("Enter");
 					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-					Mainframe_GlobalFunctionLib.pressKey("F12");
-					Mainframe_GlobalFunctionLib.pressKey("F12");
-					Mainframe_GlobalFunctionLib.pressKey("F12");
-					Mainframe_GlobalFunctionLib.pressKey("F12");
-					Mainframe_GlobalFunctionLib.pressKey("F12");
-					Mainframe_GlobalFunctionLib.pressKey("F12");
+					FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-6
 					
 	}
 	
@@ -1179,14 +975,11 @@ public class SR41877 {
 			Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2" ); 
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Mainframe_GlobalFunctionLib.pressKey("F7");
-			Thread.sleep(2000);
 			Mainframe_GlobalFunctionLib.sendText(7, 21 ,"9" ); 
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Mainframe_GlobalFunctionLib.sendText(13, 12 ,"2" ); 
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
-			Thread.sleep(3000);
 			Mainframe_GlobalFunctionLib.sendText(21, 24 ,CMIPlan);
-			Thread.sleep(1000);
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -1222,8 +1015,7 @@ public class SR41877 {
 			Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
 			Mainframe_GlobalFunctionLib.pressKey("F12");
 			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			
+			Mainframe_GlobalFunctionLib.pressKey("F12");			
 		
 	}
 	
@@ -1246,95 +1038,73 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2" ); 
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.pressKey("F7");
-				Thread.sleep(2000);
+				Thread.sleep(1000);
 				Mainframe_GlobalFunctionLib.sendText(7, 21 ,"11" ); 
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(7, 8 ,GPIList);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"7" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				Thread.sleep(3000);
 				//First product Id adding to GPI list
 				Mainframe_GlobalFunctionLib.pressKey("F6");
-				Thread.sleep(3000);
+				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("F17");
 				Thread.sleep(2000);
-				 				
 				Mainframe_GlobalFunctionLib.sendText(6, 4 ,ID1);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"1" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,"        ");
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,PFromdate);
 				Mainframe_GlobalFunctionLib.sendText(6, 67 ,"        ");
 				Mainframe_GlobalFunctionLib.sendText(6, 67 ,PThrudate);
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(6, 78 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 78 ,Status1);
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(9, 20 ,Qtymin);
 				Mainframe_GlobalFunctionLib.sendText(9, 33 ,Qtymax);
-				
-				
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				
-				Thread.sleep(3000);
+				Thread.sleep(2000);
 				//Second product Id adding to GPI list
 				Mainframe_GlobalFunctionLib.pressKey("F6");
-				Thread.sleep(3000);
+				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("F17");
 				Thread.sleep(2000);
-				 				
 				Mainframe_GlobalFunctionLib.sendText(6, 4 ,ID2);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"1" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,"        ");
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,PFromdate);
 				Mainframe_GlobalFunctionLib.sendText(6, 67 ,PThrudate);
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(6, 78 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 78 ,Status2);
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(9, 20 ,Qtymin);
 				Mainframe_GlobalFunctionLib.sendText(9, 33 ,Qtymax);
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
+				FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-6
 	
 	}
 	
 	@Then("^I validate the status for Claim \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_validate_the_status_for_Claim(String ClaimStatus, String DrugStatus, String RejectCode, String RejectMessage) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		
 		Mainframe_GlobalFunctionLib.validateText("21", "6",ClaimStatus );
 		Mainframe_GlobalFunctionLib.pressKey("F7");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F7");
-		
 		Mainframe_GlobalFunctionLib.sendText(4, 23 ,"3" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("F14");
@@ -1358,29 +1128,14 @@ public class SR41877 {
 		Mainframe_GlobalFunctionLib.validateText("18", "7", RejectMessage);
 		String ActRejMessage = Mainframe_GlobalFunctionLib.getText(18, 7);
 		System.out.println("Actual Rejected Code Message: "+ActRejMessage);
-		
-
-		
-		
-		Thread.sleep(2000);
-		
+				
 		Mainframe_GlobalFunctionLib.pressKey("F12");
 		Mainframe_GlobalFunctionLib.sendText(15, 2 ,"5" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.validateText("6", "30", ClaimStatus);
 		Mainframe_GlobalFunctionLib.validateText("7", "23", "F");
-		
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
+		FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-10
 	   
 	}
 	
@@ -1410,60 +1165,40 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"7" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				
 				Thread.sleep(3000);
 				Mainframe_GlobalFunctionLib.pressKey("F16");
-				Thread.sleep(3000);
 				Mainframe_GlobalFunctionLib.sendText(6, 4 ,GPINo1);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				
 				Mainframe_GlobalFunctionLib.sendText(12, 2 ,"2" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(9, 20 ,"            ");
 				Mainframe_GlobalFunctionLib.sendText(9, 33 ,"            ");
-				Thread.sleep(1000);
-				
 				Mainframe_GlobalFunctionLib.sendText(10, 20 ,DSmin);
 				Mainframe_GlobalFunctionLib.sendText(10, 33 ,DSmax);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
-				
-				Thread.sleep(3000);
+				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("F16");
-				Thread.sleep(3000);
 				Mainframe_GlobalFunctionLib.sendText(6, 4 ,GPINo2);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				
 				Mainframe_GlobalFunctionLib.sendText(12, 2 ,"2" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(9, 20 ,"            ");
 				Mainframe_GlobalFunctionLib.sendText(9, 33 ,"            ");
-				Thread.sleep(1000);
-				
 				Mainframe_GlobalFunctionLib.sendText(10, 20 ,DSmin);
 				Mainframe_GlobalFunctionLib.sendText(10, 33 ,DSmax);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());			
-							
-				
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				
+				FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-7			
+
 	}
 	
 	@Given("^I update the product ID`s \"([^\"]*)\", \"([^\"]*)\" to the Plan \"([^\"]*)\" GPI list \"([^\"]*)\" with age limits \"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_update_the_product_ID_s_to_the_Plan_GPI_list_with_age_limits(String GPINo1, String GPINo2, String PlanCode, String GPIList, String Agemin, String Agemax) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		
-		
+				
 		try { 
 			FunctionalLibrary.navigateToRxClaimPlanAdministrator(); 
 		} catch (Exception e) { 
@@ -1486,103 +1221,62 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"7" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				
-				Thread.sleep(3000);
+				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("F16");
-				Thread.sleep(3000);
 				Mainframe_GlobalFunctionLib.sendText(6, 4 ,GPINo1);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				
 				Mainframe_GlobalFunctionLib.sendText(12, 2 ,"2" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(9, 20 ,"            ");
 				Mainframe_GlobalFunctionLib.sendText(9, 33 ,"            ");
-				Thread.sleep(1000);
-				
 				Mainframe_GlobalFunctionLib.sendText(10, 20 ,"   ");
 				Mainframe_GlobalFunctionLib.sendText(10, 33 ,"   ");
 				Thread.sleep(1000);
-				
 				Mainframe_GlobalFunctionLib.click(12, 16 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(12, 16 ,"S");
-				
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(12, 18 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(12, 18 ,"Y");
 				Mainframe_GlobalFunctionLib.sendText(12, 20 ,Agemin);
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(12, 24 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(12, 24 ,"Y");
-				
 				Mainframe_GlobalFunctionLib.sendText(12, 33 ,Agemax);
-				
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(12, 37 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(12, 37 ,"Y");
-				
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
-				
 				Thread.sleep(3000);
 				Mainframe_GlobalFunctionLib.pressKey("F16");
-				Thread.sleep(3000);
 				Mainframe_GlobalFunctionLib.sendText(6, 4 ,GPINo2);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				
 				Mainframe_GlobalFunctionLib.sendText(12, 2 ,"2" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(9, 20 ,"            ");
 				Mainframe_GlobalFunctionLib.sendText(9, 33 ,"            ");
-				Thread.sleep(1000);
-				
 				Mainframe_GlobalFunctionLib.sendText(10, 20 ,"   ");
 				Mainframe_GlobalFunctionLib.sendText(10, 33 ,"   ");
 				Thread.sleep(1000);
-				
 				Mainframe_GlobalFunctionLib.click(12, 16 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(12, 16 ,"S");
-				
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(12, 18 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(12, 18 ,"Y");
 				Mainframe_GlobalFunctionLib.sendText(12, 20 ,Agemin);
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(12, 24 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(12, 24 ,"Y");
-				
 				Mainframe_GlobalFunctionLib.sendText(12, 33 ,Agemax);
-				
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(12, 37 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(12, 37 ,"Y");
-
-				
-				
-				
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());			
-							
-				
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12"); 
-	
-	    
+				FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-7
+
 	}
 	
 	@When("^I create the NDC list with \"([^\"]*)\", \"([^\"]*)\"$")
@@ -1602,11 +1296,9 @@ public class SR41877 {
 			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" ); 
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Mainframe_GlobalFunctionLib.pressKey("F6");
-			Thread.sleep(3000);
 			Mainframe_GlobalFunctionLib.sendText(5, 18 ,NDCList);
 			Mainframe_GlobalFunctionLib.sendText(5, 30 ,NDCDecs);
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
-			Thread.sleep(1000);
 			Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
 			Mainframe_GlobalFunctionLib.pressKey("F12");
 			Mainframe_GlobalFunctionLib.pressKey("F12");
@@ -1632,7 +1324,6 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2" ); 
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				
 				//adding
 				Mainframe_GlobalFunctionLib.sendText(15, 24 ,"Y" ); 
 				Mainframe_GlobalFunctionLib.pressKey("Enter"); 
@@ -1642,8 +1333,7 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("Enter"); 
 							
 					Mainframe_GlobalFunctionLib.pressKey("F6"); 
-					Thread.sleep(5000);
-
+					Thread.sleep(3000);
 					Mainframe_GlobalFunctionLib.sendText(4, 5 ,ndclist);
 					Mainframe_GlobalFunctionLib.pressKey("Enter");
 					Mainframe_GlobalFunctionLib.sendText(9, 2 ,"1" );
@@ -1671,16 +1361,12 @@ public class SR41877 {
 				{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot()); 
 					Assert.fail("The Add Plan with NDC List is not set successfully.Screenshot is captured"); 
 				} 
-
-				
-
 	}
 	
 	@Given("^I add product IDs \"([^\"]*)\", \"([^\"]*)\" to the Plan \"([^\"]*)\" NDC list \"([^\"]*)\" with status \"([^\"]*)\" ,\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_add_product_IDs_to_the_Plan_NDC_list_with_status(String ID1, String ID2, String PlanCode, String NDCList, String Status1, String Status2,String PFromdate, String PThrudate, String Qtymin, String Qtymax) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	   
-		
+	   		
 		try { 
 			FunctionalLibrary.navigateToRxClaimPlanAdministrator(); 
 		} catch (Exception e) { 
@@ -1703,76 +1389,54 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"7" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				Thread.sleep(3000);
 				//First product Id adding to NDC list
 				Mainframe_GlobalFunctionLib.pressKey("F6");
-				Thread.sleep(3000);
+				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("F16");
 				Thread.sleep(2000);
-				 				
 				Mainframe_GlobalFunctionLib.sendText(7, 4 ,ID1);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(12, 2 ,"1" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,"        ");
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,PFromdate);
 				Mainframe_GlobalFunctionLib.sendText(6, 67 ,"        ");
 				Mainframe_GlobalFunctionLib.sendText(6, 67 ,PThrudate);
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(6, 78 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 78 ,Status1);
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(9, 20 ,Qtymin);
 				Mainframe_GlobalFunctionLib.sendText(9, 33 ,Qtymax);
-				
-				
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				
-				Thread.sleep(3000);
+
 				//Second product Id adding to GPI list
 				Mainframe_GlobalFunctionLib.pressKey("F6");
 				Thread.sleep(3000);
 				Mainframe_GlobalFunctionLib.pressKey("F16");
-				Thread.sleep(2000);
-				 				
 				Mainframe_GlobalFunctionLib.sendText(7, 4 ,ID2);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(12, 2 ,"1" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,"        ");
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,PFromdate);
 				Mainframe_GlobalFunctionLib.sendText(6, 67 ,PThrudate);
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(6, 78 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 78 ,Status2);
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(9, 20 ,Qtymin);
 				Mainframe_GlobalFunctionLib.sendText(9, 33 ,Qtymax);
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
+				FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-6
 
 	}
 	
@@ -1804,54 +1468,34 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Thread.sleep(3000);
 				//First product update
-
 				Mainframe_GlobalFunctionLib.pressKey("F16");
-				Thread.sleep(2000);
-				 				
 				Mainframe_GlobalFunctionLib.sendText(6, 4 ,ID1);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(9, 20 ,"            ");
 				Mainframe_GlobalFunctionLib.sendText(9, 33 ,"            ");
 				Mainframe_GlobalFunctionLib.sendText(10, 20 ,DSmin);
 				Mainframe_GlobalFunctionLib.sendText(10, 33 ,DSmax);
-				
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
-				
 				Mainframe_GlobalFunctionLib.pressKey("F16");
-				Thread.sleep(2000);
-				 				
 				Mainframe_GlobalFunctionLib.sendText(6, 4 ,ID2);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(9, 20 ,"            ");
 				Mainframe_GlobalFunctionLib.sendText(9, 33 ,"            ");
 				Mainframe_GlobalFunctionLib.sendText(10, 20 ,DSmin);
 				Mainframe_GlobalFunctionLib.sendText(10, 33 ,DSmax);
-				
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				
-				
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-
+				FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-6				
 		
 	}
 	
@@ -1883,115 +1527,72 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Thread.sleep(3000);
 				//First product update
-
 				Mainframe_GlobalFunctionLib.pressKey("F16");
-				Thread.sleep(2000);
-				 				
 				Mainframe_GlobalFunctionLib.sendText(6, 4 ,ID1);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(9, 20 ,"            ");
 				Mainframe_GlobalFunctionLib.sendText(9, 33 ,"            ");
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(10, 20 ,"   ");
 				Mainframe_GlobalFunctionLib.sendText(10, 33 ,"   ");
-				
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(12, 16 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(12, 16 ,"S");
-				
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(12, 18 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(12, 18 ,"Y");
 				Mainframe_GlobalFunctionLib.sendText(12, 20 ,Agemin);
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(12, 24 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(12, 24 ,"Y");
-				
 				Mainframe_GlobalFunctionLib.sendText(12, 33 ,Agemax);
-				
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(12, 37 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(12, 37 ,"Y");		
-				
-				
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
-				
 				Mainframe_GlobalFunctionLib.pressKey("F16");
-				Thread.sleep(2000);
-				 				
 				Mainframe_GlobalFunctionLib.sendText(6, 4 ,ID2);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(9, 20 ,"            ");
 				Mainframe_GlobalFunctionLib.sendText(9, 33 ,"            ");
 				Mainframe_GlobalFunctionLib.sendText(10, 20 ,"   ");
 				Mainframe_GlobalFunctionLib.sendText(10, 33 ,"   ");
-				
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(12, 16 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(12, 16 ,"S");
-				
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(12, 18 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(12, 18 ,"Y");
 				Mainframe_GlobalFunctionLib.sendText(12, 20 ,Agemin);
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(12, 24 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(12, 24 ,"Y");
-				
 				Mainframe_GlobalFunctionLib.sendText(12, 33 ,Agemax);
-				
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(12, 37 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(12, 37 ,"Y");
-			
-				
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				
-				
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
+				FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-6				
 
-		
-
-		
 	}
 	
 	@Then("^I validate the status for the claim \"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_validate_the_status_for_the_claim(String ClaimStatus, String DrugStatus) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		
 		Mainframe_GlobalFunctionLib.validateText("21", "6",ClaimStatus );
 		Mainframe_GlobalFunctionLib.pressKey("F7");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F7");
-		
 		Mainframe_GlobalFunctionLib.sendText(4, 23 ,"3" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("F14");
@@ -2003,7 +1604,6 @@ public class SR41877 {
 		Mainframe_GlobalFunctionLib.validateText("6", "30", ClaimStatus);
 		String ActClaimStatus = Mainframe_GlobalFunctionLib.getText(6, 30);
 		System.out.println("Actual Claim Status: "+ActClaimStatus);
-		
 		Mainframe_GlobalFunctionLib.validateText("7", "23", DrugStatus);
 		String ActDrugStatus = Mainframe_GlobalFunctionLib.getText(7, 23);
 		System.out.println("Actual Drug Status: "+ActDrugStatus);
@@ -2015,19 +1615,8 @@ public class SR41877 {
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.validateText("6", "30", "P");
 		Mainframe_GlobalFunctionLib.validateText("7", "23", "F");
-		
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
+		FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-10
 
-	   
 	}
 
 	@Given("^I check the drug status in the plan \"([^\"]*)\"$")
@@ -2075,19 +1664,13 @@ public class SR41877 {
 			{
 				System.out.println("Drug Status R Not exist: "+Dstatus2);
 			}
-			Mainframe_GlobalFunctionLib.pressKey("F12"); 
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12"); 
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12"); 
-			Mainframe_GlobalFunctionLib.pressKey("F12");
+			FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-6
 		
 	}
 	
 	@Given("^I check the NDC drug status in the plan \"([^\"]*)\"$")
 	public void i_check_the_NDC_drug_status_in_the_plan(String PlanCode) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		
 		try { 
 			FunctionalLibrary.navigateToRxClaimPlanAdministrator(); 
 		} catch (Exception e) { 
@@ -2108,16 +1691,9 @@ public class SR41877 {
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Mainframe_GlobalFunctionLib.sendText(11, 2 ,"7" ); 
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
-			
 			Mainframe_GlobalFunctionLib.validateText("11", "61", "F");
 			Mainframe_GlobalFunctionLib.validateText("12", "61", "R");
-			
-			Mainframe_GlobalFunctionLib.pressKey("F12"); 
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12"); 
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12"); 
-			Mainframe_GlobalFunctionLib.pressKey("F12");
+			FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-6
 	   
 	}
 	
@@ -2148,26 +1724,18 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Thread.sleep(3000);
 				//First product Id updating
-				
-				//First product update
-
 				Mainframe_GlobalFunctionLib.pressKey("F16");
-				Thread.sleep(2000);
-				 				
 				Mainframe_GlobalFunctionLib.sendText(6, 4 ,ID1);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-
-				Thread.sleep(2000);				
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,"        ");
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,PFromdate);
 				Mainframe_GlobalFunctionLib.sendText(6, 67 ,"        ");
 				Mainframe_GlobalFunctionLib.sendText(6, 67 ,PThrudate);
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(6, 78 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 78 ,Status1);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -2175,7 +1743,6 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("F21");
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("F6");
-				
 				Mainframe_GlobalFunctionLib.sendText(9, 25 ,PFromdate);
 				Mainframe_GlobalFunctionLib.sendText(10, 25 ,PThrudate);
 				Mainframe_GlobalFunctionLib.sendText(12, 25 ,msg1);
@@ -2188,33 +1755,25 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"7" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("F16");
-				Thread.sleep(2000);
-				 				
 				Mainframe_GlobalFunctionLib.sendText(6, 4 ,ID2);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2" );
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				
-				Thread.sleep(2000);				
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,"        ");
 				Mainframe_GlobalFunctionLib.sendText(6, 57 ,PFromdate);
 				Mainframe_GlobalFunctionLib.sendText(6, 67 ,"        ");
 				Mainframe_GlobalFunctionLib.sendText(6, 67 ,PThrudate);
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.click(6, 78 );
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.sendText(6, 78 ,Status2);
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.pressKey("F21");
 				Thread.sleep(2000);
 				Mainframe_GlobalFunctionLib.pressKey("F6");
-				
 				Mainframe_GlobalFunctionLib.sendText(9, 25 ,PFromdate);
 				Mainframe_GlobalFunctionLib.sendText(10, 25 ,PThrudate);
 				Mainframe_GlobalFunctionLib.sendText(12, 25 ,msg2);
@@ -2224,27 +1783,17 @@ public class SR41877 {
 				Mainframe_GlobalFunctionLib.pressKey("F12"); 
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-
-				
+				FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-6
 
 	}
 	
 	@Then("^I validate the status for the claim \"([^\"]*)\",\"([^\"]*)\" and message \"([^\"]*)\" and \"([^\"]*)\"should appear$")
 	public void i_validate_the_status_for_the_claim_and_message_and_should_appear(String ClaimStatus, String DrugStatus, String ID1msg, String ID2msg) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		
-		
 		Mainframe_GlobalFunctionLib.validateText("21", "6",ClaimStatus );
 		Mainframe_GlobalFunctionLib.pressKey("F7");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F7");
-		
 		Mainframe_GlobalFunctionLib.sendText(4, 23 ,"3" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("F14");
@@ -2321,21 +1870,9 @@ public class SR41877 {
 	    		Assert.fail("Drug not found");
 	    	}
 	    	
-		}
-		
-		
-		
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
-		
-
-	    
+		}		
+		FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-8
+		    
 	}
 
 	@Then("^I validate the Claim status \"([^\"]*)\",\"([^\"]*)\" and messages should not appear$")
@@ -2345,7 +1882,6 @@ public class SR41877 {
 		Mainframe_GlobalFunctionLib.pressKey("F7");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F7");
-		
 		Mainframe_GlobalFunctionLib.sendText(4, 23 ,"3" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("F14");
@@ -2366,13 +1902,10 @@ public class SR41877 {
 				    		Mainframe_GlobalFunctionLib.validateText("6", "30", ClaimStatus2);
 				    		String ActClaimStatus = Mainframe_GlobalFunctionLib.getText(6, 30);
 				    		System.out.println("Actual Claim Status: "+ActClaimStatus);
-				    		
 				    		Mainframe_GlobalFunctionLib.validateText("7", "23", DrugStatus2);
 				    		String ActDrugStatus = Mainframe_GlobalFunctionLib.getText(7, 23);
 				    		System.out.println("Actual Drug Status: "+ActDrugStatus);
-				    	
 				    		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				    		
 				    		String ActID3msg = Mainframe_GlobalFunctionLib.getText(12, 40).trim();
 				    				
 							    		int len = ActID3msg.length();
@@ -2426,23 +1959,8 @@ public class SR41877 {
 				    		Assert.fail("Drug not found");
 				    	}
 				    	
-					}
-		
-		
-		
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12");
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-		Mainframe_GlobalFunctionLib.pressKey("F12"); 
-
-		
-		
+					}		
+			FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-10
 
 	}
 	
@@ -2506,12 +2024,8 @@ public class SR41877 {
 			{
 				System.out.println("Drug Status R Not exist: "+Dstatus4);
 			}
-			Mainframe_GlobalFunctionLib.pressKey("F12"); 
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12"); 
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12"); 
-			Mainframe_GlobalFunctionLib.pressKey("F12"); 
+			FunctionalLibrary.navigateToRxClaimPlanAdministrator(); // F12-6
+
 	}
 }
 

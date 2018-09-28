@@ -22,8 +22,6 @@ Examples:
 | 010101              | 123117              | BHUCAR      | VAH         | SR41404  | USRSAKK |File Conversion Request|Intervention Class not found |
 
 
-
-
 Scenario Outline: User should able to Validate class field when invalid value entered in class code  - SN003483_SR41807_TC004_Req_5.1.2.2
 Given I am on Productivity Reporting
 And I enter invalid value "<InvalidValue>" in Class field
@@ -37,16 +35,13 @@ Examples:
 | WE           | Intervention Class not found.|
 
 
-Scenario Outline: User should able to Verify cursor postions on Transaction From Date Field while running productivity report  - SN003483_SR41807_TC005_Req_5.1.2.3
+Scenario: User should able to Verify cursor postions on Transaction From Date Field while running productivity report  - SN003483_SR41807_TC005_Req_5.1.2.3
 Given I am on Report Management Screen
 And I select Option "2" to navigate to "Productivity Reporting"
 And I press "F4" Key
 
 Then I Validate the cursor position on TransactionFromDate Field
 
-Examples:
-| Validation | 
-| Validation |
 
 Scenario Outline: User should able to Verify cursor postions on Sort Criteria Field after entering From Date, Thru Date, Carrier and on Press enter - SN003483_SR41807_TC005_Req_5.1.2.3
 Given I am on Report Management Screen

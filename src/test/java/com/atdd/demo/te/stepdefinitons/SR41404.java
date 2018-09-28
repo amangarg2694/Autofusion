@@ -15,9 +15,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class SR41404 {
-	
-
-	
+		
 	@Then("^Validate the new menu Eligibility Load Tracking Extract in RxClaim Utility Programs$")
 	public void validate_the_new_menu_Eligibility_Load_Tracking_Extract_in_RxClaim_Utility_Programs() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -53,7 +51,6 @@ public class SR41404 {
 		
 		Mainframe_GlobalFunctionLib.sendText("5","21", "1111111111");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-
 		String Fromdate = Mainframe_GlobalFunctionLib.getText(5, 21);
 		int lenFromDate = Fromdate.length();
 		if(lenFromDate==8)
@@ -67,13 +64,13 @@ public class SR41404 {
 		}
 		
 		Mainframe_GlobalFunctionLib.click(5, 21 );
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		//Mainframe_GlobalFunctionLib.pressKey("F2");
 		Robot r=new Robot();
 		if(arg1.equals("F1")){
 		r.keyPress(KeyEvent.VK_F1);
 		r.keyRelease(KeyEvent.VK_F1);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		}
 		
 	}
@@ -111,7 +108,7 @@ public class SR41404 {
 		}
 		
 		Mainframe_GlobalFunctionLib.click(5, 39 );
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		//System.out.println("Code crossed click");
 		//Mainframe_GlobalFunctionLib.pressKey("Enter");
 		//Mainframe_GlobalFunctionLib.pressKey("F2");
@@ -119,7 +116,7 @@ public class SR41404 {
 		if(arg1.equals("F1")){
 		r.keyPress(KeyEvent.VK_F1);
 		r.keyRelease(KeyEvent.VK_F1);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		}
 		
@@ -148,13 +145,11 @@ public class SR41404 {
 	    // Write code here that turns the phrase above into concrete actions
 		
 		Mainframe_GlobalFunctionLib.click(6, 21 );
-		Thread.sleep(3000);
-
+		Thread.sleep(1000);
 		Robot r=new Robot();
-		
 		r.keyPress(KeyEvent.VK_F1);
 		r.keyRelease(KeyEvent.VK_F1);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		String CarrierHelp1 = Mainframe_GlobalFunctionLib.getText(12, 19);
 		String CarrierHelp2 = Mainframe_GlobalFunctionLib.getText(13, 19);
@@ -206,13 +201,11 @@ public class SR41404 {
 	    // Write code here that turns the phrase above into concrete actions
 	    
 		Mainframe_GlobalFunctionLib.click(6, 39 );
-		Thread.sleep(3000);
-
+		Thread.sleep(1000);
 		Robot r=new Robot();
-		
 		r.keyPress(KeyEvent.VK_F1);
 		r.keyRelease(KeyEvent.VK_F1);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		String CarrierHelp1 = Mainframe_GlobalFunctionLib.getText(12, 19);
 		String CarrierHelp2 = Mainframe_GlobalFunctionLib.getText(13, 19);
@@ -263,13 +256,11 @@ public class SR41404 {
 	    // Write code here that turns the phrase above into concrete actions
 		
 		Mainframe_GlobalFunctionLib.click(6, 57 );
-		Thread.sleep(3000);
-
+		Thread.sleep(1000);
 		Robot r=new Robot();
-		
 		r.keyPress(KeyEvent.VK_F1);
 		r.keyRelease(KeyEvent.VK_F1);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		String CarrierList1 = Mainframe_GlobalFunctionLib.getText(12, 19);
 		String CarrierList2 = Mainframe_GlobalFunctionLib.getText(13, 19);
@@ -319,13 +310,11 @@ public class SR41404 {
 	public void validate_the_help_message_and_length_of_the_field_Carrier_Status() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		Mainframe_GlobalFunctionLib.click(6, 72 );
-		Thread.sleep(3000);
-
+		Thread.sleep(1000);
 		Robot r=new Robot();
-		
 		r.keyPress(KeyEvent.VK_F1);
 		r.keyRelease(KeyEvent.VK_F1);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		String CarrierSts1 = Mainframe_GlobalFunctionLib.getText(12, 5);
 		String CarrierSts2 = Mainframe_GlobalFunctionLib.getText(13, 5);
@@ -375,13 +364,11 @@ public class SR41404 {
 		Mainframe_GlobalFunctionLib.sendText(5, 21,"010101");
 		Mainframe_GlobalFunctionLib.sendText(5, 39,"        ");
 		Mainframe_GlobalFunctionLib.sendText(5, 21,"12317");
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Mainframe_GlobalFunctionLib.click(6, 72 );
-		Thread.sleep(3000);
 		Mainframe_GlobalFunctionLib.pressKey("F4");
 		Mainframe_GlobalFunctionLib.sendText(7, 4,"I");
-		Thread.sleep(2000);
-	    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		
 		String ActCarrierStsListValue1 = Mainframe_GlobalFunctionLib.getText(13, 5);
 		String ExpCarrierStsListValue1 = "I";
@@ -397,8 +384,7 @@ public class SR41404 {
 			
 		Mainframe_GlobalFunctionLib.sendText(7, 4,"  ");
 		Mainframe_GlobalFunctionLib.sendText(7, 4,"E");
-		Thread.sleep(2000);
-	    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
 	    String ActCarrierStsListValue2 = Mainframe_GlobalFunctionLib.getText(13, 5);
 		String ExpCarrierStsListValue2 = "E";
 		if(ExpCarrierStsListValue2.equals(ActCarrierStsListValue2.trim()))
@@ -413,8 +399,7 @@ public class SR41404 {
 		
 		Mainframe_GlobalFunctionLib.sendText(7, 4,"  ");
 		Mainframe_GlobalFunctionLib.sendText(7, 4,"A");
-		Thread.sleep(2000);
-	    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		 Mainframe_GlobalFunctionLib.pressKey("Enter");
 	    String ActCarrierStsListValue3 = Mainframe_GlobalFunctionLib.getText(13, 5);
 		String ExpCarrierStsListValue3 = "A";
 		if(ExpCarrierStsListValue3.equals(ActCarrierStsListValue3.trim()))
@@ -427,7 +412,7 @@ public class SR41404 {
 			Assert.fail("The text "+ ExpCarrierStsListValue3 +" does not match on the screen.Screenshot captured.");	
 		}
 		Mainframe_GlobalFunctionLib.pressKey("F12");
-		Thread.sleep(2000);
+		
 	}
 	
 	
@@ -443,13 +428,11 @@ public class SR41404 {
 	    // Write code here that turns the phrase above into concrete actions
 		
 		Mainframe_GlobalFunctionLib.click(7, 21 );
-		Thread.sleep(3000);
-
+		Thread.sleep(1000);
 		Robot r=new Robot();
-		
 		r.keyPress(KeyEvent.VK_F1);
 		r.keyRelease(KeyEvent.VK_F1);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		String AccountFHelp1 = Mainframe_GlobalFunctionLib.getText(13, 19);
 		String AccountFHelp2 = Mainframe_GlobalFunctionLib.getText(14, 19);
@@ -474,11 +457,8 @@ public class SR41404 {
 		
 		System.out.println("Carrier From help text: "+ActAccountHelptext);
 		Mainframe_GlobalFunctionLib.pressKey("F12");
-	    
-		
-		Mainframe_GlobalFunctionLib.sendText("7","21", "ABCDEFGHIJKLMNOPQR");
+	    Mainframe_GlobalFunctionLib.sendText("7","21", "ABCDEFGHIJKLMNOPQR");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-
 		String AccountFrom = Mainframe_GlobalFunctionLib.getText(7, 21);
 		int lenAccountFrom = AccountFrom.length();
 		if(lenAccountFrom==15)
@@ -505,18 +485,15 @@ public class SR41404 {
 	    // Write code here that turns the phrase above into concrete actions
 
 		Mainframe_GlobalFunctionLib.click(7, 39 );
-		Thread.sleep(3000);
-
+		Thread.sleep(1000);
 		Robot r=new Robot();
-		
 		r.keyPress(KeyEvent.VK_F1);
 		r.keyRelease(KeyEvent.VK_F1);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		String AccountTHelp1 = Mainframe_GlobalFunctionLib.getText(13, 19);
 		String AccountTHelp2 = Mainframe_GlobalFunctionLib.getText(14, 19);
 		String AccountTHelp3 = Mainframe_GlobalFunctionLib.getText(15, 19);
-		
 		String ActAccountThruHelptext=AccountTHelp1+" "+AccountTHelp2+" "+AccountTHelp3;
 		System.out.println(ActAccountThruHelptext);
 		String ExpAccountThruHelptext=("The From and Thru Account fields are used to select records within the range specified based on the Account ID.");
@@ -534,11 +511,8 @@ public class SR41404 {
 		
 		System.out.println("Account Thru help text: "+ActAccountThruHelptext);
 		Mainframe_GlobalFunctionLib.pressKey("F12");
-	    
-		
-		Mainframe_GlobalFunctionLib.sendText("7","39", "ABCDEFGHIJKLMNOPQR");
+	    Mainframe_GlobalFunctionLib.sendText("7","39", "ABCDEFGHIJKLMNOPQR");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-
 		String AccountThru = Mainframe_GlobalFunctionLib.getText(7, 39);
 		int lenAccountThru = AccountThru.length();
 		if(lenAccountThru==15)
@@ -563,18 +537,15 @@ public class SR41404 {
 	public void validate_the_help_message_and_length_of_the_field_Account_List() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		Mainframe_GlobalFunctionLib.click(7, 57 );
-		Thread.sleep(3000);
-
+		Thread.sleep(1000);
 		Robot r=new Robot();
-		
-		r.keyPress(KeyEvent.VK_F1);
+    	r.keyPress(KeyEvent.VK_F1);
 		r.keyRelease(KeyEvent.VK_F1);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		String AccountList1 = Mainframe_GlobalFunctionLib.getText(13, 19);
 		String AccountList2 = Mainframe_GlobalFunctionLib.getText(14, 19);
 		String AccountList3 = Mainframe_GlobalFunctionLib.getText(15, 19);
-		
 		String ActAccountListHelptext=AccountList1+" "+AccountList2+" "+AccountList3;
 		System.out.println(ActAccountListHelptext);
 		String ExpAccountListHelptext=("The Account List field is used to select records based on having a Account ID equal to one contained within the list specified.");
@@ -594,7 +565,6 @@ public class SR41404 {
 		Mainframe_GlobalFunctionLib.pressKey("F12");
 		Mainframe_GlobalFunctionLib.sendText("7","57", "ABCDEFGHIJK");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-
 		String AccountList = Mainframe_GlobalFunctionLib.getText(7, 57);
 		int lenAccountList = AccountList.length();
 		if(lenAccountList==10)
@@ -619,13 +589,11 @@ public class SR41404 {
 	public void validate_the_help_message_and_length_of_the_field_Account_Status() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		Mainframe_GlobalFunctionLib.click(7, 72 );
-		Thread.sleep(3000);
-
-		Robot r=new Robot();
-		
+		Thread.sleep(1000);
+    	Robot r=new Robot();
 		r.keyPress(KeyEvent.VK_F1);
 		r.keyRelease(KeyEvent.VK_F1);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		String AccountSts1 = Mainframe_GlobalFunctionLib.getText(13, 5);
 		String AccountSts2 = Mainframe_GlobalFunctionLib.getText(14, 5);
@@ -650,10 +618,8 @@ public class SR41404 {
 		
 		System.out.println("Account Status help text: "+ActAccountstsHelptext);
 		Mainframe_GlobalFunctionLib.pressKey("F12");
-		
 		Mainframe_GlobalFunctionLib.sendText("7","72", "AEI");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-
 		String AccountSts = Mainframe_GlobalFunctionLib.getText(7, 72);
 		int lenAccountSts = AccountSts.length();
 		if(lenAccountSts==1)
@@ -673,12 +639,10 @@ public class SR41404 {
 	    // Write code here that turns the phrase above into concrete actions
 		
 		Mainframe_GlobalFunctionLib.click(7, 72 );
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Mainframe_GlobalFunctionLib.pressKey("F4");
 		Mainframe_GlobalFunctionLib.sendText(7, 4,"I");
-		Thread.sleep(2000);
-	    Mainframe_GlobalFunctionLib.pressKey("Enter");
-		
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		String ActAccountStsListValue1 = Mainframe_GlobalFunctionLib.getText(13, 5);
 		String ExpAccountStsListValue1 = "I";
 		if(ExpAccountStsListValue1.equals(ActAccountStsListValue1.trim()))
@@ -693,8 +657,7 @@ public class SR41404 {
 			
 		Mainframe_GlobalFunctionLib.sendText(7, 4,"  ");
 		Mainframe_GlobalFunctionLib.sendText(7, 4,"E");
-		Thread.sleep(2000);
-	    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
 	    String ActAccountStsListValue2 = Mainframe_GlobalFunctionLib.getText(13, 5);
 		String ExpAccountStsListValue2 = "E";
 		if(ExpAccountStsListValue2.equals(ActAccountStsListValue2.trim()))
@@ -709,8 +672,7 @@ public class SR41404 {
 		
 		Mainframe_GlobalFunctionLib.sendText(7, 4,"  ");
 		Mainframe_GlobalFunctionLib.sendText(7, 4,"A");
-		Thread.sleep(2000);
-	    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
 	    String ActAccountStsListValue3 = Mainframe_GlobalFunctionLib.getText(13, 5);
 		String ExpAccountStsListValue3 = "A";
 		if(ExpAccountStsListValue3.equals(ActAccountStsListValue3.trim()))
@@ -737,13 +699,11 @@ public class SR41404 {
 	public void validate_the_help_message_and_length_of_the_field_Group_From() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		Mainframe_GlobalFunctionLib.click(8, 21 );
-		Thread.sleep(3000);
-
+		Thread.sleep(1000);
 		Robot r=new Robot();
-		
 		r.keyPress(KeyEvent.VK_F1);
 		r.keyRelease(KeyEvent.VK_F1);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		String GroupFHelp1 = Mainframe_GlobalFunctionLib.getText(14, 19);
 		String GroupFHelp2 = Mainframe_GlobalFunctionLib.getText(15, 19);
@@ -766,11 +726,8 @@ public class SR41404 {
 		
 		System.out.println("Group From help text: "+ActGroupHelptext);
 		Mainframe_GlobalFunctionLib.pressKey("F12");
-	    
-		
-		Mainframe_GlobalFunctionLib.sendText("8","21", "ABCDEFGHIJKLMNOPQR");
+	    Mainframe_GlobalFunctionLib.sendText("8","21", "ABCDEFGHIJKLMNOPQR");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-
 		String GroupFrom = Mainframe_GlobalFunctionLib.getText(8, 21);
 		int lenGroupFrom = GroupFrom.length();
 		if(lenGroupFrom==15)
@@ -782,7 +739,6 @@ public class SR41404 {
 			System.out.println("Length of the Field Account From is NOT: "+lenGroupFrom);
 			
 		}
-		
 	}
 	
 	@When("^I navigate to the field Group Thru$")
@@ -797,18 +753,14 @@ public class SR41404 {
 	    // Write code here that turns the phrase above into concrete actions
 		
 		Mainframe_GlobalFunctionLib.click(8, 39 );
-		Thread.sleep(3000);
-
+		Thread.sleep(1000);
 		Robot r=new Robot();
-		
 		r.keyPress(KeyEvent.VK_F1);
 		r.keyRelease(KeyEvent.VK_F1);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		String GroupTHelp1 = Mainframe_GlobalFunctionLib.getText(14, 19);
 		String GroupTHelp2 = Mainframe_GlobalFunctionLib.getText(15, 19);
-		
-		
 		String ActGroupThruHelptext=GroupTHelp1+" "+GroupTHelp2;
 		System.out.println(ActGroupThruHelptext);
 		String ExpGroupThruHelptext=("The From and Thru Group fields are used to select records within the range based on the Group ID.");
@@ -826,11 +778,8 @@ public class SR41404 {
 		
 		System.out.println("Group Thru help text: "+ActGroupThruHelptext);
 		Mainframe_GlobalFunctionLib.pressKey("F12");
-	    
-		
-		Mainframe_GlobalFunctionLib.sendText("8","39", "ABCDEFGHIJKLMNOPQR");
+	    Mainframe_GlobalFunctionLib.sendText("8","39", "ABCDEFGHIJKLMNOPQR");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-
 		String GroupThru = Mainframe_GlobalFunctionLib.getText(8, 39);
 		int lenGroupThru = GroupThru.length();
 		if(lenGroupThru==15)
@@ -856,17 +805,14 @@ public class SR41404 {
 	    // Write code here that turns the phrase above into concrete actions
 	   
 		Mainframe_GlobalFunctionLib.click(8, 57 );
-		Thread.sleep(3000);
-
+		Thread.sleep(1000);
 		Robot r=new Robot();
-		
 		r.keyPress(KeyEvent.VK_F1);
 		r.keyRelease(KeyEvent.VK_F1);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		String GroupList1 = Mainframe_GlobalFunctionLib.getText(14, 19);
 		String GroupList2 = Mainframe_GlobalFunctionLib.getText(15, 19);
-		
 		String ActGroupListHelptext=GroupList1+" "+GroupList2;
 		System.out.println(ActGroupListHelptext);
 		String ExpGroupListHelptext=("The From and Thru Group fields are used to select records within the range based on the Group ID.");
@@ -903,8 +849,7 @@ public class SR41404 {
 	@When("^I navigate to the field Group Status$")
 	public void i_navigate_to_the_field_Group_Status() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    
-		Mainframe_GlobalFunctionLib.click(8, 72 );
+	    Mainframe_GlobalFunctionLib.click(8, 72 );
 		Mainframe_GlobalFunctionLib.sendText("8","72", " ");
 	}
 
@@ -913,13 +858,11 @@ public class SR41404 {
 	    // Write code here that turns the phrase above into concrete actions
 	    
 		Mainframe_GlobalFunctionLib.click(8, 72 );
-		Thread.sleep(3000);
-
+		Thread.sleep(1000);
 		Robot r=new Robot();
-		
 		r.keyPress(KeyEvent.VK_F1);
 		r.keyRelease(KeyEvent.VK_F1);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		String GroupSts1 = Mainframe_GlobalFunctionLib.getText(14, 5);
 		String GroupSts2 = Mainframe_GlobalFunctionLib.getText(15, 5);
@@ -944,10 +887,8 @@ public class SR41404 {
 		
 		System.out.println("Group Status help text: "+ActGroupstsHelptext);
 		Mainframe_GlobalFunctionLib.pressKey("F12");
-		
 		Mainframe_GlobalFunctionLib.sendText("8","72", "AEI");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-
 		String GroupSts = Mainframe_GlobalFunctionLib.getText(8, 72);
 		int lenGroupSts = GroupSts.length();
 		if(lenGroupSts==1)
@@ -964,14 +905,11 @@ public class SR41404 {
 	@Then("^Validate Group status field values$")
 	public void validate_group_status_field_values() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	   
-		Mainframe_GlobalFunctionLib.click(8, 72 );
-		Thread.sleep(3000);
+	   	Mainframe_GlobalFunctionLib.click(8, 72 );
+		Thread.sleep(1000);
 		Mainframe_GlobalFunctionLib.pressKey("F4");
 		Mainframe_GlobalFunctionLib.sendText(7, 4,"I");
-		Thread.sleep(2000);
-	    Mainframe_GlobalFunctionLib.pressKey("Enter");
-		
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		String ActGroupStsListValue1 = Mainframe_GlobalFunctionLib.getText(13, 5);
 		String ExpGroupStsListValue1 = "I";
 		if(ExpGroupStsListValue1.equals(ActGroupStsListValue1.trim()))
@@ -986,8 +924,7 @@ public class SR41404 {
 			
 		Mainframe_GlobalFunctionLib.sendText(7, 4,"  ");
 		Mainframe_GlobalFunctionLib.sendText(7, 4,"E");
-		Thread.sleep(2000);
-	    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
 	    String ActGroupStsListValue2 = Mainframe_GlobalFunctionLib.getText(13, 5);
 		String ExpGroupStsListValue2 = "E";
 		if(ExpGroupStsListValue2.equals(ActGroupStsListValue2.trim()))
@@ -1002,8 +939,7 @@ public class SR41404 {
 		
 		Mainframe_GlobalFunctionLib.sendText(7, 4,"  ");
 		Mainframe_GlobalFunctionLib.sendText(7, 4,"A");
-		Thread.sleep(2000);
-	    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
 	    String ActGroupStsListValue3 = Mainframe_GlobalFunctionLib.getText(13, 5);
 		String ExpGroupStsListValue3 = "A";
 		if(ExpGroupStsListValue3.equals(ActGroupStsListValue3.trim()))
@@ -1029,16 +965,12 @@ public class SR41404 {
 	public void validate_the_help_message_and_length_of_the_field_File_Name() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		Mainframe_GlobalFunctionLib.click(10, 21 );
-		Thread.sleep(3000);
-
+		Thread.sleep(1000);
 		Robot r=new Robot();
-		
 		r.keyPress(KeyEvent.VK_F1);
 		r.keyRelease(KeyEvent.VK_F1);
-		Thread.sleep(3000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		String ActFileNameHelptext = Mainframe_GlobalFunctionLib.getText(16, 19);
-		
 		System.out.println(ActFileNameHelptext);
 		String ExpFileNameHelptext=("File is used to store the output.");
 		if(ExpFileNameHelptext.equals(ActFileNameHelptext.trim()))
@@ -1057,7 +989,6 @@ public class SR41404 {
 		Mainframe_GlobalFunctionLib.pressKey("F12");
 		Mainframe_GlobalFunctionLib.sendText("10","21", "ABCDEFGHIJK");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-
 		String FileName = Mainframe_GlobalFunctionLib.getText(10, 21);
 		int lenFileName = FileName.length();
 		if(lenFileName==9)
@@ -1069,7 +1000,6 @@ public class SR41404 {
 			System.out.println("Length of the Field File Name is NOT: "+lenFileName);
 			
 		}
-		
 	}
 	
 	@When("^I navigate to the field Library$")
@@ -1084,17 +1014,14 @@ public class SR41404 {
 	    // Write code here that turns the phrase above into concrete actions
 	  
 		Mainframe_GlobalFunctionLib.click(11, 21 );
-		Thread.sleep(3000);
-
+		Thread.sleep(1000);
 		Robot r=new Robot();
-		
 		r.keyPress(KeyEvent.VK_F1);
 		r.keyRelease(KeyEvent.VK_F1);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		String Library1 = Mainframe_GlobalFunctionLib.getText(17, 19);
 		String Library2 = Mainframe_GlobalFunctionLib.getText(18, 19);
-		
 		String ActLibraryHelptext=Library1+" "+Library2;
 		System.out.println(ActLibraryHelptext);
 		String ExpLibraryHelptext=("The Library Name field identifies the name of the library which contains the file.");
@@ -1114,7 +1041,6 @@ public class SR41404 {
 		Mainframe_GlobalFunctionLib.pressKey("F12");
 		Mainframe_GlobalFunctionLib.sendText("11","21", "ABCDEFGHIJ1");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-
 		String Library = Mainframe_GlobalFunctionLib.getText(11, 21);
 		int lenLibrary = Library.length();
 		if(lenLibrary==10)
@@ -1131,31 +1057,25 @@ public class SR41404 {
 	@Then("^User should navigate to RxClaim Utility Programs$")
 	public void user_should_navigate_to_RxClaim_Utility_Programs() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    
-		
-		Mainframe_GlobalFunctionLib.validateText("1", "13", "RxClaim Utility Programs");
+	    Mainframe_GlobalFunctionLib.validateText("1", "13", "RxClaim Utility Programs");
 	}
 
 	@Then("^I Validate the new screen file Conversion Request \"([^\"]*)\" is added$")
 	public void i_Validate_the_new_screen_file_Conversion_Request_is_added(String NewScreen) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	   
-		Mainframe_GlobalFunctionLib.validateText("8", "23", NewScreen);
+	   	Mainframe_GlobalFunctionLib.validateText("8", "23", NewScreen);
 	}
 	
 	@Then("^I Validate \"([^\"]*)\" and \"([^\"]*)\" field values appear in File Conversion Request screen$")
 	public void i_Validate_and_field_values_appear_in_File_Conversion_Request_screen(String FileName, String Library) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    
-		
-		//String Library1 = Mainframe_GlobalFunctionLib.getText(17, 19);
+	    //String Library1 = Mainframe_GlobalFunctionLib.getText(17, 19);
 		//String Library2 = Mainframe_GlobalFunctionLib.getText(18, 19);
 		String ActDataFile= Mainframe_GlobalFunctionLib.getText(13, 21);
 		String ExpDataFile=Library+"/"+FileName;
 		System.out.println(ActDataFile);
 		System.out.println(ExpDataFile);
 		Mainframe_GlobalFunctionLib.validateText("13", "21", ExpDataFile);
-
 		
 	}
 	
@@ -1164,11 +1084,11 @@ public class SR41404 {
 	    // Write code here that turns the phrase above into concrete actions
 	    
 		Mainframe_GlobalFunctionLib.click(13, 48 );
+		Thread.sleep(1000);
 		Robot r=new Robot();
 		r.keyPress(KeyEvent.VK_F1);
 		r.keyRelease(KeyEvent.VK_F1);
-		Thread.sleep(3000);
-
+		Thread.sleep(1000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		String DatafileCTHelp1 = Mainframe_GlobalFunctionLib.getText(17, 5);
 		String DatafileCTHelp2 = Mainframe_GlobalFunctionLib.getText(18, 5);
@@ -1189,11 +1109,8 @@ public class SR41404 {
 		}
 
 		Mainframe_GlobalFunctionLib.pressKey("F12");
-	    
-		
-		Mainframe_GlobalFunctionLib.sendText("13","48", "ABCD");
+	    Mainframe_GlobalFunctionLib.sendText("13","48", "ABCD");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-
 		String DataFileCT = Mainframe_GlobalFunctionLib.getText(13, 48);
 		int lenDataFileCT = DataFileCT.length();
 
@@ -1246,11 +1163,11 @@ public class SR41404 {
 	    // Write code here that turns the phrase above into concrete actions
 	    
 		Mainframe_GlobalFunctionLib.click(14, 48 );
+		Thread.sleep(1000);
 		Robot r=new Robot();
 		r.keyPress(KeyEvent.VK_F1);
 		r.keyRelease(KeyEvent.VK_F1);
-		Thread.sleep(3000);
-
+		Thread.sleep(1000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		String SpoolfileCTHelp1 = Mainframe_GlobalFunctionLib.getText(7, 19);
 		String SpoolfileCTHelp2 = Mainframe_GlobalFunctionLib.getText(8, 19);
@@ -1271,12 +1188,9 @@ public class SR41404 {
 		}
 
 		Mainframe_GlobalFunctionLib.pressKey("F12");
-	    
-		
-		Mainframe_GlobalFunctionLib.sendText("14","48", "ABCD");
+	    Mainframe_GlobalFunctionLib.sendText("14","48", "ABCD");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-
-		String SpoolFileCT = Mainframe_GlobalFunctionLib.getText(14, 48);
+    	String SpoolFileCT = Mainframe_GlobalFunctionLib.getText(14, 48);
 		int lenSpoolFileCT = SpoolFileCT.length();
 
 		if(lenSpoolFileCT==3)
@@ -1302,12 +1216,9 @@ public class SR41404 {
 		Mainframe_GlobalFunctionLib.sendText(3, 19,"PDF");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 	   	Mainframe_GlobalFunctionLib.validateText("6", "10", "PDF"); 
-	   	Thread.sleep(2000);
 	   	Mainframe_GlobalFunctionLib.sendText(3, 19,"TXT");		
 	   	Mainframe_GlobalFunctionLib.pressKey("Enter");
 	   	Mainframe_GlobalFunctionLib.validateText("6", "10", "TXT");
-	   	Thread.sleep(2000);
-	   	
 	   	Mainframe_GlobalFunctionLib.sendText(3, 19,"*BLANK");		
 	   	Mainframe_GlobalFunctionLib.pressKey("Enter");
 	   	Mainframe_GlobalFunctionLib.validateText("6", "10", "*BLANK");
@@ -1335,8 +1246,7 @@ public class SR41404 {
 	@When("^I select yes to continue$")
 	public void i_select_yes_to_continue() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	   
-		Mainframe_GlobalFunctionLib.sendText(16, 69,"Y" );
+	   	Mainframe_GlobalFunctionLib.sendText(16, 69,"Y" );
 		Thread.sleep(1000);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 	}
@@ -1358,35 +1268,26 @@ public class SR41404 {
 	    	{
 	    			Thread.sleep(2000);
 			    		String jobN = Mainframe_GlobalFunctionLib.getText(8, 34);
-			    		Thread.sleep(2000);
 			    		Mainframe_GlobalFunctionLib.pressKey("F12");
 			    		Mainframe_GlobalFunctionLib.pressKey("F12");
 			    		String qry2="CHGJOB";
-			    		Thread.sleep(2000);
 			    		Mainframe_GlobalFunctionLib.sendText(21, 7,qry2);   
-			    		Thread.sleep(2000);
+			    		Thread.sleep(1000);
 			    		Mainframe_GlobalFunctionLib.pressKey("F4");  	
-			    		Thread.sleep(3000);
+			    		Thread.sleep(1000);
 			    		Mainframe_GlobalFunctionLib.sendText(5, 37,Jname);
-			    		Thread.sleep(1000);
 			    		Mainframe_GlobalFunctionLib.sendText(6, 39,Juser);
-			    		Thread.sleep(1000);
 			    		Mainframe_GlobalFunctionLib.sendText(7, 39,jobN);
-			    		Thread.sleep(1000);
 			    		Mainframe_GlobalFunctionLib.pressKey("Enter");
-			    		Thread.sleep(1000);
 			    		Mainframe_GlobalFunctionLib.pressKey("F10");    
-			    		Thread.sleep(2000);
 			    		Mainframe_GlobalFunctionLib.sendText(17, 37,"QPGMR");
-			    		Thread.sleep(3000);
 			    		Mainframe_GlobalFunctionLib.pressKey("Enter");
-			    		
 			    		System.out.println("Job Completed Successfully: "+status);
 			    		//Mainframe_GlobalFunctionLib.pressKey("F12"); 
 			    		//Mainframe_GlobalFunctionLib.click(21, 7 );
 						//Thread.sleep(1000);
 						//Mainframe_GlobalFunctionLib.sendText(21, 7,"                              " );
-						Thread.sleep(3000);
+						
 	    			}
 
 	    	 else if(status.contains("ACTIVE")) {
@@ -1398,12 +1299,11 @@ public class SR41404 {
 	    		 Mainframe_GlobalFunctionLib.pressKey("Enter");
 	    		 Thread.sleep(5000);
 	    		 } while(Mainframe_GlobalFunctionLib.getText(8, 52).contains("ACTIVE"));
-	    		 
-	    		 //Mainframe_GlobalFunctionLib.pressKey("F12");
+	    		  //Mainframe_GlobalFunctionLib.pressKey("F12");
 	    		// Mainframe_GlobalFunctionLib.click(21, 7 );
 	    			//Thread.sleep(1000);
 	    			//Mainframe_GlobalFunctionLib.sendText(21, 7,"                            " );
-	    			Thread.sleep(3000);
+	    			Thread.sleep(1000);
 	    			System.out.println("Job Completed Successfully: "+status);
 	    	 }
 	    		 
@@ -1414,12 +1314,9 @@ public class SR41404 {
 	    	//Mainframe_GlobalFunctionLib.click(21, 7 );
 			//Thread.sleep(1000);
 			//Mainframe_GlobalFunctionLib.sendText(21, 7,"                            " );
-			Thread.sleep(3000);
-	    	 
+				    	 
 	    		}
-		
-
-	}
+			}
 	
 	@Then("^I Validate the spool file is generated with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_Validate_the_spool_file_is_generated_with(String ReportName, String CarrierFrom, String CarrierThru, String FileName, String Library) throws Throwable {
@@ -1492,8 +1389,7 @@ public class SR41404 {
 		{
 			System.out.println("Eligibility Reporting contains: "+"NoValue");
 		}
-		
-
+	
 	}
 	
 	@When("^I have entered the values \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\", in the screen EligibilityLoadTrackingExtractScreen$")
@@ -1543,13 +1439,10 @@ public class SR41404 {
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText("9","2", "1");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		
 		Mainframe_GlobalFunctionLib.sendText("10","21", FileName);
 		Mainframe_GlobalFunctionLib.sendText("11","21", Library);
-		Thread.sleep(3000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F6");
-		
 		Mainframe_GlobalFunctionLib.click(13, 48 );
 		Mainframe_GlobalFunctionLib.pressKey("F4");
 		Mainframe_GlobalFunctionLib.sendText("3","19", DFCT);
@@ -1557,7 +1450,6 @@ public class SR41404 {
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText("6","7", "1");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		
 		Mainframe_GlobalFunctionLib.click(14, 48 );
 		Mainframe_GlobalFunctionLib.pressKey("F4");
 		Mainframe_GlobalFunctionLib.sendText("3","19", SPCT);
@@ -1569,17 +1461,8 @@ public class SR41404 {
 		Mainframe_GlobalFunctionLib.click(16, 69 );
 		Mainframe_GlobalFunctionLib.sendText("16","69", "Y");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		
-		
+				
 	}
 }
 
-
-
-
-	
-	
-
-
-	
 

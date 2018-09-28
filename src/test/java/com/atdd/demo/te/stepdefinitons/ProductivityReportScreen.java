@@ -13,7 +13,7 @@ import com.optumrx.autofusion.core.te.util.Screenshot;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-public class SR41807 {
+public class ProductivityReportScreen {
 
 	
 	@Then("^I Validate error message \"([^\"]*)\" is not displaying for Class field$")
@@ -34,9 +34,6 @@ public class SR41807 {
 			Assert.fail("Test Failed for mandatory field for Class Field.");
 		}
 		
-		Thread.sleep(2000);
-		
-			
 	}
 	
 	@Given("^I am on Productivity Reporting$")
@@ -51,9 +48,7 @@ public class SR41807 {
 	    // Write code here that turns the phrase above into concrete actions
 	   
 		Mainframe_GlobalFunctionLib.sendText("15","11", InvalidValue);
-		
-		
-	}
+		}
 	
 
 	@Then("^I Validate message \"([^\"]*)\" should display for invalid value \"([^\"]*)\"$")
@@ -133,74 +128,51 @@ public class SR41807 {
 	public void i_Validate_the_Job_is_completed_with(String Juser, String Jname) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	    
-		Thread.sleep(3000);
 		String qry="WRKJOB JOB("+Juser+"/"+Jname+")";
-		
-	    Mainframe_GlobalFunctionLib.sendText(21, 7,qry);
-	    Thread.sleep(2000);
+		Mainframe_GlobalFunctionLib.sendText(21, 7,qry);
+		Thread.sleep(1000);
 	    Mainframe_GlobalFunctionLib.pressKey("Enter");
-	    Thread.sleep(2000);
 	    String status = Mainframe_GlobalFunctionLib.getText(8, 52);
-	    Thread.sleep(2000);
-	    	if(status.contains("JOBQ"))
+	    if(status.contains("JOBQ"))
 	   
 	    	{
-	    			Thread.sleep(2000);
+	    			
 			    		String jobN = Mainframe_GlobalFunctionLib.getText(8, 34);
-			    		Thread.sleep(2000);
 			    		Mainframe_GlobalFunctionLib.pressKey("F12");
 			    		Mainframe_GlobalFunctionLib.pressKey("F12");
 			    		String qry2="CHGJOB";
-			    		Thread.sleep(2000);
-			    		Mainframe_GlobalFunctionLib.sendText(21, 7,qry2);   
-			    		Thread.sleep(2000);
+			    		Mainframe_GlobalFunctionLib.sendText(21, 7,qry2); 
 			    		Mainframe_GlobalFunctionLib.pressKey("F4");  	
-			    		Thread.sleep(3000);
 			    		Mainframe_GlobalFunctionLib.sendText(5, 37,Jname);
-			    		Thread.sleep(1000);
 			    		Mainframe_GlobalFunctionLib.sendText(6, 39,Juser);
-			    		Thread.sleep(1000);
 			    		Mainframe_GlobalFunctionLib.sendText(7, 39,jobN);
-			    		Thread.sleep(1000);
 			    		Mainframe_GlobalFunctionLib.pressKey("Enter");
-			    		Thread.sleep(1000);
 			    		Mainframe_GlobalFunctionLib.pressKey("F10");    
-			    		Thread.sleep(2000);
 			    		Mainframe_GlobalFunctionLib.sendText(17, 37,"QPGMR ");
-			    		Thread.sleep(3000);
 			    		Mainframe_GlobalFunctionLib.pressKey("Enter");
-			    		
 			    		System.out.println("Job Completed Successfully: "+status);
-			    		
-						Thread.sleep(3000);
 						Mainframe_GlobalFunctionLib.sendText(21, 7,qry);
-					    Thread.sleep(2000);
 					    Mainframe_GlobalFunctionLib.pressKey("Enter");
 	    			}
 
 	    	 else if(status.contains("ACTIVE")) {
 	    		 
-	    		 do{
+		    		 do{
+		    		 
+		    		 Mainframe_GlobalFunctionLib.pressKey("F12");
+		    		 Mainframe_GlobalFunctionLib.sendText(21, 7,qry);
+		    		 Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    		 Thread.sleep(2000);
+		    		 } while(Mainframe_GlobalFunctionLib.getText(8, 52).contains("ACTIVE"));
 	    		 
-	    		 Mainframe_GlobalFunctionLib.pressKey("F12");
-	    		 Mainframe_GlobalFunctionLib.sendText(21, 7,qry);
-	    		 Mainframe_GlobalFunctionLib.pressKey("Enter");
-	    		 Thread.sleep(5000);
-	    		 } while(Mainframe_GlobalFunctionLib.getText(8, 52).contains("ACTIVE"));
-	    		 
-	    		
-	    			Thread.sleep(3000);
-	    	 }
+	    		 }
 	    		 
 	    	else
 	    		{
 	    	System.out.println("Job Completed Successfully: "+status);
-	    	
-			Thread.sleep(3000);
 	    	 
 	    		}
-		
-	    	 //Mainframe_GlobalFunctionLib.sendText(21, 7,qry);
+		    	 //Mainframe_GlobalFunctionLib.sendText(21, 7,qry);
 	}
 	
 	@Then("^I Validate the Class codes \"([^\"]*)\",\"([^\"]*)\"\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" displays in Spool file Report \"([^\"]*)\" for Carrier \"([^\"]*)\",\"([^\"]*)\"$")
@@ -337,26 +309,21 @@ public class SR41807 {
 			 System.out.println("Spool file has Class code value in detailed Report Section as : "+ClassField5);
 			 
 			 Mainframe_GlobalFunctionLib.pressKey("F12");
-			 
-			
-			 
+				 
 	}
 	
 	@Then("^I Validate the Class codes \"([^\"]*)\",\"([^\"]*)\"\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" in file \"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_Validate_the_Class_codes_in_file(String ClassField1, String ClassField2, String ClassField3, String ClassField4, String ClassField5, String Library, String FileName) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    
-		
+	    		
 		String ExpClassCodes= ClassField1+ClassField2+ClassField3+ClassField4+ClassField5;
 		System.out.println("Expected Class Codes : "+ExpClassCodes);
 
 			String runqry="RUNQRY QRYFILE(("+Library+"/"+FileName+"))";
-			Thread.sleep(3000);
 			Mainframe_GlobalFunctionLib.sendText(22,7, runqry);
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Mainframe_GlobalFunctionLib.sendText(3, 126,"68" );
-			Thread.sleep(3000);
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			
 			label1:	for (int j = 7; j < 894; ++j) {
@@ -461,18 +428,15 @@ public class SR41807 {
 		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		 Mainframe_GlobalFunctionLib.validateText("7", "117", ClassField);
 		 System.out.println("Spool file has Class field Value as : "+ClassField);
-		 Thread.sleep(3000);
 		 
 		 //Mainframe_GlobalFunctionLib.pressKey("F12");
 		 //Mainframe_GlobalFunctionLib.sendText(11, 3,"5");
 		 //Mainframe_GlobalFunctionLib.pressKey("Enter");
 		 Mainframe_GlobalFunctionLib.sendText(4, 22,"                       ");
 		 Mainframe_GlobalFunctionLib.sendText(4, 22,ClassField1);
-		 Thread.sleep(3000);
 		 Mainframe_GlobalFunctionLib.pressKey("Enter");
 		 Thread.sleep(3000);
 		 Mainframe_GlobalFunctionLib.pressKey("F16");
-		 Thread.sleep(3000);
 		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		 Mainframe_GlobalFunctionLib.validateText("7", "114", ClassField1);
 		 System.out.println("Spool file has Class field Value as : "+ClassField1);
@@ -485,12 +449,10 @@ public class SR41807 {
 	    // Write code here that turns the phrase above into concrete actions
 	  
 		String runqry="RUNQRY QRYFILE(("+Library+"/"+FileName+"))";
-		Thread.sleep(3000);
 		Mainframe_GlobalFunctionLib.sendText(22,7, runqry);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(3, 126,"68" );
-		Thread.sleep(3000);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		
 		String ActClassCodeBlank= Mainframe_GlobalFunctionLib.getText(7, 9);
@@ -530,12 +492,10 @@ public class SR41807 {
 		System.out.println("Expected Class Codes : "+ExpClassCodes);
 
 			String runqry="RUNQRY QRYFILE(("+Library+"/"+FileName+"))";
-			Thread.sleep(3000);
 			Mainframe_GlobalFunctionLib.sendText(22,7, runqry);
 			Thread.sleep(3000);
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Mainframe_GlobalFunctionLib.sendText(3, 126,"68" );
-			Thread.sleep(3000);
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			
 			label1:	for (int j = 7; j < 894; ++j) {
