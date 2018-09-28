@@ -9,8 +9,7 @@ Scenario Outline: Create a new member in RxClaim with existing CAG
     And I search Member by MemberID "<MemberID>"
     And I press "F12" Key
 		And I press "F12" Key
-		#And I add library RXBSYSQA
-		 #public static String baseMemberID=null;
+
     Examples:
     | CarrierID | AccountID    | GroupID      | MemberID   | FirstName  | LastName  | DOB      | FromDate  | ThruDate |
 		|	SN003280  | SN003280ACC1 | SN003280GRP1 | M304140548 | AUTOMEM    | AUTOMEM   | 12251987 | 010111    | 123139   |
@@ -28,9 +27,7 @@ Scenario Outline: Create a new member in RxClaim with existing CAG
 		And I press "F12" Key 
 		And I press "F12" Key
 		And I press "F12" Key 
-		#public static String Plan=null;
-		#public static String activePriceSchedule=null;
-		#public static String activePatientPaySchedule=null;
+
 	  Examples: 
       |Plan 	 | 
       |SN003280|   

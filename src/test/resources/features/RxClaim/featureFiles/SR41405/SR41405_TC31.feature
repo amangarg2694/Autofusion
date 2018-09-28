@@ -10,7 +10,7 @@ Scenario Outline: Create a new member in RxClaim with existing CAG
     And I press "F12" Key
 		And I press "F12" Key
 		And I add library RXBSYSQA
-		 #public static String baseMemberID=null;
+
     Examples:
     | CarrierID | AccountID    | GroupID      | MemberID   | FirstName  | LastName  | DOB      | FromDate  | ThruDate |
 		|	SN003280  | SN003280ACC1 | SN003280GRP1 | M314140544 | AUTOMEM    | AUTOMEM   | 12251987 | 010111    | 123139   |
@@ -28,9 +28,7 @@ Scenario Outline: Create a new member in RxClaim with existing CAG
 		And I press "F12" Key 
 		And I press "F12" Key
 		And I press "F12" Key 
-		#public static String Plan=null;
-		#public static String activePriceSchedule=null;
-		#public static String activePatientPaySchedule=null;
+
 	  Examples: 
       |Plan 	 | 
       |SN003280|   
@@ -57,7 +55,7 @@ Scenario Outline: Create a new member in RxClaim with existing CAG
   Scenario Outline: Submit a claim in RxClaim
     Given I select Option "3" to navigate to "Manual Claim Menu"
     When I select Option "2" to navigate to "Manual Claim Maintenance"
-    #And I add library RXBSYSQA
+    And I add library RXBSYSQA
     And I press "F12" Key 
 		And I press "F12" Key
     When I submit a claim with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>"
