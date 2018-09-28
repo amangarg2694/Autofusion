@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 import com.atdd.te.screenHelpers.CommonHelper;
+//import com.atdd.te.screenHelpers.CommonHelper;
 import com.cucumber.listener.ExtentProperties;
 import com.cucumber.listener.Reporter;
 import com.hp.lft.sdk.SDK;
@@ -23,71 +24,90 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
-		features = { "classpath:features/RxClaim/featureFiles/SR41687/SR41687.feature" },
+		features = { "classpath:features/RxClaim/featureFiles/SR41710" },
 
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 
 		glue = { "com.atdd.demo.te" }
-
-)
-public class RunDemoTest extends AbstractTestNGCucumberTests {
-
-	public static String reportname;
-
-	@Parameters({ "configFile" , "scrOption" })
-	@BeforeClass
-	public static void setup(String configFile , String scrOption) throws IOException {
-
-		System.out.println("The file  from testNG test  is " + configFile);
-		ExtentProperties extentProperties = ExtentProperties.INSTANCE;
-		extentProperties.setReportPath("output/MyReport.html");   		
-   		System.out.println("Starting @before clas");
-   		ReadPropertyFile.setPropertyMap(System.getProperty("user.dir")+"//src//test//resources//features//RxClaim//OR");  		
-   		ReadPropertyFile.configFileReader(configFile);
-   		CommonHelper.ScreenshotOption = scrOption;
-   		CommonHelper.login();
-   		
-}	
-
-	
-
-	@AfterClass
-	public static void teardown() throws Exception {
-
-//		Mainframe_GlobalFunctionLib.closeTE();
-		SDK.cleanup();
+		,tags ={"@TC5,@TC9"}
 		
+)
+public class RunDemoTest extends AbstractTestNGCucumberTests { 
 
-		try {
-			Reporter.loadXMLConfig(new File("src/test/resources/extentConfig/extent-config.xml"));
-			Reporter.setSystemInfo("user", System.getProperty("user.name"));
-			Reporter.setSystemInfo("os", "Window OS");
-			Reporter.setTestRunnerOutput("RxClaim Leanft Report");
+	 
+	public static String reportname; 
+ 
+ 
+ 	@Parameters({ "configFile" , "scrOption" }) 
+	@BeforeClass 
+	public static void setup(String configFile , String scrOption) throws IOException { 
 
-		}
+ 
+		System.out.println("The file  from testNG test  is " + configFile); 
+		ExtentProperties extentProperties = ExtentProperties.INSTANCE; 
+		extentProperties.setReportPath("output/MyReport.html");   		 
+   		System.out.println("Starting @before clas"); 
+   		ReadPropertyFile.setPropertyMap(System.getProperty("user.dir")+"//src//test//resources//features//RxClaim//OR");  		 
+   		ReadPropertyFile.configFileReader(configFile); 
+    	CommonHelper.ScreenshotOption = scrOption; 
+   		CommonHelper.login(); 
+    		 
+ }	 
 
-		catch (Exception e) {
+ 
 
-			System.out.println("The report could not be generated for this run");
-		}
+ 
+	@AfterClass 
+	public static void teardown() throws Exception { 
+ 
+ 
+ //		Mainframe_GlobalFunctionLib.closeTE(); 
+		SDK.cleanup(); 
+		 
+ 
+ 
+		try { 
+			Reporter.loadXMLConfig(new File("src/test/resources/extentConfig/extent-config.xml")); 
+			Reporter.setSystemInfo("user", System.getProperty("user.name")); 
+			Reporter.setSystemInfo("os", "Window OS"); 
+			Reporter.setTestRunnerOutput("RxClaim Leanft Report"); 
 
-	}
+ 
+		} 
 
-	@AfterSuite
+ 
+		catch (Exception e) { 
 
-	public static void parser() throws Exception {
+ 
+ 			System.out.println("The report could not be generated for this run"); 
+		} 
 
-		// PageObjectBase.extentReportParser("output/"+reportname);
+ 
+ 	} 
 
-		ReportHelper.createCucumberHTMLReport("target", "target//cucumber.json", "ATDD_LEANFT_DEMO");
+ 
+ 	@AfterSuite 
+ 
+ 
+	public static void parser() throws Exception { 
 
-	}
-	
-/*	public void testMain(Object[] args) throws Exception
-	{
-		Mainframe_GlobalFunctionLib.closeTE();
-	
-	}*/
+ 
+		// PageObjectBase.extentReportParser("output/"+reportname); 
 
-}
+ 
+		ReportHelper.createCucumberHTMLReport("target", "target//cucumber.json", "ATDD_LEANFT_DEMO"); 
+
+ 
+	} 
+ 	 
+ /*	public void testMain(Object[] args) throws Exception 
+ 	{ 
+		Mainframe_GlobalFunctionLib.closeTE(); 
+ 	 
+	}*/ 
+
+ 
+ } 
+
+
