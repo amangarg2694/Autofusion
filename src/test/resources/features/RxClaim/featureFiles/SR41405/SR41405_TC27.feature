@@ -8,11 +8,12 @@ Scenario Outline: Create a new member in RxClaim with existing CAG
 		Given I am on RxClaim PlanAdministrator Menu 
     When I create Member with "<CarrierID>","<AccountID>","<GroupID>","<MemberID>","<FirstName>","<LastName>","<DOB>","<FromDate>","<ThruDate>"
     And I search Member by MemberID "<MemberID>"
+   	And I press "F12" Key 
+		And I press "F12" Key
    
-   #public static String baseMemberID=null;
     Examples:
-    | CarrierID | AccountID    | GroupID      | MemberID   | FirstName  | LastName  | DOB      | FromDate  | ThruDate |
-		|	SN003280  | SN003280ACC1 | SN003280GRP1 | MEM4140545 | AUTOMEM    | AUTOMEM   | 12251987 | 010101    | 123139   |
+    | CarrierID | AccountID    | GroupID     		 | MemberID   | FirstName  | LastName  | DOB      | FromDate  | ThruDate |
+		|	SN003280  | SN003280AUTO | SN003280GRPAUTO | M274140546 | AUTOMEM    | AUTOMEM   | 12251987 | 010101    | 123139   |
 		
    Scenario Outline: Verify Pricing setup in Plan	
   	And I select Option "4" to navigate to "Plan"
@@ -27,12 +28,10 @@ Scenario Outline: Create a new member in RxClaim with existing CAG
 		And I press "F12" Key 
 		And I press "F12" Key
 		And I press "F12" Key 
-		#public static String Plan=null;
-		#public static String activePriceSchedule=null;
-		#public static String activePatientPaySchedule=null;
+
    Examples: 
       |Plan 	 | 
-      |SN003280|   
+      |AUTO3280|   
       
   Scenario Outline: Submit a claim in RxClaim
     Given I select Option "3" to navigate to "Manual Claim Menu"
@@ -57,5 +56,5 @@ Scenario Outline: Create a new member in RxClaim with existing CAG
     And I verify Formulary Status
    
    Examples:
-    | BIN     | ProcCtrl | Group 			| PharmacyID  | RxNo         | Refill | FillDate | MemberID   | ProductID  |	DspQty | DS | PSC | Cost |
-		|	777777  | SN003280 | *SN003280  | APHARM      | 765765367432 | 00     | 090918   | MEM4140545	| 99999563247|	30     | 30 | 0	  |100   | 
+    | BIN     | ProcCtrl | Group 		| PharmacyID  | RxNo         | Refill | FillDate | MemberID   | ProductID  |	DspQty | DS | PSC | Cost |
+		|	777777  | SN003280 | SN003280 | APHARM      | 765765367432 | 00     | 092818   | M274140546	| 99999563247|	30     | 30 | 0	  |100   | 

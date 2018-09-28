@@ -8,10 +8,9 @@ Scenario Outline: Create a new member in RxClaim with existing CAG
     When I create Member with "<CarrierID>","<AccountID>","<GroupID>","<MemberID>","<FirstName>","<LastName>","<DOB>","<FromDate>","<ThruDate>"
     And I search Member by MemberID "<MemberID>"
    
-   #public static String baseMemberID=null;
     Examples:
-    | CarrierID | AccountID    | GroupID      | MemberID   | FirstName  | LastName  | DOB      | FromDate  | ThruDate |
-		|	SN003280  | SN003280ACC1 | SN003280GRP1 | MEM4140520 | AUTOMEM    | AUTOMEM   | 12251987 | 010101    | 123139   |
+    | CarrierID | AccountID    | GroupID     		 | MemberID   | FirstName  | LastName  | DOB      | FromDate  | ThruDate |
+		|	SN003280  | SN003280AUTO | SN003280GRPAUTO | M244140523 | AUTOMEM    | AUTOMEM   | 12251987 | 010101    | 123139   |
 		
 Scenario Outline: Verify Member Prior Authorization setup
 		Given I provide family type and ID details in MemberID
@@ -20,10 +19,9 @@ Scenario Outline: Verify Member Prior Authorization setup
 		And I edit Member Prior Authorization list
 		And I press "F7" Key 
 		And I press "F10" Key 
-		And I add Member NDC Prior Authorization Price "<PSC>", "<MEM_NDC_PA_MSC>", "<Status>", "<MSC_Override>"
+		#And I add Member NDC Prior Authorization Price "<PSC>", "<MEM_NDC_PA_MSC>", "<Status>", "<MSC_Override>"
 		And I navigate back to RxClaim Plan Administrator Menu 
-	 #MSC_Override-public static String Member_NDC_PA_MSC_Override=null;
-	 #PAMSC-public static String basePA_MSC=null;
+
 	 #NOTE: Please change the PA Number for every Run
 	 #00002850101-N-
 	 #00003161112-O-8
@@ -32,7 +30,7 @@ Scenario Outline: Verify Member Prior Authorization setup
 	 #00069130501-M
  Examples: 
    |PANumber	|PAType|OTC	|PAMSC|NDC_GPI_List_ID|FromDate|ThruDate|Agt	|	Rsn	|IgnoreDrgSts|PSC	|MEM_NDC_PA_MSC|Status|MSC_Override	|
-   |22230947  |N		 |*		|M		|00069130501		|010111	 |123139	|a		|	AA	|N					 |A		|A	 			 		 |A			|*						|
+   |76730947  |N		 |*		|M		|00069130501		|010111	 |123139	|a		|	AA	|N					 |A		|A	 			 		 |A			|*						|
    
    Scenario Outline: Verify Pricing setup in Plan	
   	And I select Option "4" to navigate to "Plan"
@@ -47,12 +45,10 @@ Scenario Outline: Verify Member Prior Authorization setup
 		And I press "F12" Key 
 		And I press "F12" Key
 		And I press "F12" Key 
-		#public static String Plan=null;
-		#public static String activePriceSchedule=null;
-		#public static String activePatientPaySchedule=null;
+
    Examples: 
       |Plan 	 | 
-      |SN003280|   
+      |AUTO3280|   
       
   Scenario Outline: Submit a claim in RxClaim
     Given I select Option "3" to navigate to "Manual Claim Menu"
@@ -77,5 +73,5 @@ Scenario Outline: Verify Member Prior Authorization setup
     And I verify Formulary Status
    
    Examples:
-    | BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   | ProductID  |	DspQty | DS | PSC | Cost |
-		|	777777  | QET     |	*ALL  | APHARM      | 765765367432 | 00     | 090918   | MEM4140520	| 00069130501|	30     | 30 | 0	  |100   | 
+    | BIN     | ProcCtrl | Group   | PharmacyID  | RxNo         | Refill | FillDate | MemberID   | ProductID  |	DspQty | DS | PSC | Cost |
+		|	777777  | SN003280 |SN003280 | APHARM      | 765765367432 | 00     | 092818   | M244140523 | 00069130501|	30     | 30 | 0	  |100   | 

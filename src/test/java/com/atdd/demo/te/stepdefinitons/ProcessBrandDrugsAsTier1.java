@@ -23,8 +23,8 @@ public class ProcessBrandDrugsAsTier1 {
 			System.out.println("Member ID Found in Result List: "+ MemberID);
 			Reporter.addStepLog("Member ID Found in Result List: "+ MemberID);
 			globalMemberID=MemberID;
-			System.out.println("Member ID assigned to Global Variable: "+ globalMemberID);
-			Reporter.addStepLog("Member ID assigned to Global Variable: "+ globalMemberID);
+			/*System.out.println("Member ID assigned to Global Variable: "+ globalMemberID);
+			Reporter.addStepLog("Member ID assigned to Global Variable: "+ globalMemberID);*/
 		}
 		else
 		{
