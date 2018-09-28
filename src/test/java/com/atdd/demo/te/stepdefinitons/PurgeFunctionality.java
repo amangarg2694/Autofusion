@@ -1,27 +1,17 @@
 package com.atdd.demo.te.stepdefinitons;
 
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.testng.Assert;
-
-import com.atdd.te.screenHelpers.FunctionalLibrary;
 import com.cucumber.listener.Reporter;
-import com.hp.lft.report.ReportException;
-import com.hp.lft.sdk.GeneralLeanFtException;
-import com.itextpdf.text.log.SysoCounter;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 import com.optumrx.autofusion.core.te.util.Screenshot;
-
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 
-public class SR41434 {
+public class PurgeFunctionality {
 	public String aetnaRecord = null;
 	Map< String,String> map = new HashMap< String,String>();
 	String getDeletedRecord = null;
