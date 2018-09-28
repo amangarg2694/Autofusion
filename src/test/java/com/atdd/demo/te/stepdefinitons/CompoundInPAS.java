@@ -8,7 +8,7 @@ import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SR41687 {
+public class CompoundInPAS {
 	
 	public void i_wait_until_the_job_moves_to(String jobN, String user, String status) throws Throwable {
         FunctionalLibrary.enterText(21, 7, "WRKJOB JOB("+user+"/"+jobN+")");

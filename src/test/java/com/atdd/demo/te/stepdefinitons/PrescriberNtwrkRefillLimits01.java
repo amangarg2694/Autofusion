@@ -6,11 +6,12 @@ import com.optumrx.autofusion.core.te.util.Screenshot;
 
 import cucumber.api.java.en.When;
 
-public class SR41885B {
-	@When("^I enter plan code & select \"([^\"]*)\"$")
-	public void i_enter_plan_code_select(String arg1) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		 Mainframe_GlobalFunctionLib.sendText(4, 5, "SR41885B1");
+public class PrescriberNtwrkRefillLimits01 {
+	
+	@When("^I enter \"([^\"]*)\" & select Refill Limts$")
+public void i_enter_select_Refill_Limts(String plancode) throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+         Mainframe_GlobalFunctionLib.sendText(4, 5, plancode);
 		 Mainframe_GlobalFunctionLib.pressKey("Enter");
 		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		 Mainframe_GlobalFunctionLib.sendText(11, 2, "2");

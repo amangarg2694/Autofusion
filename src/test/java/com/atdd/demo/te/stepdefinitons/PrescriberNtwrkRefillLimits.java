@@ -6,11 +6,11 @@ import com.optumrx.autofusion.core.te.util.Screenshot;
 
 import cucumber.api.java.en.When;
 
-public class SR41885A {
-	@When("^I enter plan code in \"([^\"]*)\"$")
-	public void i_enter_plan_code_in(String arg1) throws Throwable {
+public class PrescriberNtwrkRefillLimits {
+	@When("^I enter the \"([^\"]*)\" in Active Plan by Plan Code$")
+	public void i_enter_the_in_Active_Plan_by_Plan_Code(String plancode) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    Mainframe_GlobalFunctionLib.sendText(4, 5, "SR41885B1");
+	    Mainframe_GlobalFunctionLib.sendText(4, 5, plancode);
 	    Mainframe_GlobalFunctionLib.pressKey("Enter");
 	    Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 	    Mainframe_GlobalFunctionLib.sendText(11, 2, "2");

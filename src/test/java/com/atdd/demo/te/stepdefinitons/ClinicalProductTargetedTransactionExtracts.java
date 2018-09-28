@@ -11,7 +11,7 @@ import com.optumrx.autofusion.core.te.util.Screenshot;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SR41757 {
+public class ClinicalProductTargetedTransactionExtracts {
 public static String Claimnumber;
 
 

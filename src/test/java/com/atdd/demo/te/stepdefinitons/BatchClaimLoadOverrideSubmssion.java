@@ -9,7 +9,7 @@ import com.optumrx.autofusion.core.te.util.Screenshot;
 
 import cucumber.api.java.en.When;
 
-public class SR41919 {
+public class BatchClaimLoadOverrideSubmssion {
 
     public void i_wait_until_the_job_moves_to(String jobN, String user, String status) throws Throwable {
         FunctionalLibrary.enterText(21, 7, "WRKJOB JOB("+user+"/"+jobN+")");

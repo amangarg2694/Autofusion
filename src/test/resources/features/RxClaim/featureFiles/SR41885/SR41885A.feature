@@ -7,7 +7,7 @@ Feature: Plan Edits w/Msgs; Prescriber Network and Refill Limits not setting ind
 		Given I am on RxClaim PlanAdministrator Menu
 		When I select Option "4" to navigate to "RxClaim Plan Maintenance"
 		And I select Option "1" to navigate to "Active Plan by Plan Code"
-		And I enter plan code in "Active Plan by Plan Code"
+		And I enter the "<plancode>" in Active Plan by Plan Code
 		And I verify the message is on prescriber network
 		And I press "F7" Key
 		And I select the prescriber network
@@ -16,8 +16,8 @@ Feature: Plan Edits w/Msgs; Prescriber Network and Refill Limits not setting ind
 		And I select the prescriber network & override the network 
 		And I verify the message is on prescriber network
     Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
+      | plancode |
+      | SR41885B1|    
     
    
       

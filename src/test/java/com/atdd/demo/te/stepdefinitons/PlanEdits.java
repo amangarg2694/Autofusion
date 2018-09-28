@@ -9,7 +9,7 @@ import com.optumrx.autofusion.core.te.util.Screenshot;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 
-public class SR41874 {
+public class PlanEdits {
 
 	public static String Claimnumber;
 
