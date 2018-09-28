@@ -76,5 +76,10 @@ public class DERFAndECLChanges extends CommonHelper{
 			Assert.fail("An error has occured while creating the caim transaction.Screenshot is captured");
 		}
 	}
+	@When("^I verify the communication log$")
+	public void i_verify_the_communication_log() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	   
+	}
 
 }

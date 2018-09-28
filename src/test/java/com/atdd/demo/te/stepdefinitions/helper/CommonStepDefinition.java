@@ -69,12 +69,7 @@ public class CommonStepDefinition {
 		FunctionalLibrary.createCAG( carrierID, carrierName, processor, mailingAdd, city, state, zip, contractFromDt, contractThruDt, contractEnt, businessType, accountID, accountName, groupID, groupName, groupFromDt, groupThruDt, planCode);
 	}
 	
-	@Then("^I copy a Member with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_copy_a_Member_with(String memberID, String carrierID, String accountID, String groupID, String FromDate, String ThruDate) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		FunctionalLibrary.CopyMember(memberID, carrierID, accountID, groupID, FromDate, ThruDate);                     
-		
-}
+	
 	
 	@When("^I submit a claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_submit_a_claim_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost) throws Throwable {
@@ -119,14 +114,7 @@ public class CommonStepDefinition {
 		String[] coordinates = ReadPropertyFile.getProperty(screenname , "Address2");
 		FunctionalLibrary.validateText(coordinates[0] ,coordinates[1] , Address2);
 	}
-	
-	
-	@Then("^validate user navigated to Main menu$")
-	public void validate_user_navigated_to_Main_menu() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		FunctionalLibrary.navigateToMainMenu();
-	    
-	}
+		
 	@When("^I create plan with member eligibility and pricing option \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_plan_with_member_eligibility_and_pricing_option(String plancode, String fromdate, String description, String thruDate, String pricechedule, String patientpayschedule) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions

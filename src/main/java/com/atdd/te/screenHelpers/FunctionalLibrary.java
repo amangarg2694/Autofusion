@@ -159,39 +159,6 @@ public class FunctionalLibrary extends CommonHelper{
 	
 	
 	
-	
-	public static void navigateToMainMenu()
-	{
-		try{
-			 Mainframe_GlobalFunctionLib.pressKey("F12");
-			 Mainframe_GlobalFunctionLib.pressKey("F12");
-			 Mainframe_GlobalFunctionLib.pressKey("F12");
-			 Thread.sleep(5000);
-			 Mainframe_GlobalFunctionLib.pressKey("F3");
-			 Thread.sleep(2000);
-			 String sysName=Mainframe_GlobalFunctionLib.getText(3, 70);
-			 if(sysName=="RXDV1")
-			 {
-				 System.out.println("User navigated to main menu");
-			 }
-			 else{
-				 System.out.println("User navigated to another menu");
-			 }
-			 
-		}	 
-			 catch (Exception e) {
-					
-					e.printStackTrace();
-			 
-		}
-	}
-	
-	
-	
-	
-	
-	
-	
 	public static void CreateTransaction(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productId, String dspQty, String ds, String psc, String cost) throws Throwable
 	{	
 		try {
@@ -286,31 +253,6 @@ public class FunctionalLibrary extends CommonHelper{
 	
 	
 	
-	
-	public static void CopyMember(String memberID, String carrierID, String accountID, String groupID, String FromDate, String ThruDate) throws Throwable
-	{	
-				
-			try {
-				Mainframe_GlobalFunctionLib.sendText(10, 2,"3" );
-				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				Mainframe_GlobalFunctionLib.sendText(10, 52, carrierID );
-				Mainframe_GlobalFunctionLib.sendText(11, 52, accountID );
-				Mainframe_GlobalFunctionLib.sendText(12, 52, groupID );
-				Mainframe_GlobalFunctionLib.sendText(14, 52, FromDate );
-				Mainframe_GlobalFunctionLib.sendText(15, 52, ThruDate );
-				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				System.out.println("Member Added");
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				Assert.fail("An error has occured while creating the caim transaction.Screenshot is captured");
-				
-			}
-			
-			
-			
-		}
-		
 	
 			
 		

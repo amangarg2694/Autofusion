@@ -5,10 +5,13 @@ import java.io.IOException;
 import org.testng.Assert;
 
 import com.atdd.te.screenHelpers.CommonHelper;
+import com.atdd.te.screenHelpers.FunctionalLibrary;
 import com.cucumber.listener.Reporter;
+import com.hp.lft.sdk.GeneralLeanFtException;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 import com.optumrx.autofusion.core.te.util.Screenshot;
 
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class MemberEligibilityCheck extends CommonHelper {
@@ -81,11 +84,10 @@ public class MemberEligibilityCheck extends CommonHelper {
 				Assert.fail("An error has occured while creating the caim transaction.Screenshot is captured");
 				
 			}
-			
-			
+	      
 			
 		}
-	public static void MemberDetailsCheck() throws IOException
+	/*public static void MemberDetailsCheck() throws IOException
 	{
 		
 	try{
@@ -108,7 +110,29 @@ public class MemberEligibilityCheck extends CommonHelper {
 				Assert.fail("An error has occured while creating the caim transaction.Screenshot is captured");
 				
 			}
-}
-	
+}*/
+	/*@Then("^I copy a Member with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_copy_a_Member_with(String memberID, String carrierID, String accountID, String groupID, String FromDate, String ThruDate) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.CopyMember(memberID, carrierID, accountID, groupID, FromDate, ThruDate);                     
+		
+}*/
+	public static void submitClaim() throws GeneralLeanFtException, InterruptedException, IOException{
+		try{
+		Mainframe_GlobalFunctionLib.pressKey("F6");
+		Thread.sleep(2000);
+		Mainframe_GlobalFunctionLib.pressKey("F7");
+		
+		
+		if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			
+				Assert.fail("The Claim is not submitted successfully.Screenshot is captured");
+				
+			}
+	}
 	
 	}
