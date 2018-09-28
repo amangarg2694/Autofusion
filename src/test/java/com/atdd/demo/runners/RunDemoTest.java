@@ -24,14 +24,13 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
-
-		features = { "classpath:features/RxClaim/featureFiles/CreatePlanWithCompoundOption.feature" },
+		features = { "classpath:features/RxClaim/featureFiles/SR41710" },
 
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 
 		glue = { "com.atdd.demo.te" }
-		//tags ={"@TC03"}
+		,tags ={"@TC5,@TC9"}
 		
 )
 public class RunDemoTest extends AbstractTestNGCucumberTests { 
@@ -51,7 +50,7 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
    		System.out.println("Starting @before clas"); 
    		ReadPropertyFile.setPropertyMap(System.getProperty("user.dir")+"//src//test//resources//features//RxClaim//OR");  		 
    		ReadPropertyFile.configFileReader(configFile); 
-    		CommonHelper.ScreenshotOption = scrOption; 
+    	CommonHelper.ScreenshotOption = scrOption; 
    		CommonHelper.login(); 
     		 
  }	 

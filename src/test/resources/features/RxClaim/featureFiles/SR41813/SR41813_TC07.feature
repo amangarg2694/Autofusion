@@ -19,7 +19,7 @@ Feature: Medicaid Subrogation Profile
     And I enter "<PL1Thru Date>" in field "ThruDate" on "MemberDetailScreen"
     And I press "Tab" Key
     And I press "F4" Key
-    ## PartD Plan - copy the test data used in TC02 and NonPartD Plan(PlanCode) copy the data from TC01
+    ## PartD Plan - copy the test data used in TC01 and NonPartD Plan(PlanCode) copy the data from TC02
     And I enter "<PlanCode1>" in field "Plancode" on "MemberDetailScreen"
     And I press "Enter" Key
     And I enter "1" in field "Selection" on "MemberDetailScreen"
@@ -59,5 +59,5 @@ Feature: Medicaid Subrogation Profile
 		Examples:
    
       | CarrierID | CarrierName | Processor | MailingAdd | City      | State | Zip   | ContractFromDt | ContractThruDt | ContractEnt | BusinessType | AccountID | AccountName | GroupID  | GroupName | GroupFromDt | GroupThruDt | PlanCode | Description | MemberID   | First Name | Last Name | DOB      | BIN    | PCN     | Group | Pharmacy |RxNo          | Refill | ProductID  | DspQty | DS | PSC | Cost | From Date | Thru Date | Fee | UCW | Type | PANum | Payee | Name | ProfileID | PDescription | SDWD | MCSDWD | Code | SubrogationFlag | PL1From Date | PL1Thru Date | PlanCode1 |
-      | SR41813AA | Carrier     |        712 | MAIL ADD   | Hyderabad | IL    | 78654 |         010101 |         123139 | *DEFAULT    | COMMERCIAL  | SR41813A1 | Account     | SR41813AA | Group    | 010101 | 123139 | SR41813YC |SR41813 Plan | SR41813XA | AUTOMEM    | AUTOMEM   | 12251987 | 777777 | * | SN002215 | APHARM | 310019947000 | 00     | 00310075139 |1      |1  |0   |10   | 010118 | 123118 | 10 | 10 | 1 | 17621929891 | A41813 | Test | A41813 | Testing | 9999 | 9999 | Y | Y | 010117 | 123117 | SR41813A6 |
+      | SR41813AA | Carrier     |        712 | MAIL ADD   | Hyderabad | IL    | 78654 |         010101 |         123139 | *DEFAULT    | COMMERCIAL  | SR41813A1 | Account     | SR41813AA | Group    | 010101 | 123139 | SR41813YC |SR41813 Plan | SR41813XA | AUTOMEM    | AUTOMEM   | 12251987 | 777777 | * | SN002215 | APHARM | 310019947000 | 00     | 00310075139 |1      |1  |0   |10   | 010118 | 123118 | 10 | 10 | 1 | 17621929891 | A41813 | Test | A41813 | Testing | 9999 | 9999 | Y | Y | 010117 | 123117 | SR41813B3 |
        

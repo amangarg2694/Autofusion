@@ -6,6 +6,7 @@
 	<test name="Veirify Demo Site Features" parallel="none">
 
 	<parameter name="scrOption" value="Always" />  <!-- Always or OnError -->
+
     <parameter name="configFile" value="src/test/resources/te/config_sxcd1.properties" />  
 	<!-- <parameter name="configFile" value="src/test/resources/te/config_book1.properties" /> -->
 	<!-- <parameter name="configFile" value="src/test/resources/te/config_book2.properties" /> -->
