@@ -1226,7 +1226,7 @@ public class FunctionalLibrary extends CommonHelper {
 				Mainframe_GlobalFunctionLib.sendText(14, 6, psc);
 				Mainframe_GlobalFunctionLib.sendText(10, 47, "         ");
 				Mainframe_GlobalFunctionLib.sendText(10, 47, cost);
-			}
+		
 			System.out.println("Claim is created");
 			if (ScreenshotOption.equalsIgnoreCase("Always")) {
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
