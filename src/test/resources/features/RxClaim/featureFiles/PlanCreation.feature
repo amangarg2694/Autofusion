@@ -19,4 +19,4 @@ Then Validate "<PlanCode>" message should displayed on "PlanDetailScreen"
 
 Examples:
 |PlanCode|From Date|Description|
-|TESTLFTA02|010101|Test Plan|
+|TESTLFTA19|010101|Test Plan|

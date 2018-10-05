@@ -24,9 +24,8 @@ As a RxClaim User I want to create a New Member with existing CAG
    
    
     Examples:
-    | CarrierID| AccountID   | GroupID    | MemberID  | First Name | Last Name  | DOB      | From Date | Thru Date   |
-		|	CAR3036  | ACC3036      |	GRP3036    | pra1 | JOSHY      | MEM        | 01011984	| 010111    | 123122      |
-    |	CAR3036  | ACC3036      |	GRP3036    | pra2 | LIZASTRAT  | MEM        | 01011986	| 010115    | 123119      |
-    |	CAR3036  | ACC3036      |	GRP3036    | pra3 | AMYGILL    | MEM        | 01012012	| 010116    | 123119      |    
+    | CarrierID | AccountID   | GroupID     | MemberID  | First Name | Last Name | DOB      | From Date | Thru Date |
+		|	ACLAIMC1  | AUTOCLAIMA1 |	AUTOCLAIMG1 | AUTOMEM0025 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139  |
+    
     
     
