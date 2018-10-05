@@ -1231,7 +1231,7 @@ public class FunctionalLibrary extends CommonHelper {
 			if (ScreenshotOption.equalsIgnoreCase("Always")) {
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			}
-		} catch (Exception e) {
+		}} catch (Exception e) {
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			Assert.fail("An error has occured while creating the caim transaction.Screenshot is captured");
 		}

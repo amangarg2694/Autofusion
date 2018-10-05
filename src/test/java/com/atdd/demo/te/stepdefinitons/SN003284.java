@@ -18,6 +18,8 @@ public class SN003284 {
 	public static String NDC_ID_Base_1=null;
 	public static String NDC_ID_Base_2=null;
 	public static String NDC_ID_Base_3=null;
+	
+	/*
 	@When("^I verify plan \"([^\"]*)\"$")
 	public void i_verify_plan(String Plan) throws Throwable {
 	  
@@ -56,7 +58,7 @@ public class SN003284 {
 		
 	}
 	
-	
+	*/
 	@When("^I validate ANDA \"([^\"]*)\" value on Plan$")
 	public void i_validate_ANDA_value_on_Plan(String ANDA) throws Throwable {
 		Mainframe_GlobalFunctionLib.sendText(8, 21, "10");
@@ -168,7 +170,7 @@ public class SN003284 {
 		
 	}
 	
-	@When("^I validate NDC_ID \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\" with status$")
+	/*@When("^I validate NDC_ID \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\" with status$")
 	public void i_validate_NDC_ID_with_status(String NDC1, String NDC2, String NDC3) throws Throwable {
 	  	for(int i=11; i<20; i++)
 		{    
@@ -206,14 +208,15 @@ public class SN003284 {
 		
 		
 	}
-	
+	*/
+	/*
 @When("^I submit MIC claims with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\"$")
 public void i_submit_MIC_claims_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String Qual, String productId, String dspQty, String ds, String psc, String cost, String Cmpnd) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		CreateTransaction1(bin, proc, group , Qual, pharmacyID, rxNbr, refill, fillDate, memberID, productId, dspQty, ds, psc, cost, Cmpnd);
 	    //FunctionalLibrary.submitClaim();
 }
-
+*/
 		public static void CreateTransaction1(String bin, String ProcCtrl, String group, String Qual, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productId, String dspQty, String ds, String psc, String cost, String Cmpnd) throws Throwable
 		{      
 		       try {
@@ -329,11 +332,15 @@ public void i_submit_MIC_claims_with(String bin, String proc, String group, Stri
 		}
 		return bRes;
 		}
+		
+		/*
 		@Then("^I Validate RxClaim ID$")
 		public void i_Validate_RxClaim_ID() throws Throwable {
 		String originRxClaimNo=Mainframe_GlobalFunctionLib.getText(20, 12);
 		System.out.println("Rx Claim No is: "+originRxClaimNo);
 		}
+		
+		
 		@Then("^I Validate Claim Status$")
 		public void i_Validate_Claim_Status() throws Throwable {
 		  String claimStatus=Mainframe_GlobalFunctionLib.getText(21, 6);
@@ -357,13 +364,15 @@ public void i_submit_MIC_claims_with(String bin, String proc, String group, Stri
 		public void i_submit_claim() throws Throwable {
 			FunctionalLibrary.submitClaim();
 		}
-
+*/
+		/*
 		@When("^I select (\\d+) Compound Detail in Submission Detail	List screen$")
 		public void i_select_Compound_Detail_in_Submission_Detail_List_screen(int arg1) throws Throwable {
 			Mainframe_GlobalFunctionLib.sendText(4, 23, "5");
 			Mainframe_GlobalFunctionLib.pressKey("enter");
 		}
-		
+		*/
+		/*
 		@When("^I verify Compound Information Details for Product ID$")
 		public void i_verify_Compound_Information_Details_for_Product_ID() throws Throwable {
 		   try{
@@ -443,7 +452,8 @@ public void i_submit_MIC_claims_with(String bin, String proc, String group, Stri
 		  String totalApprovedAmount=Mainframe_GlobalFunctionLib.getText(11, 49);
 		  System.out.println("The Total Approved Amount is : "+totalApprovedAmount);
 		}
-
+		*/
+/*
 		@When("^I select option (\\d+) Compound in Transaction Submission Detail List screen$")
 		public void i_select_option_Compound_in_Transaction_Submission_Detail_List_screen(int arg1) throws Throwable {
 			Mainframe_GlobalFunctionLib.sendText(5, 23, "5");
@@ -464,7 +474,7 @@ public void i_submit_MIC_claims_with(String bin, String proc, String group, Stri
 			}
 			}
 		}
-		
+		*/
 	/*	@When("^I add Compound Submission Details with \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
 		public void i_add_Compound_Submission_Details_with(String Qualifier, String NDC1, String Quantity1, String Cost1, String BasisCost) throws Throwable {
 				Mainframe_GlobalFunctionLib.pressKey("F6");
@@ -487,9 +497,10 @@ public void i_submit_MIC_claims_with(String bin, String proc, String group, Stri
 			Mainframe_GlobalFunctionLib.sendText(18, 20, BasicCost1);
 			Mainframe_GlobalFunctionLib.pressKey("enter");
 		}
-
+/*
 		@When("^I add Compound Submission Details for Second NDC with \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
-		public void i_add_Compound_Submission_Details_for_Second_NDC_with(String Qualifier2, String NDC2, String Quantity2, String Cost2, String BasicCost2) throws Exception
+		public void 
+(String Qualifier2, String NDC2, String Quantity2, String Cost2, String BasicCost2) throws Exception
 		{
 		Mainframe_GlobalFunctionLib.pressKey("F6");
 		Mainframe_GlobalFunctionLib.sendText(12, 20, Qualifier2);
@@ -499,7 +510,8 @@ public void i_submit_MIC_claims_with(String bin, String proc, String group, Stri
 		Mainframe_GlobalFunctionLib.sendText(18, 20, BasicCost2);
 		Mainframe_GlobalFunctionLib.pressKey("enter");
 		}
-
+*/
+		/*
 		@When("^I add Compound Submission Details for third  NDC with \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
 		public void i_add_Compound_Submission_Details_for_third_NDC_with(String Qualifier3, String NDC3, String Quantity3, String Cost3, String BasicCost3) throws Throwable {
 		Mainframe_GlobalFunctionLib.pressKey("F6");
@@ -511,7 +523,7 @@ public void i_submit_MIC_claims_with(String bin, String proc, String group, Stri
 		Mainframe_GlobalFunctionLib.pressKey("enter");
 		}
 		
-
+*/
 		
 	}
 
