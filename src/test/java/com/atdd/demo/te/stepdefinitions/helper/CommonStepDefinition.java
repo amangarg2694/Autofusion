@@ -59,12 +59,14 @@ public class CommonStepDefinition extends CommonHelper{
 		Thread.sleep(1000);
 	}
 	
+	
 
 	@When("^I select Option \"([^\"]*)\" to navigate to \"([^\"]*)\"$")
 	public void i_select_Option_to_navigate_to(String option, String screen) throws Throwable {
 		FunctionalLibrary.enterText(21,7 ,option );
 		FunctionalLibrary.pressEnter();
 	}
+	
 	
 	@Given("^I open RxClaim Application in \"([^\"]*)\"$")
 	public void i_open_RxClaim_Application_in(String env) throws Throwable {
@@ -130,7 +132,7 @@ public class CommonStepDefinition extends CommonHelper{
 	public void i_submit_a_claim_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	    FunctionalLibrary.CreateTransaction(bin, proc, group, pharmacyID, rxNbr, refill, fillDate, memberID, productID, dspQty, ds, psc, cost);
-	    FunctionalLibrary.submitClaim();
+	      FunctionalLibrary.submitClaim();
 	}
 	
 	@When("^I submit a claim with Retail MO Pharmacy \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")

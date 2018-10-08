@@ -130,6 +130,7 @@ public class DEDOOPAmountCorrection {
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 	}
 	
+	/*
 	@When("^I submit a claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_submit_a_claim_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost, String pat) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -215,6 +216,7 @@ public class DEDOOPAmountCorrection {
 			 Mainframe_GlobalFunctionLib.pressKey("F7");
 			 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 	}
+	*/
 	
 	@When("^I create Group with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_Group_with(String CarrierID, String groupID, String groupName, String GroupFromDt, String GroupThruDt, String PlanCode) throws Throwable {
