@@ -9,6 +9,6 @@ As a RxClaim User I want to create a New Member with existing CAG
     
     Examples:
     | CarrierID | AccountID   | GroupID     | MemberID    | FirstName  | LastName  | DOB      | FromDate  | ThruDate |
-		|	ACLAIMC1  | AUTOCLAIMA1 |	AUTOCLAIMG1 | RUPMEM0003 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139   |
+		|	SR42037  | SR42037 |	SR42037 | SR42037M | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139   |
     
    

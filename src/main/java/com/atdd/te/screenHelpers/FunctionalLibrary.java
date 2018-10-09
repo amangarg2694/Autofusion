@@ -1,6 +1,7 @@
 package com.atdd.te.screenHelpers;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.StringTokenizer;
 
 import org.testng.Assert;
@@ -32,6 +33,9 @@ public class FunctionalLibrary extends CommonHelper{
 			
 		}
 }
+	public static void memberPartitionForFiles() throws Exception  {
+		// need to add common code here
+	}
 		
 		public static void navigateToScreen(String option) throws Exception  {
 			try{
@@ -1038,5 +1042,243 @@ public class FunctionalLibrary extends CommonHelper{
 		//fb.submitClaim();
 		//Mainframe_GlobalFunctionLib.validateText("21" ,"6" , "R" );
 	}
+	// Code for Adding Messages to Product
+	public static void addMessagesProduct(String ProductID,String FromDate,String ThruDate,String Carrier,String MessageCode,String Seqno,String MessageType) throws IOException
+	
+	{			
+		try {
+			navigateToRxClaimPlanAdministrator();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try{
+					FunctionalLibrary.enterText(21, 7, "2" );
+					FunctionalLibrary.pressKey("Enter");
+					FunctionalLibrary.enterText(21, 7, "1" );
+					FunctionalLibrary.pressKey("Enter");
+					FunctionalLibrary.pressKey("F15");
+					FunctionalLibrary.enterText(4, 5, ProductID );
+					FunctionalLibrary.pressKey("Enter");
+					String ProdId = FunctionalLibrary.getText(11, 5);
+					String ProdctId = ProdId.replace("-","");
+					if (ProductID.equals(ProdctId))
+					{
+					//FunctionalLibrary.validateText("11" ,"5" , ProdctId );
+					FunctionalLibrary.enterText(11, 2, "16" );
+					FunctionalLibrary.pressKey("Enter");
+					FunctionalLibrary.pressKey("F6");
+					FunctionalLibrary.enterText(11, 17, FromDate );
+					FunctionalLibrary.enterText(12, 17, ThruDate );
+					Mainframe_GlobalFunctionLib.click(13, 17 );
+					Mainframe_GlobalFunctionLib.pressKey("F4");	
+					FunctionalLibrary.enterText(4, 6, Carrier );
+					FunctionalLibrary.pressKey("Enter");
+					FunctionalLibrary.validateText("9" ,"6" , Carrier );
+					FunctionalLibrary.enterText(9, 2, "1" );
+					FunctionalLibrary.pressKey("Enter");
+					Mainframe_GlobalFunctionLib.click(15, 17 );
+					Mainframe_GlobalFunctionLib.pressKey("F4");
+					FunctionalLibrary.enterText(3, 6, MessageCode );
+					FunctionalLibrary.pressKey("Enter");
+					FunctionalLibrary.validateText("7" ,"5" , MessageCode );
+					FunctionalLibrary.enterText(7, 2, "1" );
+					FunctionalLibrary.pressKey("Enter");
+					FunctionalLibrary.enterText(16, 17, Seqno );
+					Mainframe_GlobalFunctionLib.click(17, 17 );
+					Mainframe_GlobalFunctionLib.pressKey("F4");	
+					FunctionalLibrary.enterText(7, 4, MessageType );
+					FunctionalLibrary.pressKey("Enter");
+					FunctionalLibrary.validateText("13" ,"5" , MessageType );
+					FunctionalLibrary.enterText(13, 3, "X" );
+					FunctionalLibrary.pressKey("Enter");
+					FunctionalLibrary.pressKey("Enter");
+					FunctionalLibrary.enterText(24, 73, "Y" );
+					}
+					else
+					{
+						System.out.println("Product Id is not found");
+					}
+										
+			}
+		catch(Exception e)
+				{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		e.printStackTrace();
+			Assert.fail("Message is not added to the Product.Screenshot is captured");
+				}
+	}	
+	//Code for Comparing the value is in Range or not
+			public static void compareDate(String PartMember,int low,int high,int Value1) throws IOException
+			{
+				if (Value1 >= low && Value1 <=high)
+				{
+					System.out.println("The Value is in the range of" + PartMember + "is" + " " + Value1);
+				}
+			}
+			
+	// Code for validating date range for VCH and VSR File
+		public static void validateDateRange(String PartMember,String FN) throws IOException
+		
+		{			
+			try{
+				if (PartMember.equals("PART000001"))
+				{
+					int low= 0;
+					int high=1199999;
+					if (FN.equals("VCH"))
+					{
+					String Date1 = FunctionalLibrary.getText(9,41);
+					int Value1=Integer.parseInt(Date1);
+					FunctionalLibrary.compareDate(PartMember,low,high,Value1);	
+					}
+					else if (FN.equals("VSR"))
+					{
+					String Date1 = FunctionalLibrary.getText(18,41);
+					int Value1=Integer.parseInt(Date1);	
+					FunctionalLibrary.compareDate(PartMember,low,high,Value1);
+					}
+								
+				}
+				else if (PartMember.equals("PART000002"))
+				{
+					int low= 1200000;
+					int high=1209999;
+					if (FN.equals("VCH"))
+					{
+					String Date1 = FunctionalLibrary.getText(9,41);
+					int Value1=Integer.parseInt(Date1);
+					FunctionalLibrary.compareDate(PartMember,low,high,Value1);	
+					}
+					else if (FN.equals("VSR"))
+					{
+					String Date1 = FunctionalLibrary.getText(18,41);
+					int Value1=Integer.parseInt(Date1);	
+					FunctionalLibrary.compareDate(PartMember,low,high,Value1);
+					}
+				}
+				else if (PartMember.equals("PART000003"))
+				{
+					int low= 1210000;
+					int high=1219999;
+					if (FN.equals("VCH"))
+					{
+					String Date1 = FunctionalLibrary.getText(9,41);
+					int Value1=Integer.parseInt(Date1);
+					FunctionalLibrary.compareDate(PartMember,low,high,Value1);	
+					}
+					else if (FN.equals("VSR"))
+					{
+					String Date1 = FunctionalLibrary.getText(18,41);
+					int Value1=Integer.parseInt(Date1);	
+					FunctionalLibrary.compareDate(PartMember,low,high,Value1);
+					}
+				}
+				else if (PartMember.equals("PART000004"))
+				{
+					int low= 1220000;
+					int high=1229999;
+					if (FN.equals("VCH"))
+					{
+					String Date1 = FunctionalLibrary.getText(9,41);
+					int Value1=Integer.parseInt(Date1);
+					FunctionalLibrary.compareDate(PartMember,low,high,Value1);	
+					}
+					else if (FN.equals("VSR"))
+					{
+					String Date1 = FunctionalLibrary.getText(18,41);
+					int Value1=Integer.parseInt(Date1);	
+					FunctionalLibrary.compareDate(PartMember,low,high,Value1);
+					}
+				}
+				else if (PartMember.equals("PART000005"))
+				{
+					int low= 1230000;
+					int high=1239999;
+					if (FN.equals("VCH"))
+					{
+					String Date1 = FunctionalLibrary.getText(9,41);
+					int Value1=Integer.parseInt(Date1);
+					FunctionalLibrary.compareDate(PartMember,low,high,Value1);	
+					}
+					else if (FN.equals("VSR"))
+					{
+					String Date1 = FunctionalLibrary.getText(18,41);
+					int Value1=Integer.parseInt(Date1);	
+					FunctionalLibrary.compareDate(PartMember,low,high,Value1);
+					}
+				}
+				else if (PartMember.equals("PART000006"))
+				{
+					int low= 1240000;
+					int high=9999999;
+					if (FN.equals("VCH"))
+					{
+					String Date1 = FunctionalLibrary.getText(9,41);
+					int Value1=Integer.parseInt(Date1);
+					FunctionalLibrary.compareDate(PartMember,low,high,Value1);	
+					}
+					else if (FN.equals("VSR"))
+					{
+					String Date1 = FunctionalLibrary.getText(18,41);
+					int Value1=Integer.parseInt(Date1);	
+					FunctionalLibrary.compareDate(PartMember,low,high,Value1);
+					}
+				}
+				
+				else
+				{
+					System.out.println("Partition Not Found");
+					Assert.fail();
+					
+				}
+				FunctionalLibrary.pressKey("F3");
+				FunctionalLibrary.pressKey("F3");
+			}
+			catch(Exception e)
+					{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			e.printStackTrace();
+				Assert.fail("Partition Not Found.Screenshot is captured");
+					}
+		}	
+		
+	
+		
+	// Code for fetching the reject messages
+		public static void getRejectMessages() throws IOException
+		
+		{			
+			try{
+				
+				FunctionalLibrary.pressKey("F7");
+				FunctionalLibrary.pressKey("F7");
+				FunctionalLibrary.enterText(4, 23, "7" );
+				FunctionalLibrary.pressKey("Enter");
+				
+								
+				String rejectmsg = FunctionalLibrary.getText(16,2);
+				int loopcount = 0;
+				if ((rejectmsg.length()) > 0);
+				{
+					loopcount++;
+				}
+				
+				String plusSymbol= FunctionalLibrary.getText(20,79);
+				if (loopcount == 4) if (plusSymbol.equals("+"));
+				{
+					loopcount = 0;
+					FunctionalLibrary.pressKey("PageDown");
+				}
+									
+		}
+	catch(Exception e)
+			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+	e.printStackTrace();
+		Assert.fail("Reject Messages are not displayed.Screenshot is captured");
+			}
+			
+			
+		}	
+		
+		
+		
 
 }
