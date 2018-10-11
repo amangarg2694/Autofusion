@@ -46,9 +46,9 @@ public class PartDDFTICalculation {
 		Mainframe_GlobalFunctionLib.sendText(12,2,"6" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("F6");
-		Mainframe_GlobalFunctionLib.sendText(5,21,"A" );
-		Mainframe_GlobalFunctionLib.sendText(9,21,"010101" );
-		Mainframe_GlobalFunctionLib.sendText(10,21,"123139" );
+		Mainframe_GlobalFunctionLib.sendText(10,24,"A" );
+		Mainframe_GlobalFunctionLib.sendText(13,24,"010101" );
+		Mainframe_GlobalFunctionLib.sendText(14,24,"123139" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(16,15,"HC-3493" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -57,9 +57,9 @@ public class PartDDFTICalculation {
 		Mainframe_GlobalFunctionLib.sendText(13,2,"6" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("F6");
-		Mainframe_GlobalFunctionLib.sendText(5,21,"A" );
-		Mainframe_GlobalFunctionLib.sendText(9,21,"010101" );
-		Mainframe_GlobalFunctionLib.sendText(10,21,"123139" );
+		Mainframe_GlobalFunctionLib.sendText(10,24,"A" );
+		Mainframe_GlobalFunctionLib.sendText(13,24,"010101" );
+		Mainframe_GlobalFunctionLib.sendText(14,24,"123139" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(16,15,"HC-3493" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -562,7 +562,10 @@ public class PartDDFTICalculation {
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F10");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-		
+		for(int i=0;i<5;i++){
+		Mainframe_GlobalFunctionLib.pressKey("F3");}
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
 	
 
@@ -574,6 +577,7 @@ public void validating_the_Drug_spend_total_in_Accum_phase_screen() throws Throw
 	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 	Mainframe_GlobalFunctionLib.pressKey("F10");
 	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+	
 }
 
 @Then("^editing the drug cost comparison schedule with \"([^\"]*)\",\"([^\"]*)\"$")
