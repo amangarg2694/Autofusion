@@ -323,47 +323,54 @@ public class ProductivityReportScreen {
 			Mainframe_GlobalFunctionLib.sendText(22,7, runqry);
 			Thread.sleep(1000);
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
-			Mainframe_GlobalFunctionLib.sendText(3, 126,"68" );
+			//Mainframe_GlobalFunctionLib.sendText(3, 126,"68" );
+			Mainframe_GlobalFunctionLib.sendText(3, 74,"68" ); 
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			
 			label1:	for (int j = 7; j < 894; ++j) {
-			Mainframe_GlobalFunctionLib.pressKey("PageDown");
-			
-						label2:for (int i = 6; i < 25; ++i) {
-							String ActClassCode= Mainframe_GlobalFunctionLib.getText(i, 9);
-					
-									//if(ActClassCode==ClassField1)
-							if(ActClassCode.equals(ClassField1))
-										{
-							             System.out.println("Class Code is: "+ActClassCode);
-																								
+				Mainframe_GlobalFunctionLib.pressKey("PageDown");
+				
+							for (int i = 6; i < 22; ++i) {
+								String ActClassCode= Mainframe_GlobalFunctionLib.getText(i, 9);
+						
+										//if(ActClassCode==ClassField1)
+								if(ActClassCode.equals(ClassField1))
+											{
+								             System.out.println("Class Code is: "+ActClassCode);
+																									
+											}
+										   else if(ActClassCode.equals(ClassField2))
+										   {
+											   System.out.println("Class Code is: "+ActClassCode);
+										   }
+										   else if(ActClassCode.equals(ClassField3))
+										   {
+											   System.out.println("Class Code is: "+ActClassCode);
+										   }
+										   else if(ActClassCode.equals(ClassField4))
+										   {
+											   System.out.println("Class Code is: "+ActClassCode);
+										   }
+										   else if(ActClassCode.equals(ClassField5))
+										   {
+											   System.out.println("Class Code is: "+ActClassCode);
+										   }
+										   else
+										   {
+										    System.out.println("Class Code not found : "+ActClassCode);
+										   }
+										//String ActEndofFile=Mainframe_GlobalFunctionLib.getText(24, 9);
+										//String ActMore=Mainframe_GlobalFunctionLib.getText(22, 68);
+										//System.out.println("Page Details1: "+ActMore);
+										String ActEndofFile=Mainframe_GlobalFunctionLib.getText(21, 9);
+										System.out.println("Page Details2: "+ActEndofFile);
+										if(ActEndofFile.contains("End of report"))	{
+											break label1;
 										}
-									   else if(ActClassCode.equals(ClassField2))
-									   {
-										   System.out.println("Class Code is: "+ActClassCode);
-									   }
-									   else if(ActClassCode.equals(ClassField3))
-									   {
-										   System.out.println("Class Code is: "+ActClassCode);
-									   }
-									   else if(ActClassCode.equals(ClassField4))
-									   {
-										   System.out.println("Class Code is: "+ActClassCode);
-									   }
-									   else if(ActClassCode.equals(ClassField5))
-									   {
-										   System.out.println("Class Code is: "+ActClassCode);
-									   }
-									   else
-									   {
-									    System.out.println("Class Code not found : "+ActClassCode);
-									   }
-				String ActEndofFile=Mainframe_GlobalFunctionLib.getText(24, 9);
-				if(ActEndofFile.contains("End of report"))	{
-					break label1;
-				}
-						}
-	          }
+									
+					}
+							
+		    }
 			
 	  }
 		
@@ -452,7 +459,8 @@ public class ProductivityReportScreen {
 		Mainframe_GlobalFunctionLib.sendText(22,7, runqry);
 		Thread.sleep(1000);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		Mainframe_GlobalFunctionLib.sendText(3, 126,"68" );
+		//Mainframe_GlobalFunctionLib.sendText(3, 126,"68" );
+		Mainframe_GlobalFunctionLib.sendText(3, 74,"68" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		
 		String ActClassCodeBlank= Mainframe_GlobalFunctionLib.getText(7, 9);
@@ -481,6 +489,15 @@ public class ProductivityReportScreen {
 		{
 			System.out.println("Class code value is Blank");
 		}
+		
+		//Updating for Regression
+
+			 Mainframe_GlobalFunctionLib.pressKey("F3");
+			 Mainframe_GlobalFunctionLib.pressKey("F3");
+			 Mainframe_GlobalFunctionLib.pressKey("F3");
+			 Mainframe_GlobalFunctionLib.pressKey("F3");
+			 Mainframe_GlobalFunctionLib.pressKey("F3");
+			
 	}
 
 	@Then("^I Second Validate the Class codes \"([^\"]*)\",\"([^\"]*)\"\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" in file \"([^\"]*)\",\"([^\"]*)\"$")
@@ -574,6 +591,8 @@ public class ProductivityReportScreen {
 			
 			FunctionalLibrary.pressKey("F12");
 			text = FunctionalLibrary.getText(1, 13);
+			
+			
 			
 		}
 	}

@@ -14,7 +14,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SR41404 {
+public class EligibilityLoadTrackingExtracting {
 		
 	@Then("^Validate the new menu Eligibility Load Tracking Extract in RxClaim Utility Programs$")
 	public void validate_the_new_menu_Eligibility_Load_Tracking_Extract_in_RxClaim_Utility_Programs() throws Throwable {

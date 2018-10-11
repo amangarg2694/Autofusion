@@ -49,7 +49,7 @@ And I Validate the Class codes "<ClassField1>","<ClassField2>""<ClassField3>","<
 
 Examples:
 | TransactionFromDate | TransactionThruDate | CarrierFrom | CarrierThru | ClassField1 |ClassField2 | ClassField3 |ClassField4 |ClassField5 |SortCriteria |SummaryDetail |FileName   | Library | Juser | Jname      | Report |         
-| 010101              | 123117              | BHUCAR      | VAH         | N1          | N2         | N3          | N4         | N5         |1            |D             |SR41404F33 | USRSAKK | MGUP  | CLRAPRDEXT | PRODUCTIVITY DETAIL REPORT |
+| 010101              | 123117              | BHUCAR      | VAH         | N1          | N2         | N3          | N4         | N5         |1            |D             |SR41404F46 | USRSAKK | SAKK  | CLRAPRDEXT | PRODUCTIVITY DETAIL REPORT |
 
 
 Scenario Outline: User should able to Verify all Records are getting displayed when  all five class codes are blank - SN003483_SR41807_TC003_Req_5.1.2.2 
@@ -73,5 +73,5 @@ And I Validate the Class codes "<ClassField>" in file "<Library>","<FileName>"
 
 Examples:
 | TransactionFromDate | TransactionThruDate | CarrierFrom | CarrierThru | ClassField | ClassField1 |SortCriteria |SummaryDetail |FileName    | Library | Juser  | Jname      | Report |         
-| 010117              | 123117              | BHUCAR      | VAH         | *BLANK     |     N5      |1            |D             |SR41404F30  | USRSAKK | MGUP   | CLRAPRDEXT | PRODUCTIVITY DETAIL REPORT |
+| 010117              | 123117              | BHUCAR      | VAH         | *BLANK     |     N5      |1            |D             |SR41404F47  | USRSAKK | SAKK   | CLRAPRDEXT | PRODUCTIVITY DETAIL REPORT |
 

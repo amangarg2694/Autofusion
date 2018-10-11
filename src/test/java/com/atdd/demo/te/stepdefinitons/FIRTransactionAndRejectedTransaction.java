@@ -17,7 +17,8 @@ import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 import com.optumrx.autofusion.core.te.util.Screenshot;
 
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then; 
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When; 
 
 public class FIRTransactionAndRejectedTransaction {
   
@@ -628,7 +629,7 @@ public class FIRTransactionAndRejectedTransaction {
 	public void i_validate_the_help_text_for_Carrier_from_field_and_Carrier_thru_field() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 				Mainframe_GlobalFunctionLib.click(7,22); 
-				Thread.sleep(1000);
+				//Mainframe_GlobalFunctionLib.pressKey("F1");
 				Robot rob = new Robot(); 
 				rob.keyPress(KeyEvent.VK_F1); 
 				rob.keyRelease(KeyEvent.VK_F1); 
@@ -652,7 +653,7 @@ public class FIRTransactionAndRejectedTransaction {
 				Mainframe_GlobalFunctionLib.pressKey("F3");
 				
 				Mainframe_GlobalFunctionLib.click(7,41); 
-				Thread.sleep(1000);
+				//Mainframe_GlobalFunctionLib.pressKey("F1");
 				Robot rob1 = new Robot(); 
 				rob1.keyPress(KeyEvent.VK_F1); 
 				rob1.keyRelease(KeyEvent.VK_F1); 
@@ -1464,7 +1465,9 @@ public void i_validate_the_error_message_when_File_Name_and_Library_is_missing_w
 					{ 
 							Assert.fail("Description for Sort By not appearing as expected "); 
 					}
-				Mainframe_GlobalFunctionLib.pressKey("F3");
+				
+				Toplanadminmenu();
+				
 	}
 	
 	@Then("^I validate the default values in the screen \"([^\"]*)\"$")
@@ -1474,7 +1477,7 @@ public void i_validate_the_error_message_when_File_Name_and_Library_is_missing_w
 			//Mainframe_GlobalFunctionLib.pressKey("Enter");			
 			Mainframe_GlobalFunctionLib.validateText("2", "23", Screen);
 			defaultv();
-					
+			Toplanadminmenu();		
 			
 	}
 	@Then("^I validate the default values in the FIR Transaction Detail File screen \"([^\"]*)\"$")
@@ -1595,8 +1598,41 @@ public void i_validate_the_error_message_when_File_Name_and_Library_is_missing_w
 				Mainframe_GlobalFunctionLib.sendText(21,7,"3");
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				FileLibrarymissing(FIRFdate, FIRTdate, Contract);
-				Mainframe_GlobalFunctionLib.pressKey("F3");
+				Toplanadminmenu();
 	}
+	@When("^I create FIR Transaction with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_FIR_Transaction_with(String BIN, String Procctrl, String Group, String TransacID, String CardholderID, String AccYear, String ContractID, String PBP, String TroopJ, String Drugspendj) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+				try {
+					FunctionalLibrary.navigateToRxClaimPlanAdministrator();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+				Mainframe_GlobalFunctionLib.sendText(21, 7 ,"3" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(21, 7 ,"18" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				
+				
+				
+	}
+	
+	@Then("^I navigate to PlanAdminMenuScreen$")
+	public void i_navigate_to_PlanAdminMenuScreen() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+	
+	}
+
 
 }	
 
