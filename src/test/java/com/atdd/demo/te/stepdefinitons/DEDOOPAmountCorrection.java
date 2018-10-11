@@ -112,6 +112,7 @@ public class DEDOOPAmountCorrection {
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(12,2,"2" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(10,26,"          ");
 		Mainframe_GlobalFunctionLib.sendText(10,26,"SUBMIT ING" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -120,6 +121,7 @@ public class DEDOOPAmountCorrection {
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(11,2,"2" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(9,23,"          ");
 		Mainframe_GlobalFunctionLib.sendText(9,23,"SUBMIT PP" );
 		Mainframe_GlobalFunctionLib.click(9, 32);
 		Robot ro = new Robot();
@@ -128,6 +130,85 @@ public class DEDOOPAmountCorrection {
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(16,64,"Y" );
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+	}
+	
+	@When("^I submit a DEDOOP claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_submit_a_DEDOOP_claim_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost, String pat) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		try {
+			FunctionalLibrary.navigateToRxClaimPlanAdministrator();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		FunctionalLibrary.navigateToScreen("3");
+		FunctionalLibrary.navigateToScreen("2");
+		FunctionalLibrary.navigateToScreen("1");
+		
+		if(!(FunctionalLibrary.func_SearchAndSelectADataEditMode("4,4" ,memberID ,"9,4" , memberID))){
+			
+			Mainframe_GlobalFunctionLib.pressKey("F6");
+			Mainframe_GlobalFunctionLib.sendText(11, 14,bin );
+			Mainframe_GlobalFunctionLib.sendText(11, 41,proc );
+			Mainframe_GlobalFunctionLib.sendText(11, 59,group );
+			Mainframe_GlobalFunctionLib.sendText(12, 14,pharmacyID );
+			Mainframe_GlobalFunctionLib.sendText(12, 41,rxNbr );
+			Mainframe_GlobalFunctionLib.sendText(12, 59,refill );
+			Mainframe_GlobalFunctionLib.sendText(14, 41,memberID );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Thread.sleep(4000);
+			//Mainframe_GlobalFunctionLib.click(7, 12 );
+			//Mainframe_GlobalFunctionLib.pressKey("F4");
+			//Thread.sleep(1000);
+			//Mainframe_GlobalFunctionLib.sendText(3, 4, memberID);
+			//Mainframe_GlobalFunctionLib.pressKey("Enter");
+			//Mainframe_GlobalFunctionLib.sendText(8, 2,"1" );
+			//Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText("04" , "065" ,"          ");
+			Mainframe_GlobalFunctionLib.sendText("04", "065", fillDate);			
+			Mainframe_GlobalFunctionLib.sendText("11", "020",productID );
+			Mainframe_GlobalFunctionLib.sendText("12", "011",dspQty );
+			Mainframe_GlobalFunctionLib.sendText("12", "026",ds );
+			Mainframe_GlobalFunctionLib.sendText("14", "006",psc );
+			Mainframe_GlobalFunctionLib.sendText("10", "047","         " );
+			Mainframe_GlobalFunctionLib.sendText("10", "047",cost );
+			Mainframe_GlobalFunctionLib.sendText("17", "047","         " );
+			Mainframe_GlobalFunctionLib.sendText("17", "047",pat);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			
+		}
+		else{
+			
+		Mainframe_GlobalFunctionLib.sendText("09", "002","1" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Thread.sleep(1000);
+		Mainframe_GlobalFunctionLib.click(4, 29 );
+			Mainframe_GlobalFunctionLib.sendText("04", "029", pharmacyID);
+			Mainframe_GlobalFunctionLib.sendText("04" , "065" ,"          ");
+			Mainframe_GlobalFunctionLib.sendText("04" , "065", fillDate);
+			Mainframe_GlobalFunctionLib.sendText("05","029", rxNbr);
+			Mainframe_GlobalFunctionLib.sendText("05", "047", refill);			
+			Mainframe_GlobalFunctionLib.sendText("07", "012", memberID);
+			Mainframe_GlobalFunctionLib.sendText("11", "020",productID );
+			Mainframe_GlobalFunctionLib.sendText("12", "011","           " );
+			Mainframe_GlobalFunctionLib.sendText("12", "011",dspQty );
+			Mainframe_GlobalFunctionLib.sendText("12", "026","   " );
+			Mainframe_GlobalFunctionLib.sendText("12", "026",ds);
+			Mainframe_GlobalFunctionLib.sendText("14", "006",psc );
+			Mainframe_GlobalFunctionLib.sendText("10", "047","         " );
+			Mainframe_GlobalFunctionLib.sendText("10", "047",cost );
+			Mainframe_GlobalFunctionLib.sendText("17", "047","         " );
+			Mainframe_GlobalFunctionLib.sendText("17", "047",pat);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			 
+		}
+		
+			System.out.println("Claim is created");	
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			Mainframe_GlobalFunctionLib.pressKey("F6");
+			 Thread.sleep(2000);
+			 Mainframe_GlobalFunctionLib.pressKey("F7");
+			 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 	}
 	
 	/*
