@@ -10,6 +10,6 @@ As a RxClaim User I want to Validate CHF file
     
     Examples:
     | FileName  | LibraryName| FTPCMD                                                                   |ActualFilePath               |ExpectedFilePath|
-	  | CHFRUP16  | VMANCHU_LI |	PUTDBFFTP FROMFILE(VMANCHU_LI/CHFRUP10) RMTFIL(TEST15.csv) FMTOPT(*YES) |UHCCOMM20180903_RXCHF70CL.txt|Expected CHF Data.csv|
+	  | CHFRUP17  | VMANCHU_LI |	PUTDBFFTP FROMFILE(VMANCHU_LI/CHFRUP10) RMTFIL(TEST15.csv) FMTOPT(*YES) |UHCCOMM20180903_RXCHF70CL.txt|Expected CHF Data.csv|
 
         
