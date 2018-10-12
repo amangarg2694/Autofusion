@@ -12,77 +12,95 @@ import com.atdd.te.screenHelpers.CommonHelper;
 import com.cucumber.listener.ExtentProperties;
 import com.cucumber.listener.Reporter;
 import com.hp.lft.sdk.SDK;
-import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 import com.optumrx.autofusion.core.util.ReadPropertyFile;
 import com.optumrx.autofusion.core.util.ReportHelper;
-
-
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
-
-		features = { "classpath:features/RxClaim/SR42201/SR42201_TC01.feature" },
+		features = { "classpath:features/RxClaim/featureFiles/SR41881/SR41881_BOOK1.feature" },
 
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 
 		glue = { "com.atdd.demo.te" }
-
-)
-public class RunDemoTest extends AbstractTestNGCucumberTests {
-
-	public static String reportname;
-
-	@Parameters({ "configFile" , "scrOption" })
-	@BeforeClass
-	public static void setup(String configFile , String scrOption) throws IOException {
-
-		System.out.println("The file  from testNG test  is " + configFile);
-		ExtentProperties extentProperties = ExtentProperties.INSTANCE;
-		extentProperties.setReportPath("output/MyReport.html");   		
-   		System.out.println("Starting @before clas");
-   		ReadPropertyFile.setPropertyMap(System.getProperty("user.dir")+"//src//test//resources//features//RxClaim//OR");  		
-   		ReadPropertyFile.configFileReader(configFile);
-   		CommonHelper.ScreenshotOption = scrOption;
-   		CommonHelper.login();
-   		
-}	
-
-	
-
-	@AfterClass
-	public static void teardown() throws Exception {
-
-//		Mainframe_GlobalFunctionLib.closeTE();
-		SDK.cleanup();
+		//,tags ={"@TC5"}
 		
+)
 
-		try {
-			Reporter.loadXMLConfig(new File("src/test/resources/extentConfig/extent-config.xml"));
-			Reporter.setSystemInfo("user", System.getProperty("user.name"));
-			Reporter.setSystemInfo("os", "Window OS");
-			Reporter.setTestRunnerOutput("RxClaim Leanft Report");
 
-		}
 
-		catch (Exception e) {
 
-			System.out.println("The report could not be generated for this run");
-		}
+public class RunDemoTest extends AbstractTestNGCucumberTests { 
 
-	}
+	 
+	public static String reportname; 
+ 
+ 
+ 	@Parameters({ "configFile" , "scrOption" }) 
+	@BeforeClass 
+	public static void setup(String configFile , String scrOption) throws IOException { 
 
-	@AfterSuite
+ 
+		System.out.println("The file  from testNG test  is " + configFile); 
+		ExtentProperties extentProperties = ExtentProperties.INSTANCE; 
+		extentProperties.setReportPath("output/MyReport.html");   		 
+   		System.out.println("Starting @before clas"); 
+   		ReadPropertyFile.setPropertyMap(System.getProperty("user.dir")+"//src//test//resources//features//RxClaim//OR");  		 
+   		ReadPropertyFile.configFileReader(configFile); 
+    	CommonHelper.ScreenshotOption = scrOption; 
+   		CommonHelper.login(); 
+    		 
+ }	 
 
-	public static void parser() throws Exception {
+ 
 
-		// PageObjectBase.extentReportParser("output/"+reportname);
+ 
+	@AfterClass 
+	public static void teardown() throws Exception { 
+ 
+ 
+ //		Mainframe_GlobalFunctionLib.closeTE(); 
+		SDK.cleanup(); 
+		 
+ 
+ 
+		try { 
+			Reporter.loadXMLConfig(new File("src/test/resources/extentConfig/extent-config.xml")); 
+			Reporter.setSystemInfo("user", System.getProperty("user.name")); 
+			Reporter.setSystemInfo("os", "Window OS"); 
+			Reporter.setTestRunnerOutput("RxClaim Leanft Report"); 
 
-		ReportHelper.createCucumberHTMLReport("target", "target//cucumber.json", "ATDD_LEANFT_DEMO");
+ 
+		} 
 
-	}
+ 
+		catch (Exception e) { 
+
+ 
+ 			System.out.println("The report could not be generated for this run"); 
+		} 
+
+ 
+ 	} 
+
+ 
+ 	@AfterSuite 
+ 
+ 
+	public static void parser() throws Exception { 
+
+ 
+		// PageObjectBase.extentReportParser("output/"+reportname); 
+
+ 
+		ReportHelper.createCucumberHTMLReport("target", "target//cucumber.json", "ATDD_LEANFT_DEMO"); 
+
+ 
+	} 
+ 	 
+
 	
 /*	public void testMain(Object[] args) throws Exception
 	{

@@ -24,11 +24,9 @@ As a RxClaim User I want to create a New Member with existing CAG
    
    
     Examples:
-    | CarrierID | AccountID   | GroupID     | MemberID | First Name | Last Name | DOB      | From Date | Thru Date |
-		|	SR41354CR | SR41354ACC1 |	SR41354GR1  | TC3MEM01 | LAST       | FIRST     | 01011990	| 010116   | 123116    |
-    |	SR41354CR | SR41354ACC1 |	SR41354GR1  | TC4MEM01 | LAST       | FIRST     | 01011990	| 010116   | 123116    |
-    |	SR41354CR | SR41354ACC1 |	SR41354GR1  | TC5MEM01 | LAST       | FIRST     | 01011990	| 010116   | 123116    |
-    |	SR41354CR | SR41354ACC1 |	SR41354GR1  | TC6MEM01 | LAST       | FIRST     | 01011990	| 010116   | 123116    |
-    |	SR41354CR | SR41354ACC1 |	SR41354GR1  | TC7MEM01 | LAST       | FIRST     | 01011990	| 010116   | 123116    |
+
+    | CarrierID | AccountID   | GroupID     | MemberID  | First Name | Last Name | DOB      | From Date | Thru Date |
+		|	ACLAIMC1  | AUTOCLAIMA1 |	AUTOCLAIMG1 | AUTOMEM0025 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139  |
+
     
     
