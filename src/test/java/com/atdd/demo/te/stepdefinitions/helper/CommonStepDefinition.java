@@ -297,11 +297,6 @@ public class CommonStepDefinition extends CommonHelper{
 		FunctionalLibrary.validateText("9" ,"16" , accountID);
 		FunctionalLibrary.validateText("9" ,"33" , groupID);
 		FunctionalLibrary.validateText("9" ,"50" , plancode);
-	}
-  
-@Then("^Validate Member \"([^\"]*)\" added$")
-	public void validate_Member_added(String memberID) throws Throwable {
-		FunctionalLibrary.validateText("6" ,"10" , memberID );
 	}	
   
 	@When("^I submit PDE extract$")
