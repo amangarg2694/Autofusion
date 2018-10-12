@@ -50,7 +50,7 @@ As a RxClaim User I want to check claim is paid and Ded OOP amount populated cor
     And I press "F12" Key
     And I press "F3" Key
     And I press "F12" Key
-    When I submit a claim with "<BIN>","<PCN>","<Group>","<Pharmacy>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>","<PAT>"
+    When I submit a DEDOOP claim with "<BIN>","<PCN>","<Group>","<Pharmacy>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>","<PAT>"
     And Capture the Claim Number and write in text file
     And I press "F7" Key
    	And I enter "1" in field "Selectionfield" on "TransactionDetailList"
@@ -75,5 +75,5 @@ As a RxClaim User I want to check claim is paid and Ded OOP amount populated cor
     
    	 Examples:
     | CarrierID | CarrierName |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID |AccountName  | GroupID   |GroupName  |GroupFromDt|GroupThruDt|PlanCode| Schedule | ScheduleDesc | Basis | StepNo | DedCompCode | OOPCompCode | Ind | MaxInd | BrandCopay | GenericCopay | PercentBasis | PlanFromDt | Description | StartDate | EndDate | OOP | BMX |MemberID | First Name | Last Name | DOB      | BIN    | PCN     | Group | Pharmacy |RxNo          | Refill | ProductID  | DspQty | DS | PSC | Cost | PAT | ID |  FillDate |
-    | WKBJLEA | Test Carrier|712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |WKBJLEA|Test Account| SR42309C  |Test Group |010101     |123139     |SR42309C| SR42309C|Testing|1|1|1|2|2000|999999.99|100|100|02|010101|SR42309 Plan|010118|123118|1|1|SR42309C| AUTOMEM    | AUTOMEM   | 12251987	| 777777 | WKBJLEA | WKBJLEA | 8675309 | 510019901003 | 00     | 51927441300 |30      |30  |0   |3000   |50| SR42309C |8202018|
+    | WKBJLEA | Test Carrier|712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |WKBJLEA|Test Account| SR42309D  |Test Group |010101     |123139     |SR42309E| SR42309E|Testing|1|1|1|2|2000|999999.99|100|100|02|010101|SR42309 Plan|010118|123118|1|1|SR42309D| AUTOMEM    | AUTOMEM   | 12251987	| 777777 | WKBJLEA | WKBJLEA | 8675309 | 510019901004 | 00     | 51927441300 |30      |30  |0   |3000   |50| SR42309C |10082018|
    	
