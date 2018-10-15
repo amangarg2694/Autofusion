@@ -20,6 +20,7 @@ import com.optumrx.autofusion.core.te.util.Screenshot;
 import com.optumrx.autofusion.core.te.util.MainframeOR.TeWindow;
 
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class MSCUpdateBatchProcess {
 	@Then("^Validating the option Product MSC Batch Update is available in Product Load Pre-Processing Profile screen$")
@@ -159,6 +160,9 @@ public class MSCUpdateBatchProcess {
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			System.out.println("Error message displayed: "+Mainframe_GlobalFunctionLib.getText(24, 2).trim());
 		}
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
 	
 	@Then("^Validating the fields when Extract product job has completed successfully with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -275,8 +279,261 @@ public class MSCUpdateBatchProcess {
 			Mainframe_GlobalFunctionLib.pressKey("F20");
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		}
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
 
+	@When("^submitting Brand/Generic Product Log Report job and verifying processed status is reflected in spool file when file is submitted with batch in Product MSC Batch Update with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void submitting_Brand_Generic_Product_Log_Report_job_and_verifying_processed_status_is_reflected_in_spool_file_when_file_is_submitted_with_batch_in_Product_MSC_Batch_Update_with(String FromDate, String ThruDate, String File, String Library, String NewFile, String Carrier, String Account, String Group) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		Mainframe_GlobalFunctionLib.sendText(13, 23,FromDate);
+		Mainframe_GlobalFunctionLib.sendText(13, 54,ThruDate);
+		Mainframe_GlobalFunctionLib.sendText(15, 22,File);
+		Mainframe_GlobalFunctionLib.sendText(17, 22,Library);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("F6");
+		Mainframe_GlobalFunctionLib.sendText(21, 7, "ws");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		String jobstatus = Mainframe_GlobalFunctionLib.getText(11,40);
+		if(jobstatus.equals("OUTQ"))
+		{
+			Mainframe_GlobalFunctionLib.sendText(11, 3,"8");
+    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+    		Mainframe_GlobalFunctionLib.sendText(11, 3,"5");
+    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+    		Mainframe_GlobalFunctionLib.sendText(3,22,"W30");
+    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+    		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+    		Mainframe_GlobalFunctionLib.pressKey("PageDown");
+    		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+    		Mainframe_GlobalFunctionLib.pressKey("F3");
+    		Mainframe_GlobalFunctionLib.pressKey("F3");
+		}
+		else if (jobstatus.equals("ACTIVE"))
+		{
+			
+			TimeUnit.MINUTES.sleep(4);
+			Mainframe_GlobalFunctionLib.pressKey("F5");
+			String jobstat = Mainframe_GlobalFunctionLib.getText(11,40);
+			if(jobstat.equals("OUTQ"))
+    		{
+			TimeUnit.SECONDS.sleep(3);
+			Mainframe_GlobalFunctionLib.sendText(11, 3,"8");
+    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+    		Mainframe_GlobalFunctionLib.sendText(11, 3,"5");
+    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+    		Mainframe_GlobalFunctionLib.sendText(3,22,"W30");
+    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+    		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+    		Mainframe_GlobalFunctionLib.pressKey("PageDown");
+    		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+    		Mainframe_GlobalFunctionLib.pressKey("F3");
+    		Mainframe_GlobalFunctionLib.pressKey("F3");
+    		}
+		}
+		else if (jobstatus.equals("JOBQ"))
+		{
+			Mainframe_GlobalFunctionLib.sendText(11, 3,"2");
+    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+    		Mainframe_GlobalFunctionLib.pressKey("F10");
+    		Mainframe_GlobalFunctionLib.sendText(17, 37,"          ");
+    		Mainframe_GlobalFunctionLib.sendText(17, 37,"QINTER");
+    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+    		Mainframe_GlobalFunctionLib.pressKey("F5");
+    		String jobstat = Mainframe_GlobalFunctionLib.getText(11,40);
+			if(jobstat.equals("OUTQ"))
+    		{
+				TimeUnit.SECONDS.sleep(3);
+				Mainframe_GlobalFunctionLib.sendText(11, 3,"8");
+	    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+	    		Mainframe_GlobalFunctionLib.sendText(11, 3,"5");
+	    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+	    		Mainframe_GlobalFunctionLib.sendText(3,22,"W30");
+        		Mainframe_GlobalFunctionLib.pressKey("Enter");
+        		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+        		Mainframe_GlobalFunctionLib.pressKey("PageDown");
+        		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+	    		Mainframe_GlobalFunctionLib.pressKey("F3");
+	    		Mainframe_GlobalFunctionLib.pressKey("F3");
+	    		}
+			else if(jobstat.equals("ACTIVE"))
+			{
+				TimeUnit.MINUTES.sleep(4);
+    			Mainframe_GlobalFunctionLib.pressKey("F5");
+    			String jobstatu = Mainframe_GlobalFunctionLib.getText(11,40);
+    			if(jobstatu.equals("OUTQ"))
+        		{
+    			TimeUnit.SECONDS.sleep(3);
+    			Mainframe_GlobalFunctionLib.sendText(11, 3,"8");
+        		Mainframe_GlobalFunctionLib.pressKey("Enter");
+        		Mainframe_GlobalFunctionLib.sendText(11, 3,"5");
+        		Mainframe_GlobalFunctionLib.pressKey("Enter");
+        		Mainframe_GlobalFunctionLib.sendText(3,22,"W30");
+        		Mainframe_GlobalFunctionLib.pressKey("Enter");
+        		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+        		Mainframe_GlobalFunctionLib.pressKey("PageDown");
+        		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+        		Mainframe_GlobalFunctionLib.pressKey("F3");
+        		Mainframe_GlobalFunctionLib.pressKey("F3");
+        		}
+			}	
+		}
+		
+		Mainframe_GlobalFunctionLib.sendText(21, 7,"runqry *n "+Library+"/"+File);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		
+		//Copying the records
+		Mainframe_GlobalFunctionLib.sendText(21, 7,"cpyf");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(5, 37,File);
+		Mainframe_GlobalFunctionLib.sendText(6, 39,Library);
+		Mainframe_GlobalFunctionLib.sendText(7, 37,NewFile);
+		Mainframe_GlobalFunctionLib.sendText(8, 39,Library);
+		Mainframe_GlobalFunctionLib.sendText(11, 37,"     ");
+		Mainframe_GlobalFunctionLib.sendText(11, 37,"*ADD");
+		Mainframe_GlobalFunctionLib.sendText(12, 37,"*YES");
+		Mainframe_GlobalFunctionLib.pressKey("F10");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("PageDown");
+		Mainframe_GlobalFunctionLib.sendText(5, 37,"           ");
+		Mainframe_GlobalFunctionLib.sendText(5, 37,"4");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+		Mainframe_GlobalFunctionLib.sendText(21, 7,"runqry *n "+Library+"/"+NewFile);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		
+		
+		//Modifications in New File
+		Mainframe_GlobalFunctionLib.sendText(21, 7,"edtlibl");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(7, 12,"DBU10");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.sendText(21, 7,"DBU");
+		Mainframe_GlobalFunctionLib.pressKey("F4");
+		Mainframe_GlobalFunctionLib.sendText(5, 37,NewFile);
+		Mainframe_GlobalFunctionLib.sendText(6, 39,Library);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(6, 16,"CHG");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("PageDown");
+		Mainframe_GlobalFunctionLib.pressKey("PageDown");
+		
+		TimeUnit.SECONDS.sleep(5);
+		String data = Mainframe_GlobalFunctionLib.getText(8,29);
+		String t1 = data.substring(0, 52);
+		String t2 = data.substring(53, 57);
+		String t3 = t2.replace(t2, ",*ALL,*ALL,*ALL,");
+		String t4 = data.substring(63,66);
+		String t5 = t4.replace(t4, ",,,O");
+		String t6 = data.substring(65);
+		String t = data.substring(56, 62);
+		
+		String t7 = t1+t3+t+t5+t6;
+		String t8 = t7.substring(178);
+		String t9 = t8.replace(t8, "03,,,,,,,,,,");
+		String t10 = t7.substring(0, 178);
+		String t11 = t10+t9;
+		Mainframe_GlobalFunctionLib.sendText(8, 29,t11);
+		
+		Mainframe_GlobalFunctionLib.pressKey("PageDown");
+		Mainframe_GlobalFunctionLib.pressKey("PageDown");
+		
+		TimeUnit.SECONDS.sleep(5);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F5");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.sendText(8, 7,"1");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+		Mainframe_GlobalFunctionLib.sendText(21, 7,"edtlibl");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(7, 12,Library);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		
+		FunctionalLibrary.navigateToScreen("8");
+		Mainframe_GlobalFunctionLib.sendText(9, 21,NewFile);
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("F6");
+		Mainframe_GlobalFunctionLib.sendText(21, 7, "ws");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		String jobstatus1 = Mainframe_GlobalFunctionLib.getText(12,40);
+		if(jobstatus1.equals("OUTQ"))
+		{
+			Mainframe_GlobalFunctionLib.sendText(12, 3,"8");
+    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+    		Mainframe_GlobalFunctionLib.sendText(11, 3,"5");
+    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+    		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+    		
+		}
+		else if (jobstatus1.equals("ACTIVE"))
+		{
+			
+			TimeUnit.MINUTES.sleep(4);
+			Mainframe_GlobalFunctionLib.pressKey("F5");
+			String jobstat = Mainframe_GlobalFunctionLib.getText(12,40);
+			if(jobstat.equals("OUTQ"))
+    		{
+			TimeUnit.SECONDS.sleep(3);
+			Mainframe_GlobalFunctionLib.sendText(12, 3,"8");
+    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+    		Mainframe_GlobalFunctionLib.sendText(11, 3,"5");
+    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+    		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+    		}
+		}
+		else if (jobstatus1.equals("JOBQ"))
+		{
+			Mainframe_GlobalFunctionLib.sendText(12, 3,"2");
+    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+    		Mainframe_GlobalFunctionLib.pressKey("F10");
+    		Mainframe_GlobalFunctionLib.sendText(17, 37,"          ");
+    		Mainframe_GlobalFunctionLib.sendText(17, 37,"QINTER");
+    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+    		Mainframe_GlobalFunctionLib.pressKey("F5");
+    		String jobstat = Mainframe_GlobalFunctionLib.getText(12,40);
+			if(jobstat.equals("OUTQ"))
+    		{
+				TimeUnit.SECONDS.sleep(3);
+				Mainframe_GlobalFunctionLib.sendText(12, 3,"8");
+	    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+	    		Mainframe_GlobalFunctionLib.sendText(11, 3,"5");
+	    		Mainframe_GlobalFunctionLib.pressKey("Enter");
+	    		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+        		}
+			else if(jobstat.equals("ACTIVE"))
+			{
+				TimeUnit.MINUTES.sleep(4);
+    			Mainframe_GlobalFunctionLib.pressKey("F5");
+    			String jobstatu = Mainframe_GlobalFunctionLib.getText(12,40);
+    			if(jobstatu.equals("OUTQ"))
+        		{
+    			TimeUnit.SECONDS.sleep(3);
+    			Mainframe_GlobalFunctionLib.sendText(12, 3,"8");
+        		Mainframe_GlobalFunctionLib.pressKey("Enter");
+        		Mainframe_GlobalFunctionLib.sendText(11, 3,"5");
+        		Mainframe_GlobalFunctionLib.pressKey("Enter");
+        		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+        		}
+			}	
+		}
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+	}
 	
 	@Then("^Validating Brand/Generic Product Log Report is submitted and processed status is reflected in spool file when file is submitted with batch in Product MSC Batch Update with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void validating_Brand_Generic_Product_Log_Report_is_submitted_and_processed_status_is_reflected_in_spool_file_when_file_is_submitted_with_batch_in_Product_MSC_Batch_Update_with(String FromDate, String ThruDate, String File, String Library, String NewFile, String Carrier, String Account, String Group, String OverrideMSC1, String OverrideMSC2,String OverrideMSC3,String OverrideMSC4,String OverrideMSC5,String ProcessStatus1,String ProcessStatus2,String ProcessStatus3) throws Throwable {
@@ -774,7 +1031,8 @@ public class MSCUpdateBatchProcess {
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("F14");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-		
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
-
 }
