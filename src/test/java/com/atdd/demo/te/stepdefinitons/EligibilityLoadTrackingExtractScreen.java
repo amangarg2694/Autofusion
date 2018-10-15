@@ -861,6 +861,7 @@ public void capturing_claim_number_family_member_writing_it_to_text_file_with(St
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 		Mainframe_GlobalFunctionLib.pressKey("F3");
-	}
 	
+	
+}
 }
