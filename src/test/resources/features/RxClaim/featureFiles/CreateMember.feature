@@ -8,7 +8,7 @@ As a RxClaim User I want to create a New Member with existing CAG
     Then Validate Member "<MemberID>" added
     
     Examples:
-    | CarrierID | AccountID   | GroupID     | MemberID   | FirstName  | LastName  | DOB      | FromDate  | ThruDate |
-		|	ACLAIMC1  | AUTOCLAIMA1 |	AUTOCLAIMG1 | RUPMEM0005 | AUTOMEM    | AUTOMEM   | 12251987 | 010101    | 123139   |
-    
-   
+		| CarrierID 	| AccountID   	| GroupID     		| MemberID   		| FirstName  	| LastName  | DOB      | FromDate  | ThruDate |
+		|	SID3340C1  	| SID3340C1A01 	|	SID3340C1A01G01 | test| LEE    			| RAYMOND   | 01011950 | 010118    | 123118   |
+		    
+		   
