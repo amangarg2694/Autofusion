@@ -1,6 +1,6 @@
 #Author: swathi_palla@optum.com
 #Pre-Requisite : User must have valid credentials to login to application.
-Feature: Create Carrier,Account,Group and Member.Submit a claim such that it should be Paid and Paid messages are displayed.
+Feature: Create Carrier,Account,Group and Member.Submit a claim such that it should be Reject and Reject messages are displayed.
 
   Scenario Outline: Create a new CAG in RxClaim 
  Given I am on RxClaim PlanAdministrator Menu 
@@ -21,6 +21,7 @@ Feature: Create Carrier,Account,Group and Member.Submit a claim such that it sho
  |CarrierID| AccountID  | GroupID    | MemberID    | FirstName  | LastName  | DOB      | FromDate  | ThruDate |
  |SN3292C| SN3292A    |	SN3292G    | SN3292M    | AUTOMEM    | AUTOMEM   | 11161990 | 010101    | 123139   |
 
+ # In order to reject the claim, provided invalid Product ID
  Scenario Outline: Submit a claim in RxClaim
   Given I am on RxClaim PlanAdministrator Menu 
   When I submit a claim with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>"
@@ -29,7 +30,7 @@ Feature: Create Carrier,Account,Group and Member.Submit a claim such that it sho
   
   Examples:
   | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID  | DspQty | DS | PSC | Cost |
-  |	777777  | QET     |	*ALL  | APHARM      | 765488367432 | 00     | 010218   | SN3292M | 12345000901|30      |30  |00   |100   |
+  |	777777  | QET     |	*ALL  | APHARM      |244135725928 | 00     | 010218   | SN3292M |1234500090|30      |30  | 00  |100   |
   
  Scenario Outline: To add messages to the Reject claim.
  Given I am on RxClaim PlanAdministrator Menu
@@ -38,7 +39,7 @@ Feature: Create Carrier,Account,Group and Member.Submit a claim such that it sho
  
  Examples:
  |Rel|FileName|Lib|maxMsgCount|minMsgCount|		 
- |8403|RCRCMP|TCL|20|1|
+ |8403|RCRCMP|TCL|100|10|
  
  
  

@@ -122,7 +122,7 @@ public class PartitionMemberDataForVSRandVCHFiles {
 			FunctionalLibrary.pressKey("PageDown");
 			FunctionalLibrary.pressKey("PageDown");
 			String FN = "VCH"; 
-			FunctionalLibrary.validateDateRange(PartMember,FN);
+			PartitionDateRangeforVCHandVSRFiles.validateDateRange(PartMember,FN);
 	    	
 	    }
 	}
@@ -143,8 +143,10 @@ public class PartitionMemberDataForVSRandVCHFiles {
 			FunctionalLibrary.pressKey("PageDown");
 			FunctionalLibrary.pressKey("PageDown");
 			String FN = "VSR"; 
-	    	FunctionalLibrary.validateDateRange(PartMember,FN);
+			PartitionDateRangeforVCHandVSRFiles.validateDateRange(PartMember,FN);
 	    	
 	    }
 	}
+	
+	
 }

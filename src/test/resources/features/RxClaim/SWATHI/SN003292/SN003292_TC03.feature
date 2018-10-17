@@ -30,7 +30,7 @@ Feature: Create Carrier,Account,Group and Member.Submit a claim such that it sho
  |12345432199|010118  |123118  |SN3292C|T1333334   |10   |R          	|
  |12345432199|010118  |123018  |SN3292C|SNTCP      |20   |R	        	|
  
- Scenario Outline: Submit a claim in RxClaim
+ Scenario Outline: Submit a claim in RxClaim with status as "R"
   Given I am on RxClaim PlanAdministrator Menu 
   When I submit a claim with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>"
   Then Validate Claim Status is "R"
