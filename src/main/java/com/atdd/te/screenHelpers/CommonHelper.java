@@ -130,7 +130,6 @@ case "BOOK1" :
 				e.printStackTrace();
 			//	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			//	Assert.fail("Login is not successful.");
-				
 			}
 	
 		break;

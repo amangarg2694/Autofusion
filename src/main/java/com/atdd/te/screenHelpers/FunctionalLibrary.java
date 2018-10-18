@@ -151,7 +151,7 @@ public class FunctionalLibrary extends CommonHelper {
 
 		}
 	}
-
+  
 	public static void addCarrier(String carrierID, String carrierName, String processor, String mail, String city,
 			String state, String zip, String contractFromDate, String contractThruDate, String contractEnt,
 			String businessType) throws IOException
@@ -164,8 +164,8 @@ public class FunctionalLibrary extends CommonHelper {
 		} catch (Exception e) {
 
 			e.printStackTrace();
-		}
-		try {
+		}		
+    try {
 			Mainframe_GlobalFunctionLib.sendText(21, 7, "1");
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Mainframe_GlobalFunctionLib.sendText(21, 7, "1");
@@ -201,7 +201,7 @@ public class FunctionalLibrary extends CommonHelper {
 			if (ScreenshotOption.equalsIgnoreCase("Always")) {
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			}
-		} catch (Exception e) {
+		} catch (Exception e){
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			Assert.fail("The Carrier is not created successfully.Screenshot is captured");
 
@@ -1231,7 +1231,7 @@ public class FunctionalLibrary extends CommonHelper {
 			if (ScreenshotOption.equalsIgnoreCase("Always")) {
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			}
-		} catch (Exception e) {
+		}} catch (Exception e) {
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			Assert.fail("An error has occured while creating the caim transaction.Screenshot is captured");
 		}
@@ -2571,8 +2571,8 @@ public class FunctionalLibrary extends CommonHelper {
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 
 		} catch (Exception e) {
-		}
-	}
+		}	
+    }
 
 	public static void compareText(String actualValue, String expectedValue) throws IOException {
 		try {
@@ -2599,7 +2599,7 @@ public class FunctionalLibrary extends CommonHelper {
 	}
 
 	public static void main(String args[]) throws Throwable {
-
+  
 		FunctionalLibrary fb = new FunctionalLibrary();
 		// Mainframe_GlobalFunctionLib.launchTE("Book1");
 

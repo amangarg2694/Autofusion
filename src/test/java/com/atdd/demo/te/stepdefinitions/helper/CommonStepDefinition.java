@@ -79,8 +79,8 @@ public class CommonStepDefinition extends CommonHelper{
 	    
 		FunctionalLibrary.createCAG( carrierID, carrierName, processor, mailingAdd, city, state, zip, contractFromDt, contractThruDt, contractEnt, businessType, accountID, accountName, groupID, groupName, groupFromDt, groupThruDt, planCode);
 	}
-	
-	@When("^I create Carrier with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+  
+  @When("^I create Carrier with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_Carrier_with(String carrierID, String carrierName, String processor, String mailingAdd, String city, String state, String zip, String contractFromDt, String contractThruDt, String contractEnt, String businessType) throws Throwable {		 
 		FunctionalLibrary.addCarrier( carrierID, carrierName, processor, mailingAdd, city, state, zip, contractFromDt, contractThruDt, contractEnt, businessType);
 	
@@ -128,6 +128,7 @@ public class CommonStepDefinition extends CommonHelper{
 		Mainframe_GlobalFunctionLib.pressKey("F12");
 		Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
+  
 	@When("^I submit a claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_submit_a_claim_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -212,7 +213,92 @@ public class CommonStepDefinition extends CommonHelper{
 //		Mainframe_GlobalFunctionLib.validateText(24 , 2, "Member Added.");
 		
 	}
+			
+	@Then("^Validate \"([^\"]*)\" should displayed on \"([^\"]*)\"$")
+	public void validate_should_displayed_on(String Sts, String screenName) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		String[] coordinates = ReadPropertyFile.getProperty(screenName , "Sts");
+		FunctionalLibrary.validateText(coordinates[0] ,coordinates[1] , Sts);
+		//Mainframe_GlobalFunctionLib.validateText(24 , 2, "Member Added.");
+		//String Csts=FunctionalLibrary.getText(21, 6);
+		//System.out.println(Csts);
+	    
+	}
 	
+	
+	
+	@Then("^Verify \"([^\"]*)\" message should displayed on \"([^\"]*)\"$")
+	public void verify_message_should_displayed_on(String Record, String screenname) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		String[] coordinates = ReadPropertyFile.getProperty(screenname , "Record");
+		FunctionalLibrary.validateText(coordinates[0] ,coordinates[1] , Record);
+	}
+	
+	@Then("^Verify \"([^\"]*)\" field data on \"([^\"]*)\"$")
+	public void verify_field_data_on(String Address2, String screenname) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		String[] coordinates = ReadPropertyFile.getProperty(screenname , "Address2");
+		FunctionalLibrary.validateText(coordinates[0] ,coordinates[1] , Address2);
+	}
+		
+	@When("^I create plan with member eligibility and pricing option \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_plan_with_member_eligibility_and_pricing_option(String plancode, String fromdate, String description, String thruDate, String pricechedule, String patientpayschedule) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.Createplanwithmembereligibilityandpricingoption(plancode, fromdate, description, thruDate, pricechedule, patientpayschedule);
+	}
+	@When("^I add accumulators to plan \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_add_accumulators_to_plan(String TrOOPfromdate, String TrOOPthrudate, String accumulationlevel, String accumulationcode, String TrOOPschedule, String CMSlabelerlist) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    FunctionalLibrary.addAccumulators(TrOOPfromdate, TrOOPthrudate, accumulationlevel, accumulationcode, TrOOPschedule, CMSlabelerlist);
+	}
+	@When("^I Set Covered Plan Paid Amount in plan \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_Set_Covered_Plan_Paid_Amount_in_plan(String CPPFromDate, String CPPThruDate, String CPPAccumulationLevel, String CPPAccumulationCode, String CPPPatientPaySchedule, String CPPTrOOPSchedule, String Qualifier) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    FunctionalLibrary.SetCoveredPlanPaidAmount(CPPFromDate, CPPThruDate, CPPAccumulationLevel, CPPAccumulationCode, CPPPatientPaySchedule, CPPTrOOPSchedule, Qualifier);
+	}
+	@When("^I Set Patient Pay Schedule \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_Set_Patient_Pay_Schedule(String PPdetailschedule, String PPdetaildescription, String planusequalifier) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.SetPatientPaySchedule(PPdetailschedule, PPdetaildescription, planusequalifier);
+	}
+	
+	@Then("^I Set HIC detials \"([^\"]*)\"$")
+	public void i_Set_HIC_detials(String HIC) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		 Mainframe_GlobalFunctionLib.sendText(17, 50 ,HIC);
+	     Mainframe_GlobalFunctionLib.pressKey("Enter");
+	}
+	
+	@Then("^I Set Set Supplemental ID by Type \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_Set_Set_Supplemental_ID_by_Type(String SupplementalIDFromDate, String SupplementalIDThruDate, String SupplementalIDType, String SupplementalID, String Text) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    FunctionalLibrary.SetSupplementalIDbyType(SupplementalIDFromDate, SupplementalIDThruDate, SupplementalIDType, SupplementalID, Text);
+	}
+	
+	
+	@Then("^I Set PBP \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_Set_PBP(String carrierID, String contract, String pbp, String benefityear, String medicaretype) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    FunctionalLibrary.SetPBP(carrierID, contract, pbp, benefityear, medicaretype);
+	}
+	
+	/*
+	@Given("^I Set PBP \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_Set_PBP(String carrierID, String contract, String pbp, String benefityear, String medicaretype, String SubmitterID) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		//FunctionalLibrary.SetPBP(carrierID, contract, pbp, benefityear, medicaretype,SubmitterID);
+	}
+	*/
+	
+	@Then("^Validate PartD Master Profile created with details \"([^\"]*)\" ,\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void validate_PartD_Master_Profile_created_with_details(String carrierID, String accountID, String groupID, String plancode) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		FunctionalLibrary.validateText("9" ,"5" , carrierID);
+		FunctionalLibrary.validateText("9" ,"16" , accountID);
+		FunctionalLibrary.validateText("9" ,"33" , groupID);
+		FunctionalLibrary.validateText("9" ,"50" , plancode);
+	}	
+  
 	@When("^I submit PDE extract$")
 	public void i_submit_PDE_extract() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -232,53 +318,12 @@ public class CommonStepDefinition extends CommonHelper{
 		FunctionalLibrary.validateText("1" ,"2" , screenname );
 	}
 	
-	//Part D Setup
-	@When("^I create plan with member eligibility and pricing option \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_create_plan_with_member_eligibility_and_pricing_option(String plancode, String fromdate, String description, String thruDate, String pricechedule, String patientpayschedule) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		FunctionalLibrary.Createplanwithmembereligibilityandpricingoption(plancode, fromdate, description, thruDate, pricechedule, patientpayschedule);
-	}
+	
 	
 	@Then("^Validate Plan \"([^\"]*)\"$")
 	public void validate_Plan(String plancode) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		FunctionalLibrary.validateText("3" ,"13" , plancode );
-	}
-	@When("^I add accumulators to plan \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_add_accumulators_to_plan(String TrOOPfromdate, String TrOOPthrudate, String accumulationlevel, String accumulationcode, String TrOOPschedule, String CMSlabelerlist) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    FunctionalLibrary.addAccumulators(TrOOPfromdate, TrOOPthrudate, accumulationlevel, accumulationcode, TrOOPschedule, CMSlabelerlist);
-	}
-
-	@When("^I Set Covered Plan Paid Amount in plan \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_Set_Covered_Plan_Paid_Amount_in_plan(String CPPFromDate, String CPPThruDate, String CPPAccumulationLevel, String CPPAccumulationCode, String CPPPatientPaySchedule, String CPPTrOOPSchedule, String Qualifier) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    FunctionalLibrary.SetCoveredPlanPaidAmount(CPPFromDate, CPPThruDate, CPPAccumulationLevel, CPPAccumulationCode, CPPPatientPaySchedule, CPPTrOOPSchedule, Qualifier);
-	}
-
-	@When("^I Set Patient Pay Schedule \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_Set_Patient_Pay_Schedule(String PPdetailschedule, String PPdetaildescription, String planusequalifier) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		FunctionalLibrary.SetPatientPaySchedule(PPdetailschedule, PPdetaildescription, planusequalifier);
-	}
-
-	@Then("^I Set HIC detials \"([^\"]*)\"$")
-	public void i_Set_HIC_detials(String HIC) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		 Mainframe_GlobalFunctionLib.sendText(17, 50 ,HIC);
-	     Mainframe_GlobalFunctionLib.pressKey("Enter");
-	}
-
-	@Then("^I Set Set Supplemental ID by Type \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_Set_Set_Supplemental_ID_by_Type(String SupplementalIDFromDate, String SupplementalIDThruDate, String SupplementalIDType, String SupplementalID, String Text) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    FunctionalLibrary.SetSupplementalIDbyType(SupplementalIDFromDate, SupplementalIDThruDate, SupplementalIDType, SupplementalID, Text);
-	}
-
-	@Then("^I Set PBP \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_Set_PBP(String carrierID, String contract, String pbp, String benefityear, String medicaretype) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    FunctionalLibrary.SetPBP(carrierID, contract, pbp, benefityear, medicaretype);
 	}
 
 	@Then("^I Set Medicare \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -293,14 +338,7 @@ public class CommonStepDefinition extends CommonHelper{
 	    FunctionalLibrary.func_SetPartDMasterProfileDetail(carrierID, accountID, groupID, plancode, fromdate, masterprofilefromdate, masterprofilethrudate, drugcoveragestatusschedule, contract, pbp);
 	}
 	
-	@Then("^Validate PartD Master Profile created with details \"([^\"]*)\" ,\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void validate_PartD_Master_Profile_created_with_details(String carrierID, String accountID, String groupID, String plancode) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		FunctionalLibrary.validateText("9" ,"5" , carrierID);
-		FunctionalLibrary.validateText("9" ,"16" , accountID);
-		FunctionalLibrary.validateText("9" ,"33" , groupID);
-		FunctionalLibrary.validateText("9" ,"50" , plancode);
-	}
+	
 	@When("^I create plan with pricing \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_plan_with_pricing(String plancode, String fromdate, String description, String thruDate, String pricechedule, String patientpayschedule) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -693,5 +731,4 @@ public class CommonStepDefinition extends CommonHelper{
     public void validate_if_Copy_is_hundred_percent() throws Throwable {
        
     }
-	
-}
+	}

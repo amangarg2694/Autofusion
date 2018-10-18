@@ -33,7 +33,7 @@ As a RxClaim User I want to check claim is paid and Ded OOP amount populated cor
     And I press "F12" Key
     And I press "F3" Key
     And I press "F12" Key
-    When I submit a claim with "<BIN>","<PCN>","<Group>","<Pharmacy>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>","<PAT>"
+    When I submit a DEDOOP claim with "<BIN>","<PCN>","<Group>","<Pharmacy>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>","<PAT>"
     And Capture the Claim Number and write in text file
     And I press "F7" Key
    	And I enter "1" in field "Selectionfield" on "TransactionDetailList"
