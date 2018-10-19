@@ -2,31 +2,23 @@ Feature: Perform a Eligibility Profile Setup
 Scenario Outline: Perform a Eligibility Stage
   
  Given I am on RxClaim PlanAdministrator Menu 
-   When  I select Option "CCT700" to navigate to "RxClaim Operations Menu "
-     And I select Option "2" to navigate to "RxClaim Batch Transaction Loads Menu" 
-     And I select Option "1" to navigate to "RxClaim Eligibility Master Menu"
- #    And I select Option "2" to navigate to "Eligibility Stage"
-   #  And I enter "<Carrier>" in field "Carrier" on "EligibilityStageScreen" 
-   #  And I enter "<Account>" in field "Account" on "EligibilityStageScreen" 
-   #  And I enter "<Group>" in field "Group" on "EligibilityStageScreen" 
-   #  And I enter "S" in field "StageOption" on "EligibilityStageScreen" 
-   #  And I press "F6" Key  
-    # And I select Option "wrksbmjob" to navigate to "Work with Submitted Jobs" 
-     #And I press "8" Key  
-     #And I press "Enter" Key   
-     #And I press "Tab" Key  
-     #And I press "Tab" Key  
-     #And I press "Tab" Key  
-     #And I press "5" Key  
-     #And I press "Enter" Key   
-     And I select Option "wrksbmjob" to navigate to "Work with Submitted Jobs" 
-     And I enter "8" in field "Opt" on "WorkWithSubmittedJobsScreen"   
-     And I press "Enter" Key  
-     And I enter "5" in field "Opt3" on "WorkWithJobSpooledFilesScreen" 
-     And I press "Enter" Key 
-     And I enter "B" in field "Control" on "DisplaySpooledFileScreen"
-     And I press "Enter" Key 
-     Then I capture a screenshot
+ When  I select Option "CCT700" to navigate to "RxClaim Operations Menu "
+ And I select Option "2" to navigate to "RxClaim Batch Transaction Loads Menu" 
+ And I select Option "1" to navigate to "RxClaim Eligibility Master Menu"
+ And I select Option "2" to navigate to "Eligibility Stage"
+ And I enter "<Carrier>" in field "Carrier" on "EligibilityStageScreen" 
+ And I enter "<Account>" in field "Account" on "EligibilityStageScreen" 
+ And I enter "<Group>" in field "Group" on "EligibilityStageScreen" 
+ And I enter "S" in field "StageOption" on "EligibilityStageScreen" 
+ And I press "F6" Key  
+ And I select Option "wrksbmjob" to navigate to "Work with Submitted Jobs" 
+ And I enter "8" in field "Opt" on "WorkWithSubmittedJobsScreen"   
+ And I press "Enter" Key  
+ And I enter "5" in field "Opt3" on "WorkWithJobSpooledFilesScreen" 
+ And I press "Enter" Key 
+ And I enter "B" in field "Control" on "DisplaySpooledFileScreen"
+ And I press "Enter" Key 
+ Then I capture a screenshot
     
       
      
@@ -35,8 +27,8 @@ Scenario Outline: Perform a Eligibility Stage
   #Members Rejected:
   
  Examples:
- |Carrier|Account|Group|
-  |AZM|SN003730|SN003730|
+ |Carrier|Account |Group   |
+ |AZM    |SN003730|SN003730|
 
                     
 
