@@ -5,10 +5,12 @@ import com.atdd.te.screenHelpers.FileValidation;
 import com.atdd.te.screenHelpers.FunctionalLibrary;
 import com.atdd.te.screenHelpers.PlanByPlanCode;
 import com.atdd.te.screenHelpers.Pricing;
+import com.cucumber.listener.Reporter;
 //import com.hp.lft.sdk.Desktop;
 //import com.hp.lft.sdk.java.Window;
 //import com.hp.lft.sdk.java.WindowDescription;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
+import com.optumrx.autofusion.core.te.util.Screenshot;
 import com.optumrx.autofusion.core.util.ReadPropertyFile;
 
 import cucumber.api.DataTable;
@@ -731,4 +733,12 @@ public class CommonStepDefinition extends CommonHelper{
     public void validate_if_Copy_is_hundred_percent() throws Throwable {
        
     }
-	}
+    
+    
+    @Then("^I capture a screenshot$")
+    public void i_capture_a_screenshot() throws Throwable {
+    	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+    	System.out.println("Screen shot captured.");
+    }
+    
+}
