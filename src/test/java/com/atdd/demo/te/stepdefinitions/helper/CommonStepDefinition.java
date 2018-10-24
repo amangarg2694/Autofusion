@@ -731,4 +731,23 @@ public class CommonStepDefinition extends CommonHelper{
     public void validate_if_Copy_is_hundred_percent() throws Throwable {
        
     }
+    
+    
+
+	@Then("^Validate \"([^\"]*)\" in field \"([^\"]*)\" is displayed on \"([^\"]*)\"$")
+	public void validate_in_field_is_displayed_on(String fieldValue, String fieldName, String screenName) throws Throwable {
+		String[] coordinates = ReadPropertyFile.getProperty(screenName , fieldName);
+		FunctionalLibrary.validateText(coordinates[0] ,coordinates[1] , fieldValue);
+	}
+	
+	@When("^I click in field \"([^\"]*)\" on \"([^\"]*)\"$")
+	public void i_click_in_field_on(String fieldName, String screenName) throws Throwable {
+		String[] coordinates = ReadPropertyFile.getProperty(screenName , fieldName);
+		int coordinate0 = Integer.valueOf(coordinates[0]);
+		int coordinate1 = Integer.valueOf(coordinates[1]);
+		Mainframe_GlobalFunctionLib.click(coordinate0 ,coordinate1);
+		
+	}
+    
+    
 	}

@@ -20,11 +20,11 @@ Scenario Outline: Verify Network ID field is blank
 	
 Examples:
 	|ClaimID         |Network|
-	|181724244168000 |       |
+	|181805045241000 |       |
 
 	
 	
-Scenario Outline: Verify Discount Indicator is Y
+Scenario Outline: Verify Discount Indicator is Blank
 
 	Given I am on RxClaim PlanAdministrator Menu 
 	When I select Option "1" to navigate to "RxClaim Eligibility/Claim Transaction Maintenance"
@@ -41,10 +41,10 @@ Scenario Outline: Verify Discount Indicator is Y
 	
 Examples:
 	|ClaimID         |Discount|
-	|181724244168000 |Y       |
+	|181805045241000 |        |
 
 
-Scenario Outline: Verify Plan Qualifier is EBP
+Scenario Outline: Verify Plan Qualifier is Blank
 
 	Given I am on RxClaim PlanAdministrator Menu 
 	When I select Option "1" to navigate to "RxClaim Eligibility/Claim Transaction Maintenance"
@@ -62,10 +62,10 @@ Scenario Outline: Verify Plan Qualifier is EBP
 	
 Examples:
 	|ClaimID         |Plan   |PlanQualifier|
-	|181724244168000 |BPE-ESP|EBP          |
+	|181805045241000 |BPE-TOC|             |
 
 	
-Scenario Outline: Verify Transition of Care (TOC) Indicator is Blank
+Scenario Outline: Verify Transition of Care (TOC) Indicator is Y
 
 	Given I am on RxClaim PlanAdministrator Menu 
 	When I select Option "1" to navigate to "RxClaim Eligibility/Claim Transaction Maintenance"
@@ -82,4 +82,4 @@ Scenario Outline: Verify Transition of Care (TOC) Indicator is Blank
 	
 Examples:
 	|ClaimID         |TOCClaim|
-	|181724244168000 |        |
+	|181805045241000 |Y       |
