@@ -1,15 +1,21 @@
+
 package com.atdd.demo.te.stepdefinitions.helper;
+
+
 
 import com.atdd.te.screenHelpers.CommonHelper;
 import com.atdd.te.screenHelpers.FileValidation;
 import com.atdd.te.screenHelpers.FunctionalLibrary;
 import com.atdd.te.screenHelpers.PlanByPlanCode;
 import com.atdd.te.screenHelpers.Pricing;
+
 //import com.hp.lft.sdk.Desktop;
 //import com.hp.lft.sdk.java.Window;
 //import com.hp.lft.sdk.java.WindowDescription;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
+import com.optumrx.autofusion.core.te.util.Screenshot;
 import com.optumrx.autofusion.core.util.ReadPropertyFile;
+import com.cucumber.listener.Reporter;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
@@ -739,7 +745,11 @@ public class CommonStepDefinition extends CommonHelper{
        
     }
     
-    
+     @Then("^I capture a screenshot$")
+    public void i_capture_a_screenshot() throws Throwable {
+    	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+    	System.out.println("Screen shot captured.");
+    }
 
 	@Then("^Validate \"([^\"]*)\" in field \"([^\"]*)\" is displayed on \"([^\"]*)\"$")
 	public void validate_in_field_is_displayed_on(String fieldValue, String fieldName, String screenName) throws Throwable {
@@ -758,3 +768,4 @@ public class CommonStepDefinition extends CommonHelper{
     
     
 	}
+
