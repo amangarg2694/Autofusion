@@ -1502,7 +1502,8 @@ public class FunctionalLibrary extends CommonHelper {
 
 	public static void submitClaim() throws GeneralLeanFtException, InterruptedException, IOException {
 		try {
-			Mainframe_GlobalFunctionLib.pressKey("F6");
+			//Mainframe_GlobalFunctionLib.pressKey("F6");
+			Mainframe_GlobalFunctionLib.pressKey("F18");
 			Thread.sleep(2000);
 
 			if (ScreenshotOption.equalsIgnoreCase("Always")) {
@@ -2598,6 +2599,92 @@ public class FunctionalLibrary extends CommonHelper {
 		}
 	}
 
+	public static void createFirstTimeClaim(String bin, String proc, String group, String pharmacyID, String rxNbr,
+			String refill, String fillDate, String memberID, String productId, String dspQty, String ds, String psc,
+			String cost, String rxOrigin) throws Throwable {
+		try {
+			navigateToRxClaimPlanAdministrator();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			Mainframe_GlobalFunctionLib.sendText(21, 7, "3");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7, "2");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(21, 7, "1");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			if (func_SearchForMemberID("4,4", memberID, "9,4", memberID)) {
+				Thread.sleep(1000);
+				Mainframe_GlobalFunctionLib.click(4, 29);
+				Mainframe_GlobalFunctionLib.sendText(4, 29, pharmacyID);
+				/// Thread.sleep(3000);
+				Mainframe_GlobalFunctionLib.sendText(4, 65, "          ");
+				Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate);
+				Mainframe_GlobalFunctionLib.sendText(5, 29, func_GenerateDynamicRxNo());
+				Mainframe_GlobalFunctionLib.sendText(5, 47, refill);
+				Mainframe_GlobalFunctionLib.click(7, 12);
+				Mainframe_GlobalFunctionLib.sendText(7, 12, memberID);
+				Mainframe_GlobalFunctionLib.pressKey("F4");
+				Mainframe_GlobalFunctionLib.sendText(3, 4, memberID);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(8, 2, "1");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(11, 20, productId);
+				Mainframe_GlobalFunctionLib.sendText(12, 11, "           ");
+				Mainframe_GlobalFunctionLib.sendText(12, 11, dspQty);
+				Mainframe_GlobalFunctionLib.sendText(12, 26, "   ");
+				Mainframe_GlobalFunctionLib.sendText(12, 26, ds);
+				Mainframe_GlobalFunctionLib.sendText(14, 6, psc);
+				// Mainframe_GlobalFunctionLib.sendText(14, 14,"0" );
+				Mainframe_GlobalFunctionLib.sendText(10, 47, "         ");
+				Mainframe_GlobalFunctionLib.sendText(10, 47, cost);
+				Mainframe_GlobalFunctionLib.pressKey("PageDown");
+				Mainframe_GlobalFunctionLib.sendText(4, 55, rxOrigin);
+				Mainframe_GlobalFunctionLib.pressKey("PageUp");
+				
+			} else {
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(11, 14, bin);
+				Mainframe_GlobalFunctionLib.sendText(11, 41, proc);
+				Mainframe_GlobalFunctionLib.sendText(11, 59, group);
+				Mainframe_GlobalFunctionLib.sendText(12, 14, pharmacyID);
+				Mainframe_GlobalFunctionLib.sendText(12, 41, func_GenerateDynamicRxNo());
+				Mainframe_GlobalFunctionLib.sendText(12, 59, refill);
+				Mainframe_GlobalFunctionLib.sendText(14, 41, memberID);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.click(7, 12);
+				Mainframe_GlobalFunctionLib.pressKey("F4");
+				Thread.sleep(1000);
+				Mainframe_GlobalFunctionLib.sendText(3, 4, memberID);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(8, 2, "1");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(4, 65, "          ");
+				Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate);
+				Mainframe_GlobalFunctionLib.sendText(11, 20, productId);
+				Mainframe_GlobalFunctionLib.sendText(12, 11, dspQty);
+				Mainframe_GlobalFunctionLib.sendText(12, 26, ds);
+				Mainframe_GlobalFunctionLib.sendText(14, 6, psc);
+				Mainframe_GlobalFunctionLib.sendText(10, 47, "         ");
+				Mainframe_GlobalFunctionLib.sendText(10, 47, cost);
+				Mainframe_GlobalFunctionLib.pressKey("PageDown");
+				Mainframe_GlobalFunctionLib.sendText(4, 55, rxOrigin);
+				Mainframe_GlobalFunctionLib.pressKey("PageUp");
+		
+			System.out.println("Claim is created");
+			if (ScreenshotOption.equalsIgnoreCase("Always")) {
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+		}} catch (Exception e) {
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			Assert.fail("An error has occured while creating the caim transaction.Screenshot is captured");
+		}
+	}
+	
+	
+	
+	
 	public static void main(String args[]) throws Throwable {
   
 		FunctionalLibrary fb = new FunctionalLibrary();

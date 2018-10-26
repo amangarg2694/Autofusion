@@ -1,3 +1,4 @@
+@SN003119 @BPEAdditions
 Feature: BPE additions
 Best Price Engine program will update the RxClaim trial claim webservice to include three more data elements in it’s 
 response.  
@@ -83,3 +84,13 @@ Scenario Outline: Verify Transition of Care (TOC) Indicator is Blank
 Examples:
 	|ClaimID         |TOCClaim|
 	|181724244168000 |        |
+	
+	@trialclaim
+	Scenario Outline: Submit a Trial Claim 
+	 Given I am on RxClaim PlanAdministrator Menu 
+	 When I submit trial claim with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>"
+	 
+	 
+Examples: 
+| BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID      | ProductID      | DspQty | DS | PSC | Cost | Carrier | Account       | Groupid     | First Name | Last Name | DOB      | Start Date | End Date  |  
+|	777777  | SN003119|	*     | APHARM      | 900019931004 | 00     | 10252018 | BPE-ESP MBR 1 | 012000010100105|30      |30  |0    |500   | BPE-COM | BPE ACCOUNT 1 | BPE GROUP 3 | TEST       | BPE ESP MBR   | 12251987 |    010101 |    123139 |

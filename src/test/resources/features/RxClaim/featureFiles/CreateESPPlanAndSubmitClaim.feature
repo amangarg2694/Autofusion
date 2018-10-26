@@ -14,6 +14,7 @@ And I enter "Y" in field "CommandPrompt" on "AddPlanScreen"
 And I enter "Y" in field "MemberEligibility" on "PlanDetailScreen"
 And I enter "Y" in field "Pricing" on "PlanDetailScreen"
 And I enter "Y" in field "GPILists" on "PlanDetailScreen"
+And I enter "N" in field "DrugStatus" on "PlanDetailScreen"
 And I press "Enter" Key
 And I enter "Y" in field "CommandPrompt" on "PlanDetailScreen"
 And I press "PageDown" Key
@@ -25,7 +26,8 @@ Then Validate "<PlanCode>" message should displayed on "PlanDetailScreen"
 Examples:
 
 |PlanCode		|From Date	|Description	    |
-|ESPPLAN4 	|010118			|ESP Test Plan		|
+|ESPPLAN7 	|010118			|ESP Test Plan		|
+
 
 Scenario Outline: Add a Plan Discount Benefit 
 Given I am on RxClaim PlanAdministrator Menu
@@ -49,7 +51,7 @@ Then Validate "<DiscountBenefitTable>" in field "Table" is displayed on "ActiveP
 Examples:
 
 |PlanCode		|FromDate|ThruDate|DiscountBenefitTable|
-|ESPPLAN4 	|010118  |123139  |EBP03               |
+|ESPPLAN7 	|010118  |123139  |EBP03               |
 
 
 Scenario Outline:  Add Pricing Schedule to Plan 
@@ -86,7 +88,7 @@ And  Validate "Y" in field "PatientPay" is displayed on "PriceOptionPageScreen"
 
 Examples:
 |PlanCode		|FromDate|ThruDate|PriceSchedule|
-|ESPPLAN4 	|010118  |123139  |EVUAREG      |
+|ESPPLAN7 	|010118  |123139  |EVUAREG      |
 
 
 Scenario Outline: Add Medication to GPI List 
@@ -133,7 +135,7 @@ Then Validate "<GPIList>" in field "GPIList" is displayed on "ActivePlanGPIListS
 
 Examples:
 |PlanCode		|GPIList   |Description|Seq|FromDate|ThruDate|GPIName   |
-|ESPPLAN4 	|ESPREJECT4|RejectList |10 |010118  |123139  |SILDENAFIL|
+|ESPPLAN7 	|ESPREJECT7|RejectList |10 |010118  |123139  |SILDENAFIL|
 
 
  Scenario Outline: Create a new CAG in RxClaim 
@@ -143,7 +145,7 @@ Examples:
  
  Examples:
   | CarrierID  | CarrierName |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID |AccountName  | GroupID    |GroupName  |GroupFromDt|GroupThruDt|PlanCode| 
-  | ESPCAR2    | ESPCarrier  |712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |ESPACC2   |Test Account | ESPGROUP2  |Test Group |010101     |123139     |ESPPLAN4| 
+  | ESPCAR7    | ESPCarrier  |712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |ESPACC7   |Test Account | ESPGROUP7  |Test Group |010101     |123139     |ESPPLAN7| 
   
 
 
@@ -154,19 +156,47 @@ Then Validate Member "<MemberID>" added
 
 Examples:
 | CarrierID 	| AccountID   	| GroupID     		| MemberID   		| FirstName  	| LastName  | DOB      | FromDate  | ThruDate |
-|	ESPCAR2     | ESPACC2     	|	ESPGROUP2       | ESPMEMBER03   | TEST    		| ESPMEMBER | 01011950 | 010118    | 123118   |
+|	ESPCAR7     | ESPACC7     	|	ESPGROUP7       | ESPMEMBER07   | TEST    		| ESPMEMBER | 01011950 | 010118    | 123118   |
     
   
 
 Scenario Outline: Create a claim with the ESP Plan that will give a Reject Code = 70 
 Given I am on RxClaim PlanAdministrator Menu 
-When I submit a claim with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>"
-Then Validate Claim Status is "R"
+When I submit a first time claim with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>", "<rxOrigin>"
+Then Validate Claim Status is "P"
+And Validate Claim Message is "Addl discount applied ind of Rx coverage"
 
 Examples:
-| BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID     | ProductID   |	DspQty | DS | PSC | Cost |
-|	777777  | QET     |	*ALL  | APHARM      | 765778367433 | 00     | 100118   | ESPMEMBER03	| 00069420030 |	30     | 30 | 00  |100   |
-
-      
+| BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID     | ProductID   |	DspQty | DS | PSC | Cost |rxOrigin|
+|	777777  | QET     |	*ALL  | 0556540     | 765774389905 | 00     | 100118   | ESPMEMBER07	| 00093534156 |	30     | 30 | 00  |100   |1       |
 
 
+
+
+#Not needed at this time, will keep in for future use
+#Scenario Outline: Create a Discount Benefit Table 
+#Given I am on RxClaim PlanAdministrator Menu
+#When I select Option "4" to navigate to "RxClaim Plan Maintenance"
+#And I select Option "25" to navigate to "Active Plan by Plan code"
+#And I press "F6" Key
+#And I enter "<Table>" in field "Table" on "AddDiscountBenefitTableScreen"
+#And I enter "<Description>" in field "Description" on "AddDiscountBenefitTableScreen"
+#And I press "Enter" Key
+#And I enter "7" in field "Selection" on "DiscountBenefitTableScreen"
+#And I press "Enter" Key
+#And I press "F6" Key
+#And I enter "10" in field "Sequence" on "AddDiscountBenefitTableSequenceScreen"
+#And I enter "<DiscountBenefitPlan>" in field "DiscountBenefitPlan" on "AddDiscountBenefitTableSequenceScreen"
+#And I enter "<FromDate>" in field "FromDate" on "AddDiscountBenefitTableSequenceScreen"
+#And I enter "<MessageCode>" in field "MessageCode" on "AddDiscountBenefitTableSequenceScreen"
+#And I enter "B" in field "Rejected" on "AddDiscountBenefitTableSequenceScreen"
+#And I enter "Y" in field "Paid" on "AddDiscountBenefitTableSequenceScreen"
+#And I enter "Y" in field "LICS" on "AddDiscountBenefitTableSequenceScreen"
+#And I press "Enter" Key
+#Then Validate "<DiscountBenefitPlan>" in field "DiscountBenefitPlan" is displayed on "DiscountBenefitTableSequencesScreen" 
+
+
+#Examples:
+
+#|Table|Description             |DiscountBenefitPlan|FromDate|MessageCode|
+#|EBP05|EXTENDED BENEFIT NO SPEC|ESPPLAN5           |010118  |EBP02      |

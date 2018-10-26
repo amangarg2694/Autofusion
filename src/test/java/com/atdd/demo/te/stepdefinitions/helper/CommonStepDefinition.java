@@ -192,6 +192,13 @@ public class CommonStepDefinition extends CommonHelper{
 		 FunctionalLibrary.submitClaimF18();
 	}
 	
+	
+	@When("^I submit a first time claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\"$")
+	public void i_submit_a_first_time_claim_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost, String rxOrigin) throws Throwable {
+		FunctionalLibrary.createFirstTimeClaim(bin, proc, group, pharmacyID, rxNbr, refill, fillDate, memberID, productID, dspQty, ds, psc, cost, rxOrigin);
+		FunctionalLibrary.submitClaimF18();
+	}
+	
 	@Then("^Validate Claim Reject Code is \"([^\"]*)\"$")
 	public void validate_Claim_Reject_Code_is(String claimRejCode) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
