@@ -1,3 +1,4 @@
+@SN003119 @BPE @Release_8404
 Feature: BPE additions
 Best Price Engine program will update the RxClaim trial claim webservice to include three more data elements in it’s 
 response.  
@@ -81,3 +82,36 @@ Scenario Outline: Verify Transition of Care (TOC) Indicator is Blank
 Examples:
 	|ClaimID         |TOCClaim|
 	|181805044317000 |        |
+	
+	
+	@trialclaim
+	Scenario Outline: Submit a Trial Claim 
+	 Given I am on RxClaim PlanAdministrator Menu 
+	 When I select Option "3" to navigate to "RxClaim Manual Claim Menu"
+	 And I select Option "2" to navigate to "RxClaim D0 Manual Claim Maintenance"
+	 And I select Option "8" to navigate to "Trial Transaction"
+	 And I enter "<MemberID>" in field "MemberID" on "TrialTransactionScreen"
+	 And I press "Enter" Key
+	 And I enter "1" in field "Selection" on "TrialTransactionScreen"
+	 And I press "Enter" Key
+	 And I enter "B1" in field "TransCd" on "TrialTransactionSubmissionPageScreen"
+	 And I enter "<RxNo>" in field "RxNo" on "TrialTransactionSubmissionPageScreen"
+	 And I press "Enter" Key
+	 And I press "F6" Key
+	 And I press "Enter" Key
+	 And I press "F7" Key
+	 And I press "F7" Key
+	 And I enter "8" in field "Selectionfield" on "TransactionDetailList"
+	 And I press "Enter" Key
+	 And Validate "<Network>" in field "Network" is displayed on "ClaimTransactionAdditionalInfoScreen"
+	 And Validate "<Discount>" in field "Discount" is displayed on "ClaimTransactionAdditionalInfoScreen"
+	 And I press "F12" Key
+	 And I enter "30" in field "Selectionfield" on "TransactionDetailList"
+	 And I press "Enter" Key
+	 Then Validate "<TOCClaim>" in field "TOCClaim" is displayed on "ClaimTransactionTOCDetailScreen"
+	 
+	 
+Examples: 
+|RxNo          |MemberID      |Network|Discount|TOCClaim|   
+|900019931004  |BPE-TOC MBR 1 |       |N       |N       |
+	

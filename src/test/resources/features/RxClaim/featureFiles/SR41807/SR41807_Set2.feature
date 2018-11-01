@@ -1,6 +1,7 @@
 Feature: Class field changes in "Productivity Reporting" screen
 As a RxClaim User I want to check whether new changes working correctly for the field Class in "Productivity Reporting" screen
 
+@Release_8403
 Scenario Outline: User should able to validate Class field should not display any error message as mandatory - SN003483_SR41807_TC001_Req_5.1.2.1 
 Given I am on RxClaim PlanAdministrator Menu
 When I select Option "CCT700" to navigate to "RxClaim Operations Menu"
@@ -21,6 +22,7 @@ Examples:
 | TransactionFromDate | TransactionThruDate | CarrierFrom | CarrierThru | FileName | Library |NewScreen              |ErrorMessage|
 | 010101              | 123117              | BHUCAR      | VAH         | SR41404  | USRSAKK |File Conversion Request|Intervention Class not found |
 
+@Release_8403
 Scenario Outline: User should able to Verify matching Records are getting displayed for specific class code  - SN003483_SR41807_TC002_Req_5.1.2.2
 Given I am on RxInterACT Main Menu Screen
 And I select Option "5" to navigate to "Management"
