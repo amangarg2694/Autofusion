@@ -9,31 +9,34 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 import com.atdd.te.screenHelpers.CommonHelper;
-//import com.atdd.te.screenHelpers.CommonHelper;
 import com.cucumber.listener.ExtentProperties;
 import com.cucumber.listener.Reporter;
 import com.hp.lft.sdk.SDK;
-import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 import com.optumrx.autofusion.core.util.ReadPropertyFile;
 import com.optumrx.autofusion.core.util.ReportHelper;
-
-
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
+<<<<<<< HEAD
 
 
 		features = { "classpath:features/RxClaim/featureFiles/ClaimSub.feature" },
 
+=======
+		features = { "classpath:features/RxClaim/featureFiles/SR 41889/SR41889_TC01.feature" },
+>>>>>>> dffedaf64e80e4e155aedfc65837e0d1914ac8d3
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 
-		glue = { "com.atdd.demo.te" }/*,
-		tags ={"@TC01_01,@TC01_02,@TC02,@TC03,@TC04,@TC05,@TC06,@TC07,@TC08,@TC09,@TC10"}*/
-		
+		glue = { "com.atdd.demo.te" }
+		//,tags ={"@TC5"}
 )
+
+
+
+
 public class RunDemoTest extends AbstractTestNGCucumberTests { 
 
 	 
@@ -102,13 +105,12 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
  
 	} 
  	 
- /*	public void testMain(Object[] args) throws Exception 
- 	{ 
-		Mainframe_GlobalFunctionLib.closeTE(); 
- 	 
-	}*/ 
 
- 
- } 
+	
+/*	public void testMain(Object[] args) throws Exception
+	{
+		Mainframe_GlobalFunctionLib.closeTE();
+	
+	}*/
 
-
+}
