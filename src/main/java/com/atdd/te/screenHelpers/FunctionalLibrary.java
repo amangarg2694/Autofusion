@@ -536,7 +536,7 @@ public class FunctionalLibrary extends CommonHelper{
 			}
 	
 	}
-	public static void SetPBP(String carrierID,String contract,String pbp,String benefityear, String medicaretype) throws Throwable
+	public static void SetPBP(String carrierID,String contract,String pbp,String benefityear, String medicaretype, String submitterid) throws Throwable
 	{
 		try {
 			navigateToRxClaimPlanAdministrator();
@@ -554,6 +554,12 @@ public class FunctionalLibrary extends CommonHelper{
 			{
 				Mainframe_GlobalFunctionLib.sendText(5, 16, carrierID);
 				Mainframe_GlobalFunctionLib.sendText(11, 16, medicaretype);
+				if(submitterid.length()==0) {  
+					Mainframe_GlobalFunctionLib.sendText(12, 16, "     ");  
+				}
+				else{
+					Mainframe_GlobalFunctionLib.sendText(12, 16, submitterid);
+				}
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 			}
@@ -563,8 +569,14 @@ public class FunctionalLibrary extends CommonHelper{
 				Mainframe_GlobalFunctionLib.sendText(5, 16, carrierID);
 				Mainframe_GlobalFunctionLib.sendText(7, 16, contract);
 				Mainframe_GlobalFunctionLib.sendText(8, 16, pbp);
-				Mainframe_GlobalFunctionLib.sendText(9, 16, benefityear);
-				Mainframe_GlobalFunctionLib.sendText(10, 16, medicaretype);
+				Mainframe_GlobalFunctionLib.sendText(10, 16, benefityear);
+				Mainframe_GlobalFunctionLib.sendText(11, 16, medicaretype);
+				if(submitterid.length()==0) {  
+					Mainframe_GlobalFunctionLib.sendText(12, 16, "     ");  
+				}
+				else{
+					Mainframe_GlobalFunctionLib.sendText(12, 16, submitterid);
+				}
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
@@ -615,8 +627,8 @@ public class FunctionalLibrary extends CommonHelper{
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				Mainframe_GlobalFunctionLib.sendText(10, 2, "1");
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				Mainframe_GlobalFunctionLib.sendText(7, 13, plancode);
-				Mainframe_GlobalFunctionLib.sendText(7, 70, fromdate);
+//				Mainframe_GlobalFunctionLib.sendText(7, 13, plancode);
+//				Mainframe_GlobalFunctionLib.sendText(7, 70, fromdate);
 				Mainframe_GlobalFunctionLib.sendText(8, 13, masterprofilefromdate);
 				Mainframe_GlobalFunctionLib.sendText(8, 41, masterprofilethrudate);
 				Mainframe_GlobalFunctionLib.sendText(14, 34, drugcoveragestatusschedule);
@@ -725,7 +737,7 @@ public class FunctionalLibrary extends CommonHelper{
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
 				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");				
+//				Mainframe_GlobalFunctionLib.pressKey("F12");				
 			}
 			
 			else
@@ -1149,8 +1161,8 @@ public class FunctionalLibrary extends CommonHelper{
 			else{
 				Mainframe_GlobalFunctionLib.sendText(10, 23, CPPAccumulationCode);
 			}
-			Mainframe_GlobalFunctionLib.sendText(12, 23, CPPPatientPaySchedule);
-			Mainframe_GlobalFunctionLib.sendText(13, 23, CPPTrOOPSchedule);
+			Mainframe_GlobalFunctionLib.sendText(13, 23, CPPPatientPaySchedule);
+			Mainframe_GlobalFunctionLib.sendText(12, 23, CPPTrOOPSchedule);
 			Mainframe_GlobalFunctionLib.sendText(15, 23, Qualifier);
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Mainframe_GlobalFunctionLib.pressKey("F12");
@@ -2303,6 +2315,22 @@ public class FunctionalLibrary extends CommonHelper{
 	               Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 
 	               }catch(Exception e){}
+		}
+		
+		public static void logoffTE() throws Exception
+		{
+			FunctionalLibrary.navigateToRxClaimPlanAdministrator();
+			Mainframe_GlobalFunctionLib.pressKey("F3");
+			Mainframe_GlobalFunctionLib.pressKey("F3");
+			Mainframe_GlobalFunctionLib.pressKey("F3");
+			try {
+				Mainframe_GlobalFunctionLib.sendText(20, 7 ,"90" );
+			} catch (Exception e) {
+				Mainframe_GlobalFunctionLib.sendText(21, 7 ,"90" );
+				
+			}
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			
 		}
 	public static void main(String args[]) throws Throwable{
 		

@@ -259,10 +259,10 @@ public class CommonStepDefinition extends CommonHelper{
 	    FunctionalLibrary.SetSupplementalIDbyType(SupplementalIDFromDate, SupplementalIDThruDate, SupplementalIDType, SupplementalID, Text);
 	}
 
-	@Then("^I Set PBP \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_Set_PBP(String carrierID, String contract, String pbp, String benefityear, String medicaretype) throws Throwable {
+	@Then("^I Set PBP \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_Set_PBP(String carrierID, String contract, String pbp, String benefityear, String medicaretype, String submitterid) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    FunctionalLibrary.SetPBP(carrierID, contract, pbp, benefityear, medicaretype);
+	    FunctionalLibrary.SetPBP(carrierID, contract, pbp, benefityear, medicaretype, submitterid);
 	}
 
 	@Then("^I Set Medicare \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")

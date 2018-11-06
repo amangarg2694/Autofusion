@@ -48,7 +48,9 @@ public class CommonHelper {
 		Mainframe_GlobalFunctionLib.Transmit();
 		if(envOption.equalsIgnoreCase("6")){
 			String modNumber = ReadPropertyFile.getModNumber();
+			String QADEVPRDEnv = ReadPropertyFile.getQADEVPRDEnv();
 			Mainframe_GlobalFunctionLib.sendText(6, 41 , modNumber);
+			Mainframe_GlobalFunctionLib.sendText(12, 41 , QADEVPRDEnv);
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 		}
 		
