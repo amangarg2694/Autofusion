@@ -1,4 +1,3 @@
-@Release_8403 @Regression
 Feature: Class field changes in "Productivity Reporting" screen
 As a RxClaim User I want to check whether new changes working correctly for the field Class in "Productivity Reporting" screen
 
@@ -21,6 +20,7 @@ Then I Validate error message "<ErrorMessage>" is not displaying for Class field
 Examples:
 | TransactionFromDate | TransactionThruDate | CarrierFrom | CarrierThru | FileName | Library |NewScreen              |ErrorMessage|
 | 010101              | 123117              | BHUCAR      | VAH         | SR41404  | USRSAKK |File Conversion Request|Intervention Class not found |
+
 
 Scenario Outline: User should able to Verify matching Records are getting displayed for specific class code  - SN003483_SR41807_TC002_Req_5.1.2.2
 Given I am on RxInterACT Main Menu Screen

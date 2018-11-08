@@ -1,4 +1,3 @@
-@Release_8403
 Feature: Part D: MIC update Non Part D Covered flag 1 to not accumulate toward Troop/DS
   SN003284_SR41691_TC002_Req 4.1:Non-Part D Covered = 0 AND Total Covered Ingredient Cost is Higher than Claims Approved Ingredient Cost
   

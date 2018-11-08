@@ -5,10 +5,12 @@ import com.atdd.te.screenHelpers.FileValidation;
 import com.atdd.te.screenHelpers.FunctionalLibrary;
 import com.atdd.te.screenHelpers.PlanByPlanCode;
 import com.atdd.te.screenHelpers.Pricing;
+import com.cucumber.listener.Reporter;
 //import com.hp.lft.sdk.Desktop;
 //import com.hp.lft.sdk.java.Window;
 //import com.hp.lft.sdk.java.WindowDescription;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
+import com.optumrx.autofusion.core.te.util.Screenshot;
 import com.optumrx.autofusion.core.util.ReadPropertyFile;
 
 import cucumber.api.DataTable;
@@ -429,5 +431,26 @@ public class CommonStepDefinition extends CommonHelper{
 	    // Write code here that turns the phrase above into concrete actions
 	    FileValidation.compareFile(actualFile, expectedFile);
 	}
+	
+	 @Then("^I capture a screenshot$")
+	    public void i_capture_a_screenshot() throws Throwable {
+	    	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+	    	System.out.println("Screen shot captured.");
+	    }
+
+		@Then("^Validate \"([^\"]*)\" in field \"([^\"]*)\" is displayed on \"([^\"]*)\"$")
+		public void validate_in_field_is_displayed_on(String fieldValue, String fieldName, String screenName) throws Throwable {
+			String[] coordinates = ReadPropertyFile.getProperty(screenName , fieldName);
+			FunctionalLibrary.validateText(coordinates[0] ,coordinates[1] , fieldValue);
+		}
+		
+		@When("^I click in field \"([^\"]*)\" on \"([^\"]*)\"$")
+		public void i_click_in_field_on(String fieldName, String screenName) throws Throwable {
+			String[] coordinates = ReadPropertyFile.getProperty(screenName , fieldName);
+			int coordinate0 = Integer.valueOf(coordinates[0]);
+			int coordinate1 = Integer.valueOf(coordinates[1]);
+			Mainframe_GlobalFunctionLib.click(coordinate0 ,coordinate1);
+			
+		}
 	
 }
