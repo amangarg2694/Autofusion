@@ -5,10 +5,12 @@ import com.atdd.te.screenHelpers.FileValidation;
 import com.atdd.te.screenHelpers.FunctionalLibrary;
 import com.atdd.te.screenHelpers.PlanByPlanCode;
 import com.atdd.te.screenHelpers.Pricing;
+import com.cucumber.listener.Reporter;
 //import com.hp.lft.sdk.Desktop;
 //import com.hp.lft.sdk.java.Window;
 //import com.hp.lft.sdk.java.WindowDescription;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
+import com.optumrx.autofusion.core.te.util.Screenshot;
 import com.optumrx.autofusion.core.util.ReadPropertyFile;
 
 import cucumber.api.DataTable;
@@ -103,6 +105,14 @@ public class CommonStepDefinition extends CommonHelper{
 	    // Write code here that turns the phrase above into concrete actions
 		FunctionalLibrary.func_SetPriorAuth(number,type,ndcgpilist,from,thru,agent,reason,ignoredrugstatus);
 	}
+	
+	@When("^I create PA Number \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_PA_Number(String number, String type, String msc, String otc, String ndcgpilist, String from, String thru, String agent, String reason, String ignoredrugstatus) throws Throwable {
+		System.out.println("OTC"+otc);
+		FunctionalLibrary.func_SetPriorAuth(number,type,msc,otc,ndcgpilist,from,thru,agent,reason,ignoredrugstatus);
+		
+	}
+	
 	@Then("^Validate PANumber \"([^\"]*)\" added$")
 	public void validate_PANumber_added(String panumber) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -179,7 +189,7 @@ public class CommonStepDefinition extends CommonHelper{
 	public void validate_Claim_Reject_Code_is(String claimRejCode) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		FunctionalLibrary.validateText("21" ,"12" , claimRejCode );
-		
+		String ExpectedClaimCount = Mainframe_GlobalFunctionLib.getText(6, 9).replaceAll(",", "");
 	}
 
 	@Then("^Validate Claim Message is \"([^\"]*)\"$")
@@ -259,10 +269,10 @@ public class CommonStepDefinition extends CommonHelper{
 	    FunctionalLibrary.SetSupplementalIDbyType(SupplementalIDFromDate, SupplementalIDThruDate, SupplementalIDType, SupplementalID, Text);
 	}
 
-	@Then("^I Set PBP \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_Set_PBP(String carrierID, String contract, String pbp, String benefityear, String medicaretype) throws Throwable {
+	@Then("^I Set PBP \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_Set_PBP(String carrierID, String contract, String pbp, String benefityear, String medicaretype, String submitterid) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    FunctionalLibrary.SetPBP(carrierID, contract, pbp, benefityear, medicaretype);
+	    FunctionalLibrary.SetPBP(carrierID, contract, pbp, benefityear, medicaretype, submitterid);
 	}
 
 	@Then("^I Set Medicare \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -328,7 +338,7 @@ public class CommonStepDefinition extends CommonHelper{
 	    // Write code here that turns the phrase above into concrete actions
 		FunctionalLibrary.validateText("11" ,"8" , gpilist);
 	}
-	
+
 	@When("^I create plan with Accumulators with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_plan_with_Accumulators_with(String planCode, String fromDate, String desc, String thruDate, String priceSchedule, String patientPaySchedule, String deductibleAccumLevel, String deductibleSchedule, String oopMaxAccumLevel, String oopMaxDeductibleSchedule, String benefitMaxAccumLevel, String benefitMaxDeductibleSchedule) throws Throwable {
 		FunctionalLibrary.Createplanwithmembereligibilityandpricingoption(planCode, fromDate, desc, thruDate, priceSchedule, patientPaySchedule);
@@ -369,6 +379,7 @@ public class CommonStepDefinition extends CommonHelper{
 	public void i_set_NDC_List_in_Plan(String planCode) throws Throwable {
 		PlanByPlanCode.func_SetNDCList(planCode);
 	}
+
 
 	@Then("^Validate NDC List is set to Y$")
 	public void validate_NDC_List_is_set_to_Y() throws Throwable {
@@ -428,5 +439,26 @@ public class CommonStepDefinition extends CommonHelper{
 	    // Write code here that turns the phrase above into concrete actions
 	    FileValidation.compareFile(actualFile, expectedFile);
 	}
+	
+	 @Then("^I capture a screenshot$")
+	    public void i_capture_a_screenshot() throws Throwable {
+	    	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+	    	System.out.println("Screen shot captured.");
+	    }
+
+		@Then("^Validate \"([^\"]*)\" in field \"([^\"]*)\" is displayed on \"([^\"]*)\"$")
+		public void validate_in_field_is_displayed_on(String fieldValue, String fieldName, String screenName) throws Throwable {
+			String[] coordinates = ReadPropertyFile.getProperty(screenName , fieldName);
+			FunctionalLibrary.validateText(coordinates[0] ,coordinates[1] , fieldValue);
+		}
+		
+		@When("^I click in field \"([^\"]*)\" on \"([^\"]*)\"$")
+		public void i_click_in_field_on(String fieldName, String screenName) throws Throwable {
+			String[] coordinates = ReadPropertyFile.getProperty(screenName , fieldName);
+			int coordinate0 = Integer.valueOf(coordinates[0]);
+			int coordinate1 = Integer.valueOf(coordinates[1]);
+			Mainframe_GlobalFunctionLib.click(coordinate0 ,coordinate1);
+			
+		}
 	
 }

@@ -2,11 +2,7 @@ package com.atdd.te.screenHelpers;
 
 import java.io.IOException;
 
-import org.testng.Assert;
-
-import com.cucumber.listener.Reporter;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
-import com.optumrx.autofusion.core.te.util.Screenshot;
 import com.optumrx.autofusion.core.util.ReadPropertyFile;
 
 public class CommonHelper {
@@ -14,12 +10,33 @@ public class CommonHelper {
 	public static String ScreenshotOption = null;
 	public static String env = null;	
 	public static void login() throws IOException{
+	
+	
+	String Username = null;
+	if(System.getProperty("Username") !=null){
+		Username = System.getProperty("Username");
+	}else
+	{
+		Username = ReadPropertyFile.getUsername();
+	}
+	
+	String Password = null;
+	if(System.getProperty("Password") !=null){
+		Password = System.getProperty("Password");
+	}else
+	{
+		Password = ReadPropertyFile.getPassword();
+	}
+	
+	String env = null;
+	if(System.getProperty("env") !=null){
+		env = System.getProperty("env");
+	}else
+	{
+		env = ReadPropertyFile.getEnv();
+	}
 
-	String Username = ReadPropertyFile.getUsername();
-	String Password = ReadPropertyFile.getPassword();
-	env = ReadPropertyFile.getEnv();
-	
-	
+
 	String[] coordinates = null;
 	
 	switch(env){
@@ -27,7 +44,14 @@ public class CommonHelper {
 		case "SXCD1" :
 			
 		try {
-			String envOption = ReadPropertyFile.getEnvOption();
+			String envOption = null;
+			if(System.getProperty("envOption") !=null){
+				envOption = System.getProperty("envOption");
+			}else
+			{
+				envOption = ReadPropertyFile.getEnvOption();
+			}
+			
 			System.out.println("Logging to SXCD1");
 		Mainframe_GlobalFunctionLib.launchTE(env);
 		coordinates = ReadPropertyFile.getProperty("Login" , "Username");			
@@ -47,8 +71,19 @@ public class CommonHelper {
 		Mainframe_GlobalFunctionLib.sendText(21, 7 , envOption);
 		Mainframe_GlobalFunctionLib.Transmit();
 		if(envOption.equalsIgnoreCase("6")){
+
 			String modNumber = ReadPropertyFile.getModNumber();
+			String QADEVPRDEnv = ReadPropertyFile.getQADEVPRDEnv();
+
+			if(System.getProperty("modNumber") !=null){
+				modNumber = System.getProperty("modNumber");
+			}else
+			{
+				modNumber = ReadPropertyFile.getModNumber();
+			}			
+
 			Mainframe_GlobalFunctionLib.sendText(6, 41 , modNumber);
+			Mainframe_GlobalFunctionLib.sendText(12, 41 , QADEVPRDEnv);
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 		}
 		
@@ -100,7 +135,6 @@ case "BOOK1" :
 				e.printStackTrace();
 			//	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			//	Assert.fail("Login is not successful.");
-				
 			}
 	
 		break;
