@@ -105,6 +105,14 @@ public class CommonStepDefinition extends CommonHelper{
 	    // Write code here that turns the phrase above into concrete actions
 		FunctionalLibrary.func_SetPriorAuth(number,type,ndcgpilist,from,thru,agent,reason,ignoredrugstatus);
 	}
+	
+	@When("^I create PA Number \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_PA_Number(String number, String type, String msc, String otc, String ndcgpilist, String from, String thru, String agent, String reason, String ignoredrugstatus) throws Throwable {
+		System.out.println("OTC"+otc);
+		FunctionalLibrary.func_SetPriorAuth(number,type,msc,otc,ndcgpilist,from,thru,agent,reason,ignoredrugstatus);
+		
+	}
+	
 	@Then("^Validate PANumber \"([^\"]*)\" added$")
 	public void validate_PANumber_added(String panumber) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
