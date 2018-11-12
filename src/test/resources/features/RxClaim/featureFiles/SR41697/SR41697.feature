@@ -17,7 +17,7 @@ Then I validate the notes "<Note>" in GPIlist "<GpiList>","<Date>"
 
 Examples:
 |Library |File    |Format  |Note                                              |GpiList| Date|
-|usrmadhu|sr41697g|RCPGO038|Plan GPI List SN002715; Plan GPI List Note Line 2.|S41697G |9/11/18|
+|usrmadhu|sr41697g|RCPGO038|Plan GPI List SN002715; Plan GPI List Note Line 2.|S41697G |10/31/18|
 
 
 
@@ -38,7 +38,8 @@ Then I validate the notes B "<Note>" in GPIlist "<GpiList>","<Date>"
 
 Examples:
 |Library |File    |Format   |Note                            |GpiList| Date|
-|usrmadhu|sr41697bg|RCPGO038|PLAN GPI LISTB List Note Line 3.|S41697G |9/10/18|
+#|usrmadhu|sr41697bg|RCPGO038|PLAN GPI LISTB List Note Line 3.|S41697G |9/10/18|
+|usrmadhu|S41697F1|RCPGO038|PLAN GPI LISTB List Note Line 3.|S41697X |10/31/18|
 
 
 
@@ -114,7 +115,7 @@ Then I validate the notes "<Note>" in GPIlist "<NdcList>","<Date>"
 
 Examples:
 |NdcList|Status|Format|Library |File     | Date  |Note                                           |
-|S41697|U    |83    |USRMADHU|SR41697AN|9/11/18|Plan NDC List T2715; Plan NDC LIST Note Line 4.|
+|S41697|U    |83    |USRMADHU|SR41697AN|10/31/18|Plan NDC List T2715; Plan NDC LIST Note Line 4.|
 
 
 Scenario Outline: Validate the notes from the valid type B records for an existing Plan NDC List
@@ -133,7 +134,7 @@ Then I validate the notes B "<Note>" in NDClist "<NdcList>","<Date>"
 
 Examples: 
 |NdcList|Status|Format  |Library   |File      | Note        | Date  |
-|S41697 |U     |83       |usrmadhu |SR41697BN |TEST NDC LIST| 9/11/18|
+|S41697 |U     |83       |usrmadhu |SR41697BN |TEST NDC LIST| 10/31/18|
 
 Scenario Outline: Validate the Plan NDC List Export File by submitting with a range that includes Plan GPI Lists which have both Plan GPI List Notes and Plan GPI Notes
 Given I am on RxClaim PlanAdministrator Menu

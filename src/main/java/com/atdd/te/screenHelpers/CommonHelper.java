@@ -90,11 +90,11 @@ case "BOOK1" :
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		
 		
-		if(ScreenshotOption.equalsIgnoreCase("Always")){
+		/*if(ScreenshotOption.equalsIgnoreCase("Always")){
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-			}
+			}*/
 			}catch(Exception e){
-				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			//	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Assert.fail("Login is not successful.");
 				
 			}

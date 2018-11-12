@@ -27,8 +27,8 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 		//features = { "classpath:features/RxClaim/featureFiles/CAGCreation.feature" },
 		//features = { "classpath:features/RxClaim/SR41846/Sm1.feature" },
 		//features = { "classpath:features/RxClaim/SR41355/" },
-        //features = { "classpath:features/RxClaim/SR41697/SR41697_Tc1.feature" },
-		features = { "classpath:features/RxClaim/SR41696/SR41696_Tc01.feature" },
+        features = { "classpath:features/RxClaim/41890/x.feature" },
+		//features = { "classpath:features/RxClaim/SR41353/SR41353_TC1.feature" },
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 

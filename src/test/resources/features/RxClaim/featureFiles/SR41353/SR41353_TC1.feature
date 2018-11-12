@@ -17,9 +17,9 @@ Then I navigate to Delete Plan screen "<Plan2>"
 
 Examples:
  |Plan1  |Plan2  |qual|SN  |
-|SN103287|3287_F1|1   |Test|
-|SN103287|3287_F2|2   |Test|
-|SN103287|3287_F3|3   |Test|
+|SN103287|328_F1|1   |Test|
+|SN103287|328_F2|2   |Test|
+|SN103287|328_F3|3   |Test|
 
 Scenario Outline: Check to Delete plan with associated 'Pharmacy Network' having pricing turned on and 'POR Super Net Seq Nbr' not entered 
 
@@ -35,9 +35,9 @@ Then I navigate to Delete Plan screen "<Plan2>"
 
 Examples:
 |Plan1   |Plan2  |qual|seq|
-|SN103287|3287_F4|1   |100|
-|SN103287|3287_F5|2   |200|
-|SN103287|3287_F6|3   |300|
+|SN103287|328_F4|1   |100|
+|SN103287|328_F5|2   |200|
+|SN103287|328_F6|3   |300|
 
 Scenario Outline: Check to delete plan with associated Pharmacy Network without pricing turned on.
 Given I am on RxClaim PlanAdministrator Menu
@@ -51,7 +51,7 @@ Then I navigate to Delete Plan screen "<Plan2>"
 
 Examples:
 |Plan1   |Plan2  |
-|SN103287|3287_F7|
+|SN103287|328_F7|
 
 Scenario Outline: Check to delete plan without an associated 'Pharmacy Network'
 Given I am on RxClaim PlanAdministrator Menu
@@ -64,4 +64,4 @@ Then I navigate to Delete Plan screen "<Plan2>"
 
 Examples:
 |Plan1   |Plan2  |
-|SN103287|3287_F8|
+|SN103287|328_F8|

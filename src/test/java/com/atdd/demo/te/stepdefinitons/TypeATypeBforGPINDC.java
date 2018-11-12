@@ -89,7 +89,8 @@ public class TypeATypeBforGPINDC {
 	
 	@Then("^I validate the spool file for \"([^\"]*)\" message$")
 	public void i_validate_the_spool_file_for_message(String msg) throws Throwable {
-	    FunctionalLibrary.enterText(21, 7, "WS");
+	   // FunctionalLibrary.enterText(21, 7, "WS");
+		FunctionalLibrary.enterText(21, 7, "WRKSBMJOB");
 	    FunctionalLibrary.pressEnter();
 	    
 	    FunctionalLibrary.enterText(13, 3, "8");

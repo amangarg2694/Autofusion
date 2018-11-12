@@ -16,7 +16,7 @@ public class Deleteplan {
 	  FunctionalLibrary.enterText(11, 25, arg2);
 	  FunctionalLibrary.enterText(12, 25, "010101");
 	  FunctionalLibrary.enterText(13, 25, "Test");
-	  FunctionalLibrary.enterText(14, 25, "A");
+	 // FunctionalLibrary.enterText(14, 25, "A");
 	  FunctionalLibrary.pressEnter();
 	  	  
 	}

@@ -122,8 +122,8 @@ public class Reimbursement_Id extends CommonHelper {
 
 	@When("^I select \"([^\"]*)\" option in \"([^\"]*)\"$")
 	public void i_select_option_in(String arg1, String plan2) throws Throwable {
-	  //  FunctionalLibrary.enterText(9, 24, "Y");
-		FunctionalLibrary.enterText(9, 24, "N");
+	   FunctionalLibrary.enterText(9, 24, "Y");
+		//FunctionalLibrary.enterText(9, 24, "N");
 	    FunctionalLibrary.pressEnter();
 	    FunctionalLibrary.enterText(16, 64, "Y");
 	    
