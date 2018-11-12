@@ -33,7 +33,7 @@ public class SN003801 {
 		Mainframe_GlobalFunctionLib.sendText(19,26,"               ");
 		Mainframe_GlobalFunctionLib.sendText(19,26,prescid);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		Mainframe_GlobalFunctionLib.pressKey("F6");
+		Mainframe_GlobalFunctionLib.pressKey("F6");	
 		Mainframe_GlobalFunctionLib.click(13,10);
 		Mainframe_GlobalFunctionLib.pressKey("F4");
 		Mainframe_GlobalFunctionLib.sendText(3,39,scc);
