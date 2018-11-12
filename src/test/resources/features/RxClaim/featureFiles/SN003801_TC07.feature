@@ -11,4 +11,4 @@ Scenario Outline: Validating the claim is paid when product on claim = product o
 	
 Examples:
 |MemberID|ProductId|PresQual|PrescID|RxNo|FillDate|SCC|
-|SN003801M2|553746020305|01|1063657773|958790014555|03012018|52|
+|SN003801M2|53746020305|01|1063657773|958790014555|03012018|52|
