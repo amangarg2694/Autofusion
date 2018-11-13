@@ -295,7 +295,7 @@ public void i_submit_the_job_verify_the_records() throws Throwable {
        Mainframe_GlobalFunctionLib.pressKey("F12");*/
        Mainframe_GlobalFunctionLib.sendText(21, 7, "6");
        Mainframe_GlobalFunctionLib.pressKey("Enter");
-       Mainframe_GlobalFunctionLib.sendText(6, 41, "8402");
+       Mainframe_GlobalFunctionLib.sendText(6, 41, "8403");
        Mainframe_GlobalFunctionLib.pressKey("Enter");
        
 }
