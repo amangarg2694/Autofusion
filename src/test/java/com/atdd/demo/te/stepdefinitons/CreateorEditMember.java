@@ -10,7 +10,7 @@ public class CreateorEditMember {
 	
 	@Then("^Validate Member \"([^\"]*)\" added$")
 	public void validate_Member_added(String memberID) throws Throwable {
-		FunctionalLibrary.validateText("6" ,"10" , memberID );
+		FunctionalLibrary.validateText("10" ,"4" , memberID );
 	}
 	@When("^I attach DST Table \"([^\"]*)\" on PA \"([^\"]*)\" for member \"([^\"]*)\" if Attach DST Flag is \"([^\"]*)\"$")
 	public void i_attach_DST_Table_on_PA_for_member_if_Attach_DST_Flag_is(String dstTable, String paNumber, String memberID, String attachDSTFlag) throws Throwable {
@@ -19,13 +19,13 @@ public class CreateorEditMember {
 		if(attachDSTFlag.equalsIgnoreCase("No"))
 			dstTable="             ";
 	//	else if(attachDSTFlag.equalsIgnoreCase("Yes"))
-		FunctionalLibrary.func_AttachDSTOnPA(memberID, paNumber, dstTable);
+		//FunctionalLibrary.func_AttachDSTOnPA(memberID, paNumber, dstTable);
 	}
 	
 	@When("^I set Drug status \"([^\"]*)\" on PA \"([^\"]*)\" for member \"([^\"]*)\"$")
 	public void i_set_Drug_status_on_PA_for_member(String drugStatus, String paNumber,String memberID) throws Throwable {
-		if(drugStatus.length()!=0)
-		FunctionalLibrary.addDrugStatusOnPA(memberID, paNumber, drugStatus);
+		//if(drugStatus.length()!=0)
+	//	FunctionalLibrary.addDrugStatusOnPA(memberID, paNumber, drugStatus);
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new PendingException();
 	}
@@ -36,7 +36,7 @@ public class CreateorEditMember {
 	    if(attachPRCFlag.equalsIgnoreCase("No"))
 	    	prcList="          ";
 	    //else  if(attachPRCFlag.equalsIgnoreCase(""))
-		FunctionalLibrary.func_AttachPRCListOnPA(memberID, paNumber, prcList, prcListQual);
+//FunctionalLibrary.func_AttachPRCListOnPA(memberID, paNumber, prcList, prcListQual);
 		
 	}
 

@@ -103,11 +103,11 @@ public class EncounterRatePricing {
 			String ActStatus=Mainframe_GlobalFunctionLib.getText(21, 2);
 			if(ActStatus.equals(sts))
 			{
-				System.out.println("Claim status is as expected"+sts);
+				System.out.println("Claim status is as expected "+sts);
 			}
 			else
 			{
-				System.out.println("Claim status is invaid"+ActStatus);
+				System.out.println("Claim status is invalid "+ActStatus);
 			}
 			
 		}catch(Exception e) 
