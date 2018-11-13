@@ -32,4 +32,4 @@ Feature: SR41384: WO: Plan Code Conversion Request
 
      Examples:
     | BIN     | ProcCtrl | Group  | PharmacyID  |	RxNo         | Refill | FillDate | MemberID          | ProductID  | DspQty | DS  | PSC | Cost |Fee|DateFrom|DateThru|CarrierFrom|CarrierThru|ProdList|SponserCode|Filename |Libname   |
-		|	777777  | AKAN     |	*     | APHARM      | 222284799908 | 00     | 102518   |VSRSASFLMMEDICAID1 | 00000124671| 10     |	10 | 00  |100   |10 |010118  |123118  | VSRSAS		| VSRSAS		| ALAZ   |   0000		 |SR41384S6|USRSANDEEP|
+		|	777777  | AKAN     |	*     | APHARM      | 222284763233 | 00     | 081418   |VSRSASFLMMEDICAID1 | 00000124671| 10     |	10 | 00  |100   |10 |010118  |123118  | VSRSAS		| VSRSAS		| ALAZ   |   0000		 |SR41384F1|USRSANDEEP|

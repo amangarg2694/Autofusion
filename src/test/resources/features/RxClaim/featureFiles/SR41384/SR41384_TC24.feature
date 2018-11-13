@@ -32,4 +32,4 @@ Feature: SR41384: WO: Plan Code Conversion Request
 
      Examples:
     | BIN     | ProcCtrl | Group  | PharmacyID  |	RxNo         | Refill | FillDate | MemberID     | ProductID | DspQty | DS  | PSC | Cost |Fee|DateFrom|DateThru|CarrierFrom|CarrierThru|AccFrom  |AccThru  |GrpFrom  |GrpThru  |ExRej|Pricing|Filename  |Libname   |
-		|	777777  | AKAN     |	*     | APHARM      | 788666123446 | 00     | 102618   |SR41320SHASHI |00000124671| 10     |	10  | 00  |100   |10 |010118 |123118  | SR41320C1 | SR41320C1 |SR41320A1|SR41320A1|SR41320G1|SR41320G1|   Y |    N  |SR4132NDS |USRSANDEEP|
+		|	777777  | AKAN     |	*     | APHARM      | 788666444446 | 00     | 081418   |SR41320SHASHI |00000124671| 10     |	10  | 00  |100   |10 |010118 |123118  | SR41320C1 | SR41320C1 |SR41320A1|SR41320A1|SR41320G1|SR41320G1|   Y |    N  |SR41320DS |USRSANDEEP|

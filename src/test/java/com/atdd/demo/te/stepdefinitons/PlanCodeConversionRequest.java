@@ -202,8 +202,7 @@ public void i_select_Active_Product_to_set_Multi_source_ind_as_Y() throws Throwa
 @When("^I enter values for \"([^\"]*)\"$")
 public void i_enter_values_for(String arg1) throws Throwable {
     // Write code here that turns the phrase above into concrete actions
-       //Mainframe_GlobalFunctionLib.sendText(7, 33, "081618");
-	   Mainframe_GlobalFunctionLib.sendText(7, 33, "102618");
+       Mainframe_GlobalFunctionLib.sendText(7, 33, "081618");
        Mainframe_GlobalFunctionLib.pressKey("Enter");
        Mainframe_GlobalFunctionLib.sendText(24, 73, "Y");
        //Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -271,8 +270,7 @@ public void i_submit_the_job_verify_the_records() throws Throwable {
        
     // Write code here that turns the phrase above into concrete actions
        
-       //i_wait_until_the_job_moves_to("EXTRACTJOB",  "VENM","OUTQ");   ADDED below as running in 8403
-       i_wait_until_the_job_moves_to("EXTRACTJOB",  "PRUS","OUTQ");
+       i_wait_until_the_job_moves_to("EXTRACTJOB",  "VENM","OUTQ");
        /*FunctionalLibrary.enterText(21, 7, "WRKJOB VENM/EXTRACTJOB");
        FunctionalLibrary.pressEnter();
        FunctionalLibrary.enterText(8, 4, "1");
@@ -324,36 +322,28 @@ public void i_submit_the_for_Claimfile(String arg1, int arg2) throws Throwable {
 @Then("^I verify the \"([^\"]*)\"(\\d+)\"([^\"]*)\"$")
 public void i_verify_the(String arg1, int arg2, String arg3) throws Throwable {
     // Write code here that turns the phrase above into concrete actions
-       Mainframe_GlobalFunctionLib.sendText(22, 7, "runqry *n usrsandeep/sr41384s6");
-       Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+       Mainframe_GlobalFunctionLib.sendText(22, 7, "runqry *n usrsandeep/sr41384f1");
        Mainframe_GlobalFunctionLib.pressKey("Enter");
        Mainframe_GlobalFunctionLib.sendText(3, 74, "125");
        Mainframe_GlobalFunctionLib.pressKey("Enter");
-       Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
        Mainframe_GlobalFunctionLib.click(4, 29);
        Mainframe_GlobalFunctionLib.pressKey("F21");
        Mainframe_GlobalFunctionLib.PressTabKey();
        Mainframe_GlobalFunctionLib.sendText(3, 74, "310");
        Mainframe_GlobalFunctionLib.pressKey("Enter");
-       Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 }
 @Then("^I verify the \"([^\"]*)\"D\"([^\"]*)\"$")
 public void i_verify_the_D(String arg1, String arg2) throws Throwable {
     // Write code here that turns the phrase above into concrete actions
        Mainframe_GlobalFunctionLib.sendText(21, 7, "runqry *n usrsandeep/sr41384f1");
-       Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
        Mainframe_GlobalFunctionLib.pressKey("Enter");
-       //Mainframe_GlobalFunctionLib.sendText(3, 74, "125");
-       Mainframe_GlobalFunctionLib.sendText(3, 126, "125");
+       Mainframe_GlobalFunctionLib.sendText(3, 74, "125");
        Mainframe_GlobalFunctionLib.pressKey("Enter");
-       Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
        Mainframe_GlobalFunctionLib.click(4, 29);
        Mainframe_GlobalFunctionLib.pressKey("F21");
        Mainframe_GlobalFunctionLib.PressTabKey();
-       //Mainframe_GlobalFunctionLib.sendText(3, 74, "310");
-       Mainframe_GlobalFunctionLib.sendText(3, 126, "310");
+       Mainframe_GlobalFunctionLib.sendText(3, 74, "310");
        Mainframe_GlobalFunctionLib.pressKey("Enter");
-       Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
    
 }
 
@@ -404,7 +394,7 @@ public void i_verify_the_should_be_populated_at_position_in_BCBSAZ_Custom_Claim_
 @Then("^I verify the \"([^\"]*)\"D\" should be populated at (\\d+) position in BCBSAZ Custom Claim Extract file$")
 public void i_verify_the_D_should_be_populated_at_position_in_BCBSAZ_Custom_Claim_Extract_file(String arg1, int arg2) throws Throwable {
     // Write code here that turns the phrase above into concrete actions
-       Mainframe_GlobalFunctionLib.sendText(21, 7, "runqry *n usrsandeep/sr4132Nds");
+       Mainframe_GlobalFunctionLib.sendText(21, 7, "runqry *n usrsandeep/sr41320ds");
        Mainframe_GlobalFunctionLib.pressKey("Enter");
        Mainframe_GlobalFunctionLib.click(4, 24);
        Mainframe_GlobalFunctionLib.pressKey("F21");
