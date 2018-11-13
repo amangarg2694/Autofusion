@@ -22,8 +22,8 @@ public class MedlimitPApredictionsummary {
 	}
 	
 	
-	@Then("^Validate Member \"([^\"]*)\" added$")
-	public void validate_Member_added(String memberID) throws Throwable {
+	@Then("^Validate the Member \"([^\"]*)\" added$")
+	public void validate_the_Member_added(String memberID) throws Throwable {
 		FunctionalLibrary.validateText("10" ,"4" , memberID );
 	}
 	
