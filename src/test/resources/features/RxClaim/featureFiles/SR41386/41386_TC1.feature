@@ -12,9 +12,7 @@ Feature: Verify GAM ACS Provider File
  And I press "F6" Key
  And I wait until the job "<jobname>","<user>" moves to "OUTQ"
  Then I validate the time  taken to load the data set
- And I go
- 
- 
+ And I go back to RxClaim PlanAdministrator Menu
  
  Examples: 
  |inputfile|library1|pharvarfile|pharvarlib |presfile |preslib |pharstgfile |pharstglib| jobname |user|
