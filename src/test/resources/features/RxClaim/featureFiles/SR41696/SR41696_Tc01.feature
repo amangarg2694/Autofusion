@@ -5,7 +5,7 @@ As a RxClaim User I want to cVerify whether for a paid claim that have multiple 
    Scenario Outline: Verify whether for a paid claim that have multiple sequences display the sequence with the highest calculated MED amount
     Given I am on RxClaim PlanAdministrator Menu  
     When I create Member with "<CarrierID>","<AccountID>","<GroupID>","<MemberID>","<FirstName>","<LastName>","<DOB>","<FromDate>","<ThruDate>"
-    Then Validate Member "<MemberID>" added
+    Then Validate the Member "<MemberID>" added
     And  I am on RxClaim PlanAdministrator Menu 
     And I submit a claim for medlimit with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>","<Qual>","<Prescid>"
     Then Validate Claim Status is "R"
