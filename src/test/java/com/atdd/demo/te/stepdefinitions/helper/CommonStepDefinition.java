@@ -57,6 +57,7 @@ public class CommonStepDefinition extends CommonHelper{
 
 	@When("^I select Option \"([^\"]*)\" to navigate to \"([^\"]*)\"$")
 	public void i_select_Option_to_navigate_to(String option, String screen) throws Throwable {
+		
 		FunctionalLibrary.enterText(21,7 ,option );
 		FunctionalLibrary.pressEnter();
 	}
@@ -66,7 +67,7 @@ public class CommonStepDefinition extends CommonHelper{
 		Mainframe_GlobalFunctionLib.launchTE(env);
 	}
 	
-	
+		
 	@When("^I create CAG with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_CAG_with(String carrierID,String carrierName,String processor,String mailingAdd,String city,String state,String zip,String contractFromDt,String contractThruDt,String contractEnt,String businessType,String accountID,String accountName,String groupID,String groupName,String groupFromDt,String groupThruDt,String planCode) throws Throwable {
 	    
@@ -105,6 +106,14 @@ public class CommonStepDefinition extends CommonHelper{
 	    // Write code here that turns the phrase above into concrete actions
 		FunctionalLibrary.func_SetPriorAuth(number,type,ndcgpilist,from,thru,agent,reason,ignoredrugstatus);
 	}
+	
+	@When("^I create PA Number \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_PA_Number(String number, String type, String msc, String otc, String ndcgpilist, String from, String thru, String agent, String reason, String ignoredrugstatus) throws Throwable {
+		System.out.println("OTC"+otc);
+		FunctionalLibrary.func_SetPriorAuth(number,type,msc,otc,ndcgpilist,from,thru,agent,reason,ignoredrugstatus);
+		
+	}
+	
 	@Then("^Validate PANumber \"([^\"]*)\" added$")
 	public void validate_PANumber_added(String panumber) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
