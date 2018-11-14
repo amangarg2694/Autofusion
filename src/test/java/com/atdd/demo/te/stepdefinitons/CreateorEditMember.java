@@ -19,13 +19,13 @@ public class CreateorEditMember {
 		if(attachDSTFlag.equalsIgnoreCase("No"))
 			dstTable="             ";
 	//	else if(attachDSTFlag.equalsIgnoreCase("Yes"))
-		FunctionalLibrary.func_AttachDSTOnPA(memberID, paNumber, dstTable);
+		//FunctionalLibrary.func_AttachDSTOnPA(memberID, paNumber, dstTable);
 	}
 	
 	@When("^I set Drug status \"([^\"]*)\" on PA \"([^\"]*)\" for member \"([^\"]*)\"$")
 	public void i_set_Drug_status_on_PA_for_member(String drugStatus, String paNumber,String memberID) throws Throwable {
-		if(drugStatus.length()!=0)
-		FunctionalLibrary.addDrugStatusOnPA(memberID, paNumber, drugStatus);
+		//if(drugStatus.length()!=0)
+	//	FunctionalLibrary.addDrugStatusOnPA(memberID, paNumber, drugStatus);
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new PendingException();
 	}
@@ -36,7 +36,7 @@ public class CreateorEditMember {
 	    if(attachPRCFlag.equalsIgnoreCase("No"))
 	    	prcList="          ";
 	    //else  if(attachPRCFlag.equalsIgnoreCase(""))
-		FunctionalLibrary.func_AttachPRCListOnPA(memberID, paNumber, prcList, prcListQual);
+//FunctionalLibrary.func_AttachPRCListOnPA(memberID, paNumber, prcList, prcListQual);
 		
 	}
 
