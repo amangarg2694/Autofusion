@@ -1,8 +1,8 @@
-Feature: 8.1.2. Run claims 
-  As a RxClaim User validating the claim is paid when product on claim = product on GPI List with Include for the Prescriber’s state. Taxonomy code matches prescriber’s taxonomy code
+Feature: 8.4.4. Run claims 
+  As a RxClaim User validating the claim is Rejected when non-DEA prescriber is not found on the file. 
   
 
-Scenario Outline: Validating the claim is paid when product on claim = product on GPI List with Include for the Prescriber’s state. Taxonomy code matches prescriber’s taxonomy code
+Scenario Outline: Validating the claim is rejected when non-DEA prescriber is not found on the file.
 	Given I am on RxClaim PlanAdministrator Menu
   When I select Option "3" to navigate to "RxClaim Manual Claim Menu"
   And I select Option "2" to navigate to "RxClaim D0 Manual Claim Maintenance"
