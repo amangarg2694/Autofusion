@@ -12,6 +12,7 @@ import com.atdd.te.screenHelpers.CommonHelper;
 import com.cucumber.listener.ExtentProperties;
 import com.cucumber.listener.Reporter;
 import com.hp.lft.sdk.SDK;
+import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 import com.optumrx.autofusion.core.util.ReadPropertyFile;
 import com.optumrx.autofusion.core.util.ReportHelper;
 
@@ -60,7 +61,7 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
 	public static void teardown() throws Exception { 
  
  
- //		Mainframe_GlobalFunctionLib.closeTE(); 
+ 		Mainframe_GlobalFunctionLib.closeTE(); 
 		SDK.cleanup(); 
 		 
  
