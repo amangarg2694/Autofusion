@@ -14,6 +14,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class EligibilityLoadTrackingExtractScreen {
+	/*
 	@Then("^I create Deductible and OOP schedule with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_Deductible_and_OOP_schedule_with(String Schedule, String ScheduleDesc, String Basis, String StepNo, String DedCompCode, String OOPCompCode, String Ind, String Family, String MaxInd, String MaxFamily, String BrandCopay, String GenericCopay, String PercentBasis) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -864,4 +865,5 @@ public void capturing_claim_number_family_member_writing_it_to_text_file_with(St
 	
 	
 }
+*/
 }
