@@ -9,7 +9,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 import com.atdd.te.screenHelpers.CommonHelper;
-//import com.atdd.te.screenHelpers.CommonHelper;
 import com.cucumber.listener.ExtentProperties;
 import com.cucumber.listener.Reporter;
 import com.hp.lft.sdk.SDK;
@@ -17,23 +16,22 @@ import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 import com.optumrx.autofusion.core.util.ReadPropertyFile;
 import com.optumrx.autofusion.core.util.ReportHelper;
 
-
-
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
-
-		features = { "classpath:features/RxClaim/featureFiles/PricingWithDifferentSchedules.feature" },
-
+		features = { "classpath:features/RxClaim/featureFiles/ClaimSub.feature" },
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 
 		glue = { "com.atdd.demo.te" }
-		//tags ={"@TC03"}
-		
+		//,tags ={"@Regression"}
 )
+
+
+
+
 public class RunDemoTest extends AbstractTestNGCucumberTests { 
 
 	 
@@ -51,7 +49,7 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
    		System.out.println("Starting @before clas"); 
    		ReadPropertyFile.setPropertyMap(System.getProperty("user.dir")+"//src//test//resources//features//RxClaim//OR");  		 
    		ReadPropertyFile.configFileReader(configFile); 
-    		CommonHelper.ScreenshotOption = scrOption; 
+    	CommonHelper.ScreenshotOption = scrOption; 
    		CommonHelper.login(); 
     		 
  }	 
@@ -63,7 +61,7 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
 	public static void teardown() throws Exception { 
  
  
- //		Mainframe_GlobalFunctionLib.closeTE(); 
+ 		Mainframe_GlobalFunctionLib.closeTE(); 
 		SDK.cleanup(); 
 		 
  
@@ -102,13 +100,12 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
  
 	} 
  	 
- /*	public void testMain(Object[] args) throws Exception 
- 	{ 
-		Mainframe_GlobalFunctionLib.closeTE(); 
- 	 
-	}*/ 
 
- 
- } 
+	
+/*	public void testMain(Object[] args) throws Exception
+	{
+		Mainframe_GlobalFunctionLib.closeTE();
+	
+	}*/
 
-
+}
