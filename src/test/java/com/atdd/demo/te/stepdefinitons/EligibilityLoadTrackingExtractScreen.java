@@ -101,7 +101,8 @@ public class EligibilityLoadTrackingExtractScreen {
 		Mainframe_GlobalFunctionLib.pressKey("F12");
 		Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
-	
+	*/
+	/*
 	@Then("^Adding the deductible OOP and accumulator sequencing with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void adding_the_deductible_OOP_and_accumulator_sequencing_with(String fdate, String tdate, String schedule, String oop, String bmx) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -150,6 +151,8 @@ public class EligibilityLoadTrackingExtractScreen {
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 		Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
+	*/
+	/*
 	@Then("^create cardholder member with \"([^\"]*)\">,\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void create_cardholder_member_with(String fname, String lname, String DOB, String FamilyID, String frdate, String todate, String plancode) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -165,8 +168,9 @@ public class EligibilityLoadTrackingExtractScreen {
 		Mainframe_GlobalFunctionLib.sendText(16,64,"Y");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 	}
+	*/
 	
-
+/*
 	@When("^I submit a claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_submit_a_claim_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost, String fee, String due, String ucw) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -263,7 +267,8 @@ public class EligibilityLoadTrackingExtractScreen {
 			 
 	}
 	
-
+*/
+	/*
 @When("^Capturing claim number writing it to text file with \"([^\"]*)\"$")
 	public void capturing_claim_number_writing_it_to_text_file_with(String memid) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -287,7 +292,8 @@ public class EligibilityLoadTrackingExtractScreen {
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 		
 	}
-
+*/
+	/*
 @When("^Capturing claim number family member writing it to text file with \"([^\"]*)\"$")
 public void capturing_claim_number_family_member_writing_it_to_text_file_with(String memid) throws Throwable {
     // Write code here that turns the phrase above into concrete actions
@@ -312,7 +318,8 @@ public void capturing_claim_number_family_member_writing_it_to_text_file_with(St
 	Mainframe_GlobalFunctionLib.pressKey("F3");
 	
 }
-	
+*/	
+	/*
 	@Then("^Validate the accumulator savings account send log file$")
 	public void validate_the_accumulator_savings_account_send_log_file() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -336,7 +343,8 @@ public void capturing_claim_number_family_member_writing_it_to_text_file_with(St
 			 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		}
 	}
-	
+	*/
+	/*
 	@Then("^Validate the accumulator information in member screen with \"([^\"]*)\"$")
 	public void validate_the_accumulator_information_in_member_screen_with(String memid) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -377,7 +385,8 @@ public void capturing_claim_number_family_member_writing_it_to_text_file_with(St
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 	}
-	
+	*/
+	/*
 	@Then("^adding the adjustment details in the member screen with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void adding_the_adjustment_details_in_the_member_screen_with(String memid, String filldate, String code, String amttype, String type, String amt, String typea) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -417,8 +426,8 @@ public void capturing_claim_number_family_member_writing_it_to_text_file_with(St
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 	}
-	
-	
+*/	
+/*	
 	@When("^adjudicating the claim multiple times with \"([^\"]*)\",\"([^\"]*)\"$")
 	public void adjudicating_the_claim_multiple_times_with(String memid, String rxno) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -468,7 +477,8 @@ public void capturing_claim_number_family_member_writing_it_to_text_file_with(St
 		Mainframe_GlobalFunctionLib.pressKey("F7");
 		
 	}
-	
+	*/
+	/*
 	@Then("^Validating the deductible and OOP information in claim screen$")
 	public void validating_the_deductible_and_OOP_information_in_claim_screen() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -504,7 +514,8 @@ public void capturing_claim_number_family_member_writing_it_to_text_file_with(St
 			Mainframe_GlobalFunctionLib.pressKey("F3");
 		}
 	}
-	
+	*/
+	/*
 	@Then("^Validating the calculations from accumulator and communication log screen with \"([^\"]*)\",\"([^\"]*)\"$")
 	public void validating_the_calculations_from_accumulator_and_communication_log_screen_with(String schedule, String memid) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -668,7 +679,8 @@ public void capturing_claim_number_family_member_writing_it_to_text_file_with(St
 			 System.out.println("Validation is not successful for OOP"); 
 		 }
 	}
-	
+	*/
+	/*
 	@Then("^Validating the calculations for individual and family from accumulator and communication log screen with \"([^\"]*)\",\"([^\"]*)\"$")
 	public void validating_the_calculations_for_individual_and_family_from_accumulator_and_communication_log_screen_with(String schedule, String memid) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -844,7 +856,8 @@ public void capturing_claim_number_family_member_writing_it_to_text_file_with(St
 			 System.out.println("Validation is not successful for OOP"); 
 		 }
 	}
-	
+	*/
+	/*
 	@Then("^modifying the value of OOP in accumulator sequencing in plan with \"([^\"]*)\"$")
 	public void modifying_the_value_of_OOP_in_accumulator_sequencing_in_plan_with(String oop) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -862,8 +875,6 @@ public void capturing_claim_number_family_member_writing_it_to_text_file_with(St
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 		Mainframe_GlobalFunctionLib.pressKey("F3");
-	
-	
-}
-*/
+	}
+	*/
 }

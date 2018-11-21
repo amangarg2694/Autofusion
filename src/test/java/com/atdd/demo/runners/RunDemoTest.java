@@ -12,6 +12,7 @@ import com.atdd.te.screenHelpers.CommonHelper;
 import com.cucumber.listener.ExtentProperties;
 import com.cucumber.listener.Reporter;
 import com.hp.lft.sdk.SDK;
+import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 import com.optumrx.autofusion.core.util.ReadPropertyFile;
 import com.optumrx.autofusion.core.util.ReportHelper;
 
@@ -19,14 +20,13 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
-		features = { "classpath:features/RxClaim/featureFiles/ClaimSub.feature" },
 
+		features = { "classpath:features/RxClaim/featureFiles/ClaimSub.feature" },
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 
 		glue = { "com.atdd.demo.te" }
-		//,tags ={"@TC5"}
-		
+		//,tags ={"@Regression"}
 )
 
 
@@ -61,7 +61,7 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
 	public static void teardown() throws Exception { 
  
  
- //		Mainframe_GlobalFunctionLib.closeTE(); 
+ 		Mainframe_GlobalFunctionLib.closeTE(); 
 		SDK.cleanup(); 
 		 
  
