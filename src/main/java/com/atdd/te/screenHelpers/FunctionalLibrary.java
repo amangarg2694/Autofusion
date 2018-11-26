@@ -1874,13 +1874,13 @@ public class FunctionalLibrary extends CommonHelper{
 	
 	 return bRes;
 	}
-	public static void enterText(String fieldValue, String fieldName, String screenName) throws Exception  {
+/*	public static void enterText(int i, int j, String string) throws Exception  {
 		try{
 		String[] coordinates = null;
-		coordinates = ReadPropertyFile.getProperty(screenName , fieldName);			
-		Mainframe_GlobalFunctionLib.sendText(coordinates[0] ,coordinates[1] , fieldValue);
+		coordinates = ReadPropertyFile.getProperty(string , j);			
+		Mainframe_GlobalFunctionLib.sendText(coordinates[0] ,coordinates[1] , i);
 		//test.log(LogStatus.PASS,"Entered text in field "+ fieldName+" on screen "+screenName  ,test.addScreenCapture(Screenshot.screenshot()));
-		Reporter.addStepLog("Entered text in field "+ fieldName+ "at position "+coordinates[0]+","+coordinates[1]+" on screen "+ screenName);
+		Reporter.addStepLog("Entered text in field "+ j+ "at position "+coordinates[0]+","+coordinates[1]+" on screen "+ string);
 		if(ScreenshotOption.equalsIgnoreCase("Always")){
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		}
@@ -1890,7 +1890,7 @@ public class FunctionalLibrary extends CommonHelper{
 			Assert.fail("The text is not entered.Screenshot captured");
 			
 		}
-	}
+	}*/
 	
 	public static void enterText(int row, int col, String fieldValue) throws Exception  {
 		try{
@@ -2073,6 +2073,24 @@ public class FunctionalLibrary extends CommonHelper{
 				throw e;
 			}
 		}
+		
+		public static void enterText(String fieldValue, String fieldName, String screenName) throws Exception  {
+			try{
+			String[] coordinates = null;
+			coordinates = ReadPropertyFile.getProperty(screenName , fieldName); 
+			Mainframe_GlobalFunctionLib.sendText(coordinates[0] ,coordinates[1] , fieldValue);
+			//test.log(LogStatus.PASS,"Entered text in field "+ fieldName+" on screen "+screenName  ,test.addScreenCapture(Screenshot.screenshot()));
+			Reporter.addStepLog("Entered text in field "+ fieldName+ "at position "+coordinates[0]+","+coordinates[1]+" on screen "+ screenName);
+			if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			}catch(Exception e){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			//Reporter.addStepLog(Assert.fail("The text is not entered.Screenshot captured");
+			Assert.fail("The text is not entered.Screenshot captured");
+
+			}
+			}
 
 		public static String func_GetCurrentYear( )throws Throwable
 		{
