@@ -61,10 +61,12 @@ public class SN003395 {
 	}
 	String D;
 	@Then("^Verify if page removes the \"([^\"]*)\" sign at the bottom right when there are no more pages to page down in Rejection Report Detail screen with \"([^\"]*)\"$")
-	public void verify_if_page_removes_the_sign_at_the_bottom_right_when_there_are_no_more_pages_to_page_down_in_Rejection_Report_Detail_screen_with(String arg1, String arg2) throws Throwable {
+	public void verify_if_page_removes_the_sign_at_the_bottom_right_when_there_are_no_more_pages_to_page_down_in_Rejection_Report_Detail_screen_with(String arg1, String carrierID) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new PendingException();
-		Mainframe_GlobalFunctionLib.sendText(4,4, "PDPIND");
+		//Mainframe_GlobalFunctionLib.sendText(4,4, "PDPIND");
+		Mainframe_GlobalFunctionLib.sendText(4,4, carrierID);
+		
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText("10","2", "2");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -82,10 +84,11 @@ public class SN003395 {
 	}
 	String E;
 	@Then("^Verify if page brings back the \"([^\"]*)\" sign at the bottom right sign when user clicks Page up button in Rejection Report Detail screen with \"([^\"]*)\"$")
-	public void verify_if_page_brings_back_the_sign_at_the_bottom_right_sign_when_user_clicks_Page_up_button_in_Rejection_Report_Detail_screen_with(String arg1, String arg2) throws Throwable {
+	public void verify_if_page_brings_back_the_sign_at_the_bottom_right_sign_when_user_clicks_Page_up_button_in_Rejection_Report_Detail_screen_with(String arg1, String carrierID) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new PendingException();
-		Mainframe_GlobalFunctionLib.sendText(4,4, "PDPIND");
+		//Mainframe_GlobalFunctionLib.sendText(4,4, "PDPIND");
+		Mainframe_GlobalFunctionLib.sendText(4,4, carrierID);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText("10","2", "2");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");

@@ -1,3 +1,5 @@
+@Release_8403 @Regression
+
 Feature: SN003395_SR41875_Rejection Report Detail Screen is Displaying "Scan limit" Message
 As a RxClaim User I want to Verify if page brings back the '+' sign at the bottom right sign when user clicks Page up button in Rejection Report Detail screen.
  

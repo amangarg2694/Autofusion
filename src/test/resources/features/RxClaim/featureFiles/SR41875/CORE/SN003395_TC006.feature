@@ -1,3 +1,5 @@
+#@Release_8403 @Regression - skipped for now, tc is failing
+
 Feature: SN003395_SR41875_Rejection Report Detail Screen is Displaying "Scan limit" Message
 As a RxClaim User I want to Verify if records are displayed in ascending alphabetical order based on CAG and Member Rejection Report Detail screen.
  

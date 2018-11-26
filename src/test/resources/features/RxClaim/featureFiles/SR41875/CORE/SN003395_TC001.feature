@@ -1,3 +1,5 @@
+@Release_8403 @Regression
+
 Feature: SN003395_SR41875_Rejection Report Detail Screen is Displaying "Scan limit" Message
 As a RxClaim User I want to Verify if 'No data to display' message appears on RCRRP001 screen when there are no rejection report records available.
  

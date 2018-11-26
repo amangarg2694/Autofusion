@@ -1,3 +1,5 @@
+@Release_8403 @Regression
+
 Feature: SN003395_SR41875_Rejection Report Detail Screen is Displaying "Scan limit" Message
 As a RxClaim User I want to Verify if detail records will be sorted in descending order first by Date of File then by CAGM in Rejection Report Detail screen.
  
