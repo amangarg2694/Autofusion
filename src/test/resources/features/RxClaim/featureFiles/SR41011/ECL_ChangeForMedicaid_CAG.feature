@@ -15,7 +15,7 @@ Feature: NCPDP External Code List (ECL) Change for Medicaid – Reject Code 831 (C
     Examples:
       
     | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID  | DspQty | DS | PSC | Cost |Plan    |
-		|	170996  | *ALL    |	*ALL  | APHARM      | 681254434167 | 01     |090618    | SR41011M1    | 00591319301 |30       |30  |0   |10   |SR41011|
+		|	170996  | *ALL    |	*ALL  | APHARM      | 681254534167 | 01     |090618    | SR41011M1    | 00591319301 |30       |30  |0   |10   |SR41011|
 		
 		
 		
@@ -33,7 +33,7 @@ Feature: NCPDP External Code List (ECL) Change for Medicaid – Reject Code 831 (C
     Examples:
       
     | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID  | DspQty | DS | PSC | Cost |Plan    |
-		|	170996  | *ALL    |	*ALL  | APHARM      | 689134231267 | 01     |090618    | SR41011M1    | 00003052620 |30       |30  |0   |10   |SR41011|
+		|	170996  | *ALL    |	*ALL  | APHARM      | 689134531267 | 01     |090618    | SR41011M1    | 00003052620 |30       |30  |0   |10   |SR41011|
 		
 		
 		
@@ -52,7 +52,7 @@ Feature: NCPDP External Code List (ECL) Change for Medicaid – Reject Code 831 (C
 		Examples:
       
     | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID  | DspQty | DS | PSC | Cost |Plan    |
-		|	170996  | *ALL    |	*ALL  | APHARM      | 689254234167 | 01     |090618    | SR41011M1    | 11917007001 |30      |30  |0   |10   |SR41011|
+		|	170996  | *ALL    |	*ALL  | APHARM      | 689254254167 | 01     |090618    | SR41011M1    | 11917007001 |30      |30  |0   |10   |SR41011|
 		
 		Scenario Outline: Reject Remap with GPI Preferred Formulary
    
@@ -69,5 +69,5 @@ Feature: NCPDP External Code List (ECL) Change for Medicaid – Reject Code 831 (C
     Examples:
       
     | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID  | DspQty | DS | PSC | Cost |Plan    |
-		|	170996  | *ALL    |	*ALL  | APHARM      | 689252434167 | 01     |090618    | SR41011M1    | 00005445260 |30       |30  |0   |10   |SR41011|
+		|	170996  | *ALL    |	*ALL  | APHARM      | 689252454167 | 01     |090618    | SR41011M1    | 00005445260 |30       |30  |0   |10   |SR41011|
 		
