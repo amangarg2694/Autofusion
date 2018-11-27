@@ -1,3 +1,5 @@
+@Release_8403 @Regression
+
 Feature: FIX IT: BATCH: Omnicom POS Rebates - Quarterly Reporting
   
   Scenario Outline: SN374533_SR41835_TC001:Adjudicate the claim with rebate amount setup and prescriber submitted is NPI/SN374533_SR41835_TC002:Run the batch POS Rebate Claims Extract 
