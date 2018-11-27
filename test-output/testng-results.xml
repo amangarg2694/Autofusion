@@ -1,59 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="1" failed="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Testng Cucumber Suite" duration-ms="222780" started-at="2018-09-24T09:47:06Z" finished-at="2018-09-24T09:50:49Z">
+  <suite name="Default suite" duration-ms="1074" started-at="2018-11-26T14:21:23Z" finished-at="2018-11-26T14:21:24Z">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test name="Veirify Demo Site Features" duration-ms="222780" started-at="2018-09-24T09:47:06Z" finished-at="2018-09-24T09:50:49Z">
+    <test name="Default test" duration-ms="1074" started-at="2018-11-26T14:21:23Z" finished-at="2018-11-26T14:21:24Z">
       <class name="com.atdd.demo.runners.RunDemoTest">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="setUpClass" is-config="true" duration-ms="983" started-at="2018-09-24T15:17:06Z" finished-at="2018-09-24T15:17:07Z">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="setUpClass" is-config="true" duration-ms="856" started-at="2018-11-26T19:51:23Z" finished-at="2018-11-26T19:51:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method status="PASS" signature="setup(java.lang.String, java.lang.String)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="setup" is-config="true" duration-ms="47503" started-at="2018-09-24T15:17:07Z" finished-at="2018-09-24T15:17:55Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[src/test/resources/te/config_sxcd1.properties]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Always]]>
-              </value>
-            </param>
-          </params>
+        <test-method status="FAIL" signature="setup(java.lang.String, java.lang.String)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="setup" is-config="true" duration-ms="0" started-at="2018-11-26T19:51:23Z" finished-at="2018-11-26T19:51:23Z">
+          <exception class="org.testng.TestNGException">
+            <message>
+              <![CDATA[
+Parameter 'configFile' is required by @Configuration on method setup but has not been marked @Optional or defined
+in C:\Users\mvenka29\AppData\Local\Temp\testng-eclipse-1243300317\testng-customsuite.xml]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.TestNGException: 
+Parameter 'configFile' is required by @Configuration on method setup but has not been marked @Optional or defined
+in C:\Users\mvenka29\AppData\Local\Temp\testng-eclipse-1243300317\testng-customsuite.xml
+	at org.testng.internal.Parameters.createParameters(Parameters.java:154)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:361)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:84)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:197)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:170)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:104)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.TestNGException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="feature" duration-ms="172765" started-at="2018-09-24T15:17:55Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2018-09-24T15:20:48Z">
+        <test-method status="SKIP" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="feature" duration-ms="2" started-at="2018-11-26T19:51:24Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2018-11-26T19:51:24Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Part D Update Manufacturer Discount and Biosimilar Coverage in Gap]]>
+                <![CDATA[SN003425_SR42066:PART D: February 2018 Updates to the Drug Data Processing System]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="teardown" is-config="true" duration-ms="343" started-at="2018-09-24T15:20:48Z" finished-at="2018-09-24T15:20:48Z">
+        <test-method status="SKIP" signature="teardown()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="teardown" is-config="true" duration-ms="0" started-at="2018-11-26T19:51:24Z" finished-at="2018-11-26T19:51:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="tearDownClass" is-config="true" duration-ms="812" started-at="2018-09-24T15:20:48Z" finished-at="2018-09-24T15:20:49Z">
+        <test-method status="SKIP" signature="tearDownClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="tearDownClass" is-config="true" duration-ms="0" started-at="2018-11-26T19:51:24Z" finished-at="2018-11-26T19:51:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-        <test-method status="PASS" signature="parser()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="parser" is-config="true" duration-ms="55051" started-at="2018-09-24T15:20:49Z" finished-at="2018-09-24T15:21:44Z">
+        <test-method status="SKIP" signature="parser()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="parser" is-config="true" duration-ms="0" started-at="2018-11-26T19:51:24Z" finished-at="2018-11-26T19:51:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- parser -->
       </class> <!-- com.atdd.demo.runners.RunDemoTest -->
-    </test> <!-- Veirify Demo Site Features -->
-  </suite> <!-- Testng Cucumber Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
