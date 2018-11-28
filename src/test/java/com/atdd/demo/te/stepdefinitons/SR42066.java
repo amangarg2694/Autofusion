@@ -1,30 +1,28 @@
 package com.atdd.demo.te.stepdefinitons;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.StringTokenizer;
-
-import org.testng.Assert;
 
 import com.atdd.te.screenHelpers.FunctionalLibrary;
 import com.cucumber.listener.Reporter;
-import com.hp.lft.report.ReportException;
-import com.hp.lft.sdk.GeneralLeanFtException;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 import com.optumrx.autofusion.core.te.util.Screenshot;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import com.atdd.demo.te.stepdefinitons.PriceOverrideAfterSpecificHashOfFills;
 
 public class SR42066 {
-	public static String rxClaimId=null;
-	
+	public static String rxClaimIdValue="";
 	@When("^I submit a claim with Cmpnd \"([^\"]*)\" and \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_submit_a_claim_with_Cmpnd_and(String Cmpnd, String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost) throws Throwable {
 		FunctionalLibrary.CreateTransaction(bin, proc, group, pharmacyID, rxNbr, refill, fillDate, memberID, productID, dspQty, ds, psc, cost);
 		Mainframe_GlobalFunctionLib.sendText(14, 14, Cmpnd);
 		FunctionalLibrary.submitClaim();
 		PriceOverrideAfterSpecificHashOfFills.i_Validate_RxClaim_ID();
+		String rxClaimIdValue=PriceOverrideAfterSpecificHashOfFills.rxClaimId;
+		System.out.println("Print imported Rx Claim ID: "+rxClaimIdValue);
+		Reporter.addStepLog("Print imported Rx Claim ID: "+rxClaimIdValue);
 	}
 	
 	@Then("^I Submit Standard Extract Job \"([^\"]*)\"$")
@@ -73,8 +71,8 @@ public class SR42066 {
 									Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 									if(JobStatusVerifyInside.equals(JobOUTQ))
 									{
-										System.out.println("1-JobOUTQ: Expected Job Status is: "+JobStatus);
-										Reporter.addStepLog("1-JobOUTQ: Expected Job Status is: "+JobStatus);
+										System.out.println("1-JobOUTQ: Expected Job Status is: "+JobStatusVerifyInside);
+										Reporter.addStepLog("1-JobOUTQ: Expected Job Status is: "+JobStatusVerifyInside);
 										Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 										//spoolFile(i);
 										break lable1;
@@ -93,8 +91,8 @@ public class SR42066 {
 							Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 							 if(JobStatusVerifyInside.equals(JobOUTQ))
 								{
-									System.out.println("2-JobOUTQ: Expected Job Status is: "+JobStatus);
-									Reporter.addStepLog("2-JobOUTQ: Expected Job Status is: "+JobStatus);
+									System.out.println("2-JobOUTQ: Expected Job Status is: "+JobStatusVerifyInside);
+									Reporter.addStepLog("2-JobOUTQ: Expected Job Status is: "+JobStatusVerifyInside);
 									Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 									//spoolFile(i);
 									break lable1;
@@ -116,7 +114,7 @@ public class SR42066 {
 					System.out.println("Job Name is not as expected: "+JobName);
 					Reporter.addStepLog("Job Name is not as expected: "+JobName);
 					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-					break lable1;
+					//break lable1;
 				}
 			}//end of For loop
 		}
@@ -137,25 +135,28 @@ public class SR42066 {
 	}
 	@Then("^I verify the Extract status \"([^\"]*)\" in Claim Transaction Additional Info$")
 	public void i_verify_the_Extract_status_in_Claim_Transaction_Additional_Info(String Extractstatus) throws Throwable {
-		 Mainframe_GlobalFunctionLib.pressKey("F8");
-		String rxClaimId2="183270040164000";
-		//Mainframe_GlobalFunctionLib.sendText(4, 4,rxClaimId);
-		Mainframe_GlobalFunctionLib.sendText(4, 4,rxClaimId2);
+		Mainframe_GlobalFunctionLib.pressKey("F8");
+		//String rxClaimId2="183270040164000";
+		//rxClaimId=rxClaimId2;
+		String rxClaimIdValue=PriceOverrideAfterSpecificHashOfFills.rxClaimId;
+		Mainframe_GlobalFunctionLib.sendText(4, 4,rxClaimIdValue);
+		System.out.println("Print imported Rx Claim ID: "+rxClaimIdValue);
+		Reporter.addStepLog("Print imported Rx Claim ID: "+rxClaimIdValue);
+		//Mainframe_GlobalFunctionLib.sendText(4, 4,rxClaimId2);
 		FunctionalLibrary.pressEnter();
 		String rxClaimIdActual=Mainframe_GlobalFunctionLib.getText(10,4);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-		//if((func_SearchAndSelectMode_ClaimTransactions("4,4" ,rxClaimId2 ,"10,4" , rxClaimId2))){
-		if(rxClaimIdActual.equals(rxClaimId2))
+		if(rxClaimIdActual.equals(rxClaimIdValue))
 		{
-			System.out.println("Expected Rx Claim ID Found: "+rxClaimId2);
-			Reporter.addStepLog("Expected Rx Claim ID Found: "+rxClaimId2);
+			System.out.println("Expected Rx Claim ID Found: "+rxClaimIdValue);
+			Reporter.addStepLog("Expected Rx Claim ID Found: "+rxClaimIdValue);
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			 Mainframe_GlobalFunctionLib.sendText(10, 2, "7");
 			 Mainframe_GlobalFunctionLib.pressKey("Enter");
 			 Mainframe_GlobalFunctionLib.sendText(14, 2, "5");
 			 Mainframe_GlobalFunctionLib.pressKey("Enter");
 			 Mainframe_GlobalFunctionLib.pressKey("F7");
-			 Mainframe_GlobalFunctionLib.sendText(4, 23, "8");
+			 Mainframe_GlobalFunctionLib.sendText(4, 23, "8");//13
 			 Mainframe_GlobalFunctionLib.pressKey("Enter");
 			 String extractStatusActual=Mainframe_GlobalFunctionLib.getText(5, 61);
 			 if(!(extractStatusActual.equals(null))){
@@ -184,8 +185,8 @@ public class SR42066 {
 		
 		else
 		{
-			System.out.println("Expected Rx ClaimId not Found: "+rxClaimId2);
-			Reporter.addStepLog("Expected Rx ClaimId not Found: "+rxClaimId2);
+			System.out.println("Expected Rx ClaimId not Found: "+rxClaimIdValue);
+			Reporter.addStepLog("Expected Rx ClaimId not Found: "+rxClaimIdValue);
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		}
 		}
@@ -198,6 +199,7 @@ public class SR42066 {
 		 Mainframe_GlobalFunctionLib.sendText(8, 41, CarrierID);
 		 Mainframe_GlobalFunctionLib.sendText(12, 24, Library);
 		 Mainframe_GlobalFunctionLib.sendText(15, 24, DDPSFilterProcess);
+		 Mainframe_GlobalFunctionLib.sendText(17, 24, "T");
 		 Mainframe_GlobalFunctionLib.sendText(20, 54, SubmitterID);
 		 Mainframe_GlobalFunctionLib.pressKey("F6");
 		 Mainframe_GlobalFunctionLib.sendText(13, 48, "TXT");
@@ -247,10 +249,10 @@ public class SR42066 {
 									Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 									if(JobStatusVerifyInside.equals(JobOUTQ))
 									{
-										System.out.println("1-JobOUTQ: Expected Job Status is: "+JobStatus);
-										Reporter.addStepLog("1-JobOUTQ: Expected Job Status is: "+JobStatus);
+										System.out.println("1-JobOUTQ: Expected Job Status is: "+JobStatusVerifyInside);
+										Reporter.addStepLog("1-JobOUTQ: Expected Job Status is: "+JobStatusVerifyInside);
 										Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-										//spoolFile(i);
+										spoolFile(i);
 										break lable1;
 									}
 								}
@@ -267,10 +269,10 @@ public class SR42066 {
 							Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 							 if(JobStatusVerifyInside.equals(JobOUTQ))
 								{
-									System.out.println("2-JobOUTQ: Expected Job Status is: "+JobStatus);
-									Reporter.addStepLog("2-JobOUTQ: Expected Job Status is: "+JobStatus);
+									System.out.println("2-JobOUTQ: Expected Job Status is: "+JobStatusVerifyInside);
+									Reporter.addStepLog("2-JobOUTQ: Expected Job Status is: "+JobStatusVerifyInside);
 									Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-									//spoolFile(i);
+									spoolFile(i);
 									break lable1;
 								}
 						}while(!Mainframe_GlobalFunctionLib.getText(i, 40).equalsIgnoreCase(JobOUTQ));
@@ -290,75 +292,12 @@ public class SR42066 {
 					System.out.println("Job Name is not as expected: "+JobName);
 					Reporter.addStepLog("Job Name is not as expected: "+JobName);
 					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-					break lable1;
+					//break lable1;
 				}
 			}//end of For loop
-		/*
-		 Mainframe_GlobalFunctionLib.sendText(21, 7,wsQuery);
-		 Mainframe_GlobalFunctionLib.pressKey("enter");
-			String JobOUTQ="OUTQ";
-			String JobACTIVE="ACTIVE";
-			String JobJOBQ="JOBQ";
-			int i;
-			for(i=11; i<=19; i++)
-			{
-				String JobName= Mainframe_GlobalFunctionLib.getText(i, 7).trim();
-				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				if(JobName.equals(JobRCPD))
-				{
-					String JobStatus= Mainframe_GlobalFunctionLib.getText(i, 40).trim();
-					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				    if(JobStatus.equals(JobACTIVE))
-					{
-						do
-						{
-							Mainframe_GlobalFunctionLib.sendText(i, 3, "2");
-							Mainframe_GlobalFunctionLib.pressKey("enter");
-							Mainframe_GlobalFunctionLib.pressKey("F10");
-							Mainframe_GlobalFunctionLib.sendText(17, 37,"QPGMR ");
-				    		Mainframe_GlobalFunctionLib.pressKey("Enter");
-				    		String JobStatusVerify= Mainframe_GlobalFunctionLib.getText(i, 40).trim();
-				    		System.out.println("JobACTIVE Job Status is: "+JobStatusVerify);
-				    		Reporter.addStepLog("JobACTIVE Job Status is: "+JobStatusVerify);
-				    		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-							}while ((Mainframe_GlobalFunctionLib.getText(i, 40).trim()).contains(JobOUTQ));
-						if(JobStatus.equals(JobOUTQ))
-						{
-							System.out.println("Expected Job Status is: "+JobStatus);
-							Reporter.addStepLog("Expected Job Status is: "+JobStatus);
-							Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-							spoolFile(i);
-							break;
-						}
-					}
-				else if (JobStatus.equals(JobJOBQ))
-				{
-					do
-						{
-							String JobStatusQ= Mainframe_GlobalFunctionLib.getText(i, 40).trim();
-							Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-							if(JobStatusQ.equals(JobOUTQ))
-							{
-								System.out.println("Job Status is: "+JobStatus);
-							    Reporter.addStepLog("Job Status is: "+JobStatus);
-								Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-								break;
-							}
-							Mainframe_GlobalFunctionLib.pressKey("F5");
-						}while((Mainframe_GlobalFunctionLib.getText(i, 40).trim()).contains(JobOUTQ));
-						
-				}
-			else if(JobStatus.equals(JobOUTQ))
-				{
-					System.out.println("Expected Job Status is: "+JobStatus);
-					Reporter.addStepLog("Expected Job Status is: "+JobStatus);
-					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-					break;
-				}
-				}
-			}
-			
-    	*/}	
+			Mainframe_GlobalFunctionLib.pressKey("F3");
+			//Mainframe_GlobalFunctionLib.pressKey("F3");
+		}	
 	
 public static void spoolFile(int i) throws Exception
 	{
@@ -378,11 +317,54 @@ public static void spoolFile(int i) throws Exception
 		Mainframe_GlobalFunctionLib.pressKey("PageDown");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("PageDown");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
 	}
 	
 	@Then("^I verify Compound code \"([^\"]*)\" in Medicare Part D PDE Data Page$")
 	public void i_verify_Compound_code_in_Medicare_Part_D_PDE_Data_Page(String Compoundcode) throws Throwable {
-		Mainframe_GlobalFunctionLib.pressKey("F10");
+		Mainframe_GlobalFunctionLib.pressKey("F8");
+		//String rxClaimId2="183270040164000";
+		String rxClaimIdValue=PriceOverrideAfterSpecificHashOfFills.rxClaimId;
+		System.out.println("Print Rx Claim ID: "+rxClaimIdValue);
+		Reporter.addStepLog("Print Rx Claim ID: "+rxClaimIdValue);
+		Mainframe_GlobalFunctionLib.sendText(4, 4,rxClaimIdValue);
+		//Mainframe_GlobalFunctionLib.sendText(4, 4,rxClaimId2);
+		FunctionalLibrary.pressEnter();
+		String rxClaimIdActual=Mainframe_GlobalFunctionLib.getText(10,4);
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		if(rxClaimIdActual.equals(rxClaimIdValue))
+		{
+			System.out.println("Expected Rx Claim ID Found: "+rxClaimIdValue);
+			Reporter.addStepLog("Expected Rx Claim ID Found: "+rxClaimIdValue);
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			 Mainframe_GlobalFunctionLib.sendText(10, 2, "7");
+			 Mainframe_GlobalFunctionLib.pressKey("Enter");
+			 Mainframe_GlobalFunctionLib.sendText(14, 2, "5");
+			 Mainframe_GlobalFunctionLib.pressKey("Enter");
+			 Mainframe_GlobalFunctionLib.pressKey("F7");
+			 Mainframe_GlobalFunctionLib.sendText(4, 23, "13");
+			 Mainframe_GlobalFunctionLib.pressKey("Enter");
+			 Mainframe_GlobalFunctionLib.pressKey("F9");
+			 System.out.println("REACHED");
+			 String filePDE=Mainframe_GlobalFunctionLib.getText(11, 5);
+			 System.out.println("Actual Extract Status is: "+filePDE);
+			 Reporter.addStepLog("Actual Extract Status is: "+filePDE);
+			 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			 if(!(filePDE.equals(null)))
+			 {
+				 System.out.println("PDE file is Generated: "+filePDE);
+				 Reporter.addStepLog("PDE file is Generated: "+filePDE);
+				 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			 }
+			 else{
+				 System.out.println("Actual Extract Status is NULL");
+				 Reporter.addStepLog("Actual Extract Status is NULL");
+					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			 }
+		}
+		}
+	
+		/*Mainframe_GlobalFunctionLib.pressKey("F10");
 		Mainframe_GlobalFunctionLib.sendText(14, 2, "5");
 		//Query: Which RxNo to be choosen
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -410,8 +392,8 @@ public static void spoolFile(int i) throws Exception
 			System.out.println("Compound code is not as Expected: "+Compoundcode);
 			Reporter.addStepLog("Compound code is not as Expected: "+Compoundcode);
 			Assert.fail("The text is not entered.Screenshot captured");
-		}
-	}
+		}*/
+
 			
 	@Then("^I edit member details \"([^\"]*)\"$")
 	public void i_edit_member_details(String MemberID) throws Throwable {
@@ -433,38 +415,31 @@ public static void spoolFile(int i) throws Exception
 	{
 	boolean bRes=false;
 	try{
-	
-		
-	StringTokenizer stData=new StringTokenizer(RowColOfData,",");
-	StringTokenizer stDataSearch=new StringTokenizer(StartRowColToSearch,",");
-	int row=Integer.valueOf(stDataSearch.nextToken());
-	String col=stDataSearch.nextToken();
-	
-	
+		StringTokenizer stData=new StringTokenizer(RowColOfData,",");
+		StringTokenizer stDataSearch=new StringTokenizer(StartRowColToSearch,",");
+		int row=Integer.valueOf(stDataSearch.nextToken());
+		String col=stDataSearch.nextToken();
 		Mainframe_GlobalFunctionLib.sendText(stData.nextToken(),stData.nextToken(), Data);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 	
- System.out.println("check the row value"+row);
+		System.out.println("check the row value"+row);
 	
 		if(Mainframe_GlobalFunctionLib.getText(row, Integer.parseInt(col)).trim().toLowerCase().contentEquals(DataSearch.trim().toLowerCase()))
-	{
-	
-	bRes=true;
-	Mainframe_GlobalFunctionLib.sendText(row, 2, "2");
-	Mainframe_GlobalFunctionLib.pressKey("Enter");
-	Thread.sleep(2000);
-	}
-	}
-	catch(Exception e){
+		{
 		
-		return bRes;
-		
-	}
-	
-	
-	 return bRes;
-	}
-	}
+		bRes=true;
+		Mainframe_GlobalFunctionLib.sendText(row, 2, "2");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Thread.sleep(2000);
+		}
+		}
+		catch(Exception e){
+			
+			return bRes;
+		}
+			return bRes;
+		}
+		}
 
 	
 
