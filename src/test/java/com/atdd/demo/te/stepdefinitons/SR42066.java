@@ -381,15 +381,20 @@ public static void spoolFile(int i) throws Exception
 		Mainframe_GlobalFunctionLib.pressKey("PageDown");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("PageDown");
-		
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.sendText(4, 22,"PD18");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F16");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 	//	String[] spoolPDEFile =Mainframe_GlobalFunctionLib.getText(7, 37).split("FILE") ;
 			try{
-				spoolPDEFile =Mainframe_GlobalFunctionLib.getText(7, 37);
+				//spoolPDEFile =Mainframe_GlobalFunctionLib.getText(7, 37).substring(7,46).trim();
+				String spoolPDEFileActual =Mainframe_GlobalFunctionLib.getText(7, 37);
+				int spoolPDEFileActuallength = spoolPDEFileActual.length();
+				spoolPDEFile = spoolPDEFileActual.substring(0, spoolPDEFileActuallength-1);
 				System.out.println("PDE File ID in Spool file: "+spoolPDEFile);
 				Reporter.addStepLog("PDE File ID in Spool file: "+spoolPDEFile);
-				
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				}
 			catch(Exception e)
 			{
@@ -427,49 +432,70 @@ public static void spoolFile(int i) throws Exception
 			 Mainframe_GlobalFunctionLib.pressKey("Enter");
 			 Mainframe_GlobalFunctionLib.pressKey("F9");
 			 System.out.println("REACHED FINAL Step");
-		try
-		{
-			String filePDE=Mainframe_GlobalFunctionLib.getText(11, 5);
-			 System.out.println("Actual PDE File is: "+filePDE);
-			 Reporter.addStepLog("Actual PDE File is: "+filePDE);
-			 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-			 if((filePDE.length()==0))
-			 {
-				 System.out.println("Actual PDE File not generated; NULL "+filePDE);
-				 Reporter.addStepLog("Actual PDE File not generated; NULL "+filePDE);
-			 }
-			 else{
-				 System.out.println("PDE file is Generated: "+filePDE);
-				 Reporter.addStepLog("PDE file is Generated: "+filePDE);
-				 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				 Mainframe_GlobalFunctionLib.sendText(11, 2, "5");
-				 Mainframe_GlobalFunctionLib.pressKey("Enter");
-				 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				 Mainframe_GlobalFunctionLib.pressKey("pagedown");
-				 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				 String actualCompoundcode=Mainframe_GlobalFunctionLib.getText(20, 64);
-				 System.out.println("Actual Compound code is: "+actualCompoundcode);
-				 Reporter.addStepLog("Actual Compound code is: "+actualCompoundcode);
-				if(actualCompoundcode.equals(Compoundcode) )
-				{
-					 System.out.println("Compound code is as Expected: "+Compoundcode);
-					 Reporter.addStepLog("Compound code is as Expected: "+Compoundcode);
+		
+			int i;
+			lable2: for (i=11; i<18; i++)
+			{
+				try
+				{	
+					 String filePDE=Mainframe_GlobalFunctionLib.getText(i, 5);
+					 System.out.println("Actual PDE File @ 'Medicare Part D MDD' screen is: "+filePDE);
+					 Reporter.addStepLog("Actual PDE File @ 'Medicare Part D MDD' screen is: "+filePDE);
+					 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					 if((filePDE.length()==0))
+					 {
+						 System.out.println("PDE File not generated @ 'Medicare Part D MDD' screen; NULL ");
+						 Reporter.addStepLog("PDE File not generated @ 'Medicare Part D MDD' screen; NULL ");
+					 }
+					 else if(spoolPDEFile.equals(filePDE))
+					 {
+						 System.out.println("Expected PDE file is Generated: "+filePDE);
+						 Reporter.addStepLog("Expected PDE file is Generated: "+filePDE);
+						 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						 Mainframe_GlobalFunctionLib.sendText(11, 2, "5");
+						 Mainframe_GlobalFunctionLib.pressKey("Enter");
+						 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						 Mainframe_GlobalFunctionLib.pressKey("pagedown");
+						 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						 String actualCompoundcode=Mainframe_GlobalFunctionLib.getText(20, 64);
+						 System.out.println("Actual Compound code is: "+actualCompoundcode);
+						 Reporter.addStepLog("Actual Compound code is: "+actualCompoundcode);
+							if(actualCompoundcode.equals(Compoundcode) )
+							{
+								 System.out.println("Compound code is as Expected: "+Compoundcode);
+								 Reporter.addStepLog("Compound code is as Expected: "+Compoundcode);
+							}
+							else
+							{
+								System.out.println("Compound code is not as Expected: "+Compoundcode);
+								Reporter.addStepLog("Compound code is not as Expected: "+Compoundcode);
+							}
+							break lable2;
+					  }
+					 else
+					 {
+						 System.out.println("Expected PDE file not been Generated ie: "+filePDE);
+						 Reporter.addStepLog("Expected PDE file not been Generated ie: "+filePDE);
+						 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					 }
+					} 
+				  	catch(Exception e)
+					{
+						e.printStackTrace();
+						/*System.out.println("PDE File not generated; NULL ");
+						Reporter.addStepLog("PDE File not generated; NULL ");*/
+						break lable2;
+						}
 				}
-				else
-				{
-					System.out.println("Compound code is not as Expected: "+Compoundcode);
-					Reporter.addStepLog("Compound code is not as Expected: "+Compoundcode);
 				}
-		    }
-				 
-			  } 
-				catch(Exception e){
-				e.printStackTrace();
-				System.out.println("Actual PDE File not generated; NULL ");
-				Reporter.addStepLog("Actual PDE File not generated; NULL ");
-		}
+			else
+			{
+				System.out.println("Expected Rx Claim ID not Found: "+rxClaimIdValue);
+				Reporter.addStepLog("Expected Rx Claim ID not Found: "+rxClaimIdValue);
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			}
-			}		 
+		}
+					 
 			
 		
 	
