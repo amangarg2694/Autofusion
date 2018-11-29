@@ -39,4 +39,5 @@ As a RxClaim User I want to cVerify whether for a paid claim that have multiple 
    
     Examples:
     | CarrierID | AccountID   | GroupID     |Plan1     | MemberID  | First Name | Last Name | DOB      | From Date | Thru Date | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate   | ProductID  | DspQty | DS | PSC | Cost      |Qual|Prescid|DS1|PSC1|RxNo1|
-		|	NARESH01  | NARESH_ACC01 |NARESH GRP  |MEDLIMIT12| MEMSR46000 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139      |	777777  | QET     |	*ALL  | 0556540      | 765488802232 | 00     | 091118    | 00054421925  |10     |7  |00   |100   |12  |AL4392748|10|3|765411577832|
+	|	NARESH01  | NARESH_ACC01 |NARESH GRP  |MEDLIMIT12| MEMSR46000 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139      |	777777  | QET     |	*ALL  | 0556540      | 765488802232 | 00     | 091118    | 00054421925  |10     |7  |00   |100   |12  |AL4392748|10|3|765411577832|
+	#book1 test data	|MEDLIMIT1 | MEDLIMIT1|MEDLIMIT1  |MEDLIMITB1| MEMSR49000 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139      |	777777  | ASHE     |	TEST  | 0556540      | 765488821432 | 00     | 091118    | 00024033705  |35     |7  |00   |100   |12  |AL4392748|35|3|765411531832|

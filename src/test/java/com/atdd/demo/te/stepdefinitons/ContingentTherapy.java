@@ -1145,7 +1145,7 @@ public static void CreateTransaction1(String bin, String proc, String group, Str
 		Mainframe_GlobalFunctionLib.sendText(11, 41,proc );
 		Mainframe_GlobalFunctionLib.sendText(11, 59,group );
 		Mainframe_GlobalFunctionLib.sendText(12, 14,pharmacyID );
-		Mainframe_GlobalFunctionLib.sendText(12, 41,rxNbr );
+		Mainframe_GlobalFunctionLib.sendText(12, 41,FunctionalLibrary.func_GenerateDynamicRxNo());
 		Mainframe_GlobalFunctionLib.sendText(12, 59,refill );
 		Mainframe_GlobalFunctionLib.sendText(14, 41,memberID );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -1177,7 +1177,7 @@ public static void CreateTransaction1(String bin, String proc, String group, Str
 		///Thread.sleep(3000);
 		Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
 		Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate);
-		Mainframe_GlobalFunctionLib.sendText(5,29, rxNbr);
+		Mainframe_GlobalFunctionLib.sendText(5,29, FunctionalLibrary.func_GenerateDynamicRxNo());
 		Mainframe_GlobalFunctionLib.sendText(5, 47, refill);			
 		//Mainframe_GlobalFunctionLib.click(7, 12 );
 		Mainframe_GlobalFunctionLib.sendText(7, 12, memberID);

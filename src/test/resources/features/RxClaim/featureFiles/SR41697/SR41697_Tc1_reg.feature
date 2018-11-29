@@ -1,5 +1,9 @@
+@Regression
+
 Feature: Verify the notes from the valid type A records for an existing Plan GPI List and valid type B records for an existing GPI and MSC combination on a Plan GPI List.
 
+
+# change Date
 Scenario Outline:Verify the notes from the valid type A records for an existing Plan GPI List and valid type B records for an existing GPI and MSC combination on a Plan GPI List.
 
 Given I am on RxClaim PlanAdministrator Menu
