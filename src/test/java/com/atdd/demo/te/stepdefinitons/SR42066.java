@@ -257,14 +257,59 @@ public class SR42066 {
 		 Mainframe_GlobalFunctionLib.sendText(15, 24, DDPSFilterProcess);
 		 Mainframe_GlobalFunctionLib.sendText(17, 24, "T");
 		 Mainframe_GlobalFunctionLib.sendText(20, 54, SubmitterID);
+		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		 Mainframe_GlobalFunctionLib.pressKey("F6");
+		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		 Mainframe_GlobalFunctionLib.sendText(13, 48, "TXT");
 		 Mainframe_GlobalFunctionLib.sendText(16, 69, "Y");
+		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		 Mainframe_GlobalFunctionLib.pressKey("Enter");
-			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		 Thread.sleep(3000);
 		 Mainframe_GlobalFunctionLib.pressKey("F3");
 		}
+	
+	@Then("^I submit PDE resubmission load with \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_submit_PDE_resubmission_load_with(String InputFileName, String Library, String DDPSFilterProcess, String SubmitterID) throws Throwable {
+	try{ 
+		 Mainframe_GlobalFunctionLib.sendText(5, 29, InputFileName);
+		 Mainframe_GlobalFunctionLib.sendText(6, 29, Library);
+		 Mainframe_GlobalFunctionLib.sendText(9, 29, DDPSFilterProcess);
+		 Mainframe_GlobalFunctionLib.sendText(13, 29, Library);
+		 Mainframe_GlobalFunctionLib.sendText(19, 29, "T");
+		 Mainframe_GlobalFunctionLib.sendText(16, 53, SubmitterID);
+		 Mainframe_GlobalFunctionLib.pressKey("Enter");
+		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		 Mainframe_GlobalFunctionLib.pressKey("F6");
+		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		 Mainframe_GlobalFunctionLib.sendText(13, 48, "TXT");
+		 Mainframe_GlobalFunctionLib.sendText(16, 69, "Y");
+		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		 Mainframe_GlobalFunctionLib.pressKey("Enter");
+		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		 Thread.sleep(3000);
+		 Mainframe_GlobalFunctionLib.pressKey("F3");
+	}
+	catch (Exception e)
+	{
+		String FileNotFoundError=Mainframe_GlobalFunctionLib.getText(24, 2);
+		System.out.println("Error is: "+FileNotFoundError);
+		Reporter.addStepLog("Error is: "+FileNotFoundError);
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		String ActualFileNotFoundError="File not found in Library.";
+		if(FileNotFoundError.contains(ActualFileNotFoundError))
+		{
+			System.out.println("Library File not found error is: "+FileNotFoundError);
+			Reporter.addStepLog("ELibrary File not found error is: "+FileNotFoundError);
+			
+		}
+		else
+		{
+			System.out.println("Unknown error ie: "+FileNotFoundError);
+			Reporter.addStepLog("Unknown error ie: "+FileNotFoundError);
+		}
+	}
+	}
 	
 	@Then("^I verify submitted PDE Job status \"([^\"]*)\", \"([^\"]*)\"$")
 	public void i_verify_submitted_PDE_Job_status(String wsQuery, String JobRCPD) throws Throwable {
@@ -391,7 +436,7 @@ public static void spoolFile(int i) throws Exception
 				//spoolPDEFile =Mainframe_GlobalFunctionLib.getText(7, 37).substring(7,46).trim();
 				String spoolPDEFileActual =Mainframe_GlobalFunctionLib.getText(7, 37);
 				int spoolPDEFileActuallength = spoolPDEFileActual.length();
-				spoolPDEFile = spoolPDEFileActual.substring(0, spoolPDEFileActuallength-1);
+				spoolPDEFile = spoolPDEFileActual.substring(0, spoolPDEFileActuallength-2);
 				System.out.println("PDE File ID in Spool file: "+spoolPDEFile);
 				Reporter.addStepLog("PDE File ID in Spool file: "+spoolPDEFile);
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -447,7 +492,7 @@ public static void spoolFile(int i) throws Exception
 						 System.out.println("PDE File not generated @ 'Medicare Part D MDD' screen; NULL ");
 						 Reporter.addStepLog("PDE File not generated @ 'Medicare Part D MDD' screen; NULL ");
 					 }
-					 else if(spoolPDEFile.equals(filePDE))
+					 else if(spoolPDEFile.contains(filePDE))
 					 {
 						 System.out.println("Expected PDE file is Generated: "+filePDE);
 						 Reporter.addStepLog("Expected PDE file is Generated: "+filePDE);
