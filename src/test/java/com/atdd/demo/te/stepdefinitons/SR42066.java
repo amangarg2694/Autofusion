@@ -1,6 +1,8 @@
 package com.atdd.demo.te.stepdefinitons;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.StringTokenizer;
 
 import org.testng.Assert;
@@ -268,6 +270,42 @@ public class SR42066 {
 		 Thread.sleep(3000);
 		 Mainframe_GlobalFunctionLib.pressKey("F3");
 		}
+	
+	@When("^I copy file \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
+	public void i_copy_file(String Fromfile, String Library, String Tofile, String Option, String Createfile) throws Throwable {
+		 Mainframe_GlobalFunctionLib.sendText(21, 7, "cpyf");
+		 Mainframe_GlobalFunctionLib.pressKey("F4");
+		 Mainframe_GlobalFunctionLib.sendText(5, 37,Fromfile);
+		 Mainframe_GlobalFunctionLib.sendText(6, 39, Library);
+		// Mainframe_GlobalFunctionLib.sendText(7, 37, Tofile);
+		 String timeStamp = new SimpleDateFormat("yy.MM.dd.HH.mm").format(new Date(0));
+		 System.out.println("timeStamp is: "+timeStamp);
+		 Reporter.addStepLog("timeStamp is: "+timeStamp);
+		 
+		 Mainframe_GlobalFunctionLib.sendText(7, 37, timeStamp);
+		 Mainframe_GlobalFunctionLib.sendText(8, 39, Library);
+		 Mainframe_GlobalFunctionLib.sendText(11, 37, "       ");
+		 Mainframe_GlobalFunctionLib.sendText(11, 37, Option);
+		 Mainframe_GlobalFunctionLib.sendText(12, 37, Createfile);
+		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		 Mainframe_GlobalFunctionLib.pressKey("Enter");
+		 try{
+			 String actualFileCreateMsg=Mainframe_GlobalFunctionLib.getText(24, 2);
+			 System.out.println("Actual Message shown as :"+actualFileCreateMsg);
+			 Reporter.addStepLog("Actual Message shown as :"+actualFileCreateMsg);
+			 String expectedFileCreateMsg="Physical file "+Tofile+" created in library "+Library+".";
+			 System.out.println("Expected Message shown as :"+expectedFileCreateMsg);
+			 Reporter.addStepLog("Expected Message shown as :"+expectedFileCreateMsg);
+			 if(expectedFileCreateMsg.contains(actualFileCreateMsg))
+			 {
+				 System.out.println("Expected File Creation message is shown as: "+expectedFileCreateMsg);
+				 Reporter.addStepLog("Expected File Creation message is shown as: "+expectedFileCreateMsg);
+			 }
+		 }catch (Exception e){
+			 System.out.println("Unknown eror");
+			 Reporter.addStepLog("Unknown eror");
+		 }
+	}
 	
 	@Then("^I submit PDE resubmission load with \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_submit_PDE_resubmission_load_with(String InputFileName, String Library, String DDPSFilterProcess, String SubmitterID) throws Throwable {
