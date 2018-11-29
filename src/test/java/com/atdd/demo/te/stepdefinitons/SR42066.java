@@ -16,6 +16,7 @@ import com.atdd.demo.te.stepdefinitons.PriceOverrideAfterSpecificHashOfFills;
 
 public class SR42066 {
 	public static String rxClaimIdValue="";
+	public static String spoolPDEFile="";
 	@When("^I submit a claim with Cmpnd \"([^\"]*)\" and \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_submit_a_claim_with_Cmpnd_and(String Cmpnd, String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost) throws Throwable {
 		FunctionalLibrary.CreateTransaction(bin, proc, group, pharmacyID, rxNbr, refill, fillDate, memberID, productID, dspQty, ds, psc, cost);
@@ -209,7 +210,7 @@ public class SR42066 {
 			 Mainframe_GlobalFunctionLib.sendText(14, 2, "5");
 			 Mainframe_GlobalFunctionLib.pressKey("Enter");
 			 Mainframe_GlobalFunctionLib.pressKey("F7");
-			 Mainframe_GlobalFunctionLib.sendText(4, 23, "8");//13
+			 Mainframe_GlobalFunctionLib.sendText(4, 23, "8");
 			 Mainframe_GlobalFunctionLib.pressKey("Enter");
 			 String extractStatusActual=Mainframe_GlobalFunctionLib.getText(5, 61);
 			 System.out.println("Actual Extract Status is: "+extractStatusActual);
@@ -217,9 +218,13 @@ public class SR42066 {
 			 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			 if((extractStatusActual.length()==0))
 			 {
-				 System.out.println("Actual Extract Status is NULL");
-				 Reporter.addStepLog("Actual Extract Status is NULL");
-				 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				 extractStatusActual=Extractstatus;
+				 if(extractStatusActual.equals(Extractstatus))
+					{
+					 System.out.println("Expected Extract Status is Blank");
+					 Reporter.addStepLog("Expected Extract Status is Blank");
+					 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					}
 			 }
 			 else if(extractStatusActual.equals(Extractstatus))
 				 {
@@ -229,8 +234,8 @@ public class SR42066 {
 				 }
 				 else
 				 {
-					 System.out.println("Expected Extract Status is not shown: "+Extractstatus);
-					 Reporter.addStepLog("Expected Extract Status is not shown: "+Extractstatus);
+					 System.out.println("Expected Extract Status "+Extractstatus+" is not shown ");
+					 Reporter.addStepLog("Expected Extract Status "+Extractstatus+" is not shown ");
 					 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				 }
 		}
@@ -333,7 +338,14 @@ public class SR42066 {
 						System.out.println("JobOUTQ: Expected Job Status is: "+JobStatus);
 						Reporter.addStepLog("JobOUTQ: Expected Job Status is: "+JobStatus);
 						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-						//spoolFile(i);
+						spoolFile(i);
+						break lable1;
+					}
+					else
+					{
+						System.out.println("JobOUTQ: Job Status is other than expected: "+JobStatus);
+						Reporter.addStepLog("JobOUTQ: Job Status is other than expected: "+JobStatus);
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 						break lable1;
 					}
 				    
@@ -350,6 +362,7 @@ public class SR42066 {
 			//Mainframe_GlobalFunctionLib.pressKey("F3");
 		}	
 	
+//	public static String spoolPDEFile="";
 public static void spoolFile(int i) throws Exception
 	{
 		Mainframe_GlobalFunctionLib.sendText(i, 3,"8");
@@ -371,6 +384,20 @@ public static void spoolFile(int i) throws Exception
 		
 		Mainframe_GlobalFunctionLib.sendText(4, 22,"PD18");
 		Mainframe_GlobalFunctionLib.pressKey("F16");
+	//	String[] spoolPDEFile =Mainframe_GlobalFunctionLib.getText(7, 37).split("FILE") ;
+			try{
+				spoolPDEFile =Mainframe_GlobalFunctionLib.getText(7, 37);
+				System.out.println("PDE File ID in Spool file: "+spoolPDEFile);
+				Reporter.addStepLog("PDE File ID in Spool file: "+spoolPDEFile);
+				
+				}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+				System.out.println("PDE File not generated; NULL ");
+				Reporter.addStepLog("PDE File not generated; NULL ");
+				}
+		
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 	}
 	
@@ -400,7 +427,9 @@ public static void spoolFile(int i) throws Exception
 			 Mainframe_GlobalFunctionLib.pressKey("Enter");
 			 Mainframe_GlobalFunctionLib.pressKey("F9");
 			 System.out.println("REACHED FINAL Step");
-			 String filePDE=Mainframe_GlobalFunctionLib.getText(11, 5);
+		try
+		{
+			String filePDE=Mainframe_GlobalFunctionLib.getText(11, 5);
 			 System.out.println("Actual PDE File is: "+filePDE);
 			 Reporter.addStepLog("Actual PDE File is: "+filePDE);
 			 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -408,7 +437,6 @@ public static void spoolFile(int i) throws Exception
 			 {
 				 System.out.println("Actual PDE File not generated; NULL "+filePDE);
 				 Reporter.addStepLog("Actual PDE File not generated; NULL "+filePDE);
-				 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			 }
 			 else{
 				 System.out.println("PDE file is Generated: "+filePDE);
@@ -431,11 +459,19 @@ public static void spoolFile(int i) throws Exception
 				{
 					System.out.println("Compound code is not as Expected: "+Compoundcode);
 					Reporter.addStepLog("Compound code is not as Expected: "+Compoundcode);
-					//Assert.fail("The text is not entered.Screenshot captured");
 				}
-			 }
+		    }
+				 
+			  } 
+				catch(Exception e){
+				e.printStackTrace();
+				System.out.println("Actual PDE File not generated; NULL ");
+				Reporter.addStepLog("Actual PDE File not generated; NULL ");
 		}
-		}
+			}
+			}		 
+			
+		
 	
 		/*Mainframe_GlobalFunctionLib.pressKey("F10");
 		Mainframe_GlobalFunctionLib.sendText(14, 2, "5");

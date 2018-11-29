@@ -45,9 +45,9 @@ Feature: SN003425_SR42066:PART D: February 2018 Updates to the Drug Data Process
 
     Examples:
     |Cmpnd|BIN    |ProcCtrl|Group |PharmacyID|RxNo         |Refill |FillDate |MemberID	  |ProductID  |DspQty |DS |PSC |Cost |ExtractDate |wsQuery|ExtractJobName|Extractstatus|FromDate|ThruDate|CarrierID|Library|DDPSFilterProcess|SubmitterID|Compoundcode|JobRCPD 	|
-	 #|0		|777777 |QET     |*ALL  |APHARM    |765765367432 |00     |060118   |SR42066AUTO1|00777310402|30     |30 |00  |100  |112818		  |ws		  |EXTRACTJOB		 |N						 |010118  |123138	 |SR42066C |ANMISHA|N							   |T42066	   |1				  	|RCPD1080	|
-	 #|1		|777777 |QET     |*ALL  |APHARM    |765765367432 |00     |060118   |SR42066AUTO1|00777310402|30     |30 |00  |100  |112818		  |ws		  |EXTRACTJOB		 |N						 |010118  |123138	 |SR42066C |ANMISHA|N							   |T42066	   |1 			  	|RCPD1080	|
-		|2		|777777 |QET     |*ALL  |APHARM    |765765367432 |00     |060118   |SR42066AUTO1|00777310402|30     |30 |00  |100  |112818		  |ws		  |EXTRACTJOB		 |N						 |010118  |123138	 |SR42066C |ANMISHA|N							   |T42066	   |2				  	|RCPD1080	|
+	  |0		|777777 |QET     |*ALL  |APHARM    |765765367432 |00     |060118   |SR42066AUTO1|00777310402|30     |30 |00  |100  |112918		  |ws		  |EXTRACTJOB		 |BLANK 			 |010118  |123138	 |SR42066C |ANMISHA|N							   |T42066	   |1				  	|RCPD1080	|
+	  #|1		|777777 |QET     |*ALL  |APHARM    |765765367432 |00     |060118   |SR42066AUTO1|00777310402|30     |30 |00  |100  |112818		  |ws		  |EXTRACTJOB		 |BLANK				 |010118  |123138	 |SR42066C |ANMISHA|N							   |T42066	   |1 			  	|RCPD1080	|
+		#|2		|777777 |QET     |*ALL  |APHARM    |765765367432 |00     |060118   |SR42066AUTO1|00777310402|30     |30 |00  |100  |112818		  |ws		  |EXTRACTJOB		 |BLANK				 |010118  |123138	 |SR42066C |ANMISHA|N							   |T42066	   |2				  	|RCPD1080	|
 		
     
     #SR42066MEM0
