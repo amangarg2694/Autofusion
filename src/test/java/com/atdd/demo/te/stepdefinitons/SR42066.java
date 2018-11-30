@@ -525,8 +525,8 @@ public static void spoolFile(int i) throws Exception
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			Mainframe_GlobalFunctionLib.pressKey("PageDown");
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-			Mainframe_GlobalFunctionLib.pressKey("PageDown");
-			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			//Mainframe_GlobalFunctionLib.pressKey("PageDown");
+			//Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			//String[] spoolPDEFile =Mainframe_GlobalFunctionLib.getText(7, 37).split("FILE") ;
 			//spoolPDEFile =Mainframe_GlobalFunctionLib.getText(7, 37).substring(7,46).trim();
 			try{
@@ -560,7 +560,7 @@ public static void spoolFile(int i) throws Exception
 		System.out.println("Print Rx Claim ID: "+rxClaimIdValue);
 		Reporter.addStepLog("Print Rx Claim ID: "+rxClaimIdValue);
 		Mainframe_GlobalFunctionLib.sendText(4, 4,rxClaimIdValue);
-		//Mainframe_GlobalFunctionLib.sendText(4, 4,rxClaimId2);
+		
 		FunctionalLibrary.pressEnter();
 		String rxClaimIdActual=Mainframe_GlobalFunctionLib.getText(10,4);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -577,7 +577,7 @@ public static void spoolFile(int i) throws Exception
 			 Mainframe_GlobalFunctionLib.sendText(4, 23, "13");
 			 Mainframe_GlobalFunctionLib.pressKey("Enter");
 			 Mainframe_GlobalFunctionLib.pressKey("F9");
-			 System.out.println("REACHED FINAL Step");
+			 System.out.println("REACHED FINAL STEP");
 		
 			int i;
 			lable2: for (i=11; i<18; i++)
@@ -640,42 +640,100 @@ public static void spoolFile(int i) throws Exception
 				Reporter.addStepLog("Expected Rx Claim ID not Found: "+rxClaimIdValue);
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			}
+		FunctionalLibrary.navigateToRxClaimPlanAdministrator();
 		}
-					 
-			
 		
-	
-		/*Mainframe_GlobalFunctionLib.pressKey("F10");
-		Mainframe_GlobalFunctionLib.sendText(14, 2, "5");
-		//Query: Which RxNo to be choosen
-		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		Mainframe_GlobalFunctionLib.pressKey("F7");
-		Mainframe_GlobalFunctionLib.sendText(4, 23, "13");
-		Mainframe_GlobalFunctionLib.pressKey("Enter");
+	@Then("^I verify Compound code \"([^\"]*)\" in Medicare Part D PDE Data Page for PDE Resubmission$")
+	public void i_verify_Compound_code_in_Medicare_Part_D_PDE_Data_Page_for_PDE_Resubmission(String Compoundcode) throws Throwable {
+		Mainframe_GlobalFunctionLib.pressKey("F8");
+		//String rxClaimId2="183270040164000";
+		String rxClaimIdValue=PriceOverrideAfterSpecificHashOfFills.rxClaimId;
+		System.out.println("Print Rx Claim ID: "+rxClaimIdValue);
+		Reporter.addStepLog("Print Rx Claim ID: "+rxClaimIdValue);
+		Mainframe_GlobalFunctionLib.sendText(4, 4,rxClaimIdValue);
+		
+		FunctionalLibrary.pressEnter();
+		String rxClaimIdActual=Mainframe_GlobalFunctionLib.getText(10,4);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-		Mainframe_GlobalFunctionLib.pressKey("F9");
-		Mainframe_GlobalFunctionLib.sendText(11, 2, "5");
-		//Query: Which file to be choosen
-		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-		Mainframe_GlobalFunctionLib.pressKey("pagedown");
-		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-		String actualCompoundcode=Mainframe_GlobalFunctionLib.getText(20, 64);
-			System.out.println("Actual Compound code is: "+actualCompoundcode);
-			Reporter.addStepLog("Actual Compound code is: "+actualCompoundcode);
-		if(actualCompoundcode.equals(Compoundcode) )
+		if(rxClaimIdActual.equals(rxClaimIdValue))
 		{
-			 System.out.println("Compound code is as Expected: "+Compoundcode);
-			 Reporter.addStepLog("Compound code is as Expected: "+Compoundcode);
-		}
-		else
-		{
-			System.out.println("Compound code is not as Expected: "+Compoundcode);
-			Reporter.addStepLog("Compound code is not as Expected: "+Compoundcode);
-			Assert.fail("The text is not entered.Screenshot captured");
-		}*/
-
-			
+			System.out.println("Expected Rx Claim ID Found: "+rxClaimIdValue);
+			Reporter.addStepLog("Expected Rx Claim ID Found: "+rxClaimIdValue);
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			 Mainframe_GlobalFunctionLib.sendText(10, 2, "7");
+			 Mainframe_GlobalFunctionLib.pressKey("Enter");
+			 Mainframe_GlobalFunctionLib.sendText(14, 2, "5");
+			 Mainframe_GlobalFunctionLib.pressKey("Enter");
+			 Mainframe_GlobalFunctionLib.pressKey("F7");
+			 Mainframe_GlobalFunctionLib.sendText(4, 23, "13");
+			 Mainframe_GlobalFunctionLib.pressKey("Enter");
+			 Mainframe_GlobalFunctionLib.pressKey("F9");
+			 System.out.println("REACHED FINAL STEP");
+		
+			int i;
+			lable2: for (i=11; i<18; i++)
+			{
+				try
+				{	
+					 String filePDE=Mainframe_GlobalFunctionLib.getText(i, 5);
+					 System.out.println("Actual PDE File @ 'Medicare Part D MDD' screen is: "+filePDE);
+					 Reporter.addStepLog("Actual PDE File @ 'Medicare Part D MDD' screen is: "+filePDE);
+					 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					 if((filePDE.length()==0))
+					 {
+						 System.out.println("PDE File not generated @ 'Medicare Part D MDD' screen; NULL ");
+						 Reporter.addStepLog("PDE File not generated @ 'Medicare Part D MDD' screen; NULL ");
+					 }
+					 else if(spoolPDEFile.contains(filePDE))
+					 {
+						 System.out.println("Expected PDE file is Generated: "+filePDE);
+						 Reporter.addStepLog("Expected PDE file is Generated: "+filePDE);
+						 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						 Mainframe_GlobalFunctionLib.sendText(11, 2, "5");
+						 Mainframe_GlobalFunctionLib.pressKey("Enter");
+						 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						 Mainframe_GlobalFunctionLib.pressKey("pagedown");
+						 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						 String actualCompoundcode=Mainframe_GlobalFunctionLib.getText(20, 64);
+						 System.out.println("Actual Compound code is: "+actualCompoundcode);
+						 Reporter.addStepLog("Actual Compound code is: "+actualCompoundcode);
+							if(actualCompoundcode.equals(Compoundcode) )
+							{
+								 System.out.println("Compound code is as Expected: "+Compoundcode);
+								 Reporter.addStepLog("Compound code is as Expected: "+Compoundcode);
+							}
+							else
+							{
+								System.out.println("Compound code is not as Expected: "+Compoundcode);
+								Reporter.addStepLog("Compound code is not as Expected: "+Compoundcode);
+							}
+							break lable2;
+					  }
+					 else
+					 {
+						 System.out.println("Expected PDE file not been Generated ie: "+filePDE);
+						 Reporter.addStepLog("Expected PDE file not been Generated ie: "+filePDE);
+						 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					 }
+					} 
+				  	catch(Exception e)
+					{
+						//e.printStackTrace();
+						System.out.println("PDE File not generated; NULL ");
+						Reporter.addStepLog("PDE File not generated; NULL ");
+						break lable2;
+						}
+				}
+				}
+			else
+			{
+				System.out.println("Expected Rx Claim ID not Found: "+rxClaimIdValue);
+				Reporter.addStepLog("Expected Rx Claim ID not Found: "+rxClaimIdValue);
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+		FunctionalLibrary.navigateToRxClaimPlanAdministrator();
+	}
+		
 	@Then("^I edit member details \"([^\"]*)\"$")
 	public void i_edit_member_details(String MemberID) throws Throwable {
 		if(func_SearchForMemberID1("4,4" ,MemberID ,"10,4" , MemberID)){
