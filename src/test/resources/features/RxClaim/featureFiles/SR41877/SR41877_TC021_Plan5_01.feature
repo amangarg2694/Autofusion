@@ -1,3 +1,4 @@
+@Regression1
 Feature: Create New Plan with NDC List for TC021
  As a RxClaim User I want to Verify Compound claim is accepted for GPI Drugs  when Member PA compound set to Y 
       

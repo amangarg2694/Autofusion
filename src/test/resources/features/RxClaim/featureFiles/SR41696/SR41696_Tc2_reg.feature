@@ -1,3 +1,4 @@
+@Regression
 Feature: Verify Medlimit Detail screen for PA Prediction button
 Scenario Outline: Verify whether for a paid claim that have multiple sequences display the sequence with the highest calculated MED amount
     
@@ -15,4 +16,5 @@ Scenario Outline: Verify whether for a paid claim that have multiple sequences d
     Then I validate the Medlimit PA Prediction Summary screen 
 Examples:
     |MemberID   | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate   | ProductID  | DspQty | DS | PSC | Cost      |Qual|Prescid|DS1|PSC1|RxNo1|
-		 |MEMSR41696|	777777  | QET     |	*ALL  | 0556540      | 765411779932 | 00     | 091118    | 00054421925  |10     |7  |00   |100   |12  |AL4392748|10|3|765411521772|
+	# |MEMSR41696|	777777  | QET     |	*ALL  | 0556540      | 765411779932 | 00     | 091118    | 00054421925  |10     |7  |00   |100   |12  |AL4392748|10|3|765411521772|
+		|MEMSR41696|	777777  | QET     |	*ALL  | 0556540      | 765411779932 | 00     | 091118    | 00054421925  |10     |7  |00   |100   |12  |AL4392748|10|3|765411521772|

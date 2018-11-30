@@ -1,3 +1,4 @@
+@Regression
 Feature: Delete plan with associated Pharmacy Newtwork having pricing turned on and the SN Sequence entered
 
 Scenario Outline: Check to Delete the plan with associated 'Pharmacy Network' having pricing turned on and the 'POR Super Net Seq Nbr' entered 
