@@ -2,8 +2,7 @@ Feature: FIX IT: BATCH: Omnicom POS Rebates - Quarterly Reporting
   
   Scenario Outline: SN374533_SR41835_TC001:Adjudicate the claim with rebate amount setup and prescriber submitted is NPI/SN374533_SR41835_TC002:Run the batch POS Rebate Claims Extract 
 		Given I am on RxClaim PlanAdministrator Menu
-		#	When I press "F3" Key 
-		And I select Option "CCT700" to navigate to "RxClaim Operations Menu"
+		When I select Option "CCT700" to navigate to "RxClaim Operations Menu"
     And I select Option "2" to navigate to "RxClaim Batch Transaction Loads Menu"
     And I select Option "11" to navigate to "Create Export Files"
 		And I select Option "13" to navigate to "POS Rebate Export/Extract Files "
