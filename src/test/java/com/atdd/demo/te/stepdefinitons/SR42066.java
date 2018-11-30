@@ -3,6 +3,8 @@ package com.atdd.demo.te.stepdefinitons;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 import java.util.StringTokenizer;
 
 import org.testng.Assert;
@@ -19,6 +21,7 @@ import com.atdd.demo.te.stepdefinitons.PriceOverrideAfterSpecificHashOfFills;
 public class SR42066 {
 	public static String rxClaimIdValue="";
 	public static String spoolPDEFile="";
+	public static String TofileName="";
 	@When("^I submit a claim with Cmpnd \"([^\"]*)\" and \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_submit_a_claim_with_Cmpnd_and(String Cmpnd, String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost) throws Throwable {
 		FunctionalLibrary.CreateTransaction(bin, proc, group, pharmacyID, rxNbr, refill, fillDate, memberID, productID, dspQty, ds, psc, cost);
@@ -236,8 +239,8 @@ public class SR42066 {
 				 }
 				 else
 				 {
-					 System.out.println("Expected Extract Status "+Extractstatus+" is not shown ");
-					 Reporter.addStepLog("Expected Extract Status "+Extractstatus+" is not shown ");
+					 System.out.println("Expected Extract Status is not shown ie "+Extractstatus);
+					 Reporter.addStepLog("Expected Extract Status is not shown ie "+Extractstatus);
 					 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				 }
 		}
@@ -270,49 +273,85 @@ public class SR42066 {
 		 Thread.sleep(3000);
 		 Mainframe_GlobalFunctionLib.pressKey("F3");
 		}
-	
-	@When("^I copy file \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
-	public void i_copy_file(String Fromfile, String Library, String Tofile, String Option, String Createfile) throws Throwable {
+	//public static String TofileName="";
+	@When("^I copy a file and ADD to a new file \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
+	public void i_copy_a_file_and_ADD_to_a_new_file(String Fromfile, String Library, String Option, String Createfile) throws Throwable {
 		 Mainframe_GlobalFunctionLib.sendText(21, 7, "cpyf");
+		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		 Mainframe_GlobalFunctionLib.pressKey("F4");
 		 Mainframe_GlobalFunctionLib.sendText(5, 37,Fromfile);
 		 Mainframe_GlobalFunctionLib.sendText(6, 39, Library);
-		// Mainframe_GlobalFunctionLib.sendText(7, 37, Tofile);
-		 String timeStamp = new SimpleDateFormat("yy.MM.dd.HH.mm").format(new Date(0));
-		 System.out.println("timeStamp is: "+timeStamp);
-		 Reporter.addStepLog("timeStamp is: "+timeStamp);
-		 
-		 Mainframe_GlobalFunctionLib.sendText(7, 37, timeStamp);
+		// String timeStamp = new SimpleDateFormat("HH.mm.ss").format(new Date(0));
+			 SimpleDateFormat formatter = new SimpleDateFormat("hmmss", Locale.getDefault());
+			 Calendar currentDate = java.util.Calendar.getInstance();
+			 String timeString = formatter.format(currentDate.getTime());
+			 System.out.println("timeString is: "+timeString);
+			 TofileName="SR"+timeString;
+			 System.out.println("To File name is: "+TofileName);
+			 Reporter.addStepLog("To File name is: "+TofileName);
+			 
+		 Mainframe_GlobalFunctionLib.sendText(7, 37, TofileName);
 		 Mainframe_GlobalFunctionLib.sendText(8, 39, Library);
 		 Mainframe_GlobalFunctionLib.sendText(11, 37, "       ");
 		 Mainframe_GlobalFunctionLib.sendText(11, 37, Option);
 		 Mainframe_GlobalFunctionLib.sendText(12, 37, Createfile);
 		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		 Mainframe_GlobalFunctionLib.pressKey("Enter");
+		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		 try{
-			 String actualFileCreateMsg=Mainframe_GlobalFunctionLib.getText(24, 2);
+			 String actualFileCreateMsg=Mainframe_GlobalFunctionLib.getText(24, 2).trim();
 			 System.out.println("Actual Message shown as :"+actualFileCreateMsg);
 			 Reporter.addStepLog("Actual Message shown as :"+actualFileCreateMsg);
-			 String expectedFileCreateMsg="Physical file "+Tofile+" created in library "+Library+".";
-			 System.out.println("Expected Message shown as :"+expectedFileCreateMsg);
-			 Reporter.addStepLog("Expected Message shown as :"+expectedFileCreateMsg);
-			 if(expectedFileCreateMsg.contains(actualFileCreateMsg))
+			 String expectedFileCreateMsg="Physical file "+TofileName+" created in library "+Library+".";
+			 System.out.println("Expected Message should be :"+expectedFileCreateMsg);
+			 Reporter.addStepLog("Expected Message should be :"+expectedFileCreateMsg);
+			 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			 if(actualFileCreateMsg.contains(expectedFileCreateMsg))
 			 {
 				 System.out.println("Expected File Creation message is shown as: "+expectedFileCreateMsg);
 				 Reporter.addStepLog("Expected File Creation message is shown as: "+expectedFileCreateMsg);
 			 }
+			 else
+			 {
+			 System.out.println("Expected File Creation message is not shown: "+expectedFileCreateMsg);
+			 Reporter.addStepLog("Expected File Creation message is not shown: "+expectedFileCreateMsg);
+			 }
 		 }catch (Exception e){
-			 System.out.println("Unknown eror");
-			 Reporter.addStepLog("Unknown eror");
+			 System.out.println("Unknown error");
+			 Reporter.addStepLog("Unknown error");
 		 }
 	}
 	
+
+	@When("^I work with file \"([^\"]*)\" and update the record$")
+	public void i_work_with_file_and_update_the_record(String Library) throws Throwable {
+		String wrkCmd="ywrkf"+" "+Library+"/"+TofileName;
+		 System.out.println("ywrkf command is: "+wrkCmd);
+		 Reporter.addStepLog("ywrkf command is: "+wrkCmd);
+		 Mainframe_GlobalFunctionLib.sendText(21, 7, wrkCmd);
+		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		 Mainframe_GlobalFunctionLib.pressKey("Enter");
+		 Mainframe_GlobalFunctionLib.sendText(8, 2, "5");
+		 Mainframe_GlobalFunctionLib.pressKey("Enter");
+		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		 Mainframe_GlobalFunctionLib.sendText(8, 80, "               ");
+		 Mainframe_GlobalFunctionLib.sendText(8, 80, rxClaimIdValue);
+		 System.out.println("ywrkf: rxClaimIdValue is: "+rxClaimIdValue);
+		 Reporter.addStepLog("ywrkf: rxClaimIdValue is: "+rxClaimIdValue);
+		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		 Mainframe_GlobalFunctionLib.pressKey("Enter");
+		 Mainframe_GlobalFunctionLib.sendText(24, 73, "Y");
+		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		 Mainframe_GlobalFunctionLib.pressKey("Enter");
+		 Mainframe_GlobalFunctionLib.pressKey("F3");
+	}
+	
 	@Then("^I submit PDE resubmission load with \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_submit_PDE_resubmission_load_with(String InputFileName, String Library, String DDPSFilterProcess, String SubmitterID) throws Throwable {
+	public void i_submit_PDE_resubmission_load_with(String InputFileName, String Library, String DDPSFilterProcessR, String SubmitterID) throws Throwable {
 	try{ 
 		 Mainframe_GlobalFunctionLib.sendText(5, 29, InputFileName);
 		 Mainframe_GlobalFunctionLib.sendText(6, 29, Library);
-		 Mainframe_GlobalFunctionLib.sendText(9, 29, DDPSFilterProcess);
+		 Mainframe_GlobalFunctionLib.sendText(9, 29, DDPSFilterProcessR);
 		 Mainframe_GlobalFunctionLib.sendText(13, 29, Library);
 		 Mainframe_GlobalFunctionLib.sendText(19, 29, "T");
 		 Mainframe_GlobalFunctionLib.sendText(16, 53, SubmitterID);
@@ -366,6 +405,10 @@ public class SR42066 {
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				if(JobName.equals(JobRCPD))
 				{
+					System.out.println("Expected "+JobName+" Job shown.");
+					Reporter.addStepLog("Expected "+JobName+"Job shown.");
+					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					
 					String JobStatus= Mainframe_GlobalFunctionLib.getText(i, 40).trim();
 					System.out.println("Job Status is: "+JobStatus);
 					Reporter.addStepLog("Job Status is: "+JobStatus);
