@@ -197,7 +197,7 @@ public class SR42066 {
 		Mainframe_GlobalFunctionLib.pressKey("F8");
 		//String rxClaimId2="183270040164000";
 		//rxClaimId=rxClaimId2;
-		String rxClaimIdValue=PriceOverrideAfterSpecificHashOfFills.rxClaimId;
+		rxClaimIdValue=PriceOverrideAfterSpecificHashOfFills.rxClaimId;
 		Mainframe_GlobalFunctionLib.sendText(4, 4,rxClaimIdValue);
 		System.out.println("Print imported Rx Claim ID: "+rxClaimIdValue);
 		Reporter.addStepLog("Print imported Rx Claim ID: "+rxClaimIdValue);
@@ -322,7 +322,6 @@ public class SR42066 {
 		 }
 	}
 	
-
 	@When("^I work with file \"([^\"]*)\" and update the record$")
 	public void i_work_with_file_and_update_the_record(String Library) throws Throwable {
 		String wrkCmd="ywrkf"+" "+Library+"/"+TofileName;
@@ -335,9 +334,10 @@ public class SR42066 {
 		 Mainframe_GlobalFunctionLib.pressKey("Enter");
 		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		 Mainframe_GlobalFunctionLib.sendText(8, 80, "               ");
-		 Mainframe_GlobalFunctionLib.sendText(8, 80, rxClaimIdValue);
+		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		 System.out.println("ywrkf: rxClaimIdValue is: "+rxClaimIdValue);
 		 Reporter.addStepLog("ywrkf: rxClaimIdValue is: "+rxClaimIdValue);
+		 Mainframe_GlobalFunctionLib.sendText(8, 80, rxClaimIdValue);
 		 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		 Mainframe_GlobalFunctionLib.pressKey("Enter");
 		 Mainframe_GlobalFunctionLib.sendText(24, 73, "Y");
@@ -497,24 +497,44 @@ public static void spoolFile(int i) throws Exception
 		Mainframe_GlobalFunctionLib.sendText(11, 3,"5");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-		Mainframe_GlobalFunctionLib.sendText(3, 22,"W40");
-		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+		String SpoolFileType=Mainframe_GlobalFunctionLib.getText(2, 22);
+		System.out.println("Spool file name is : "+SpoolFileType);
+		Reporter.addStepLog("Spool file name is : "+SpoolFileType);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-		Mainframe_GlobalFunctionLib.pressKey("PageDown");
-		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-		Mainframe_GlobalFunctionLib.pressKey("PageDown");
-		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-		Mainframe_GlobalFunctionLib.pressKey("PageDown");
-		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-		Mainframe_GlobalFunctionLib.pressKey("PageDown");
-		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-		Mainframe_GlobalFunctionLib.sendText(4, 22,"PD18");
-		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-		Mainframe_GlobalFunctionLib.pressKey("F16");
-		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-	//	String[] spoolPDEFile =Mainframe_GlobalFunctionLib.getText(7, 37).split("FILE") ;
+		if(SpoolFileType.equals("RCPD1070"))
+		{
+			Mainframe_GlobalFunctionLib.sendText(3, 22,"W30");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			Mainframe_GlobalFunctionLib.pressKey("PageDown");
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			Mainframe_GlobalFunctionLib.pressKey("PageDown");
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			System.out.println("Spool file Validation successfull");
+			Reporter.addStepLog("Spool file Validation successfull");
+		}
+		else
+		{
+			Mainframe_GlobalFunctionLib.sendText(3, 22,"W40");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			Mainframe_GlobalFunctionLib.pressKey("PageDown");
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			Mainframe_GlobalFunctionLib.pressKey("PageDown");
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			Mainframe_GlobalFunctionLib.pressKey("PageDown");
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			Mainframe_GlobalFunctionLib.pressKey("PageDown");
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			//String[] spoolPDEFile =Mainframe_GlobalFunctionLib.getText(7, 37).split("FILE") ;
+			//spoolPDEFile =Mainframe_GlobalFunctionLib.getText(7, 37).substring(7,46).trim();
 			try{
-				//spoolPDEFile =Mainframe_GlobalFunctionLib.getText(7, 37).substring(7,46).trim();
+				Mainframe_GlobalFunctionLib.sendText(4, 22,"PD18");
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Mainframe_GlobalFunctionLib.pressKey("F16");
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				
 				String spoolPDEFileActual =Mainframe_GlobalFunctionLib.getText(7, 37);
 				int spoolPDEFileActuallength = spoolPDEFileActual.length();
 				spoolPDEFile = spoolPDEFileActual.substring(0, spoolPDEFileActuallength-2);
@@ -528,7 +548,7 @@ public static void spoolFile(int i) throws Exception
 				System.out.println("PDE File not generated; NULL ");
 				Reporter.addStepLog("PDE File not generated; NULL ");
 				}
-		
+		}
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 	}
 	
@@ -607,9 +627,9 @@ public static void spoolFile(int i) throws Exception
 					} 
 				  	catch(Exception e)
 					{
-						e.printStackTrace();
-						/*System.out.println("PDE File not generated; NULL ");
-						Reporter.addStepLog("PDE File not generated; NULL ");*/
+						//e.printStackTrace();
+						System.out.println("PDE File not generated; NULL ");
+						Reporter.addStepLog("PDE File not generated; NULL ");
 						break lable2;
 						}
 				}
