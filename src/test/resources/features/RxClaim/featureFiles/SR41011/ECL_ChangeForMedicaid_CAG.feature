@@ -1,3 +1,4 @@
+@Regression
 Feature: NCPDP External Code List (ECL) Change for Medicaid – Reject Code 831 (CAG Level) 
 
     Scenario Outline: Reject Remap with NDC CAG Level

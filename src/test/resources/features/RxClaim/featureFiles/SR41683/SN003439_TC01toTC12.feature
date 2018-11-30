@@ -1,6 +1,7 @@
 #Author: kanugutta_siddanth@optum.com
 #Pre-Requisite : Change the ToLibrary name (i.e.TEST416838 ) in the examples before running the script (or) ToLibrary name Replace all with newlibname  
 #Note : Don't change the FromLibrary , it should always TEST41683A.
+@Release_8403
 Feature: Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files before Table Partitioning 
 
  Scenario Outline: To Create a Library.
