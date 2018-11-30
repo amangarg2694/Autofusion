@@ -3,6 +3,10 @@ As a RxClaim User I want to check whether Job SERVICER001 in ACTIVE
 
 Scenario Outline: User should able to validate the Job SERVICER001 in ACTIVE and running
 Given I am on RxClaim PlanAdministrator Menu
+#When I enter the command "modlibs" in command line    BOOK1
+#And I press "Enter" Key
+#And I enter the command "CCT600" in command line
+#And I press "Enter" Key
 When I enter the command "<Command>" in command line
 And I press "Enter" Key
 
@@ -26,7 +30,7 @@ And I enter the command "<Command>" in command line
 And I press "Enter" Key
 
 Then I Validate the job "<Job>" in 'Work with Subsystem Jobs' screen as ACTIVE status "<Status>"
-And Exit the screen
+#And Exit the screen
 
 
 Examples:

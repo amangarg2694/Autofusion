@@ -1,5 +1,7 @@
-Feature: RxInterAct: Update logic on Clinical Products Platform Extract and Targeted Transaction File
+@Regression @Release_8403
 
+Feature: RxInterAct: Update logic on Clinical Products Platform Extract and Targeted Transaction File
+# Member ID needs to be updated before running the scripts
   
   Scenario Outline: SN003385_SR41757_TC001:Verify running the Clinical Products Platform Extract where a member has RxInterAct transactions and current system date does fall between the member’s eligibility from and thru dates.
   									SN003385_SR41757_TC002:Verify running the Clinical Products Platform Extract where a member has RxInterAct transactions and current system date does fall between the member’s eligibility from and thru dates.
@@ -17,7 +19,7 @@ Feature: RxInterAct: Update logic on Clinical Products Platform Extract and Targ
     And I select Option "5" to navigate to "Management"
     And I select Option "2" to navigate to "Active Application Profile"
     And I enter details to enable in Active Application Profile "<CarrierID>"
-    And I select Option "20" to navigate to "RxClaim Plan Administrator Menu"
+    And I select Option "CCT600" to navigate to "RxClaim Plan Administrator Menu"
     And I select Option "1" to navigate to "Eligibility/Claim Transaction Maintenance"
     And I select Option "2" to navigate to "Active/Eligible Member by ID"
     And I press "F6" Key 
@@ -94,6 +96,6 @@ Feature: RxInterAct: Update logic on Clinical Products Platform Extract and Targ
 		
     Examples: 
     | CarrierID | CarrierName |Processor |MailingAdd  |City|State |Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID |AccountName   | GroupID  |GroupName   |GroupFromDt|GroupThruDt|planCode  | MemberID | First Name | Last Name | DOB     | From Date |Thru Date|  BIN    | ProcCtrl| Group | PharmacyID  |	RxNo1       |RxNo2        |   RxNo3    |  RxNo4     | Refill | FillDate | MemberID | ProductID  | DspQty | DS | PSC | Cost|
-    | SR41757IG | SR41757Test |0000000   |TEST ADDRESS| WA |WA    |98801|010101        |123139        |*DEFAULT   |*DEFAULT      |SR41757IG |SR41757Account| SR41757IG|SR41757Group|010101     |123139     |SR41757P  | SR41757IG| AUTOMEM    | AUTOMEM1  | 01011990| 010118    | 123118  |	777777  | QET     |	*ALL  | APHARM      | 767488367283| 767488367282|767488367281|767488367280|00      | 091918   | SR41757IG| 00777310402| 30     |	30 | 00  |100 |
+    | SR41757IG | SR41757Test |0000000   |TEST ADDRESS| WA |WA    |98801|010101        |123139        |*DEFAULT   |*DEFAULT      |SR41757IG |SR41757Account| SR41757IG|SR41757Group|010101     |123139     |SR41757P  | SR41757IM| AUTOMEM    | AUTOMEM1  | 01011990| 010118    | 123118  |	777777  | QET     |	*ALL  | APHARM      | 767488367283| 767488367282|767488367281|767488367280|00      | 091918   | SR41757IG| 00777310402| 30     |	30 | 00  |100 |
 
   
