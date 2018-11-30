@@ -1,3 +1,4 @@
+@Regresssion1
 Feature: Create New Plan with NDC List for Compound claim is accepted when Member PA compound set to Y
  As a RxClaim User I want to Validate Compound claim is accepted when Member PA compound set to Y for Qty,Age and DS 
       
@@ -5,7 +6,7 @@ Feature: Create New Plan with NDC List for Compound claim is accepted when Membe
 Scenario Outline: Create a new Plan with NDC GPI List in RxClaim  
       
     Given I am on RxClaim PlanAdministrator Menu  
-    When I create plan with member eligibility pricing option "<PlanCode>","<FromDate>","<Description>","<ThruDate>","<PriceSchedule>","<PatientPaySchedule>" 
+    When I create plan with member eligibility pricing option MIC "<PlanCode>","<FromDate>","<Description>","<ThruDate>","<PriceSchedule>","<PatientPaySchedule>" 
     And I create the NDC list with "<NDCList>", "<NDCDecs>"
     And I setup a plan With NDC list "<PlanCode>","<NDCList>","<NDCSeq>","<NDCFromDate>","<NDCThruDate>" 
     And I Setup plan "<PlanCode>" with Compounds multiple ingredient option "<CMIPlan>" 

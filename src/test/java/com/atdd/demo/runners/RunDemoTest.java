@@ -12,6 +12,7 @@ import com.atdd.te.screenHelpers.CommonHelper;
 import com.cucumber.listener.ExtentProperties;
 import com.cucumber.listener.Reporter;
 import com.hp.lft.sdk.SDK;
+import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 import com.optumrx.autofusion.core.util.ReadPropertyFile;
 import com.optumrx.autofusion.core.util.ReportHelper;
 
@@ -19,13 +20,22 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
+<<<<<<< HEAD
 		features = { "classpath:features/RxClaim/featureFiles/SR42094/SR42094_Set1.feature" },
+=======
+>>>>>>> 2f4ba5fdf0390341a256d6779ec365223dc34f6b
 
+		features = { "classpath:features/RxClaim/featureFiles/" },
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
+
 				"json:target/cucumber.json" },
 
 		glue = { "com.atdd.demo.te" }
+<<<<<<< HEAD
 		,tags ={"@Regression"}
+=======
+		//,tags ={"@Regression"}
+>>>>>>> 2f4ba5fdf0390341a256d6779ec365223dc34f6b
 )
 
 
@@ -62,7 +72,11 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
 	public static void teardown() throws Exception { 
  
  
+<<<<<<< HEAD
 // 		Mainframe_GlobalFunctionLib.closeTE(); 
+=======
+ 		Mainframe_GlobalFunctionLib.closeTE(); 
+>>>>>>> 2f4ba5fdf0390341a256d6779ec365223dc34f6b
 		SDK.cleanup(); 
 		 
  
@@ -98,7 +112,7 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
  
 		ReportHelper.createCucumberHTMLReport("target", "target//cucumber.json", "ATDD_LEANFT_DEMO"); 
 
- 
+		ReportHelper.readExtentReportForSummary("output/MyReport.html");
 	} 
  	 
 

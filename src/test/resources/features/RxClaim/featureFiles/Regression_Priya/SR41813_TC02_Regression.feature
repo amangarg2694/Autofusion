@@ -1,5 +1,8 @@
+@Regression @Release_8403
 Feature: Medicaid Subrogation Profile 
   As a RxClaim User I want to check claim is getting paid and notes stamped
+  
+#  Plan Code and Member ID needs to be updated in script before running
 
   Scenario Outline: Verify if claim is getting Paid and Notes related to override R75 should  be stamped
    	Given I am on RxClaim PlanAdministrator Menu
@@ -31,7 +34,7 @@ Feature: Medicaid Subrogation Profile
   	And I press "F12" Key
   	And I press "F12" Key
   	And I press "F12" Key
-  	When I select Option "1" to navigate to "Eligibility/Claim Transaction Maintenance"
+  	And I select Option "1" to navigate to "Eligibility/Claim Transaction Maintenance"
     And I select Option "2" to navigate to "Active/Eligible Member by ID"
     And I press "F6" Key
     And I enter "<CarrierID>" in field "CarrierID" on "AddMemberScreen"
@@ -56,11 +59,11 @@ Feature: Medicaid Subrogation Profile
     And I press "Enter" Key
     And I enter "Y" in field "CommandPrompt" on "MemberDetailScreen"
     And I press "F12" Key
-    Then Validate "Member Added." message should displayed on "AddMemberScreen"
+    And Validate "Member Added." message should displayed on "AddMemberScreen"
     And I press "F12" Key
     And I press "F3" Key
     And I press "F12" Key
-    Then I create payee override claim with "<BIN>","<PCN>","<Group>","<Pharmacy>","<RxNo>","<Refill>","<MemberID>","<Payee>","<Code>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>","<Fee>","<UCW>","<Type>","<PANum>"
+    And I create payee override claim with "<BIN>","<PCN>","<Group>","<Pharmacy>","<RxNo>","<Refill>","<MemberID>","<Payee>","<Code>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>","<Fee>","<UCW>","<Type>","<PANum>"
 		And I press "F7" Key
 		And I enter "8" in field "Selectionfield" on "TransactionDetailList"
 		And I press "Enter" Key
@@ -70,10 +73,10 @@ Feature: Medicaid Subrogation Profile
 		And I press "F3" Key
 		And I press "F3" Key
 		And I press "F12" Key
-		And I press "F12" Key
+		Then I press "F12" Key
 		
 		Examples:
    
-      | CarrierID | CarrierName | Processor | MailingAdd | City      | State | Zip   | ContractFromDt | ContractThruDt | ContractEnt | BusinessType | AccountID | AccountName | GroupID  | GroupName | GroupFromDt | GroupThruDt | PlanCode | Description | MemberID   | First Name | Last Name | DOB      | BIN    | PCN     | Group | Pharmacy |RxNo          | Refill | ProductID  | DspQty | DS | PSC | Cost | From Date | Thru Date | SubrogationFlag | Fee | UCW | Type | PANum | Payee | Name | ProfileID | PDescription | SDWD | MCSDWD | Code |
-      | SR41813B9 | Carrier     |        712 | MAIL ADD   | Hyderabad | IL    | 78654 |         010101 |         123139 | *DEFAULT    | COMMERCIAL  | SR41813B9 | Account     | SR41813B9 | Group    |  010101 | 123139 | SR41813YD | SR41813 Plan | SR41813YB | AUTOMEM    | AUTOMEM   | 12251987 | 777777 | * | SN002215 | APHARM | 310019946001 | 00     | 00071015523 |1      |1  |0   |10   | 010101 | 123139 | Y | 10 | 10 | 1 | 17621929891 | SR41813I | Test | SR41813I | Testing | 9999 | 9999 | Y |
+      | CarrierID | CarrierName | Processor | MailingAdd | City      | State | Zip   | ContractFromDt | ContractThruDt | ContractEnt | BusinessType | AccountID | AccountName | GroupID  | GroupName | GroupFromDt | GroupThruDt | PlanCode | Description | MemberID   | First Name | Last Name | DOB      | BIN    | PCN     | Group    | Pharmacy |RxNo          | Refill | ProductID   | DspQty | DS | PSC | Cost | From Date | Thru Date | SubrogationFlag | Fee | UCW | Type | PANum       | Payee    | Name | ProfileID | PDescription | SDWD | MCSDWD | Code |
+      | SR41813B9 | Carrier     |        712 | MAIL ADD  | Hyderabad | IL    | 78654 |         010101 |         123139 | *DEFAULT    | COMMERCIAL   | SR41813B9 | Account     | SR41813B9 | Group    |  010101     | 123139      | SR41813YJ| SR41813 Plan| SR41813YF  | AUTOMEM    | AUTOMEM   | 12251987 | 777777 | *       | SN002215 | APHARM   | 310019946001 | 00     | 00071015523 |1       |1   |0    |10    | 010101    | 123139    | Y               | 10  | 10  | 1    | 17621929891 | SR41813I | Test | SR41813I  | Testing      | 9999 | 9999    | Y |
        

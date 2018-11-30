@@ -18,16 +18,27 @@ public class CreateorEditMember {
 	    //throw new PendingException();
 		if(attachDSTFlag.equalsIgnoreCase("No"))
 			dstTable="             ";
+<<<<<<< HEAD
 	//	else if(attachDSTFlag.equalsIgnoreCase("Yes"))
 //		FunctionalLibrary.func_AttachDSTOnPA(memberID, paNumber, dstTable);
+=======
+		else if(attachDSTFlag.equalsIgnoreCase("Yes"))
+		FunctionalLibrary.func_AttachDSTOnPA(memberID, paNumber, dstTable);
+>>>>>>> 2f4ba5fdf0390341a256d6779ec365223dc34f6b
 	}
 	
 	@When("^I set Drug status \"([^\"]*)\" on PA \"([^\"]*)\" for member \"([^\"]*)\"$")
 	public void i_set_Drug_status_on_PA_for_member(String drugStatus, String paNumber,String memberID) throws Throwable {
+<<<<<<< HEAD
 //		if(drugStatus.length()!=0)
 //		FunctionalLibrary.addDrugStatusOnPA(memberID, paNumber, drugStatus);
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new PendingException();
+=======
+		if(drugStatus.length()!=0)
+		FunctionalLibrary.addDrugStatusOnPA(memberID, paNumber, drugStatus);
+	   
+>>>>>>> 2f4ba5fdf0390341a256d6779ec365223dc34f6b
 	}
 
 	@When("^I attach PRC List \"([^\"]*)\" and Qual \"([^\"]*)\" on PA \"([^\"]*)\" for member \"([^\"]*)\" if Attach PRC List Flag is \"([^\"]*)\"$")
@@ -35,8 +46,13 @@ public class CreateorEditMember {
 	    System.out.println("prc list qual : "+ prcListQual);
 	    if(attachPRCFlag.equalsIgnoreCase("No"))
 	    	prcList="          ";
+<<<<<<< HEAD
 	    //else  if(attachPRCFlag.equalsIgnoreCase(""))
 //		FunctionalLibrary.func_AttachPRCListOnPA(memberID, paNumber, prcList, prcListQual);
+=======
+	    else  if(attachPRCFlag.equalsIgnoreCase(""))
+FunctionalLibrary.func_AttachPRCListOnPA(memberID, paNumber, prcList, prcListQual);
+>>>>>>> 2f4ba5fdf0390341a256d6779ec365223dc34f6b
 		
 	}
 

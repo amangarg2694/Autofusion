@@ -1,3 +1,4 @@
+@Regression1
 Feature: Create New Plan with NDC List for TC001
  As a RxClaim User I want to create Plan with NDC List 
       
@@ -5,7 +6,7 @@ Feature: Create New Plan with NDC List for TC001
 Scenario Outline: Create a new Plan with NDC GPI List in RxClaim  
       
     Given I am on RxClaim PlanAdministrator Menu  
-    When I create plan with member eligibility pricing option "<PlanCode>","<FromDate>","<Description>","<ThruDate>","<PriceSchedule>","<PatientPaySchedule>" 
+    When I create plan with member eligibility pricing option MIC "<PlanCode>","<FromDate>","<Description>","<ThruDate>","<PriceSchedule>","<PatientPaySchedule>" 
     And I create the GPI list with "<GPIList>", "<GPIDecs>"
     And I Setup plan with GPI list "<PlanCode>","<GPIList>","<GPISeq>","<GPIFromDate>","<GPIThruDate>"
     And I Setup plan "<PlanCode>" with GPI Compounds multiple ingredient option "<CMIPlan>"  
