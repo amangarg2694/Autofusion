@@ -38,7 +38,8 @@
 		<!-- slideout menu -->
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
-						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
 			<li class='waves-effect'><a href='#!' onclick="configureView(-1)" view='testrunner-logs-view'><i class='material-icons'>note</i></a></li>
 		</ul>
 
@@ -52,7 +53,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Nov 22, 2018 05:21:43 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Dec 5, 2018 10:15:12 AM</span>
 				</a>
 			</li>
 			<li>
@@ -85,6 +86,18 @@
 			<!-- test toggle -->
 
 			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@SR41710</a></li>
+					<li><a href='#'>@Regression1</a></li>
+					<li><a href='#'>@TC5</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
 			<!-- category toggle -->
 
 			<!-- clear filters -->
@@ -158,7 +171,7 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>5</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>14</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
 					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -177,63 +190,136 @@
 				
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>SN003395_SR41875_Rejection Report Detail Screen is Displaying "Scan limit" Message</span>
-						<span class='test-time'>Nov 22, 2018 05:21:43 PM</span>
+						<span class='test-name'>Validate MPA NDC for PA Type N</span>
+						<span class='test-time'>Dec 5, 2018 10:15:12 AM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='scenariooutline node' test-id='2' status='pass'>
-	<span class='duration right label'>0h 0m 7s+366ms</span>
+	<span class='duration right label'>0h 0m 37s+643ms</span>
 	<div class='desc'>
 		<b>ScenarioOutline</b>
-		<span class="desc-text">Verify if 'No data to display' message appears on RCRRP001 screen when there are no rejection report records available.</span>
+		<span class="desc-text">TC005-Validate the MPA NDC without DST, PRC List attached on PA and Patient Residence Code List Qualifier X , Exact Match  between PRC List and Claim (PA Type N)</span>
 	</div>
 	<ul class='steps'>
 		<li test-id='3' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC5</span>
+				<span class='category label white-text'>@SR41710</span>
+				<span class='category label white-text'>@Regression1</span>
+			</div>
 			
 			<b>Scenario</b>
 			
-			<span class="bdd-step-name">Verify if 'No data to display' message appears on RCRRP001 screen when there are no rejection report records available.</span>
+			<span class="bdd-step-name">TC005-Validate the MPA NDC without DST, PRC List attached on PA and Patient Residence Code List Qualifier X , Exact Match  between PRC List and Claim (PA Type N)</span>
 			
 				<ul class='steps'>
 					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
 						<span class="bdd-step-name">Given I am on RxClaim PlanAdministrator Menu</span>
 						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\sparava1\git\RxClaim_ATDD\output\Screenshots\22-Nov-2018\Screen_1542887504833.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985113507.jpg"><i class='material-icons'>panorama</i></a></li>
 						</ul>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='5' class='node when pass' status='pass'><b>When</b>
-						<span class="bdd-step-name">When I select Option "8" to navigate to "RxClaim Profile Maintenance"</span>
+						<span class="bdd-step-name">When I create Member with PA "AUTO41710","AUTOASR41710","AUTOGSR41710","SR41710O005","MemberFN1","MemebrLN1","1011990","010191","123139"</span>
 						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\sparava1\git\RxClaim_ATDD\output\Screenshots\22-Nov-2018\Screen_1542887505551.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sparava1\git\RxClaim_ATDD\output\Screenshots\22-Nov-2018\Screen_1542887506206.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985113944.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985122137.jpg"><i class='material-icons'>panorama</i></a></li>
 						</ul>
-							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>Member exists</div>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='6' class='node and pass' status='pass'><b>And</b>
-						<span class="bdd-step-name">And I select Option "4" to navigate to "Eligibility"</span>
+						<span class="bdd-step-name">And I create PA Number "9866666660","N","*","*","10122082004","010191","123139","O","AA","N"</span>
 						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\sparava1\git\RxClaim_ATDD\output\Screenshots\22-Nov-2018\Screen_1542887506674.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sparava1\git\RxClaim_ATDD\output\Screenshots\22-Nov-2018\Screen_1542887507298.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985125024.jpg"><i class='material-icons'>panorama</i></a></li>
 						</ul>
-							<div class='pre'>Entered text at position 21,7on screen</div>
+							<div class='pre'>PA Number 9866666660 exists.</div>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='7' class='node and pass' status='pass'><b>And</b>
-						<span class="bdd-step-name">And I select Option "1" to navigate to "Active Eligibility Profile"</span>
-						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\sparava1\git\RxClaim_ATDD\output\Screenshots\22-Nov-2018\Screen_1542887507735.jpg"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sparava1\git\RxClaim_ATDD\output\Screenshots\22-Nov-2018\Screen_1542887508624.jpg"><i class='material-icons'>panorama</i></a></li>
-						</ul>
-							<div class='pre'>Entered text at position 21,7on screen</div>
+						<span class="bdd-step-name">And I attach DST Table "" on PA "9866666660" for member "SR41710O005" if Attach DST Flag is "No"</span>
 							<div class='pre'>passed</div>
 					</li>
-					<li test-id='8' class='node then pass' status='pass'><b>Then</b>
-						<span class="bdd-step-name">Then Verify if F seven Sort by Date of File is available at bottom of the Rejection Report Detail screen with "2217PBS"</span>
+					<li test-id='8' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I set Drug status "K" on PA "9866666660" for member "SR41710O005"</span>
 						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\sparava1\git\RxClaim_ATDD\output\Screenshots\22-Nov-2018\Screen_1542887511169.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985126912.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>Drug Status K is set on PA 9866666660</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='9' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I attach PRC List "AUTOPRC001" and Qual "X" on PA "9866666660" for member "SR41710O005" if Attach PRC List Flag is "Yes"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='10' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I submit the claim with "417100","41710","*","APHARM","00","03","091518","SR41710O005","10122082004","4","4","00","100"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985128443.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985137400.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985142875.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='11' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I press "F7" Key</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985143733.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='12' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Validate Claim Status is "R""75"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985144998.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985145248.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='13' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Validate the Claim Message is "Drug Requires Prior Authorization"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985145497.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='14' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Validate PA Type is "AA"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985145747.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='15' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Validate PA Number is "9866666660"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985145996.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='16' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Validate Drug Status is "8"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985146496.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985147400.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985147667.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985148025.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985148353.jpg"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='17' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Validate Claim Note Type is "PA" and Claim Note is "Prior Authorization Overrides did not apply due to Patient Residence Code submitted"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985148946.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985149165.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985149384.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985149602.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985149821.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985150008.jpg"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\r17\git\RxClaim_ATDD_Webservice\output\Screenshots\05-Dec-2018\Screen_1543985150382.jpg"><i class='material-icons'>panorama</i></a></li>
 						</ul>
 							<div class='pre'>passed</div>
 					</li>
@@ -268,6 +354,154 @@
 
 </div>
 <!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@SR41710</span>
+						<span class='category-status right'>
+							<span class='label pass'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 2</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Dec 5, 2018 10:15:12 AM</td>
+										<td class='linked' test-id='1'>Validate MPA NDC for PA Type N</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Dec 5, 2018 10:15:13 AM</td>
+										<td class='linked' test-id='3'>Validate MPA NDC for PA Type N.TC005-Validate the MPA NDC without DST, PRC List attached on PA and Patient Residence Code List Qualifier X , Exact Match  between PRC List and Claim (PA Type N).TC005-Validate the MPA NDC without DST, PRC List attached on PA and Patient Residence Code List Qualifier X , Exact Match  between PRC List and Claim (PA Type N)</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Regression1</span>
+						<span class='category-status right'>
+							<span class='label pass'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 2</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Dec 5, 2018 10:15:12 AM</td>
+										<td class='linked' test-id='1'>Validate MPA NDC for PA Type N</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Dec 5, 2018 10:15:13 AM</td>
+										<td class='linked' test-id='3'>Validate MPA NDC for PA Type N.TC005-Validate the MPA NDC without DST, PRC List attached on PA and Patient Residence Code List Qualifier X , Exact Match  between PRC List and Claim (PA Type N).TC005-Validate the MPA NDC without DST, PRC List attached on PA and Patient Residence Code List Qualifier X , Exact Match  between PRC List and Claim (PA Type N)</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC5</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Dec 5, 2018 10:15:13 AM</td>
+										<td class='linked' test-id='3'>Validate MPA NDC for PA Type N.TC005-Validate the MPA NDC without DST, PRC List attached on PA and Patient Residence Code List Qualifier X , Exact Match  between PRC List and Claim (PA Type N).TC005-Validate the MPA NDC without DST, PRC List attached on PA and Patient Residence Code List Qualifier X , Exact Match  between PRC List and Claim (PA Type N)</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
 <!-- category view -->
 <!-- exception view -->
 <div id='dashboard-view' class='view hide'>
@@ -290,25 +524,25 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>5</div>
+					<div class='panel-lead'>14</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Nov 22, 2018 05:21:43 PM</div>
+					<div class='panel-lead'>Dec 5, 2018 10:15:12 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Nov 22, 2018 05:21:51 PM</div>
+			 		<div class='panel-lead'>Dec 5, 2018 10:15:50 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>8,208ms</div>
+					<div class='panel-lead'>38,252ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -322,12 +556,44 @@
 						</tr>
 							<tr>
 								<td>user</td>
-								<td>sparava1</td>
+								<td>r17</td>
 							</tr>
 							<tr>
 								<td>os</td>
 								<td>Window OS</td>
 							</tr>
+					</table>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+						</tr>
+						<tr>
+							<td>@SR41710</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@Regression1</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@TC5</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
 					</table>
 				</div>
 			</div>
@@ -367,7 +633,7 @@
 				infoChild: 0,
 				exceptionsChild: 0,
 				
-				passGrandChild: 5,
+				passGrandChild: 14,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
