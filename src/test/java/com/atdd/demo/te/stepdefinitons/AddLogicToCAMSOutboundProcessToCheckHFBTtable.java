@@ -1,8 +1,10 @@
 	package com.atdd.demo.te.stepdefinitons;
 
-	import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
+	import com.cucumber.listener.Reporter;
+import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
+import com.optumrx.autofusion.core.te.util.Screenshot;
 
-	import cucumber.api.java.en.When;
+import cucumber.api.java.en.When;
 
 	public class AddLogicToCAMSOutboundProcessToCheckHFBTtable {
 
@@ -236,6 +238,7 @@
 		    // Write code here that turns the phrase above into concrete actions
 		   String Output=Mainframe_GlobalFunctionLib.getText(7, 2);
 		   System.out.println("The CAG Details from the Table are: "+Output);
+		   Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		   //String Output=Mainframe_GlobalFunctionLib.getText(7, 31);
 		   
 		   if(Output.contains(carrier))

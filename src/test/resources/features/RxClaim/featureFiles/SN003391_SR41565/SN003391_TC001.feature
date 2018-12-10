@@ -40,6 +40,5 @@ Feature: Add logic to CAMS outbound process to check HFB table (ACMP240T)
      
      Examples: 
       |Library	|ACMPTable	|carrier	|account	|group			|member						|plan				|RxNo					|CAMSTable	|
-      |DBU10		|ACMP240T		|CITRUS1	|CITRACC1	|CITRUSGRP2	|SB-21-002827-M01	|INMFFSTEST	|73323847465	|rx28090p2	|
-     #|DBU10		|ACMP240T		|NA2017		|1000			|100				|40768000100			|INMFFSTEST	|78251401028	|rx28090p2	|
-
+      |DBU10		|ACMP240T		|CITRUS1	|CITRACC1	|CITRUSGRP2	|SB-21-002827-M01	|INMFFSTEST	|11235447465	|rx28090p2	|
+ 	  	#|DBU10		|ACMP240T		|NA2017		|1000			|100				|40768000100			|INMFFSTEST	|70967481028	|rx28090p2	|

@@ -12,5 +12,7 @@ Feature: SN002941_SR40694:Part D: PAS OutReach - Web Service - Return NPI when S
 		
    Examples: 
       | DateFrom	| DateThru	|	CarrierFrom	|	CarrierThru	|
-			| 010118		|	123118		|	SR41452			|	SR41452			|
+			| 010118		|	123118		|	VMCAR29			|	VMCAR29			|
+		 #| 010118		|	123118		|	SN003280		|	SN003280		|[8403-Test data]
+		 #| 010118		|	123118		|	SR41452			|	SR41452			|[8402-Test Data]
     	

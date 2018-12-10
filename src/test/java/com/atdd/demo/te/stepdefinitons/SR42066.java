@@ -525,8 +525,8 @@ public static void spoolFile(int i) throws Exception
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			Mainframe_GlobalFunctionLib.pressKey("PageDown");
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-			//Mainframe_GlobalFunctionLib.pressKey("PageDown");
-			//Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			Mainframe_GlobalFunctionLib.pressKey("PageDown");
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			//String[] spoolPDEFile =Mainframe_GlobalFunctionLib.getText(7, 37).split("FILE") ;
 			//spoolPDEFile =Mainframe_GlobalFunctionLib.getText(7, 37).substring(7,46).trim();
 			try{
@@ -593,7 +593,7 @@ public static void spoolFile(int i) throws Exception
 						 System.out.println("PDE File not generated @ 'Medicare Part D MDD' screen; NULL ");
 						 Reporter.addStepLog("PDE File not generated @ 'Medicare Part D MDD' screen; NULL ");
 					 }
-					 else if(spoolPDEFile.contains(filePDE))
+					 else if(filePDE.contains(spoolPDEFile))
 					 {
 						 System.out.println("Expected PDE file is Generated: "+filePDE);
 						 Reporter.addStepLog("Expected PDE file is Generated: "+filePDE);
