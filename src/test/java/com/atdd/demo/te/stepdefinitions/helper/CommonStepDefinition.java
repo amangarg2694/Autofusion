@@ -97,6 +97,12 @@ public class CommonStepDefinition extends CommonHelper{
 	
 	}
 	
+	@When("^I create Member with Override Plan \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_Member_with_Override_Plan(String carrierID, String accountID, String groupID, String memberID, String firstName, String lastName, String dob, String fromDate, String thruDate, String overridePlan) throws Throwable {
+		FunctionalLibrary.createMemberWithOverridePlan(carrierID, accountID, groupID, memberID, firstName, lastName, dob, fromDate, thruDate,overridePlan);
+		
+	}
+	
 	@When("^I create Member with PA \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_Member_with_PA(String carrierID, String accountID, String groupID, String memberID, String firstName, String lastName, String dob, String fromDate, String thruDate) throws Throwable {
 		FunctionalLibrary.CreateMemberPA(carrierID, accountID, groupID, memberID, firstName, lastName, dob, fromDate, thruDate);
@@ -172,6 +178,21 @@ public class CommonStepDefinition extends CommonHelper{
 		Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
 		Mainframe_GlobalFunctionLib.sendText(4, 65, FillDate3);
 		FunctionalLibrary.submitClaimF18WithoutRxOrigin();
+	}
+	
+	@When("^I submit the claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_submit_the_claim_with(String bin, String proc, String group, String pharmacyID, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost, String due, String ucw, String fee) throws Throwable {
+	   
+			
+			FunctionalLibrary.CreateTransaction(bin, proc, group, pharmacyID, "",refill, fillDate, memberID, productID, dspQty, ds, psc, cost);
+			Mainframe_GlobalFunctionLib.sendText(9 , 33 ,"1");
+			Mainframe_GlobalFunctionLib.sendText(11 , 47 ,"         ");
+		 Mainframe_GlobalFunctionLib.sendText(19 , 47 ,"         ");
+		 Mainframe_GlobalFunctionLib.sendText(20 , 47 ,"         ");
+		 Mainframe_GlobalFunctionLib.sendText(11 , 47 ,fee);
+		 Mainframe_GlobalFunctionLib.sendText(19 , 47 ,due);
+		 Mainframe_GlobalFunctionLib.sendText(20 , 47 ,ucw);
+		 FunctionalLibrary.submitClaim();
 	}
 	
 	@When("^I submit a compound claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
