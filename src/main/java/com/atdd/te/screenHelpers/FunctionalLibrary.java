@@ -1608,6 +1608,8 @@ public class FunctionalLibrary extends CommonHelper{
 		
 		if(ScreenshotOption.equalsIgnoreCase("Always")){
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			Reporter.addStepLog("RxClaim Number :"+ Mainframe_GlobalFunctionLib.getText(20, 11));
+			
 			}
 			}catch(Exception e)
 			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -1963,8 +1965,10 @@ public class FunctionalLibrary extends CommonHelper{
 		public static void validateText(String row , String col , String text) throws IOException{
 			try{
 				//boolean b = 
+				Reporter.addStepLog("Expected Value :" +text);
+				Reporter.addStepLog("Actual Value :" +Mainframe_GlobalFunctionLib.getText(Integer.parseInt(row), Integer.parseInt(col)));
 					Mainframe_GlobalFunctionLib.validateText(row ,col , text );	
-				if(ScreenshotOption.equalsIgnoreCase("Always")){
+				 if(ScreenshotOption.equalsIgnoreCase("Always")){
 					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 					//if( b == false)
 						//Assert.fail("The text "+ text +" does not match on the screen.Screenshot captured.");
@@ -2659,6 +2663,8 @@ public class FunctionalLibrary extends CommonHelper{
 		
 		public static void func_CompareStrings(String sActualStr,String sExpectedStr)throws Throwable
 		{
+			Reporter.addStepLog("Expected Value :" +sExpectedStr);
+			Reporter.addStepLog("Actual Value :" +sActualStr);
 //			if(sActualStr.contains(sExpectedStr))
 			if(sActualStr.equals(sExpectedStr))
 			{
