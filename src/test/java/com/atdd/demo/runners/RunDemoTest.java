@@ -53,7 +53,7 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
    		ReadPropertyFile.setPropertyMap(System.getProperty("user.dir")+"//src//test//resources//features//RxClaim//OR");  		 
    		ReadPropertyFile.configFileReader(configFile); 
     	CommonHelper.ScreenshotOption = scrOption; 
-   	//	CommonHelper.login(); 
+   		CommonHelper.login(); 
     
    		
    		
@@ -65,7 +65,7 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
 	@AfterClass 
 	public static void teardown() throws Exception { 
 
- 		//Mainframe_GlobalFunctionLib.closeTE(); 
+ 		Mainframe_GlobalFunctionLib.closeTE(); 
 		SDK.cleanup(); 
 		 
  
