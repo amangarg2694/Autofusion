@@ -64,7 +64,7 @@ public class SOAPTestSteps {
 		soapHelper.printSOAPResponse(response);		
 		soapHelper.writeSOAPResponse(response, outputDataFolder+outputXML+".xml");
 	}  
-	
+	/*
 	@Then("^I validate the response file \"([^\"]*)\" for tags \"([^\"]*)\" with values \"([^\"]*)\"$")
 	public void i_validate_the_response_file_for_tags_with_values(String outputFile, String responseTagfile, String expectedTagValues) throws Throwable {
 	   
@@ -82,7 +82,7 @@ public class SOAPTestSteps {
 		}
 		
 		}
-		
+	*/	
 	@Then("^the request is sucessful with response code (\\d+)$")
 	public void the_request_is_sucessful_with_response_code(int arg1) throws Throwable {
 	    System.out.println("Executed");
