@@ -21,7 +21,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
-		features = { "classpath:features/RxClaim/featureFiles/AgileTeams/PlanPanthers/Release 8404/SN003716" },
+		features = { "classpath:features/RxClaim/featureFiles/WebserviceAutomation.feature" },
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 
 				"json:target/cucumber.json" },
@@ -53,7 +53,7 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
    		ReadPropertyFile.setPropertyMap(System.getProperty("user.dir")+"//src//test//resources//features//RxClaim//OR");  		 
    		ReadPropertyFile.configFileReader(configFile); 
     	CommonHelper.ScreenshotOption = scrOption; 
-   		CommonHelper.login(); 
+   	//	CommonHelper.login(); 
     
    		
    		
@@ -65,7 +65,7 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
 	@AfterClass 
 	public static void teardown() throws Exception { 
 
- 		Mainframe_GlobalFunctionLib.closeTE(); 
+ 		//Mainframe_GlobalFunctionLib.closeTE(); 
 		SDK.cleanup(); 
 		 
  
