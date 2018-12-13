@@ -1,6 +1,7 @@
 package com.atdd.demo.te.stepdefinitons;
 
 import com.atdd.te.screenHelpers.FunctionalLibrary;
+import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -39,6 +40,18 @@ FunctionalLibrary.func_AttachPRCListOnPA(memberID, paNumber, prcList, prcListQua
 		
 	}
 
-	
+	@When("^I set PA Third Party Exception Ignore Flag as \"([^\"]*)\" on PA \"([^\"]*)\"$")
+	public void i_set_PA_Third_Party_Exception_Ignore_Flag_as_on_PA(String thirdPartyExceptionFlag, String paNumber) throws Throwable {
+		if(thirdPartyExceptionFlag.length()!=0){
+		Mainframe_GlobalFunctionLib.sendText(9, 5, "           ");
+		Mainframe_GlobalFunctionLib.sendText(9, 5, paNumber);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(16, 2, "2");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(18, 79, thirdPartyExceptionFlag);	
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+		}
+}
 	
 }

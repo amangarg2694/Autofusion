@@ -403,13 +403,13 @@ public class FunctionalLibrary extends CommonHelper{
 				Mainframe_GlobalFunctionLib.pressKey("Enter");				
 				Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
-				Mainframe_GlobalFunctionLib.pressKey("F12");
+				//Mainframe_GlobalFunctionLib.pressKey("F12");
+			//	Mainframe_GlobalFunctionLib.pressKey("F12");
 				System.out.println("Member is created");
 				Reporter.addStepLog("Member is created");
 				}
 		else{
-			Mainframe_GlobalFunctionLib.pressKey("F12");
+		//	Mainframe_GlobalFunctionLib.pressKey("F12");
 			System.out.println("Member exists");
 			Reporter.addStepLog("Member exists");
 		}
