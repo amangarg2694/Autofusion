@@ -65,7 +65,7 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
 	@AfterClass 
 	public static void teardown() throws Exception { 
 
- 		//Mainframe_GlobalFunctionLib.closeTE(); 
+ 		Mainframe_GlobalFunctionLib.closeTE(); 
 		SDK.cleanup(); 
 		 
  
