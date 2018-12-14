@@ -4,6 +4,7 @@
   <testcase name="feature" time="464.271" classname="com.atdd.demo.runners.RunDemoTest">
     <error type="cucumber.runtime.CucumberException" message="java.lang.AssertionError: The text is not fetched from screen position 1,13.Screenshot captured.">
       <![CDATA[cucumber.runtime.CucumberException: java.lang.AssertionError: The text is not fetched from screen position 1,13.Screenshot captured.
+
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -35,6 +36,7 @@ Caused by: java.lang.AssertionError: The text is not fetched from screen positio
 	at com.atdd.te.screenHelpers.FunctionalLibrary.getText(FunctionalLibrary.java:1958)
 	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.i_am_on_RxClaim_PlanAdministrator_Menu(CommonStepDefinition.java:36)
 	at ✽.Given I am on RxClaim PlanAdministrator Menu(features/RxClaim/featureFiles/SR41683/SN003439_TC01toTC12.feature:143)
+
 ]]>
     </error>
   </testcase> <!-- feature -->

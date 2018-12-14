@@ -21,14 +21,16 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
+
 		features = { "classpath:features/RxClaim/featureFiles/AgileTeams/PlanPanthers/Release 8404/SN003716/PlanEdit17_TC1-18.feature" },
+
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 
 				"json:target/cucumber.json" },
 
 		glue = { "com.atdd.demo.te" }
+
 		//,tags ={"@Regression"}
-//,tags={"@TC17"}
 
 )
 

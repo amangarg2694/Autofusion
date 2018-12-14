@@ -11,6 +11,7 @@ Caused by: java.lang.AssertionError: The text is not fetched from screen positio
 	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.i_am_on_RxClaim_PlanAdministrator_Menu(CommonStepDefinition.java:36)
 	at ✽.Given I am on RxClaim PlanAdministrator Menu(features/RxClaim/featureFiles/SR41683/SN003439_TC01toTC12.feature:143)
 ... Removed 25 stack frames]]>
+
     </failure>
   </testcase> <!-- feature -->
 </testsuite> <!-- Veirify Demo Site Features -->

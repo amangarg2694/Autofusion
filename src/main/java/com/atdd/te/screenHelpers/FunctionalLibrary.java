@@ -1,10 +1,15 @@
 package com.atdd.te.screenHelpers;
 
 import java.io.IOException;
+
+
+import java.lang.reflect.Array;
+
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.Calendar;
+
 import java.util.StringTokenizer;
 
 import org.testng.Assert;
@@ -43,6 +48,7 @@ public class FunctionalLibrary extends CommonHelper{
 		public static void navigateToScreen(String option) throws Exception  {
 			try{
 			Mainframe_GlobalFunctionLib.sendText(21, 7 ,option );
+
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			if(ScreenshotOption.equalsIgnoreCase("Always")){
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -1329,6 +1335,7 @@ public class FunctionalLibrary extends CommonHelper{
 			Mainframe_GlobalFunctionLib.sendText(10, 47,"         " );
 			Mainframe_GlobalFunctionLib.sendText(10, 47,cost );
 		}
+
 			System.out.println("Claim is created");
 			if(ScreenshotOption.equalsIgnoreCase("Always")){
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -2769,6 +2776,13 @@ public class FunctionalLibrary extends CommonHelper{
 		//fb.submitClaim();
 		//Mainframe_GlobalFunctionLib.validateText("21" ,"6" , "R" );
 	}
+	
+	
+			
+		
+	
+		
+		
 
 	
 

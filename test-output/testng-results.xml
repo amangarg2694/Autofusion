@@ -3,9 +3,10 @@
   <reporter-output>
   </reporter-output>
   <suite name="Testng Cucumber Suite" duration-ms="613501" started-at="2018-11-30T08:15:19Z" finished-at="2018-11-30T08:25:33Z">
+
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@235834f2]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
     <test name="Veirify Demo Site Features" duration-ms="613501" started-at="2018-11-30T08:15:19Z" finished-at="2018-11-30T08:25:33Z">
@@ -15,6 +16,7 @@
           </reporter-output>
         </test-method> <!-- setUpClass -->
         <test-method status="PASS" signature="setup(java.lang.String, java.lang.String)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="setup" is-config="true" duration-ms="142877" started-at="2018-11-30T13:45:24Z" finished-at="2018-11-30T13:47:47Z">
+
           <params>
             <param index="0">
               <value>
@@ -44,6 +46,7 @@
             </message>
             <full-stacktrace>
               <![CDATA[cucumber.runtime.CucumberException: java.lang.AssertionError: The text is not fetched from screen position 1,13.Screenshot captured.
+
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -75,6 +78,7 @@ Caused by: java.lang.AssertionError: The text is not fetched from screen positio
 	at com.atdd.te.screenHelpers.FunctionalLibrary.getText(FunctionalLibrary.java:1958)
 	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.i_am_on_RxClaim_PlanAdministrator_Menu(CommonStepDefinition.java:36)
 	at ✽.Given I am on RxClaim PlanAdministrator Menu(features/RxClaim/featureFiles/SR41683/SN003439_TC01toTC12.feature:143)
+
 ]]>
             </full-stacktrace>
           </exception> <!-- cucumber.runtime.CucumberException -->
@@ -90,6 +94,7 @@ Caused by: java.lang.AssertionError: The text is not fetched from screen positio
           </reporter-output>
         </test-method> <!-- tearDownClass -->
         <test-method status="PASS" signature="parser()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="parser" is-config="true" duration-ms="12934" started-at="2018-11-30T13:55:33Z" finished-at="2018-11-30T13:55:46Z">
+
           <reporter-output>
           </reporter-output>
         </test-method> <!-- parser -->
