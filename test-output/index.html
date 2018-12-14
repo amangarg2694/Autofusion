@@ -23,7 +23,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,7 +37,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Testng_Cucumber_Suite">
-              <span class="suite-name border-failed">Testng Cucumber Suite</span>
+              <span class="suite-name border-passed">Testng Cucumber Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -58,7 +58,7 @@
                 </li>
                 <li>
                   <a href="#" class="navigator-link " panel-name="group-Testng_Cucumber_Suite">
-                    <span>1 group</span>
+                    <span>0 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -90,21 +90,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method, 1 failed,   </span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Testng_Cucumber_Suite" class="hide-methods failed suite-Testng_Cucumber_Suite"> (hide)</a> <!-- hide-methods failed suite-Testng_Cucumber_Suite -->
-                      <a href="#" panel-name="suite-Testng_Cucumber_Suite" class="show-methods failed suite-Testng_Cucumber_Suite"> (show)</a> <!-- show-methods failed suite-Testng_Cucumber_Suite -->
-                    </span>
-                    <div class="method-list-content failed suite-Testng_Cucumber_Suite">
-                      <span>
-                        <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Testng_Cucumber_Suite" title="com.atdd.demo.runners.RunDemoTest" hash-for-method="feature(Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files before Table Partitioning)">feature(Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files before Table Partitioning)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Testng_Cucumber_Suite -->
+                    <span class="method-stats">0 methods,   </span>
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -116,33 +102,6 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Testng_Cucumber_Suite" class="panel Testng_Cucumber_Suite">
-          <div class="suite-Testng_Cucumber_Suite-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">com.atdd.demo.runners.RunDemoTest</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="feature(Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files before Table Partitioning)">
-                  </a> <!-- feature(Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files before Table Partitioning) -->
-                  <span class="method-name">feature</span>
-                  <span class="parameters">(Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files before Table Partitioning)</span>
-                  <div class="stack-trace">cucumber.runtime.CucumberException: java.lang.AssertionError: The text is not fetched from screen position 1,13.Screenshot captured.
-	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
-	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
-Caused by: java.lang.AssertionError: The text is not fetched from screen position 1,13.Screenshot captured.
-	at com.atdd.te.screenHelpers.FunctionalLibrary.getText(FunctionalLibrary.java:1958)
-	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.i_am_on_RxClaim_PlanAdministrator_Menu(CommonStepDefinition.java:36)
-	at ✽.Given I am on RxClaim PlanAdministrator Menu(features/RxClaim/featureFiles/SR41683/SN003439_TC01toTC12.feature:143)
-... Removed 25 stack frames
-</div> <!-- stack-trace -->
-                  <em>
-(Runs Cucumber Feature)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Testng_Cucumber_Suite-class-failed -->
         </div> <!-- panel Testng_Cucumber_Suite -->
         <div panel-name="test-xml-Testng_Cucumber_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -181,14 +140,6 @@ Caused by: java.lang.AssertionError: The text is not fetched from screen positio
             <span class="header-content">Groups for Testng Cucumber Suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="test-group">
-              <span class="test-group-name">cucumber</span>
-              <br/>
-              <div class="method-in-group">
-                <span class="method-in-group-name">feature</span>
-                <br/>
-              </div> <!-- method-in-group -->
-            </div> <!-- test-group -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="times-Testng_Cucumber_Suite" class="panel">
@@ -205,16 +156,11 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
-data.setCell(0, 0, 0)
-data.setCell(0, 1, 'feature')
-data.setCell(0, 2, 'com.atdd.demo.runners.RunDemoTest')
-data.setCell(0, 3, 464271);
+data.addRows(0);
 window.suiteTableData['Testng_Cucumber_Suite']= { tableData: data, tableDiv: 'times-div-Testng_Cucumber_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 7 minutes</span>
               <div id="times-div-Testng_Cucumber_Suite">
               </div> <!-- times-div-Testng_Cucumber_Suite -->
             </div> <!-- times-div -->
@@ -247,25 +193,19 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">setup(src/test/resources/te/config_sxcd1.properties, Always)</span>
-                <span class="method-start">4353 ms</span>
+                <span class="method-start">1388 ms</span>
               </div> <!-- configuration-class before -->
-              <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">feature(Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files before Table Partitioning)</span>
-                <span class="method-start">147464 ms</span>
-              </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">teardown</span>
-                <span class="method-start">611736 ms</span>
+                <span class="method-start">78982 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">612362 ms</span>
+                <span class="method-start">79029 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-suite after">
                 <span class="method-name">parser</span>
-                <span class="method-start">613609 ms</span>
+                <span class="method-start">79451 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
