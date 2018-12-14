@@ -27,7 +27,8 @@ Feature: Part D claims
     Examples:
     | CarrierID| AccountID   | GroupID    | MemberID      | First Name   | Last Name    | DOB       | From Date | Thru Date   |SupplyType|SupplyID|MMDFromDate|MMDThruDate|Contract|SubsidyLevel|CopayCat|
 		|	CAR3036  | ACC3036     |	GRP3036   | SN3036TEST99    | JOSHY        | MEM          | 01011970	| 010101    | 123139      |   06     |SN3036  |010118     |123118     |A3036   |000         |0       |
-             
+   
+    @Release_8403           
    Scenario Outline: Pre Claim Submission Scenario 
 
     Given I am on RxClaim PlanAdministrator Menu
@@ -43,7 +44,7 @@ Feature: Part D claims
     | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID  | DspQty | DS | PSC | Cost |PRC|
 		|	777777  | CCHA    |	*ALL  | APHARM      | 489654134267 | 01     |040118    | SN3036TEST99      | 00781202076 |30       |30  |0   |10   |03|
      
-     
+     @Release_8403  
     Scenario Outline: Scenario 1
 
     Given I am on RxClaim PlanAdministrator Menu
@@ -59,7 +60,7 @@ Feature: Part D claims
     | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID   | DspQty | DS | PSC | Cost |PRC|
 		|	777777  | CCHA    |	*ALL  | APHARM      | 489654134268 | 01     |040218    | SN3036TEST99      | 00378395009 |30       |30  |0   |10    |01|
      
-     
+      @Release_8403 
      Scenario Outline: Scenario 2
 
     Given I am on RxClaim PlanAdministrator Menu
@@ -75,6 +76,8 @@ Feature: Part D claims
     | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID   | DspQty | DS | PSC | Cost |PRC|
 		|	777777  | CCHA    |	*ALL  | APHARM      | 489654134269 | 01     |050218    | SN3036TEST99      | 00071015523 |25      |25  |0    |10    |01 |
 		
+		
+		 @Release_8403 
 		Scenario Outline: Scenario 3
 
        Given I am on RxClaim PlanAdministrator Menu
@@ -90,7 +93,7 @@ Feature: Part D claims
     | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID   | DspQty | DS | PSC | Cost |PRC|
 		|	777777  | CCHA    |	*ALL  | APHARM      | 489654134270 | 01     |052518    | SN3036TEST99      | 00071015523 |6       |6   |0    |10    |04 |
      
-     
+     @Release_8403  
     Scenario Outline: Scenario 4
 
      Given I am on RxClaim PlanAdministrator Menu
@@ -106,6 +109,7 @@ Feature: Part D claims
     | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID   | DspQty | DS | PSC | Cost |PRC|
 		|	777777  | CCHA    |	*ALL  | APHARM      | 489654134271 | 01     |053018    | SN3036TEST99      | 00071015523 |5       |5   |0    |10    |04 |
 		
+		 @Release_8403 
 		Scenario Outline: Scenario 5
 
     Given I am on RxClaim PlanAdministrator Menu
@@ -121,7 +125,7 @@ Feature: Part D claims
     | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID   | DspQty | DS | PSC | Cost |PRC|
 		|	777777  | CCHA    |	*ALL  | APHARM      | 489654134272 | 01     |073018    | SN3036TEST99      | 00781202076 |30       |30  |0   |10    |03|
 		
-		
+		 @Release_8403 
 		Scenario Outline: Scenario 6
 
     Given I am on RxClaim PlanAdministrator Menu
@@ -137,6 +141,7 @@ Feature: Part D claims
     | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID   | DspQty  | DS | PSC | Cost |PRC|
 		|	777777  | CCHA    |	*ALL  | APHARM      | 489654134273 | 01     |073018    | SN3036TEST99    | 00071015523 |30       |30  |0    |10    |03 |
 		
+		 @Release_8403 
 		Scenario Outline: Scenario 7
 
     Given I am on RxClaim PlanAdministrator Menu
@@ -152,7 +157,7 @@ Feature: Part D claims
     | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID   | DspQty  | DS | PSC | Cost |PRC|
 		|	777777  | CCHA    |	*ALL  | APHARM      | 489654134273 | 01     |081018    | SN3036TEST99    | 00781202076 |30       |30  |0   |10    |03|
 		
-		
+		 @Release_8403 
 		Scenario Outline: Scenario 8
 
     Given I am on RxClaim PlanAdministrator Menu

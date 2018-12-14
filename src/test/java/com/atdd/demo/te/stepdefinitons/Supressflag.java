@@ -59,8 +59,11 @@ public class Supressflag {
 		 FunctionalLibrary.pressKey("F12");
 		 FunctionalLibrary.pressKey("F12");
 		 FunctionalLibrary.pressKey("F3");
+		 Thread.sleep(500);
 		 FunctionalLibrary.pressKey("F3");
 		 FunctionalLibrary.pressKey("F3");
+		 FunctionalLibrary.enterText(21, 7, "CCT600");
+		 FunctionalLibrary.pressEnter();
 		 
 	}
 	@When("^I select a pharamacy \"([^\"]*)\" to navigate to Request Detail Pagescreen using option \"([^\"]*)\"$")

@@ -1,3 +1,4 @@
+
 package com.atdd.demo.te.stepdefinitons;
 
 import org.junit.Assert;
@@ -9,7 +10,7 @@ import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class mic {
+public class Mic {
 	@When("^I add a new Schedule \"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_add_a_new_Schedule(String sch1, String desc) throws Throwable {
 		FunctionalLibrary.enterText(4, 5, sch1);
@@ -23,6 +24,19 @@ public class mic {
 		}
 		}
 
+	@When("^I add a new Schedules \"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_add_a_new_Schedules(String sch1, String desc) throws Throwable {
+		FunctionalLibrary.enterText(4, 5, sch1);
+		FunctionalLibrary.pressKey("Enter");
+		Thread.sleep(1000);
+		if(!(FunctionalLibrary.getText(4, 5).trim().equals(FunctionalLibrary.getText(9, 5).trim()))){
+			FunctionalLibrary.pressKey("F6");
+            FunctionalLibrary.enterText(13, 19, sch1);
+            FunctionalLibrary.enterText(14, 19, desc);
+            FunctionalLibrary.pressKey("Enter");
+		}
+		}
+	
 	@When("^I add a new Preferred Product Schedule MIC Claim Level Tier \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_add_a_new_Preferred_Product_Schedule_MIC_Claim_Level_Tier(String cms, String msc, String MICtier) throws Throwable {
 		FunctionalLibrary.pressKey("F6");
@@ -57,22 +71,44 @@ public class mic {
 	    FunctionalLibrary.enterText(4, 5, sch);
 	    FunctionalLibrary.pressKey("Enter");
 	    Thread.sleep(1000);
+	    if(!(FunctionalLibrary.getText(24, 2).trim().equals("No data to display."))){
+			FunctionalLibrary.pressKey("F6");
+		FunctionalLibrary.enterText(7, 11, "10");
+		FunctionalLibrary.enterText(8, 23, "CHAYA123");
+		FunctionalLibrary.enterText(9, 23, "a");
+		FunctionalLibrary.pressEnter();
+		}
 	    if(FunctionalLibrary.getText(9, 5).trim().equals(sch)){
 	    	 FunctionalLibrary.enterText(9, 2, opt);
 	    	 FunctionalLibrary.pressKey("Enter");
 	   }
 	    
+	    
 	}
 
 	@When("^I select optionN \"([^\"]*)\" on existing sequence in Active Secondary ROAs in MIC Medically Accepted ROA Schd Seq screen$")
 	public void i_select_optionN_on_existing_sequence_in_Active_Secondary_ROAs_in_MIC_Medically_Accepted_ROA_Schd_Seq_screen(String opt) throws Throwable {
+	/*	if(!(FunctionalLibrary.getText(24, 2).trim().equals("No data to display."))){
+			FunctionalLibrary.pressKey("F6");
+		FunctionalLibrary.enterText(7, 11, "10");
+		FunctionalLibrary.enterText(8, 23, "ABC");
+		FunctionalLibrary.enterText(9, 23, "*");
+		FunctionalLibrary.pressEnter();
+		}*/
+		
 		FunctionalLibrary.enterText(13, 2, opt);
 		 FunctionalLibrary.pressKey("Enter");
+		
 	   
 	}
 
 	@Then("^I validate error message \"([^\"]*)\" when a same Secondary ROA code is added$")
 	public void i_validate_error_message_when_a_same_Secondary_ROA_code_is_added(String msg) throws Throwable {
+		if(!(FunctionalLibrary.getText(24, 2).trim().equals("No data to display."))){
+		FunctionalLibrary.pressKey("F6");
+		FunctionalLibrary.enterText(10, 23, "ABC");
+	    FunctionalLibrary.pressKey("Enter");
+		}
 		FunctionalLibrary.pressKey("F6");
 		FunctionalLibrary.enterText(10, 23, "ABC");
 	    FunctionalLibrary.pressKey("Enter");
@@ -294,7 +330,7 @@ public void i_submitt_a_compound_claim_withh(String bin, String proc, String gro
 		FunctionalLibrary.enterText(11, 41,proc );
 		FunctionalLibrary.enterText(11, 59,group );
 		FunctionalLibrary.enterText(12, 14,pharmacyID );
-		FunctionalLibrary.enterText(12, 41,rxNbr );
+		FunctionalLibrary.enterText(12, 41,FunctionalLibrary.func_GenerateDynamicRxNo() );
 		FunctionalLibrary.enterText(12, 59,refill );
 		FunctionalLibrary.enterText(14, 41,memberID );
 		FunctionalLibrary.pressKey("Enter");
@@ -321,7 +357,7 @@ public void i_submitt_a_compound_claim_withh(String bin, String proc, String gro
 		//FunctionalLibrary.enterText(4 , 65 ,"         ");
 		FunctionalLibrary.enterText(4, 65, fillDate);
 		FunctionalLibrary.enterText(5, 22, "1");
-		FunctionalLibrary.enterText(5,29, rxNbr);
+		FunctionalLibrary.enterText(5,29, FunctionalLibrary.func_GenerateDynamicRxNo());
 		FunctionalLibrary.enterText(5, 47, refill);			
 		//Mainframe_GlobalFunctionLib.click(7, 12 );
 		FunctionalLibrary.enterText(7, 12, memberID);
@@ -356,7 +392,7 @@ public void i_submitt_a_compound_claim_withh(String bin, String proc, String gro
 		Thread.sleep(1000);
 		FunctionalLibrary.pressKey("F16");
 		Thread.sleep(1000);
-		FunctionalLibrary.enterText(4, 4, "00247064407");
+		FunctionalLibrary.enterText(4, 4, "00777310402");
 		FunctionalLibrary.pressKey("Enter");
 		FunctionalLibrary.enterText(9, 2, "1");
 		FunctionalLibrary.pressKey("Enter");		
@@ -372,7 +408,7 @@ public void i_submitt_a_compound_claim_withh(String bin, String proc, String gro
 		Thread.sleep(1000);
 		FunctionalLibrary.pressKey("F16");
 		Thread.sleep(1000);
-		FunctionalLibrary.enterText(4, 4, "00006073531");
+		FunctionalLibrary.enterText(4, 4, "00591571501");
 		FunctionalLibrary.pressKey("Enter");
 		FunctionalLibrary.enterText(9, 2, "1");
 		FunctionalLibrary.pressKey("Enter");		
@@ -419,5 +455,6 @@ public void i_validate_the_MIC_claim_process_with_drug_status_overriden_when_Pri
 }
 	
 	
+
 
 

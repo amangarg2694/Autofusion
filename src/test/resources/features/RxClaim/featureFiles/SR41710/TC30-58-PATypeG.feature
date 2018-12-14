@@ -1,4 +1,4 @@
-@SR41710
+@SR41710 @Regression
 Feature: Validate MPA NDC for PA Type G
     
              
