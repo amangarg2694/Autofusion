@@ -300,5 +300,5 @@ public class ContingentTherapySchedule {
 		System.out.println(Msg);
 		Mainframe_GlobalFunctionLib.pressKey("F7");
 		
-	}	
+	}
 }
