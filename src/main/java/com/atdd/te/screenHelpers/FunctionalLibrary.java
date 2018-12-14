@@ -1,10 +1,15 @@
 package com.atdd.te.screenHelpers;
 
 import java.io.IOException;
+
+
+import java.lang.reflect.Array;
+
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.Calendar;
+
 import java.util.StringTokenizer;
 
 import org.testng.Assert;
@@ -43,6 +48,7 @@ public class FunctionalLibrary extends CommonHelper{
 		public static void navigateToScreen(String option) throws Exception  {
 			try{
 			Mainframe_GlobalFunctionLib.sendText(21, 7 ,option );
+
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			if(ScreenshotOption.equalsIgnoreCase("Always")){
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -357,6 +363,59 @@ public class FunctionalLibrary extends CommonHelper{
 				}
 		else{
 			Mainframe_GlobalFunctionLib.pressKey("F12");
+			System.out.println("Member exists");
+			Reporter.addStepLog("Member exists");
+		}
+						
+		
+			if(ScreenshotOption.equalsIgnoreCase("Always")){
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				}
+				}catch(Exception e)
+				{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					Assert.fail("An error has occured while creating a member.Screenshot is captured");
+					e.printStackTrace();
+				}
+	}
+	
+	public static void createMemberWithOverridePlan(String carrierID, String accountID, String groupID, String memberID, String firstName, String lastName, String dob, String fromDate, String thruDate,String overridePlan) throws Throwable
+	{	
+		try {
+			navigateToRxClaimPlanAdministrator();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try{
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		if(!(func_SearchAndSelectADataEditMode("4,4" ,memberID ,"10,4" , memberID)))
+		{
+				Thread.sleep(1000);
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(4, 10, carrierID);
+				Mainframe_GlobalFunctionLib.sendText(5, 10, accountID);
+				Mainframe_GlobalFunctionLib.sendText(6, 10, groupID);
+				Mainframe_GlobalFunctionLib.sendText(7, 10, memberID);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(6 , 29 ,lastName);
+				Mainframe_GlobalFunctionLib.sendText(6, 57, firstName);
+				Mainframe_GlobalFunctionLib.sendText(7,40, dob);
+				Mainframe_GlobalFunctionLib.sendText(20, 2, fromDate);			
+				Mainframe_GlobalFunctionLib.sendText(20, 12, thruDate);
+				Mainframe_GlobalFunctionLib.sendText(20, 22, overridePlan);
+				
+				Mainframe_GlobalFunctionLib.pressKey("Enter");				
+				Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				//Mainframe_GlobalFunctionLib.pressKey("F12");
+			//	Mainframe_GlobalFunctionLib.pressKey("F12");
+				System.out.println("Member is created");
+				Reporter.addStepLog("Member is created");
+				}
+		else{
+		//	Mainframe_GlobalFunctionLib.pressKey("F12");
 			System.out.println("Member exists");
 			Reporter.addStepLog("Member exists");
 		}
@@ -1276,6 +1335,7 @@ public class FunctionalLibrary extends CommonHelper{
 			Mainframe_GlobalFunctionLib.sendText(10, 47,"         " );
 			Mainframe_GlobalFunctionLib.sendText(10, 47,cost );
 		}
+
 			System.out.println("Claim is created");
 			if(ScreenshotOption.equalsIgnoreCase("Always")){
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -1555,6 +1615,8 @@ public class FunctionalLibrary extends CommonHelper{
 		
 		if(ScreenshotOption.equalsIgnoreCase("Always")){
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			Reporter.addStepLog("RxClaim Number :"+ Mainframe_GlobalFunctionLib.getText(20, 12));
+			
 			}
 			}catch(Exception e)
 			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -1910,8 +1972,10 @@ public class FunctionalLibrary extends CommonHelper{
 		public static void validateText(String row , String col , String text) throws IOException{
 			try{
 				//boolean b = 
+				Reporter.addStepLog("Expected Value :" +text);
+				Reporter.addStepLog("Actual Value :" +Mainframe_GlobalFunctionLib.getText(Integer.parseInt(row), Integer.parseInt(col)));
 					Mainframe_GlobalFunctionLib.validateText(row ,col , text );	
-				if(ScreenshotOption.equalsIgnoreCase("Always")){
+				 if(ScreenshotOption.equalsIgnoreCase("Always")){
 					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 					//if( b == false)
 						//Assert.fail("The text "+ text +" does not match on the screen.Screenshot captured.");
@@ -2606,6 +2670,8 @@ public class FunctionalLibrary extends CommonHelper{
 		
 		public static void func_CompareStrings(String sActualStr,String sExpectedStr)throws Throwable
 		{
+			Reporter.addStepLog("Expected Value :" +sExpectedStr);
+			Reporter.addStepLog("Actual Value :" +sActualStr);
 //			if(sActualStr.contains(sExpectedStr))
 			if(sActualStr.equals(sExpectedStr))
 			{
@@ -2710,6 +2776,13 @@ public class FunctionalLibrary extends CommonHelper{
 		//fb.submitClaim();
 		//Mainframe_GlobalFunctionLib.validateText("21" ,"6" , "R" );
 	}
+	
+	
+			
+		
+	
+		
+		
 
 	
 
