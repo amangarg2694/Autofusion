@@ -1633,7 +1633,7 @@ public class FunctionalLibrary extends CommonHelper{
 		Mainframe_GlobalFunctionLib.sendText(stData.nextToken(),stData.nextToken(), Data);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 	
- System.out.println("check the row value"+row);
+		System.out.println("check the row value"+row);
 	
 		if(Mainframe_GlobalFunctionLib.getText(row, Integer.parseInt(col)).trim().toLowerCase().contentEquals(DataSearch.trim().toLowerCase()))
 	{
@@ -1641,7 +1641,7 @@ public class FunctionalLibrary extends CommonHelper{
 	bRes=true;
 	Mainframe_GlobalFunctionLib.sendText(row, 2, "2");
 	Mainframe_GlobalFunctionLib.pressKey("Enter");
-	Thread.sleep(2000);
+	Thread.sleep(1000);
 	}
 	}
 	catch(Exception e){

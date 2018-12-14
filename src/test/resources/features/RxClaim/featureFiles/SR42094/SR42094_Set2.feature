@@ -1,4 +1,3 @@
-
 Feature: PART D: Update FIR Transaction and Rejected Transaction files with Contract ID
 As a RxClaim User I want to check whether new changes working correctly in FIR Transaction Detail File Screen
 

@@ -21,7 +21,7 @@ Then I validate the notes "<Note>" in GPIlist "<GpiList>","<Date>"
 
 Examples:
 |Library |File    |Format  |Note                                              |GpiList| Date|
-|usrmadhu|sr41697g|RCPGO038|Plan GPI List SN002715; Plan GPI List Note Line 2.|S41697G |9/11/18|
+|usrmadhu|sr41697g|RCPGO038|Plan GPI List SN002715; Plan GPI List Note Line 2.|S41697G |9/12/18|
 
 
 
@@ -42,7 +42,7 @@ Then I validate the notes B "<Note>" in GPIlist "<GpiList>","<Date>"
 
 Examples:
 |Library |File    |Format   |Note                            |GpiList| Date|
-|usrmadhu|sr41697bg|RCPGO038|PLAN GPI LISTB List Note Line 3.|S41697G |9/10/18|
+|usrmadhu|sr41697bg|RCPGO038|PLAN GPI LISTB List Note Line 3.|S41697G |9/11/18|
 
 
 

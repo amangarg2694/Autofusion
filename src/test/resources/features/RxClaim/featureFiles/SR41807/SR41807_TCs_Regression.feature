@@ -1,4 +1,4 @@
-@Regression
+#@Regression
 Feature: Class field changes in "Productivity Reporting" screen
 As a RxClaim User I want to check whether new changes working correctly for the field Class in "Productivity Reporting" screen
 

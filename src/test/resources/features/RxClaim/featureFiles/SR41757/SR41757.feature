@@ -1,4 +1,4 @@
-@Regression @Release_8403
+#@Regression @Release_8403
 
 Feature: RxInterAct: Update logic on Clinical Products Platform Extract and Targeted Transaction File
 # Member ID needs to be updated before running the scripts
