@@ -66,7 +66,7 @@ Feature: A manual claim is submitted with medicaid subrogation
      #Payee Override: SN003331VM[8403]
       Examples: 
       |PlanSearch	|NegativeDueValue	|BIN		|Proc Ctr	|Grp			|Pharmacy	|Rx Nbr			 |Rf	|Member ID	|Payee Override	|Medicaid Subrogation	|Prod: ID			|Disp Qty	|DS	|PSC	|Cost	|Rx Origin|CostBasis|
-      |$20				|N								|777777	|SN003331	|SN003331	|apharm		|55583636397 |00	|AUTO3331M2	|SN003331VM			|Y										|00247064407	|2				|3	|0		|5		|5				|	01			|
+      |$20				|N								|777777	|SN003331	|SN003331	|apharm		|57891029297 |00	|AUTO3331M2	|SN003331K			|Y										|00247064407	|2				|3	|0		|5		|5				|	01			|
      
      	#|$20|N|777777|SN003331k|SN003331k|apharm|07262379897|00|SN003331-01|SN003331K|N|00247064407|2|3|0|5|5|
 

@@ -18,7 +18,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import com.atdd.demo.te.stepdefinitons.PriceOverrideAfterSpecificHashOfFills;
 
-public class SR42066 {
+public class MemberAdjustmentLoadwithMedicalDataFile {
 	public static String rxClaimIdValue="";
 	public static String spoolPDEFile="";
 	public static String TofileName="";
@@ -136,7 +136,16 @@ public class SR42066 {
 										//spoolFile(i);
 										break lable1;
 									}
+							}
+				    		else if(JobStatusVerify.equals(JobOUTQ))
+								{
+									System.out.println("1-JobOUTQ: Expected Job Status is: "+JobStatusVerify);
+									Reporter.addStepLog("1-JobOUTQ: Expected Job Status is: "+JobStatusVerify);
+									Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+									//spoolFile(i);
+									break lable1;
 								}
+				    
 				    	}while(!Mainframe_GlobalFunctionLib.getText(i, 40).equalsIgnoreCase(JobOUTQ));
 					  }
 					else if(JobStatus.equals(JobACTIVE))
@@ -429,7 +438,7 @@ public class SR42066 {
 									System.out.println("1-JobACTIVE: Job Status Verify is: "+JobStatusVerifyInside);
 									Reporter.addStepLog("1-JobACTIVE: Job Status Verify is: "+JobStatusVerifyInside);
 									Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-									if(JobStatusVerifyInside.equals(JobOUTQ))
+									if(JobStatusVerifyInside.contains(JobOUTQ))
 									{
 										System.out.println("1-JobOUTQ: Expected Job Status is: "+JobStatusVerifyInside);
 										Reporter.addStepLog("1-JobOUTQ: Expected Job Status is: "+JobStatusVerifyInside);
@@ -485,18 +494,18 @@ public class SR42066 {
 				}
 			}//end of For loop
 			Mainframe_GlobalFunctionLib.pressKey("F3");
-			//Mainframe_GlobalFunctionLib.pressKey("F3");
+			Mainframe_GlobalFunctionLib.pressKey("F3");
 		}	
 	
 //	public static String spoolPDEFile="";
 public static void spoolFile(int i) throws Exception
 	{
 		Mainframe_GlobalFunctionLib.sendText(i, 3,"8");
-		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(11, 3,"5");
-		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		
 		String SpoolFileType=Mainframe_GlobalFunctionLib.getText(2, 22);
 		System.out.println("Spool file name is : "+SpoolFileType);
@@ -514,12 +523,12 @@ public static void spoolFile(int i) throws Exception
 			System.out.println("Spool file Validation successfull");
 			Reporter.addStepLog("Spool file Validation successfull");
 		}
-		else
+		else if(SpoolFileType.equals("RCPD1080"))
 		{
 			Mainframe_GlobalFunctionLib.sendText(3, 22,"W40");
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-			Mainframe_GlobalFunctionLib.pressKey("PageDown");
+			/*Mainframe_GlobalFunctionLib.pressKey("PageDown");
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			Mainframe_GlobalFunctionLib.pressKey("PageDown");
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -529,7 +538,7 @@ public static void spoolFile(int i) throws Exception
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			//String[] spoolPDEFile =Mainframe_GlobalFunctionLib.getText(7, 37).split("FILE") ;
 			//spoolPDEFile =Mainframe_GlobalFunctionLib.getText(7, 37).substring(7,46).trim();
-			try{
+*/			try{
 				Mainframe_GlobalFunctionLib.sendText(4, 22,"PD18");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				Mainframe_GlobalFunctionLib.pressKey("F16");
@@ -544,12 +553,23 @@ public static void spoolFile(int i) throws Exception
 				}
 			catch(Exception e)
 			{
-				e.printStackTrace();
-				System.out.println("PDE File not generated; NULL ");
-				Reporter.addStepLog("PDE File not generated; NULL ");
+				String spoolPDEFileActual2 =Mainframe_GlobalFunctionLib.getText(7, 2);
+				int spoolPDEFileActuallength = spoolPDEFileActual2.length();
+				spoolPDEFile = spoolPDEFileActual2.substring(0, spoolPDEFileActuallength-2);
+				System.out.println("PDE File ID in Spool file: "+spoolPDEFile);
+				Reporter.addStepLog("PDE File ID in Spool file: "+spoolPDEFile);
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			/*	System.out.println("PDE File not generated; NULL ");
+				Reporter.addStepLog("PDE File not generated; NULL ");*/
 				}
 		}
-		Mainframe_GlobalFunctionLib.pressKey("F3");
+		else
+		{
+			System.out.println("Spool file is not expected");
+			Reporter.addStepLog("Spool file is not expected");
+			System.exit(0);
+		}
+		//Mainframe_GlobalFunctionLib.pressKey("F3");
 	}
 	
 	@Then("^I verify Compound code \"([^\"]*)\" in Medicare Part D PDE Data Page$")
