@@ -17,15 +17,9 @@ public class CreateorEditMember {
 	public void i_attach_DST_Table_on_PA_for_member_if_Attach_DST_Flag_is(String dstTable, String paNumber, String memberID, String attachDSTFlag) throws Throwable {
 		if(attachDSTFlag.equalsIgnoreCase("No"))
 			dstTable="             ";
-<<<<<<< HEAD
-
 		else if(attachDSTFlag.equalsIgnoreCase("Yes"))
 		FunctionalLibrary.func_AttachDSTOnPA(memberID, paNumber, dstTable);
 
-=======
-		else if(attachDSTFlag.equalsIgnoreCase("Yes"))
-		FunctionalLibrary.func_AttachDSTOnPA(memberID, paNumber, dstTable);
->>>>>>> 9b9c43e05c92b48e3cbcae58e512fda0504bc4cc
 	}
 	
 	@When("^I set Drug status \"([^\"]*)\" on PA \"([^\"]*)\" for member \"([^\"]*)\"$")
@@ -33,10 +27,6 @@ public class CreateorEditMember {
 
 		if(drugStatus.length()!=0)
 		FunctionalLibrary.addDrugStatusOnPA(memberID, paNumber, drugStatus);
-<<<<<<< HEAD
-	   
-=======
->>>>>>> 9b9c43e05c92b48e3cbcae58e512fda0504bc4cc
 	}
 
 	@When("^I attach PRC List \"([^\"]*)\" and Qual \"([^\"]*)\" on PA \"([^\"]*)\" for member \"([^\"]*)\" if Attach PRC List Flag is \"([^\"]*)\"$")
@@ -46,12 +36,7 @@ public class CreateorEditMember {
 	    	prcList="          ";
 
 	    else  if(attachPRCFlag.equalsIgnoreCase(""))
-<<<<<<< HEAD
 	    	FunctionalLibrary.func_AttachPRCListOnPA(memberID, paNumber, prcList, prcListQual);
-=======
-FunctionalLibrary.func_AttachPRCListOnPA(memberID, paNumber, prcList, prcListQual);
->>>>>>> 9b9c43e05c92b48e3cbcae58e512fda0504bc4cc
-
 		
 	}
 

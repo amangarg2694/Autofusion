@@ -1,7 +1,8 @@
 #Author: swathi_palla@optum.com
 #Pre-Requisite : User must have valid credentials to login to application.
-Feature: Create Carrier,Account,Group and Member.
 
+Feature: Create Carrier,Account,Group and Member.
+@Regression
   Scenario Outline: Create a new CAG in RxClaim 
  Given I am on RxClaim PlanAdministrator Menu 
  When I create CAG with "<CarrierID>","<CarrierName>","<Processor>","<MailingAdd>","<City>","<State>","<Zip>","<ContractFromDt>","<ContractThruDt>","<ContractEnt>","<BusinessType>","<AccountID>","<AccountName>","<GroupID>","<GroupName>","<GroupFromDt>","<GroupThruDt>","<PlanCode>"

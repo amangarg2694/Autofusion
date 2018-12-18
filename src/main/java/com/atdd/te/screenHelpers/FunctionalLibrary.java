@@ -2172,7 +2172,7 @@ public class FunctionalLibrary extends CommonHelper{
 			}
 		}
 		//Member PA Creation
-		public static void func_SetPriorAuth(String number, String type, String ndcgpilist, String from, String thru, String agent, String reason, String ignoredrugstatus) throws Throwable
+		public static void func_SetPriorAuth(String number, String type, String otc, String ndcgpilist, String from, String thru, String agent, String reason, String ignoredrugstatus) throws Throwable
 		{
 
 			String sValue=number;
@@ -2196,14 +2196,15 @@ public class FunctionalLibrary extends CommonHelper{
 				Mainframe_GlobalFunctionLib.sendText(16, 5 ,sValue);
 				Mainframe_GlobalFunctionLib.sendText(16, 23,"*");
 				Mainframe_GlobalFunctionLib.sendText(16, 18, type);
-				Mainframe_GlobalFunctionLib.sendText(16, 26, ndcgpilist);
-				Mainframe_GlobalFunctionLib.sendText(16, 42,"        " );
-				Mainframe_GlobalFunctionLib.sendText(16, 42, from);
-				Mainframe_GlobalFunctionLib.sendText(16, 51,"        " );
-				Mainframe_GlobalFunctionLib.sendText(16, 51, thru);
-				Mainframe_GlobalFunctionLib.sendText(16, 61, agent);
-				Mainframe_GlobalFunctionLib.sendText(16, 66, reason);
-				Mainframe_GlobalFunctionLib.sendText(16, 71, ignoredrugstatus);
+				Mainframe_GlobalFunctionLib.sendText(16, 27, otc);
+				Mainframe_GlobalFunctionLib.sendText(16, 30, ndcgpilist);
+				Mainframe_GlobalFunctionLib.sendText(16, 46,"        " );
+				Mainframe_GlobalFunctionLib.sendText(16, 46, from);
+				Mainframe_GlobalFunctionLib.sendText(16, 55,"        " );
+				Mainframe_GlobalFunctionLib.sendText(16, 55, thru);
+				Mainframe_GlobalFunctionLib.sendText(16, 65, agent);
+				Mainframe_GlobalFunctionLib.sendText(16, 70, reason);
+				Mainframe_GlobalFunctionLib.sendText(16, 75, ignoredrugstatus);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 							
 				/*while(msgvalidation("24","2","Member Prior Authorization number already exists"))
