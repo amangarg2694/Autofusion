@@ -37,11 +37,6 @@ public class CreateorEditMember {
 
 	    else  if(attachPRCFlag.equalsIgnoreCase(""))
 	    	FunctionalLibrary.func_AttachPRCListOnPA(memberID, paNumber, prcList, prcListQual);
-<<<<<<< HEAD
-		
-=======
-	
->>>>>>> f34bccc75f1bddcc2cd0fe73b987fc2246214ea9
 	}
 
 	@When("^I set PA Third Party Exception Ignore Flag as \"([^\"]*)\" on PA \"([^\"]*)\"$")
