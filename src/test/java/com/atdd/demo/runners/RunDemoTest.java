@@ -22,18 +22,25 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
 
+<<<<<<< HEAD
 		features = { "classpath:features/RxClaim/featureFiles/SN003621_SR41928" },
+=======
+>>>>>>> f34bccc75f1bddcc2cd0fe73b987fc2246214ea9
 
+		features = { "classpath:features/RxClaim/featureFiles/AgileTeams/PlanPanthers/Release 8404/SN003716/PlanEdit17_TC1-18.feature" },
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
-
 				"json:target/cucumber.json" },
-
 		glue = { "com.atdd.demo.te" }
+<<<<<<< HEAD
 
 		,tags ={"@Regression"}
 
 
 
+=======
+		,tags ={"@Regression"}
+
+>>>>>>> f34bccc75f1bddcc2cd0fe73b987fc2246214ea9
 )
 
 
@@ -68,10 +75,15 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
  
 	@AfterClass 
 	public static void teardown() throws Exception { 
+<<<<<<< HEAD
 
 
 // 		Mainframe_GlobalFunctionLib.closeTE(); 
 
+=======
+
+ 		Mainframe_GlobalFunctionLib.closeTE(); 
+>>>>>>> f34bccc75f1bddcc2cd0fe73b987fc2246214ea9
 		SDK.cleanup(); 
 		 
  
