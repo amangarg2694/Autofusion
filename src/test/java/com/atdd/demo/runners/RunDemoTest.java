@@ -19,12 +19,12 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
-		features = { "classpath:features/RxClaim/featureFiles/" },
+		features = { "classpath:features/RxClaim/featureFiles" },
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 
 		glue = { "com.atdd.demo.te" }
-		//,tags ={"@Regression"}
+		,tags ={"@Regression9"}
 )
 
 
