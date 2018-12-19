@@ -1,4 +1,3 @@
-@Regression4
 Feature: Newly added Level fields in  Contingent Therapy Sched Protocol screen
   As a RxClaim User I want to Verify that Level fields were added to Contingent Therapy Sched Protocol screen
 

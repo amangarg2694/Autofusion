@@ -1,4 +1,3 @@
-@Regression4
 Feature: Verify Load Extracts
  As a RxClaim User I want to Verify Load extract to verify the details of Schedule
  

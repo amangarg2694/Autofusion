@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-#@Regression8
-=======
 @Regression
->>>>>>> be99dd2788ac089018b95c81085bef3d689c0a64
+
 Feature: Fix Price Override after the specific "#" of fills have been exceeded
 				 
 

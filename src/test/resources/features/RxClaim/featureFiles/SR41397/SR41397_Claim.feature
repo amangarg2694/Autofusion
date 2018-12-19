@@ -1,4 +1,3 @@
-@Regression4
 Feature: Verify whether the claim gets paid or Rejected when Contingent Therapy Type is P,Exclude Level is NDC with Wildacard Zero and CT Protocol Sequece product is NDC
  As a RxClaim User I want to Verify whether the claim gets paid or Rejected when Contingent Therapy Type is P,Exclude Level is NDC with Wildacard Zero and CT Protocol Sequece product is NDC
  

@@ -1,4 +1,3 @@
-@Regression3
 Feature:  AddPAservice
 
 Scenario Outline:AddPAService
