@@ -18,7 +18,7 @@ public class CreateorEditMember {
 	    //throw new PendingException();
 		if(attachDSTFlag.equalsIgnoreCase("No"))
 			dstTable="             ";
-	//	else if(attachDSTFlag.equalsIgnoreCase("Yes"))
+		else if(attachDSTFlag.equalsIgnoreCase("Yes"))
 		FunctionalLibrary.func_AttachDSTOnPA(memberID, paNumber, dstTable);
 	}
 	
@@ -26,8 +26,7 @@ public class CreateorEditMember {
 	public void i_set_Drug_status_on_PA_for_member(String drugStatus, String paNumber,String memberID) throws Throwable {
 		if(drugStatus.length()!=0)
 		FunctionalLibrary.addDrugStatusOnPA(memberID, paNumber, drugStatus);
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new PendingException();
+	   
 	}
 
 	@When("^I attach PRC List \"([^\"]*)\" and Qual \"([^\"]*)\" on PA \"([^\"]*)\" for member \"([^\"]*)\" if Attach PRC List Flag is \"([^\"]*)\"$")
@@ -35,8 +34,8 @@ public class CreateorEditMember {
 	    System.out.println("prc list qual : "+ prcListQual);
 	    if(attachPRCFlag.equalsIgnoreCase("No"))
 	    	prcList="          ";
-	    //else  if(attachPRCFlag.equalsIgnoreCase(""))
-		FunctionalLibrary.func_AttachPRCListOnPA(memberID, paNumber, prcList, prcListQual);
+	    else  if(attachPRCFlag.equalsIgnoreCase(""))
+FunctionalLibrary.func_AttachPRCListOnPA(memberID, paNumber, prcList, prcListQual);
 		
 	}
 

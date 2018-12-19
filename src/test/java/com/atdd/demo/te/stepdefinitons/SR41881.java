@@ -66,6 +66,7 @@ public class SR41881 {
 			//break;
 			
 	}
+	FunctionalLibrary.navigateToRxClaimPlanAdministrator();
 	}
 	
 	@Given("^I am on Work with Subsystem Jobs screen$")

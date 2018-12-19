@@ -6,7 +6,7 @@ Feature: Create New Plan with NDC List for TC001
 Scenario Outline: Create a new Plan with NDC GPI List in RxClaim  
       
     Given I am on RxClaim PlanAdministrator Menu  
-    When I create plan with member eligibility pricing option "<PlanCode>","<FromDate>","<Description>","<ThruDate>","<PriceSchedule>","<PatientPaySchedule>" 
+    When I create plan with member eligibility pricing option MIC "<PlanCode>","<FromDate>","<Description>","<ThruDate>","<PriceSchedule>","<PatientPaySchedule>" 
     And I create the NDC list with "<NDCList>", "<NDCDecs>"
     And I setup a plan With NDC list "<PlanCode>","<NDCList>","<NDCSeq>","<NDCFromDate>","<NDCThruDate>" 
     And I Setup plan "<PlanCode>" with Compounds multiple ingredient option "<CMIPlan>"

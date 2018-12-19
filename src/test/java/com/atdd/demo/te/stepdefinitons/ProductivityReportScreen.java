@@ -559,7 +559,8 @@ public class ProductivityReportScreen {
 	@Given("^I am on Display Report Screen$")
 	public void i_am_on_Display_Report_Screen() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		Mainframe_GlobalFunctionLib.validateText("1", "27", "Display Report");
+		//Mainframe_GlobalFunctionLib.validateText("1", "27", "Display Report");
+		Mainframe_GlobalFunctionLib.validateText("1", "2", "Display Report");
 		Mainframe_GlobalFunctionLib.pressKey("F12");
 		Mainframe_GlobalFunctionLib.pressKey("F12");
 		Mainframe_GlobalFunctionLib.pressKey("F12");
