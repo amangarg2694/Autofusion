@@ -23,12 +23,12 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 
 
-		features = { "classpath:features/RxClaim/featureFiles/SN003621_SR41928" },
+		features = { "classpath:features/RxClaim/featureFiles/SN003419/SN003419_TC_01.feature" },
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 		glue = { "com.atdd.demo.te" }
 
-		,tags ={"@Regression"}
+//		,tags ={"@Regression"}
 
 
 )

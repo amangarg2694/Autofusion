@@ -1,30 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="0" passed="0">
+<testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-<<<<<<< HEAD
-  <suite name="Testng Cucumber Suite" duration-ms="79435" started-at="2018-12-05T13:23:50Z" finished-at="2018-12-05T13:25:10Z">
-=======
-  <suite name="Testng Cucumber Suite" duration-ms="613501" started-at="2018-11-30T08:15:19Z" finished-at="2018-11-30T08:25:33Z">
-
->>>>>>> 9b9c43e05c92b48e3cbcae58e512fda0504bc4cc
+  <suite name="Testng Cucumber Suite" duration-ms="926951" started-at="2018-12-19T17:08:39Z" finished-at="2018-12-19T17:24:06Z">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@235834f2]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@24269709]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test name="Veirify Demo Site Features" duration-ms="79435" started-at="2018-12-05T13:23:50Z" finished-at="2018-12-05T13:25:10Z">
+    <test name="Veirify Demo Site Features" duration-ms="926951" started-at="2018-12-19T17:08:39Z" finished-at="2018-12-19T17:24:06Z">
       <class name="com.atdd.demo.runners.RunDemoTest">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="setUpClass" is-config="true" duration-ms="1388" started-at="2018-12-05T18:53:50Z" finished-at="2018-12-05T18:53:52Z">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@24269709]" name="setUpClass" is-config="true" duration-ms="9361" started-at="2018-12-19T22:38:39Z" finished-at="2018-12-19T22:38:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-<<<<<<< HEAD
-        <test-method status="PASS" signature="setup(java.lang.String, java.lang.String)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="setup" is-config="true" duration-ms="77594" started-at="2018-12-05T18:53:52Z" finished-at="2018-12-05T18:55:09Z">
-=======
-        <test-method status="PASS" signature="setup(java.lang.String, java.lang.String)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="setup" is-config="true" duration-ms="142877" started-at="2018-11-30T13:45:24Z" finished-at="2018-11-30T13:47:47Z">
-
->>>>>>> 9b9c43e05c92b48e3cbcae58e512fda0504bc4cc
+        <test-method status="PASS" signature="setup(java.lang.String, java.lang.String)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@24269709]" name="setup" is-config="true" duration-ms="112321" started-at="2018-12-19T22:38:48Z" finished-at="2018-12-19T22:40:40Z">
           <params>
             <param index="0">
               <value>
@@ -40,23 +30,21 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-<<<<<<< HEAD
-        <test-method status="PASS" signature="teardown()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="teardown" is-config="true" duration-ms="47" started-at="2018-12-05T18:55:09Z" finished-at="2018-12-05T18:55:09Z">
-=======
-        <test-method status="FAIL" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="feature" duration-ms="464271" started-at="2018-11-30T13:47:47Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2018-11-30T13:55:31Z">
+        <test-method status="FAIL" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@24269709]" name="feature" duration-ms="795815" started-at="2018-12-19T22:40:40Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2018-12-19T22:53:56Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files before Table Partitioning]]>
+                <![CDATA[Current Enrollee: Plan Check Negative Formulary �Q�, Product Negative Formulary Change �N� and PA TB �X�]]>
               </value>
             </param>
           </params>
           <exception class="cucumber.runtime.CucumberException">
             <message>
-              <![CDATA[java.lang.AssertionError: The text is not fetched from screen position 1,13.Screenshot captured.]]>
+              <![CDATA[com.hp.lft.sdk.GeneralReplayException: Unspecified error
+]]>
             </message>
             <full-stacktrace>
-              <![CDATA[cucumber.runtime.CucumberException: java.lang.AssertionError: The text is not fetched from screen position 1,13.Screenshot captured.
+              <![CDATA[cucumber.runtime.CucumberException: com.hp.lft.sdk.GeneralReplayException: Unspecified error
 
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
@@ -84,33 +72,39 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-Caused by: java.lang.AssertionError: The text is not fetched from screen position 1,13.Screenshot captured.
-	at org.testng.Assert.fail(Assert.java:94)
-	at com.atdd.te.screenHelpers.FunctionalLibrary.getText(FunctionalLibrary.java:1958)
-	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.i_am_on_RxClaim_PlanAdministrator_Menu(CommonStepDefinition.java:36)
-	at ✽.Given I am on RxClaim PlanAdministrator Menu(features/RxClaim/featureFiles/SR41683/SN003439_TC01toTC12.feature:143)
+Caused by: com.hp.lft.sdk.GeneralReplayException: Unspecified error
 
+	at com.hp.lft.sdk.internal.ReplayExceptionFactory$11.create(ReplayExceptionFactory.java:94)
+	at com.hp.lft.sdk.internal.ReplayExceptionFactory.createOrDefault(ReplayExceptionFactory.java:192)
+	at com.hp.lft.sdk.internal.ReplayExceptionFactory.createOrDefault(ReplayExceptionFactory.java:21)
+	at com.hp.lft.sdk.internal.TestObjectExecuterBehaviorBase$ReplayErrorHandler.onError(TestObjectExecuterBehaviorBase.java:65)
+	at com.hp.lft.sdk.internal.CommunicationClientImpl.handleError(CommunicationClientImpl.java:226)
+	at com.hp.lft.sdk.internal.CommunicationClientImpl.send(CommunicationClientImpl.java:100)
+	at com.hp.lft.sdk.internal.TestObjectExecuterBehavior.executeMethod(TestObjectExecuter.java:33)
+	at com.hp.lft.sdk.internal.TestObjectBase.executeMethod(TestObjectBase.java:119)
+	at com.hp.lft.sdk.internal.te.TeScreen.access$500(TeScreen.java:9)
+	at com.hp.lft.sdk.internal.te.TeScreen$6.invoke(TeScreen.java:78)
+	at com.hp.lft.sdk.internal.TestObjectOperationWrapper.executeWithEvents(TestObjectOperationWrapper.java:81)
+	at com.hp.lft.sdk.internal.TestObjectOperationWrapper.executeWithEvents(TestObjectOperationWrapper.java:102)
+	at com.hp.lft.sdk.internal.te.TeScreen.sendTEKeys(TeScreen.java:81)
+	at com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib.sendText(Mainframe_GlobalFunctionLib.java:154)
+	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.validate_PA_Number_and_TB_fields(CommonStepDefinition.java:569)
+	at ✽.And Validate PA Number and TB fields "<PANumber>","<TBOverride>","<TBPriorDrugSts>","<TBRejectReason1>","<TBRejectReason2>","<TBRejectReason3>","<TBPlanEdit>","<TBPassPreQualifCheck>"(features/RxClaim/featureFiles/SN003419/SN003419_TC_01.feature:25)
 ]]>
             </full-stacktrace>
           </exception> <!-- cucumber.runtime.CucumberException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="teardown" is-config="true" duration-ms="626" started-at="2018-11-30T13:55:31Z" finished-at="2018-11-30T13:55:32Z">
->>>>>>> 9b9c43e05c92b48e3cbcae58e512fda0504bc4cc
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@24269709]" name="teardown" is-config="true" duration-ms="5101" started-at="2018-12-19T22:53:56Z" finished-at="2018-12-19T22:54:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="tearDownClass" is-config="true" duration-ms="375" started-at="2018-12-05T18:55:09Z" finished-at="2018-12-05T18:55:10Z">
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@24269709]" name="tearDownClass" is-config="true" duration-ms="4135" started-at="2018-12-19T22:54:01Z" finished-at="2018-12-19T22:54:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-<<<<<<< HEAD
-        <test-method status="PASS" signature="parser()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="parser" is-config="true" duration-ms="3496" started-at="2018-12-05T18:55:10Z" finished-at="2018-12-05T18:55:13Z">
-=======
-        <test-method status="PASS" signature="parser()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="parser" is-config="true" duration-ms="12934" started-at="2018-11-30T13:55:33Z" finished-at="2018-11-30T13:55:46Z">
-
->>>>>>> 9b9c43e05c92b48e3cbcae58e512fda0504bc4cc
+        <test-method status="PASS" signature="parser()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@24269709]" name="parser" is-config="true" duration-ms="32621" started-at="2018-12-19T22:54:06Z" finished-at="2018-12-19T22:54:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- parser -->

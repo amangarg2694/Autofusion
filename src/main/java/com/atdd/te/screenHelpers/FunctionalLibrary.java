@@ -2762,7 +2762,136 @@ public class FunctionalLibrary extends CommonHelper{
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			
 		}
+		public static void func_updateDrugStatusGPIOptions(String plancode) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(4, 5 ,plancode);
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(6, 51 ,"N");
+		    Mainframe_GlobalFunctionLib.sendText(17, 17 ,"F");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+		}
+		public static void func_updateDrugStatusGPIOptionswithTBMedicareDetail(String plancode, String checknegformchangeonproduct, String negativeformularyfhange, String minmaxquantity, String minmaxdailydose, String quantitydaysupplyptd) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(4, 5 ,plancode);
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(6, 51 ,"Y");
+		    Mainframe_GlobalFunctionLib.sendText(17, 17 ,"8");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+			Mainframe_GlobalFunctionLib.pressKey("F19");
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+		    Mainframe_GlobalFunctionLib.sendText(8, 21 ,"9");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.pressKey("PageDown");
+		    Mainframe_GlobalFunctionLib.sendText(8, 78 ,checknegformchangeonproduct );
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.sendText(7, 21 ,"11");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(11, 2 ,"7");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(12, 2 ,"2");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F20");
+			Mainframe_GlobalFunctionLib.sendText(10, 21 ,"1");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(14, 2 ,"2");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(10, 75 , negativeformularyfhange);
+			Mainframe_GlobalFunctionLib.sendText(12, 27 , minmaxquantity);
+			Mainframe_GlobalFunctionLib.sendText(13, 27 , minmaxdailydose);
+			Mainframe_GlobalFunctionLib.sendText(14, 27 , quantitydaysupplyptd);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+		}
+		public static void func_Validate_PAnumberandTBfields(String panumber, String tboverride, String tbpriordrugsts, String tbrejectreason1, String tbrejectreason2, String tbrejectreason3, String tbplanedit, String tbpassprequalifcheck) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.sendText(4, 23 ,"8");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			if(panumber.length()==0) {  
+				FunctionalLibrary.validateText("11" ,"58" , "" );  
+			}
+			else{
+				FunctionalLibrary.validateText("11" ,"58" , panumber );
+			}
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			if(tboverride.length()==0) {  
+				FunctionalLibrary.validateText("9" ,"17" , "" );  
+			}
+			else{
+				FunctionalLibrary.validateText("9" ,"17" , tboverride );
+			}
+			if(tbpriordrugsts.length()==0) {  
+				FunctionalLibrary.validateText("9" ,"44" , "" );  
+			}
+			else{
+				FunctionalLibrary.validateText("9" ,"44" , tbpriordrugsts );
+			}
+			if(tbrejectreason1.length()==0) {  
+				FunctionalLibrary.validateText("10" ,"17" , "" );  
+			}
+			else{
+				FunctionalLibrary.validateText("10" ,"17" , tbrejectreason1 );
+			}
+			if(tbrejectreason2.length()==0) {  
+				FunctionalLibrary.validateText("10" ,"25" , "" );  
+			}
+			else{
+				FunctionalLibrary.validateText("10" ,"25" , tbrejectreason2 );
+			}
+			if(tbrejectreason3.length()==0) {  
+				FunctionalLibrary.validateText("10" ,"33" , "" );  
+			}
+			else{
+				FunctionalLibrary.validateText("10" ,"33" , tbrejectreason3 );
+			}
+			if(tbplanedit.length()==0) {  
+				FunctionalLibrary.validateText("11" ,"17" , "" );  
+			}
+			else{
+				FunctionalLibrary.validateText("11" ,"17" , tbplanedit );
+			}
+			if(tbpassprequalifcheck.length()==0) {  
+				FunctionalLibrary.validateText("12" ,"25" , "" );  
+			}
+			else{
+				FunctionalLibrary.validateText("12" ,"25" , tbpassprequalifcheck );
+			}
 		
+		}
 	public static void main(String args[]) throws Throwable{
 		
 		FunctionalLibrary fb = new FunctionalLibrary();

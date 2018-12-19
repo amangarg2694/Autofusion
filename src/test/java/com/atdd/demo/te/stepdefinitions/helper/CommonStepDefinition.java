@@ -486,55 +486,17 @@ public class CommonStepDefinition extends CommonHelper{
 		@When("^Update Plan Drug Status and Turnoff GPI Options \"([^\"]*)\"$")
 		public void update_Plan_Drug_Status_and_Turnoff_GPI_Options(String plancode) throws Throwable {
 		    // Write code here that turns the phrase above into concrete actions
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4");
-		    Mainframe_GlobalFunctionLib.pressKey("Enter");
-		    Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1");
-		    Mainframe_GlobalFunctionLib.pressKey("Enter");
-		    Mainframe_GlobalFunctionLib.sendText(4, 5 ,plancode);
-		    Mainframe_GlobalFunctionLib.pressKey("Enter");
-		    Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2");
-		    Mainframe_GlobalFunctionLib.pressKey("Enter");
-		    Mainframe_GlobalFunctionLib.sendText(6, 51 ,"N");
-		    Mainframe_GlobalFunctionLib.pressKey("Enter");
-		    Mainframe_GlobalFunctionLib.sendText(17, 17 ,"F");
-		    Mainframe_GlobalFunctionLib.pressKey("Enter");
-			Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
+			FunctionalLibrary.func_updateDrugStatusGPIOptions(plancode);
 		}
 
-		@Given("^Update Plan Drug Status and Turnon GPI Options \"([^\"]*)\"$")
-		public void update_Plan_Drug_Status_and_Turnon_GPI_Options(String plancode) throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4");
-		    Mainframe_GlobalFunctionLib.pressKey("Enter");
-		    Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1");
-		    Mainframe_GlobalFunctionLib.pressKey("Enter");
-		    Mainframe_GlobalFunctionLib.sendText(4, 5 ,plancode);
-		    Mainframe_GlobalFunctionLib.pressKey("Enter");
-		    Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2");
-		    Mainframe_GlobalFunctionLib.pressKey("Enter");
-		    Mainframe_GlobalFunctionLib.sendText(6, 51 ,"Y");
-		    Mainframe_GlobalFunctionLib.pressKey("Enter");
-		    Mainframe_GlobalFunctionLib.sendText(17, 17 ,"8");
-		    Mainframe_GlobalFunctionLib.pressKey("Enter");
-			Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
-			Mainframe_GlobalFunctionLib.pressKey("F12");
+		@Given("^Update Plan Drug Status and Turnon GPI Options \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void update_Plan_Drug_Status_and_Turnon_GPI_Options(String plancode, String checknegformchangeonproduct, String negativeformularyfhange, String minmaxquantity, String minmaxdailydose, String quantitydaysupplyptd) throws Throwable {
+			FunctionalLibrary.func_updateDrugStatusGPIOptionswithTBMedicareDetail(plancode, checknegformchangeonproduct, negativeformularyfhange, minmaxquantity, minmaxdailydose, quantitydaysupplyptd);
 		}
 
 		@Then("^Validate PA Number and TB fields \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-		public void validate_PA_Number_and_TB_fields(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7, String arg8) throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
-		    
+		public void validate_PA_Number_and_TB_fields(String panumber, String tboverride, String tbpriordrugsts, String tbrejectreason1, String tbrejectreason2, String tbrejectreason3, String tbplanedit, String tbpassprequalifcheck) throws Throwable {
+			FunctionalLibrary.func_Validate_PAnumberandTBfields(panumber, tboverride, tbpriordrugsts, tbrejectreason1, tbrejectreason2, tbrejectreason3, tbplanedit, tbpassprequalifcheck);
 		}	
 	
 }
