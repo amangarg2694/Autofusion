@@ -6,10 +6,7 @@ Feature: FIX-IT: Member Adjustment Load with Medical Data File Closing Issue
     When I call Member Adjustment API Test Prompt Screen with command "<cmdRCMAD725>"
     And I enter data in Member Adjustment API Response screen with "<Carrier>", "<Account>", "<Group>", "<MemberID>", "<AdjustmentDate>", "<AccumulationCode>" "<ReasonCode>", "<AdjustmentAmount>", "<AdjustmentType>", "<RecordTimestamp>", "<RecordOrder>", "<AmountType>", "<SenderType>", "<AdjustmentTime>", "<AdjustmentTimeMS>"
     Then I verify error codes in Member Adjustment API Response screen
-    
-    #When I call Member Adjustment API Test Prompt Screen with command "<cmdRCMAD725>"
-    #And I enter data in Member Adjustment API Response screen with "<Carrier>", "<Account>", "<Group>", "<MemberID>", "<AdjustmentDate>", "<AccumulationCode>" "<ReasonCode>", "<AdjustmentAmount>", "<AdjustmentType>", "<RecordTimestamp>", "<RecordOrder>", "<AmountType>", "<SenderType>", "<AdjustmentTime>", "<AdjustmentTimeMS>"
-    #Then I verify error codes in Member Adjustment API Response screen
+
    Examples: 
     |cmdRCMAD725		 |cmdCreatePhyFile |FileName |Library     |cmdWorkWithFile |Carrier   |Account	 		  |Group         |MemberID   |AdjustmentDate |AccumulationCode |ReasonCode |AdjustmentAmount |AdjustmentType|RecordTimestamp						|RecordOrder|AmountType|SenderType|AdjustmentTime |AdjustmentTimeMS|                                     
     |CALL RCMAD725 ''|CRTPF            |VM341711 |VENKATLIBR  |YWRKF				   |JZTEST341 |JZ3417TESTLOAD |JZ3417TESTING |JZ3417MBR1 |112018	       |UHCOUT 		  		 |COMMERCIAL |31    					 |O						  |2018-11-02-15.29.03.090000 |1          |B				 |M				  |04913        |00 				     |

@@ -198,6 +198,7 @@ public class SN003417_SR42278 {
 		 Mainframe_GlobalFunctionLib.sendText(4, 20, "13");
 		   Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		   Mainframe_GlobalFunctionLib.pressKey("Enter");
+		   Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 	}
 	
 	@Then("^I select option Member Accumulation Adjustments in Adjustment screen$")
@@ -205,25 +206,59 @@ public class SN003417_SR42278 {
 		   Mainframe_GlobalFunctionLib.sendText(5, 20, "1");
 		   Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		   Mainframe_GlobalFunctionLib.pressKey("Enter");
+		   Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 	}
 	
 	//CORE/BOOKA i.e YWRKF
-	@Then("^I add record in CORE with \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\",  \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
-	public void i_add_record_in_CORE_with(String cmdWorkWithFile, String FileName, String Library, String Carrier, String Account, String Group, String MemberID, String AdjusmentDate, String ReasonCode, String AdjustmentAmount, String RecordTimestamp, String RecordOrder, String AmountType, String AdjustmentTime, String AdjustmentTimeMS)throws Throwable {
+	@Then("^I add record in CORE with \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
+	public void i_add_record_in_CORE_with(String cmdWorkWithFile, String FileName, String Library, String Carrier, String Account, String Group, String MemberID, String AdjustmentDate, String ReasonCode, String AdjustmentAmount, String AdjustmentType, String RecordTimestamp, String RecordOrder, String AmountType, String SenderType, String SENDERTIMESTAMP, String AdjustmentTime, String AdjustmentTimeMS)throws Throwable {
 		 Mainframe_GlobalFunctionLib.pressKey("F9");
-		 String pushRecord=Carrier+Account+"  "+Group+"  "+MemberID+"  "+AdjusmentDate+"  "+ReasonCode+"00000"+AdjustmentAmount+"00  "+AmountType+RecordTimestamp+RecordOrder+"  "+AdjustmentAmount+"  "+AdjustmentTime+"   "+AdjustmentTimeMS;
-	     System.out.println("Data is: "+pushRecord);
-		 Reporter.addStepLog("Data is: "+pushRecord);
+	      String pushRecord=Carrier+Account+"  "+Group+"  "+MemberID+"  "+AdjustmentDate+"  "+ReasonCode+"00000"+AdjustmentAmount+"00  "+AdjustmentType+RecordTimestamp+RecordOrder+"  "+AdjustmentAmount+"  "+SENDERTIMESTAMP+AdjustmentTime+"   "+AdjustmentTimeMS;
+	      String searchRecord=Carrier+Account;
+	      System.out.println("Data is: "+pushRecord);
+		  Reporter.addStepLog("Data is: "+pushRecord);
 		  if(cmdWorkWithFile.contains("YWRKF"))
 			{
-		    	 Mainframe_GlobalFunctionLib.sendText(8, 41, pushRecord);
-				 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		    	 //Mainframe_GlobalFunctionLib.sendText(8, 41, pushRecord);
+				Mainframe_GlobalFunctionLib.sendText(8, 41, Carrier);
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Mainframe_GlobalFunctionLib.sendText(8, 50, Account);
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Mainframe_GlobalFunctionLib.sendText(8, 65, Group);
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Mainframe_GlobalFunctionLib.sendText(8, 80, MemberID);
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Mainframe_GlobalFunctionLib.sendText(9, 68, AdjustmentDate);
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Mainframe_GlobalFunctionLib.sendText(10, 45, ReasonCode);
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Mainframe_GlobalFunctionLib.sendText(10, 55, AdjustmentAmount);
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Mainframe_GlobalFunctionLib.sendText(10, 65, AdjustmentType);
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Mainframe_GlobalFunctionLib.sendText(10, 66, RecordTimestamp);
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Mainframe_GlobalFunctionLib.sendText(11, 53, RecordOrder);
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Mainframe_GlobalFunctionLib.sendText(12, 67, AmountType);
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Mainframe_GlobalFunctionLib.sendText(12, 68, SenderType);
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Mainframe_GlobalFunctionLib.sendText(15, 65, SENDERTIMESTAMP);
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Mainframe_GlobalFunctionLib.sendText(16, 51, AdjustmentTime);
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Mainframe_GlobalFunctionLib.sendText(16, 57, AdjustmentTimeMS);
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				 Mainframe_GlobalFunctionLib.pressKey("Enter");
 				 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				 Mainframe_GlobalFunctionLib.sendText(24, 73, "Y");
 				 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-				 
+				Thread.sleep(6000);
 				Mainframe_GlobalFunctionLib.pressKey("F13");
+				Mainframe_GlobalFunctionLib.pressKey("F5");
+				Thread.sleep(5000);
+				Mainframe_GlobalFunctionLib.pressKey("F5");
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				try{
 					label3: for(int i=8; i<=21; i++)
@@ -237,7 +272,7 @@ public class SN003417_SR42278 {
 								System.out.println("Actual Record is BLANK");
 								Reporter.addStepLog("Actual Record is BLANK");
 							}
-				  		 if(pushRecord.contains(ActualRecordData))
+				  		 if(ActualRecordData.contains(searchRecord))
 							{
 								System.out.println("Added Record is: "+ActualRecordData);
 								Reporter.addStepLog("Added Record is: "+ActualRecordData);
@@ -249,7 +284,7 @@ public class SN003417_SR42278 {
 								 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 								break label3;
 							 }
-					  		 else if(i==21)
+					  	if(i==21)
 					  		 {
 					  			 Mainframe_GlobalFunctionLib.pressKey("PageDown");
 								 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -406,209 +441,213 @@ public void i_add_record_in_book_one_with(String cmdWorkWithFile, String FileNam
 				 }
 		        }
 		
-	@Then("^I validate Manual Adjustment details page with \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
-	public void i_validate_Manual_Adjustment_details_page_with(String Carrier, String Account, String Group, String MemberID, String AdjustmentDate, String ReasonCode, String AdjustmentAmount, String RecordTimestamp, String AmountType, String AdjustmentTime, String AdjustmentTimeMS) throws Throwable {
+@Then("^I validate Manual Adjustment details page with \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
+public void i_validate_Manual_Adjustment_details_page_with(String Carrier, String Account, String Group, String MemberID, String AdjustmentDate, String ReasonCode, String AdjustmentAmount, String AdjustmentType, String RecordTimestamp, String RecordOrder, String AmountType, String SenderType, String SENDERTIMESTAMP, String AdjustmentTime, String AdjustmentTimeMS) throws Throwable {
 	   	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 	   //	Mainframe_GlobalFunctionLib.pressKey("F8");
 	   	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		try {
 			    int i;
-				for(i=15; i<22; i++)
+				label5: for(i=15; i<22; i++)
 				{
 				  String actualAmountValue=Mainframe_GlobalFunctionLib.getText(i, 66);
-					// if(actualAmountValue.length()<=0)
+				  System.out.println("@RCMAD001-Active Manual Adjustment Page: Actual Amount Value is: "+actualAmountValue);
+				  Reporter.addStepLog("@RCMAD001-Active Manual Adjustment Page: Actual Amount Value is: "+actualAmountValue);
+				  //if(actualAmountValue!= null && actualAmountValue!="")
 					if(actualAmountValue!= null && actualAmountValue!="")
 					 {
-						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-						System.out.println("No records @ RCMAD0033-Manual Adjustment Detail Page");
-					    Reporter.addStepLog("No records @ RCMAD0033-Manual Adjustment Detail Page");
-					    System.exit(0);
-					 }
-					 else
-					 {
-					  int lengthAmountValue = actualAmountValue.length();
-					  String finalAmountValue=actualAmountValue.substring(0,lengthAmountValue-3);
-					  System.out.println("@RCMAD004-Manual Adjustment screen-Actual Amount value is: "+finalAmountValue);
-					  Reporter.addStepLog("@RCMAD004-Manual Adjustment screen-Actual Amount value is: "+finalAmountValue);
-					  System.out.println("@Pushed Amount value is: "+AdjustmentAmount);
-					  Reporter.addStepLog("@Pushed Amount value is: "+AdjustmentAmount);
-					  if(finalAmountValue.contains(AdjustmentAmount))
-					  {
-						 System.out.println("@RCMAD004-Manual Adjustment screen-Expected Amount value is: "+finalAmountValue);
-						 Reporter.addStepLog("@RCMAD004-Manual Adjustment screen-Expected Amount value is: "+finalAmountValue);
-						 Mainframe_GlobalFunctionLib.sendText(i, 2, "5");
-						 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-						 Mainframe_GlobalFunctionLib.pressKey("Enter");
-						 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-						 String actualCarrier= Mainframe_GlobalFunctionLib.getText(5, 11);
-						 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Carrier is: "+actualCarrier);
-						 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Carrier is: "+actualCarrier);
-							 if(actualCarrier.equals(Carrier))
-							 {
-								 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Carrier shown ie: "+actualCarrier);
-								 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Carrier shown ie: "+actualCarrier);
-							 }
-							 else
-							 {
-								 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Carrier not shown ie: "+Carrier);
-								 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Carrier not shown ie: "+Carrier);
-							 }
-							 
-						 String actualAccount= Mainframe_GlobalFunctionLib.getText(6, 11);
-						 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Account is: "+actualAccount);
-						 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Account is: "+actualAccount);
-							 if(actualAccount.equals(Account))
-							 {
-								 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Account shown ie: "+actualAccount);
-								 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Account shown ie: "+actualAccount);
-							 }
-							 else
-							 {
-								 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Account not shown ie: "+Account);
-								 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Account not shown ie: "+Account);
-							 }
-							 
-						 String actualGroup= Mainframe_GlobalFunctionLib.getText(7, 11);
-						 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Group is: "+actualGroup);
-						 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Group is: "+actualGroup);
-							 if(actualGroup.equals(Group))
-							 {
-								 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Group shown ie: "+actualGroup);
-								 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Group shown ie: "+actualGroup);
-							 }
-							 else
-							 {
-								 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Group not shown ie: "+Group);
-								 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Group not shown ie: "+Group);
-							 }
-							 
-						 String actualMemberID= Mainframe_GlobalFunctionLib.getText(8, 11);
-						 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-MemberID is: "+actualMemberID);
-						 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-MemberID is: "+actualMemberID);
-								 if(actualMemberID.equals(MemberID))
+						  int lengthAmountValue = actualAmountValue.length();
+						  String finalAmountValue=actualAmountValue.substring(0,lengthAmountValue-3);
+						  System.out.println("@RCMAD001-Active Manual Adjustment Page:-Actual Amount value is: "+finalAmountValue);
+						  Reporter.addStepLog("@RCMAD001-Active Manual Adjustment Page:-Actual Amount value is: "+finalAmountValue);
+						  System.out.println("@Pushed Amount value is: "+AdjustmentAmount);
+						  Reporter.addStepLog("@Pushed Amount value is: "+AdjustmentAmount);
+						  if(AdjustmentAmount.contains(finalAmountValue))
+						  {
+							 System.out.println("@RCMAD001-Active Manual Adjustment Page-Expected Amount value is: "+finalAmountValue);
+							 Reporter.addStepLog("@RCMAD001-Active Manual Adjustment Page-Expected Amount value is: "+finalAmountValue);
+							 Mainframe_GlobalFunctionLib.sendText(i, 2, "5");
+							 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+							 Mainframe_GlobalFunctionLib.pressKey("Enter");
+							 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+							 String actualCarrier= Mainframe_GlobalFunctionLib.getText(5, 11);
+							 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Carrier is: "+actualCarrier);
+							 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Carrier is: "+actualCarrier);
+								 if(actualCarrier.equals(Carrier))
 								 {
-									 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected MemberID shown ie: "+actualMemberID);
-									 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected MemberID shown ie: "+actualMemberID);
+									 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Carrier shown ie: "+actualCarrier);
+									 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Carrier shown ie: "+actualCarrier);
 								 }
 								 else
 								 {
-									 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected MemberID not shown ie: "+MemberID);
-									 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected MemberID not shown ie: "+MemberID);
+									 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Carrier not shown ie: "+Carrier);
+									 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Carrier not shown ie: "+Carrier);
 								 }
 								 
-						 String actualAdjustmentDate= Mainframe_GlobalFunctionLib.getText(10, 24);
-						 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Adjustment Date is: "+actualAdjustmentDate);
-						 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Adjustment Date is: "+actualAdjustmentDate);
-								 if(actualAdjustmentDate.contains(AdjustmentDate))
+							 String actualAccount= Mainframe_GlobalFunctionLib.getText(6, 11);
+							 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Account is: "+actualAccount);
+							 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Account is: "+actualAccount);
+								 if(actualAccount.equals(Account))
 								 {
-									 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Date shown ie: "+actualAdjustmentDate);
-									 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Date shown ie: "+actualAdjustmentDate);
+									 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Account shown ie: "+actualAccount);
+									 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Account shown ie: "+actualAccount);
 								 }
 								 else
 								 {
-									 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Date not shown ie: "+AdjustmentDate);
-									 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Date not shown ie: "+AdjustmentDate);
+									 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Account not shown ie: "+Account);
+									 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Account not shown ie: "+Account);
 								 }
-						
-						 String actualReasonCode= Mainframe_GlobalFunctionLib.getText(13, 24);
-						 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Reason Code is: "+actualReasonCode);
-						 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Reason Code is: "+actualReasonCode);
-								 if(actualReasonCode.contains(ReasonCode))
-								 {
-									 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Reason Code shown ie: "+actualReasonCode);
-									 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Reason Code shown ie: "+actualReasonCode);
-								 }
-								 else
-								 {
-									 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Reason Code not shown ie: "+ReasonCode);
-									 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Reason Code not shown ie: "+ReasonCode);
-								 }
-										 
-						 String actualAmount= Mainframe_GlobalFunctionLib.getText(14, 24);
-						 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Amount is: "+actualAmount);
-						 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Amount is: "+actualAmount);
-								 if(actualAmount.contains(AdjustmentAmount))
-								 {
-									 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Amount shown ie: "+actualAmount);
-									 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Amount shown ie: "+actualAmount);
-								 }
-								 else
-								 {
-									 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Amount not shown ie: "+AdjustmentAmount);
-									 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Amount not shown ie: "+AdjustmentAmount);
-								 }
-			 
 								 
-						 String actualTimeStamp= Mainframe_GlobalFunctionLib.getText(18, 24);
-						 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Actual Time Stamp is: "+actualTimeStamp);
-						 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Actual Time Stamp is: "+actualTimeStamp);
-								 if(actualTimeStamp.equalsIgnoreCase(RecordTimestamp))
+							 String actualGroup= Mainframe_GlobalFunctionLib.getText(7, 11);
+							 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Group is: "+actualGroup);
+							 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Group is: "+actualGroup);
+								 if(actualGroup.equals(Group))
 								 {
-									 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Time Stamp shown ie: "+actualTimeStamp);
-									 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Time Stamp shown ie: "+actualTimeStamp);
+									 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Group shown ie: "+actualGroup);
+									 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Group shown ie: "+actualGroup);
 								 }
 								 else
 								 {
-									 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Time Stamp not shown ie: "+RecordTimestamp);
-									 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Time Stamp not shown ie: "+RecordTimestamp);
-								 }			 
+									 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Group not shown ie: "+Group);
+									 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Group not shown ie: "+Group);
+								 }
+								 
+							 String actualMemberID= Mainframe_GlobalFunctionLib.getText(8, 11);
+							 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-MemberID is: "+actualMemberID);
+							 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-MemberID is: "+actualMemberID);
+									 if(actualMemberID.equals(MemberID))
+									 {
+										 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected MemberID shown ie: "+actualMemberID);
+										 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected MemberID shown ie: "+actualMemberID);
+									 }
+									 else
+									 {
+										 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected MemberID not shown ie: "+MemberID);
+										 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected MemberID not shown ie: "+MemberID);
+									 }
+									 
+							 String actualAdjustmentDate= Mainframe_GlobalFunctionLib.getText(10, 24);
+							 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Adjustment Date is: "+actualAdjustmentDate);
+							 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Adjustment Date is: "+actualAdjustmentDate);
+									 if(actualAdjustmentDate.contains(AdjustmentDate))
+									 {
+										 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Date shown ie: "+actualAdjustmentDate);
+										 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Date shown ie: "+actualAdjustmentDate);
+									 }
+									 else
+									 {
+										 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Date not shown ie: "+AdjustmentDate);
+										 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Date not shown ie: "+AdjustmentDate);
+									 }
 							
-							 
-						String actualAmountType= Mainframe_GlobalFunctionLib.getText(15, 24);
-						System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Actual Amount Type is: "+actualAmountType);
-						Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Actual Amount Type is: "+actualAmountType);
-								 if(actualAmountType.equalsIgnoreCase(AmountType))
-								 {
-									 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Amount Type shown ie: "+actualAmountType);
-									 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Amount Type shown ie: "+actualAmountType);
-								 }
-								 else
-								 {
-									 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Amount Type not shown ie: "+AmountType);
-									 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Amount Type not shown ie: "+AmountType);
-								 }
+							 String actualReasonCode= Mainframe_GlobalFunctionLib.getText(13, 24);
+							 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Reason Code is: "+actualReasonCode);
+							 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Reason Code is: "+actualReasonCode);
+									 if(actualReasonCode.contains(ReasonCode))
+									 {
+										 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Reason Code shown ie: "+actualReasonCode);
+										 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Reason Code shown ie: "+actualReasonCode);
+									 }
+									 else
+									 {
+										 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Reason Code not shown ie: "+ReasonCode);
+										 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Reason Code not shown ie: "+ReasonCode);
+									 }
+											 
+							 String actualAmount= Mainframe_GlobalFunctionLib.getText(14, 24);
+							 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Amount is: "+actualAmount);
+							 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Amount is: "+actualAmount);
+									 if(AdjustmentAmount.contains(finalAmountValue))
+									 {
+										 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Amount shown ie: "+actualAmount);
+										 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Amount shown ie: "+actualAmount);
+									 }
+									 else
+									 {
+										 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Amount not shown ie: "+AdjustmentAmount);
+										 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Amount not shown ie: "+AdjustmentAmount);
+									 }
+				 
 									 
-						 String actualAdjustmentTime= Mainframe_GlobalFunctionLib.getText(10, 52);
-						 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Actual Adjustment Time is: "+actualAdjustmentTime);
-						 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Actual Adjustment Time is: "+actualAdjustmentTime);
-								 if(actualAdjustmentTime.equalsIgnoreCase(AdjustmentTime))
-								 {
-									System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Time shown ie: "+actualAdjustmentTime);
-									Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Time shown ie: "+actualAdjustmentTime);
-								}
-								else
-								{
-									System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Time not shown ie: "+AdjustmentTime);
-									Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Time not shown ie: "+AdjustmentTime);
-								}
-									 
-						 String actualAdjustmentTimeMS= Mainframe_GlobalFunctionLib.getText(10, 64);
-						 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Actual Adjustment Time in MS is: "+actualAdjustmentTimeMS);
-						 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Actual Adjustment Time in MS is: "+actualAdjustmentTime);
-								 if(actualAdjustmentTimeMS.equalsIgnoreCase(AdjustmentTimeMS))
-								 {
-									System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Time in MS shown ie: "+actualAdjustmentTimeMS);
-									Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Time in MS shown ie: "+actualAdjustmentTimeMS);
-								}
-								else
-								{
-									System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Time in MS not shown ie: "+AdjustmentTimeMS);
-									Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Time in MS not shown ie: "+AdjustmentTimeMS);
-								}
-					  }
-					  else
-					  {	 
-						  System.out.println("@RCMAD004-Manual Adjustment screen-Expected Amount value not found ie: "+finalAmountValue);
-						  Reporter.addStepLog("@RCMAD004-Manual Adjustment screen-Expected Amount value not found ie: "+finalAmountValue);
-					  }
-				  } 
-				 }
-		      }catch (Exception e)
+							 String actualTimeStamp= Mainframe_GlobalFunctionLib.getText(18, 24);
+							 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Actual Time Stamp is: "+actualTimeStamp);
+							 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Actual Time Stamp is: "+actualTimeStamp);
+									 if(actualTimeStamp.equalsIgnoreCase(RecordTimestamp))
+									 {
+										 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Time Stamp shown ie: "+actualTimeStamp);
+										 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Time Stamp shown ie: "+actualTimeStamp);
+									 }
+									 else
+									 {
+										 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Time Stamp not shown ie: "+RecordTimestamp);
+										 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Time Stamp not shown ie: "+RecordTimestamp);
+									 }			 
+								
+								 
+							String actualAmountType= Mainframe_GlobalFunctionLib.getText(15, 24);
+							System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Actual Amount Type is: "+actualAmountType);
+							Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Actual Amount Type is: "+actualAmountType);
+									 if(actualAmountType.equalsIgnoreCase(AmountType))
+									 {
+										 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Amount Type shown ie: "+actualAmountType);
+										 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Amount Type shown ie: "+actualAmountType);
+									 }
+									 else
+									 {
+										 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Amount Type not shown ie: "+AmountType);
+										 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Amount Type not shown ie: "+AmountType);
+									 }
+										 
+							 String actualAdjustmentTime= Mainframe_GlobalFunctionLib.getText(10, 52);
+							 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Actual Adjustment Time is: "+actualAdjustmentTime);
+							 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Actual Adjustment Time is: "+actualAdjustmentTime);
+									 if(actualAdjustmentTime.equalsIgnoreCase(AdjustmentTime))
+									 {
+										System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Time shown ie: "+actualAdjustmentTime);
+										Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Time shown ie: "+actualAdjustmentTime);
+									}
+									else
+									{
+										System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Time not shown ie: "+AdjustmentTime);
+										Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Time not shown ie: "+AdjustmentTime);
+									}
+										 
+							 String actualAdjustmentTimeMS= Mainframe_GlobalFunctionLib.getText(10, 64);
+							 System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Actual Adjustment Time in MS is: "+actualAdjustmentTimeMS);
+							 Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Actual Adjustment Time in MS is: "+actualAdjustmentTime);
+									 if(actualAdjustmentTimeMS.equalsIgnoreCase(AdjustmentTimeMS))
+									 {
+										System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Time in MS shown ie: "+actualAdjustmentTimeMS);
+										Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Time in MS shown ie: "+actualAdjustmentTimeMS);
+									}
+									else
+									{
+										System.out.println("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Time in MS not shown ie: "+AdjustmentTimeMS);
+										Reporter.addStepLog("@RCMAD0033-Manual Adjustment Detail Page-Expected Adjustment Time in MS not shown ie: "+AdjustmentTimeMS);
+									}
+									 break label5;
+						  }
+						  else
+						  {	 
+							  System.out.println("@RCMAD001-Manual Adjustment screen-Expected Amount value not found ie: "+AdjustmentAmount);
+							  Reporter.addStepLog("@RCMAD001-Manual Adjustment screen-Expected Amount value not found ie: "+AdjustmentAmount);
+						  }
+					 	  }
+					else
+					  {				
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						System.out.println("No records @ RCMAD001-Active Manual Adjustment Page");
+					    Reporter.addStepLog("No records @ RCMAD001-Active Manual Adjustment Page");
+					    System.exit(0);
+						  }
+					 }
+				}
+		      catch (Exception e)
 					{
 			    	  	System.out.println("Exception: "+e);
 						Reporter.addStepLog("Exception: "+e);
-						System.out.println("No Records Found @RCMAD0033-Manual Adjustment Detail Page");
-						Reporter.addStepLog("No Records Found@RCMAD0033-Manual Adjustment Detail Page");
+						/*System.out.println("No Records Found @RCMAD0033-Manual Adjustment Detail Page");
+						Reporter.addStepLog("No Records Found@RCMAD0033-Manual Adjustment Detail Page");*/
 		    		}
 			FunctionalLibrary.navigateToRxClaimPlanAdministrator();
 		 }//end of for loop
