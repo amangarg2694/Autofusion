@@ -11,17 +11,24 @@ public class SR42055 {
 	    // Write code here that turns the phrase above into concrete actions
 	    FunctionalLibrary.enterText(4,4,Member);
 	    FunctionalLibrary.pressEnter();
-	    for(int i=16;i<19;i++){
+	    FunctionalLibrary.enterText(10,2,"2");
+	    FunctionalLibrary.pressEnter();
+	    /*for(int i=16;i<19;i++){
+	    	FunctionalLibrary.pressKey("F16");
+	    	
 	    	if(FunctionalLibrary.getText(i,5).equals(PaNumber)){
 		    	FunctionalLibrary.enterText(i, 2, "2");
 		    }
 	    	else
 	    		i++;
-	    }
-	    
-	    FunctionalLibrary.enterText(10, 2, "2");
+	    }*/
+	    FunctionalLibrary.enterText(9,5,PaNumber);
+	    FunctionalLibrary.pressEnter();
+	    FunctionalLibrary.enterText(16,2,"2");
+	    FunctionalLibrary.pressEnter();
+	    /*FunctionalLibrary.enterText(10, 2, "2");
 	    FunctionalLibrary.pressKey("F16");
-	    FunctionalLibrary.pressKey("PageDown");
+	    FunctionalLibrary.pressKey("PageDown");*/
 	   
 	    
 	}
