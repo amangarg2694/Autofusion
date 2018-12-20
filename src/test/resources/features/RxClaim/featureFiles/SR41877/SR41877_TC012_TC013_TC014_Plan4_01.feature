@@ -1,4 +1,3 @@
-@Regresssion1
 Feature: Create New Plan with NDC List for Compound claim is accepted when Member PA compound set to Y
  As a RxClaim User I want to Validate Compound claim is accepted when Member PA compound set to Y for Qty,Age and DS 
       

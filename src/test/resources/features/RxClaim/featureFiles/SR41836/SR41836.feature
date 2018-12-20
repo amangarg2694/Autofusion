@@ -26,7 +26,7 @@ Feature: FIX IT: BATCH: Omnicom POS Rebates - Quarterly Reporting
    
     Examples:
     | BIN     | ProcCtrl   |	Group      | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID   | DspQty | DS | PSC | Cost |DateFrom|DateThru|CarrierFrom|CarrierThru|AccountFrom|AccountThru|GroupFrom|GroupThru|Netpaidonly|Paid|Rejected|Reversed|Captured|FileName |Library |
-		|	777777  | SN000869PC |	SN000869G1 | 1476969     | 765431378333 | 00     | 081618   | SN000869MEM3 | 37000051106 |30      |30  |00   |100   |010101  |123139	|SN000869C  |SN000869C  |SN000869A  |SN000869A	|SN000869G|SN000869G| N					| Y  | N			| N			 |   N		|SN000869 |ANILALIB|
+		|	777777  | SN000869PC |	SN000869G1 | 1476969     | 765431310333 | 00     | 120418   | SN000869MEM3 | 37000051106 |30      |30  |00   |100   |010101  |123139	|SN000869C  |SN000869C  |SN000869A  |SN000869A	|SN000869G|SN000869G| N					| Y  | N			| N			 |   N		|SN000869 |ANILALIB|
      
 			
 		
