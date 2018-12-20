@@ -1,4 +1,4 @@
-@Regression @Release_8403
+#@Regression @Release_8403
 Feature: Medicaid Subrogation Profile 
   As a RxClaim User I want to check claim is getting rejected for reason code 75 
 

@@ -77,5 +77,3 @@ Examples:
 | TransactionFromDate | TransactionThruDate | CarrierFrom | CarrierThru | ClassField | ClassField1 |SortCriteria |SummaryDetail |FileName    | Library | Juser  | Jname      | Report |         
 | 010117              | 123117              | BHUCAR      | VAH         | *BLANK     |     N5      |1            |D             |SR41404F43  | USRSAKK | YMAD   | CLRAPRDEXT | PRODUCTIVITY DETAIL REPORT |
 
-
-

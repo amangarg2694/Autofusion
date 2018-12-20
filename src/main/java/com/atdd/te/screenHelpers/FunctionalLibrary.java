@@ -1,10 +1,15 @@
 package com.atdd.te.screenHelpers;
 
 import java.io.IOException;
+
+
+import java.lang.reflect.Array;
+
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.Calendar;
+
 import java.util.StringTokenizer;
 
 import org.testng.Assert;
@@ -43,6 +48,7 @@ public class FunctionalLibrary extends CommonHelper{
 		public static void navigateToScreen(String option) throws Exception  {
 			try{
 			Mainframe_GlobalFunctionLib.sendText(21, 7 ,option );
+
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			if(ScreenshotOption.equalsIgnoreCase("Always")){
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -357,6 +363,59 @@ public class FunctionalLibrary extends CommonHelper{
 				}
 		else{
 			Mainframe_GlobalFunctionLib.pressKey("F12");
+			System.out.println("Member exists");
+			Reporter.addStepLog("Member exists");
+		}
+						
+		
+			if(ScreenshotOption.equalsIgnoreCase("Always")){
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				}
+				}catch(Exception e)
+				{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+					Assert.fail("An error has occured while creating a member.Screenshot is captured");
+					e.printStackTrace();
+				}
+	}
+	
+	public static void createMemberWithOverridePlan(String carrierID, String accountID, String groupID, String memberID, String firstName, String lastName, String dob, String fromDate, String thruDate,String overridePlan) throws Throwable
+	{	
+		try {
+			navigateToRxClaimPlanAdministrator();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try{
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		if(!(func_SearchAndSelectADataEditMode("4,4" ,memberID ,"10,4" , memberID)))
+		{
+				Thread.sleep(1000);
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(4, 10, carrierID);
+				Mainframe_GlobalFunctionLib.sendText(5, 10, accountID);
+				Mainframe_GlobalFunctionLib.sendText(6, 10, groupID);
+				Mainframe_GlobalFunctionLib.sendText(7, 10, memberID);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(6 , 29 ,lastName);
+				Mainframe_GlobalFunctionLib.sendText(6, 57, firstName);
+				Mainframe_GlobalFunctionLib.sendText(7,40, dob);
+				Mainframe_GlobalFunctionLib.sendText(20, 2, fromDate);			
+				Mainframe_GlobalFunctionLib.sendText(20, 12, thruDate);
+				Mainframe_GlobalFunctionLib.sendText(20, 22, overridePlan);
+				
+				Mainframe_GlobalFunctionLib.pressKey("Enter");				
+				Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				//Mainframe_GlobalFunctionLib.pressKey("F12");
+			//	Mainframe_GlobalFunctionLib.pressKey("F12");
+				System.out.println("Member is created");
+				Reporter.addStepLog("Member is created");
+				}
+		else{
+		//	Mainframe_GlobalFunctionLib.pressKey("F12");
 			System.out.println("Member exists");
 			Reporter.addStepLog("Member exists");
 		}
@@ -1276,6 +1335,7 @@ public class FunctionalLibrary extends CommonHelper{
 			Mainframe_GlobalFunctionLib.sendText(10, 47,"         " );
 			Mainframe_GlobalFunctionLib.sendText(10, 47,cost );
 		}
+
 			System.out.println("Claim is created");
 			if(ScreenshotOption.equalsIgnoreCase("Always")){
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -1555,6 +1615,8 @@ public class FunctionalLibrary extends CommonHelper{
 		
 		if(ScreenshotOption.equalsIgnoreCase("Always")){
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			Reporter.addStepLog("RxClaim Number :"+ Mainframe_GlobalFunctionLib.getText(20, 12));
+			
 			}
 			}catch(Exception e)
 			{	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -1633,7 +1695,7 @@ public class FunctionalLibrary extends CommonHelper{
 		Mainframe_GlobalFunctionLib.sendText(stData.nextToken(),stData.nextToken(), Data);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 	
- System.out.println("check the row value"+row);
+		System.out.println("check the row value"+row);
 	
 		if(Mainframe_GlobalFunctionLib.getText(row, Integer.parseInt(col)).trim().toLowerCase().contentEquals(DataSearch.trim().toLowerCase()))
 	{
@@ -1641,7 +1703,7 @@ public class FunctionalLibrary extends CommonHelper{
 	bRes=true;
 	Mainframe_GlobalFunctionLib.sendText(row, 2, "2");
 	Mainframe_GlobalFunctionLib.pressKey("Enter");
-	Thread.sleep(2000);
+	Thread.sleep(1000);
 	}
 	}
 	catch(Exception e){
@@ -1910,8 +1972,10 @@ public class FunctionalLibrary extends CommonHelper{
 		public static void validateText(String row , String col , String text) throws IOException{
 			try{
 				//boolean b = 
+				Reporter.addStepLog("Expected Value :" +text);
+				Reporter.addStepLog("Actual Value :" +Mainframe_GlobalFunctionLib.getText(Integer.parseInt(row), Integer.parseInt(col)));
 					Mainframe_GlobalFunctionLib.validateText(row ,col , text );	
-				if(ScreenshotOption.equalsIgnoreCase("Always")){
+				 if(ScreenshotOption.equalsIgnoreCase("Always")){
 					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 					//if( b == false)
 						//Assert.fail("The text "+ text +" does not match on the screen.Screenshot captured.");
@@ -2108,7 +2172,7 @@ public class FunctionalLibrary extends CommonHelper{
 			}
 		}
 		//Member PA Creation
-		public static void func_SetPriorAuth(String number, String type, String ndcgpilist, String from, String thru, String agent, String reason, String ignoredrugstatus) throws Throwable
+		public static void func_SetPriorAuth(String number, String type, String otc, String ndcgpilist, String from, String thru, String agent, String reason, String ignoredrugstatus) throws Throwable
 		{
 
 			String sValue=number;
@@ -2132,14 +2196,15 @@ public class FunctionalLibrary extends CommonHelper{
 				Mainframe_GlobalFunctionLib.sendText(16, 5 ,sValue);
 				Mainframe_GlobalFunctionLib.sendText(16, 23,"*");
 				Mainframe_GlobalFunctionLib.sendText(16, 18, type);
-				Mainframe_GlobalFunctionLib.sendText(16, 26, ndcgpilist);
-				Mainframe_GlobalFunctionLib.sendText(16, 42,"        " );
-				Mainframe_GlobalFunctionLib.sendText(16, 42, from);
-				Mainframe_GlobalFunctionLib.sendText(16, 51,"        " );
-				Mainframe_GlobalFunctionLib.sendText(16, 51, thru);
-				Mainframe_GlobalFunctionLib.sendText(16, 61, agent);
-				Mainframe_GlobalFunctionLib.sendText(16, 66, reason);
-				Mainframe_GlobalFunctionLib.sendText(16, 71, ignoredrugstatus);
+				Mainframe_GlobalFunctionLib.sendText(16, 27, otc);
+				Mainframe_GlobalFunctionLib.sendText(16, 30, ndcgpilist);
+				Mainframe_GlobalFunctionLib.sendText(16, 46,"        " );
+				Mainframe_GlobalFunctionLib.sendText(16, 46, from);
+				Mainframe_GlobalFunctionLib.sendText(16, 55,"        " );
+				Mainframe_GlobalFunctionLib.sendText(16, 55, thru);
+				Mainframe_GlobalFunctionLib.sendText(16, 65, agent);
+				Mainframe_GlobalFunctionLib.sendText(16, 70, reason);
+				Mainframe_GlobalFunctionLib.sendText(16, 75, ignoredrugstatus);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 							
 				/*while(msgvalidation("24","2","Member Prior Authorization number already exists"))
@@ -2606,6 +2671,8 @@ public class FunctionalLibrary extends CommonHelper{
 		
 		public static void func_CompareStrings(String sActualStr,String sExpectedStr)throws Throwable
 		{
+			Reporter.addStepLog("Expected Value :" +sExpectedStr);
+			Reporter.addStepLog("Actual Value :" +sActualStr);
 //			if(sActualStr.contains(sExpectedStr))
 			if(sActualStr.equals(sExpectedStr))
 			{
@@ -2695,6 +2762,136 @@ public class FunctionalLibrary extends CommonHelper{
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			
 		}
+		public static void func_updateDrugStatusGPIOptions(String plancode) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(4, 5 ,plancode);
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(6, 51 ,"N");
+		    Mainframe_GlobalFunctionLib.sendText(17, 17 ,"F");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+		}
+		public static void func_updateDrugStatusGPIOptionswithTBMedicareDetail(String plancode, String checknegformchangeonproduct, String negativeformularyfhange, String minmaxquantity, String minmaxdailydose, String quantitydaysupplyptd) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(4, 5 ,plancode);
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(6, 51 ,"Y");
+		    Mainframe_GlobalFunctionLib.sendText(17, 17 ,"8");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+			Mainframe_GlobalFunctionLib.pressKey("F19");
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+		    Mainframe_GlobalFunctionLib.sendText(8, 21 ,"9");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.pressKey("PageDown");
+		    Mainframe_GlobalFunctionLib.sendText(8, 78 ,checknegformchangeonproduct );
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.sendText(7, 21 ,"11");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(11, 2 ,"7");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(12, 2 ,"2");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F20");
+			Mainframe_GlobalFunctionLib.sendText(10, 21 ,"1");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(14, 2 ,"2");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(10, 75 , negativeformularyfhange);
+			Mainframe_GlobalFunctionLib.sendText(12, 27 , minmaxquantity);
+			Mainframe_GlobalFunctionLib.sendText(13, 27 , minmaxdailydose);
+			Mainframe_GlobalFunctionLib.sendText(14, 27 , quantitydaysupplyptd);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+		}
+		public static void func_Validate_PAnumberandTBfields(String panumber, String tboverride, String tbpriordrugsts, String tbrejectreason1, String tbrejectreason2, String tbrejectreason3, String tbplanedit, String tbpassprequalifcheck) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.sendText(4, 23 ,"8");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			if(panumber.length()==0) {  
+				FunctionalLibrary.validateText("11" ,"58" , "" );  
+			}
+			else{
+				FunctionalLibrary.validateText("11" ,"58" , panumber );
+			}
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			if(tboverride.length()==0) {  
+				FunctionalLibrary.validateText("9" ,"17" , "" );  
+			}
+			else{
+				FunctionalLibrary.validateText("9" ,"17" , tboverride );
+			}
+			if(tbpriordrugsts.length()==0) {  
+				FunctionalLibrary.validateText("9" ,"44" , "" );  
+			}
+			else{
+				FunctionalLibrary.validateText("9" ,"44" , tbpriordrugsts );
+			}
+			if(tbrejectreason1.length()==0) {  
+				FunctionalLibrary.validateText("10" ,"17" , "" );  
+			}
+			else{
+				FunctionalLibrary.validateText("10" ,"17" , tbrejectreason1 );
+			}
+			if(tbrejectreason2.length()==0) {  
+				FunctionalLibrary.validateText("10" ,"25" , "" );  
+			}
+			else{
+				FunctionalLibrary.validateText("10" ,"25" , tbrejectreason2 );
+			}
+			if(tbrejectreason3.length()==0) {  
+				FunctionalLibrary.validateText("10" ,"33" , "" );  
+			}
+			else{
+				FunctionalLibrary.validateText("10" ,"33" , tbrejectreason3 );
+			}
+			if(tbplanedit.length()==0) {  
+				FunctionalLibrary.validateText("11" ,"17" , "" );  
+			}
+			else{
+				FunctionalLibrary.validateText("11" ,"17" , tbplanedit );
+			}
+			if(tbpassprequalifcheck.length()==0) {  
+				FunctionalLibrary.validateText("12" ,"25" , "" );  
+			}
+			else{
+				FunctionalLibrary.validateText("12" ,"25" , tbpassprequalifcheck );
+			}
+		
+		}
 	public static void main(String args[]) throws Throwable{
 		
 		FunctionalLibrary fb = new FunctionalLibrary();
@@ -2709,6 +2906,13 @@ public class FunctionalLibrary extends CommonHelper{
 		//fb.submitClaim();
 		//Mainframe_GlobalFunctionLib.validateText("21" ,"6" , "R" );
 	}
+	
+	
+			
+		
+	
+		
+		
 
 	
 

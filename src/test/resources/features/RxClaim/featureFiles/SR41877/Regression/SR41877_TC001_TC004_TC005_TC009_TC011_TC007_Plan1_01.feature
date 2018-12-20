@@ -16,7 +16,6 @@ Scenario Outline: Create a new Plan with NDC GPI List in RxClaim
     Examples: 
     |PlanCode  |FromDate|ThruDate |Description          |PriceSchedule|PatientPaySchedule|NDCList|NDCDecs|NDCSeq| NDCFromDate | NDCThruDate  | CMIPlan | 
     |Plnrvss32|010110  |123139   |Plnrvss32 NDCGPILST |EVUAREG      |EVUAREG           |XVCL42 |XVCL42 |10    |	010118  	  |123139        | L       |
-    
 
 Scenario Outline: Verify Compound claim is rejected with reason code 70 when Plan edit 9=Compounds set to 'N'and Set Compound Drig Status to R in NDC & GPI level(SN003374_SR41877_TC001_Req_8.1)
     
@@ -33,7 +32,7 @@ Scenario Outline: Verify Compound claim is rejected with reason code 70 when Pla
      Examples: 
      |PlanCode  |NDCList  | Status1 | Status2 |ID1          |ID2           |PFromDate|PThruDate| CarrierID | CarrierName |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID  |AccountName | GroupID   |GroupName  |GroupFromDt|GroupThruDt| MemberID   |FirstName  |LastName   |DOB      |MemFromDate|MemThruDate|PANumber  |Type|NDCGPIList     |From  |Thru   |Agent|Reason|IgnoreDrugStatus| BIN     | ProcCtrl | Group | PharmacyID  | RxNo          | Refill | FillDate | ProductID  | DspQty | DS | PSC | Cost | UCW |compQualID_1|compQuantity_1|compCost_1|compBasisOfCost_1|compQualID_2|compQuantity_2|compCost_2|compBasisOfCost_2|ClaimStatus|DrugStatus|RejectCode|RejectMessage |
      |Plnrvss32|XVCL42   | R       | F       |88512606010  |88512705010   |010101   |123139   | SR4187V14 | SR4187V14   |712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |S41877A13  |S41877A13   | S41877G13 |S41877G13  |010101     |123139     | RL41877M51 |RL41877M41 |RL41877M41 |01011988 |010101     |123139     |SR41877P35|3   |00000000000000 |010101|123139 |O    |AC    |N               | 777777  | ASHE     |*      | APHARM      | 165488397000  | 00     | 121818   | 00000000000|30      |30  |0    | 100	 |100  |01          |1             |45        |00               |02          |2             |46        |01               |R          |R         |70        |Prod/Service Not Covered | 
-     
+    
 Scenario Outline: Verify Compound claim is accepted for NDC Drug Status R when Member PA compound set to L(SN003374_SR41877_TC004_Req_8.1) #Use data from TC001 and Update the data for MemberId, MemberPA ID, 
     
      Given I am on RxClaim PlanAdministrator Menu    
@@ -49,10 +48,9 @@ Scenario Outline: Verify Compound claim is accepted for NDC Drug Status R when M
           #Take above data for Plancode, NDCList, CAG.  New: Member Id, PA Number, Filldate
      Examples: 
      |PlanCode  |NDCList  | Status1 | Status2 |ID1          |ID2           |PFromDate|PThruDate| CarrierID | CarrierName |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID  |AccountName | GroupID   |GroupName  |GroupFromDt|GroupThruDt| MemberID   |FirstName  |LastName   |DOB      |MemFromDate|MemThruDate |PANumber  |Type|NDCGPIList     |From  |Thru   |Agent|Reason|IgnoreDrugStatus| BIN     | ProcCtrl | Group | PharmacyID  | RxNo          | Refill | FillDate | ProductID  | DspQty | DS | PSC | Cost | UCW |compQualID_1|compQuantity_1|compCost_1|compBasisOfCost_1|compQualID_2|compQuantity_2|compCost_2|compBasisOfCost_2|ClaimStatus|DrugStatus|RejectCode|RejectMessage             |MemComp|ClaimStatus2|DrugStatus2|
+
      |Plnrvss32|XVCL42   | R       | F       |88512606010  |88512705010   |010101   |123139   | SR4187V14 | SR4187V14   |712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |S41877A13  |S41877A13   | S41877G13 |S41877G13  |010101     |123139     | RL41877M52 |RL41877M42 |RL41877M42 |01011988 |010101     |123139      |SR41877P36|3   |00000000000000 |010101|123139 |O    |AC    |N               | 777777  | ASHE     |*      | APHARM      | 165488397000  | 00     | 121818   | 00000000000|30      |30  |0    | 100	|100  |01          |1             |45        |00               |02          |2             |46        |01               |R          |R         |70        |Prod/Service Not Covered  |Y      |P           |f          | 
  
-     
-
 Scenario Outline: Verify Compound claim is paid for NDC Drug Status R when Member PA compound set to N for Plan CMI is L(SN003374_SR41877_TC005_Req_8.1)
     
        

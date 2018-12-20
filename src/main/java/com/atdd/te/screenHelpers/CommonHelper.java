@@ -75,8 +75,8 @@ public class CommonHelper {
 			String modNumber = null;
 			String QADEVPRDEnv = null;
 
-			if(System.getProperty("modNumber") !=null){
-				modNumber = System.getProperty("modNumber");
+			if(System.getProperty("ModNumber") !=null){
+				modNumber = System.getProperty("ModNumber");
 			}else
 			{
 				modNumber = ReadPropertyFile.getModNumber();

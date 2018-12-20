@@ -23,15 +23,14 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 		features = { "classpath:features/RxClaim/featureFiles" },
 
-
-//		features = { "classpath:features/RxClaim/featureFiles/" },
-
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 
+		features = { "classpath:features/RxClaim/featureFiles/SN003419/SN003419_TC_01.feature" },
+		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
-
 		glue = { "com.atdd.demo.te" }
-	//	,tags ={"@Regression9"}
+//		,tags ={"@Regression"}
+
 )
 
 
@@ -56,7 +55,9 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
    		ReadPropertyFile.configFileReader(configFile); 
     	CommonHelper.ScreenshotOption = scrOption; 
    		CommonHelper.login(); 
-    		 
+    
+   		
+   		
  }	 
 
  
@@ -64,9 +65,10 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
  
 	@AfterClass 
 	public static void teardown() throws Exception { 
- 
- 
+
+
  		Mainframe_GlobalFunctionLib.closeTE(); 
+
 		SDK.cleanup(); 
 		 
  

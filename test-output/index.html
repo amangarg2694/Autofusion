@@ -23,7 +23,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,7 +37,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Testng_Cucumber_Suite">
-              <span class="suite-name border-passed">Testng Cucumber Suite</span>
+              <span class="suite-name border-failed">Testng Cucumber Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -90,21 +90,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Testng_Cucumber_Suite" class="hide-methods passed suite-Testng_Cucumber_Suite"> (hide)</a> <!-- hide-methods passed suite-Testng_Cucumber_Suite -->
-                      <a href="#" panel-name="suite-Testng_Cucumber_Suite" class="show-methods passed suite-Testng_Cucumber_Suite"> (show)</a> <!-- show-methods passed suite-Testng_Cucumber_Suite -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Testng_Cucumber_Suite" class="hide-methods failed suite-Testng_Cucumber_Suite"> (hide)</a> <!-- hide-methods failed suite-Testng_Cucumber_Suite -->
+                      <a href="#" panel-name="suite-Testng_Cucumber_Suite" class="show-methods failed suite-Testng_Cucumber_Suite"> (show)</a> <!-- show-methods failed suite-Testng_Cucumber_Suite -->
                     </span>
-                    <div class="method-list-content passed suite-Testng_Cucumber_Suite">
+                    <div class="method-list-content failed suite-Testng_Cucumber_Suite">
                       <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Testng_Cucumber_Suite" title="com.atdd.demo.runners.RunDemoTest" hash-for-method="feature(Part D Update Manufacturer Discount and Biosimilar Coverage in Gap)">feature(Part D Update Manufacturer Discount and Biosimilar Coverage in Gap)</a> <!-- method navigator-link -->
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Testng_Cucumber_Suite" title="com.atdd.demo.runners.RunDemoTest" hash-for-method="feature(Current Enrollee: Plan Check Negative Formulary �Q�, Product Negative Formulary Change �N� and PA TB...)">feature(Current Enrollee: Plan Check Negative Formulary �Q�, Product Negative Formulary Change �N� and PA TB...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Testng_Cucumber_Suite -->
+                    </div> <!-- method-list-content failed suite-Testng_Cucumber_Suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -116,24 +116,48 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Testng_Cucumber_Suite" class="panel Testng_Cucumber_Suite">
-          <div class="suite-Testng_Cucumber_Suite-class-passed">
+          <div class="suite-Testng_Cucumber_Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">com.atdd.demo.runners.RunDemoTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="feature(Part D Update Manufacturer Discount and Biosimilar Coverage in Gap)">
-                  </a> <!-- feature(Part D Update Manufacturer Discount and Biosimilar Coverage in Gap) -->
+                  <a name="feature(Current Enrollee: Plan Check Negative Formulary �Q�, Product Negative Formulary Change �N� and PA TB...)">
+                  </a> <!-- feature(Current Enrollee: Plan Check Negative Formulary �Q�, Product Negative Formulary Change �N� and PA TB...) -->
                   <span class="method-name">feature</span>
-                  <span class="parameters">(Part D Update Manufacturer Discount and Biosimilar Coverage in Gap)</span>
+                  <span class="parameters">(Current Enrollee: Plan Check Negative Formulary �Q�, Product Negative Formulary Change �N� and PA TB �X�)</span>
+                  <div class="stack-trace">cucumber.runtime.CucumberException: com.hp.lft.sdk.GeneralReplayException: Unspecified error
+
+	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
+	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
+Caused by: com.hp.lft.sdk.GeneralReplayException: Unspecified error
+
+	at com.hp.lft.sdk.internal.ReplayExceptionFactory$11.create(ReplayExceptionFactory.java:94)
+	at com.hp.lft.sdk.internal.ReplayExceptionFactory.createOrDefault(ReplayExceptionFactory.java:192)
+	at com.hp.lft.sdk.internal.ReplayExceptionFactory.createOrDefault(ReplayExceptionFactory.java:21)
+	at com.hp.lft.sdk.internal.TestObjectExecuterBehaviorBase$ReplayErrorHandler.onError(TestObjectExecuterBehaviorBase.java:65)
+	at com.hp.lft.sdk.internal.CommunicationClientImpl.handleError(CommunicationClientImpl.java:226)
+	at com.hp.lft.sdk.internal.CommunicationClientImpl.send(CommunicationClientImpl.java:100)
+	at com.hp.lft.sdk.internal.TestObjectExecuterBehavior.executeMethod(TestObjectExecuter.java:33)
+	at com.hp.lft.sdk.internal.TestObjectBase.executeMethod(TestObjectBase.java:119)
+	at com.hp.lft.sdk.internal.te.TeScreen.access$500(TeScreen.java:9)
+	at com.hp.lft.sdk.internal.te.TeScreen$6.invoke(TeScreen.java:78)
+	at com.hp.lft.sdk.internal.TestObjectOperationWrapper.executeWithEvents(TestObjectOperationWrapper.java:81)
+	at com.hp.lft.sdk.internal.TestObjectOperationWrapper.executeWithEvents(TestObjectOperationWrapper.java:102)
+	at com.hp.lft.sdk.internal.te.TeScreen.sendTEKeys(TeScreen.java:81)
+	at com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib.sendText(Mainframe_GlobalFunctionLib.java:154)
+	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.validate_PA_Number_and_TB_fields(CommonStepDefinition.java:569)
+	at ✽.And Validate PA Number and TB fields &quot;&lt;PANumber&gt;&quot;,&quot;&lt;TBOverride&gt;&quot;,&quot;&lt;TBPriorDrugSts&gt;&quot;,&quot;&lt;TBRejectReason1&gt;&quot;,&quot;&lt;TBRejectReason2&gt;&quot;,&quot;&lt;TBRejectReason3&gt;&quot;,&quot;&lt;TBPlanEdit&gt;&quot;,&quot;&lt;TBPassPreQualifCheck&gt;&quot;(features/RxClaim/featureFiles/SN003419/SN003419_TC_01.feature:25)
+... Removed 24 stack frames
+</div> <!-- stack-trace -->
                   <em>
 (Runs Cucumber Feature)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Testng_Cucumber_Suite-class-passed -->
+          </div> <!-- suite-Testng_Cucumber_Suite-class-failed -->
         </div> <!-- panel Testng_Cucumber_Suite -->
         <div panel-name="test-xml-Testng_Cucumber_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -200,12 +224,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'feature')
 data.setCell(0, 2, 'com.atdd.demo.runners.RunDemoTest')
-data.setCell(0, 3, 172765);
+data.setCell(0, 3, 795815);
 window.suiteTableData['Testng_Cucumber_Suite']= { tableData: data, tableDiv: 'times-div-Testng_Cucumber_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <span class="suite-total-time">Total running time: 13 minutes</span>
               <div id="times-div-Testng_Cucumber_Suite">
               </div> <!-- times-div-Testng_Cucumber_Suite -->
             </div> <!-- times-div -->
@@ -238,23 +262,25 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">setup(src/test/resources/te/config_sxcd1.properties, Always)</span>
-                <span class="method-start">983 ms</span>
+                <span class="method-start">9361 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">feature(Part D Update Manufacturer Discount and Biosimilar Coverage in Gap)</span>
-                <span class="method-start">48860 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">feature(Current Enrollee: Plan Check Negative Formulary �Q�, Product Negative Formulary Change �N� and PA TB...)</span>
+                <span class="method-start">121885 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">teardown</span>
-                <span class="method-start">221625 ms</span>
+                <span class="method-start">917700 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">221968 ms</span>
+                <span class="method-start">922801 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-suite after">
                 <span class="method-name">parser</span>
-                <span class="method-start">222797 ms</span>
+                <span class="method-start">927343 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
