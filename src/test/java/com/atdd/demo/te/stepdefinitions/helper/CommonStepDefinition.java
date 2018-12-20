@@ -108,10 +108,10 @@ public class CommonStepDefinition extends CommonHelper{
 		FunctionalLibrary.CreateMemberPA(carrierID, accountID, groupID, memberID, firstName, lastName, dob, fromDate, thruDate);
 	}
 	
-	@When("^I create PA Number \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_create_PA_Number(String number, String type, String ndcgpilist, String from, String thru, String agent, String reason, String ignoredrugstatus) throws Throwable {
+	@When("^I create PA Number \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_PA_Number(String number, String type, String otc, String ndcgpilist, String from, String thru, String agent, String reason, String ignoredrugstatus) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		FunctionalLibrary.func_SetPriorAuth(number,type,ndcgpilist,from,thru,agent,reason,ignoredrugstatus);
+		FunctionalLibrary.func_SetPriorAuth(number,type,otc,ndcgpilist,from,thru,agent,reason,ignoredrugstatus);
 	}
 	
 	@When("^I create PA Number \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -483,5 +483,20 @@ public class CommonStepDefinition extends CommonHelper{
 			Mainframe_GlobalFunctionLib.click(coordinate0 ,coordinate1);
 			
 		}
+		@When("^Update Plan Drug Status and Turnoff GPI Options \"([^\"]*)\"$")
+		public void update_Plan_Drug_Status_and_Turnoff_GPI_Options(String plancode) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			FunctionalLibrary.func_updateDrugStatusGPIOptions(plancode);
+		}
+
+		@Given("^Update Plan Drug Status and Turnon GPI Options \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void update_Plan_Drug_Status_and_Turnon_GPI_Options(String plancode, String checknegformchangeonproduct, String negativeformularyfhange, String minmaxquantity, String minmaxdailydose, String quantitydaysupplyptd) throws Throwable {
+			FunctionalLibrary.func_updateDrugStatusGPIOptionswithTBMedicareDetail(plancode, checknegformchangeonproduct, negativeformularyfhange, minmaxquantity, minmaxdailydose, quantitydaysupplyptd);
+		}
+
+		@Then("^Validate PA Number and TB fields \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void validate_PA_Number_and_TB_fields(String panumber, String tboverride, String tbpriordrugsts, String tbrejectreason1, String tbrejectreason2, String tbrejectreason3, String tbplanedit, String tbpassprequalifcheck) throws Throwable {
+			FunctionalLibrary.func_Validate_PAnumberandTBfields(panumber, tboverride, tbpriordrugsts, tbrejectreason1, tbrejectreason2, tbrejectreason3, tbplanedit, tbpassprequalifcheck);
+		}	
 	
 }

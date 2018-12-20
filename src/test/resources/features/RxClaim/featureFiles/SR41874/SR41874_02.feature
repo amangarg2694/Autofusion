@@ -1,3 +1,4 @@
+
 Feature: Duplicate message coming from plan edit
   
   Scenario Outline: SN003414_SR41874_TC002:Verify if the Duplicate message coming for the Rejected Claim once or twice in 8.4.02

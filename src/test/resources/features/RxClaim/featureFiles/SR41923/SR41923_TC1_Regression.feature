@@ -1,4 +1,3 @@
-@Regression
 Feature: Fix Price Override after the specific "#" of fills have been exceeded
 				 
   

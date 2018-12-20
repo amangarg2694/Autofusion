@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Nov 30 13:45:19 IST 2018</td>
+<td>Started on:</td><td>Wed Dec 19 22:38:39 IST 2018</td>
 </tr>
-<tr><td>Total time:</td><td>613 seconds (613501 ms)</td>
+<tr><td>Total time:</td><td>926 seconds (926951 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,16 +75,32 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.atdd.demo.runners.RunDemoTest.feature()'><b>feature</b><br>Test class: com.atdd.demo.runners.RunDemoTest<br>Test method: Runs Cucumber Feature<br>Parameters: Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files before Table Partitioning</td>
-<td><div><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: The text is not fetched from screen position 1,13.Screenshot captured.
+<td title='com.atdd.demo.runners.RunDemoTest.feature()'><b>feature</b><br>Test class: com.atdd.demo.runners.RunDemoTest<br>Test method: Runs Cucumber Feature<br>Parameters: Current Enrollee: Plan Check Negative Formulary ?Q?, Product Negative Formulary Change ?N? and PA TB ?X?</td>
+<td><div><pre>cucumber.runtime.CucumberException: com.hp.lft.sdk.GeneralReplayException: Unspecified error
+
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
-Caused by: java.lang.AssertionError: The text is not fetched from screen position 1,13.Screenshot captured.
-	at com.atdd.te.screenHelpers.FunctionalLibrary.getText(FunctionalLibrary.java:1958)
-	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.i_am_on_RxClaim_PlanAdministrator_Menu(CommonStepDefinition.java:36)
-	at ?.Given I am on RxClaim PlanAdministrator Menu(features/RxClaim/featureFiles/SR41683/SN003439_TC01toTC12.feature:143)
-... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace651726990", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace651726990'><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: The text is not fetched from screen position 1,13.Screenshot captured.
+Caused by: com.hp.lft.sdk.GeneralReplayException: Unspecified error
+
+	at com.hp.lft.sdk.internal.ReplayExceptionFactory$11.create(ReplayExceptionFactory.java:94)
+	at com.hp.lft.sdk.internal.ReplayExceptionFactory.createOrDefault(ReplayExceptionFactory.java:192)
+	at com.hp.lft.sdk.internal.ReplayExceptionFactory.createOrDefault(ReplayExceptionFactory.java:21)
+	at com.hp.lft.sdk.internal.TestObjectExecuterBehaviorBase$ReplayErrorHandler.onError(TestObjectExecuterBehaviorBase.java:65)
+	at com.hp.lft.sdk.internal.CommunicationClientImpl.handleError(CommunicationClientImpl.java:226)
+	at com.hp.lft.sdk.internal.CommunicationClientImpl.send(CommunicationClientImpl.java:100)
+	at com.hp.lft.sdk.internal.TestObjectExecuterBehavior.executeMethod(TestObjectExecuter.java:33)
+	at com.hp.lft.sdk.internal.TestObjectBase.executeMethod(TestObjectBase.java:119)
+	at com.hp.lft.sdk.internal.te.TeScreen.access$500(TeScreen.java:9)
+	at com.hp.lft.sdk.internal.te.TeScreen$6.invoke(TeScreen.java:78)
+	at com.hp.lft.sdk.internal.TestObjectOperationWrapper.executeWithEvents(TestObjectOperationWrapper.java:81)
+	at com.hp.lft.sdk.internal.TestObjectOperationWrapper.executeWithEvents(TestObjectOperationWrapper.java:102)
+	at com.hp.lft.sdk.internal.te.TeScreen.sendTEKeys(TeScreen.java:81)
+	at com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib.sendText(Mainframe_GlobalFunctionLib.java:154)
+	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.validate_PA_Number_and_TB_fields(CommonStepDefinition.java:569)
+	at ?.And Validate PA Number and TB fields &quot;&lt;PANumber&gt;&quot;,&quot;&lt;TBOverride&gt;&quot;,&quot;&lt;TBPriorDrugSts&gt;&quot;,&quot;&lt;TBRejectReason1&gt;&quot;,&quot;&lt;TBRejectReason2&gt;&quot;,&quot;&lt;TBRejectReason3&gt;&quot;,&quot;&lt;TBPlanEdit&gt;&quot;,&quot;&lt;TBPassPreQualifCheck&gt;&quot;(features/RxClaim/featureFiles/SN003419/SN003419_TC_01.feature:25)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1175146719", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1175146719'><pre>cucumber.runtime.CucumberException: com.hp.lft.sdk.GeneralReplayException: Unspecified error
+
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -111,14 +127,27 @@ Caused by: java.lang.AssertionError: The text is not fetched from screen positio
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-Caused by: java.lang.AssertionError: The text is not fetched from screen position 1,13.Screenshot captured.
-	at org.testng.Assert.fail(Assert.java:94)
-	at com.atdd.te.screenHelpers.FunctionalLibrary.getText(FunctionalLibrary.java:1958)
-	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.i_am_on_RxClaim_PlanAdministrator_Menu(CommonStepDefinition.java:36)
-	at ?.Given I am on RxClaim PlanAdministrator Menu(features/RxClaim/featureFiles/SR41683/SN003439_TC01toTC12.feature:143)
+Caused by: com.hp.lft.sdk.GeneralReplayException: Unspecified error
+
+	at com.hp.lft.sdk.internal.ReplayExceptionFactory$11.create(ReplayExceptionFactory.java:94)
+	at com.hp.lft.sdk.internal.ReplayExceptionFactory.createOrDefault(ReplayExceptionFactory.java:192)
+	at com.hp.lft.sdk.internal.ReplayExceptionFactory.createOrDefault(ReplayExceptionFactory.java:21)
+	at com.hp.lft.sdk.internal.TestObjectExecuterBehaviorBase$ReplayErrorHandler.onError(TestObjectExecuterBehaviorBase.java:65)
+	at com.hp.lft.sdk.internal.CommunicationClientImpl.handleError(CommunicationClientImpl.java:226)
+	at com.hp.lft.sdk.internal.CommunicationClientImpl.send(CommunicationClientImpl.java:100)
+	at com.hp.lft.sdk.internal.TestObjectExecuterBehavior.executeMethod(TestObjectExecuter.java:33)
+	at com.hp.lft.sdk.internal.TestObjectBase.executeMethod(TestObjectBase.java:119)
+	at com.hp.lft.sdk.internal.te.TeScreen.access$500(TeScreen.java:9)
+	at com.hp.lft.sdk.internal.te.TeScreen$6.invoke(TeScreen.java:78)
+	at com.hp.lft.sdk.internal.TestObjectOperationWrapper.executeWithEvents(TestObjectOperationWrapper.java:81)
+	at com.hp.lft.sdk.internal.TestObjectOperationWrapper.executeWithEvents(TestObjectOperationWrapper.java:102)
+	at com.hp.lft.sdk.internal.te.TeScreen.sendTEKeys(TeScreen.java:81)
+	at com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib.sendText(Mainframe_GlobalFunctionLib.java:154)
+	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.validate_PA_Number_and_TB_fields(CommonStepDefinition.java:569)
+	at ?.And Validate PA Number and TB fields &quot;&lt;PANumber&gt;&quot;,&quot;&lt;TBOverride&gt;&quot;,&quot;&lt;TBPriorDrugSts&gt;&quot;,&quot;&lt;TBRejectReason1&gt;&quot;,&quot;&lt;TBRejectReason2&gt;&quot;,&quot;&lt;TBRejectReason3&gt;&quot;,&quot;&lt;TBPlanEdit&gt;&quot;,&quot;&lt;TBPassPreQualifCheck&gt;&quot;(features/RxClaim/featureFiles/SN003419/SN003419_TC_01.feature:25)
 </pre></div></td>
-<td>464</td>
-<td>com.atdd.demo.runners.RunDemoTest@510f3d34</td></tr>
+<td>795</td>
+<td>com.atdd.demo.runners.RunDemoTest@24269709</td></tr>
 </table><p>
 </body>
 </html>

@@ -1,3 +1,4 @@
+@Regression
 Feature: Plan Audit Report and General Prescriber Report for Prescriber State Taxonomy Codes field
   As a RxClaim User validating the Prescriber State Taxonomy Codes field in plan audit report and general plan report
 
@@ -14,7 +15,7 @@ Scenario Outline: 4.2.1. Validating the Prescriber State Taxonomy Codes field in
 Examples:
 |Plan|
 #|SR40708TE5|
-|SR40708TL7|
+|SR40708TL8|
 
 Scenario Outline: 4.2.2. Validating the Prescriber State Taxonomy Codes field in plan audit request and general plan report
 		Given I am on RxClaim PlanAdministrator Menu
@@ -25,7 +26,7 @@ Scenario Outline: 4.2.2. Validating the Prescriber State Taxonomy Codes field in
 Examples:
 |Plan|
 #|SR40708TE5|
-|SR40708TL7|
+|SR40708TL8|
 
 
 Scenario Outline: 4.3. Validating the Prescriber State Taxonomy Codes field in Print Plan Report
@@ -39,4 +40,4 @@ Scenario Outline: 4.3. Validating the Prescriber State Taxonomy Codes field in P
 Examples:
 |Plan|Selected|Prov/Prod Validation|
 #|SR40708TE5|Y|X|
-|SR40708TL7|Y|X|
+|SR40708TL8|Y|X|

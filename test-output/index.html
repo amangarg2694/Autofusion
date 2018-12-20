@@ -101,7 +101,7 @@
                     <div class="method-list-content failed suite-Testng_Cucumber_Suite">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Testng_Cucumber_Suite" title="com.atdd.demo.runners.RunDemoTest" hash-for-method="feature(Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files before Table Partitioning)">feature(Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files before Table Partitioning)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Testng_Cucumber_Suite" title="com.atdd.demo.runners.RunDemoTest" hash-for-method="feature(Current Enrollee: Plan Check Negative Formulary �Q�, Product Negative Formulary Change �N� and PA TB...)">feature(Current Enrollee: Plan Check Negative Formulary �Q�, Product Negative Formulary Change �N� and PA TB...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Testng_Cucumber_Suite -->
@@ -124,18 +124,33 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="feature(Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files before Table Partitioning)">
-                  </a> <!-- feature(Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files before Table Partitioning) -->
+                  <a name="feature(Current Enrollee: Plan Check Negative Formulary �Q�, Product Negative Formulary Change �N� and PA TB...)">
+                  </a> <!-- feature(Current Enrollee: Plan Check Negative Formulary �Q�, Product Negative Formulary Change �N� and PA TB...) -->
                   <span class="method-name">feature</span>
-                  <span class="parameters">(Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files before Table Partitioning)</span>
-                  <div class="stack-trace">cucumber.runtime.CucumberException: java.lang.AssertionError: The text is not fetched from screen position 1,13.Screenshot captured.
+                  <span class="parameters">(Current Enrollee: Plan Check Negative Formulary �Q�, Product Negative Formulary Change �N� and PA TB �X�)</span>
+                  <div class="stack-trace">cucumber.runtime.CucumberException: com.hp.lft.sdk.GeneralReplayException: Unspecified error
+
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
-Caused by: java.lang.AssertionError: The text is not fetched from screen position 1,13.Screenshot captured.
-	at com.atdd.te.screenHelpers.FunctionalLibrary.getText(FunctionalLibrary.java:1958)
-	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.i_am_on_RxClaim_PlanAdministrator_Menu(CommonStepDefinition.java:36)
-	at ✽.Given I am on RxClaim PlanAdministrator Menu(features/RxClaim/featureFiles/SR41683/SN003439_TC01toTC12.feature:143)
-... Removed 25 stack frames
+Caused by: com.hp.lft.sdk.GeneralReplayException: Unspecified error
+
+	at com.hp.lft.sdk.internal.ReplayExceptionFactory$11.create(ReplayExceptionFactory.java:94)
+	at com.hp.lft.sdk.internal.ReplayExceptionFactory.createOrDefault(ReplayExceptionFactory.java:192)
+	at com.hp.lft.sdk.internal.ReplayExceptionFactory.createOrDefault(ReplayExceptionFactory.java:21)
+	at com.hp.lft.sdk.internal.TestObjectExecuterBehaviorBase$ReplayErrorHandler.onError(TestObjectExecuterBehaviorBase.java:65)
+	at com.hp.lft.sdk.internal.CommunicationClientImpl.handleError(CommunicationClientImpl.java:226)
+	at com.hp.lft.sdk.internal.CommunicationClientImpl.send(CommunicationClientImpl.java:100)
+	at com.hp.lft.sdk.internal.TestObjectExecuterBehavior.executeMethod(TestObjectExecuter.java:33)
+	at com.hp.lft.sdk.internal.TestObjectBase.executeMethod(TestObjectBase.java:119)
+	at com.hp.lft.sdk.internal.te.TeScreen.access$500(TeScreen.java:9)
+	at com.hp.lft.sdk.internal.te.TeScreen$6.invoke(TeScreen.java:78)
+	at com.hp.lft.sdk.internal.TestObjectOperationWrapper.executeWithEvents(TestObjectOperationWrapper.java:81)
+	at com.hp.lft.sdk.internal.TestObjectOperationWrapper.executeWithEvents(TestObjectOperationWrapper.java:102)
+	at com.hp.lft.sdk.internal.te.TeScreen.sendTEKeys(TeScreen.java:81)
+	at com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib.sendText(Mainframe_GlobalFunctionLib.java:154)
+	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.validate_PA_Number_and_TB_fields(CommonStepDefinition.java:569)
+	at ✽.And Validate PA Number and TB fields &quot;&lt;PANumber&gt;&quot;,&quot;&lt;TBOverride&gt;&quot;,&quot;&lt;TBPriorDrugSts&gt;&quot;,&quot;&lt;TBRejectReason1&gt;&quot;,&quot;&lt;TBRejectReason2&gt;&quot;,&quot;&lt;TBRejectReason3&gt;&quot;,&quot;&lt;TBPlanEdit&gt;&quot;,&quot;&lt;TBPassPreQualifCheck&gt;&quot;(features/RxClaim/featureFiles/SN003419/SN003419_TC_01.feature:25)
+... Removed 24 stack frames
 </div> <!-- stack-trace -->
                   <em>
 (Runs Cucumber Feature)                  </em>
@@ -209,12 +224,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'feature')
 data.setCell(0, 2, 'com.atdd.demo.runners.RunDemoTest')
-data.setCell(0, 3, 464271);
+data.setCell(0, 3, 795815);
 window.suiteTableData['Testng_Cucumber_Suite']= { tableData: data, tableDiv: 'times-div-Testng_Cucumber_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 7 minutes</span>
+              <span class="suite-total-time">Total running time: 13 minutes</span>
               <div id="times-div-Testng_Cucumber_Suite">
               </div> <!-- times-div-Testng_Cucumber_Suite -->
             </div> <!-- times-div -->
@@ -247,25 +262,25 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">setup(src/test/resources/te/config_sxcd1.properties, Always)</span>
-                <span class="method-start">4353 ms</span>
+                <span class="method-start">9361 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">feature(Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files before Table Partitioning)</span>
-                <span class="method-start">147464 ms</span>
+                <span class="method-name">feature(Current Enrollee: Plan Check Negative Formulary �Q�, Product Negative Formulary Change �N� and PA TB...)</span>
+                <span class="method-start">121885 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">teardown</span>
-                <span class="method-start">611736 ms</span>
+                <span class="method-start">917700 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">612362 ms</span>
+                <span class="method-start">922801 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-suite after">
                 <span class="method-name">parser</span>
-                <span class="method-start">613609 ms</span>
+                <span class="method-start">927343 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

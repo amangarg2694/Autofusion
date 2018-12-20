@@ -1,8 +1,4 @@
-<<<<<<< HEAD:src/test/resources/features/RxClaim/SR42113/SR42113_TC01.feature
-@Release_8403
-=======
-@Regression
->>>>>>> 2f4ba5fdf0390341a256d6779ec365223dc34f6b:src/test/resources/features/RxClaim/featureFiles/SR42113/SR42113_TC01.feature
+#@Regression
 Feature: Submit a claim
 As a RxClaim User I want to submit a claim in 8.4.02
     
