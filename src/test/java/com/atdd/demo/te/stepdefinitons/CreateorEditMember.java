@@ -15,7 +15,7 @@ public class CreateorEditMember {
 	
 	@Then("^Validate PA Member \"([^\"]*)\" added$")
 	public void validate_PA_Member_added(String memberID) throws Throwable {
-		FunctionalLibrary.validateText("6" ,"10" , memberID );
+		FunctionalLibrary.validateText("6" ,"10" , FunctionalLibrary.PAMember1 );
 	}
 	@When("^I attach DST Table \"([^\"]*)\" on PA \"([^\"]*)\" for member \"([^\"]*)\" if Attach DST Flag is \"([^\"]*)\"$")
 	public void i_attach_DST_Table_on_PA_for_member_if_Attach_DST_Flag_is(String dstTable, String paNumber, String memberID, String attachDSTFlag) throws Throwable {
