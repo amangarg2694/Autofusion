@@ -1,4 +1,4 @@
-
+@Regression 
 Feature: Screen Validation for Load Prescriber State Taxonomy Codes Screen
   As a RxClaim User validating the screen functionality of Load Prescriber State Taxonomy Codes Screen
   

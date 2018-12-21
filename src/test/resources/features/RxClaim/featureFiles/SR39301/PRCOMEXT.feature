@@ -9,8 +9,8 @@ Feature: Verify that the PRCOMEXT does not go into a MSGW condition
  
  Examples:
  |cmd1                                                                           |jobname|file  |lib     |user|	  
- |CALL PGM(CLPRCOMEXT) PARM('1160101' '1160407' 'Test_n' 'USRMADHU' 'N' ' ' ' ')|Test_n |Test_n|usrmadhu|PRUS|
- |CALL PGM(CLPRCOMEXT) PARM('1160101' '1160407' 'Test_y' 'USRMADHU' 'N' ' ' ' ')|Test_y |Test_y|usrmadhu|PRUS|
+ |CALL PGM(CLPRCOMEXT) PARM('1160101' '1160407' 'Test_n' 'USRMADHU' 'N' ' ' ' ')|Test_n |Test_n|usrmadhu|YMAD|
+ |CALL PGM(CLPRCOMEXT) PARM('1160101' '1160407' 'Test_y' 'USRMADHU' 'N' ' ' ' ')|Test_y |Test_y|usrmadhu|YMAD|
  
  Scenario Outline: Verify that the PRCOMEXT does not go into a MSGW condition when the LK-GIS-ACTIVE = ‘Y’
   
@@ -26,7 +26,7 @@ Feature: Verify that the PRCOMEXT does not go into a MSGW condition
   
   Examples:
   |fromdate|todate|filename |lib     |jobname |user|
-  |010118	 |080818|procomext|usrmadhu|PRCOMEXT|PRUS|	
+  |010118	 |080818|procomext|usrmadhu|PRCOMEXT|YMAD|	
   
   
   

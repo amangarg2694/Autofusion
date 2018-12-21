@@ -1,4 +1,3 @@
-@Regression1
 Feature: Create New Plan with GPI List for Compound claim is accepted when Member PA compound set to Y
  As a RxClaim User I want to create Plan with GPI List 
       

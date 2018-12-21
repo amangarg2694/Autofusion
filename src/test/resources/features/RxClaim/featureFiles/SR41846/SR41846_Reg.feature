@@ -31,5 +31,5 @@ Feature: Verify that the message 'CLT Claim Tier Already Exists' is not displaye
     
     Examples: 
    |CarrierID |AccountID    |GroupID   |MemberID		 | First Name      | Last Name     | DOB      | From Date | Thru Date   |Plan		|BIN     | ProcCtrl | Group | PharmacyID  |RxNo         |RxNo1			   | Refill| FillDate |ProductID  | DspQty | DS   | PSC   | Cost |com|
-   |naresh01  |NARESH_ACC01 |NARESH GRP|MEMj2_SR41845 |   MEM_SR41846    | MEM_SR41846  | 12251987	| 010101    | 123139      |NAR_TEST1|777777  |ASHE      |*      |APHARM   |141122365114 |141123375114  |00     |071918  |00000000000|10      |2     |0      | 100  | 2 |
+   |naresh01  |NARESH_ACC01 |NARESH GRP|MEMK2_SR41845 |   MEM_SR41846    | MEM_SR41846  | 12251987	| 010101    | 123139      |NAR_TEST1|777777  |ASHE      |*      |APHARM   |141122365114 |141123375114  |00     |071918  |00000000000|10      |2     |0      | 100  | 2 |
    

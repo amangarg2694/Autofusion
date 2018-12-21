@@ -9,7 +9,7 @@ And I navigate to Active Member Prior Authorization screen for the "<MemberID>",
 Then I validate values for the fields "<MICPartialMatch>" and "<MICROA>"
 
 Examples:
-|MemberID     |MICPartialMatch|MICROA |
-|SN003533MEM1 |Y              |       |
-|SN003533MEM1 |N              |TOPICAL|
+|MemberID     |MICPartialMatch|MICROA |PAnumber|
+|SN003533MEM1 |Y              |       |SN3533PA1|
+|SN003533MEM1 |N              |TOPICAL|SN3533PA4|
 

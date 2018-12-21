@@ -31,4 +31,4 @@
     
     Examples: 
    |CarrierID |AccountID |GroupID    |MemberID		 | First Name      | Last Name     | DOB      | From Date | Thru Date   |Plan		|BIN     | ProcCtrl | Group | PharmacyID  |RxNo         |RxNo1			   | Refill| FillDate |ProductID  | DspQty | DS   | PSC   | Cost |com|
-   |naresh01  |NARESH_ACC01 |NARESH GRP|MEMs3_41846 |   MEM_41846    | MEM_41846  | 12251987	| 010101    | 123139      |NAR_TEST1|777777  |ASHE      |*      |APHARM   |144101265114 |141001115014  |00     |071918  |00000000000|10      |2     |0      | 100  | 2 |
+   |naresh01  |NARESH_ACC01 |NARESH GRP|MEMh3_41845 |   MEM_41846    | MEM_41846  | 12251987	| 010101    | 123139      |NAR_TEST1|777777  |ASHE      |*      |APHARM   |144101265114 |141001115014  |00     |071918  |00000000000|10      |2     |0      | 100  | 2 |
