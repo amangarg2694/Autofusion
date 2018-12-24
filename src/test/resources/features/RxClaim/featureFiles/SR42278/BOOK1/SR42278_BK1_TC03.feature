@@ -7,12 +7,12 @@
 Feature: FIX-IT: Member Adjustment Load with Medical Data File Closing Issue
 
  #@Regression
-  Scenario Outline: SN003417_SR42278_TC03: Verify member is loaded with medical data, file status does not return Error Code41(File Open) File #2
+  Scenario Outline: SN003417_SR42278_TC01: Verify member is loaded with medical data, file status does not return Error Code41(File Open)
     Given I am on RxClaim PlanAdministrator Menu
     When I create physical file with "<cmdCreatePhyFile>", "<FileName>", "<Library>"
     And I work with file "<cmdWorkWithFile>", "<FileName>", "<Library>"
-    Then I add record in book one with "<cmdWorkWithFile>", "<FileName>", "<Library>", "<Carrier>", "<Account>", "<Group>", "<MemberID>", "<AdjustmentDate>", "<ReasonCode>", "<AdjustmentAmount>", "<RecordTimestamp>",  "<RecordOrder>", "<AmountType>", "<AdjustmentTime>", "<AdjustmentTimeMS>"
-   
+    Then I add record in book one with "<cmdWorkWithFile>", "<FileName>", "<Library>", "<Carrier>", "<Account>", "<Group>", "<MemberID>","<AdjustmentDate>", "<ReasonCode>", "<AdjustmentAmount>", "<AdjustmentType>", "<RecordTimestamp>", "<RecordOrder>", "<AmountType>", "<SenderType>", "<SENDERTIMESTAMP>", "<AdjustmentTime>", "<AdjustmentTimeMS>"
+  
 		And I select Option "CCT700" to navigate to "RxClaim Operations Menu"
 		And I select Option "2" to navigate to "Batch Transaction Loads"
 		And I select Option "8" to navigate to "Loads to Member Files"
@@ -26,16 +26,11 @@ Feature: FIX-IT: Member Adjustment Load with Medical Data File Closing Issue
 		And I press "F8" Key
 		And I select option Adjustment in MemberDetailList Screen
 		And I select option Member Accumulation Adjustments in Adjustment screen
-		Then I validate Manual Adjustment details page with "<Carrier>", "<Account>", "<Group>", "<MemberID>", "<AdjustmentDate>", "<ReasonCode>", "<Amount>", "<Timestamp>", "<AmountType>", "<AdjustmentTime>", "<AdjustmentTimeMS>"
+   Then I validate Manual Adjustment details page with "<Carrier>", "<Account>", "<Group>", "<MemberID>","<AdjustmentDate>", "<ReasonCode>", "<AdjustmentAmount>", "<AdjustmentType>", "<RecordTimestamp>", "<RecordOrder>", "<AmountType>", "<SenderType>", "<SENDERTIMESTAMP>", "<AdjustmentTime>", "<AdjustmentTimeMS>"
 	
     Examples: 
-    |cmdRCMAD725		 |cmdCreatePhyFile |FileName |Library     |cmdWorkWithFile |Carrier   |Account	 |Group    |MemberID  |AdjustmentDate |AccumulationCode |ReasonCode |AdjustmentAmount |AdjustmentType|RecordTimestamp						 |RecordOrder|AmountType|SenderType|AdjustmentTime |AdjustmentTimeMS|                                     
-    |CALL RCMAD725 ''|CRTPF            |VM34173  |JZELTEST    |UPDDTA FILE	   |SR42278C  |SR42278AC |SR42278G |SR42278M1 |112018	        |UHCOUT 		  		|COMMERCIAL |100   					  |O						 |2018-11-04-15.29.03.090000 |1          |B				  |M				 |143050         |0 			  	    |
-   
-    #|cmdCreatePhyFile |FileName |Library     |cmdWorkWithFile |Carrier   |Account	 	 |Group     |MemberID   |AdjustmentDate |ReasonCode|AdjustmentAmount |RecordTimestamp									 |AmountType |AdjustmentTime |AdjustmentTimeMS|
-    #|CRTPF            |VM341712 |VENKATLIBR  |UPDDTA FILE	 	  |SR42278C  |SR42278AC  |SR42278G  |SR42278M1  |1181120	      |COMMERCIAL|31     					 |2018-11-02-15.29.03.09000000001  |BC         |143050 		     |123 				    |
-   
-  
-      
+    |cmdRCMAD725		 |cmdCreatePhyFile |FileName |Library   |cmdWorkWithFile |Carrier   |Account	 |Group    |MemberID  |AdjustmentDate |AccumulationCode |ReasonCode |AdjustmentAmount |AdjustmentType|RecordTimestamp						 |RecordOrder|AmountType|SenderType|AdjustmentTime |AdjustmentTimeMS|SENDERTIMESTAMP						|                                     
+    |CALL RCMAD725 ''|CRTPF            |T341711	 |JZELTEST  |UPDDTA FILE	   |SR42278C  |SR42278AC |SR42278G |SR42278M1 |1181120        |UHCOUT 		  		|COMMERCIAL |000010000			  |5						 |2018-11-04-15.29.03.090000 |00001      |B				  |C				 |143050         |123			  	    |2018-11-04-15.29.03.090000 |
+    
     #UPDDTA FILE(JZELTEST/JZ34171) [BOOK1]
     #UPDDTA FILE(VENKATLIBR/VM341711)

@@ -309,18 +309,49 @@ public class SN003417_SR42278 {
 					}
 		}						
 			
-	
+
 //BOOK1 i.e UPDDTA FILE(VENKATLIBR/VM341711)	
-@Then("^I add record in book one with \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\",  \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
-public void i_add_record_in_book_one_with(String cmdWorkWithFile, String FileName, String Library, String Carrier, String Account, String Group, String MemberID, String AdjusmentDate, String ReasonCode, String AdjustmentAmount, String RecordTimestamp, String RecordOrder, String AmountType, String AdjustmentTime, String AdjustmentTimeMS)throws Throwable {
+	@Then("^I add record in book one with \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
+	public void i_add_record_in_book_one_with(String cmdWorkWithFile, String FileName, String Library, String Carrier, String Account, String Group, String MemberID, String AdjustmentDate, String ReasonCode, String AdjustmentAmount, String AdjustmentType, String RecordTimestamp, String RecordOrder, String AmountType, String SenderType, String SENDERTIMESTAMP, String AdjustmentTime, String AdjustmentTimeMS)throws Throwable {
 			// String data="JZTEST341JZ3417TESTLOAD JZ3417TESTING  JZ3417MBR1  1181120    COMMERCIAL000003100 52018-11-02-15.29.03.09000000001   BC 143050123";
-	         String pushRecord=Carrier+Account+"  "+Group+"  "+MemberID+"  "+AdjusmentDate+"  "+ReasonCode+"00000"+AdjustmentAmount+"00  "+AmountType+RecordTimestamp+RecordOrder+"  "+AdjustmentAmount+"  "+AdjustmentTime+"   "+AdjustmentTimeMS;
-		     System.out.println("Data is: "+pushRecord);
+	         String pushRecord=Carrier+Account+"  "+Group+"  "+MemberID+"  "+AdjustmentDate+"  "+ReasonCode+"00000"+AdjustmentAmount+"00  "+AdjustmentType+RecordTimestamp+RecordOrder+"  "+AdjustmentAmount+"  "+SENDERTIMESTAMP+AdjustmentTime+"   "+AdjustmentTimeMS;
+	         String searchRecord=Carrier+Account;
+	         System.out.println("Data is: "+pushRecord);
 			 Reporter.addStepLog("Data is: "+pushRecord);
 			 Mainframe_GlobalFunctionLib.pressKey("F9");
 			 if(cmdWorkWithFile.contains("UPDDTA FILE"))
 			      {
-			    	 Mainframe_GlobalFunctionLib.sendText(5, 12, pushRecord);
+			    	// Mainframe_GlobalFunctionLib.sendText(5, 12, pushRecord);
+			    	 Mainframe_GlobalFunctionLib.sendText(5, 12, Carrier);
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Mainframe_GlobalFunctionLib.sendText(5, 21, Account);
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Mainframe_GlobalFunctionLib.sendText(5, 36, Group);
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Mainframe_GlobalFunctionLib.sendText(5, 51, MemberID);
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Mainframe_GlobalFunctionLib.sendText(5, 79, AdjustmentDate);
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Mainframe_GlobalFunctionLib.sendText(6, 16, ReasonCode);
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						
+						Mainframe_GlobalFunctionLib.sendText(6, 26, AdjustmentAmount);
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Mainframe_GlobalFunctionLib.sendText(6, 36, AdjustmentType);
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Mainframe_GlobalFunctionLib.sendText(6, 37, RecordTimestamp);
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Mainframe_GlobalFunctionLib.sendText(6, 63, RecordOrder);
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Mainframe_GlobalFunctionLib.sendText(7, 38, AmountType);
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Mainframe_GlobalFunctionLib.sendText(7, 39, SenderType);
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Mainframe_GlobalFunctionLib.sendText(8, 75, SENDERTIMESTAMP);
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Mainframe_GlobalFunctionLib.sendText(9, 21, AdjustmentTime);
+						Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+						Mainframe_GlobalFunctionLib.sendText(9, 27, AdjustmentTimeMS);
 					 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 					 Mainframe_GlobalFunctionLib.pressKey("Enter");
 					 Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -365,7 +396,7 @@ public void i_add_record_in_book_one_with(String cmdWorkWithFile, String FileNam
 								  Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 								  try{
 									    //String searchRecordData=Carrier+Account+"  "+Group+"  "+MemberID;
-									    String searchRecordData=Carrier+Account;
+									    String searchRecordData=Carrier;
 									    System.out.println("Actual searchRecordData is: "+searchRecordData);
 										Reporter.addStepLog("Actual searchRecordData is: "+searchRecordData);
 									    Mainframe_GlobalFunctionLib.sendText(5, 23, searchRecordData);
@@ -373,7 +404,7 @@ public void i_add_record_in_book_one_with(String cmdWorkWithFile, String FileNam
 										Mainframe_GlobalFunctionLib.pressKey("F16");
 										Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 								
-										String ActualRecordData=Mainframe_GlobalFunctionLib.getText(7, 2);
+										String ActualRecordData=Mainframe_GlobalFunctionLib.getText(7, 3);
 										Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 										System.out.println("Actual Record is: "+ActualRecordData);
 										Reporter.addStepLog("Actual Record is: "+ActualRecordData);
