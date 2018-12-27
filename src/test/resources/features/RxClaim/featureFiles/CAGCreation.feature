@@ -8,6 +8,7 @@ As a RxClaim User I want to create a New CAG
     Then Validate CAG created with details "<CarrierID>" ,"<AccountID>","<GroupID>"  
    
    Examples:
- |CarrierID  | CarrierName |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID |AccountName  | GroupID  |GroupName  |GroupFromDt|GroupThruDt|PlanCode  | 
- |SR42278C   | Test Carrier|4659       |MAIL ADD  |City|NC   |27654|010101        |123139        |*DEFAULT   |*DEFAULT      |SR42278AC |Test Account | SR42278G |Test Group |010101     |123139     |EVUASHE-D | 
- 
+    | CarrierID | CarrierName |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID |AccountName  | GroupID   |GroupName  |GroupFromDt|GroupThruDt|PlanCode| 
+    | SR42037 | Test Carrier|712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |SR42037|Test Account| SR42037  |Test Group |010101     |123139     |SN003292P1| 
+
+    

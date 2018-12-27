@@ -1,5 +1,8 @@
 package com.atdd.demo.te.stepdefinitons;
 
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
 import org.testng.Assert;
 
 import com.atdd.te.screenHelpers.FunctionalLibrary;
