@@ -1,7 +1,7 @@
 #Author:mudethula_venkateshwarlu@optum.com
 #QE: Zelewsky, John
 #Step Definition file: MemberAdjustmentLoadwithMedicalDataFile.java
-
+#SN003417_SR42278
 #Environment: BOOK1
 #@tag
 Feature: FIX-IT: Member Adjustment Load with Medical Data File Closing Issue
@@ -12,7 +12,8 @@ Feature: FIX-IT: Member Adjustment Load with Medical Data File Closing Issue
     When I create physical file with "<cmdCreatePhyFile>", "<FileName>", "<Library>"
     And I work with file "<cmdWorkWithFile>", "<FileName>", "<Library>"
     Then I add record in book one with "<cmdWorkWithFile>", "<FileName>", "<Library>", "<Carrier>", "<Account>", "<Group>", "<MemberID>","<AdjustmentDate>", "<ReasonCode>", "<AdjustmentAmount>", "<AdjustmentType>", "<RecordTimestamp>", "<RecordOrder>", "<AmountType>", "<SenderType>", "<SENDERTIMESTAMP>", "<AdjustmentTime>", "<AdjustmentTimeMS>"
-  
+    #Note: Please delete the record @YPDDAMI: Work with File - Multi record display screen  
+    
 		And I select Option "CCT700" to navigate to "RxClaim Operations Menu"
 		And I select Option "2" to navigate to "Batch Transaction Loads"
 		And I select Option "8" to navigate to "Loads to Member Files"
@@ -26,8 +27,9 @@ Feature: FIX-IT: Member Adjustment Load with Medical Data File Closing Issue
 		And I press "F8" Key
 		And I select option Adjustment in MemberDetailList Screen
 		And I select option Member Accumulation Adjustments in Adjustment screen
-   Then I validate Manual Adjustment details page with "<Carrier>", "<Account>", "<Group>", "<MemberID>","<AdjustmentDate>", "<ReasonCode>", "<AdjustmentAmount>", "<AdjustmentType>", "<RecordTimestamp>", "<RecordOrder>", "<AmountType>", "<SenderType>", "<SENDERTIMESTAMP>", "<AdjustmentTime>", "<AdjustmentTimeMS>"
-	
+    Then I validate Manual Adjustment details page with "<Carrier>", "<Account>", "<Group>", "<MemberID>","<AdjustmentDate>", "<ReasonCode>", "<AdjustmentAmount>", "<AdjustmentType>", "<RecordTimestamp>", "<RecordOrder>", "<AmountType>", "<SenderType>", "<SENDERTIMESTAMP>", "<AdjustmentTime>", "<AdjustmentTimeMS>"
+	  #Note: Please delete the record @RCMAD001: Active Manual Adjustmen screen
+	  
     Examples: 
     |cmdRCMAD725		 |cmdCreatePhyFile |FileName |Library   |cmdWorkWithFile |Carrier   |Account	 |Group    |MemberID  |AdjustmentDate |AccumulationCode |ReasonCode |AdjustmentAmount |AdjustmentType|RecordTimestamp						 |RecordOrder|AmountType|SenderType|AdjustmentTime |AdjustmentTimeMS|SENDERTIMESTAMP						|                                     
     |CALL RCMAD725 ''|CRTPF            |T341711	 |JZELTEST  |UPDDTA FILE	   |SR42278C  |SR42278AC |SR42278G |SR42278M1 |1181120        |UHCOUT 		  		|COMMERCIAL |000005300			  |5						 |2018-11-02-15.29.03.090000 |00001      |B				  |C				 |143050         |123			  	    |2018-11-01-05.29.03.090000 |

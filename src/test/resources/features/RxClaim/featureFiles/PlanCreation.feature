@@ -19,9 +19,9 @@ Then Validate "<PlanCode>" message should displayed on "PlanDetailScreen"
 
 Examples:
 
-|PlanCode	|From Date	|Description	|
-|VMPLN29 	|010118			|Test Plan		|
+|PlanCode		|From Date	|Description	|
+|TESTLFT55	|010118			|Test Plan		|
 
-#|PlanCode|From Date|Description|
-#|TESTLFTA19|010101|Test Plan|
+|PlanCode|From Date|Description|
+|TESTLFTA19|010101|Test Plan|
 

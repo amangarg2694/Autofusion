@@ -1,3 +1,9 @@
+#Author:mudethula_venkateshwarlu@optum.com
+#QE: Zelewsky, John
+#Step Definition file: MemberAdjustmentLoadwithMedicalDataFile.java
+#SN003417_SR42278
+#Environment: CORE/BOOK-A
+
 Feature: FIX-IT: Member Adjustment Load with Medical Data File Closing Issue
 
  #@Regression

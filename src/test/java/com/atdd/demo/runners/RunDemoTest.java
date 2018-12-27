@@ -21,7 +21,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
-		features = { "classpath:features/RxClaim/featureFiles/SR42278/BOOK1/SR42278_BK1_TC03.feature" },
+		features = { "classpath:features/RxClaim/featureFiles/SR42066/SR42066_TC01.feature" },
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 
