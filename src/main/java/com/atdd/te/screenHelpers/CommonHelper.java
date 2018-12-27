@@ -68,6 +68,11 @@ public class CommonHelper {
 		catch(Exception e){
 			System.out.println("Select the environment");
 		}
+		// For Dev
+				if(Mainframe_GlobalFunctionLib.getText(1, 13).contains("Program Main Menu")){
+						Mainframe_GlobalFunctionLib.sendText(21, 7 , "5");							
+					Mainframe_GlobalFunctionLib.pressKey("Enter");
+				}
 		Mainframe_GlobalFunctionLib.sendText(21, 7 , envOption);
 		Mainframe_GlobalFunctionLib.Transmit();
 		if(envOption.equalsIgnoreCase("6")){
@@ -75,8 +80,8 @@ public class CommonHelper {
 			String modNumber = null;
 			String QADEVPRDEnv = null;
 
-			if(System.getProperty("modNumber") !=null){
-				modNumber = System.getProperty("modNumber");
+			if(System.getProperty("ModNumber") !=null){
+				modNumber = System.getProperty("ModNumber");
 			}else
 			{
 				modNumber = ReadPropertyFile.getModNumber();

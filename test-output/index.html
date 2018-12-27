@@ -23,7 +23,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -36,8 +36,13 @@
       <div class="suite">
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
+<<<<<<< HEAD
             <a href="#" class="navigator-link" panel-name="suite-Default_suite">
               <span class="suite-name border-skipped">Default suite</span>
+=======
+            <a href="#" class="navigator-link" panel-name="suite-Testng_Cucumber_Suite">
+              <span class="suite-name border-failed">Testng Cucumber Suite</span>
+>>>>>>> 62da55fea10dac219f4efc1e04f286876b67ae28
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -90,6 +95,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
+<<<<<<< HEAD
                     <span class="method-stats">1 method,  1 skipped,  </span>
                   </li>
                   <li>
@@ -105,6 +111,23 @@
                       </span>
                       <br/>
                     </div> <!-- method-list-content skipped suite-Default_suite -->
+=======
+                    <span class="method-stats">1 method, 1 failed,   </span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Testng_Cucumber_Suite" class="hide-methods failed suite-Testng_Cucumber_Suite"> (hide)</a> <!-- hide-methods failed suite-Testng_Cucumber_Suite -->
+                      <a href="#" panel-name="suite-Testng_Cucumber_Suite" class="show-methods failed suite-Testng_Cucumber_Suite"> (show)</a> <!-- show-methods failed suite-Testng_Cucumber_Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Testng_Cucumber_Suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Testng_Cucumber_Suite" title="com.atdd.demo.runners.RunDemoTest" hash-for-method="feature(Current Enrollee: Plan Check Negative Formulary Q, Product Negative Formulary Change N and PA TB X)">feature(Current Enrollee: Plan Check Negative Formulary Q, Product Negative Formulary Change N and PA TB X)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Testng_Cucumber_Suite -->
+>>>>>>> 62da55fea10dac219f4efc1e04f286876b67ae28
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -115,27 +138,57 @@
     </div> <!-- navigator-root -->
     <div class="wrapper">
       <div class="main-panel-root">
+<<<<<<< HEAD
         <div panel-name="suite-Default_suite" class="panel Default_suite">
           <div class="suite-Default_suite-class-skipped">
             <div class="main-panel-header rounded-window-top">
               <img src="skipped.png"/>
+=======
+        <div panel-name="suite-Testng_Cucumber_Suite" class="panel Testng_Cucumber_Suite">
+          <div class="suite-Testng_Cucumber_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+>>>>>>> 62da55fea10dac219f4efc1e04f286876b67ae28
               <span class="class-name">com.atdd.demo.runners.RunDemoTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+<<<<<<< HEAD
                   <a name="feature(SN003425_SR42066:PART D: February 2018 Updates to the Drug Data Processing System)">
                   </a> <!-- feature(SN003425_SR42066:PART D: February 2018 Updates to the Drug Data Processing System) -->
                   <span class="method-name">feature</span>
                   <span class="parameters">(SN003425_SR42066:PART D: February 2018 Updates to the Drug Data Processing System)</span>
+=======
+                  <a name="feature(Current Enrollee: Plan Check Negative Formulary Q, Product Negative Formulary Change N and PA TB X)">
+                  </a> <!-- feature(Current Enrollee: Plan Check Negative Formulary Q, Product Negative Formulary Change N and PA TB X) -->
+                  <span class="method-name">feature</span>
+                  <span class="parameters">(Current Enrollee: Plan Check Negative Formulary Q, Product Negative Formulary Change N and PA TB X)</span>
+                  <div class="stack-trace">cucumber.runtime.CucumberException: java.lang.AssertionError: The text R does not match on the screen.Screenshot captured.
+	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
+	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
+Caused by: java.lang.AssertionError: The text R does not match on the screen.Screenshot captured.
+	at com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib.validateText(Mainframe_GlobalFunctionLib.java:231)
+	at com.atdd.te.screenHelpers.FunctionalLibrary.validateText(FunctionalLibrary.java:1981)
+	at com.atdd.demo.te.stepdefinitons.CreateorSubmitTransaction.validate_Claim_Status_is(CreateorSubmitTransaction.java:20)
+	at ✽.Then Validate Claim Status is &quot;R&quot;(features/RxClaim/featureFiles/SN003419/SN003419_TC_01_64.feature:24)
+... Removed 25 stack frames
+</div> <!-- stack-trace -->
+>>>>>>> 62da55fea10dac219f4efc1e04f286876b67ae28
                   <em>
 (Runs Cucumber Feature)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
+<<<<<<< HEAD
           </div> <!-- suite-Default_suite-class-skipped -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
+=======
+          </div> <!-- suite-Testng_Cucumber_Suite-class-failed -->
+        </div> <!-- panel Testng_Cucumber_Suite -->
+        <div panel-name="test-xml-Testng_Cucumber_Suite" class="panel">
+>>>>>>> 62da55fea10dac219f4efc1e04f286876b67ae28
           <div class="main-panel-header rounded-window-top">
             <span class="header-content">C:\Users\mvenka29\AppData\Local\Temp\testng-eclipse-1243300317\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
@@ -285,6 +338,7 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'feature')
 data.setCell(0, 2, 'com.atdd.demo.runners.RunDemoTest')
+<<<<<<< HEAD
 data.setCell(0, 3, 2);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
@@ -293,6 +347,16 @@ return data;
               <span class="suite-total-time">Total running time: 2 ms</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
+=======
+data.setCell(0, 3, 212352);
+window.suiteTableData['Testng_Cucumber_Suite']= { tableData: data, tableDiv: 'times-div-Testng_Cucumber_Suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 3 minutes</span>
+              <div id="times-div-Testng_Cucumber_Suite">
+              </div> <!-- times-div-Testng_Cucumber_Suite -->
+>>>>>>> 62da55fea10dac219f4efc1e04f286876b67ae28
             </div> <!-- times-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
@@ -321,10 +385,35 @@ return data;
                 <span class="method-name">setUpClass</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
+<<<<<<< HEAD
               <div class="test-method">
                 <span class="method-name">feature(SN003425_SR42066:PART D: February 2018 Updates to the Drug Data Processing System)</span>
                 <span class="method-start">1050 ms</span>
               </div> <!-- test-method -->
+=======
+              <div class="configuration-class before">
+                <span class="method-name">setup(src/test/resources/te/config_sxcd1.properties, Always)</span>
+                <span class="method-start">1420 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">feature(Current Enrollee: Plan Check Negative Formulary Q, Product Negative Formulary Change N and PA TB X)</span>
+                <span class="method-start">58425 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">teardown</span>
+                <span class="method-start">270793 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDownClass</span>
+                <span class="method-start">272119 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-suite after">
+                <span class="method-name">parser</span>
+                <span class="method-start">273400 ms</span>
+              </div> <!-- configuration-suite after -->
+>>>>>>> 62da55fea10dac219f4efc1e04f286876b67ae28
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

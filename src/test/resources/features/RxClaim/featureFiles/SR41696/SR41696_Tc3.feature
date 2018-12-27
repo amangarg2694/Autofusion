@@ -9,7 +9,8 @@ Then I validate "F8=PA Prediction"  for the claim "<RxClaimNo>" in Claim MEDLIMI
 
 Examples: 
 |RxClaimNo|
-|182482289442000|
+#|182482289442000|
+|183190665475000|
 
 Scenario Outline: Verify Medlimit Detail screen for PA Prediction button
 Given I am on RxClaim PlanAdministrator Menu  
@@ -21,7 +22,8 @@ And I press "F8" Key
 Then I validate the screen name is "MEDLIMIT PA Prediction Summary"
 Examples: 
 |RxClaimNo|
-|182482289442000|
+#|182482289442000|
+|183190665475000|
 
 
 Scenario Outline: Verify screen fields  in MEDLIMIT PA Prediction Summary Screen
@@ -36,4 +38,5 @@ And I validate the fields "Qty","DS","Prescriber" in MEDLIMIT PA Prediction Summ
 
 Examples: 
 |RxClaimNo|
-|182482289442000|
+#|182482289442000|
+|183190665475000|

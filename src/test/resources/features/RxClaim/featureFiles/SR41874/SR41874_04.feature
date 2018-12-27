@@ -1,3 +1,4 @@
+@Regression
 Feature: Duplicate message coming from plan edit
   
   Scenario Outline: SN003414_SR41874_TC004:Verify if the Duplicate message is coming for the Reject Claim once or twice in 8.4.03

@@ -13,24 +13,7 @@ import cucumber.api.PendingException;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 
 public class PartitionMemberData {
-	@Then("^Validate PartitionMemberData$")
-	public void validate_PartitionMemberData() throws Throwable {
 	
-	String PartitionCount = FunctionalLibrary.getText(7,28);
-	String[] SplitPC=PartitionCount.split(":");
-	if(SplitPC[1].trim().contains("1"))
-	{
-	System.out.println("Total number of members before Partition: "+ " " + PartitionCount);
-	}
-	else
-	{
-	System.out.println("Total number of members not shown in Spool file");
-	Assert.fail();
-	}
-	FunctionalLibrary.pressKey("F12");
-	}
-	
-
 	@Then("^Validate ExistingPartitionMemberData$")
 	public void validate_ExistingPartitionMemberData() throws Throwable {
 		String EPartitionCount = FunctionalLibrary.getText(7,28);
@@ -120,28 +103,6 @@ public class PartitionMemberData {
 		   FunctionalLibrary.pressEnter();
 		   FunctionalLibrary.pressKey("F3");
 		   }
-	}
-    //Code for Creating Library
-	@When("^I Create Library \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_Create_Library(String Library, String LibType, String LibDesc) throws Throwable {
-	FunctionalLibrary.enterText(21,7,"CRTLIB");
-	FunctionalLibrary.pressEnter();
-	FunctionalLibrary.enterText(5,37,Library);
-	FunctionalLibrary.enterText(6,37,LibType);
-	FunctionalLibrary.enterText(7,37,LibDesc);
-	FunctionalLibrary.pressEnter();
-	} 
-	//Code for Copying Files and Programs
-	@When("^I Copy files CRTDUPOBJ\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_Copy_files_CRTDUPOBJ(String FromObject, String FromLibrary, String ObjectType, String ToLibrary) throws Throwable {
-	FunctionalLibrary.enterText(21,7,"CRTDUPOBJ");
-	FunctionalLibrary.pressEnter();
-	FunctionalLibrary.enterText(5,37,FromObject);
-	FunctionalLibrary.enterText(6,37,FromLibrary);
-	FunctionalLibrary.enterText(7,37,ObjectType);
-	FunctionalLibrary.enterText(9,37,ToLibrary);
-	FunctionalLibrary.pressEnter();
-	FunctionalLibrary.pressEnter();
 	}
 	//Code for Validating Date range for PBT File
 	@Given("^I enter the command and validate for PBT\"([^\"]*)\",\"([^\"]*)\"$")

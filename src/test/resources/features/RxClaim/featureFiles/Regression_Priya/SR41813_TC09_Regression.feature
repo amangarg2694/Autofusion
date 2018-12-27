@@ -1,3 +1,4 @@
+#@Regression @Release_8403 - skipped for now as this is dependent on TC08 running successfully
 Feature: Medicaid Subrogation Profile 
   As a RxClaim User I want to check claim is getting rejected and notes not stamped
 
