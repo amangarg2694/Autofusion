@@ -1,4 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<testng-results skipped="1" failed="0" total="1" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="1074" started-at="2018-11-26T14:21:23Z" finished-at="2018-11-26T14:21:24Z">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Default test" duration-ms="1074" started-at="2018-11-26T14:21:23Z" finished-at="2018-11-26T14:21:24Z">
+      <class name="com.atdd.demo.runners.RunDemoTest">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="setUpClass" is-config="true" duration-ms="856" started-at="2018-11-26T19:51:23Z" finished-at="2018-11-26T19:51:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="FAIL" signature="setup(java.lang.String, java.lang.String)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="setup" is-config="true" duration-ms="0" started-at="2018-11-26T19:51:23Z" finished-at="2018-11-26T19:51:23Z">
+          <exception class="org.testng.TestNGException">
+            <message>
+              <![CDATA[
+Parameter 'configFile' is required by @Configuration on method setup but has not been marked @Optional or defined
+in C:\Users\mvenka29\AppData\Local\Temp\testng-eclipse-1243300317\testng-customsuite.xml]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.TestNGException: 
+Parameter 'configFile' is required by @Configuration on method setup but has not been marked @Optional or defined
+in C:\Users\mvenka29\AppData\Local\Temp\testng-eclipse-1243300317\testng-customsuite.xml
+	at org.testng.internal.Parameters.createParameters(Parameters.java:154)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:361)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:84)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:197)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:170)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:104)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.TestNGException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="SKIP" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="feature" duration-ms="2" started-at="2018-11-26T19:51:24Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2018-11-26T19:51:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[SN003425_SR42066:PART D: February 2018 Updates to the Drug Data Processing System]]>
+=======
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
@@ -35,6 +95,7 @@
             <param index="0">
               <value>
                 <![CDATA[Current Enrollee: Plan Check Negative Formulary Q, Product Negative Formulary Change N and PA TB X]]>
+>>>>>>> 62da55fea10dac219f4efc1e04f286876b67ae28
               </value>
             </param>
           </params>
@@ -82,6 +143,17 @@ Caused by: java.lang.AssertionError: The text R does not match on the screen.Scr
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
+<<<<<<< HEAD
+        <test-method status="SKIP" signature="teardown()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="teardown" is-config="true" duration-ms="0" started-at="2018-11-26T19:51:24Z" finished-at="2018-11-26T19:51:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="SKIP" signature="tearDownClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="tearDownClass" is-config="true" duration-ms="0" started-at="2018-11-26T19:51:24Z" finished-at="2018-11-26T19:51:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+        <test-method status="SKIP" signature="parser()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="parser" is-config="true" duration-ms="0" started-at="2018-11-26T19:51:24Z" finished-at="2018-11-26T19:51:24Z">
+=======
         <test-method status="PASS" signature="teardown()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@24269709]" name="teardown" is-config="true" duration-ms="1326" started-at="2018-12-21T17:35:34Z" finished-at="2018-12-21T17:35:36Z">
           <reporter-output>
           </reporter-output>
@@ -91,10 +163,11 @@ Caused by: java.lang.AssertionError: The text R does not match on the screen.Scr
           </reporter-output>
         </test-method> <!-- tearDownClass -->
         <test-method status="PASS" signature="parser()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@24269709]" name="parser" is-config="true" duration-ms="17411" started-at="2018-12-21T17:35:37Z" finished-at="2018-12-21T17:35:54Z">
+>>>>>>> 62da55fea10dac219f4efc1e04f286876b67ae28
           <reporter-output>
           </reporter-output>
         </test-method> <!-- parser -->
       </class> <!-- com.atdd.demo.runners.RunDemoTest -->
-    </test> <!-- Veirify Demo Site Features -->
-  </suite> <!-- Testng Cucumber Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
