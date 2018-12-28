@@ -21,11 +21,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
-		features = { "classpath:features/RxClaim/featureFiles" },
-
-		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
-
-		features = { "classpath:features/RxClaim/featureFiles/SN003419/SN003419_TC_01.feature" },
+		features = { "classpath:features/RxClaim/featureFiles/SN003419/SN003419_TC_01_64.feature" },
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 		glue = { "com.atdd.demo.te" }
