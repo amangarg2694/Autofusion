@@ -1,11 +1,15 @@
 Feature: Setup Plan with GPI List
-As a RxClaim User I want to Setup All the Below data for SR 42438.
+As a RxClaim User I want to Setup All the Below data for SR42438.
 - Plan with GPI List
 - Plan with NDC List
-   
-   Scenario: Create GPI List
+
+   @GPIList
+   Scenario Outline: Create GPI List
    Given I am on RxClaim PlanAdministrator Menu
-   When I create a GPI List with "<GpiListName>","<PlanDefault>","<ActivateAudit>"
+   When I create a GPI List with "<GPI List>","<Description>","<Plan Default>","<List Qualifier>","<Activate Audit>","<Rejection List>"
+   Examples:
+   |GPI List | Description     | Plan Default | List Qualifier|Activate Audit|Rejection List|
+   |SR003    | GPI List        | Y            |               |N             |              |
    
    @GPI 
    Scenario Outline: Create a Plan with NDC and GPI List
