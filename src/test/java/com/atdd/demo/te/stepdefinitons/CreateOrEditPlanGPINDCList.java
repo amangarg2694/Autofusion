@@ -116,4 +116,31 @@ public class CreateOrEditPlanGPINDCList {
 		FunctionalLibrary.enterText( mscZ,"MultiSourceCode-Z",screenName);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 	}
+	
+	@When("^I create a GPI List with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_a_GPI_List_with(String gpiList, String description, String planDefault, String listqualifier, String activateAudit, String rejectionList) throws Throwable {
+	
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		if(!(FunctionalLibrary.func_SearchAndSelectADataEditMode("4,6" ,gpiList ,"11,6" , gpiList))){
+		Mainframe_GlobalFunctionLib.pressKey("F6");
+		FunctionalLibrary.enterText(gpiList,"GPIList","AddPlanGPIListScreen" );
+		if(!(description.length()==0))
+		FunctionalLibrary.enterText(description ,"Description","AddPlanGPIListScreen" );
+		if(!(planDefault.length()==0))
+		FunctionalLibrary.enterText(planDefault,"PlanDefault","AddPlanGPIListScreen" );
+		if(!(listqualifier.length()==0))
+		FunctionalLibrary.enterText(listqualifier,"ListQualifier","AddPlanGPIListScreen" );
+		if(!(activateAudit.length()==0))
+		FunctionalLibrary.enterText(activateAudit,"ActivateAudit","AddPlanGPIListScreen" );
+		if(!(rejectionList.length()==0))
+		FunctionalLibrary.enterText(rejectionList,"RejectionList","AddPlanGPIListScreen" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		FunctionalLibrary.enterText("Y","ConfirmPrompt","AddPlanGPIListScreen" );
+		}
+	}
 }
