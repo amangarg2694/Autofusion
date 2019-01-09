@@ -25,7 +25,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 		glue = { "com.atdd.demo.te" }
-       // ,tags ={"@TC01_01"}
+		,tags ={"@TC5"}
 
 )
 
