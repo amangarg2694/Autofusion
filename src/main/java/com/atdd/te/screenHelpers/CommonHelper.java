@@ -213,6 +213,41 @@ try {
 			}
 	
 		break;
+case "RXBCHQA" :
+		
+		try {
+			
+			System.out.println("Logging to RXBCHQA");
+		Mainframe_GlobalFunctionLib.launchTE(env);
+		coordinates = ReadPropertyFile.getProperty("Login" , "Book1_Username");			
+		Mainframe_GlobalFunctionLib.sendText(coordinates[0] ,coordinates[1] , Username);			
+    	coordinates = ReadPropertyFile.getProperty("Login" , "Book1_Password");
+    	Mainframe_GlobalFunctionLib.sendText(coordinates[0] ,coordinates[1] , Password);				
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		try{
+			if(Mainframe_GlobalFunctionLib.getText(21, 2).contains("Press Enter to continue")){							
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+		}
+		}
+		catch(Exception e){
+			System.out.println("Select the env");
+		}
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"CCT600" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
+		
+		/*if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			}
+			*/
+			}catch(Exception e){
+				e.printStackTrace();
+			//	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			//	Assert.fail("Login is not successful.");
+			}
+	
+		break;
 		}
 	
 }

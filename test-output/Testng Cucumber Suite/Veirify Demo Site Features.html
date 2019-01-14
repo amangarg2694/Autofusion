@@ -58,6 +58,11 @@ function toggleAllBoxes() {
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
 <<<<<<< HEAD
+<td>Started on:</td><td>Wed Jan 02 20:11:44 IST 2019</td>
+</tr>
+<tr><td>Total time:</td><td>138 seconds (138151 ms)</td>
+=======
+<<<<<<< HEAD
 <td>Started on:</td><td>Mon Nov 26 11:57:55 IST 2018</td>
 </tr>
 <tr><td>Total time:</td><td>107 seconds (107337 ms)</td>
@@ -66,6 +71,7 @@ function toggleAllBoxes() {
 </tr>
 <tr><td>Total time:</td><td>273 seconds (273322 ms)</td>
 >>>>>>> 62da55fea10dac219f4efc1e04f286876b67ae28
+>>>>>>> bc95b9c0ce20953a756992157d5c3aa2766bc5c3
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -111,9 +117,17 @@ Verify that this object&apos;s properties match an object currently displayed in
 Verify that this object&apos;s properties match an object currently displayed in your application.
 =======
 <td title='com.atdd.demo.runners.RunDemoTest.feature()'><b>feature</b><br>Test class: com.atdd.demo.runners.RunDemoTest<br>Test method: Runs Cucumber Feature<br>Parameters: Current Enrollee: Plan Check Negative Formulary Q, Product Negative Formulary Change N and PA TB X</td>
-<td><div><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: The text R does not match on the screen.Screenshot captured.
+<td><div><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: The text is not fetched from screen position 1,13.Screenshot captured.
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
+<<<<<<< HEAD
+Caused by: java.lang.AssertionError: The text is not fetched from screen position 1,13.Screenshot captured.
+	at com.atdd.te.screenHelpers.FunctionalLibrary.getText(FunctionalLibrary.java:2026)
+	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.i_am_on_RxClaim_PlanAdministrator_Menu(CommonStepDefinition.java:38)
+	at ?.Given I am on RxClaim PlanAdministrator Menu(features/RxClaim/featureFiles/SN003419/SN003419_TC_01_64.feature:7)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2045706119", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2045706119'><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: The text is not fetched from screen position 1,13.Screenshot captured.
+=======
 Caused by: java.lang.AssertionError: The text R does not match on the screen.Screenshot captured.
 	at com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib.validateText(Mainframe_GlobalFunctionLib.java:231)
 	at com.atdd.te.screenHelpers.FunctionalLibrary.validateText(FunctionalLibrary.java:1981)
@@ -122,6 +136,7 @@ Caused by: java.lang.AssertionError: The text R does not match on the screen.Scr
 ... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1670849676", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
 <div class='stack-trace' id='stack-trace1670849676'><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: The text R does not match on the screen.Screenshot captured.
 >>>>>>> 62da55fea10dac219f4efc1e04f286876b67ae28
+>>>>>>> bc95b9c0ce20953a756992157d5c3aa2766bc5c3
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -149,6 +164,9 @@ Caused by: java.lang.AssertionError: The text R does not match on the screen.Scr
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
 <<<<<<< HEAD
+Caused by: java.lang.AssertionError: The text is not fetched from screen position 1,13.Screenshot captured.
+=======
+<<<<<<< HEAD
 Caused by: com.hp.lft.sdk.ReplayObjectNotFoundException: Cannot identify the object &quot;Terminal Emulators Field&quot;.
 Verify that this object&apos;s properties match an object currently displayed in your application.
 	at com.hp.lft.sdk.internal.ReplayExceptionFactory$1.create(ReplayExceptionFactory.java:34)
@@ -173,13 +191,13 @@ Verify that this object&apos;s properties match an object currently displayed in
 <td>com.atdd.demo.runners.RunDemoTest@54d9d12d</td></tr>
 =======
 Caused by: java.lang.AssertionError: The text R does not match on the screen.Screenshot captured.
+>>>>>>> bc95b9c0ce20953a756992157d5c3aa2766bc5c3
 	at org.testng.Assert.fail(Assert.java:94)
-	at com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib.validateText(Mainframe_GlobalFunctionLib.java:231)
-	at com.atdd.te.screenHelpers.FunctionalLibrary.validateText(FunctionalLibrary.java:1981)
-	at com.atdd.demo.te.stepdefinitons.CreateorSubmitTransaction.validate_Claim_Status_is(CreateorSubmitTransaction.java:20)
-	at ?.Then Validate Claim Status is &quot;R&quot;(features/RxClaim/featureFiles/SN003419/SN003419_TC_01_64.feature:24)
+	at com.atdd.te.screenHelpers.FunctionalLibrary.getText(FunctionalLibrary.java:2026)
+	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.i_am_on_RxClaim_PlanAdministrator_Menu(CommonStepDefinition.java:38)
+	at ?.Given I am on RxClaim PlanAdministrator Menu(features/RxClaim/featureFiles/SN003419/SN003419_TC_01_64.feature:7)
 </pre></div></td>
-<td>212</td>
+<td>63</td>
 <td>com.atdd.demo.runners.RunDemoTest@24269709</td></tr>
 >>>>>>> 62da55fea10dac219f4efc1e04f286876b67ae28
 </table><p>
