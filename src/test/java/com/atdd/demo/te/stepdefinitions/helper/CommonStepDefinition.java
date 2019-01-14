@@ -48,6 +48,7 @@ public class CommonStepDefinition extends CommonHelper{
 		
 	}	
 	
+		
 	@When("^I press \"([^\"]*)\" Key$")
 	public void i_press_Key(String arg1) throws Throwable {
 		//Mainframe_GlobalFunctionLib.Transmit();
@@ -61,6 +62,7 @@ public class CommonStepDefinition extends CommonHelper{
 		
 		FunctionalLibrary.enterText(21,7 ,option );
 		FunctionalLibrary.pressEnter();
+		
 	}
 	
 	@Given("^I open RxClaim Application in \"([^\"]*)\"$")
