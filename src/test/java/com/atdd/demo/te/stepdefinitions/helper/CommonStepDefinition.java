@@ -65,6 +65,13 @@ public class CommonStepDefinition extends CommonHelper{
 		
 	}
 	
+	@When("^I want to press F(\\d+) key$")
+	public void i_want_to_press_F_key(int arg1) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	   // throw new PendingException();
+		FunctionalLibrary.pressKey("F4");
+	}
+	
 	@Given("^I open RxClaim Application in \"([^\"]*)\"$")
 	public void i_open_RxClaim_Application_in(String env) throws Throwable {
 		Mainframe_GlobalFunctionLib.launchTE(env);
@@ -495,6 +502,7 @@ public class CommonStepDefinition extends CommonHelper{
 			Mainframe_GlobalFunctionLib.click(coordinate0 ,coordinate1);
 			
 		}
+    
 		@When("^Update Plan Drug Status and Turnoff GPI Options \"([^\"]*)\"$")
 		public void update_Plan_Drug_Status_and_Turnoff_GPI_Options(String plancode) throws Throwable {
 		    // Write code here that turns the phrase above into concrete actions
@@ -546,6 +554,15 @@ public class CommonStepDefinition extends CommonHelper{
 		public void validate_Claim_Reject_Code(String rejectcode) throws Throwable {
 		    // Write code here that turns the phrase above into concrete actions
 			FunctionalLibrary.validateText("21" ,"12" , rejectcode );
+		
+		
+		@Then("^Verify if Subrogation applies for Manual Claims with Payee Override with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void verify_if_Subrogation_applies_for_Manual_Claims_with_Payee_Override_with(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+		   // throw new PendingException();
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			FunctionalLibrary.validateText("21" ,"10", "Testing");
+			
 		}
 	
 }
