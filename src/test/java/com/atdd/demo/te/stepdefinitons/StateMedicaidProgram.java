@@ -725,12 +725,12 @@ public class StateMedicaidProgram {
 			}
 	}
 	
-	@Then("^Copy the data from \"([^\"]*)\" to library \"([^\"]*)\" with \"([^\"]*)\",\"([^\"]*)\"$")
-	public void copy_the_data_from_to_library_with(String file, String lib, String dupdata, String duplid) throws Throwable {
+	@Then("^Copy the data from \"([^\"]*)\" to library \"([^\"]*)\" with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void copy_the_data_from_to_library_with(String file, String lib, String dupdata, String duplid, String fdata, String data) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		Mainframe_GlobalFunctionLib.sendText("21", "007","crtdupobj");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		Mainframe_GlobalFunctionLib.sendText("05", "037","RCPNR*");
+		Mainframe_GlobalFunctionLib.sendText("05", "037",fdata);
 		Mainframe_GlobalFunctionLib.sendText("06", "037",file);
 		Mainframe_GlobalFunctionLib.sendText("07", "037","*ALL");
 		for(int i=0;i<8;i++)
@@ -742,38 +742,38 @@ public class StateMedicaidProgram {
 		Mainframe_GlobalFunctionLib.sendText("09", "037",lib);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText("13", "037",dupdata);
+		Mainframe_GlobalFunctionLib.sendText("15", "037","    ");
+		Mainframe_GlobalFunctionLib.sendText("15", "037","*NO");
 		Mainframe_GlobalFunctionLib.sendText("16", "037",duplid);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Thread.sleep(2000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-		
+		Mainframe_GlobalFunctionLib.sendText("21", "007","                    ");
 		Mainframe_GlobalFunctionLib.sendText("21", "007","wrkobj");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		Mainframe_GlobalFunctionLib.sendText("05", "037","RCPNR*");
+		Mainframe_GlobalFunctionLib.sendText("05", "037",fdata);
 		Mainframe_GlobalFunctionLib.sendText("06", "039",lib);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Thread.sleep(2000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 		
-		Mainframe_GlobalFunctionLib.sendText("21", "007","runqry *n "+lib+"/"+"RCPNRP");
+		Mainframe_GlobalFunctionLib.sendText("21", "007","runqry *n "+lib+"/"+data);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		/*Mainframe_GlobalFunctionLib.sendText("08", "037","RCPNRP");
-		Mainframe_GlobalFunctionLib.sendText("09", "039",lib);
-		Mainframe_GlobalFunctionLib.pressKey("Enter");*/
 		Thread.sleep(2000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F3"); 
 	}
 	
-	@Then("^Copy the programs with \"([^\"]*)\",\"([^\"]*)\"$")
-	public void copy_the_programs_with(String file, String lib) throws Throwable {
+	@Then("^Copy the programs with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void copy_the_programs_with(String file, String lib, String fname, String ctrlid) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		Mainframe_GlobalFunctionLib.sendText("21", "007","9");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		Mainframe_GlobalFunctionLib.sendText("04", "017","SR41010");
+		Mainframe_GlobalFunctionLib.sendText("04", "017",fname);
+		Mainframe_GlobalFunctionLib.sendText("04", "033",ctrlid);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		Mainframe_GlobalFunctionLib.sendText("10", "002","5");
+		Mainframe_GlobalFunctionLib.sendText("09", "02","5");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		String DTAQprog = Mainframe_GlobalFunctionLib.getText(15, 15);
 		String Dataexitprog = Mainframe_GlobalFunctionLib.getText(15, 45);
@@ -781,7 +781,7 @@ public class StateMedicaidProgram {
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 		Mainframe_GlobalFunctionLib.pressKey("F3");
-		
+		Mainframe_GlobalFunctionLib.sendText("21", "007","                    ");
 		Mainframe_GlobalFunctionLib.sendText("21", "007","wrkobj");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText("05", "037",DTAQprog);
@@ -797,7 +797,7 @@ public class StateMedicaidProgram {
 		Thread.sleep(2000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F3");
-		
+		Mainframe_GlobalFunctionLib.sendText("21", "007","                    ");
 		Mainframe_GlobalFunctionLib.sendText("21", "007","wrkobj");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText("05", "037",Dataexitprog);
@@ -815,9 +815,12 @@ public class StateMedicaidProgram {
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 	}
 	
+	
+	
 	@Then("^Copy the CV files to library with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void copy_the_CV_files_to_library_with(String cvfile, String cvlib, String lib, String dupdata, String dupid) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
+		Mainframe_GlobalFunctionLib.sendText("21", "007","                    ");
 		Mainframe_GlobalFunctionLib.sendText("21", "007","wrkobj");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText("05", "037",cvfile);
@@ -836,8 +839,8 @@ public class StateMedicaidProgram {
 		Mainframe_GlobalFunctionLib.pressKey("F3");
 	}
 	
-	@When("^Create journal receiver and journal in production library with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void create_journal_receiver_and_journal_in_production_library_with(String prodfile, String lib, String journ, String journrecv,String stagingarea, String staglib) throws Throwable {
+	@When("^Create journal receiver and journal in production library with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void create_journal_receiver_and_journal_in_production_library_with(String prodfile, String lib, String journ, String journrecv, String stagingarea, String staglib, String fname, String ctrlid) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		Mainframe_GlobalFunctionLib.sendText("21", "007","CRTJRNRCV");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -861,16 +864,17 @@ public class StateMedicaidProgram {
 		Mainframe_GlobalFunctionLib.sendText("06", "039",lib);
 		Mainframe_GlobalFunctionLib.sendText("09", "037",journ);
 		Mainframe_GlobalFunctionLib.sendText("10", "039",lib);
+		Mainframe_GlobalFunctionLib.sendText("11", "037","       ");
 		Mainframe_GlobalFunctionLib.sendText("11", "037","*BOTH");
-		Mainframe_GlobalFunctionLib.click(11,42);
-		Thread.sleep(2000);
-			Robot r= new Robot();
-			r.keyPress(KeyEvent.VK_DELETE);
-			r.keyRelease(KeyEvent.VK_DELETE);
+		Mainframe_GlobalFunctionLib.sendText("12", "037","*NONE");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText("21", "007","        ");
 		Mainframe_GlobalFunctionLib.sendText("21", "007","9");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		Mainframe_GlobalFunctionLib.sendText("04", "017","SR41010");
+		Mainframe_GlobalFunctionLib.sendText("04", "017",fname);
+		Thread.sleep(2000);
+		Mainframe_GlobalFunctionLib.sendText("04", "033",ctrlid);
+		Mainframe_GlobalFunctionLib.click(4,56);
 		for(int i=0;i<11;i++)
 		{
 			Robot ro = new Robot();
@@ -879,7 +883,7 @@ public class StateMedicaidProgram {
 		}
 		Mainframe_GlobalFunctionLib.sendText("04", "056",staglib);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		Mainframe_GlobalFunctionLib.sendText("10", "002","6");
+		Mainframe_GlobalFunctionLib.sendText("09", "002","6");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Thread.sleep(2000);
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
@@ -938,13 +942,14 @@ public class StateMedicaidProgram {
 		Mainframe_GlobalFunctionLib.sendText("05", "037",prodfile);
 		Mainframe_GlobalFunctionLib.sendText("06", "039",staglib);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		
+		Mainframe_GlobalFunctionLib.sendText("21", "007","         ");
 		Mainframe_GlobalFunctionLib.sendText("21", "007","1");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText("04", "005",stagingarea);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText("09", "002","1");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
 		String File = Mainframe_GlobalFunctionLib.getText(11, 16);
 		if(File.equals(prodfile))
 		{
@@ -974,8 +979,9 @@ public class StateMedicaidProgram {
 			Mainframe_GlobalFunctionLib.pressKey("F3");
 			Mainframe_GlobalFunctionLib.pressKey("F3");
 			Mainframe_GlobalFunctionLib.pressKey("F3"); 
-	} 
 	}
+	}
+
 	
 @Then("^Validate the medicaid network and Clarification code recognition flag are blank with \"([^\"]*)\",\"([^\"]*)\"$")
 public void validate_the_medicaid_network_and_Clarification_code_recognition_flag_are_blank_with(String file, String lib) throws Throwable {

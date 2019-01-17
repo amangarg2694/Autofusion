@@ -233,6 +233,34 @@ public class MedicaidSubrogation {
 		Mainframe_GlobalFunctionLib.pressKey("F12");
 	}	
 	
+	@When("^medicaid subrogation profile created with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void medicaid_subrogation_profile_created_with(String ProfileID, String Description, String SDWD, String MCSDWD, String Code, String payee) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		Mainframe_GlobalFunctionLib.pressKey("F6");
+		Mainframe_GlobalFunctionLib.sendText("14", "015",ProfileID);
+		Mainframe_GlobalFunctionLib.sendText("14", "031",Description);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");	
+		Mainframe_GlobalFunctionLib.sendText("12", "041",SDWD);
+		Mainframe_GlobalFunctionLib.sendText("16", "041",MCSDWD);
+		Mainframe_GlobalFunctionLib.sendText("18", "041",Code);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");	
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		//Payee Add
+		Mainframe_GlobalFunctionLib.pressKey("F7");
+		Mainframe_GlobalFunctionLib.pressKey("F6");
+		Mainframe_GlobalFunctionLib.click(8, 12);
+		Mainframe_GlobalFunctionLib.pressKey("F4");
+		Mainframe_GlobalFunctionLib.sendText("03", "006",payee);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");	
+		Mainframe_GlobalFunctionLib.sendText("08", "002","1");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");	
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("F12");	
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+	}
+	
 
 @Then("^I create medicaid subrogation profile with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 public void i_create_medicaid_subrogation_profile_with(String ProfileID, String Description, String SDWD, String MCSDWD, String Code, String payee) throws Throwable {
@@ -241,12 +269,10 @@ public void i_create_medicaid_subrogation_profile_with(String ProfileID, String 
 	Mainframe_GlobalFunctionLib.sendText("04", "005",ProfileID);
 	Mainframe_GlobalFunctionLib.pressKey("Enter");	
 	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
-	String msg = Mainframe_GlobalFunctionLib.getText(24,2);
+	String msg = Mainframe_GlobalFunctionLib.getText(9,5);
 	
-	if(msg.equals(""))
+	if(msg.equals(ProfileID))
 	{
-		
-		
 		Mainframe_GlobalFunctionLib.sendText("09", "002","2");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");	
 		Mainframe_GlobalFunctionLib.sendText("18", "041",Code);
