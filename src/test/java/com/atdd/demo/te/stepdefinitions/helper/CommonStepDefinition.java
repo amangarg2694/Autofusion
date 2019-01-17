@@ -555,7 +555,7 @@ public class CommonStepDefinition extends CommonHelper{
 		    // Write code here that turns the phrase above into concrete actions
 			FunctionalLibrary.validateText("21" ,"12" , rejectcode );
 		
-		
+		}
 		@Then("^Verify if Subrogation applies for Manual Claims with Payee Override with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 		public void verify_if_Subrogation_applies_for_Manual_Claims_with_Payee_Override_with(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6) throws Throwable {
 		    // Write code here that turns the phrase above into concrete actions
