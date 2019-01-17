@@ -10,4 +10,5 @@ As a RxClaim User I want to create Plan with Pricing
     
    Examples:
    |PlanCode  |FromDate|ThruDate|Description|PriceSchedule|PatientPaySchedule| 
-   |EVU30976P1|010101  |123139  |EVU30976P1 |EVUAREG      |EVUAREG  |
+   #|EVU30976P1|010101  |123139 |EVU30976P1 |EVUAREG      |EVUAREG  |
+   |TestP3690|010101  |123139   |TestP3690  |EVUAREG      |EVUAREG  |
