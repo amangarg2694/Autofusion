@@ -17,8 +17,8 @@ import cucumber.api.java.en.When;
 public class MultipleIngredientCompoundNDCGPIClaim {
 
 	
-	@When("^I create plan with member eligibility pricing option \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_create_plan_with_member_eligibility_pricing_option(String plancode,String fromdate,String description,String thruDate, String pricechedule, String patientpayschedule) throws Throwable {
+	@When("^I create plan with member eligibility pricing option MIC \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_plan_with_member_eligibility_pricing_option_MIC(String plancode,String fromdate,String description,String thruDate, String pricechedule, String patientpayschedule) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		try { 
 			FunctionalLibrary.navigateToRxClaimPlanAdministrator(); 

@@ -1,3 +1,4 @@
+@Regression
 Feature: NCPDP External Code List (ECL) Change for Medicaid – Reject Code 831
 
 
@@ -17,7 +18,7 @@ Feature: NCPDP External Code List (ECL) Change for Medicaid – Reject Code 831
     Examples:
      
     | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID  | DspQty | DS | PSC | Cost |Plan    |
-		|	170996  | *ALL    |	*ALL  | APHARM      | 689224434167 | 01     |090618    | SR41011M2    | 00591319301 |30       |30  |0   |10   |SR41011|
+		|	170996  | *ALL    |	*ALL  | APHARM      | 689224434167 | 01     |120718    | SR41011M1    | 00591319301 |30       |30  |0   |10   |SR41011|
 		
 		Scenario Outline: Reject Remap with GPI 
    
@@ -33,7 +34,7 @@ Feature: NCPDP External Code List (ECL) Change for Medicaid – Reject Code 831
     Examples:
      
     | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID  | DspQty | DS | PSC | Cost |Plan    |
-		|	170996  | *ALL    |	*ALL  | APHARM      | 681234231267 | 01     |090618    | SR41011M2    | 00003052620 |30       |30  |0   |10   |SR41011|
+		|	170996  | *ALL    |	*ALL  | APHARM      | 681234231267 | 01     |120718    | SR41011M1    | 00000111199 |30       |30  |0   |10   |SR41011|
 		
 		
 		Scenario Outline: Reject Remap with NDC Speciality
@@ -45,7 +46,7 @@ Feature: NCPDP External Code List (ECL) Change for Medicaid – Reject Code 831
     Examples:
       
     | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID  | DspQty | DS | PSC | Cost |Plan    |
-		|	170996  | *ALL    |	*ALL  | APHARM      | 689234831267 | 01     |090618    | SR41011M2    | 502012400** |30       |30  |0   |10   |SR41011|
+		|	170996  | *ALL    |	*ALL  | APHARM      | 689234831267 | 01     |120718    | SR41011M1    | 502012400** |30       |30  |0   |10   |SR41011|
 		
 		
 				
@@ -58,5 +59,5 @@ Feature: NCPDP External Code List (ECL) Change for Medicaid – Reject Code 831
     Examples:
       
     | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID  | DspQty | DS | PSC | Cost |Plan    |
-		|	170996  | *ALL    |	*ALL  | APHARM      | 689234231269 | 01     |090618    | SR41011M2    | 59676060012 |30       |30  |0   |10   |SR41011|
+		|	170996  | *ALL    |	*ALL  | APHARM      | 689234231269 | 01     |120718    | SR41011M1    | 59676060012 |30       |30  |0   |10   |SR41011|
 		

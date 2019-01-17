@@ -1,3 +1,5 @@
+#@Regression @Release_8403
+
 Feature: Medicaid Subrogation Profile 
   As a RxClaim User I want to check claim is getting rejected and notes not stamped
 
@@ -8,15 +10,15 @@ Feature: Medicaid Subrogation Profile
    	Given I am on RxClaim PlanAdministrator Menu
    	When I select Option "4" to navigate to "RxClaim Plan Maintenance"
 		And I select Option "1" to navigate to "Active Plan by Plan Code"
-		Then Validate the Plan details with "<PlanCode>","<PlanCode1>"
+		And Validate the Plan details with "<PlanCode>","<PlanCode1>"
 		And I press "F12" Key
-		Then I Validate the Group and Member details with "<GroupID>" and "<MemberID>"
+		And I Validate the Group and Member details with "<GroupID>" and "<MemberID>"
   	And I press "F12" Key
-  	When I select Option "8" to navigate to "RxClaim Profile Maintenance"
+  	And I select Option "8" to navigate to "RxClaim Profile Maintenance"
 		And I select Option "36" to navigate to "Active Medicaid Subrogation Profile"
-  	Then I create medicaid subrogation profile with "<ProfileID>","<PDescription>","<SDWD>","<MCSDWD>","<Code>","<Payee>"
+  	And I create medicaid subrogation profile with "<ProfileID>","<PDescription>","<SDWD>","<MCSDWD>","<Code>","<Payee>"
   	And I press "F12" Key
-  	Then I create payee claim with "<RxNo>","<Payee>","<SubrogationFlag>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>","<Fee>","<MemberID>","<Type>","<PANum>"
+  	And I create payee claim with "<RxNo>","<Payee>","<SubrogationFlag>","<ProductID>","<DspQty>","<DS>","<PSC>","<Cost>","<Fee>","<MemberID>","<Type>","<PANum>"
   	And I press "F7" Key
 		And I enter "8" in field "Selectionfield" on "TransactionDetailList"
 		And I press "Enter" Key
@@ -26,7 +28,8 @@ Feature: Medicaid Subrogation Profile
 		And I press "F3" Key
 		And I press "F3" Key
 		And I press "F12" Key
-		And I press "F12" Key
+		Then I press "F12" Key
+		
 		Examples:
    
       | CarrierID | CarrierName | Processor | MailingAdd | City      | State | Zip   | ContractFromDt | ContractThruDt | ContractEnt | BusinessType | AccountID | AccountName | GroupID  | GroupName | GroupFromDt | GroupThruDt | PlanCode | Description | MemberID   | First Name | Last Name | DOB      | BIN    | PCN     | Group | Pharmacy |RxNo          | Refill | ProductID  | DspQty | DS | PSC | Cost | From Date | Thru Date | SubrogationFlag | Fee | UCW | Type | PANum | Payee | Name | ProfileID | PDescription | SDWD | MCSDWD | Code | PlanCode1 |

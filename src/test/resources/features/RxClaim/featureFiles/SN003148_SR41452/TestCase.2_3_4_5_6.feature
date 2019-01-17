@@ -19,7 +19,7 @@ Scenario Outline: SN003148_SR41452_TS001_Verify that additional field is present
 		
    Examples: 
     | DateFrom	| DateThru	|	CarrierFrom	|	CarrierThru	|	rxclaimnumber		|
-		| 010118		|	123118		|	SR41452			|	SR41452			|	182221848402000	|
-		| 010118		|	123118		|	SR41452			|	SR41452			|	181842267225000	|
+		| 010118		|	123118		|	VMCAR29			|	VMCAR29			|	183382376627000	|
+	#	| 010118		|	123118		|	SR41452			|	SR41452			|	181842267225000	|
 		
           	

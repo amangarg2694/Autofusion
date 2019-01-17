@@ -485,10 +485,13 @@ public class PriceOverrideAfterSpecificHashOfFills {
 		 Mainframe_GlobalFunctionLib.pressKey("enter");
 		}
 		
+		public static String rxClaimId=null;
 		@Then("^I Validate RxClaim ID$")
-		public void i_Validate_RxClaim_ID() throws Throwable {
+		public static void i_Validate_RxClaim_ID() throws Throwable {
 			String originRxClaimNo=Mainframe_GlobalFunctionLib.getText(20, 12);
 			System.out.println("Rx Claim No is: "+originRxClaimNo);
+			rxClaimId=originRxClaimNo;
+			System.out.println("rxClaimId is: "+rxClaimId);
 		}
 		
 		@Then("^I Validate GPI ID$")
