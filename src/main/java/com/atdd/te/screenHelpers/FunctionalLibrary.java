@@ -1855,7 +1855,7 @@ public class FunctionalLibrary extends CommonHelper{
 		
 		Loop:	for (int i = 10; i <=11; i++) {
 
-			if(Mainframe_GlobalFunctionLib.getText(i, 5).trim().toLowerCase().contains(contract.toLowerCase())&&Mainframe_GlobalFunctionLib.getText(i, 16).trim().toLowerCase().contains(pbp.toLowerCase()))
+			if(Mainframe_GlobalFunctionLib.getText(i, 5).trim().toLowerCase().contains(contract.toLowerCase())&&Mainframe_GlobalFunctionLib.getText(i, 15).trim().toLowerCase().contains(pbp.toLowerCase()))
 			{
 
 				bResult= true;
