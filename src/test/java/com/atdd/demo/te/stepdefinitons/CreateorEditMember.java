@@ -39,7 +39,7 @@ public class CreateorEditMember {
 	    if(attachPRCFlag.equalsIgnoreCase("No"))
 	    	prcList="          ";
 
-	    else  if(attachPRCFlag.equalsIgnoreCase(""))
+	    else  if(attachPRCFlag.equalsIgnoreCase("Yes"))
 	    	FunctionalLibrary.func_AttachPRCListOnPA(memberID, paNumber, prcList, prcListQual);
 	}
 
