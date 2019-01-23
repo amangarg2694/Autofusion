@@ -21,7 +21,7 @@ Then I validate the notes "<Note>" in GPIlist "<GpiList>","<Date>"
 
 Examples:
 |Library |File    |Format  |Note                                              |GpiList| Date|
-|usrmadhu|sr41697g|RCPGO038|Plan GPI List SN002715; Plan GPI List Note Line 2.|S41697G |12/05/18|
+|usrmadhu|sr41697g|RCPGO038|Plan GPI List SN002715; Plan GPI List Note Line 2.|S41697G |1/21/19|
 
 Scenario Outline: Verify the notes from the valid type B records for an existing Plan GPI List and valid type B records for an existing GPI and MSC combination on a Plan GPI List.
 

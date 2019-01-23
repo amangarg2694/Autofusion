@@ -35,7 +35,7 @@ public class CommonStepDefinition extends CommonHelper{
 		
 	
 		
-		String text = FunctionalLibrary.getText(1, 13);
+		/*String text = FunctionalLibrary.getText(1, 13);
 				
 				while(!(text.equalsIgnoreCase("RxClaim Plan Administrator Menu"))){
 					
@@ -43,7 +43,16 @@ public class CommonStepDefinition extends CommonHelper{
 					Thread.sleep(1000);
 					text = FunctionalLibrary.getText(1, 13);
 					
-				}
+				}*/
+		
+		String text = Mainframe_GlobalFunctionLib.getText(1, 13);
+		
+		while(!(text.equalsIgnoreCase("RxClaim Plan Administrator Menu"))){
+			
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Thread.sleep(1000);
+			text = Mainframe_GlobalFunctionLib.getText(1, 13);
+		}
 		
 		
 	}	
@@ -60,8 +69,10 @@ public class CommonStepDefinition extends CommonHelper{
 	@When("^I select Option \"([^\"]*)\" to navigate to \"([^\"]*)\"$")
 	public void i_select_Option_to_navigate_to(String option, String screen) throws Throwable {
 		
-		FunctionalLibrary.enterText(21,7 ,option );
-		FunctionalLibrary.pressEnter();
+		/*FunctionalLibrary.enterText(21,7 ,option );
+		FunctionalLibrary.pressEnter();*/
+		Mainframe_GlobalFunctionLib.sendText(21,7 ,option );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		
 	}
 	
