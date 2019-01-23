@@ -258,17 +258,12 @@
 			<groupId>com.hp.lft</groupId>
 			<artifactId>sdk-javadoc</artifactId>
 			<version>14.00</version>
-			<classifier>javadoc</classifier>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/test/resources/lib/com.hp.lft.sdk-javadoc.jar</systemPath>
-		</dependency>
+			</dependency>
 		<dependency>
 			<groupId>com.hp.lft</groupId>
 			<artifactId>sdk-standalone</artifactId>
 			<version>14.00</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/test/resources/lib/com.hp.lft.sdk-standalone.jar</systemPath>
-		</dependency>
+			</dependency>
 		
 		
 		<dependency>
@@ -276,15 +271,13 @@
 			<artifactId>report</artifactId>
 			<version>14.00</version>
 			<scope>system</scope>
-			<systemPath>${project.basedir}/src/test/resources/lib/com.hp.lft.report.jar</systemPath>
-		</dependency>
+			<systemPath>${project.basedir}/src/test/resources/lib/com.hp.lft.report.jar</systemPath>		
+			</dependency>
 		<dependency>
 			<groupId>com.hp.lft</groupId>
 			<artifactId>reportbuilder-standalone</artifactId>
 			<version>14.00</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/test/resources/lib/com.hp.lft.reportbuilder-standalone.jar</systemPath>
-		</dependency>
+			</dependency>
 
 	</dependencies>
 

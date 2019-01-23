@@ -380,7 +380,8 @@ public class FunctionalLibrary extends CommonHelper{
 	}
 	
 	public static void createMemberWithOverridePlan(String carrierID, String accountID, String groupID, String memberID, String firstName, String lastName, String dob, String fromDate, String thruDate,String overridePlan) throws Throwable
-	{	
+	{	if(memberID.length()==0)
+		memberID = PAMember1;
 		try {
 			navigateToRxClaimPlanAdministrator();
 		} catch (Exception e) {
