@@ -462,7 +462,8 @@ public class MICUpdateNonPartDCoveredFlag {
 	             ///Thread.sleep(3000);
 	             Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
 	             Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate);
-	             Mainframe_GlobalFunctionLib.sendText(5,29, rxNbr);
+	             //Mainframe_GlobalFunctionLib.sendText(5,29, rxNbr);
+	             Mainframe_GlobalFunctionLib.sendText(5,29, FunctionalLibrary.func_GenerateDynamicRxNo());
 	             Mainframe_GlobalFunctionLib.sendText(5, 47, refill);              
 	             //Mainframe_GlobalFunctionLib.click(7, 12 );
 	             Mainframe_GlobalFunctionLib.sendText(7, 12, memberID);
