@@ -15,7 +15,7 @@ Feature: NCPDP External Code List (ECL) Change for Medicaid – Reject Code 831 (C
     
     Examples:
       
-    | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID  | DspQty | DS | PSC | Cost |Plan    |
+    | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | MemberID     | ProductID  | DspQty | DS | PSC | Cost |Plan   |
 		|	170996  | *ALL    |	*ALL  | APHARM      | 681254534167 | 01     |120718    | SR41011M2    | 00591319301 |30       |30  |0   |10   |SR41011|
 		
 		
