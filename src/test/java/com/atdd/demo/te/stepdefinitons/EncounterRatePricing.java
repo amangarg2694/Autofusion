@@ -122,7 +122,7 @@ public class EncounterRatePricing {
 	@Given("^I enter modno$")
 	public void i_enter_modno() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    Mainframe_GlobalFunctionLib.sendText(6, 41, "8403");
+	    Mainframe_GlobalFunctionLib.sendText(6, 41, "8405");
 	    Mainframe_GlobalFunctionLib.pressKey("Enter");
 	}
 	

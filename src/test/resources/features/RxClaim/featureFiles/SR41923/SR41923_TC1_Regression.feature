@@ -1,4 +1,3 @@
-@Regression
 Feature: Fix Price Override after the specific "#" of fills have been exceeded
 				 
   
@@ -68,7 +67,7 @@ Scenario Outline: TC01_Verify the O/R Patient Pay stamped under the client sched
    
    Examples: 
   | PlanCode  | From Date	|	Description	 |	FromDate	|	ThruDate	|	PharmPriceSchedule	|	PharmPatientPaySchedule	|	ClientPriceSchedule	|	ClientPaySchedule	| GPIList	|	MemberID	| BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   | ProductID  |	DspQty | DS | PSC | Cost |
-	| SR4192359	| 010118		|	Test Plan		 |	010118		|	123118		|	*(A)								|	$0											|	*(A)								|	$0								| SR41923 |	VSR419233	|	777777  | QET     |	*ALL  | APHARM      | 948464767432 | 00     | 090518   | VSR419233	| 49452101201|	30     | 30 | 0	  | 100  |
+	| SR4192359	| 010118		|	Test Plan		 |	010118		|	123118		|	*(A)								|	$0											|	*(A)								|	$0								| SR41923 |	VSR419233	|	777777  | QET     |	*ALL  | APHARM      | 948039376132 | 00     | 121418   | VSR419233	| 49452101201|	30     | 30 | 0	  | 100  |
 		
 	# 00536398401[8402]
   # 49452101201

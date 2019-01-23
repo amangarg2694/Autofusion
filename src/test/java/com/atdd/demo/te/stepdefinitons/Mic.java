@@ -1,3 +1,4 @@
+
 package com.atdd.demo.te.stepdefinitons;
 
 import org.junit.Assert;
@@ -329,7 +330,7 @@ public void i_submitt_a_compound_claim_withh(String bin, String proc, String gro
 		FunctionalLibrary.enterText(11, 41,proc );
 		FunctionalLibrary.enterText(11, 59,group );
 		FunctionalLibrary.enterText(12, 14,pharmacyID );
-		FunctionalLibrary.enterText(12, 41,rxNbr );
+		FunctionalLibrary.enterText(12, 41,FunctionalLibrary.func_GenerateDynamicRxNo() );
 		FunctionalLibrary.enterText(12, 59,refill );
 		FunctionalLibrary.enterText(14, 41,memberID );
 		FunctionalLibrary.pressKey("Enter");
@@ -356,7 +357,7 @@ public void i_submitt_a_compound_claim_withh(String bin, String proc, String gro
 		//FunctionalLibrary.enterText(4 , 65 ,"         ");
 		FunctionalLibrary.enterText(4, 65, fillDate);
 		FunctionalLibrary.enterText(5, 22, "1");
-		FunctionalLibrary.enterText(5,29, rxNbr);
+		FunctionalLibrary.enterText(5,29, FunctionalLibrary.func_GenerateDynamicRxNo());
 		FunctionalLibrary.enterText(5, 47, refill);			
 		//Mainframe_GlobalFunctionLib.click(7, 12 );
 		FunctionalLibrary.enterText(7, 12, memberID);
@@ -454,5 +455,6 @@ public void i_validate_the_MIC_claim_process_with_drug_status_overriden_when_Pri
 }
 	
 	
+
 
 

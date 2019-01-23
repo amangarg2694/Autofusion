@@ -14,7 +14,9 @@ And I enter "<TransactionThruDate>" in field "TransactionThruDate" on "Productiv
 And I enter "<CarrierFrom>" in field "CarrierFrom" on "ProductivityReportingScreen"
 And I enter "<CarrierThru>" in field "CarrierThru" on "ProductivityReportingScreen"
 And I press "Enter" Key 
+
 Then I Validate error message "<ErrorMessage>" is not displaying for Class field
+
 
 Examples:
 | TransactionFromDate | TransactionThruDate | CarrierFrom | CarrierThru | FileName | Library |NewScreen              |ErrorMessage|
@@ -46,10 +48,10 @@ And I press "F6" Key
 Then I Validate the Job is completed with "<Juser>","<Jname>"
 And I Validate the Class codes "<ClassField1>","<ClassField2>""<ClassField3>","<ClassField4>","<ClassField5>" displays in Spool file Report "<Report>" for Carrier "<CarrierFrom>","<CarrierThru>"
 And I Validate the Class codes "<ClassField1>","<ClassField2>""<ClassField3>","<ClassField4>","<ClassField5>" in file "<Library>","<FileName>" 
-#Note: Parameter 'Juser' value need to be changes as per the user.
+
 Examples:
 | TransactionFromDate | TransactionThruDate | CarrierFrom | CarrierThru | ClassField1 |ClassField2 | ClassField3 |ClassField4 |ClassField5 |SortCriteria |SummaryDetail |FileName   | Library | Juser | Jname      | Report |         
-| 010101              | 123117              | BHUCAR      | VAH         | N1          | N2         | N3          | N4         | N5         |1            |D             |SR41404F45 | USRSAKK | MVEN  | CLRAPRDEXT | PRODUCTIVITY DETAIL REPORT |
+| 010101              | 123117              | BHUCAR      | VAH         | N1          | N2         | N3          | N4         | N5         |1            |D             |SR41404F45 | USRSAKK | YMAD  | CLRAPRDEXT | PRODUCTIVITY DETAIL REPORT |
 
 
 Scenario Outline: User should able to Verify all Records are getting displayed when  all five class codes are blank - SN003483_SR41807_TC003_Req_5.1.2.2 
@@ -73,4 +75,5 @@ And I Validate the Class codes "<ClassField>" in file "<Library>","<FileName>"
 
 Examples:
 | TransactionFromDate | TransactionThruDate | CarrierFrom | CarrierThru | ClassField | ClassField1 |SortCriteria |SummaryDetail |FileName    | Library | Juser  | Jname      | Report |         
-| 010117              | 123117              | BHUCAR      | VAH         | *BLANK     |     N5      |1            |D             |SR41404F43  | USRSAKK | MVEN   | CLRAPRDEXT | PRODUCTIVITY DETAIL REPORT |
+| 010117              | 123117              | BHUCAR      | VAH         | *BLANK     |     N5      |1            |D             |SR41404F43  | USRSAKK | YMAD   | CLRAPRDEXT | PRODUCTIVITY DETAIL REPORT |
+

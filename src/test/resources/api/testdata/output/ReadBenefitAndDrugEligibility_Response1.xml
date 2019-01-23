@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns1:invokeServiceResponse xmlns:ns1="http://upm4.apiengine.optum.com/optumrx/member/readbenefitanddrugeligibility/v8">
+      <return xmlns:ns2="http://upm4.apiengine.optum.com/optumrx/member/readbenefitanddrugeligibility/v8">
+        <responseHeader>
+          <serviceCallStatus>SUCCESS</serviceCallStatus>
+          <externalId>PAS</externalId>
+          <serviceName>ReadBenefitAndDrugEligibility</serviceName>
+          <serviceVersion>8</serviceVersion>
+          <logLevel>DEFAULT</logLevel>
+          <installation>coreprod</installation>
+          <hostedAppEnvironment>alpha</hostedAppEnvironment>
+          <internalUse>
+            <uid>[[PAS||713865839]UPM3-ALPHA-FRONTEND]</uid>
+            <serviceName>ReadBenefitAndDrugEligibility</serviceName>
+            <serviceVersion>8</serviceVersion>
+            <originalConsumer>PAS</originalConsumer>
+            <originalServiceName>ReadBenefitAndDrugEligibility</originalServiceName>
+            <originalServiceVersion>8</originalServiceVersion>
+            <logSequence>4</logSequence>
+            <uidGeneratedBy>DP</uidGeneratedBy>
+          </internalUse>
+        </responseHeader>
+        <ResCount>1</ResCount>
+        <FLG>BEN</FLG>
+        <ErrID />
+        <ErrMsg />
+        <Benefit>
+          <BDENCD_DS />
+          <BDQ0OD_DS />
+          <BIA1S3_DS />
+          <BIA2S3_DS />
+          <BIAQQT_DS />
+          <BIAQT1_DS />
+          <BIARQT_DS />
+          <BIAVCD_DS />
+          <BIB3QU_DS />
+          <BIB5IE_DS />
+          <BIBAS1_DS />
+          <BIBDS1_DS />
+          <BIBES1_DS />
+          <BIBGS1_DS />
+          <BIBJS1_DS />
+          <BIBKS1_DS />
+          <BIBLS1_DS />
+          <BIBOPR_DS />
+          <BIBXAL_DS />
+          <BIBZS2_DS />
+          <BIC3C1_DS />
+          <BIC4QT_DS />
+          <BIC8N1_DS />
+          <BICJST_DS />
+          <BICONB_DS />
+          <BICPNB_DS />
+          <BICQNB_DS />
+          <BICRNB_DS />
+          <BICUQT_DS />
+          <BICVQT_DS />
+          <BICYQT_DS />
+          <BID1AI_DS />
+          <BIDBN1_DS />
+          <BIDCN1_DS />
+          <BIDEN1_DS />
+          <BIDKST_DS />
+          <BIDUQU_DS />
+          <BIDXAI_DS />
+          <BIEBAJ_DS />
+          <BIECAJ_DS />
+          <BIEDAJ_DS />
+          <BIELS3_DS />
+          <BIEPCD_DS />
+          <BIEXCD_DS />
+          <BIEYCD_DS />
+          <BIFGCJ_DS />
+          <BIFHCJ_DS />
+          <BIFKDT_DS />
+          <BIFLDT_DS />
+          <BIH0AI_DS />
+          <BIH5BT_DS />
+          <BIH6BT_DS />
+          <BII4CD_DS />
+          <BII5CD_DS />
+          <BII6CD_DS />
+          <BIK3TX_DS />
+          <BILGHB_DS />
+          <BILWCD_DS />
+          <BIM2HR_DS />
+          <BIM3HR_DS />
+          <BIN4HR_DS />
+          <BIODCD_DS />
+          <BIOHCD_DS />
+          <BIOOHB_DS />
+          <BIPGDT_DS />
+          <BIPMAW_DS />
+          <BIV1NB_DS />
+          <BIV4NB_DS />
+          <BIV7S3_DS />
+          <BIV8S3_DS />
+          <BIVAIE_DS />
+          <BIVYNB_DS />
+          <BIXCH6_DS />
+          <BIXEH6_DS />
+          <BIY5AJ_DS />
+          <BIZ2IA_DS />
+          <CUA0C2_DS />
+          <CUA5HB_DS />
+          <CUAPAB_DS />
+          <CUAZC2_DS />
+          <CUBEST_DS />
+          <CUC2C1_DS />
+          <CUC7S3_DS />
+          <CUDZCD_DS />
+          <CUEKNB_DS />
+          <CUELNB_DS />
+          <CUEMHB_DS />
+          <CUENHB_DS />
+          <CUGOCD_DS />
+          <CUGQCD_DS />
+          <CUGRCD_DS />
+          <CUH3CK_DS />
+          <CUJLAI_DS />
+          <CUJPPR_DS />
+          <CUO1HI_DS />
+          <CUOEHJ_DS />
+          <CUOFHJ_DS />
+          <CUOYHI_DS />
+          <CURGIE_DS />
+          <CUTSC4_DS />
+          <CUWYHJ_DS />
+          <CUWZHJ_DS />
+          <CUX7HN_DS>NNNNNNNN</CUX7HN_DS>
+          <CUZDS2_DS />
+          <DSJ0CK />
+          <DSJ1CK />
+          <DSJ2CK />
+          <DSJ3CK />
+          <DSJ4CK />
+          <DSJ5CK />
+          <DSJ6CK />
+          <DSJ7CK />
+          <DSJ8CK />
+          <DSJ9AU />
+          <DSJ9CK />
+          <DSJVCK />
+          <DSJWCK />
+          <DSJXCK />
+          <DSJYCK />
+          <DSJZCK />
+          <DSKACK />
+          <DSKBCK />
+          <DSKCCK />
+          <DSKDCK />
+          <DSKECK />
+          <DSKFCK />
+          <FACTOTC_DS />
+          <g8AKH9_DS>N</g8AKH9_DS>
+          <g8E9ID_DS>N</g8E9ID_DS>
+          <g8I0H6_DS>N</g8I0H6_DS>
+          <g8L1ID_DS>N</g8L1ID_DS>
+          <g8LXI1_DS>N</g8LXI1_DS>
+          <g8O5IC_DS>N</g8O5IC_DS>
+          <g8Q9OD_DS />
+          <g8QBH6_DS>N</g8QBH6_DS>
+          <g8SPIE_DS>N</g8SPIE_DS>
+          <g8TOIE_DS>0</g8TOIE_DS>
+          <g8Y0CJ_DS>N</g8Y0CJ_DS>
+          <g8Y1CJ_DS>N</g8Y1CJ_DS>
+          <g8Y3CJ_DS>N</g8Y3CJ_DS>
+          <g8Y4CJ_DS>N</g8Y4CJ_DS>
+          <g8Y6CJ_DS>Y</g8Y6CJ_DS>
+          <g8Y8CJ_DS>N</g8Y8CJ_DS>
+          <g8Y9CJ_DS>Y</g8Y9CJ_DS>
+          <g8YBCJ_DS>N</g8YBCJ_DS>
+          <g8YCCJ_DS>N</g8YCCJ_DS>
+          <g8YDCJ_DS>N</g8YDCJ_DS>
+          <g8YECJ_DS>N</g8YECJ_DS>
+          <g8YFCJ_DS>N</g8YFCJ_DS>
+          <g8YGCJ_DS>N</g8YGCJ_DS>
+          <g8YHCJ_DS>Y</g8YHCJ_DS>
+          <g8YHIE_DS />
+          <g8YICJ_DS>N</g8YICJ_DS>
+          <g8YJCJ_DS>N</g8YJCJ_DS>
+          <g8YKCJ_DS>Y</g8YKCJ_DS>
+          <g8YLCJ_DS>Y</g8YLCJ_DS>
+          <g8YMCJ_DS>N</g8YMCJ_DS>
+          <g8YNCJ_DS>Y</g8YNCJ_DS>
+          <g8YOCJ_DS>N</g8YOCJ_DS>
+          <g8YPCJ_DS>N</g8YPCJ_DS>
+          <g8YQCJ_DS>N</g8YQCJ_DS>
+          <g8YRCJ_DS>N</g8YRCJ_DS>
+          <g8YRIB_DS>N</g8YRIB_DS>
+          <g8YSCJ_DS>N</g8YSCJ_DS>
+          <g8YTAI_DS />
+          <g8YTCJ_DS>N</g8YTCJ_DS>
+          <g8YUCJ_DS>N</g8YUCJ_DS>
+          <g8YVCJ_DS>Y</g8YVCJ_DS>
+          <g8YWCJ_DS>N</g8YWCJ_DS>
+          <g8YXCJ_DS>N</g8YXCJ_DS>
+          <g8YYCJ_DS>Y</g8YYCJ_DS>
+          <g8YZCJ_DS>Y</g8YZCJ_DS>
+          <g8ZACJ_DS>N</g8ZACJ_DS>
+          <g8ZCCJ_DS>N</g8ZCCJ_DS>
+          <g8ZXCJ_DS>N</g8ZXCJ_DS>
+          <immedRelease />
+          <LBLPRDPKG />
+          <MEDLIMIT />
+          <NDCGPIL>N</NDCGPIL>
+          <newMember />
+          <restricted />
+          <STC4HS_DS />
+          <STC5HS_DS />
+          <STC6HS_DS />
+          <STOQH9_DS>0</STOQH9_DS>
+          <STORH9_DS />
+          <STOSH9_DS />
+          <STVGIB_DS />
+          <STWCIA_DS />
+        </Benefit>
+        <DrgRespDtl />
+      </return>
+    </ns1:invokeServiceResponse>
+  </soap:Body>
+</soap:Envelope>

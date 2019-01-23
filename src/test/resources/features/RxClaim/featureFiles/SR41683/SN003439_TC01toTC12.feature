@@ -1,7 +1,7 @@
 #Author: kanugutta_siddanth@optum.com
-#Pre-Requisite : Change the ToLibrary name (i.e.TEST416838 ) in the examples before running the script (or) ToLibrary name Replace all with newlibname  
+#Pre-Requisite : Change the ToLibrary name (i.e.TEST417651 ) in the examples before running the script (or) ToLibrary name Replace all with newlibname  
 #Note : Don't change the FromLibrary , it should always TEST41683A.
-#@Regression
+@Regression
 Feature: Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files before Table Partitioning 
 
  Scenario Outline: To Create a Library.
@@ -10,7 +10,7 @@ Feature: Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files b
  
   Examples: 
  |Library|LibType  |LibDesc  |
- |TEST416838|*TEST  |TestDescription    |
+ |TEST417651|*TEST  |TestDescription    |
  
  Scenario Outline: Copy all the required PBPBTP files for Table Partitioning
 
@@ -19,39 +19,39 @@ Feature: Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files b
 	  
  Examples:
  |FromObject|FromLibrary|ObjectType|ToLibrary |
- |PBPBTP		|TEST41683A |*FILE     |TEST416838|
- |PBPBTR01	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR02	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR03	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR04	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR05	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR06	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR07	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR08	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR09	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR10	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR11	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR12	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR13	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR14	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR15	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR16	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR17	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR18	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR19	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR20	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR21	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR22	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR23	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR24	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR25	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR26	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR27	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR28	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR29	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR30	|TEST41683A |*FILE     |TEST416838|
- |PBPBTR31	|TEST41683A |*FILE     |TEST416838|
- |PBPBTU01	|TEST41683A |*FILE     |TEST416838|
+ |PBPBTP		|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR01	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR02	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR03	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR04	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR05	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR06	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR07	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR08	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR09	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR10	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR11	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR12	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR13	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR14	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR15	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR16	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR17	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR18	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR19	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR20	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR21	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR22	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR23	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR24	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR25	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR26	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR27	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR28	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR29	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR30	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTR31	|TEST41683A |*FILE     |TEST417651|
+ |PBPBTU01	|TEST41683A |*FILE     |TEST417651|
  
  Scenario Outline: Copy all the required PBPY2P files for Table Partitioning
  Given I am on RxClaim PlanAdministrator Menu
@@ -59,24 +59,24 @@ Feature: Verify the Total Number of Members for PBPBTP,PBPY2P and PBVCDP files b
 	
 	Examples: 
  |FromObject|FromLibrary|ObjectType|ToLibrary|
- |PBPY2P    |TEST41683A |*FILE     |TEST416838|
- |PBPY2R01  |TEST41683A |*FILE     |TEST416838|
- |PBPY2R02  |TEST41683A |*FILE     |TEST416838|
- |PBPY2R03  |TEST41683A |*FILE     |TEST416838|
- |PBPY2R04  |TEST41683A |*FILE     |TEST416838|
- |PBPY2R05  |TEST41683A |*FILE     |TEST416838|
- |PBPY2R06  |TEST41683A |*FILE     |TEST416838|
- |PBPY2R07  |TEST41683A |*FILE     |TEST416838|
- |PBPY2R08  |TEST41683A |*FILE     |TEST416838|
- |PBPY2R09  |TEST41683A |*FILE     |TEST416838|
- |PBPY2R10  |TEST41683A |*FILE     |TEST416838|
- |PBPY2R11  |TEST41683A |*FILE     |TEST416838|
- |PBPY2R12  |TEST41683A |*FILE     |TEST416838|
- |PBPY2R13  |TEST41683A |*FILE     |TEST416838|
- |PBPY2R14  |TEST41683A |*FILE     |TEST416838|
- |PBPY2R15  |TEST41683A |*FILE     |TEST416838|
- |PBPY2R16  |TEST41683A |*FILE     |TEST416838|
- |PBPY2U01  |TEST41683A |*FILE     |TEST416838|
+ |PBPY2P    |TEST41683A |*FILE     |TEST417651|
+ |PBPY2R01  |TEST41683A |*FILE     |TEST417651|
+ |PBPY2R02  |TEST41683A |*FILE     |TEST417651|
+ |PBPY2R03  |TEST41683A |*FILE     |TEST417651|
+ |PBPY2R04  |TEST41683A |*FILE     |TEST417651|
+ |PBPY2R05  |TEST41683A |*FILE     |TEST417651|
+ |PBPY2R06  |TEST41683A |*FILE     |TEST417651|
+ |PBPY2R07  |TEST41683A |*FILE     |TEST417651|
+ |PBPY2R08  |TEST41683A |*FILE     |TEST417651|
+ |PBPY2R09  |TEST41683A |*FILE     |TEST417651|
+ |PBPY2R10  |TEST41683A |*FILE     |TEST417651|
+ |PBPY2R11  |TEST41683A |*FILE     |TEST417651|
+ |PBPY2R12  |TEST41683A |*FILE     |TEST417651|
+ |PBPY2R13  |TEST41683A |*FILE     |TEST417651|
+ |PBPY2R14  |TEST41683A |*FILE     |TEST417651|
+ |PBPY2R15  |TEST41683A |*FILE     |TEST417651|
+ |PBPY2R16  |TEST41683A |*FILE     |TEST417651|
+ |PBPY2U01  |TEST41683A |*FILE     |TEST417651|
  
  
 Scenario Outline: Copy all the required PBPY4P files for Table Partitioning
@@ -85,17 +85,17 @@ Scenario Outline: Copy all the required PBPY4P files for Table Partitioning
 	
  Examples: 
  |FromObject|FromLibrary|ObjectType|ToLibrary |
- |PBPY4P    |TEST41683A |*FILE     |TEST416838|
- |PBPY4R01  |TEST41683A |*FILE     |TEST416838|
- |PBPY4R03  |TEST41683A |*FILE     |TEST416838|
- |PBPY4R04  |TEST41683A |*FILE     |TEST416838|
- |PBPY4R05  |TEST41683A |*FILE     |TEST416838|
- |PBPY4R06  |TEST41683A |*FILE     |TEST416838|
- |PBPY4R07  |TEST41683A |*FILE     |TEST416838|
- |PBPY4R08  |TEST41683A |*FILE     |TEST416838|
- |PBPY4R09  |TEST41683A |*FILE     |TEST416838|
- |PBPY4R10  |TEST41683A |*FILE     |TEST416838|
- |PBPY4U01  |TEST41683A |*FILE     |TEST416838|
+ |PBPY4P    |TEST41683A |*FILE     |TEST417651|
+ |PBPY4R01  |TEST41683A |*FILE     |TEST417651|
+ |PBPY4R03  |TEST41683A |*FILE     |TEST417651|
+ |PBPY4R04  |TEST41683A |*FILE     |TEST417651|
+ |PBPY4R05  |TEST41683A |*FILE     |TEST417651|
+ |PBPY4R06  |TEST41683A |*FILE     |TEST417651|
+ |PBPY4R07  |TEST41683A |*FILE     |TEST417651|
+ |PBPY4R08  |TEST41683A |*FILE     |TEST417651|
+ |PBPY4R09  |TEST41683A |*FILE     |TEST417651|
+ |PBPY4R10  |TEST41683A |*FILE     |TEST417651|
+ |PBPY4U01  |TEST41683A |*FILE     |TEST417651|
  
  Scenario Outline: Copy all the required PBVCDP files for Table Partitioning
  Given I am on RxClaim PlanAdministrator Menu
@@ -103,12 +103,12 @@ Scenario Outline: Copy all the required PBPY4P files for Table Partitioning
 	
 	Examples: 
  |FromObject|FromLibrary|ObjectType|ToLibrary|
- |PBVCDP    |TEST41683A |*FILE     |TEST416838|
- |PBVCDR01  |TEST41683A |*FILE     |TEST416838|
- |PBVCDR02  |TEST41683A |*FILE     |TEST416838|
- |PBVCDR03  |TEST41683A |*FILE     |TEST416838|
- |PBVCDR04  |TEST41683A |*FILE     |TEST416838|
- |PBVCDU01  |TEST41683A |*FILE     |TEST416838|
+ |PBVCDP    |TEST41683A |*FILE     |TEST417651|
+ |PBVCDR01  |TEST41683A |*FILE     |TEST417651|
+ |PBVCDR02  |TEST41683A |*FILE     |TEST417651|
+ |PBVCDR03  |TEST41683A |*FILE     |TEST417651|
+ |PBVCDR04  |TEST41683A |*FILE     |TEST417651|
+ |PBVCDU01  |TEST41683A |*FILE     |TEST417651|
  
  Scenario Outline: Verify the Total Number of Members for PBPBTP,PBPY2,PBPY4P and PBVCDP files before Table Partitioning
  
@@ -137,7 +137,7 @@ Scenario Outline: Copy all the required PBPY4P files for Table Partitioning
     
  Examples: 
  |ExistingLibrary |NewLibrary    |Control|FIND                   |
- |TEST41683A      |TEST416838    |B      |Total number of members|
+ |TEST41683A      |TEST417651    |B      |Total number of members|
  
  Scenario Outline: Copy all the required programs for Table Partitioning
   Given I am on RxClaim PlanAdministrator Menu
@@ -145,10 +145,10 @@ Scenario Outline: Copy all the required PBPY4P files for Table Partitioning
 	
  Examples: 
  |FromObject	|FromLibrary|ObjectType|ToLibrary |
- |PPCPBT8101  |CLMV25PPC  |*PGM      |TEST416838|
- |PPCPY28101  |CLMV25PPC  |*PGM      |TEST416838|
- |PPCPY48101  |CLMV25PPC  |*PGM      |TEST416838|
- |PPCVCD8101  |CLMV25PPC  |*PGM      |TEST416838|
+ |PPCPBT8101  |CLMV25PPC  |*PGM      |TEST417651|
+ |PPCPY28101  |CLMV25PPC  |*PGM      |TEST417651|
+ |PPCPY48101  |CLMV25PPC  |*PGM      |TEST417651|
+ |PPCVCD8101  |CLMV25PPC  |*PGM      |TEST417651|
  
  Scenario Outline: Verify the Total Number of Members for PBPBTP,PBPY2P,PBPY4P and PBVCDP files after Table Partitioning
  Given I am on RxClaim PlanAdministrator Menu
@@ -189,7 +189,7 @@ Scenario Outline: Copy all the required PBPY4P files for Table Partitioning
  
  Examples: 
  |NewLibrary|Control |FIND                   |
- |TEST416838|B       |Total number of members|
+ |TEST417651|B       |Total number of members|
  
  #Copy PPCPBT8403,PPCPY28403,PPCPY48403,PPCVCD8403 to created lib
  Scenario Outline: Copy all the required programs for Table Partitioning
@@ -198,10 +198,10 @@ Scenario Outline: Copy all the required PBPY4P files for Table Partitioning
   
  Examples: 
  |FromObject	|FromLibrary|ObjectType|ToLibrary |
- |PPCPBT8403  |CLMV25PPC  |*PGM      |TEST416838|
- |PPCPY28403  |CLMV25PPC  |*PGM      |TEST416838|
- |PPCPY48403  |CLMV25PPC  |*PGM      |TEST416838|
- |PPCVCD8403  |CLMV25PPC  |*PGM      |TEST416838|
+ |PPCPBT8403  |CLMV25PPC  |*PGM      |TEST417651|
+ |PPCPY28403  |CLMV25PPC  |*PGM      |TEST417651|
+ |PPCPY48403  |CLMV25PPC  |*PGM      |TEST417651|
+ |PPCVCD8403  |CLMV25PPC  |*PGM      |TEST417651|
  
  Scenario Outline: Verify the Total Number of Members for PBPBTP,PBPY2P,PBPY4P and PBVCDP files after Table Partitioning
  Given I am on RxClaim PlanAdministrator Menu
@@ -251,7 +251,7 @@ Scenario Outline: Copy all the required PBPY4P files for Table Partitioning
    
  Examples: 
  |NewLibrary  |Control |FIND                   |
- |TEST416838  |B       |Total number of members|
+ |TEST417651  |B       |Total number of members|
  
  Scenario Outline: Verify the date range for PBVSRP and PBVCHP files after Table Partitioning
  Given I am on RxClaim PlanAdministrator Menu
@@ -269,7 +269,7 @@ Scenario Outline: Copy all the required PBPY4P files for Table Partitioning
  
   Examples:
   |NewLibrary		|PBTVariable|PY2Variable|PY4Variable|VCDVariable|
- 	|TEST416838   |19       	|19					|11					|21					|
+ 	|TEST417651   |19       	|19					|11					|21					|
  	
  	
  	

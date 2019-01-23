@@ -338,6 +338,7 @@ public class ECL_ChangeForMedicaid {
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(12, 2 ,"7" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Thread.sleep(1000);
 		Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(11,69,"    " );

@@ -1,7 +1,8 @@
- Feature: Verify that the message 'CLT Claim Tier Already Exists' is not displayed when a new MIC tier is added
- As a RxClaim User I want to Verify that the message 'CLT Claim Tier Already Exists' is not displayed when a new MIC tier is added 
+@Regression
+ Feature: Verify that MIC claim process with drug status overriden when Primary ROA is found 
+ As a RxClaim User I want toerify that MIC claim process with drug status overriden when Primary ROA is found 
  
-   
+   #change MemberID
    
    Scenario Outline: Verify that MIC claim process with drug status overriden when Primary ROA is found 
     Given  I am on RxClaim PlanAdministrator Menu
@@ -30,4 +31,4 @@
     
     Examples: 
    |CarrierID |AccountID |GroupID    |MemberID		 | First Name      | Last Name     | DOB      | From Date | Thru Date   |Plan		|BIN     | ProcCtrl | Group | PharmacyID  |RxNo         |RxNo1			   | Refill| FillDate |ProductID  | DspQty | DS   | PSC   | Cost |com|
-   |naresh01  |NARESH_ACC01 |NARESH GRP|MEM02_41845 |   MEM_41846    | MEM_41846  | 12251987	| 010101    | 123139      |NAR_TEST1|777777  |ASHE      |*      |APHARM   |144110065114 |141001465114  |00     |071918  |00000000000|10      |2     |0      | 100  | 2 |
+   |naresh01  |NARESH_ACC01 |NARESH GRP|MEMh3_41845 |   MEM_41846    | MEM_41846  | 12251987	| 010101    | 123139      |NAR_TEST1|777777  |ASHE      |*      |APHARM   |144101265114 |141001115014  |00     |071918  |00000000000|10      |2     |0      | 100  | 2 |
