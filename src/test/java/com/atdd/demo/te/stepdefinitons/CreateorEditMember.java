@@ -56,5 +56,51 @@ public class CreateorEditMember {
 		
 		}
 }
+	@When("^I go to Member screen and add  PA Number \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_go_to_Member_screen_and_add_PA_Number(String number, String type, String msc, String otc, String ndcgpilist, String from, String thru, String agent, String reason, String ignoredrugstatus) throws Throwable {
+		String memberID = FunctionalLibrary.PAMember1;
+		FunctionalLibrary.navigateToRxClaimPlanAdministrator();
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		FunctionalLibrary.func_SearchAndSelectADataEditMode("4,4" ,memberID ,"10,4" , memberID);
+		FunctionalLibrary.func_SetPriorAuth(number,type,msc,otc,ndcgpilist,from,thru,agent,reason,ignoredrugstatus);
+		
+	}
+
+	@When("^I set MPP Flag to \"([^\"]*)\" on PA \"([^\"]*)\" for member \"([^\"]*)\"$")
+	public void i_set_MPP_Flag_to_on_PA_for_member(String mppFlag, String paNumber, String memberID) throws Throwable {
+		Mainframe_GlobalFunctionLib.sendText(9, 5, "           ");
+		Mainframe_GlobalFunctionLib.sendText(9, 5, paNumber);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(16, 2, "2");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("PageDown");
+		Mainframe_GlobalFunctionLib.sendText(18, 26, mppFlag);	
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+	}
+
+
+	@When("^I set MPU Flag to \"([^\"]*)\" on PA \"([^\"]*)\" for member \"([^\"]*)\"$")
+	public void i_set_MPU_Flag_to_on_PA_for_member(String mpuFlag, String paNumber, String memberI) throws Throwable {
+		Mainframe_GlobalFunctionLib.sendText(9, 5, "           ");
+		Mainframe_GlobalFunctionLib.sendText(9, 5, paNumber);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(16, 2, "2");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F8");
+		Mainframe_GlobalFunctionLib.pressKey("PageDown");
+		Mainframe_GlobalFunctionLib.sendText(18, 30, mpuFlag);	
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+	}
+
+	@When("^I set MedLimit Override to \"([^\"]*)\"$")
+	public void i_set_MedLimit_Override_to(String medlimitOverride) throws Throwable {
+		Mainframe_GlobalFunctionLib.sendText(18, 71, medlimitOverride);	
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+	}
 	
 }
+
+	
