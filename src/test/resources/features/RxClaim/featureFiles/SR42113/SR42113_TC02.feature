@@ -1,4 +1,3 @@
-#@Regression
 Feature: Submit a claim
 As a RxClaim User I want to submit a claim in 8.4.02
     

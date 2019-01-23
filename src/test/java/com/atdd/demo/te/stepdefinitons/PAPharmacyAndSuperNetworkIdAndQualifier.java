@@ -18,8 +18,8 @@ public class PAPharmacyAndSuperNetworkIdAndQualifier {
 	@Then("^Capture the MemberID and write in text file$")
 	public void capture_the_MemberID_and_write_in_text_file() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		String Member_ID = Mainframe_GlobalFunctionLib.getText(20, 12); 
-	    Path FileName = Paths.get("C:\\Users\\pswathi3\\git\\RxClaim_ATDD\\src\\test\\resources\\features\\RxClaim\\SWATHI\\SN003621\\TestData.txt"); 
+		String Member_ID = Mainframe_GlobalFunctionLib.getText(10, 4); 
+	    Path FileName = Paths.get("C:\\Users\\r1053\\git\\RxClaim_ATDD_CHF\\src\\test\\resources\\features\\RxClaim\\featureFiles\\SN003621_SR41928\\TestData.txt"); 
         BufferedWriter writer = Files.newBufferedWriter(FileName , StandardOpenOption.TRUNCATE_EXISTING); 
 	writer.write(Member_ID); 
 	writer.close(); 
@@ -27,7 +27,7 @@ public class PAPharmacyAndSuperNetworkIdAndQualifier {
 	
 	@Then("^I validate the Network and Qualifier in the PA \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_validate_the_Network_and_Qualifier_in_the_PA(String PANumber, String Ntwk, String NetworkID, String Qualifier) throws Throwable {
-	Path readFile = Paths.get("C:\\Users\\pswathi3\\git\\RxClaim_ATDD\\src\\test\\resources\\features\\RxClaim\\SWATHI\\SN003621\\TestData.txt"); 
+	Path readFile = Paths.get("C:\\Users\\r1053\\git\\RxClaim_ATDD_CHF\\src\\test\\resources\\features\\RxClaim\\featureFiles\\SN003621_SR41928\\TestData.txt"); 
 		String Member_ID = ""; 
 		try (BufferedReader reader =  
               Files.newBufferedReader(readFile, StandardCharsets.UTF_8)) { 

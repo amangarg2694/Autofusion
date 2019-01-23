@@ -1,4 +1,4 @@
-@Regression
+@Regression @res1
 Feature: Verify that the Reimbursement ID in the Insurance Segment is populated with same as Network ID from Claim Transaction Additional Info
 
 
@@ -44,8 +44,8 @@ And I goback to RxClaim Plan Administrator Menu screen from Communication log sc
 Examples: 
 |Plan1   |CarrierID | AccountID   | GroupID     | MemberID  | First Name | Last Name | DOB      | From Date | Thru Date | BIN     | ProcCtrl| Group | PharmacyID  |RxNo          | Refill | FillDate | ProductID  | DspQty | DS | PSC | Cost |rxorg| 
 #|MADHU_N|SN3513    |SN3513_A     |	SN3513_G    | 3513_Mse1 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |110112212346  |00      |081718    | 00591571501|30      |30  |00   |100   |1|
-#|RUSH_TEST|SN3513    |SN3513_A     |	SN3513_G    | 3513_MFe2| AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |101132135546  |00      |081718    | 00591571501|30      |30  |00   |100   |1|
+|RUSH_TEST|SN3353    |SN3353A     |	SN3353G    | 3513_MFe5| AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |5128853       |101100131146  |00      |120318    | 00591571501|10      |10  |00   |100   |1|
 #|RUSH_TEST1|SN3513    |SN3513_A     |	SN3513_G    | 3513_Mse3 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |APHARM       |144112231236  |00      |081718    | 00591571501|30      |30  |00   |100   |1|
-|RUSH_TEST2|SN3513    |SN3513_A     |	SN3513_G    | 3513_MXe4 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |2400074       |133112235123  |00      |081718    | 00591571501|30      |30  |00   |100   |1|
+#|RUSH_TEST2|SN3513    |SN3513_A     |	SN3513_G    | 3513_MXe4 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |2400074       |133112235123  |00      |081718    | 00591571501|30      |30  |00   |100   |1|
 #|RUSH_TEST3|SN3513    |SN3513_A     |	SN3513_G    | 3513_Mse5 | AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |777777   |ASHE     |*      |RADTEST       |171222235546  |00      |081718    | 00591571501|30      |30  |00   |100   |1|
 #book 1test data|RUSH_TEST|SN3353    |SN3353_A     |	SN3353_G    | 3513_MMF2| AUTOMEM    | AUTOMEM   | 12251987	| 010101    | 123139    |610097  |9999     |*      |2400101       |101132124546  |00      |081718    | 00591571501|30      |30  |00   |100   |1|

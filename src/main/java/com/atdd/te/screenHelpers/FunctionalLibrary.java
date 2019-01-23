@@ -1286,6 +1286,8 @@ public class FunctionalLibrary extends CommonHelper{
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		if(memberID.length()==0)
+		{
 		if(func_SearchForMemberID("4,4" ,PAMember1 ,"9,4" , PAMember1))
 		{
 				Thread.sleep(1000);
@@ -1338,6 +1340,63 @@ public class FunctionalLibrary extends CommonHelper{
 			Mainframe_GlobalFunctionLib.sendText(14, 6,psc );
 			Mainframe_GlobalFunctionLib.sendText(10, 47,"         " );
 			Mainframe_GlobalFunctionLib.sendText(10, 47,cost );
+		}
+		}
+		else
+		{
+			if(func_SearchForMemberID("4,4" ,memberID ,"9,4" , memberID))
+			{
+					Thread.sleep(1000);
+					Mainframe_GlobalFunctionLib.click(4, 29 );
+					Mainframe_GlobalFunctionLib.sendText(4, 29, pharmacyID);
+					///Thread.sleep(3000);
+					Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
+					Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate);
+					Mainframe_GlobalFunctionLib.sendText(5,29, func_GenerateDynamicRxNo());
+					Mainframe_GlobalFunctionLib.sendText(5, 47, refill);			
+					Mainframe_GlobalFunctionLib.click(7, 12 );
+					Mainframe_GlobalFunctionLib.sendText(7, 12, memberID);
+					Mainframe_GlobalFunctionLib.pressKey("F4");
+					Mainframe_GlobalFunctionLib.sendText(3, 4, memberID);
+					Mainframe_GlobalFunctionLib.pressKey("Enter");         
+					Mainframe_GlobalFunctionLib.sendText(8, 2,"1" );
+					Mainframe_GlobalFunctionLib.pressKey("Enter");
+					Mainframe_GlobalFunctionLib.sendText(11, 20,productId );
+					Mainframe_GlobalFunctionLib.sendText(12, 11,"           " );
+					Mainframe_GlobalFunctionLib.sendText(12, 11,dspQty );
+					Mainframe_GlobalFunctionLib.sendText(12, 26,"   " );
+					Mainframe_GlobalFunctionLib.sendText(12, 26,ds);
+					Mainframe_GlobalFunctionLib.sendText(14, 6,psc );
+//					Mainframe_GlobalFunctionLib.sendText(14, 14,"0" );
+					Mainframe_GlobalFunctionLib.sendText(10, 47,"         " );
+					Mainframe_GlobalFunctionLib.sendText(10, 47,cost );
+			}
+			else{
+				Mainframe_GlobalFunctionLib.pressKey("F6");
+				Mainframe_GlobalFunctionLib.sendText(11, 14,bin );
+				Mainframe_GlobalFunctionLib.sendText(11, 41,proc );
+				Mainframe_GlobalFunctionLib.sendText(11, 59,group );
+				Mainframe_GlobalFunctionLib.sendText(12, 14,pharmacyID );
+				Mainframe_GlobalFunctionLib.sendText(12, 41,func_GenerateDynamicRxNo());
+				Mainframe_GlobalFunctionLib.sendText(12, 59,refill );
+				Mainframe_GlobalFunctionLib.sendText(14, 41,memberID );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.click(7, 12 );
+				Mainframe_GlobalFunctionLib.pressKey("F4");
+				Thread.sleep(1000);
+				Mainframe_GlobalFunctionLib.sendText(3, 4, memberID);
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(8, 2,"1" );
+				Mainframe_GlobalFunctionLib.pressKey("Enter");
+				Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
+				Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate);			
+				Mainframe_GlobalFunctionLib.sendText(11, 20,productId );
+				Mainframe_GlobalFunctionLib.sendText(12, 11,dspQty );
+				Mainframe_GlobalFunctionLib.sendText(12, 26,ds );
+				Mainframe_GlobalFunctionLib.sendText(14, 6,psc );
+				Mainframe_GlobalFunctionLib.sendText(10, 47,"         " );
+				Mainframe_GlobalFunctionLib.sendText(10, 47,cost );
+			}
 		}
 
 			System.out.println("Claim is created");
@@ -1855,7 +1914,7 @@ public class FunctionalLibrary extends CommonHelper{
 		
 		Loop:	for (int i = 10; i <=11; i++) {
 
-			if(Mainframe_GlobalFunctionLib.getText(i, 5).trim().toLowerCase().contains(contract.toLowerCase())&&Mainframe_GlobalFunctionLib.getText(i, 16).trim().toLowerCase().contains(pbp.toLowerCase()))
+			if(Mainframe_GlobalFunctionLib.getText(i, 5).trim().toLowerCase().contains(contract.toLowerCase())&&Mainframe_GlobalFunctionLib.getText(i, 15).trim().toLowerCase().contains(pbp.toLowerCase()))
 			{
 
 				bResult= true;
