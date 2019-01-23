@@ -83,7 +83,7 @@ public class CreateorEditMember {
 
 
 	@When("^I set MPU Flag to \"([^\"]*)\" on PA \"([^\"]*)\" for member \"([^\"]*)\"$")
-	public void i_set_MPU_Flag_to_on_PA_for_member(String mpuFlag, String paNumber, String memberI) throws Throwable {
+	public void i_set_MPU_Flag_to_on_PA_for_member(String mpuFlag, String paNumber, String memberID) throws Throwable {
 		Mainframe_GlobalFunctionLib.sendText(9, 5, "           ");
 		Mainframe_GlobalFunctionLib.sendText(9, 5, paNumber);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -91,13 +91,13 @@ public class CreateorEditMember {
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("F8");
 		Mainframe_GlobalFunctionLib.pressKey("PageDown");
-		Mainframe_GlobalFunctionLib.sendText(18, 30, mpuFlag);	
+		Mainframe_GlobalFunctionLib.sendText(10, 30, mpuFlag);	
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 	}
 
 	@When("^I set MedLimit Override to \"([^\"]*)\"$")
 	public void i_set_MedLimit_Override_to(String medlimitOverride) throws Throwable {
-		Mainframe_GlobalFunctionLib.sendText(18, 71, medlimitOverride);	
+		Mainframe_GlobalFunctionLib.sendText(10, 71, medlimitOverride);	
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 	}
 	
