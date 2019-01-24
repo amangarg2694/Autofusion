@@ -166,6 +166,41 @@ public class CreateorSubmitTransaction {
 			claimMessage="";
 		FunctionalLibrary.validateText("21" ,"13" , claimMessage );
 	}
+	
+	@Then("^Validate claim DUR/PPS details \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void validate_claim_DUR_PPS_details(String durResponse, String serviceType, String additionalText) throws Throwable {
+		String text = null;
+		FunctionalLibrary.pressKey("F7");
+		Mainframe_GlobalFunctionLib.sendText(4, 23,"5");
+		FunctionalLibrary.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(14, 2,"5");
+		FunctionalLibrary.pressKey("Enter");
+		FunctionalLibrary.validateText("20" ,"32" , durResponse );
+		FunctionalLibrary.validateText("10" ,"66" , serviceType );
+		text = FunctionalLibrary.getText(16, 18);
+		text = text +" "+FunctionalLibrary.getText(17, 18);
+		try{
+			FunctionalLibrary.func_CompareStrings(text.trim() ,additionalText.trim()  );
+			} catch (Throwable e) {
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The text "+ additionalText.trim()+" does not match on the screen.Screenshot captured.");
+				
+				e.printStackTrace();
+			}
+			
+	}
+	
+	@When("^Validate Claim Status is \"([^\"]*)\" and reject code \"([^\"]*)\"$")
+	public void validate_Claim_Status_is_and_reject_code(String claimSts, String rejectCode) throws Throwable {
+		FunctionalLibrary.validateText("21" ,"6" , claimSts );
+		if(rejectCode.length()!=0)
+		FunctionalLibrary.validateText("21" ,"12" , rejectCode );
+	}
+	
+	@Then("^Validate PA Number \"([^\"]*)\" on DRD screen$")
+	public void validate_PA_Number_on_DRD_screen(String paNumber) throws Throwable {
+		FunctionalLibrary.validateText("11" ,"66" , paNumber );
+	}
 }
 
 

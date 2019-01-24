@@ -17,8 +17,9 @@ import com.optumrx.autofusion.core.te.util.Screenshot;
 import cucumber.api.java.en.Then;
 
 public class SN003801 {
+
 	@Then("^Validating the claim is Rejected with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void validating_the_claim_is_Rejected_with(String memid, String prodid, String qual, String prescid, String rxno, String filldate, String scc) throws Throwable {
+	public void validating_the_claim_is_Rejected_with(String memid, String prodid, String qual, String prescid, String rxno, String filldate, String scc) throws Throwable {	
 	    // Write code here that turns the phrase above into concrete actions
 		Mainframe_GlobalFunctionLib.sendText(4,4,memid);
 		Mainframe_GlobalFunctionLib.pressKey("Enter");

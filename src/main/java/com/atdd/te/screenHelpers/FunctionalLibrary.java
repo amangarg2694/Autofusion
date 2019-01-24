@@ -380,7 +380,8 @@ public class FunctionalLibrary extends CommonHelper{
 	}
 	
 	public static void createMemberWithOverridePlan(String carrierID, String accountID, String groupID, String memberID, String firstName, String lastName, String dob, String fromDate, String thruDate,String overridePlan) throws Throwable
-	{	
+	{	if(memberID.length()==0)
+		memberID = PAMember1;
 		try {
 			navigateToRxClaimPlanAdministrator();
 		} catch (Exception e) {
@@ -447,7 +448,8 @@ public class FunctionalLibrary extends CommonHelper{
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		PAMember1= "AUT" + func_GenerateDynamicRxNo().substring(5, 12);
 		
-		
+		if(memberID.length()==0)
+		{		
 		if(!(func_SearchAndSelectADataEditMode("4,4" ,PAMember1 ,"10,4" , PAMember1)))
 		{
 				Thread.sleep(1000);
@@ -475,7 +477,37 @@ public class FunctionalLibrary extends CommonHelper{
 			System.out.println("Member exists");
 			Reporter.addStepLog("Member exists");
 		}
-						
+		}
+		else
+		{
+			if(!(func_SearchAndSelectADataEditMode("4,4" ,memberID ,"10,4" , memberID)))
+			{
+					Thread.sleep(1000);
+					Mainframe_GlobalFunctionLib.pressKey("F6");
+					Mainframe_GlobalFunctionLib.sendText(4, 10, carrierID);
+					Mainframe_GlobalFunctionLib.sendText(5, 10, accountID);
+					Mainframe_GlobalFunctionLib.sendText(6, 10, groupID);
+					Mainframe_GlobalFunctionLib.sendText(7, 10, memberID);
+					Mainframe_GlobalFunctionLib.pressKey("Enter");
+					Mainframe_GlobalFunctionLib.sendText(6 , 29 ,lastName);
+					Mainframe_GlobalFunctionLib.sendText(6, 57, firstName);
+					Mainframe_GlobalFunctionLib.sendText(7,40, dob);
+					Mainframe_GlobalFunctionLib.sendText(20, 2, fromDate);			
+					Mainframe_GlobalFunctionLib.sendText(20, 12, thruDate);
+					Mainframe_GlobalFunctionLib.pressKey("Enter");				
+					Mainframe_GlobalFunctionLib.sendText(16, 64, "Y");
+					Mainframe_GlobalFunctionLib.pressKey("Enter");
+//					Mainframe_GlobalFunctionLib.pressKey("F12");
+//					Mainframe_GlobalFunctionLib.pressKey("F12");
+					System.out.println("Member is created");
+					Reporter.addStepLog("Member is created");
+				}
+			else{
+//				Mainframe_GlobalFunctionLib.pressKey("F12");
+				System.out.println("Member exists");
+				Reporter.addStepLog("Member exists");
+			}
+		}
 		
 			if(ScreenshotOption.equalsIgnoreCase("Always")){
 				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
