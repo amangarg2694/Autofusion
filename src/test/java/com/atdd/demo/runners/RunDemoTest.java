@@ -19,13 +19,8 @@ import com.optumrx.autofusion.core.util.ReportHelper;
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
-@CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
-
-		features = { "classpath:features/RxClaim/featureFiles" },
-
-		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
-
-		features = { "classpath:features/RxClaim/featureFiles/SN003419/SN003419_TC_01.feature" },
+@CucumberOptions(format = { "pretty", "json:target/cucumber.json" },	
+		features = { "classpath:features/RxClaim/featureFiles/AgileTeams/PlanPanthers/Release 8405/SN003631/NDClistwithPharmacyNetwork.feature" },
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 		glue = { "com.atdd.demo.te" }

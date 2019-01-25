@@ -40,6 +40,7 @@ public class CommonStepDefinition extends CommonHelper{
 				while(!(text.equalsIgnoreCase("RxClaim Plan Administrator Menu"))){
 					
 					FunctionalLibrary.pressKey("F12");
+					Thread.sleep(1000);
 					text = FunctionalLibrary.getText(1, 13);
 					
 				}
@@ -47,6 +48,7 @@ public class CommonStepDefinition extends CommonHelper{
 		
 	}	
 	
+		
 	@When("^I press \"([^\"]*)\" Key$")
 	public void i_press_Key(String arg1) throws Throwable {
 		//Mainframe_GlobalFunctionLib.Transmit();
@@ -60,6 +62,7 @@ public class CommonStepDefinition extends CommonHelper{
 		
 		FunctionalLibrary.enterText(21,7 ,option );
 		FunctionalLibrary.pressEnter();
+		
 	}
 	
 	@Given("^I open RxClaim Application in \"([^\"]*)\"$")
@@ -489,14 +492,42 @@ public class CommonStepDefinition extends CommonHelper{
 			FunctionalLibrary.func_updateDrugStatusGPIOptions(plancode);
 		}
 
-		@Given("^Update Plan Drug Status and Turnon GPI Options \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-		public void update_Plan_Drug_Status_and_Turnon_GPI_Options(String plancode, String checknegformchangeonproduct, String negativeformularyfhange, String minmaxquantity, String minmaxdailydose, String quantitydaysupplyptd) throws Throwable {
-			FunctionalLibrary.func_updateDrugStatusGPIOptionswithTBMedicareDetail(plancode, checknegformchangeonproduct, negativeformularyfhange, minmaxquantity, minmaxdailydose, quantitydaysupplyptd);
+		@Given("^Update Plan Drug Status and Turnon GPI Options \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void update_Plan_Drug_Status_and_Turnon_GPI_Options(String plancode, String checknegformchangeonproduct,String qualquantity, String minquantity, String maxquantity, String qualdailydose, String mindailydose, String maxdailydose, String ptdquantitytype, String ptdquantitydays, String ptdquantitymax, String ptddayssupplytype, String ptddaysssupplymin, String ptddaysssupplymax, String ptd4thqtrdstype, String ptd4thqtrdsdays, String ptd4thqtrdsmax, String qtydscomp, String negativeformularyfhange, String minmaxquantity, String minmaxdailydose, String quantitydaysupplyptd) throws Throwable {
+			FunctionalLibrary.func_updateDrugStatusGPIOptionswithTBMedicareDetail(plancode, checknegformchangeonproduct, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp, negativeformularyfhange, minmaxquantity, minmaxdailydose, quantitydaysupplyptd);
 		}
 
 		@Then("^Validate PA Number and TB fields \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 		public void validate_PA_Number_and_TB_fields(String panumber, String tboverride, String tbpriordrugsts, String tbrejectreason1, String tbrejectreason2, String tbrejectreason3, String tbplanedit, String tbpassprequalifcheck) throws Throwable {
 			FunctionalLibrary.func_Validate_PAnumberandTBfields(panumber, tboverride, tbpriordrugsts, tbrejectreason1, tbrejectreason2, tbrejectreason3, tbplanedit, tbpassprequalifcheck);
 		}	
+		
+		@When("^Update Member PA Override and GPI Details \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void update_Member_PA_Override_and_GPI_Details(String paoverridetb, String qualquantity, String minquantity, String maxquantity, String qualdailydose, String mindailydose, String maxdailydose, String ptdquantitytype, String ptdquantitydays, String ptdquantitymax, String ptddayssupplytype, String ptddaysssupplymin, String ptddaysssupplymax, String ptd4thqtrdstype, String ptd4thqtrdsdays, String ptd4thqtrdsmax, String qtydscomp) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			FunctionalLibrary.func_UpdateMemberPAOverrideGPIDetails(paoverridetb, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp);
+		}
+		
+		@When("^Update Member PA Override and NDC Details \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void update_Member_PA_Override_and_NDC_Details(String paoverridetb, String qualquantity, String minquantity, String maxquantity, String qualdailydose, String mindailydose, String maxdailydose, String ptdquantitytype, String ptdquantitydays, String ptdquantitymax, String ptddayssupplytype, String ptddaysssupplymin, String ptddaysssupplymax, String ptd4thqtrdstype, String ptd4thqtrdsdays, String ptd4thqtrdsmax, String qtydscomp) throws Throwable {
+			FunctionalLibrary.func_UpdateMemberPAOverrideNDCDetails(paoverridetb, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp);
+		}
+		
+		@When("^Update Plan Drug Status and Turnoff NDC Options \"([^\"]*)\"$")
+		public void update_Plan_Drug_Status_and_Turnoff_NDC_Options(String plancode) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			FunctionalLibrary.func_updateDrugStatusNDCOptions(plancode);
+		}
+		
+		@Given("^Update Plan Drug Status and Turnon NDC Options \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void update_Plan_Drug_Status_and_Turnon_NDC_Options(String plancode, String checknegformchangeonproduct,String productid, String qualquantity, String minquantity, String maxquantity, String qualdailydose, String mindailydose, String maxdailydose, String ptdquantitytype, String ptdquantitydays, String ptdquantitymax, String ptddayssupplytype, String ptddaysssupplymin, String ptddaysssupplymax, String ptd4thqtrdstype, String ptd4thqtrdsdays, String ptd4thqtrdsmax, String qtydscomp, String negativeformularyfhange, String minmaxquantity, String minmaxdailydose, String quantitydaysupplyptd) throws Throwable {
+			//FunctionalLibrary.func_updateDrugStatusGPIOptionswithTBMedicareDetail(plancode, checknegformchangeonproduct, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp, negativeformularyfhange, minmaxquantity, minmaxdailydose, quantitydaysupplyptd);
+			FunctionalLibrary.func_updateDrugStatusNDCOptionswithTBMedicareDetail(plancode, checknegformchangeonproduct, productid, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp, negativeformularyfhange, minmaxquantity, minmaxdailydose, quantitydaysupplyptd);
+		}
+		@Then("^Validate Claim Reject Code \"([^\"]*)\"$")
+		public void validate_Claim_Reject_Code(String rejectcode) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			FunctionalLibrary.validateText("21" ,"12" , rejectcode );
+		}
 	
 }
