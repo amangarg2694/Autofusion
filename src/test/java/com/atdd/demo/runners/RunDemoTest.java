@@ -19,12 +19,18 @@ import com.optumrx.autofusion.core.util.ReportHelper;
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
-@CucumberOptions(format = { "pretty", "json:target/cucumber.json" },	
-		features = { "classpath:features/RxClaim/featureFiles/AgileTeams/PlanPanthers/Release 8405/SN003631/NDClistwithPharmacyNetwork.feature" },
+@CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
+
+
+		features = { "classpath:features/RxClaim/featureFiles/ClaimSubmission.feature" },
+
+
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 		glue = { "com.atdd.demo.te" }
-//		,tags ={"@Regression"}
+
+//        ,tags ={"@Regression"}
+		
 
 )
 
@@ -62,7 +68,7 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
 	public static void teardown() throws Exception { 
 
 
- 		Mainframe_GlobalFunctionLib.closeTE(); 
+// 		Mainframe_GlobalFunctionLib.closeTE(); 
 
 		SDK.cleanup(); 
 		 

@@ -35,7 +35,7 @@ public class CommonStepDefinition extends CommonHelper{
 		
 	
 		
-		String text = FunctionalLibrary.getText(1, 13);
+		/*String text = FunctionalLibrary.getText(1, 13);
 				
 				while(!(text.equalsIgnoreCase("RxClaim Plan Administrator Menu"))){
 					
@@ -43,7 +43,16 @@ public class CommonStepDefinition extends CommonHelper{
 					Thread.sleep(1000);
 					text = FunctionalLibrary.getText(1, 13);
 					
-				}
+				}*/
+		
+		String text = Mainframe_GlobalFunctionLib.getText(1, 13);
+		
+		while(!(text.equalsIgnoreCase("RxClaim Plan Administrator Menu"))){
+			
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Thread.sleep(1000);
+			text = Mainframe_GlobalFunctionLib.getText(1, 13);
+		}
 		
 		
 	}	
@@ -60,9 +69,18 @@ public class CommonStepDefinition extends CommonHelper{
 	@When("^I select Option \"([^\"]*)\" to navigate to \"([^\"]*)\"$")
 	public void i_select_Option_to_navigate_to(String option, String screen) throws Throwable {
 		
-		FunctionalLibrary.enterText(21,7 ,option );
-		FunctionalLibrary.pressEnter();
+		/*FunctionalLibrary.enterText(21,7 ,option );
+		FunctionalLibrary.pressEnter();*/
+		Mainframe_GlobalFunctionLib.sendText(21,7 ,option );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		
+	}
+	
+	@When("^I want to press F(\\d+) key$")
+	public void i_want_to_press_F_key(int arg1) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	   // throw new PendingException();
+		FunctionalLibrary.pressKey("F4");
 	}
 	
 	@Given("^I open RxClaim Application in \"([^\"]*)\"$")
@@ -101,7 +119,14 @@ public class CommonStepDefinition extends CommonHelper{
 	}
 	
 	@When("^I create Member with Override Plan \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_create_Member_with_Override_Plan(String carrierID, String accountID, String groupID, String memberID, String firstName, String lastName, String dob, String fromDate, String thruDate, String overridePlan) throws Throwable {
+	public void i_create_Member_with_Override_Plan(String carrierID, String accountID, String groupID, String memberID, String firstName, String lastName, String dob, String fromDate, String thruDate, String overridePlan) throws Throwable {		
+		FunctionalLibrary.createMemberWithOverridePlan(carrierID, accountID, groupID, memberID, firstName, lastName, dob, fromDate, thruDate,overridePlan);
+		
+	}
+	//Create randomly generated member Member with override plan
+	@When("^I create new Member with Override Plan \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_new_Member_with_Override_Plan(String carrierID, String accountID, String groupID, String memberID, String firstName, String lastName, String dob, String fromDate, String thruDate, String overridePlan) throws Throwable {		
+		FunctionalLibrary.PAMember1 = "AUT" + FunctionalLibrary.func_GenerateDynamicRxNo().substring(5, 12);
 		FunctionalLibrary.createMemberWithOverridePlan(carrierID, accountID, groupID, memberID, firstName, lastName, dob, fromDate, thruDate,overridePlan);
 		
 	}
@@ -197,6 +222,8 @@ public class CommonStepDefinition extends CommonHelper{
 		 Mainframe_GlobalFunctionLib.sendText(20 , 47 ,ucw);
 		 FunctionalLibrary.submitClaim();
 	}
+	
+	
 	
 	@When("^I submit a compound claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_submit_a_compound_claim_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productId, String dspQty, String ds, String psc, String cost, String prequal, String preid, String ucw, String compQualId, String compProductId, String compQuantity, String compCost, String compBasisOfCost) throws Throwable {
@@ -486,6 +513,7 @@ public class CommonStepDefinition extends CommonHelper{
 			Mainframe_GlobalFunctionLib.click(coordinate0 ,coordinate1);
 			
 		}
+    
 		@When("^Update Plan Drug Status and Turnoff GPI Options \"([^\"]*)\"$")
 		public void update_Plan_Drug_Status_and_Turnoff_GPI_Options(String plancode) throws Throwable {
 		    // Write code here that turns the phrase above into concrete actions
@@ -508,6 +536,14 @@ public class CommonStepDefinition extends CommonHelper{
 			FunctionalLibrary.func_UpdateMemberPAOverrideGPIDetails(paoverridetb, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp);
 		}
 		
+		@When("^I attach DUR Table to the Plan \"([^\"]*)\",\"([^\"]*)\"$")
+		public void i_attach_DUR_Table_to_the_Plan(String planCode, String durTable) throws Throwable {
+		    PlanByPlanCode.openThePlanInEditMode(planCode);
+			FunctionalLibrary.enterText(19, 17, durTable);
+			FunctionalLibrary.pressEnter();
+		}
+		
+
 		@When("^Update Member PA Override and NDC Details \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 		public void update_Member_PA_Override_and_NDC_Details(String paoverridetb, String qualquantity, String minquantity, String maxquantity, String qualdailydose, String mindailydose, String maxdailydose, String ptdquantitytype, String ptdquantitydays, String ptdquantitymax, String ptddayssupplytype, String ptddaysssupplymin, String ptddaysssupplymax, String ptd4thqtrdstype, String ptd4thqtrdsdays, String ptd4thqtrdsmax, String qtydscomp) throws Throwable {
 			FunctionalLibrary.func_UpdateMemberPAOverrideNDCDetails(paoverridetb, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp);
@@ -524,10 +560,43 @@ public class CommonStepDefinition extends CommonHelper{
 			//FunctionalLibrary.func_updateDrugStatusGPIOptionswithTBMedicareDetail(plancode, checknegformchangeonproduct, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp, negativeformularyfhange, minmaxquantity, minmaxdailydose, quantitydaysupplyptd);
 			FunctionalLibrary.func_updateDrugStatusNDCOptionswithTBMedicareDetail(plancode, checknegformchangeonproduct, productid, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp, negativeformularyfhange, minmaxquantity, minmaxdailydose, quantitydaysupplyptd);
 		}
+
 		@Then("^Validate Claim Reject Code \"([^\"]*)\"$")
 		public void validate_Claim_Reject_Code(String rejectcode) throws Throwable {
 		    // Write code here that turns the phrase above into concrete actions
 			FunctionalLibrary.validateText("21" ,"12" , rejectcode );
+		
+		}
+		@Then("^Verify if Subrogation applies for Manual Claims with Payee Override with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void verify_if_Subrogation_applies_for_Manual_Claims_with_Payee_Override_with(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+		   // throw new PendingException();
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			FunctionalLibrary.validateText("21" ,"10", "Testing");
+			
+		}
+		
+		@When("^I submit the claim with prescriber id \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void i_submit_the_claim_with_prescriber_id(String bin, String proc, String group, String pharmacyID, String refill, String fillDate, String memberID, String productID, String prescriberQual , String prescriberID,String dspQty, String ds, String psc, String cost, String due, String ucw, String fee) throws Throwable {
+			   FunctionalLibrary.CreateTransaction(bin, proc, group, pharmacyID, memberID,refill, fillDate, memberID, productID, dspQty, ds, psc, cost);
+			Mainframe_GlobalFunctionLib.sendText(9 , 33 ,"1");
+			if(fee.length()!=0){
+			Mainframe_GlobalFunctionLib.sendText(11 , 47 ,"         ");
+			Mainframe_GlobalFunctionLib.sendText(11 , 47 ,fee);
+			}
+			if(due.length()!=0){
+				Mainframe_GlobalFunctionLib.sendText(19 , 47 ,"         ");			
+				Mainframe_GlobalFunctionLib.sendText(19 , 47 ,due);
+			}
+			if(ucw.length()!=0){
+			 Mainframe_GlobalFunctionLib.sendText(20 , 47 ,"         ");		 
+			 Mainframe_GlobalFunctionLib.sendText(20 , 47 ,ucw);
+			}
+			Mainframe_GlobalFunctionLib.sendText(19 , 19 ,"  ");
+			Mainframe_GlobalFunctionLib.sendText(19 , 19 ,prescriberQual);
+			Mainframe_GlobalFunctionLib.sendText(19 , 26 ,"               ");
+			Mainframe_GlobalFunctionLib.sendText(19 , 26 ,prescriberID);
+			FunctionalLibrary.submitClaim();
 		}
 	
 }
