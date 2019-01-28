@@ -14,7 +14,7 @@ Feature: Validate Claim Transaction for Plan Edit 17 with Part D member
  
    Examples:
    |CarrierID |AccountID |GroupID  |MemberID  |FirstName|LastName |DOB     |FromDate|ThruDate|Override Plan  |PARTDFromDate|PARTDThruDate |Contract|PBP|Segment|SubsidyLevel|CopayCategory|PARTDEffectiveDate|EnrollmentSource| BIN     | ProcCtrl     | Group | PharmacyID  |Refill| FillDate |ProductID   | DspQty | DS | PSC | Cost|Due|UCW |Fee|Expected ClaimSts|Expected RejectCode|Expected ClaimMsg                       |
-   |RAG1212	  |RAG1212   |RAG1212  |3716M001  |MemberFN1|MemebrLN1|1011990 |010191  |123139  |AUT3716001     |010191       |123139        |A1234   |123|       |            |             |                  |                | 888888  | *       |*      | APHARM      | 01   |  120518  |40185016931 |30      |30  |00   |100  |90 |100 |100|R                |75                 |SURGICAL SUPPLY/MEDICAL D Requires Prior|                         
+   |CARDEF	  |ACCDEF   |GRPDEF  |1OK3631M  |MemberFN1|MemebrLN1|1011990 |010191  |123139  |11SN3716P     |010191       |123139        |K3716   |010|       |            |             |                  |                | 888888  | *       |*      | APHARM      | 01   |  120518  |40185016931 |30      |30  |00   |100  |90 |100 |100|R                |75                 |SURGICAL SUPPLY/MEDICAL D Requires Prior|                         
    
    
    @TC2
