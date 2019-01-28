@@ -21,12 +21,12 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
-		features = { "classpath:features/RxClaim/SN003921/DUREndToEnd_F18Submit.feature" },
+		features = { "classpath:features/RxClaim/featureFiles/AgileTeams/PlanGoalGetters/SN003921/DUREndToEnd_F18Submit.feature" },
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 
 		glue = { "com.atdd.demo.te" }
-		,tags ={"@TS5"}
+		,tags ={"@TS8,@TS9,@TS10,@TS11,@TS12,@TS13,@TS14,@TS15,@TS16,@TS17,@TS18"}
 )
 
 

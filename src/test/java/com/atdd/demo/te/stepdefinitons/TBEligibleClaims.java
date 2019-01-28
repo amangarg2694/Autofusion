@@ -2446,11 +2446,14 @@ public class TBEligibleClaims {
 		System.out.println("Claim Status: "+ClmSts);
 		Reporter.addStepLog("Claim Status: "+ClmSts);
 		Mainframe_GlobalFunctionLib.pressKey("F7");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F7");
 		Mainframe_GlobalFunctionLib.sendText(4, 23 ,"8" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Mainframe_GlobalFunctionLib.pressKey("F7");
-		Reporter.addScreenCaptureFromPath(Screenshot.screenshot()); 
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.validateText("12", "25","Y" );
+		Mainframe_GlobalFunctionLib.validateText("13", "25","Y" );
 		String getMedicareTBSchedule = Mainframe_GlobalFunctionLib.getText(9, 17).trim();
 		int lengetTBSchedule = getMedicareTBSchedule.length();
 				if(lengetTBSchedule==0)
@@ -2464,6 +2467,10 @@ public class TBEligibleClaims {
 					System.out.println("TB override schedule stamping appearing which is not as expected ");
 					Assert.fail("TB override schedule stamping appearing which is not as expected "); 
 				}
+		
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F9");
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot()); 
 				FunctionalLibrary.navigateToRxClaimPlanAdministrator();
 	}
 	
@@ -2483,7 +2490,17 @@ public class TBEligibleClaims {
 		Reporter.addStepLog("Claim Reject Code: "+ClmRejCode);
 		
 		Mainframe_GlobalFunctionLib.pressKey("F7");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F7");
+		Mainframe_GlobalFunctionLib.sendText(4, 23 ,"8" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F9");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F7");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
 		Mainframe_GlobalFunctionLib.sendText(4, 23 ,"5" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot()); 
@@ -2516,7 +2533,17 @@ public class TBEligibleClaims {
 		System.out.println("Claim message1: "+Clmmess1);
 		Reporter.addStepLog("Claim message1: "+Clmmess1);		
 		Mainframe_GlobalFunctionLib.pressKey("F7");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F7");
+		Mainframe_GlobalFunctionLib.sendText(4, 23 ,"8" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F9");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F7");
+		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
 		Mainframe_GlobalFunctionLib.sendText(4, 23 ,"5" );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot()); 
