@@ -24,7 +24,7 @@ Feature: Initialize override array for TB eligible claims
     And I create CAG with "<CarrierID>","<CarrierName>","<Processor>","<MailingAdd>","<City>","<State>","<Zip>","<ContractFromDt>","<ContractThruDt>","<ContractEnt>","<BusinessType>","<AccountID>","<AccountName>","<GroupID>","<GroupName>","<GroupFromDt>","<GroupThruDt>","<PlanCode>"
     And I create Member with "<CarrierID>","<AccountID>","<GroupID>","<MemberID>","<FirstName>","<LastName>","<DOB>","<MemFromDate>","<MemThruDate>"
     And I update the member details with "<MemberID>"
-    #And I create BIN in Transaction control screen for claim router submission with "<BIN>","<ProcCtrl>","<Group>","<Bfromdate>","<Btodate>","<CarrierID>","<AccountID>","<BINGroup>","<Windowdays>"
+    And I create BIN in Transaction control screen for claim router submission with "<BIN>","<ProcCtrl>","<Group>","<Bfromdate>","<Btodate>","<CarrierID>","<AccountID>","<BINGroup>","<Windowdays>"
     And I update the ContingentTherapy to Y in NDCGPI OR Edit List screen for NDC with "<NDCGPIORList1>","<ContingentTherapy>"
     And I submit a router claim with "<BIN>","<ProcCtrl>","<Group>","<PharmacyID>","<RxNo>","<Refill>","<FillDate>","<MemberID>","<ProductID1>","<DspQty>","<DS>","<PSC>","<Cost>","<Fee>","<UCW>"
     	Then I validate the claim details with "<ClaimStatus>","<NDCList1>"
