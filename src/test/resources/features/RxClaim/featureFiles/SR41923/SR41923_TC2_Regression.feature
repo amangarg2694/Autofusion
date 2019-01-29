@@ -1,4 +1,5 @@
 @Regression
+
 Feature: Fix Price Override after the specific "#" of fills have been exceeded
 				 
 
@@ -68,7 +69,7 @@ Feature: Fix Price Override after the specific "#" of fills have been exceeded
   
    Examples: 
    | PlanCode  	| From Date	|	Description	|	FromDate	|	ThruDate	|	PharmPriceSchedule	|	PharmPatientPaySchedule	|	ClientPriceSchedule	|	ClientPaySchedule	| NDCList	|	MemberID	|BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID  | ProductID  	|	DspQty | DS | PSC | Cost |
-	 | VSR4192351	| 010118		|	Test Plan		|	010118		|	123118		|	*(A)								|	$0											|	*(A)								|	$0								|	41923 	|	VSR419231	|777777  | QET     |	*ALL | APHARM      | 854332967432 | 00     | 090518   | VSR419231	| 88512606010 |	30     | 30 | 0	  | 100  |
+	 | VSR4192351	| 010118		|	Test Plan		|	010118		|	123118		|	*(A)								|	$0											|	*(A)								|	$0								|	41923 	|	VSR419231	|777777  | QET     |	*ALL | APHARM      | 854332967432 | 00     | 121418   | VSR419231	| 88512606010 |	30     | 30 | 0	  | 100  |
 		
 		
 		

@@ -36,9 +36,16 @@ public class Reimbursement_Id extends CommonHelper {
 			Mainframe_GlobalFunctionLib.sendText(11, 41,proc );
 			Mainframe_GlobalFunctionLib.sendText(11, 59,group );
 			Mainframe_GlobalFunctionLib.sendText(12, 14,pharmacyID );
-			Mainframe_GlobalFunctionLib.sendText(12, 41,rxNbr );
+			Mainframe_GlobalFunctionLib.sendText(12, 41,FunctionalLibrary.func_GenerateDynamicRxNo() );
 			Mainframe_GlobalFunctionLib.sendText(12, 59,refill );
-			Mainframe_GlobalFunctionLib.sendText(14, 41,memberID );
+			//added 43-45 for f4 functionality for member
+			//Mainframe_GlobalFunctionLib.sendText(14, 41,memberID );
+			Mainframe_GlobalFunctionLib.click(14,41);
+			Mainframe_GlobalFunctionLib.pressKey("F4");
+			Mainframe_GlobalFunctionLib.sendText(3, 4,memberID );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(8, 2,"1");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 			//Mainframe_GlobalFunctionLib.click(7, 12 );
 			//Mainframe_GlobalFunctionLib.pressKey("F4");
@@ -69,7 +76,7 @@ public class Reimbursement_Id extends CommonHelper {
 			///Thread.sleep(3000);
 			Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
 			Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate);
-			Mainframe_GlobalFunctionLib.sendText(5,29, rxNbr);
+			Mainframe_GlobalFunctionLib.sendText(5,29, FunctionalLibrary.func_GenerateDynamicRxNo());
 			Mainframe_GlobalFunctionLib.sendText(5, 47, refill);			
 			//Mainframe_GlobalFunctionLib.click(7, 12 );
 			Mainframe_GlobalFunctionLib.sendText(7, 12, memberID);
@@ -379,7 +386,7 @@ public void i_goback_to_RxClaim_Plan_Administrator_Menu_screen_from_Communicatio
    FunctionalLibrary.pressKey("F3");
    FunctionalLibrary.pressKey("F3");
    FunctionalLibrary.pressKey("F3");
-   FunctionalLibrary.enterText(21, 7, "20");
+   FunctionalLibrary.enterText(21, 7, "CCT600");
    FunctionalLibrary.pressEnter();
 }
 

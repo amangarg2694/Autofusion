@@ -2,8 +2,12 @@ package com.atdd.demo.te.stepdefinitons;
 
 import java.io.IOException;
 
+import org.testng.Assert;
+
 import com.atdd.te.screenHelpers.FunctionalLibrary;
+import com.cucumber.listener.Reporter;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
+import com.optumrx.autofusion.core.te.util.Screenshot;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -93,6 +97,50 @@ public class CreateorSubmitTransaction {
 			e.printStackTrace();
 		}
 	}
+	
+	@Then("^Validate Claim Note is \"([^\"]*)\"$")
+	public void validate__Claim_Note_is(String claimNote)  {
+		try{
+		String actualNote = null;
+		
+		
+		if(((claimNote.length()==0)))
+		{
+		claimNote="";
+		}
+		FunctionalLibrary.pressKey("F14");		
+		try{
+		actualNote = FunctionalLibrary.getText(9, 7);
+		actualNote = actualNote +" "+FunctionalLibrary.getText(10, 7);
+		actualNote = actualNote +" "+FunctionalLibrary.getText(11, 7);
+		if(actualNote.trim().length()!=0){
+		if(actualNote.length()==25)
+			actualNote = "";
+		}
+		
+		}
+		catch(Exception e)
+		{
+			actualNote="";
+			System.out.println("Claim note is not present");
+		}
+			try{
+			FunctionalLibrary.func_CompareStrings(actualNote.trim() ,claimNote.trim()  );
+			} catch (Throwable e) {
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The text "+ claimNote.trim()+" does not match on the screen.Screenshot captured.");
+				
+				e.printStackTrace();
+			}
+			
+		
+		FunctionalLibrary.pressKey("F12");
+		}
+		catch (IOException e) {			
+			e.printStackTrace();
+		}
+	}
+	
 		
 	@Then("^Validate Claim Status is \"([^\"]*)\"\"([^\"]*)\"$")
 	public void validate_Claim_Status_is(String claimSts, String rejectCode) throws Throwable {

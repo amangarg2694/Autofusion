@@ -21,12 +21,17 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
-		features = { "classpath:features/RxClaim/featureFiles/AgileTeams/PlanGoalGetters/SN003921/DUREndToEnd_F18Submit.feature" },
+		features = { "classpath:features/RxClaim/featureFiles/ClaimSubmission.feature" },
+
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
-
 		glue = { "com.atdd.demo.te" }
-		,tags ={"@TS8,@TS9,@TS10,@TS11,@TS12,@TS13,@TS14,@TS15,@TS16,@TS17,@TS18"}
+
+
+//        ,tags ={"@Regression"}
+		
+
+
 )
 
 
@@ -51,7 +56,9 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
    		ReadPropertyFile.configFileReader(configFile); 
     	CommonHelper.ScreenshotOption = scrOption; 
    		CommonHelper.login(); 
-    		 
+    
+   		
+   		
  }	 
 
  
@@ -59,9 +66,10 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
  
 	@AfterClass 
 	public static void teardown() throws Exception { 
- 
- 
- 		Mainframe_GlobalFunctionLib.closeTE(); 
+
+
+// 		Mainframe_GlobalFunctionLib.closeTE(); 
+
 		SDK.cleanup(); 
 		 
  
@@ -97,7 +105,7 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
  
 		ReportHelper.createCucumberHTMLReport("target", "target//cucumber.json", "ATDD_LEANFT_DEMO"); 
 
- 
+		ReportHelper.readExtentReportForSummary("output/MyReport.html");
 	} 
  	 
 

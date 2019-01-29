@@ -75,8 +75,11 @@ public class ContingentTherapy {
 	public void validate_the_new_fields_added_in(String arg1) throws Throwable {
 		Mainframe_GlobalFunctionLib.pressKey("PageDown");
 		//Mainframe_GlobalFunctionLib.validateText("6" , "2", "Exclude Claims");
-		Mainframe_GlobalFunctionLib.validateText("7" , "4", "Level");
-		Mainframe_GlobalFunctionLib.validateText("7" , "21", "Wildcard");
+		/*Mainframe_GlobalFunctionLib.validateText("7" , "4", "Level");
+		Mainframe_GlobalFunctionLib.validateText("7" , "21", "Wildcard");*/
+		
+		Mainframe_GlobalFunctionLib.validateText("11" , "4", "Level");
+		Mainframe_GlobalFunctionLib.validateText("11" , "21", "Wildcard");
 		
 	}
 	@Given("^I navigate to  Contingent Therapy Schedule Protocol Sequence Screen$")
@@ -135,12 +138,13 @@ public class ContingentTherapy {
 				Mainframe_GlobalFunctionLib.sendText(16, 5, num);
 				Mainframe_GlobalFunctionLib.sendText(16, 18, type);
 				Mainframe_GlobalFunctionLib.sendText(16, 23, msc);
-				Mainframe_GlobalFunctionLib.sendText(16, 26, ndclist);
-				Mainframe_GlobalFunctionLib.sendText(16, 42, Date11);
-				Mainframe_GlobalFunctionLib.sendText(16, 51, Date11);
+				Mainframe_GlobalFunctionLib.sendText(16, 27, "*");
+				Mainframe_GlobalFunctionLib.sendText(16, 30, ndclist);
+				Mainframe_GlobalFunctionLib.sendText(16, 46, Date11);
+				Mainframe_GlobalFunctionLib.sendText(16, 55, Date11);
 				//Mainframe_GlobalFunctionLib.sendText(16, 51, date1);
-				Mainframe_GlobalFunctionLib.sendText(16, 61, agt);
-				Mainframe_GlobalFunctionLib.sendText(16, 66, rsn);
+				Mainframe_GlobalFunctionLib.sendText(16, 65, agt);
+				Mainframe_GlobalFunctionLib.sendText(16, 70, rsn);
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				
 		}
@@ -1145,7 +1149,7 @@ public static void CreateTransaction1(String bin, String proc, String group, Str
 		Mainframe_GlobalFunctionLib.sendText(11, 41,proc );
 		Mainframe_GlobalFunctionLib.sendText(11, 59,group );
 		Mainframe_GlobalFunctionLib.sendText(12, 14,pharmacyID );
-		Mainframe_GlobalFunctionLib.sendText(12, 41,rxNbr );
+		Mainframe_GlobalFunctionLib.sendText(12, 41,FunctionalLibrary.func_GenerateDynamicRxNo());
 		Mainframe_GlobalFunctionLib.sendText(12, 59,refill );
 		Mainframe_GlobalFunctionLib.sendText(14, 41,memberID );
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -1177,7 +1181,7 @@ public static void CreateTransaction1(String bin, String proc, String group, Str
 		///Thread.sleep(3000);
 		Mainframe_GlobalFunctionLib.sendText(4 , 65 ,"          ");
 		Mainframe_GlobalFunctionLib.sendText(4, 65, fillDate);
-		Mainframe_GlobalFunctionLib.sendText(5,29, rxNbr);
+		Mainframe_GlobalFunctionLib.sendText(5,29, FunctionalLibrary.func_GenerateDynamicRxNo());
 		Mainframe_GlobalFunctionLib.sendText(5, 47, refill);			
 		//Mainframe_GlobalFunctionLib.click(7, 12 );
 		Mainframe_GlobalFunctionLib.sendText(7, 12, memberID);
