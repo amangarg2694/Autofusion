@@ -2564,6 +2564,7 @@ public class FunctionalLibrary extends CommonHelper{
 					if (Mainframe_GlobalFunctionLib.getText(2, 14).trim().contains("Detail Page 1 of 3")) {
 
 						Mainframe_GlobalFunctionLib.sendText(6, 78, drugStatus);
+						Mainframe_GlobalFunctionLib.pressKey("Enter");
 					} else if (Mainframe_GlobalFunctionLib.getText(2, 14).trim().contains("Detail Page 3 of 3")) {
 						Mainframe_GlobalFunctionLib.pressKey("PageUp");
 						Mainframe_GlobalFunctionLib.pressKey("PageUp");
