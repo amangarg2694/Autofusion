@@ -41,23 +41,4 @@ Feature: Create DPA
    |DPTEST125    |AUTOC3690	|AUTO3690A |AUTO3690G |1                    |DPA Automation |         |1          |N          |G   |D         |D         |OJ           |T    |Y           |0       |Y       |N              |           |              |        |               |O             |500               |                |DPA928RJ1 |DUR Automation |010101    |123139    |N                 |N        |N          |N            |N      |0             |
    |DPTEST126    |AUTOC3690	|AUTO3690A |AUTO3690G |1                    |DPA Automation |         |1          |N          |G   |D         |D         |OJ           |T    |Y           |0       |Y       |N              |           |              |        |               |O             |500               |12              |DPA928RJ1 |DUR Automation |010101    |123139    |N                 |N        |N          |N            |N      |0             |
    |DPTEST127    |AUTOC3690	|AUTO3690A |AUTO3690G |1                    |DPA Automation |         |1          |N          |G   |D         |D         |OJ           |T    |Y           |0       |Y       |N              |           |              |        |               |O             |500               |                |DPA928RJ1 |DUR Automation |010101    |123139    |N                 |N        |N          |N            |N      |0             |
-     
-    Scenario Outline: Create DPA List   
-    Given I am on RxClaim PlanAdministrator Menu
-    When I create Dynamic Prior Authorization List "<Carrier>","<List>","<List Name>"
-      
-   	Examples:
-   |Carrier   |List       |List Name     |
-   |AUTOC3690	|DPA928RJ1  |DUR Automation|
-   
-    Scenario Outline: Create DPA Profile
-    Given I am on RxClaim PlanAdministrator Menu
-    When I create Dynamic Prior Authorization Profile "<Carrier>","<Account>","<Group>","<From Date>","<Thru Date>","<Submitted PA Flag>","<Provider>","<Prescriber>","<Prescription>","<Member>","<Max List Fills>" 
-    
-    Examples:
-   |Carrier   |Account   | Group    |From Date |Thru Date |Submitted PA Flag |Provider |Prescriber |Prescription |Member |Max List Fills|
-   |AUTOC3690	|AUTO3690A |AUTO3690G |010101    |123139    |N                 |N        |N          |N            |N      |0             |
-   
-    
-        
-    
+  
