@@ -11,7 +11,8 @@ As a RxClaim User I want to run the Data Setup feature file
     | CarrierID | CarrierName |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID |AccountName  | GroupID  |GroupName  |GroupFromDt|GroupThruDt|PlanCode| 
  		| AUTOC3690 | Test Carrier|712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |AUTO3690A |Test Account | AUTO3690G|Test Group |010101     |123139     |PLN3024M1| 
 
-#Basic Plan
+#BasicPlan
+@BasicPlan
  		Scenario Outline: Create a new Plan with NDC List in RxClaim    
     Given I am on RxClaim PlanAdministrator Menu 
     When I create plan with member eligibility and pricing option "<PlanCode>","<FromDate>","<Description>","<ThruDate>","<PriceSchedule>","<PatientPaySchedule>"
@@ -19,7 +20,11 @@ As a RxClaim User I want to run the Data Setup feature file
    	
    Examples:
    |PlanCode|FromDate|ThruDate|Description|PriceSchedule|PatientPaySchedule|NDCList|NDCSeq| NDCFromDate | NDCThruDate  | 
-   |TESTP3690|010110|123139|AUTO PLAN FOR 3690|EVUAREG|EVUAREG|PANL1	 |20   |	010118  	  |123139        |
+   #|TESTP3690|010110|123139|AUTO PLAN FOR 3690|EVUAREG|EVUAREG|PANL1	 |20   |	010118  	  |123139        |
+ 	 |TESTP01369|010110|123139|AUTO PLAN FOR 3690|EVUAREG|EVUAREG|PANL1	 |20   |	010118  	  |123139        |
+ 	 |TESTP02369|010110|123139|AUTO PLAN FOR 3690|EVUAREG|EVUAREG|PANL1	 |20   |	010118  	  |123139        |
+   |TESTP03369|010110|123139|AUTO PLAN FOR 3690|EVUAREG|EVUAREG|PANL1	 |20   |	010118  	  |123139        |
+
  
  #Part D setup 
   @PartDSetup
@@ -40,7 +45,8 @@ As a RxClaim User I want to run the Data Setup feature file
     Examples:
    |PlanCode  |FromDate|ThruDate|Description|PriceSchedule  |PatientPaySchedule|TrOOPFromDate|TrOOPThruDate|AccumulationLevel|AccumulationCode|TrOOPSchedule|CMSLabelerList|CPPFromDate|CPPThruDate|CPPAccumulationLevel|CPPAccumulationCode|CPPPatientPaySchedule|CPPTrOOPSchedule|Qualifier| CarrierID | CarrierName |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID |AccountName  | GroupID    |GroupName  |GroupFromDt|GroupThruDt|PlanCode  |PPDetailSchedule|PPDetailDescription|PlanUseQualifier|MemberID    | FirstName  | LastName  | DOB     | FromDate  | ThruDate |HIC      |SupplementalIDFromDate|SupplementalIDThruDate|SupplementalIDType|SupplementalID|Text|Contract|PBP  |BenefitYear|MedicareType|SubmitterID|PARTDFromDate|PARTDThruDate|Segment|SubsidyLevel|CopayCategory|PARTDEffectiveDate|EnrollmentSource|MasterProfileFromDate|MasterProfileThruDate|DrugCoverageStatusSchedule| 
    |AUTOPARTD1|010119  |123119  |EVU30976P1 |EVUAREG        |EVUAREG           |010114       |123114       |C                |                |EVUBKOT      |EVUBKOT       |010114     |123114     |C                   |                   |EVUBKOT              |EVUBKOT         |A        |AUTPARTDC  | AUTPARTDC    |712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |AUTPARTDA |AUTPARTDA    | AUTPARTDG  |AUTPARTDG  |010101     |123139     |AUTOPARTD1|EVUBKOT         |TEST               |                |            | EVU30976M2 |EVU30976M2 |12251987 |010101     |123139    |123956781|010114                |123114                |06                |123456781     |    |R0001   |222  |2019       |S           |TEST       |010119       |123119       |       |            |             |                  |                |010119               |123119               |JBLEDCCS1                   |
-    
+   
+   @CreateDPA 
   Scenario Outline: Create DPA 
    
    	Given I am on RxClaim PlanAdministrator Menu   	
@@ -71,6 +77,7 @@ As a RxClaim User I want to run the Data Setup feature file
    |DPTEST126    |AUTOC3690	|AUTO3690A |AUTO3690G |1                    |DPA Automation |         |1          |N          |G   |D         |D         |OJ           |T    |Y           |0       |Y       |N              |           |              |        |               |O             |500               |12              |DPA928RJ1 |DUR Automation |010101    |123139    |N                 |N        |N          |N            |N      |0             |
    |DPTEST127    |AUTOC3690	|AUTO3690A |AUTO3690G |1                    |DPA Automation |         |1          |N          |G   |D         |D         |OJ           |T    |Y           |0       |Y       |N              |           |              |        |               |O             |500               |                |DPA928RJ1 |DUR Automation |010101    |123139    |N                 |N        |N          |N            |N      |0             |
      
+     @CreateDPAList
     Scenario Outline: Create DPA List   
     Given I am on RxClaim PlanAdministrator Menu
     When I create Dynamic Prior Authorization List "<Carrier>","<List>","<List Name>"
@@ -78,7 +85,10 @@ As a RxClaim User I want to run the Data Setup feature file
    	Examples:
    |Carrier   |List       |List Name     |
    |AUTOC3690	|DPA928RJ1  |DUR Automation|
+   |AUTOC3690	|DPA922RJ1  |DUR Automation|
+   |AUTOC3690	|DPA928     |DUR Automation|
    
+   @CreateDPAProfile
     Scenario Outline: Create DPA Profile
     Given I am on RxClaim PlanAdministrator Menu
     When I create Dynamic Prior Authorization Profile "<Carrier>","<Account>","<Group>","<From Date>","<Thru Date>","<Submitted PA Flag>","<Provider>","<Prescriber>","<Prescription>","<Member>","<Max List Fills>" 
@@ -88,3 +98,21 @@ As a RxClaim User I want to run the Data Setup feature file
    |AUTOC3690	|AUTO3690A |AUTO3690G |010101    |123139    |N                 |N        |N          |N            |N      |0             |
    
     
+    @AddListToDPA
+    Scenario Outline: ADD List to DPA
+    Given I am on RxClaim PlanAdministrator Menu
+    When I add List to Dynamic Prior Authorization "<Carrier>","<Submitted PA MC Code>","<Submitted PA>","<List>","<From Date>","<Thru Date>" 
+    
+    Examples:
+   |Carrier   |Submitted PA MC Code|Submitted PA|List      |From Date |Thru Date |
+   |AUTOC3690	|1                   |36909280001 |DPA928RJ1 |010101    |123139    | 
+   |AUTOC3690	|1                   |36909280002 |DPA928RJ1 |010101    |123139    |
+   |AUTOC3690	|1                   |36909220001 |DPA922RJ1 |010101    |123139    |
+   |AUTOC3690	|1                   |36909220002 |DPA922RJ1 |010101    |123139    |
+   |AUTOC3690	|1                   |36909220003 |DPA922RJ1 |010101    |123139    |
+   |AUTOC3690	|1                   |DPTEST123   |DPA928    |010101    |123139    |
+   |AUTOC3690	|1                   |DPTEST124   |DPA928    |010101    |123139    | 
+   |AUTOC3690	|1                   |DPTEST125   |DPA928    |010101    |123139    | 
+   |AUTOC3690	|1                   |DPTEST126   |DPA928    |010101    |123139    | 
+   |AUTOC3690	|1                   |DPTEST127   |DPA928    |010101    |123139    |         
+   

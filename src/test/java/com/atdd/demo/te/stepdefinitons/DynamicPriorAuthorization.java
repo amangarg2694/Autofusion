@@ -1,6 +1,7 @@
 package com.atdd.demo.te.stepdefinitons;
 
 import com.atdd.te.screenHelpers.FunctionalLibrary;
+import com.atdd.te.screenHelpers.PlanByPlanCode;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
 
 import cucumber.api.java.en.When;
@@ -110,6 +111,66 @@ public class DynamicPriorAuthorization {
 		}
 		
 	}
-			
 	
+	@When("^I add List to Dynamic Prior Authorization \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_add_List_to_Dynamic_Prior_Authorization(String carrier, String submittedPAMCCode,String submittedPA,String list,String fromDate,String thruDate ) throws Throwable {
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(4, 4 ,carrier );
+		Mainframe_GlobalFunctionLib.sendText(4, 14 ,submittedPAMCCode );
+		Mainframe_GlobalFunctionLib.sendText(4, 16 ,submittedPA );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		if((Mainframe_GlobalFunctionLib.getText(9, 4).equalsIgnoreCase(carrier)) && (Mainframe_GlobalFunctionLib.getText(9, 14).equalsIgnoreCase(submittedPAMCCode)) &&(Mainframe_GlobalFunctionLib.getText(9, 16).equalsIgnoreCase(submittedPA)))
+		{	Mainframe_GlobalFunctionLib.sendText(9, 2 ,"7" );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(7, 4 ,carrier );
+			Mainframe_GlobalFunctionLib.sendText(7, 14 ,list );
+			try{
+				if(!((Mainframe_GlobalFunctionLib.getText(13, 4).equalsIgnoreCase(carrier)) && (Mainframe_GlobalFunctionLib.getText(13, 14).equalsIgnoreCase(list))))			
+			Mainframe_GlobalFunctionLib.pressKey("F6");
+				}
+				catch(Exception e){
+					Mainframe_GlobalFunctionLib.pressKey("F6");
+				}
+
+
+
+			Mainframe_GlobalFunctionLib.sendText(10, 13 ,fromDate );
+			Mainframe_GlobalFunctionLib.sendText(10, 38 ,thruDate );
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+
+			}
+			}
+	
+	@When("^I add DPA List to Plan \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_add_DPA_List_to_Plan(String planCode, String carrier, String list) throws Throwable {
+		PlanByPlanCode.openThePlanInEditMode(planCode);	
+		//Mainframe_GlobalFunctionLib.sendText(7, 24 ,"Y" );
+		//Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F7");
+		Mainframe_GlobalFunctionLib.sendText(7, 21 ,"2" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("F17");
+		Mainframe_GlobalFunctionLib.sendText(8, 5 ,carrier );
+		Mainframe_GlobalFunctionLib.sendText(8, 16 ,list );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		try{
+			if(!((Mainframe_GlobalFunctionLib.getText(13, 5).equalsIgnoreCase(carrier)) && (Mainframe_GlobalFunctionLib.getText(13, 16).equalsIgnoreCase(list))))
+					Mainframe_GlobalFunctionLib.pressKey("F6");
+		}catch(Exception e){
+			Mainframe_GlobalFunctionLib.pressKey("F6");
+		}
+		Mainframe_GlobalFunctionLib.click(7, 11  );
+		Mainframe_GlobalFunctionLib.pressKey("F4");
+		Mainframe_GlobalFunctionLib.sendText(4, 5 ,list );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(9, 2 ,"1" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+			
+	}
 }
