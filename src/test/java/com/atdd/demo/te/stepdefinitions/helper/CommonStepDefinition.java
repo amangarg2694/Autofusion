@@ -539,8 +539,10 @@ public class CommonStepDefinition extends CommonHelper{
 		@When("^I attach DUR Table to the Plan \"([^\"]*)\",\"([^\"]*)\"$")
 		public void i_attach_DUR_Table_to_the_Plan(String planCode, String durTable) throws Throwable {
 		    PlanByPlanCode.openThePlanInEditMode(planCode);
+		    FunctionalLibrary.enterText(19, 17, "        ");
 			FunctionalLibrary.enterText(19, 17, durTable);
 			FunctionalLibrary.pressEnter();
+			FunctionalLibrary.enterText(16, 64, "Y");
 		}
 		
 

@@ -87,7 +87,7 @@ As a RxClaim User I want to create Part D Setup
     
     Examples: 
       |PlanCode  |FromDate|ThruDate|Description                 |PriceSchedule|PatientPaySchedule|TrOOPFromDate|TrOOPThruDate|AccumulationLevel|AccumulationCode|TrOOPSchedule|CMSLabelerList|DURTable|NDCGPIORList1|TBOverride|NDCList1 |NDCDecs1|NDCPDID1   |NDGPFromdate|NDCPDIDSts|ndcsq|ndcfromdate|ndcthrudate|CarrierID | CarrierName |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID  |AccountName | GroupID   |GroupName  |GroupFromDt|GroupThruDt| MemberID   |FirstName  |LastName   |DOB      |MemFromDate|MemThruDate|Bfromdate|Btodate|BINGroup |Windowdays|Contract|PBP|BenefitYear|MedicareType|SubmitterID|MasterProfileFromDate|MasterProfileThruDate|DrugCoverageStatusSchedule|PARTDFromDate|PARTDThruDate|Segment|SubsidyLevel|CopayCategory|PARTDEffectiveDate|EnrollmentSource|TBLengthPeriod|MedicareTBSchedule|TBlvl|TBlwc|CTSFromdate|CTSTodate|CTSchedule|Overrideplan| 
-      |DU3921P2  |010116  |123139  |DU3291P2 MedicareDONOTTOH   |DHOO         |DHOO              |010117       |123139       |C                |                |DEVSTD       |EVUBKOT       |DU3921V1|SAM1L8       |Y         |DULI1    |DULI1   |43353084815|010118      |F         |10   |010117     |123139     |SN3921C01 | SN3921C01   |712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |SN3921A01  |SN3921A01   | DU3921G01 |DU3921G02  |100118     |123139     | DU3921PMEM02  |DU3921PMEM02  |DU3921PMEM02  |01011988 |100118     |123139     |010101   |123139 |*ALL     |9999      |P3921   |392|2019       |S           |AKSR       |010116               |123139               |ARUSDFLT                  |  010116     |123139       |       |            |             |                  |                |90            |DHOO              |N    |2    |010101     |123139   |          |DU3921P2    | 
+      |DU3921P2  |010116  |123139  |DU3291P2 MedicareDONOTTOH   |DHOO         |DHOO              |010117       |123139       |C                |                |DEVSTD       |EVUBKOT       |DU3921V1|SAM1L8       |Y         |DULI1    |DULI1   |43353084815|010118      |F         |10   |010117     |123139     |SN3921C01 | SN3921C01   |712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |SN3921A01  |SN3921A01   | DU3921G01 |DU3921G02  |100118     |123139     | DU3921RMEM02  |DU3921RMEM02  |DU3921RMEM02  |01011988 |100118     |123139     |010101   |123139 |*ALL     |9999      |P3921   |392|2019       |S           |AKSR       |010116               |123139               |ARUSDFLT                  |  010116     |123139       |       |            |             |                  |                |90            |DHOO              |N    |2    |010101     |123139   |          |DU3921P2    | 
     
     
       
@@ -103,7 +103,7 @@ As a RxClaim User I want to create Part D Setup
  
     Examples: 
       |PlanCode  |FromDate|ThruDate|Description                 |PriceSchedule|PatientPaySchedule|TrOOPFromDate|TrOOPThruDate|AccumulationLevel|AccumulationCode|TrOOPSchedule|CMSLabelerList|DURTable|NDCGPIORList1|TBOverride|NDCList1 |NDCDecs1|NDCPDID1   |NDGPFromdate|NDCPDIDSts|ndcsq|ndcfromdate|ndcthrudate|CarrierID | CarrierName |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID  |AccountName | GroupID   |GroupName  |GroupFromDt|GroupThruDt| MemberID      |FirstName     |LastName      |DOB      |MemFromDate|MemThruDate|Bfromdate|Btodate|BINGroup |Windowdays|Contract|PBP|BenefitYear|MedicareType|SubmitterID|MasterProfileFromDate|MasterProfileThruDate|DrugCoverageStatusSchedule|PARTDFromDate|PARTDThruDate|Segment|SubsidyLevel|CopayCategory|PARTDEffectiveDate|EnrollmentSource|TBLengthPeriod|MedicareTBSchedule|TBlvl|CTSFromdate|CTSTodate|CTSchedule|Overrideplan| 
-      |DU3921P3  |010116  |123139  |DU3291P3 MedicaidDONOTTOH   |DHOO         |DHOO              |010117       |123139       |C                |                |DEVSTD       |EVUBKOT       |DU3921V1|SAM1L8       |Y         |DULI1    |DULI1   |43353084815|010118      |F         |10   |010117     |123139     |SN3921C01 | SN3921C01   |712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |SN3921A01  |SN3921A01   | DU3921G01 |DU3921G02  |100118     |123139     | DU3921PMEM03  |DU3921PMEM03  |DU3921PMEM03  |01011988 |100118     |123139     |010101   |123139 |*ALL     |9999      |P3921   |392|2019       |S           |AKSR       |010116               |123139               |ARUSDFLT                  |  010116     |123139       |       |            |             |                  |                |90            |DHOO              |N    |010101     |123139   |          |DU3921P3    | 
+      |DU3921P3  |010116  |123139  |DU3291P3 MedicaidDONOTTOH   |DHOO         |DHOO              |010117       |123139       |C                |                |DEVSTD       |EVUBKOT       |DU3921V1|SAM1L8       |Y         |DULI1    |DULI1   |43353084815|010118      |F         |10   |010117     |123139     |SN3921C01 | SN3921C01   |712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |SN3921A01  |SN3921A01   | DU3921G01 |DU3921G02  |100118     |123139     | DU3921RMEM03  |DU3921RMEM03  |DU3921RMEM03  |01011988 |100118     |123139     |010101   |123139 |*ALL     |9999      |P3921   |392|2019       |S           |AKSR       |010116               |123139               |ARUSDFLT                  |  010116     |123139       |       |            |             |                  |                |90            |DHOO              |N    |010101     |123139   |          |DU3921P3    | 
     
    @TS8
   Scenario Outline: TC12_US1422900_User submits a claim  via F6 for a member WHEN there is a DUR Table defined in the member's plan and the NDC/GPI override within F22=Medicaid has a DUR table attached and the DUR override is set to 'Y'. The drug submitted is not found in the Medicaid DUR table    
@@ -119,7 +119,7 @@ As a RxClaim User I want to create Part D Setup
   
     Examples: 
        |PlanCode|DURTable|BIN     |ProcCtrl |Group    | PharmacyID | RxNo          | Refill | FillDate | ProductID1     | DspQty | DS | PSC | Cost |Fee| UCW|FillDate2 |ProductID2 |ClaimStatus|CarrierID|AccountID|GroupID  |MemberID     |FirstName    |LastName     |DOB       |MemFromDate|MemThruDate|Overrideplan|
-       |DU3921P3|DU3921V1|777777  |9999     |GRAUTSRT | TESTDH     | 165488397000  | 00     | 011819   | 00039006710    |30      |30  |0    | 73 	 |5  | 30 |100118    |00054019613|P          |SN3921C01|SN3921A01|DU3921G01|DU3921PMEM03 |DU3921PMEM03 |DU3921PMEM03 |01011988  |100118     |123139     |DU3921P3    |   
+       |DU3921P3|DU3921V1|777777  |9999     |GRAUTSRT | TESTDH     | 165488397000  | 00     | 112618   | 00039006710    |30      |30  |0    | 73 	 |5  | 30 |100118    |00054019613|P          |SN3921C01|SN3921A01|DU3921G01|DU3921R1MEM03 |DU3921R1MEM03 |DU3921R1MEM03 |01011988  |100118     |123139     |DU3921P3    |   
        
        
     @TS9
@@ -132,7 +132,7 @@ As a RxClaim User I want to create Part D Setup
   
     Examples: 
        |BIN     |ProcCtrl |Group    | PharmacyID | RxNo          | Refill | FillDate | ProductID1     | DspQty | DS | PSC | Cost |Fee| UCW|FillDate2 |ProductID2 |MemberID |ClaimStatus|RejCode|DURTable|DurServiceType2|DurServiceType|
-       |777777  |9999     |GRAUTSRT | TESTDH     | 165488397000  | 00     | 011919   | 00039006710    |30      |30  |0    | 73 	 |5  | 30 |100118    |00054019613|DU3921PMEM03|R          |88     |DU3921V1|DUPTHER        |DUPRX|   
+       |777777  |9999     |GRAUTSRT | TESTDH     | 165488397000  | 00     | 112718   | 00039006710    |30      |30  |0    | 73 	 |5  | 30 |100118    |00054019613|DU3921R1MEM03|R          |88     |DU3921V1|DUPTHER        |DUPRX|   
     
        
   @TS10
@@ -149,7 +149,7 @@ As a RxClaim User I want to create Part D Setup
   
     Examples: 
        |BIN     |ProcCtrl |Group    | PharmacyID | RxNo          | Refill | FillDate | ProductID1     | DspQty | DS | PSC | Cost |Fee| UCW|MemberID    |ClaimStatus|CarrierID | AccountID  | GroupID   |MemberID      |FirstName     |LastName      |DOB      |MemFromDate|MemThruDate|PARTDFromDate|PARTDThruDate|Contract|PBP|Segment|SubsidyLevel|CopayCategory|PARTDEffectiveDate|EnrollmentSource|Overrideplan|
-       |777777  |9999     |GRAUTSRT | TESTDH     | 165488397000  | 00     | 011819   | 00039006710    |30      |30  |0    | 73 	 |5  | 30 |DU3921PMEM02|P          |SN3921C01 | SN3921A01  | DU3921G01 |DU3921PMEM02  |DU3921PMEM02  |DU3921PMEM02  |01011988 |100118     |123139     |010116       |123139       |P3921   |392|       |            |             |                  |                |DU3921P2    |   
+       |777777  |9999     |GRAUTSRT | TESTDH     | 165488397000  | 00     | 112618   | 00039006710    |30      |30  |0    | 73 	 |5  | 30 |DU3921RMEM02|P          |SN3921C01 | SN3921A01  | DU3921G01 |DU3921RMEM02  |DU3921RMEM02  |DU3921RMEM02  |01011988 |100118     |123139     |010116       |123139       |P3921   |392|       |            |             |                  |                |DU3921P2    |   
     
        
    @TS11
@@ -162,7 +162,7 @@ As a RxClaim User I want to create Part D Setup
   
     Examples: 
        |BIN     |ProcCtrl |Group    | PharmacyID | RxNo          | Refill | FillDate | ProductID1     | DspQty | DS | PSC | Cost |Fee| UCW|MemberID |ClaimStatus|RejCode|DURTable|DurServiceType2|DurServiceType|
-       |777777  |9999     |GRAUTSRT | TESTDH     | 165488397000  | 00     | 011919   | 00039006710    |30      |30  |0    | 73 	 |5  | 30 |DU3921PMEM02|R          |88     |DU3921V1|DUPTHER        |DUPRX|   
+       |777777  |9999     |GRAUTSRT | TESTDH     | 165488397000  | 00     | 112718   | 00039006710    |30      |30  |0    | 73 	 |5  | 30 |DU3921RMEM02|R          |88     |DU3921V1|DUPTHER        |DUPRX|   
       
  
   @TS12
@@ -200,7 +200,7 @@ As a RxClaim User I want to create Part D Setup
   
     Examples: 
        |PlanCode|DURTable|BIN     |ProcCtrl |Group    | PharmacyID | RxNo          | Refill | FillDate | ProductID1  | DspQty | DS | PSC | Cost |Fee| UCW|FillDate2 |MemberID |ClaimStatus|ClaimStatus2|RejCode|DurServiceType|Message1                           |Message2|DURMessage|DURTable2|
-       |DU3921P3|DU3921V2|777777  |9999     |GRAUTSRT | TESTDH     | 165488397000  | 00     | 110118   | 61958180101 |30      |30  |0    | 73   |5  | 30 |110218    |DU3921PMEM03|P          |R           |88     |DUPRX         |Refill Payable on or after 11/16/18|        |          |DU3921VS |   
+       |DU3921P3|DU3921V2|777777  |9999     |GRAUTSRT | TESTDH     | 165488397000  | 00     | 110118   | 61958180101 |30      |30  |0    | 73   |5  | 30 |110218    |DU3921RMEM03|P          |R           |88     |DUPRX         |Refill Payable on or after 11/16/18|        |          |DU3921VS |   
    
    
     @TS14
@@ -213,7 +213,7 @@ As a RxClaim User I want to create Part D Setup
     
     Examples: 
        |NDCGPIORList1|NDCDrug |DURTable|DURflag|BIN     |ProcCtrl |Group    | PharmacyID | RxNo          | Refill | FillDate | ProductID1     | DspQty | DS | PSC | Cost |Fee| UCW|MemberID |ClaimStatus|
-       |SAM1L8       |ZEMPLAR |        |N      |777777  |9999     |GRAUTSRT | TESTDH     | 165488397000  | 00     | 110118   | 00074431730    |30      |30  |0    | 73 	 |5  | 30 |DU3921PMEM03|P          |   
+       |SAM1L8       |ZEMPLAR |        |N      |777777  |9999     |GRAUTSRT | TESTDH     | 165488397000  | 00     | 110118   | 00074431730    |30      |30  |0    | 73 	 |5  | 30 |DU3921RMEM03|P          |   
     
    @TS15
   Scenario Outline: TC19_US1422900_User submits a claim  via F6 for a member WHEN there is a DUR Table defined in the member's plan and the NDC/GPI override within F22=Medicaid does not have a DUR table attached and the DUR override is set to 'N'.       
@@ -224,7 +224,7 @@ As a RxClaim User I want to create Part D Setup
     
      Examples: 
        |BIN     |ProcCtrl |Group    | PharmacyID | RxNo          | Refill | FillDate | ProductID1     | DspQty | DS | PSC | Cost |Fee| UCW|MemberID |ClaimStatus|ClaimStatus2|RejCode|DurServiceType|Message1                           |Message2|DURMessage|DURTable2|
-       |777777  |9999     |GRAUTSRT | TESTDH     | 165488397000  | 00     | 110218   | 00074431730    |30      |30  |0    | 73 	 |5  | 30 |DU3921PMEM03|P          |R           |88     |DUPRX         |Refill Payable on or after 11/28/18|        |          |DU3921V2 |   
+       |777777  |9999     |GRAUTSRT | TESTDH     | 165488397000  | 00     | 110218   | 00074431730    |30      |30  |0    | 73 	 |5  | 30 |DU3921RMEM03|P          |R           |88     |DUPRX         |Refill Payable on or after 11/28/18|        |          |DU3921V2 |   
    
      
    @TS16
@@ -237,7 +237,7 @@ As a RxClaim User I want to create Part D Setup
     
      Examples: 
       |NDCGPIORList1|NDCDrug |DURTable|DURflag|BIN     |ProcCtrl |Group    | PharmacyID | RxNo          | Refill | FillDate | ProductID1     | DspQty | DS | PSC | Cost |Fee| UCW|MemberID |ClaimStatus|ClaimStatus2|RejCode|DurServiceType|Message1                           |Message2|DURMessage|DURTable2|
-      |SAM1L8       |ZEMPLAR |        |       |777777  |9999     |GRAUTSRT | TESTDH     | 165488397000  | 00     | 110218   | 00074431730    |30      |30  |0    | 73 	 |5 | 30 |DU3921PMEM03|P          |R           |88     |DUPRX         |Refill Payable on or after 11/28/18|        |          |DU3921V2 |   
+      |SAM1L8       |ZEMPLAR |        |       |777777  |9999     |GRAUTSRT | TESTDH     | 165488397000  | 00     | 110218   | 00074431730    |30      |30  |0    | 73 	 |5 | 30 |DU3921RMEM03|P          |R           |88     |DUPRX         |Refill Payable on or after 11/28/18|        |          |DU3921V2 |   
    
    
    @TS17

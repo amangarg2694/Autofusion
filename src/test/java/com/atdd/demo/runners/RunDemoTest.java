@@ -20,14 +20,11 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
+		features = { "classpath:features/RxClaim/featureFiles/AgileTeams/TeamEmpowered/Regression/Medlimit_DPA.feature" },
 
-		features = { "classpath:features/RxClaim/featureFiles/SN003419/NDC_MultipleList/SN003419_TC_ML_NDC_CENRL.feature" },
-	
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 		glue = { "com.atdd.demo.te" }
-
-		//,tags ={"@TC01"}
 //        ,tags ={"@Regression"}
 		
 
