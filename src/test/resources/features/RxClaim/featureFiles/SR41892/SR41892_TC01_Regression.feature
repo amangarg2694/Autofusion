@@ -1,3 +1,4 @@
+@Regression
 Feature: Part D: MIC update Non Part D Covered flag 1 to not accumulate toward Troop/DS
   
 Scenario Outline: SN003284_SR41691_TC001_Req 4.1:Non-Part D Covered = 0 AND Total Covered Ingredient Cost is Lesser than OR Equal to Claims Approved Ingredient Cost
@@ -66,7 +67,7 @@ Scenario Outline: SN003284_SR41691_TC001_Req 4.1:Non-Part D Covered = 0 AND Tota
 
 	 Examples: 
        | PlanCode 	| NonPartDCovered	| PriceSchedule | NDC1 				| NDC2				|	NDC3				|MemberID 	| BIN     | ProcCtrl| Group | PharmacyID  | RxNo         | Refill | FillDate | MemberID   |	Qual	| ProductID 	|	DspQty | DS | PSC | Cost |	Cmpnd	|	Qualifier1	|	NDC1					|	Quantity1	|	Cost1	|	BasicCost1|	Qualifier2	|	NDC2				|	Quantity2	|	Cost2	|	BasicCost2|
-		   | PLAN2643S3	| 0								| PRCSCH2647		| 00087134541 |51927486300	| 00006073531	|PUJANEW		| 777777  | QET     |	*ALL  | APHARM      | 209003685759 | 00     | 091718   | PUJANEW		|	00		|	0000000000	|	30     | 30 | 0	  | 000  |	2			|	03					|	00087134541		|	30				|	30		|	01				| 03					|	51927486300 |	10				|	10		|	01				|
+		   | PLN2643		| 0								| PRSC2647		| 00087134541 |51927486300	| 00006073531	|PUJANEW		| 777777  | QET     |	*ALL  | APHARM      | 209003685759 | 00     | 091718   | PUJANEW		|	00		|	0000000000	|	30     | 30 | 0	  | 000  |	2			|	03					|	00087134541		|	30				|	30		|	01				| 03					|	51927486300 |	10				|	10		|	01				|
 		
 		# PROD-ID 51927486300, 00087134541, 00006073531
 		# TC1: PLAN2643S3 [NonPartD=0][ID:51927486300, 00087134541]

@@ -74,7 +74,7 @@ public class BatchClaimLoadOverrideSubmssion {
 	@When("^I verify the records by submitting the job$")
 	public void i_verify_the_records_by_submitting_the_job() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	      i_wait_until_the_job_moves_to("EXTRACTJOB",  "VENM","OUTQ");
+	      i_wait_until_the_job_moves_to("GENFILED0",  "VENM","OUTQ");
 	       /*FunctionalLibrary.enterText(21, 7, "WRKJOB VENM/EXTRACTJOB");
 	       FunctionalLibrary.pressEnter();
 	       FunctionalLibrary.enterText(8, 4, "1");

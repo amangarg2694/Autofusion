@@ -1,80 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<testng-results skipped="1" failed="0" total="1" passed="0">
-  <reporter-output>
-  </reporter-output>
-  <suite name="Default suite" duration-ms="1074" started-at="2018-11-26T14:21:23Z" finished-at="2018-11-26T14:21:24Z">
-    <groups>
-      <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
-      </group> <!-- cucumber -->
-    </groups>
-    <test name="Default test" duration-ms="1074" started-at="2018-11-26T14:21:23Z" finished-at="2018-11-26T14:21:24Z">
-      <class name="com.atdd.demo.runners.RunDemoTest">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="setUpClass" is-config="true" duration-ms="856" started-at="2018-11-26T19:51:23Z" finished-at="2018-11-26T19:51:23Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpClass -->
-        <test-method status="FAIL" signature="setup(java.lang.String, java.lang.String)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="setup" is-config="true" duration-ms="0" started-at="2018-11-26T19:51:23Z" finished-at="2018-11-26T19:51:23Z">
-          <exception class="org.testng.TestNGException">
-            <message>
-              <![CDATA[
-Parameter 'configFile' is required by @Configuration on method setup but has not been marked @Optional or defined
-in C:\Users\mvenka29\AppData\Local\Temp\testng-eclipse-1243300317\testng-customsuite.xml]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-Parameter 'configFile' is required by @Configuration on method setup but has not been marked @Optional or defined
-in C:\Users\mvenka29\AppData\Local\Temp\testng-eclipse-1243300317\testng-customsuite.xml
-	at org.testng.internal.Parameters.createParameters(Parameters.java:154)
-	at org.testng.internal.Parameters.createParameters(Parameters.java:361)
-	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:84)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:197)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
-	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:170)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:104)
-	at org.testng.TestRunner.privateRun(TestRunner.java:774)
-	at org.testng.TestRunner.run(TestRunner.java:624)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-	at org.testng.TestNG.run(TestNG.java:1048)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="SKIP" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="feature" duration-ms="2" started-at="2018-11-26T19:51:24Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2018-11-26T19:51:24Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[SN003425_SR42066:PART D: February 2018 Updates to the Drug Data Processing System]]>
-=======
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Testng Cucumber Suite" duration-ms="273322" started-at="2018-12-21T12:01:04Z" finished-at="2018-12-21T12:05:37Z">
+  <suite name="Testng Cucumber Suite" duration-ms="165335" started-at="2019-01-30T14:26:00Z" finished-at="2019-01-30T14:28:46Z">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@24269709]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@6ad82709]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test name="Veirify Demo Site Features" duration-ms="273322" started-at="2018-12-21T12:01:04Z" finished-at="2018-12-21T12:05:37Z">
+    <test name="Veirify Demo Site Features" duration-ms="165335" started-at="2019-01-30T14:26:00Z" finished-at="2019-01-30T14:28:46Z">
       <class name="com.atdd.demo.runners.RunDemoTest">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@24269709]" name="setUpClass" is-config="true" duration-ms="1420" started-at="2018-12-21T17:31:04Z" finished-at="2018-12-21T17:31:05Z">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@6ad82709]" name="setUpClass" is-config="true" duration-ms="1326" started-at="2019-01-30T19:56:00Z" finished-at="2019-01-30T19:56:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method status="PASS" signature="setup(java.lang.String, java.lang.String)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@24269709]" name="setup" is-config="true" duration-ms="56818" started-at="2018-12-21T17:31:05Z" finished-at="2018-12-21T17:32:02Z">
+        <test-method status="PASS" signature="setup(java.lang.String, java.lang.String)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@6ad82709]" name="setup" is-config="true" duration-ms="67158" started-at="2019-01-30T19:56:02Z" finished-at="2019-01-30T19:57:09Z">
           <params>
             <param index="0">
               <value>
@@ -90,21 +30,22 @@ in C:\Users\mvenka29\AppData\Local\Temp\testng-eclipse-1243300317\testng-customs
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="FAIL" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@24269709]" name="feature" duration-ms="212352" started-at="2018-12-21T17:32:02Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2018-12-21T17:35:34Z">
+        <test-method status="FAIL" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@6ad82709]" name="feature" duration-ms="95633" started-at="2019-01-30T19:57:09Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2019-01-30T19:58:45Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Current Enrollee: Plan Check Negative Formulary Q, Product Negative Formulary Change N and PA TB X]]>
->>>>>>> 62da55fea10dac219f4efc1e04f286876b67ae28
+                <![CDATA[SN374590_SR41919: FIX IT: Update Batch Claim Load Override Submission Da]]>
               </value>
             </param>
           </params>
           <exception class="cucumber.runtime.CucumberException">
             <message>
-              <![CDATA[java.lang.AssertionError: The text R does not match on the screen.Screenshot captured.]]>
+              <![CDATA[com.hp.lft.sdk.GeneralReplayException: Unspecified error
+]]>
             </message>
             <full-stacktrace>
-              <![CDATA[cucumber.runtime.CucumberException: java.lang.AssertionError: The text R does not match on the screen.Screenshot captured.
+              <![CDATA[cucumber.runtime.CucumberException: com.hp.lft.sdk.GeneralReplayException: Unspecified error
+
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -131,43 +72,43 @@ in C:\Users\mvenka29\AppData\Local\Temp\testng-eclipse-1243300317\testng-customs
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-Caused by: java.lang.AssertionError: The text R does not match on the screen.Screenshot captured.
-	at org.testng.Assert.fail(Assert.java:94)
-	at com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib.validateText(Mainframe_GlobalFunctionLib.java:231)
-	at com.atdd.te.screenHelpers.FunctionalLibrary.validateText(FunctionalLibrary.java:1981)
-	at com.atdd.demo.te.stepdefinitons.CreateorSubmitTransaction.validate_Claim_Status_is(CreateorSubmitTransaction.java:20)
-	at ✽.Then Validate Claim Status is "R"(features/RxClaim/featureFiles/SN003419/SN003419_TC_01_64.feature:24)
+Caused by: com.hp.lft.sdk.GeneralReplayException: Unspecified error
+
+	at com.hp.lft.sdk.internal.ReplayExceptionFactory$11.create(ReplayExceptionFactory.java:94)
+	at com.hp.lft.sdk.internal.ReplayExceptionFactory.createOrDefault(ReplayExceptionFactory.java:192)
+	at com.hp.lft.sdk.internal.ReplayExceptionFactory.createOrDefault(ReplayExceptionFactory.java:21)
+	at com.hp.lft.sdk.internal.TestObjectExecuterBehaviorBase$ReplayErrorHandler.onError(TestObjectExecuterBehaviorBase.java:65)
+	at com.hp.lft.sdk.internal.CommunicationClientImpl.handleError(CommunicationClientImpl.java:226)
+	at com.hp.lft.sdk.internal.CommunicationClientImpl.send(CommunicationClientImpl.java:100)
+	at com.hp.lft.sdk.internal.TestObjectExecuterBehavior.executeMethod(TestObjectExecuter.java:33)
+	at com.hp.lft.sdk.internal.TestObjectBase.executeMethod(TestObjectBase.java:119)
+	at com.hp.lft.sdk.internal.te.TeScreen.access$500(TeScreen.java:9)
+	at com.hp.lft.sdk.internal.te.TeScreen$6.invoke(TeScreen.java:78)
+	at com.hp.lft.sdk.internal.TestObjectOperationWrapper.executeWithEvents(TestObjectOperationWrapper.java:81)
+	at com.hp.lft.sdk.internal.TestObjectOperationWrapper.executeWithEvents(TestObjectOperationWrapper.java:102)
+	at com.hp.lft.sdk.internal.te.TeScreen.sendTEKeys(TeScreen.java:81)
+	at com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib.sendText(Mainframe_GlobalFunctionLib.java:156)
+	at com.atdd.demo.te.stepdefinitons.BatchClaimLoadOverrideSubmssion.i_verify_the_records_by_submitting_the_job(BatchClaimLoadOverrideSubmssion.java:104)
+	at ✽.And I verify the records by submitting the job(features/RxClaim/featureFiles/SR41919/SR41919.feature:13)
 ]]>
             </full-stacktrace>
           </exception> <!-- cucumber.runtime.CucumberException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-<<<<<<< HEAD
-        <test-method status="SKIP" signature="teardown()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="teardown" is-config="true" duration-ms="0" started-at="2018-11-26T19:51:24Z" finished-at="2018-11-26T19:51:24Z">
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@6ad82709]" name="teardown" is-config="true" duration-ms="296" started-at="2019-01-30T19:58:45Z" finished-at="2019-01-30T19:58:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-        <test-method status="SKIP" signature="tearDownClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="tearDownClass" is-config="true" duration-ms="0" started-at="2018-11-26T19:51:24Z" finished-at="2018-11-26T19:51:24Z">
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@6ad82709]" name="tearDownClass" is-config="true" duration-ms="719" started-at="2019-01-30T19:58:45Z" finished-at="2019-01-30T19:58:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-        <test-method status="SKIP" signature="parser()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@545997b1]" name="parser" is-config="true" duration-ms="0" started-at="2018-11-26T19:51:24Z" finished-at="2018-11-26T19:51:24Z">
-=======
-        <test-method status="PASS" signature="teardown()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@24269709]" name="teardown" is-config="true" duration-ms="1326" started-at="2018-12-21T17:35:34Z" finished-at="2018-12-21T17:35:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@24269709]" name="tearDownClass" is-config="true" duration-ms="1202" started-at="2018-12-21T17:35:36Z" finished-at="2018-12-21T17:35:37Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDownClass -->
-        <test-method status="PASS" signature="parser()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@24269709]" name="parser" is-config="true" duration-ms="17411" started-at="2018-12-21T17:35:37Z" finished-at="2018-12-21T17:35:54Z">
->>>>>>> 62da55fea10dac219f4efc1e04f286876b67ae28
+        <test-method status="PASS" signature="parser()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@6ad82709]" name="parser" is-config="true" duration-ms="7317" started-at="2019-01-30T19:58:46Z" finished-at="2019-01-30T19:58:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- parser -->
       </class> <!-- com.atdd.demo.runners.RunDemoTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Veirify Demo Site Features -->
+  </suite> <!-- Testng Cucumber Suite -->
 </testng-results>
