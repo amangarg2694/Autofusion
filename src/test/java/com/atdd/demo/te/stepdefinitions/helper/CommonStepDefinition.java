@@ -539,8 +539,10 @@ public class CommonStepDefinition extends CommonHelper{
 		@When("^I attach DUR Table to the Plan \"([^\"]*)\",\"([^\"]*)\"$")
 		public void i_attach_DUR_Table_to_the_Plan(String planCode, String durTable) throws Throwable {
 		    PlanByPlanCode.openThePlanInEditMode(planCode);
+		    FunctionalLibrary.enterText(19, 17, "        ");
 			FunctionalLibrary.enterText(19, 17, durTable);
 			FunctionalLibrary.pressEnter();
+			FunctionalLibrary.enterText(16, 64, "Y");
 		}
 		
 
@@ -574,6 +576,29 @@ public class CommonStepDefinition extends CommonHelper{
 			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 			FunctionalLibrary.validateText("21" ,"10", "Testing");
 			
+		}
+		
+		@When("^I submit the claim with prescriber id \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void i_submit_the_claim_with_prescriber_id(String bin, String proc, String group, String pharmacyID, String refill, String fillDate, String memberID, String productID, String prescriberQual , String prescriberID,String dspQty, String ds, String psc, String cost, String due, String ucw, String fee) throws Throwable {
+			   FunctionalLibrary.CreateTransaction(bin, proc, group, pharmacyID, memberID,refill, fillDate, memberID, productID, dspQty, ds, psc, cost);
+			Mainframe_GlobalFunctionLib.sendText(9 , 33 ,"1");
+			if(fee.length()!=0){
+			Mainframe_GlobalFunctionLib.sendText(11 , 47 ,"         ");
+			Mainframe_GlobalFunctionLib.sendText(11 , 47 ,fee);
+			}
+			if(due.length()!=0){
+				Mainframe_GlobalFunctionLib.sendText(19 , 47 ,"         ");			
+				Mainframe_GlobalFunctionLib.sendText(19 , 47 ,due);
+			}
+			if(ucw.length()!=0){
+			 Mainframe_GlobalFunctionLib.sendText(20 , 47 ,"         ");		 
+			 Mainframe_GlobalFunctionLib.sendText(20 , 47 ,ucw);
+			}
+			Mainframe_GlobalFunctionLib.sendText(19 , 19 ,"  ");
+			Mainframe_GlobalFunctionLib.sendText(19 , 19 ,prescriberQual);
+			Mainframe_GlobalFunctionLib.sendText(19 , 26 ,"               ");
+			Mainframe_GlobalFunctionLib.sendText(19 , 26 ,prescriberID);
+			FunctionalLibrary.submitClaim();
 		}
 	
 }

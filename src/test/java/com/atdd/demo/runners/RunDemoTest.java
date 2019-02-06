@@ -20,14 +20,20 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
+<<<<<<< HEAD
 
 		features = { "classpath:features/RxClaim/featureFiles/SR41710/TC1-29-PATypeN.feature" },
+=======
+		features = { "classpath:features/RxClaim/featureFiles/AgileTeams/TeamEmpowered/Regression/Medlimit_DPA.feature" },
+>>>>>>> c02eeb4fa1a11429a736d8f7544a46779eeb004e
 
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 		glue = { "com.atdd.demo.te" }
 //        ,tags ={"@Regression"}
 		
+
+
 )
 
 
