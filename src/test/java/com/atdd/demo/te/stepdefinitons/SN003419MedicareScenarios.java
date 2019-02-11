@@ -15,7 +15,7 @@ public class SN003419MedicareScenarios {
 	public void i_submit_a_claim_with_residence(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost, String residence) throws Throwable {
 		 FunctionalLibrary.CreateTransaction(bin, proc, group, pharmacyID, rxNbr, refill, fillDate, memberID, productID, dspQty, ds, psc, cost);
 		 if(residence.length()==0) {  
-				Mainframe_GlobalFunctionLib.sendText(7, 68, " ");  
+				Mainframe_GlobalFunctionLib.sendText(7, 68, "  ");  
 			}
 			else{
 				 Mainframe_GlobalFunctionLib.sendText(7, 68, residence);

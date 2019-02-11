@@ -3041,6 +3041,166 @@ public class FunctionalLibrary extends CommonHelper{
 			Mainframe_GlobalFunctionLib.pressKey("F12");
 			Mainframe_GlobalFunctionLib.pressKey("F12");
 		}
+		//Medicaid GPI
+		public static void func_updateDrugStatusGPIOptionswithTBMedicaidDetail(String plancode, String checknegformchangeonproduct,String qualquantity, String minquantity, String maxquantity, String qualdailydose, String mindailydose, String maxdailydose, String ptdquantitytype, String ptdquantitydays, String ptdquantitymax, String ptddayssupplytype, String ptddaysssupplymin, String ptddaysssupplymax, String ptd4thqtrdstype, String ptd4thqtrdsdays, String ptd4thqtrdsmax, String qtydscomp, String negativeformularychange, String minmaxquantity, String minmaxdailydose, String quantitydaysupplyptd) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(4, 5 ,plancode);
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(6, 51 ,"Y");
+		    Mainframe_GlobalFunctionLib.sendText(17, 17 ,"8");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+			Mainframe_GlobalFunctionLib.pressKey("F22");
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+		    Mainframe_GlobalFunctionLib.sendText(9, 20 ,"1");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.pressKey("PageDown");
+		    Mainframe_GlobalFunctionLib.sendText(11, 36 ,checknegformchangeonproduct );
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.sendText(7, 21 ,"11");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(11, 2 ,"7");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(12, 2 ,"2");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(6, 78 ,"F");
+		    if(qualquantity.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(9, 18, " ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(9, 18, qualquantity);
+			}
+		    if(minquantity.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(9, 20, "            ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(9, 20, "            ");
+				Mainframe_GlobalFunctionLib.sendText(9, 20, minquantity);
+			}
+		    if(maxquantity.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(9, 33, "            ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(9, 33, "            ");
+				Mainframe_GlobalFunctionLib.sendText(9, 33, maxquantity);
+			}
+		    if(qualdailydose.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(14, 18, " ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(14, 18 ,qualdailydose);
+			}
+		    if(mindailydose.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(14, 20, "            ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(14, 20, "            ");
+				Mainframe_GlobalFunctionLib.sendText(14, 20, mindailydose);
+			}
+		    if(maxdailydose.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(14, 33, "            ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(14, 33, "            ");
+				Mainframe_GlobalFunctionLib.sendText(14, 33, maxdailydose);
+			}
+		    if(ptdquantitytype.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(13, 58, " ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(13, 58 ,ptdquantitytype);
+			}
+		    if(ptdquantitydays.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(13, 61, "   ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(13, 61, "   ");
+				Mainframe_GlobalFunctionLib.sendText(13, 61, ptdquantitydays);
+			}
+		    if(ptdquantitymax.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(13, 65, "            ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(13, 65, "            ");
+				Mainframe_GlobalFunctionLib.sendText(13, 65, ptdquantitymax);
+			}
+		    if(ptddayssupplytype.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(14, 58, " ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(14, 58 ,ptddayssupplytype);
+			}
+		    if(ptddaysssupplymin.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(14, 61, "   ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(14, 61, "   ");
+				Mainframe_GlobalFunctionLib.sendText(14, 61, ptddaysssupplymin);
+			}
+		    if(ptddaysssupplymax.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(14, 65, "   ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(14, 65, "   ");
+				Mainframe_GlobalFunctionLib.sendText(14, 65, ptddaysssupplymax);
+			}
+		    if(ptd4thqtrdstype.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(15, 58, " ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(15, 58 ,ptd4thqtrdstype);
+			}
+		    if(ptd4thqtrdsdays.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(15, 61, "   ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(15, 61, "   ");
+				Mainframe_GlobalFunctionLib.sendText(11, 61, ptd4thqtrdsdays);
+			}
+		    if(ptd4thqtrdsmax.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(15, 65, "   ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(15, 65, "   ");
+				Mainframe_GlobalFunctionLib.sendText(15, 65, ptd4thqtrdsmax);
+			}
+		    if(qtydscomp.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(12, 58, " ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(12, 58 ,qtydscomp);
+			}
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F20");
+			Mainframe_GlobalFunctionLib.sendText(10, 21 ,"1");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(14, 2 ,"2");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(10, 75 , negativeformularychange);
+			Mainframe_GlobalFunctionLib.sendText(12, 27 , minmaxquantity);
+			Mainframe_GlobalFunctionLib.sendText(13, 27 , minmaxdailydose);
+			Mainframe_GlobalFunctionLib.sendText(14, 27 , quantitydaysupplyptd);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+		}
+		
 		public static void func_Validate_PAnumberandTBfields(String panumber, String tboverride, String tbpriordrugsts, String tbrejectreason1, String tbrejectreason2, String tbrejectreason3, String tbplanedit, String tbpassprequalifcheck) throws Throwable {
 		    // Write code here that turns the phrase above into concrete actions
 			String claimStatus=Mainframe_GlobalFunctionLib.getText(21, 6);
@@ -3112,7 +3272,7 @@ public class FunctionalLibrary extends CommonHelper{
 				Mainframe_GlobalFunctionLib.sendText(4, 23 ,"8");
 				Mainframe_GlobalFunctionLib.pressKey("Enter");
 				if(panumber.length()==0) {  
-					FunctionalLibrary.validateText("11" ,"58" , "" );  
+//					FunctionalLibrary.validateText("11" ,"58" , "" );  
 				}
 				else{
 					//FunctionalLibrary.validateText("11" ,"58" , panumber );
@@ -3166,12 +3326,12 @@ public class FunctionalLibrary extends CommonHelper{
 				else{
 					FunctionalLibrary.validateText("11" ,"17" , tbplanedit );
 				}*/
-				if(tbpassprequalifcheck.length()==0) {  
+				/*if(tbpassprequalifcheck.length()==0) {  
 					FunctionalLibrary.validateText("12" ,"25" , "" );  
 				}
 				else{
 					FunctionalLibrary.validateText("12" ,"25" , tbpassprequalifcheck );
-				}
+				}*/
 				}
 			}
 		
@@ -3462,6 +3622,168 @@ public class FunctionalLibrary extends CommonHelper{
 		    Mainframe_GlobalFunctionLib.pressKey("Enter");
 		    Mainframe_GlobalFunctionLib.pressKey("PageDown");
 		    Mainframe_GlobalFunctionLib.sendText(8, 78 ,checknegformchangeonproduct );
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+			Mainframe_GlobalFunctionLib.sendText(7, 21 ,"10");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(11, 2 ,"7");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F16");
+			 Mainframe_GlobalFunctionLib.sendText(6, 4 , productid );
+			 Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(6, 78 ,"F");
+		   /* if(qualquantity.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(9, 18, " ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(9, 18, qualquantity);
+			}*/
+		    if(minquantity.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(9, 20, "            ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(9, 20, "            ");
+				Mainframe_GlobalFunctionLib.sendText(9, 20, minquantity);
+			}
+		    if(maxquantity.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(9, 33, "            ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(9, 33, "            ");
+				Mainframe_GlobalFunctionLib.sendText(9, 33, maxquantity);
+			}
+		    if(qualdailydose.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(14, 18, " ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(14, 18 ,qualdailydose);
+			}
+		    if(mindailydose.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(14, 20, "            ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(14, 20, "            ");
+				Mainframe_GlobalFunctionLib.sendText(14, 20, mindailydose);
+			}
+		    if(maxdailydose.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(14, 33, "            ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(14, 33, "            ");
+				Mainframe_GlobalFunctionLib.sendText(14, 33, maxdailydose);
+			}
+		    if(ptdquantitytype.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(12, 58, " ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(12, 58 ,ptdquantitytype);
+			}
+		    if(ptdquantitydays.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(12, 61, "   ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(12, 61, "   ");
+				Mainframe_GlobalFunctionLib.sendText(12, 61, ptdquantitydays);
+			}
+		    if(ptdquantitymax.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(12, 65, "            ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(12, 65, "            ");
+				Mainframe_GlobalFunctionLib.sendText(12, 65, ptdquantitymax);
+			}
+		    if(ptddayssupplytype.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(13, 58, " ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(13, 58 ,ptddayssupplytype);
+			}
+		    if(ptddaysssupplymin.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(13, 61, "   ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(13, 61, "   ");
+				Mainframe_GlobalFunctionLib.sendText(13, 61, ptddaysssupplymin);
+			}
+		    if(ptddaysssupplymax.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(13, 65, "   ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(13, 65, "   ");
+				Mainframe_GlobalFunctionLib.sendText(13, 65, ptddaysssupplymax);
+			}
+		    if(ptd4thqtrdstype.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(14, 58, " ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(14, 58 ,ptd4thqtrdstype);
+			}
+		    if(ptd4thqtrdsdays.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(14, 61, "   ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(14, 61, "   ");
+				Mainframe_GlobalFunctionLib.sendText(14, 61, ptd4thqtrdsdays);
+			}
+		    if(ptd4thqtrdsmax.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(14, 65, "   ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(14, 65, "   ");
+				Mainframe_GlobalFunctionLib.sendText(14, 65, ptd4thqtrdsmax);
+			}
+		    if(qtydscomp.length()==0) {  
+				Mainframe_GlobalFunctionLib.sendText(11, 58, " ");  
+			}
+			else{
+				Mainframe_GlobalFunctionLib.sendText(11, 58 ,qtydscomp);
+			}
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F20");
+			Mainframe_GlobalFunctionLib.sendText(10, 21 ,"1");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(14, 2 ,"2");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(10, 75 , negativeformularyfhange);
+			Mainframe_GlobalFunctionLib.sendText(12, 27 , minmaxquantity);
+			Mainframe_GlobalFunctionLib.sendText(13, 27 , minmaxdailydose);
+			Mainframe_GlobalFunctionLib.sendText(14, 27 , quantitydaysupplyptd);
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+		}
+		
+		public static void func_updateDrugStatusNDCOptionswithTBMedicaidDetail(String plancode, String checknegformchangeonproduct, String productid, String qualquantity, String minquantity, String maxquantity, String qualdailydose, String mindailydose, String maxdailydose, String ptdquantitytype, String ptdquantitydays, String ptdquantitymax, String ptddayssupplytype, String ptddaysssupplymin, String ptddaysssupplymax, String ptd4thqtrdstype, String ptd4thqtrdsdays, String ptd4thqtrdsmax, String qtydscomp, String negativeformularyfhange, String minmaxquantity, String minmaxdailydose, String quantitydaysupplyptd) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			Mainframe_GlobalFunctionLib.sendText(21, 7 ,"4");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(4, 5 ,plancode);
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(11, 2 ,"2");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.sendText(15, 24 ,"Y");
+		    Mainframe_GlobalFunctionLib.sendText(17, 17 ,"8");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+			Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
+			Mainframe_GlobalFunctionLib.pressKey("F22");
+			Mainframe_GlobalFunctionLib.pressKey("F7");
+		    Mainframe_GlobalFunctionLib.sendText(9, 20 ,"1");
+		    Mainframe_GlobalFunctionLib.pressKey("Enter");
+		    Mainframe_GlobalFunctionLib.pressKey("PageDown");
+		    Mainframe_GlobalFunctionLib.sendText(11, 36 ,checknegformchangeonproduct );
 		    Mainframe_GlobalFunctionLib.pressKey("Enter");
 			Mainframe_GlobalFunctionLib.pressKey("F12");
 			Mainframe_GlobalFunctionLib.pressKey("F12");
