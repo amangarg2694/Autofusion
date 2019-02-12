@@ -20,7 +20,7 @@ import cucumber.api.java.en.When;
 
 public class CommonStepDefinition extends CommonHelper{
 
-	
+	public static String temp1 = null;
 	
 	
 	@When("^I enter \"([^\"]*)\" in field \"([^\"]*)\" on \"([^\"]*)\"$")
@@ -601,4 +601,9 @@ public class CommonStepDefinition extends CommonHelper{
 			FunctionalLibrary.submitClaim();
 		}
 	
+		@When("^I Set Medicare for auto generated member \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void i_Set_Medicare_for_auto_generated_member(String PARTDfromdate, String PARTDthrudate, String contract, String pbp, String segment, String subsidylevel, String copaycategory, String PARTDeffectivedate, String enrollmentsource) throws Throwable {
+			FunctionalLibrary.func_SetMedicare(FunctionalLibrary.PAMember1, PARTDfromdate, PARTDthrudate, contract, pbp, segment, subsidylevel, copaycategory, PARTDeffectivedate, enrollmentsource);
+			  
+		}
 }

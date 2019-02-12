@@ -101,7 +101,12 @@ public class CreateorEditMember {
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 	}
 	
-	
+	@When("^I set NTT Per Fill DS to \"([^\"]*)\"$")
+	public void i_set_NTT_Per_Fill_DS_to(String nttPerFillDS) throws Throwable {
+		Mainframe_GlobalFunctionLib.sendText(13, 20, nttPerFillDS);	
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+	}
+
 	
 }
 

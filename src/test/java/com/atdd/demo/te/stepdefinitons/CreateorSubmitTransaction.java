@@ -243,6 +243,38 @@ public class CreateorSubmitTransaction {
 		Mainframe_GlobalFunctionLib.sendText(18 , 19 ,"1");
 		Mainframe_GlobalFunctionLib.sendText(18 , 26 ,dpaNumber);
 	}
+	
+	@Then("^Validate DPA Number \"([^\"]*)\"$")
+	public void validate_DPA_Number(String dpaNumber) throws Throwable {
+		FunctionalLibrary.pressKey("F7");
+		Mainframe_GlobalFunctionLib.sendText(4, 23,"8");
+		FunctionalLibrary.pressKey("Enter");
+		FunctionalLibrary.validateText("10" ,"58" , dpaNumber );
+	}
+	
+	@When("^I resubmit the claim$")
+	public void i_resubmit_the_claim() throws Throwable {
+		try {
+			FunctionalLibrary.navigateToRxClaimPlanAdministrator();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"3" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Mainframe_GlobalFunctionLib.sendText(4, 4 , FunctionalLibrary.PAMember1);
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		System.out.println("Mainframe_GlobalFunctionLib.getText(9, 4).trim().toLowerCase() " +Mainframe_GlobalFunctionLib.getText(9, 4).trim().toLowerCase() + " " + FunctionalLibrary.PAMember1);
+		if(Mainframe_GlobalFunctionLib.getText(9, 4).trim().toLowerCase().contentEquals(FunctionalLibrary.PAMember1.toLowerCase())){
+			Mainframe_GlobalFunctionLib.sendText(9, 2, "1");
+			Mainframe_GlobalFunctionLib.pressKey("Enter");
+			FunctionalLibrary.submitClaim();
+			}
+		else
+			Assert.fail("There is no transaction exists for the member " + FunctionalLibrary.PAMember1);
 }
 
-
+	}

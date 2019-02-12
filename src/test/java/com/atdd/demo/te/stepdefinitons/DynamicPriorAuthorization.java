@@ -67,12 +67,15 @@ public class DynamicPriorAuthorization {
 			Mainframe_GlobalFunctionLib.pressKey("Enter");
 		}
 	}
-	
+
 	@When("^I set \"([^\"]*)\" to \"([^\"]*)\"$")
 	public void i_set_to(String fieldName, String fieldValue) throws Throwable {
-		if(fieldValue.length()!=0)
+		if(fieldValue.length()!=0){
+			if(fieldName.equalsIgnoreCase("OverrideFlag"))
+				FunctionalLibrary.enterText( "         ",  fieldName,  "DynamicPriorAuthorizationDetailScreen");
 		FunctionalLibrary.enterText( fieldValue,  fieldName,  "DynamicPriorAuthorizationDetailScreen");
-	}
+		//Mainframe_GlobalFunctionLib.pressKey("Enter");
+		}}
 	
 	@When("^I create Dynamic Prior Authorization Profile \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_Dynamic_Prior_Authorization_Profile(String carrier, String account, String group, String fromDate, String thruDate, String submittedPA, String provider, String prescriber, String prescription,String member , String maxListFills) throws Throwable {
