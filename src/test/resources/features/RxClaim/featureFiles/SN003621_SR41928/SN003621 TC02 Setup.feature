@@ -1,6 +1,6 @@
 #Author: swathi_palla@optum.com
 #Pre-Requisite : User must have valid credentials to login to application.
-@Regression_92
+@Regression
 Feature: Create Carrier,Account,Group and Member.
 
   Scenario Outline: Create a new CAG in RxClaim 

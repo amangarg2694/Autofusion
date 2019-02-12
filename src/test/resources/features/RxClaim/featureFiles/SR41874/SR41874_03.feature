@@ -1,4 +1,4 @@
-@Regression_92
+@Regression
 Feature: Duplicate message coming from plan edit
   
   Scenario Outline: SN003414_SR41874_TC003:Verify if the Duplicate message coming for the Paid Claim once or twice in 8.4.03
@@ -22,4 +22,4 @@ Feature: Duplicate message coming from plan edit
     Examples: 
       
  |  Plan    | BIN    | ProcCtrl | Group    | PharmacyID |	RxNo        | Refill| FillDate | MemberID    | ProductID  | DspQty | DS| PSC | Cost |Due |UCW |
- |SN3414PL02|	003414 | 0129292  |SN3414GRP | APHARM     | 222284222244| 00    | 011517   |SN3414MBR005 | 00378251278| 30     | 30| 00  |100   |100 |100 |
+ |SN3414PL02|	003414 | 0129292  |SN3414GRP | APHARM     | 222284222245| 00    | 011517   |SN3414MBR005 | 00378251278| 30     | 30| 00  |100   |100 |100 |

@@ -21,13 +21,13 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
-		features = { "classpath:features/RxClaim/featureFiles/AgileTeams/TeamEmpowered/Regression/Medlimit_DPA.feature" },
+		features = { "classpath:features/RxClaim/featureFiles/SN003419/Medicaid_NDC_SingleList/SN003419_TC_SL_NDC_NENRL-LVLCH.feature" },
+
 
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
 		glue = { "com.atdd.demo.te" }
-
-       // ,tags ={"@TC13"}
+//        ,tags ={"@Regression"}
 		
 
 

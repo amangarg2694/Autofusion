@@ -1,3 +1,4 @@
+@Regression
 Feature: SN374590_SR41919: FIX IT: Update Batch Claim Load Override Submission Da
   
   Scenario: SN374590_SR41919_TC001_Verify that Call RX12215C1 before changes/SN374590_SR41919_TC002_ Verify that Call RX12215C1 after changes

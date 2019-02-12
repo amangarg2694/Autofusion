@@ -1,5 +1,7 @@
 package com.atdd.demo.te.stepdefinitions.helper;
 
+import org.testng.Assert;
+
 import com.atdd.te.screenHelpers.CommonHelper;
 import com.atdd.te.screenHelpers.FileValidation;
 import com.atdd.te.screenHelpers.FunctionalLibrary;
@@ -133,6 +135,20 @@ public class CommonStepDefinition extends CommonHelper{
 	
 	@When("^I create Member with PA \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_Member_with_PA(String carrierID, String accountID, String groupID, String memberID, String firstName, String lastName, String dob, String fromDate, String thruDate) throws Throwable {
+		try{
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"modlibs" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Reporter.addStepLog("Modlibs added");
+		if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			//if( b == false)
+				//Assert.fail("The text "+ text +" does not match on the screen.Screenshot captured.");
+			}
+			}catch(Exception e){
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The cmd "+ "modlibs" +" does not added on the screen. Screenshot captured.");
+				
+			}
 		FunctionalLibrary.CreateMemberPA(carrierID, accountID, groupID, memberID, firstName, lastName, dob, fromDate, thruDate);
 	}
 	
@@ -525,6 +541,12 @@ public class CommonStepDefinition extends CommonHelper{
 			FunctionalLibrary.func_updateDrugStatusGPIOptionswithTBMedicareDetail(plancode, checknegformchangeonproduct, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp, negativeformularyfhange, minmaxquantity, minmaxdailydose, quantitydaysupplyptd);
 		}
 
+		@Given("^Update Plan Drug Status and Turnon GPI Options for Medicaid \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void update_Plan_Drug_Status_and_Turnon_GPI_Options_for_Medicaid(String plancode, String checknegformchangeonproduct,String qualquantity, String minquantity, String maxquantity, String qualdailydose, String mindailydose, String maxdailydose, String ptdquantitytype, String ptdquantitydays, String ptdquantitymax, String ptddayssupplytype, String ptddaysssupplymin, String ptddaysssupplymax, String ptd4thqtrdstype, String ptd4thqtrdsdays, String ptd4thqtrdsmax, String qtydscomp, String negativeformularyfhange, String minmaxquantity, String minmaxdailydose, String quantitydaysupplyptd) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			FunctionalLibrary.func_updateDrugStatusGPIOptionswithTBMedicaidDetail(plancode, checknegformchangeonproduct, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp, negativeformularyfhange, minmaxquantity, minmaxdailydose, quantitydaysupplyptd);
+		}
+		
 		@Then("^Validate PA Number and TB fields \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 		public void validate_PA_Number_and_TB_fields(String panumber, String tboverride, String tbpriordrugsts, String tbrejectreason1, String tbrejectreason2, String tbrejectreason3, String tbplanedit, String tbpassprequalifcheck) throws Throwable {
 			FunctionalLibrary.func_Validate_PAnumberandTBfields(panumber, tboverride, tbpriordrugsts, tbrejectreason1, tbrejectreason2, tbrejectreason3, tbplanedit, tbpassprequalifcheck);
@@ -563,6 +585,12 @@ public class CommonStepDefinition extends CommonHelper{
 			FunctionalLibrary.func_updateDrugStatusNDCOptionswithTBMedicareDetail(plancode, checknegformchangeonproduct, productid, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp, negativeformularyfhange, minmaxquantity, minmaxdailydose, quantitydaysupplyptd);
 		}
 
+		@Then("^Update Plan Drug Status and Turnon NDC Options for Medicaid \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void update_Plan_Drug_Status_and_Turnon_NDC_Options_for_Medicaid(String plancode, String checknegformchangeonproduct,String productid, String qualquantity, String minquantity, String maxquantity, String qualdailydose, String mindailydose, String maxdailydose, String ptdquantitytype, String ptdquantitydays, String ptdquantitymax, String ptddayssupplytype, String ptddaysssupplymin, String ptddaysssupplymax, String ptd4thqtrdstype, String ptd4thqtrdsdays, String ptd4thqtrdsmax, String qtydscomp, String negativeformularyfhange, String minmaxquantity, String minmaxdailydose, String quantitydaysupplyptd) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			FunctionalLibrary.func_updateDrugStatusNDCOptionswithTBMedicaidDetail(plancode, checknegformchangeonproduct, productid, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp, negativeformularyfhange, minmaxquantity, minmaxdailydose, quantitydaysupplyptd);
+		}
+		
 		@Then("^Validate Claim Reject Code \"([^\"]*)\"$")
 		public void validate_Claim_Reject_Code(String rejectcode) throws Throwable {
 		    // Write code here that turns the phrase above into concrete actions
