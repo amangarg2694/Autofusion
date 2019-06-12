@@ -2,19 +2,19 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Testng Cucumber Suite" duration-ms="165335" started-at="2019-01-30T14:26:00Z" finished-at="2019-01-30T14:28:46Z">
+  <suite name="Testng Cucumber Suite" duration-ms="350523" started-at="2019-03-27T07:37:00Z" finished-at="2019-03-27T07:42:51Z">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@6ad82709]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@c730b35]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test name="Veirify Demo Site Features" duration-ms="165335" started-at="2019-01-30T14:26:00Z" finished-at="2019-01-30T14:28:46Z">
+    <test name="Veirify Demo Site Features" duration-ms="350523" started-at="2019-03-27T07:37:00Z" finished-at="2019-03-27T07:42:51Z">
       <class name="com.atdd.demo.runners.RunDemoTest">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@6ad82709]" name="setUpClass" is-config="true" duration-ms="1326" started-at="2019-01-30T19:56:00Z" finished-at="2019-01-30T19:56:02Z">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@c730b35]" name="setUpClass" is-config="true" duration-ms="1357" started-at="2019-03-27T13:07:00Z" finished-at="2019-03-27T13:07:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method status="PASS" signature="setup(java.lang.String, java.lang.String)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@6ad82709]" name="setup" is-config="true" duration-ms="67158" started-at="2019-01-30T19:56:02Z" finished-at="2019-01-30T19:57:09Z">
+        <test-method status="PASS" signature="setup(java.lang.String, java.lang.String)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@c730b35]" name="setup" is-config="true" duration-ms="52295" started-at="2019-03-27T13:07:01Z" finished-at="2019-03-27T13:07:54Z">
           <params>
             <param index="0">
               <value>
@@ -30,22 +30,20 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="FAIL" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@6ad82709]" name="feature" duration-ms="95633" started-at="2019-01-30T19:57:09Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2019-01-30T19:58:45Z">
+        <test-method status="FAIL" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@c730b35]" name="feature" duration-ms="295730" started-at="2019-03-27T13:07:54Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2019-03-27T13:12:50Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[SN374590_SR41919: FIX IT: Update Batch Claim Load Override Submission Da]]>
+                <![CDATA[Setup Plan with NDC and GPI List for F278714]]>
               </value>
             </param>
           </params>
           <exception class="cucumber.runtime.CucumberException">
             <message>
-              <![CDATA[com.hp.lft.sdk.GeneralReplayException: Unspecified error
-]]>
+              <![CDATA[java.lang.AssertionError: The Plan with NDC List is not set successfully.Screenshot is captured]]>
             </message>
             <full-stacktrace>
-              <![CDATA[cucumber.runtime.CucumberException: com.hp.lft.sdk.GeneralReplayException: Unspecified error
-
+              <![CDATA[cucumber.runtime.CucumberException: java.lang.AssertionError: The Plan with NDC List is not set successfully.Screenshot is captured
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -72,39 +70,26 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-Caused by: com.hp.lft.sdk.GeneralReplayException: Unspecified error
-
-	at com.hp.lft.sdk.internal.ReplayExceptionFactory$11.create(ReplayExceptionFactory.java:94)
-	at com.hp.lft.sdk.internal.ReplayExceptionFactory.createOrDefault(ReplayExceptionFactory.java:192)
-	at com.hp.lft.sdk.internal.ReplayExceptionFactory.createOrDefault(ReplayExceptionFactory.java:21)
-	at com.hp.lft.sdk.internal.TestObjectExecuterBehaviorBase$ReplayErrorHandler.onError(TestObjectExecuterBehaviorBase.java:65)
-	at com.hp.lft.sdk.internal.CommunicationClientImpl.handleError(CommunicationClientImpl.java:226)
-	at com.hp.lft.sdk.internal.CommunicationClientImpl.send(CommunicationClientImpl.java:100)
-	at com.hp.lft.sdk.internal.TestObjectExecuterBehavior.executeMethod(TestObjectExecuter.java:33)
-	at com.hp.lft.sdk.internal.TestObjectBase.executeMethod(TestObjectBase.java:119)
-	at com.hp.lft.sdk.internal.te.TeScreen.access$500(TeScreen.java:9)
-	at com.hp.lft.sdk.internal.te.TeScreen$6.invoke(TeScreen.java:78)
-	at com.hp.lft.sdk.internal.TestObjectOperationWrapper.executeWithEvents(TestObjectOperationWrapper.java:81)
-	at com.hp.lft.sdk.internal.TestObjectOperationWrapper.executeWithEvents(TestObjectOperationWrapper.java:102)
-	at com.hp.lft.sdk.internal.te.TeScreen.sendTEKeys(TeScreen.java:81)
-	at com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib.sendText(Mainframe_GlobalFunctionLib.java:156)
-	at com.atdd.demo.te.stepdefinitons.BatchClaimLoadOverrideSubmssion.i_verify_the_records_by_submitting_the_job(BatchClaimLoadOverrideSubmssion.java:104)
-	at ✽.And I verify the records by submitting the job(features/RxClaim/featureFiles/SR41919/SR41919.feature:13)
+Caused by: java.lang.AssertionError: The Plan with NDC List is not set successfully.Screenshot is captured
+	at org.testng.Assert.fail(Assert.java:94)
+	at com.atdd.te.screenHelpers.FunctionalLibrary.PlanWithNDCList(FunctionalLibrary.java:1067)
+	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.i_Setup_Plan_with_NDC_List(CommonStepDefinition.java:381)
+	at ✽.When I Setup Plan with NDC List "GPITEST1","SN1396","10","010118","123139"(features/RxClaim/featureFiles/AgileTeams/Plan invincible 6/F278714/F278714_NDC_GPI.feature:6)
 ]]>
             </full-stacktrace>
           </exception> <!-- cucumber.runtime.CucumberException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@6ad82709]" name="teardown" is-config="true" duration-ms="296" started-at="2019-01-30T19:58:45Z" finished-at="2019-01-30T19:58:45Z">
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@c730b35]" name="teardown" is-config="true" duration-ms="329" started-at="2019-03-27T13:12:50Z" finished-at="2019-03-27T13:12:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@6ad82709]" name="tearDownClass" is-config="true" duration-ms="719" started-at="2019-01-30T19:58:45Z" finished-at="2019-01-30T19:58:46Z">
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@c730b35]" name="tearDownClass" is-config="true" duration-ms="609" started-at="2019-03-27T13:12:50Z" finished-at="2019-03-27T13:12:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-        <test-method status="PASS" signature="parser()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@6ad82709]" name="parser" is-config="true" duration-ms="7317" started-at="2019-01-30T19:58:46Z" finished-at="2019-01-30T19:58:53Z">
+        <test-method status="PASS" signature="parser()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@c730b35]" name="parser" is-config="true" duration-ms="6116" started-at="2019-03-27T13:12:51Z" finished-at="2019-03-27T13:12:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- parser -->

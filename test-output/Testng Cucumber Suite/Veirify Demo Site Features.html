@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Jan 30 19:56:00 IST 2019</td>
+<td>Started on:</td><td>Wed Mar 27 13:07:00 IST 2019</td>
 </tr>
-<tr><td>Total time:</td><td>165 seconds (165335 ms)</td>
+<tr><td>Total time:</td><td>350 seconds (350523 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,32 +75,16 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.atdd.demo.runners.RunDemoTest.feature()'><b>feature</b><br>Test class: com.atdd.demo.runners.RunDemoTest<br>Test method: Runs Cucumber Feature<br>Parameters: SN374590_SR41919: FIX IT: Update Batch Claim Load Override Submission Da</td>
-<td><div><pre>cucumber.runtime.CucumberException: com.hp.lft.sdk.GeneralReplayException: Unspecified error
-
+<td title='com.atdd.demo.runners.RunDemoTest.feature()'><b>feature</b><br>Test class: com.atdd.demo.runners.RunDemoTest<br>Test method: Runs Cucumber Feature<br>Parameters: Setup Plan with NDC and GPI List for F278714</td>
+<td><div><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: The Plan with NDC List is not set successfully.Screenshot is captured
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
-Caused by: com.hp.lft.sdk.GeneralReplayException: Unspecified error
-
-	at com.hp.lft.sdk.internal.ReplayExceptionFactory$11.create(ReplayExceptionFactory.java:94)
-	at com.hp.lft.sdk.internal.ReplayExceptionFactory.createOrDefault(ReplayExceptionFactory.java:192)
-	at com.hp.lft.sdk.internal.ReplayExceptionFactory.createOrDefault(ReplayExceptionFactory.java:21)
-	at com.hp.lft.sdk.internal.TestObjectExecuterBehaviorBase$ReplayErrorHandler.onError(TestObjectExecuterBehaviorBase.java:65)
-	at com.hp.lft.sdk.internal.CommunicationClientImpl.handleError(CommunicationClientImpl.java:226)
-	at com.hp.lft.sdk.internal.CommunicationClientImpl.send(CommunicationClientImpl.java:100)
-	at com.hp.lft.sdk.internal.TestObjectExecuterBehavior.executeMethod(TestObjectExecuter.java:33)
-	at com.hp.lft.sdk.internal.TestObjectBase.executeMethod(TestObjectBase.java:119)
-	at com.hp.lft.sdk.internal.te.TeScreen.access$500(TeScreen.java:9)
-	at com.hp.lft.sdk.internal.te.TeScreen$6.invoke(TeScreen.java:78)
-	at com.hp.lft.sdk.internal.TestObjectOperationWrapper.executeWithEvents(TestObjectOperationWrapper.java:81)
-	at com.hp.lft.sdk.internal.TestObjectOperationWrapper.executeWithEvents(TestObjectOperationWrapper.java:102)
-	at com.hp.lft.sdk.internal.te.TeScreen.sendTEKeys(TeScreen.java:81)
-	at com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib.sendText(Mainframe_GlobalFunctionLib.java:156)
-	at com.atdd.demo.te.stepdefinitons.BatchClaimLoadOverrideSubmssion.i_verify_the_records_by_submitting_the_job(BatchClaimLoadOverrideSubmssion.java:104)
-	at ?.And I verify the records by submitting the job(features/RxClaim/featureFiles/SR41919/SR41919.feature:13)
-... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace870593736", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace870593736'><pre>cucumber.runtime.CucumberException: com.hp.lft.sdk.GeneralReplayException: Unspecified error
-
+Caused by: java.lang.AssertionError: The Plan with NDC List is not set successfully.Screenshot is captured
+	at com.atdd.te.screenHelpers.FunctionalLibrary.PlanWithNDCList(FunctionalLibrary.java:1067)
+	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.i_Setup_Plan_with_NDC_List(CommonStepDefinition.java:381)
+	at ?.When I Setup Plan with NDC List &quot;GPITEST1&quot;,&quot;SN1396&quot;,&quot;10&quot;,&quot;010118&quot;,&quot;123139&quot;(features/RxClaim/featureFiles/AgileTeams/Plan invincible 6/F278714/F278714_NDC_GPI.feature:6)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1287215032", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1287215032'><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: The Plan with NDC List is not set successfully.Screenshot is captured
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -127,27 +111,14 @@ Caused by: com.hp.lft.sdk.GeneralReplayException: Unspecified error
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-Caused by: com.hp.lft.sdk.GeneralReplayException: Unspecified error
-
-	at com.hp.lft.sdk.internal.ReplayExceptionFactory$11.create(ReplayExceptionFactory.java:94)
-	at com.hp.lft.sdk.internal.ReplayExceptionFactory.createOrDefault(ReplayExceptionFactory.java:192)
-	at com.hp.lft.sdk.internal.ReplayExceptionFactory.createOrDefault(ReplayExceptionFactory.java:21)
-	at com.hp.lft.sdk.internal.TestObjectExecuterBehaviorBase$ReplayErrorHandler.onError(TestObjectExecuterBehaviorBase.java:65)
-	at com.hp.lft.sdk.internal.CommunicationClientImpl.handleError(CommunicationClientImpl.java:226)
-	at com.hp.lft.sdk.internal.CommunicationClientImpl.send(CommunicationClientImpl.java:100)
-	at com.hp.lft.sdk.internal.TestObjectExecuterBehavior.executeMethod(TestObjectExecuter.java:33)
-	at com.hp.lft.sdk.internal.TestObjectBase.executeMethod(TestObjectBase.java:119)
-	at com.hp.lft.sdk.internal.te.TeScreen.access$500(TeScreen.java:9)
-	at com.hp.lft.sdk.internal.te.TeScreen$6.invoke(TeScreen.java:78)
-	at com.hp.lft.sdk.internal.TestObjectOperationWrapper.executeWithEvents(TestObjectOperationWrapper.java:81)
-	at com.hp.lft.sdk.internal.TestObjectOperationWrapper.executeWithEvents(TestObjectOperationWrapper.java:102)
-	at com.hp.lft.sdk.internal.te.TeScreen.sendTEKeys(TeScreen.java:81)
-	at com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib.sendText(Mainframe_GlobalFunctionLib.java:156)
-	at com.atdd.demo.te.stepdefinitons.BatchClaimLoadOverrideSubmssion.i_verify_the_records_by_submitting_the_job(BatchClaimLoadOverrideSubmssion.java:104)
-	at ?.And I verify the records by submitting the job(features/RxClaim/featureFiles/SR41919/SR41919.feature:13)
+Caused by: java.lang.AssertionError: The Plan with NDC List is not set successfully.Screenshot is captured
+	at org.testng.Assert.fail(Assert.java:94)
+	at com.atdd.te.screenHelpers.FunctionalLibrary.PlanWithNDCList(FunctionalLibrary.java:1067)
+	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.i_Setup_Plan_with_NDC_List(CommonStepDefinition.java:381)
+	at ?.When I Setup Plan with NDC List &quot;GPITEST1&quot;,&quot;SN1396&quot;,&quot;10&quot;,&quot;010118&quot;,&quot;123139&quot;(features/RxClaim/featureFiles/AgileTeams/Plan invincible 6/F278714/F278714_NDC_GPI.feature:6)
 </pre></div></td>
-<td>95</td>
-<td>com.atdd.demo.runners.RunDemoTest@6ad82709</td></tr>
+<td>295</td>
+<td>com.atdd.demo.runners.RunDemoTest@c730b35</td></tr>
 </table><p>
 </body>
 </html>

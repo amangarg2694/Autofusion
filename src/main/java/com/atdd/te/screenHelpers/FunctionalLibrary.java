@@ -1048,7 +1048,7 @@ public class FunctionalLibrary extends CommonHelper{
 			else
 			{
 				Mainframe_GlobalFunctionLib.pressKey("F6");
-				func_SearchAndSelectMode("4, 5" ,ndclist ,"9,5" , ndclist);
+				func_SearchAndSelectMode("4,5" ,ndclist ,"9,5" , ndclist);
 				Mainframe_GlobalFunctionLib.sendText(13, 17 ,"   ");
 				Mainframe_GlobalFunctionLib.sendText(13, 17, ndcsq);
 				Mainframe_GlobalFunctionLib.sendText(14, 17 ,"        ");
@@ -1145,7 +1145,7 @@ public class FunctionalLibrary extends CommonHelper{
 			else
 			{
 				Mainframe_GlobalFunctionLib.pressKey("F6");
-				func_SearchAndSelectMode("4, 5" ,gpilist ,"9,5" , gpilist);
+				func_SearchAndSelectMode("4,5" ,gpilist ,"9,5" , gpilist);
 				Mainframe_GlobalFunctionLib.sendText(13, 17 ,"   ");
 				Mainframe_GlobalFunctionLib.sendText(13, 17, gpisq);
 				Mainframe_GlobalFunctionLib.sendText(14, 17 ,"        ");

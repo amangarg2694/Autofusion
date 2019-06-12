@@ -1,4 +1,3 @@
-#Author:rajvardhan@optum.com
 Feature: Submit a claim
 As a RxClaim User I want to submit a claim
     
