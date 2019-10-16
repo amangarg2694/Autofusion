@@ -67,7 +67,7 @@ Scenario Outline: Verify RCPNR001 screen for Medicaid network field for type and
 	
 Examples:
 | PlanCode |
-| SR41010P6 |
+| SR41010P8 |
 
 @TC05
 Scenario Outline: Verify RCPNR001 screen for Medicaid network field for  F4 pink option (CHANGE Mode)
@@ -86,7 +86,7 @@ Scenario Outline: Verify RCPNR001 screen for Medicaid network field for  F4 pink
 	
 Examples:
 | PlanCode |
-| SR41010P6 |
+| SR41010P8 |
 
 @TC06
 Scenario Outline: Verify RCPNR001 screen for Medicaid network field for  F1 option (CHANGE Mode)
@@ -105,7 +105,7 @@ Scenario Outline: Verify RCPNR001 screen for Medicaid network field for  F1 opti
 	
 	Examples:
 | PlanCode |
-| SR41010P6 |
+| SR41010P8 |
 
 @TC07
 Scenario Outline: Verify RCPNR001 screen for Clarification Code Recognition  field for type and length (ADD Mode)
@@ -172,7 +172,7 @@ Scenario Outline: Verify RCPNR001 screen for Clarification Code Recognition  fie
 	
 Examples:
 | PlanCode |
-| SR41010P6 |
+| SR41010P8 |
 
 @TC11
 Scenario Outline: Verify RCPNR001 screen for Clarification Code Recognition  field for  F4 pink option (CHANGE Mode)
@@ -191,7 +191,7 @@ Scenario Outline: Verify RCPNR001 screen for Clarification Code Recognition  fie
 	
 Examples:
 | PlanCode |
-| SR41010P6 |
+| SR41010P8 |
 
 @TC12
 Scenario Outline: Verify RCPNR001 screen for Clarification Code Recognition  field for  F1 option (CHANGE Mode)
@@ -210,7 +210,7 @@ Scenario Outline: Verify RCPNR001 screen for Clarification Code Recognition  fie
 	
 	Examples:
 | PlanCode |
-| SR41010P6 |
+| SR41010P8 |
 
 @TC13
 Scenario Outline: Verify RCPNR001 screen  for Clarification Code Recognition  field when Medicaid Network field set Y
@@ -228,7 +228,7 @@ Scenario Outline: Verify RCPNR001 screen  for Clarification Code Recognition  fi
 	Then Validate "Record changed." message should displayed on "PharmacyNetworkOverride"
 Examples:
 | PlanCode | Medicaid Network | CCR |
-| SR41010P6 | Y | Y |
+| SR41010P8 | Y | Y |
 
 
 
@@ -249,4 +249,4 @@ Scenario Outline: Verify RCPNR001 screen  for Clarification Code Recognition  fi
 	
 	Examples:
 | PlanCode | Medicaid Network | CCR |
-| SR41010P6 | N | Y |
+| SR41010P8 | N | Y |

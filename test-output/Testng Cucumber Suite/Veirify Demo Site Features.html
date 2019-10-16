@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Sep 21 04:23:13 IST 2018</td>
+<td>Started on:</td><td>Wed Mar 27 13:07:00 IST 2019</td>
 </tr>
-<tr><td>Total time:</td><td>288 seconds (288812 ms)</td>
+<tr><td>Total time:</td><td>350 seconds (350523 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,17 +75,16 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.atdd.demo.runners.RunDemoTest.feature()'><b>feature</b><br>Test class: com.atdd.demo.runners.RunDemoTest<br>Test method: Runs Cucumber Feature<br>Parameters: Part D Update Manufacturer Discount and Biosimilar Coverage in Gap</td>
-<td><div><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: The text Date Thru cannot be more than one day less than Date From. does not match on the screen.Screenshot captured.
+<td title='com.atdd.demo.runners.RunDemoTest.feature()'><b>feature</b><br>Test class: com.atdd.demo.runners.RunDemoTest<br>Test method: Runs Cucumber Feature<br>Parameters: Setup Plan with NDC and GPI List for F278714</td>
+<td><div><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: The Plan with NDC List is not set successfully.Screenshot is captured
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
-Caused by: java.lang.AssertionError: The text Date Thru cannot be more than one day less than Date From. does not match on the screen.Screenshot captured.
-	at com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib.validateText(Mainframe_GlobalFunctionLib.java:231)
-	at com.atdd.te.screenHelpers.FunctionalLibrary.validateText(FunctionalLibrary.java:1901)
-	at com.atdd.demo.te.stepdefinitons.SR_41709.verify_Thru_Date_New_error_message_on_Plan_Biosimilar_Product_List_Create_Record_Detail_screen(SR_41709.java:935)
-	at ?.Then Verify Thru Date New error message on Plan Biosimilar Product List Create Record Detail screen  &quot;10199&quot;,&quot;Date Thru cannot be more than one day less than Date From.&quot;(features/RxClaim/featureFiles/SR41709/SR41709_TC01-TC130.feature:691)
-... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1179830093", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1179830093'><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: The text Date Thru cannot be more than one day less than Date From. does not match on the screen.Screenshot captured.
+Caused by: java.lang.AssertionError: The Plan with NDC List is not set successfully.Screenshot is captured
+	at com.atdd.te.screenHelpers.FunctionalLibrary.PlanWithNDCList(FunctionalLibrary.java:1067)
+	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.i_Setup_Plan_with_NDC_List(CommonStepDefinition.java:381)
+	at ?.When I Setup Plan with NDC List &quot;GPITEST1&quot;,&quot;SN1396&quot;,&quot;10&quot;,&quot;010118&quot;,&quot;123139&quot;(features/RxClaim/featureFiles/AgileTeams/Plan invincible 6/F278714/F278714_NDC_GPI.feature:6)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1287215032", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1287215032'><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: The Plan with NDC List is not set successfully.Screenshot is captured
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -112,15 +111,14 @@ Caused by: java.lang.AssertionError: The text Date Thru cannot be more than one 
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-Caused by: java.lang.AssertionError: The text Date Thru cannot be more than one day less than Date From. does not match on the screen.Screenshot captured.
+Caused by: java.lang.AssertionError: The Plan with NDC List is not set successfully.Screenshot is captured
 	at org.testng.Assert.fail(Assert.java:94)
-	at com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib.validateText(Mainframe_GlobalFunctionLib.java:231)
-	at com.atdd.te.screenHelpers.FunctionalLibrary.validateText(FunctionalLibrary.java:1901)
-	at com.atdd.demo.te.stepdefinitons.SR_41709.verify_Thru_Date_New_error_message_on_Plan_Biosimilar_Product_List_Create_Record_Detail_screen(SR_41709.java:935)
-	at ?.Then Verify Thru Date New error message on Plan Biosimilar Product List Create Record Detail screen  &quot;10199&quot;,&quot;Date Thru cannot be more than one day less than Date From.&quot;(features/RxClaim/featureFiles/SR41709/SR41709_TC01-TC130.feature:691)
+	at com.atdd.te.screenHelpers.FunctionalLibrary.PlanWithNDCList(FunctionalLibrary.java:1067)
+	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.i_Setup_Plan_with_NDC_List(CommonStepDefinition.java:381)
+	at ?.When I Setup Plan with NDC List &quot;GPITEST1&quot;,&quot;SN1396&quot;,&quot;10&quot;,&quot;010118&quot;,&quot;123139&quot;(features/RxClaim/featureFiles/AgileTeams/Plan invincible 6/F278714/F278714_NDC_GPI.feature:6)
 </pre></div></td>
-<td>215</td>
-<td>com.atdd.demo.runners.RunDemoTest@510f3d34</td></tr>
+<td>295</td>
+<td>com.atdd.demo.runners.RunDemoTest@c730b35</td></tr>
 </table><p>
 </body>
 </html>

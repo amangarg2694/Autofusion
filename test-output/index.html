@@ -48,7 +48,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Testng_Cucumber_Suite">
-                    <span>C:\Users\r1053\git\RxClaim_ATDD_CHF\testng.xml</span>
+                    <span>C:\Users\msriram1\git\RxClaim_ATDD\testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -101,7 +101,7 @@
                     <div class="method-list-content failed suite-Testng_Cucumber_Suite">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Testng_Cucumber_Suite" title="com.atdd.demo.runners.RunDemoTest" hash-for-method="feature(Part D Update Manufacturer Discount and Biosimilar Coverage in Gap)">feature(Part D Update Manufacturer Discount and Biosimilar Coverage in Gap)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Testng_Cucumber_Suite" title="com.atdd.demo.runners.RunDemoTest" hash-for-method="feature(Setup Plan with NDC and GPI List for F278714)">feature(Setup Plan with NDC and GPI List for F278714)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Testng_Cucumber_Suite -->
@@ -124,18 +124,17 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="feature(Part D Update Manufacturer Discount and Biosimilar Coverage in Gap)">
-                  </a> <!-- feature(Part D Update Manufacturer Discount and Biosimilar Coverage in Gap) -->
+                  <a name="feature(Setup Plan with NDC and GPI List for F278714)">
+                  </a> <!-- feature(Setup Plan with NDC and GPI List for F278714) -->
                   <span class="method-name">feature</span>
-                  <span class="parameters">(Part D Update Manufacturer Discount and Biosimilar Coverage in Gap)</span>
-                  <div class="stack-trace">cucumber.runtime.CucumberException: java.lang.AssertionError: The text Date Thru cannot be more than one day less than Date From. does not match on the screen.Screenshot captured.
+                  <span class="parameters">(Setup Plan with NDC and GPI List for F278714)</span>
+                  <div class="stack-trace">cucumber.runtime.CucumberException: java.lang.AssertionError: The Plan with NDC List is not set successfully.Screenshot is captured
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
-Caused by: java.lang.AssertionError: The text Date Thru cannot be more than one day less than Date From. does not match on the screen.Screenshot captured.
-	at com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib.validateText(Mainframe_GlobalFunctionLib.java:231)
-	at com.atdd.te.screenHelpers.FunctionalLibrary.validateText(FunctionalLibrary.java:1901)
-	at com.atdd.demo.te.stepdefinitons.SR_41709.verify_Thru_Date_New_error_message_on_Plan_Biosimilar_Product_List_Create_Record_Detail_screen(SR_41709.java:935)
-	at ✽.Then Verify Thru Date New error message on Plan Biosimilar Product List Create Record Detail screen  &quot;10199&quot;,&quot;Date Thru cannot be more than one day less than Date From.&quot;(features/RxClaim/featureFiles/SR41709/SR41709_TC01-TC130.feature:691)
+Caused by: java.lang.AssertionError: The Plan with NDC List is not set successfully.Screenshot is captured
+	at com.atdd.te.screenHelpers.FunctionalLibrary.PlanWithNDCList(FunctionalLibrary.java:1067)
+	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.i_Setup_Plan_with_NDC_List(CommonStepDefinition.java:381)
+	at ✽.When I Setup Plan with NDC List &quot;GPITEST1&quot;,&quot;SN1396&quot;,&quot;10&quot;,&quot;010118&quot;,&quot;123139&quot;(features/RxClaim/featureFiles/AgileTeams/Plan invincible 6/F278714/F278714_NDC_GPI.feature:6)
 ... Removed 25 stack frames
 </div> <!-- stack-trace -->
                   <em>
@@ -147,7 +146,7 @@ Caused by: java.lang.AssertionError: The text Date Thru cannot be more than one 
         </div> <!-- panel Testng_Cucumber_Suite -->
         <div panel-name="test-xml-Testng_Cucumber_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\r1053\git\RxClaim_ATDD_CHF\testng.xml</span>
+            <span class="header-content">C:\Users\msriram1\git\RxClaim_ATDD\testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -210,12 +209,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'feature')
 data.setCell(0, 2, 'com.atdd.demo.runners.RunDemoTest')
-data.setCell(0, 3, 215703);
+data.setCell(0, 3, 295730);
 window.suiteTableData['Testng_Cucumber_Suite']= { tableData: data, tableDiv: 'times-div-Testng_Cucumber_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 3 minutes</span>
+              <span class="suite-total-time">Total running time: 4 minutes</span>
               <div id="times-div-Testng_Cucumber_Suite">
               </div> <!-- times-div-Testng_Cucumber_Suite -->
             </div> <!-- times-div -->
@@ -248,25 +247,25 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">setup(src/test/resources/te/config_sxcd1.properties, Always)</span>
-                <span class="method-start">780 ms</span>
+                <span class="method-start">1357 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">feature(Part D Update Manufacturer Discount and Biosimilar Coverage in Gap)</span>
-                <span class="method-start">70877 ms</span>
+                <span class="method-name">feature(Setup Plan with NDC and GPI List for F278714)</span>
+                <span class="method-start">53839 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">teardown</span>
-                <span class="method-start">286611 ms</span>
+                <span class="method-start">349584 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">286970 ms</span>
+                <span class="method-start">349913 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-suite after">
                 <span class="method-name">parser</span>
-                <span class="method-start">289421 ms</span>
+                <span class="method-start">350554 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

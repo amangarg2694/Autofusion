@@ -45,7 +45,7 @@ public class PlanCodeConversionRequest {
           FunctionalLibrary.pressKey("Enter");
           FunctionalLibrary.pressKey("F10");
           Thread.sleep(1000);
-          FunctionalLibrary.enterText(17, 37,"QPGMR");
+          FunctionalLibrary.enterText(17, 37,"QPGMR ");
           FunctionalLibrary.pressKey("Enter");
                  Thread.sleep(1000);
   }
@@ -202,7 +202,7 @@ public void i_select_Active_Product_to_set_Multi_source_ind_as_Y() throws Throwa
 @When("^I enter values for \"([^\"]*)\"$")
 public void i_enter_values_for(String arg1) throws Throwable {
     // Write code here that turns the phrase above into concrete actions
-       Mainframe_GlobalFunctionLib.sendText(7, 33, "081618");
+       Mainframe_GlobalFunctionLib.sendText(7, 33, "120418");
        Mainframe_GlobalFunctionLib.pressKey("Enter");
        Mainframe_GlobalFunctionLib.sendText(24, 73, "Y");
        //Mainframe_GlobalFunctionLib.pressKey("Enter");
@@ -270,7 +270,7 @@ public void i_submit_the_job_verify_the_records() throws Throwable {
        
     // Write code here that turns the phrase above into concrete actions
        
-       i_wait_until_the_job_moves_to("EXTRACTJOB",  "VENM","OUTQ");
+       i_wait_until_the_job_moves_to("EXTRACTJOB",  "YMAD","OUTQ");
        /*FunctionalLibrary.enterText(21, 7, "WRKJOB VENM/EXTRACTJOB");
        FunctionalLibrary.pressEnter();
        FunctionalLibrary.enterText(8, 4, "1");
@@ -295,7 +295,7 @@ public void i_submit_the_job_verify_the_records() throws Throwable {
        Mainframe_GlobalFunctionLib.pressKey("F12");*/
        Mainframe_GlobalFunctionLib.sendText(21, 7, "6");
        Mainframe_GlobalFunctionLib.pressKey("Enter");
-       Mainframe_GlobalFunctionLib.sendText(6, 41, "8402");
+       Mainframe_GlobalFunctionLib.sendText(6, 41, "8404");
        Mainframe_GlobalFunctionLib.pressKey("Enter");
        
 }

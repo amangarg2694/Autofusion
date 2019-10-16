@@ -2,19 +2,19 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Testng Cucumber Suite" duration-ms="288812" started-at="2018-09-20T22:53:13Z" finished-at="2018-09-20T22:58:02Z">
+  <suite name="Testng Cucumber Suite" duration-ms="350523" started-at="2019-03-27T07:37:00Z" finished-at="2019-03-27T07:42:51Z">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@c730b35]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test name="Veirify Demo Site Features" duration-ms="288812" started-at="2018-09-20T22:53:13Z" finished-at="2018-09-20T22:58:02Z">
+    <test name="Veirify Demo Site Features" duration-ms="350523" started-at="2019-03-27T07:37:00Z" finished-at="2019-03-27T07:42:51Z">
       <class name="com.atdd.demo.runners.RunDemoTest">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="setUpClass" is-config="true" duration-ms="780" started-at="2018-09-21T04:23:13Z" finished-at="2018-09-21T04:23:14Z">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@c730b35]" name="setUpClass" is-config="true" duration-ms="1357" started-at="2019-03-27T13:07:00Z" finished-at="2019-03-27T13:07:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method status="PASS" signature="setup(java.lang.String, java.lang.String)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="setup" is-config="true" duration-ms="69707" started-at="2018-09-21T04:23:14Z" finished-at="2018-09-21T04:24:24Z">
+        <test-method status="PASS" signature="setup(java.lang.String, java.lang.String)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@c730b35]" name="setup" is-config="true" duration-ms="52295" started-at="2019-03-27T13:07:01Z" finished-at="2019-03-27T13:07:54Z">
           <params>
             <param index="0">
               <value>
@@ -30,20 +30,20 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="FAIL" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="feature" duration-ms="215703" started-at="2018-09-21T04:24:24Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2018-09-21T04:28:00Z">
+        <test-method status="FAIL" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.atdd.demo.runners.RunDemoTest@c730b35]" name="feature" duration-ms="295730" started-at="2019-03-27T13:07:54Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2019-03-27T13:12:50Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Part D Update Manufacturer Discount and Biosimilar Coverage in Gap]]>
+                <![CDATA[Setup Plan with NDC and GPI List for F278714]]>
               </value>
             </param>
           </params>
           <exception class="cucumber.runtime.CucumberException">
             <message>
-              <![CDATA[java.lang.AssertionError: The text Date Thru cannot be more than one day less than Date From. does not match on the screen.Screenshot captured.]]>
+              <![CDATA[java.lang.AssertionError: The Plan with NDC List is not set successfully.Screenshot is captured]]>
             </message>
             <full-stacktrace>
-              <![CDATA[cucumber.runtime.CucumberException: java.lang.AssertionError: The text Date Thru cannot be more than one day less than Date From. does not match on the screen.Screenshot captured.
+              <![CDATA[cucumber.runtime.CucumberException: java.lang.AssertionError: The Plan with NDC List is not set successfully.Screenshot is captured
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -70,27 +70,26 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-Caused by: java.lang.AssertionError: The text Date Thru cannot be more than one day less than Date From. does not match on the screen.Screenshot captured.
+Caused by: java.lang.AssertionError: The Plan with NDC List is not set successfully.Screenshot is captured
 	at org.testng.Assert.fail(Assert.java:94)
-	at com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib.validateText(Mainframe_GlobalFunctionLib.java:231)
-	at com.atdd.te.screenHelpers.FunctionalLibrary.validateText(FunctionalLibrary.java:1901)
-	at com.atdd.demo.te.stepdefinitons.SR_41709.verify_Thru_Date_New_error_message_on_Plan_Biosimilar_Product_List_Create_Record_Detail_screen(SR_41709.java:935)
-	at ✽.Then Verify Thru Date New error message on Plan Biosimilar Product List Create Record Detail screen  "10199","Date Thru cannot be more than one day less than Date From."(features/RxClaim/featureFiles/SR41709/SR41709_TC01-TC130.feature:691)
+	at com.atdd.te.screenHelpers.FunctionalLibrary.PlanWithNDCList(FunctionalLibrary.java:1067)
+	at com.atdd.demo.te.stepdefinitions.helper.CommonStepDefinition.i_Setup_Plan_with_NDC_List(CommonStepDefinition.java:381)
+	at ✽.When I Setup Plan with NDC List "GPITEST1","SN1396","10","010118","123139"(features/RxClaim/featureFiles/AgileTeams/Plan invincible 6/F278714/F278714_NDC_GPI.feature:6)
 ]]>
             </full-stacktrace>
           </exception> <!-- cucumber.runtime.CucumberException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="teardown" is-config="true" duration-ms="359" started-at="2018-09-21T04:28:00Z" finished-at="2018-09-21T04:28:00Z">
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@c730b35]" name="teardown" is-config="true" duration-ms="329" started-at="2019-03-27T13:12:50Z" finished-at="2019-03-27T13:12:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="tearDownClass" is-config="true" duration-ms="1827" started-at="2018-09-21T04:28:00Z" finished-at="2018-09-21T04:28:02Z">
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@c730b35]" name="tearDownClass" is-config="true" duration-ms="609" started-at="2019-03-27T13:12:50Z" finished-at="2019-03-27T13:12:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-        <test-method status="PASS" signature="parser()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@510f3d34]" name="parser" is-config="true" duration-ms="86941" started-at="2018-09-21T04:28:03Z" finished-at="2018-09-21T04:29:30Z">
+        <test-method status="PASS" signature="parser()[pri:0, instance:com.atdd.demo.runners.RunDemoTest@c730b35]" name="parser" is-config="true" duration-ms="6116" started-at="2019-03-27T13:12:51Z" finished-at="2019-03-27T13:12:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- parser -->

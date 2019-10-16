@@ -1,14 +1,18 @@
 package com.atdd.demo.te.stepdefinitions.helper;
 
+import org.testng.Assert;
+
 import com.atdd.te.screenHelpers.CommonHelper;
 import com.atdd.te.screenHelpers.FileValidation;
 import com.atdd.te.screenHelpers.FunctionalLibrary;
 import com.atdd.te.screenHelpers.PlanByPlanCode;
 import com.atdd.te.screenHelpers.Pricing;
+import com.cucumber.listener.Reporter;
 //import com.hp.lft.sdk.Desktop;
 //import com.hp.lft.sdk.java.Window;
 //import com.hp.lft.sdk.java.WindowDescription;
 import com.optumrx.autofusion.core.te.util.Mainframe_GlobalFunctionLib;
+import com.optumrx.autofusion.core.te.util.Screenshot;
 import com.optumrx.autofusion.core.util.ReadPropertyFile;
 
 import cucumber.api.DataTable;
@@ -18,20 +22,13 @@ import cucumber.api.java.en.When;
 
 public class CommonStepDefinition extends CommonHelper{
 
-	public String PDEFileStore="";
-	public String ActualClaimCount = ""; 
-	public String ExpectedClaimCount = ""; 
-	public String RemoveComma = "";
-	public String DTAQProgram = "";
-	public String DataexitProgram = "";
-	public String RemoveC = "";
+	public static String temp1 = null;
 	
 	
 	@When("^I enter \"([^\"]*)\" in field \"([^\"]*)\" on \"([^\"]*)\"$")
 	public void i_enter_in_field_on(String fieldValue, String fieldName, String screenName) throws Throwable {
 	    
 		FunctionalLibrary.enterText( fieldValue,  fieldName,  screenName);
-
 		
 	}
 	
@@ -40,18 +37,29 @@ public class CommonStepDefinition extends CommonHelper{
 		
 	
 		
-		String text = FunctionalLibrary.getText(1, 13);
+		/*String text = FunctionalLibrary.getText(1, 13);
 				
 				while(!(text.equalsIgnoreCase("RxClaim Plan Administrator Menu"))){
 					
 					FunctionalLibrary.pressKey("F12");
+					Thread.sleep(1000);
 					text = FunctionalLibrary.getText(1, 13);
 					
-				}
+				}*/
+		
+		String text = Mainframe_GlobalFunctionLib.getText(1, 13);
+		
+		while(!(text.equalsIgnoreCase("RxClaim Plan Administrator Menu"))){
+			
+			Mainframe_GlobalFunctionLib.pressKey("F12");
+			Thread.sleep(1000);
+			text = Mainframe_GlobalFunctionLib.getText(1, 13);
+		}
 		
 		
 	}	
 	
+		
 	@When("^I press \"([^\"]*)\" Key$")
 	public void i_press_Key(String arg1) throws Throwable {
 		//Mainframe_GlobalFunctionLib.Transmit();
@@ -59,21 +67,30 @@ public class CommonStepDefinition extends CommonHelper{
 		Thread.sleep(1000);
 	}
 	
-	
 
 	@When("^I select Option \"([^\"]*)\" to navigate to \"([^\"]*)\"$")
 	public void i_select_Option_to_navigate_to(String option, String screen) throws Throwable {
-		FunctionalLibrary.enterText(21,7 ,option );
-		FunctionalLibrary.pressEnter();
+		
+		/*FunctionalLibrary.enterText(21,7 ,option );
+		FunctionalLibrary.pressEnter();*/
+		Mainframe_GlobalFunctionLib.sendText(21,7 ,option );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		
 	}
 	
+	@When("^I want to press F(\\d+) key$")
+	public void i_want_to_press_F_key(int arg1) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	   // throw new PendingException();
+		FunctionalLibrary.pressKey("F4");
+	}
 	
 	@Given("^I open RxClaim Application in \"([^\"]*)\"$")
 	public void i_open_RxClaim_Application_in(String env) throws Throwable {
 		Mainframe_GlobalFunctionLib.launchTE(env);
 	}
 	
-	
+		
 	@When("^I create CAG with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_CAG_with(String carrierID,String carrierName,String processor,String mailingAdd,String city,String state,String zip,String contractFromDt,String contractThruDt,String contractEnt,String businessType,String accountID,String accountName,String groupID,String groupName,String groupFromDt,String groupThruDt,String planCode) throws Throwable {
 	    
@@ -100,25 +117,54 @@ public class CommonStepDefinition extends CommonHelper{
 	@When("^I create Member with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_Member_with(String carrierID, String accountID, String groupID, String memberID, String firstName, String lastName, String dob, String fromDate, String thruDate) throws Throwable {
 		FunctionalLibrary.CreateMember(carrierID, accountID, groupID, memberID, firstName, lastName, dob, fromDate, thruDate);
+	
+	}
+	
+	@When("^I create Member with Override Plan \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_Member_with_Override_Plan(String carrierID, String accountID, String groupID, String memberID, String firstName, String lastName, String dob, String fromDate, String thruDate, String overridePlan) throws Throwable {		
+		FunctionalLibrary.createMemberWithOverridePlan(carrierID, accountID, groupID, memberID, firstName, lastName, dob, fromDate, thruDate,overridePlan);
+		
+	}
+	//Create randomly generated member Member with override plan
+	@When("^I create new Member with Override Plan \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_new_Member_with_Override_Plan(String carrierID, String accountID, String groupID, String memberID, String firstName, String lastName, String dob, String fromDate, String thruDate, String overridePlan) throws Throwable {		
+		FunctionalLibrary.PAMember1 = "AUT" + FunctionalLibrary.func_GenerateDynamicRxNo().substring(5, 12);
+		FunctionalLibrary.createMemberWithOverridePlan(carrierID, accountID, groupID, memberID, firstName, lastName, dob, fromDate, thruDate,overridePlan);
+		
 	}
 	
 	@When("^I create Member with PA \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_Member_with_PA(String carrierID, String accountID, String groupID, String memberID, String firstName, String lastName, String dob, String fromDate, String thruDate) throws Throwable {
+		try{
+		Mainframe_GlobalFunctionLib.sendText(21, 7 ,"modlibs" );
+		Mainframe_GlobalFunctionLib.pressKey("Enter");
+		Reporter.addStepLog("Modlibs added");
+		if(ScreenshotOption.equalsIgnoreCase("Always")){
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			//if( b == false)
+				//Assert.fail("The text "+ text +" does not match on the screen.Screenshot captured.");
+			}
+			}catch(Exception e){
+				Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+				Assert.fail("The cmd "+ "modlibs" +" does not added on the screen. Screenshot captured.");
+				
+			}
 		FunctionalLibrary.CreateMemberPA(carrierID, accountID, groupID, memberID, firstName, lastName, dob, fromDate, thruDate);
 	}
 	
-	@When("^I create PA Number \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_create_PA_Number(String number, String type, String ndcgpilist, String from, String thru, String agent, String reason, String ignoredrugstatus) throws Throwable {
+	@When("^I create PA Number \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_create_PA_Number(String number, String type, String otc, String ndcgpilist, String from, String thru, String agent, String reason, String ignoredrugstatus) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		FunctionalLibrary.func_SetPriorAuth(number,type,ndcgpilist,from,thru,agent,reason,ignoredrugstatus);
+		FunctionalLibrary.func_SetPriorAuth(number,type,otc,ndcgpilist,from,thru,agent,reason,ignoredrugstatus);
 	}
-
+	
 	@When("^I create PA Number \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_create_PA_Number(String number, String type, String msc, String otc, String ndcgpilist, String from, String thru, String agent, String reason, String ignoredrugstatus) throws Throwable {
 		System.out.println("OTC"+otc);
 		FunctionalLibrary.func_SetPriorAuth(number,type,msc,otc,ndcgpilist,from,thru,agent,reason,ignoredrugstatus);
 		
 	}
+	
 	@Then("^Validate PANumber \"([^\"]*)\" added$")
 	public void validate_PANumber_added(String panumber) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -132,7 +178,7 @@ public class CommonStepDefinition extends CommonHelper{
 	public void i_submit_a_claim_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	    FunctionalLibrary.CreateTransaction(bin, proc, group, pharmacyID, rxNbr, refill, fillDate, memberID, productID, dspQty, ds, psc, cost);
-	      FunctionalLibrary.submitClaim();
+	    FunctionalLibrary.submitClaim();
 	}
 	
 	@When("^I submit a claim with Retail MO Pharmacy \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -177,6 +223,23 @@ public class CommonStepDefinition extends CommonHelper{
 		Mainframe_GlobalFunctionLib.sendText(4, 65, FillDate3);
 		FunctionalLibrary.submitClaimF18WithoutRxOrigin();
 	}
+	
+	@When("^I submit the claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_submit_the_claim_with(String bin, String proc, String group, String pharmacyID, String refill, String fillDate, String memberID, String productID, String dspQty, String ds, String psc, String cost, String due, String ucw, String fee) throws Throwable {
+	   
+			
+			FunctionalLibrary.CreateTransaction(bin, proc, group, pharmacyID, "",refill, fillDate, memberID, productID, dspQty, ds, psc, cost);
+			Mainframe_GlobalFunctionLib.sendText(9 , 33 ,"1");
+			Mainframe_GlobalFunctionLib.sendText(11 , 47 ,"         ");
+		 Mainframe_GlobalFunctionLib.sendText(19 , 47 ,"         ");
+		 Mainframe_GlobalFunctionLib.sendText(20 , 47 ,"         ");
+		 Mainframe_GlobalFunctionLib.sendText(11 , 47 ,fee);
+		 Mainframe_GlobalFunctionLib.sendText(19 , 47 ,due);
+		 Mainframe_GlobalFunctionLib.sendText(20 , 47 ,ucw);
+		 FunctionalLibrary.submitClaim();
+	}
+	
+	
 	
 	@When("^I submit a compound claim with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void i_submit_a_compound_claim_with(String bin, String proc, String group, String pharmacyID, String rxNbr, String refill, String fillDate, String memberID, String productId, String dspQty, String ds, String psc, String cost, String prequal, String preid, String ucw, String compQualId, String compProductId, String compQuantity, String compCost, String compBasisOfCost) throws Throwable {
@@ -275,10 +338,10 @@ public class CommonStepDefinition extends CommonHelper{
 	    FunctionalLibrary.SetSupplementalIDbyType(SupplementalIDFromDate, SupplementalIDThruDate, SupplementalIDType, SupplementalID, Text);
 	}
 
-	@Then("^I Set PBP \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void i_Set_PBP(String carrierID, String contract, String pbp, String benefityear, String medicaretype) throws Throwable {
+	@Then("^I Set PBP \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void i_Set_PBP(String carrierID, String contract, String pbp, String benefityear, String medicaretype, String submitterid) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    FunctionalLibrary.SetPBP(carrierID, contract, pbp, benefityear, medicaretype);
+	    FunctionalLibrary.SetPBP(carrierID, contract, pbp, benefityear, medicaretype, submitterid);
 	}
 
 	@Then("^I Set Medicare \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -446,252 +509,129 @@ public class CommonStepDefinition extends CommonHelper{
 	    FileValidation.compareFile(actualFile, expectedFile);
 	}
 	
-	@When("^I create a prod library stage library \"([^\"]*)\" ,\"([^\"]*)\"$")
-    public void i_create_a_prod_library_stage_library(String prodlibrary, String stagelibrary) throws Throwable {
-     	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"crtlib");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter"); 
-  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,prodlibrary);
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter"); 
-  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"crtlib");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter"); 
-  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,stagelibrary);
-  	  Mainframe_GlobalFunctionLib.sendText(6, 38 ,"    ");
-  	  Mainframe_GlobalFunctionLib.sendText(6, 38 ,"TEST");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");     	  
-    }
+	 @Then("^I capture a screenshot$")
+	    public void i_capture_a_screenshot() throws Throwable {
+	    	Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+	    	System.out.println("Screen shot captured.");
+	    }
 
-    @When("^I copy objects from prod library \"([^\"]*)\", \"([^\"]*)\" ,\"([^\"]*)\"$")
-    public void i_copy_objects_from_prod_library(String File, String TCLlibrary1, String prodlibrary) throws Throwable {
-      
-  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"crtdupobj");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.pressKey("F9");
-  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,File);
-  	  Mainframe_GlobalFunctionLib.sendText(6, 37 ,TCLlibrary1);
-  	  Mainframe_GlobalFunctionLib.sendText(7, 37 ,"*ALL");
-  	  Mainframe_GlobalFunctionLib.sendText(9, 37 ,"          ");
-  	  Mainframe_GlobalFunctionLib.sendText(9, 37 ,prodlibrary);
-  	  Mainframe_GlobalFunctionLib.sendText(13, 37 ,"   ");
-  	  Mainframe_GlobalFunctionLib.sendText(13, 37 ,"*YES");
-  	  Mainframe_GlobalFunctionLib.sendText(15, 37 ,"    ");
-  	  Mainframe_GlobalFunctionLib.sendText(15, 37 ,"*NO");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Thread.sleep(24000);
-  	  
-    }
-
-
-    @When("^I copy objects from stage library \"([^\"]*)\", \"([^\"]*)\" ,\"([^\"]*)\"$")
-    public void i_copy_objects_from_stage_library(String File, String TCLlibrary2, String stagelibrary) throws Throwable {
-
-  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"crtdupobj");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.pressKey("F9");
-  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,File);
-  	  Mainframe_GlobalFunctionLib.sendText(6, 37 ,TCLlibrary2);
-  	  Mainframe_GlobalFunctionLib.sendText(7, 37 ,"*ALL");
-  	  Mainframe_GlobalFunctionLib.sendText(9, 37 ,"          ");
-  	  Mainframe_GlobalFunctionLib.sendText(9, 37 ,stagelibrary);
-  	  Mainframe_GlobalFunctionLib.sendText(13, 37 ,"    ");
-  	  Mainframe_GlobalFunctionLib.sendText(13, 37 ,"*NO");
-  	  Mainframe_GlobalFunctionLib.sendText(15, 37 ,"    ");
-  	  Mainframe_GlobalFunctionLib.sendText(15, 37 ,"*NO");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Thread.sleep(24);
-  	  Mainframe_GlobalFunctionLib.pressKey("F3");
-  	  Mainframe_GlobalFunctionLib.pressKey("F3");
+		@Then("^Validate \"([^\"]*)\" in field \"([^\"]*)\" is displayed on \"([^\"]*)\"$")
+		public void validate_in_field_is_displayed_on(String fieldValue, String fieldName, String screenName) throws Throwable {
+			String[] coordinates = ReadPropertyFile.getProperty(screenName , fieldName);
+			FunctionalLibrary.validateText(coordinates[0] ,coordinates[1] , fieldValue);
+		}
+		
+		@When("^I click in field \"([^\"]*)\" on \"([^\"]*)\"$")
+		public void i_click_in_field_on(String fieldName, String screenName) throws Throwable {
+			String[] coordinates = ReadPropertyFile.getProperty(screenName , fieldName);
+			int coordinate0 = Integer.valueOf(coordinates[0]);
+			int coordinate1 = Integer.valueOf(coordinates[1]);
+			Mainframe_GlobalFunctionLib.click(coordinate0 ,coordinate1);
+			
+		}
     
-    }
+		@When("^Update Plan Drug Status and Turnoff GPI Options \"([^\"]*)\"$")
+		public void update_Plan_Drug_Status_and_Turnoff_GPI_Options(String plancode) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			FunctionalLibrary.func_updateDrugStatusGPIOptions(plancode);
+		}
 
-       @When("^I copy Data Program Conversion program to stage library  \"([^\"]*)\",\"([^\"]*)\"$")
-       public void i_copy_Data_Program_Conversion_program_to_stage_library(String sr, String stagelibrary) throws Throwable {
-  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"97");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"9");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(4, 17 ,sr);
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(9, 2 ,"2");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  DTAQProgram = Mainframe_GlobalFunctionLib.getText(15, 15);
-    	  DataexitProgram = Mainframe_GlobalFunctionLib.getText(15, 45);
-    	 // RemoveC = DTAQProgram.replaceAll("SXCPGO843C","SXCPGO843");
-    	    RemoveC = DTAQProgram.substring(0, 9);
-    	  System.out.println (RemoveC);
-    	  Mainframe_GlobalFunctionLib.pressKey("F3");
-    	  Mainframe_GlobalFunctionLib.pressKey("F3");
-        Mainframe_GlobalFunctionLib.pressKey("F3");
-        Mainframe_GlobalFunctionLib.sendText(21, 7 ,"6");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(6,41 ,"8403");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"20");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"WRKOBJ");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,DTAQProgram);
-  	  Mainframe_GlobalFunctionLib.sendText(6, 39 ,"TCL8403OBJ");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(8, 2 ,"3");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	//  Mainframe_GlobalFunctionLib.pressKey("F9");
-  	  Mainframe_GlobalFunctionLib.sendText(8, 37 ,"          ");
-  	  Mainframe_GlobalFunctionLib.sendText(8, 37 ,stagelibrary);
-  	/*  Mainframe_GlobalFunctionLib.sendText(12, 37 ,"    ");
-  	  Mainframe_GlobalFunctionLib.sendText(12, 37 ,"*YES");
-  	  Mainframe_GlobalFunctionLib.sendText(14, 37 ,"    ");
-  	  Mainframe_GlobalFunctionLib.sendText(14, 37 ,"*NO"); */
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.pressKey("F12");
-  	  //2ND PROGRAM
-  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"WRKOBJ");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,DataexitProgram);
-  	  Mainframe_GlobalFunctionLib.sendText(6, 39 ,"TCL8403OBJ");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(8, 2 ,"3");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	//  Mainframe_GlobalFunctionLib.pressKey("F9");
-  	  Mainframe_GlobalFunctionLib.sendText(8, 37 ,"          ");
-  	  Mainframe_GlobalFunctionLib.sendText(8, 37 ,stagelibrary);
-  	/*  Mainframe_GlobalFunctionLib.sendText(12, 37 ,"    ");
-  	  Mainframe_GlobalFunctionLib.sendText(12, 37 ,"*YES");
-  	  Mainframe_GlobalFunctionLib.sendText(14, 37 ,"    ");
-  	  Mainframe_GlobalFunctionLib.sendText(14, 37 ,"*NO"); */
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.pressKey("F12");
-  	 
-  	  //3RD PROGRAM
-  	  
-  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"WRKOBJ");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Thread.sleep(1000);
-  	//  Mainframe_GlobalFunctionLib.sendText(5, 37 ,DataCProgram);
-  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,RemoveC);
-  	  Mainframe_GlobalFunctionLib.sendText(6, 39 ,"TCL8403OBJ");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(8, 2 ,"3");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	//  Mainframe_GlobalFunctionLib.pressKey("F9");
-  	  Mainframe_GlobalFunctionLib.sendText(8, 37 ,"          ");
-  	  Mainframe_GlobalFunctionLib.sendText(8, 37 ,stagelibrary);
-  	/*  Mainframe_GlobalFunctionLib.sendText(12, 37 ,"    ");
-  	  Mainframe_GlobalFunctionLib.sendText(12, 37 ,"*YES");
-  	  Mainframe_GlobalFunctionLib.sendText(14, 37 ,"    ");
-  	  Mainframe_GlobalFunctionLib.sendText(14, 37 ,"*NO"); */
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.pressKey("F12");
-   }
+		@Given("^Update Plan Drug Status and Turnon GPI Options \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void update_Plan_Drug_Status_and_Turnon_GPI_Options(String plancode, String checknegformchangeonproduct,String qualquantity, String minquantity, String maxquantity, String qualdailydose, String mindailydose, String maxdailydose, String ptdquantitytype, String ptdquantitydays, String ptdquantitymax, String ptddayssupplytype, String ptddaysssupplymin, String ptddaysssupplymax, String ptd4thqtrdstype, String ptd4thqtrdsdays, String ptd4thqtrdsmax, String qtydscomp, String negativeformularyfhange, String minmaxquantity, String minmaxdailydose, String quantitydaysupplyptd) throws Throwable {
+			FunctionalLibrary.func_updateDrugStatusGPIOptionswithTBMedicareDetail(plancode, checknegformchangeonproduct, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp, negativeformularyfhange, minmaxquantity, minmaxdailydose, quantitydaysupplyptd);
+		}
 
+		@Given("^Update Plan Drug Status and Turnon GPI Options for Medicaid \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void update_Plan_Drug_Status_and_Turnon_GPI_Options_for_Medicaid(String plancode, String checknegformchangeonproduct,String qualquantity, String minquantity, String maxquantity, String qualdailydose, String mindailydose, String maxdailydose, String ptdquantitytype, String ptdquantitydays, String ptdquantitymax, String ptddayssupplytype, String ptddaysssupplymin, String ptddaysssupplymax, String ptd4thqtrdstype, String ptd4thqtrdsdays, String ptd4thqtrdsmax, String qtydscomp, String negativeformularyfhange, String minmaxquantity, String minmaxdailydose, String quantitydaysupplyptd) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			FunctionalLibrary.func_updateDrugStatusGPIOptionswithTBMedicaidDetail(plancode, checknegformchangeonproduct, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp, negativeformularyfhange, minmaxquantity, minmaxdailydose, quantitydaysupplyptd);
+		}
+		
+		@Then("^Validate PA Number and TB fields \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void validate_PA_Number_and_TB_fields(String panumber, String tboverride, String tbpriordrugsts, String tbrejectreason1, String tbrejectreason2, String tbrejectreason3, String tbplanedit, String tbpassprequalifcheck) throws Throwable {
+			FunctionalLibrary.func_Validate_PAnumberandTBfields(panumber, tboverride, tbpriordrugsts, tbrejectreason1, tbrejectreason2, tbrejectreason3, tbplanedit, tbpassprequalifcheck);
+		}	
+		
+		@When("^Update Member PA Override and GPI Details \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void update_Member_PA_Override_and_GPI_Details(String paoverridetb, String qualquantity, String minquantity, String maxquantity, String qualdailydose, String mindailydose, String maxdailydose, String ptdquantitytype, String ptdquantitydays, String ptdquantitymax, String ptddayssupplytype, String ptddaysssupplymin, String ptddaysssupplymax, String ptd4thqtrdstype, String ptd4thqtrdsdays, String ptd4thqtrdsmax, String qtydscomp) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			FunctionalLibrary.func_UpdateMemberPAOverrideGPIDetails(paoverridetb, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp);
+		}
+		
+		@When("^I attach DUR Table to the Plan \"([^\"]*)\",\"([^\"]*)\"$")
+		public void i_attach_DUR_Table_to_the_Plan(String planCode, String durTable) throws Throwable {
+		    PlanByPlanCode.openThePlanInEditMode(planCode);
+		    FunctionalLibrary.enterText(19, 17, "        ");
+			FunctionalLibrary.enterText(19, 17, durTable);
+			FunctionalLibrary.pressEnter();
+			FunctionalLibrary.enterText(16, 64, "Y");
+		}
+		
 
-     @When("^I copy CV file to stage library with data \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-     public void i_copy_CV_file_to_stage_library_with_data(String cvfile, String bllibrary, String stagelibrary) throws Throwable {
+		@When("^Update Member PA Override and NDC Details \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void update_Member_PA_Override_and_NDC_Details(String paoverridetb, String qualquantity, String minquantity, String maxquantity, String qualdailydose, String mindailydose, String maxdailydose, String ptdquantitytype, String ptdquantitydays, String ptdquantitymax, String ptddayssupplytype, String ptddaysssupplymin, String ptddaysssupplymax, String ptd4thqtrdstype, String ptd4thqtrdsdays, String ptd4thqtrdsmax, String qtydscomp) throws Throwable {
+			FunctionalLibrary.func_UpdateMemberPAOverrideNDCDetails(paoverridetb, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp);
+		}
+		
+		@When("^Update Plan Drug Status and Turnoff NDC Options \"([^\"]*)\"$")
+		public void update_Plan_Drug_Status_and_Turnoff_NDC_Options(String plancode) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			FunctionalLibrary.func_updateDrugStatusNDCOptions(plancode);
+		}
+		
+		@Given("^Update Plan Drug Status and Turnon NDC Options \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void update_Plan_Drug_Status_and_Turnon_NDC_Options(String plancode, String checknegformchangeonproduct,String productid, String qualquantity, String minquantity, String maxquantity, String qualdailydose, String mindailydose, String maxdailydose, String ptdquantitytype, String ptdquantitydays, String ptdquantitymax, String ptddayssupplytype, String ptddaysssupplymin, String ptddaysssupplymax, String ptd4thqtrdstype, String ptd4thqtrdsdays, String ptd4thqtrdsmax, String qtydscomp, String negativeformularyfhange, String minmaxquantity, String minmaxdailydose, String quantitydaysupplyptd) throws Throwable {
+			//FunctionalLibrary.func_updateDrugStatusGPIOptionswithTBMedicareDetail(plancode, checknegformchangeonproduct, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp, negativeformularyfhange, minmaxquantity, minmaxdailydose, quantitydaysupplyptd);
+			FunctionalLibrary.func_updateDrugStatusNDCOptionswithTBMedicareDetail(plancode, checknegformchangeonproduct, productid, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp, negativeformularyfhange, minmaxquantity, minmaxdailydose, quantitydaysupplyptd);
+		}
 
-  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"WRKOBJ");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,cvfile);
-  	  Mainframe_GlobalFunctionLib.sendText(6, 39 ,bllibrary);
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(8, 2 ,"3");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.pressKey("F9");
-  	  Mainframe_GlobalFunctionLib.sendText(8, 37 ,"          ");
-  	  Mainframe_GlobalFunctionLib.sendText(8, 37 ,stagelibrary);
-  	  Mainframe_GlobalFunctionLib.sendText(12, 37 ,"    ");
-  	  Mainframe_GlobalFunctionLib.sendText(12, 37 ,"*YES");
-  	  Mainframe_GlobalFunctionLib.sendText(14, 37 ,"    ");
-  	  Mainframe_GlobalFunctionLib.sendText(14, 37 ,"*NO");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-    }
-
-       @When("^I create Journal Receiver \"([^\"]*)\",\"([^\"]*)\"$")
-       public void i_create_Journal_Receiver(String jrnrcv, String prodlibrary) throws Throwable {
-       Mainframe_GlobalFunctionLib.pressKey("F12");
-  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"CRTJRNRCV");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,jrnrcv);
-  	  Mainframe_GlobalFunctionLib.sendText(6, 39 ,"          ");
-  	  Mainframe_GlobalFunctionLib.sendText(6, 39 ,prodlibrary);
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-    }
-
-       @When("^I create Journal  \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-       public void i_create_Journal(String jrn, String prodlibrary, String jrnrcv , String prodlibrary1) throws Throwable {
-  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"CRTJRN");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(5, 37, jrn);
-  	  Mainframe_GlobalFunctionLib.sendText(6, 39, prodlibrary);
-  	  Mainframe_GlobalFunctionLib.sendText(7, 37, jrnrcv);
-  	  Mainframe_GlobalFunctionLib.sendText(8, 39 ,prodlibrary1);
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-    }
-
-       @When("^I start Journal \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\"$")
-       public void i_start_Journal(String physicalfile, String prodlibrary, String jrnrcv, String prodlibrary1) throws Throwable {
-  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"STRJRNPF");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(5, 37 ,physicalfile);
-  	  Mainframe_GlobalFunctionLib.sendText(6, 39 ,prodlibrary);
-  	  Mainframe_GlobalFunctionLib.sendText(9, 37 ,jrnrcv);
-  	  Mainframe_GlobalFunctionLib.sendText(10, 39 ,prodlibrary1);
-  	  Mainframe_GlobalFunctionLib.sendText(11, 37 ,"      ");
-  	  Mainframe_GlobalFunctionLib.sendText(11, 37,"*BOTH");    	  
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.pressKey("F3");
-  	  Mainframe_GlobalFunctionLib.pressKey("F3");
-  	  Mainframe_GlobalFunctionLib.pressKey("F3");
-    }
-
-       @When("^I navigate to staging area to create a new stg area \"([^\"]*)\" ,\"([^\"]*)\" ,\"([^\"]*)\"$")
-       public void i_navigate_to_staging_area_to_create_a_new_stg_area(String stagearea, String stagelibrary, String prodlibrary) throws Throwable {
-   	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"97");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"10");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"2");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.pressKey("F6");
-  	  Mainframe_GlobalFunctionLib.sendText(9, 17 ,stagearea);
-  	  Mainframe_GlobalFunctionLib.sendText(10, 17 ,stagearea);
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(9, 2 ,"7");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.pressKey("F6");
-  	  Mainframe_GlobalFunctionLib.pressKey("F4");
-  	  Mainframe_GlobalFunctionLib.sendText(13, 2 ,"1");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(6, 27 ,stagelibrary);
-  	  Mainframe_GlobalFunctionLib.sendText(6, 61 ,stagelibrary);
-  	  Mainframe_GlobalFunctionLib.sendText(7, 27 ,prodlibrary);
-  	  Mainframe_GlobalFunctionLib.sendText(9, 13 ,"RXCONVERT");
-  	  Mainframe_GlobalFunctionLib.sendText(9, 26  ,"RXCONVERT");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.pressKey("F12");
-  	  Mainframe_GlobalFunctionLib.pressKey("F12");
-  	  Mainframe_GlobalFunctionLib.sendText(21, 7 ,"1");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(4, 5 ,stagearea);
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(9, 2 ,"1");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-    }
-
-    @Then("^I start conversion process$")
-    public void i_start_conversion_process() throws Throwable {
-  	  Mainframe_GlobalFunctionLib.sendText(11, 2 ,"10");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-  	  Mainframe_GlobalFunctionLib.sendText(16, 64 ,"Y");
-  	  Mainframe_GlobalFunctionLib.pressKey("Enter");
-    }
-
-    @Then("^Validate if Copy is hundred percent$")
-    public void validate_if_Copy_is_hundred_percent() throws Throwable {
-       
-    }
+		@Then("^Update Plan Drug Status and Turnon NDC Options for Medicaid \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void update_Plan_Drug_Status_and_Turnon_NDC_Options_for_Medicaid(String plancode, String checknegformchangeonproduct,String productid, String qualquantity, String minquantity, String maxquantity, String qualdailydose, String mindailydose, String maxdailydose, String ptdquantitytype, String ptdquantitydays, String ptdquantitymax, String ptddayssupplytype, String ptddaysssupplymin, String ptddaysssupplymax, String ptd4thqtrdstype, String ptd4thqtrdsdays, String ptd4thqtrdsmax, String qtydscomp, String negativeformularyfhange, String minmaxquantity, String minmaxdailydose, String quantitydaysupplyptd) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			FunctionalLibrary.func_updateDrugStatusNDCOptionswithTBMedicaidDetail(plancode, checknegformchangeonproduct, productid, qualquantity, minquantity, maxquantity, qualdailydose, mindailydose, maxdailydose, ptdquantitytype, ptdquantitydays, ptdquantitymax, ptddayssupplytype, ptddaysssupplymin, ptddaysssupplymax, ptd4thqtrdstype, ptd4thqtrdsdays, ptd4thqtrdsmax, qtydscomp, negativeformularyfhange, minmaxquantity, minmaxdailydose, quantitydaysupplyptd);
+		}
+		
+		@Then("^Validate Claim Reject Code \"([^\"]*)\"$")
+		public void validate_Claim_Reject_Code(String rejectcode) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+			FunctionalLibrary.validateText("21" ,"12" , rejectcode );
+		
+		}
+		@Then("^Verify if Subrogation applies for Manual Claims with Payee Override with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void verify_if_Subrogation_applies_for_Manual_Claims_with_Payee_Override_with(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+		   // throw new PendingException();
+			Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+			FunctionalLibrary.validateText("21" ,"10", "Testing");
+			
+		}
+		
+		@When("^I submit the claim with prescriber id \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void i_submit_the_claim_with_prescriber_id(String bin, String proc, String group, String pharmacyID, String refill, String fillDate, String memberID, String productID, String prescriberQual , String prescriberID,String dspQty, String ds, String psc, String cost, String due, String ucw, String fee) throws Throwable {
+			   FunctionalLibrary.CreateTransaction(bin, proc, group, pharmacyID, memberID,refill, fillDate, memberID, productID, dspQty, ds, psc, cost);
+			Mainframe_GlobalFunctionLib.sendText(9 , 33 ,"1");
+			if(fee.length()!=0){
+			Mainframe_GlobalFunctionLib.sendText(11 , 47 ,"         ");
+			Mainframe_GlobalFunctionLib.sendText(11 , 47 ,fee);
+			}
+			if(due.length()!=0){
+				Mainframe_GlobalFunctionLib.sendText(19 , 47 ,"         ");			
+				Mainframe_GlobalFunctionLib.sendText(19 , 47 ,due);
+			}
+			if(ucw.length()!=0){
+			 Mainframe_GlobalFunctionLib.sendText(20 , 47 ,"         ");		 
+			 Mainframe_GlobalFunctionLib.sendText(20 , 47 ,ucw);
+			}
+			Mainframe_GlobalFunctionLib.sendText(19 , 19 ,"  ");
+			Mainframe_GlobalFunctionLib.sendText(19 , 19 ,prescriberQual);
+			Mainframe_GlobalFunctionLib.sendText(19 , 26 ,"               ");
+			Mainframe_GlobalFunctionLib.sendText(19 , 26 ,prescriberID);
+			FunctionalLibrary.submitClaim();
+		}
 	
+		@When("^I Set Medicare for auto generated member \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void i_Set_Medicare_for_auto_generated_member(String PARTDfromdate, String PARTDthrudate, String contract, String pbp, String segment, String subsidylevel, String copaycategory, String PARTDeffectivedate, String enrollmentsource) throws Throwable {
+			FunctionalLibrary.func_SetMedicare(FunctionalLibrary.PAMember1, PARTDfromdate, PARTDthrudate, contract, pbp, segment, subsidylevel, copaycategory, PARTDeffectivedate, enrollmentsource);
+			  
+		}
 }

@@ -329,6 +329,8 @@ public class ValidationofTaxonomyCodes {
 		{
 			Assert.fail("F3 and F12 options are not displayed");
 		}
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
 	
 	@Then("^changing the record in Add Prescriber State Taxonomy Codes screen with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -451,6 +453,9 @@ public class ValidationofTaxonomyCodes {
     	{
     		Assert.fail("F3 and F12 options are not displayed");
     	}
+    	
+    	Mainframe_GlobalFunctionLib.pressKey("F3");
+    	Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
 	
 	@Then("^validating display functionality in Add Prescriber State Taxonomy Codes screen$")
@@ -551,6 +556,9 @@ public class ValidationofTaxonomyCodes {
     	{
     		Assert.fail("F3 and F12 options are not displayed");
     	}
+    	
+    	Mainframe_GlobalFunctionLib.pressKey("F3");
+    	Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
 	
 	@Then("^validating error message in Prescriber State Taxonomy Codes screen with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -560,6 +568,7 @@ public class ValidationofTaxonomyCodes {
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		//TC1
+		Mainframe_GlobalFunctionLib.sendText(8,17,"          ");
 		Mainframe_GlobalFunctionLib.sendText(8,17,"TE33GPI");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
 		String err_msg = Mainframe_GlobalFunctionLib.getText(24,2).trim();
@@ -706,6 +715,10 @@ public class ValidationofTaxonomyCodes {
 		{
 			Assert.fail("Message is not displayed");
 		}
+		
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
 
 	@Then("^validating the prescriber state taxonomy field with \"([^\"]*)\",\"([^\"]*)\"$")
@@ -840,6 +853,10 @@ public class ValidationofTaxonomyCodes {
 		Mainframe_GlobalFunctionLib.pressKey("F12");
 		Mainframe_GlobalFunctionLib.pressKey("F10");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
 	
 	@Then("^validating the Load Prescriber State Taxonomy Codes screen with \"([^\"]*)\",\"([^\"]*)\"$")
@@ -1009,7 +1026,9 @@ public class ValidationofTaxonomyCodes {
 				{
 					Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 				}
-		
+				Mainframe_GlobalFunctionLib.pressKey("F3");
+				Mainframe_GlobalFunctionLib.pressKey("F12");
+				Mainframe_GlobalFunctionLib.pressKey("F3");
 	}
 	
 	@Then("^generating the plan audit report with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -1324,10 +1343,10 @@ public class ValidationofTaxonomyCodes {
 		Mainframe_GlobalFunctionLib.pressKey("F6");
 		Mainframe_GlobalFunctionLib.sendText(21, 7,"ws");
 		Mainframe_GlobalFunctionLib.pressKey("Enter");
-		String jobstatus = Mainframe_GlobalFunctionLib.getText(11,40);
+		String jobstatus = Mainframe_GlobalFunctionLib.getText(13,40);
 		if(jobstatus.equals("OUTQ"))
 		{
-			Mainframe_GlobalFunctionLib.sendText(11, 3,"8");
+			Mainframe_GlobalFunctionLib.sendText(13, 3,"8");
     		Mainframe_GlobalFunctionLib.pressKey("Enter");
     		Mainframe_GlobalFunctionLib.pressKey("F18");
     		Mainframe_GlobalFunctionLib.sendText(19, 3,"5");
@@ -1374,14 +1393,14 @@ public class ValidationofTaxonomyCodes {
 			
 			TimeUnit.MINUTES.sleep(4);
 			Mainframe_GlobalFunctionLib.pressKey("F5");
-			String jobstat = Mainframe_GlobalFunctionLib.getText(11,40);
+			String jobstat = Mainframe_GlobalFunctionLib.getText(13,40);
 			if(jobstat.equals("OUTQ"))
     		{
 			TimeUnit.SECONDS.sleep(3);
-			Mainframe_GlobalFunctionLib.sendText(11, 3,"8");
+			Mainframe_GlobalFunctionLib.sendText(13, 3,"8");
     		Mainframe_GlobalFunctionLib.pressKey("Enter");
     		Mainframe_GlobalFunctionLib.pressKey("F18");
-    		Mainframe_GlobalFunctionLib.sendText(19, 3,"5");
+    		Mainframe_GlobalFunctionLib.sendText(11, 3,"5");
     		Mainframe_GlobalFunctionLib.pressKey("Enter");
     		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
     		Mainframe_GlobalFunctionLib.sendText(4, 22,"Prescriber State Taxonomy");
@@ -1421,6 +1440,12 @@ public class ValidationofTaxonomyCodes {
     		
     		}
 		}
+		
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
 	
 	@Then("^loading the file in Load Prescriber State Taxonomy Codes screen with \"([^\"]*)\",\"([^\"]*)\"$")
@@ -1877,6 +1902,11 @@ public class ValidationofTaxonomyCodes {
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		TimeUnit.SECONDS.sleep(3);
 		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
 	
 	@Then("^Validating the claim is paid with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -1900,6 +1930,10 @@ public class ValidationofTaxonomyCodes {
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F7");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
 	
 	@Then("^Validating the claim is rejected with \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -1946,6 +1980,10 @@ public class ValidationofTaxonomyCodes {
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
 		Mainframe_GlobalFunctionLib.pressKey("F7");
 		Reporter.addScreenCaptureFromPath(Screenshot.screenshot());
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F3");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
+		Mainframe_GlobalFunctionLib.pressKey("F12");
 	}
 
 
