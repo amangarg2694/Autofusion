@@ -8,8 +8,10 @@ As a RxClaim User I want to create a New CAG
    
    Examples:
     | CarrierID | CarrierName |Processor  |MailingAdd|City|State|Zip  |ContractFromDt|ContractThruDt|ContractEnt| BusinessType |AccountID |AccountName  | GroupID  |GroupName  |GroupFromDt|GroupThruDt|PlanCode| 
-  # | SR42037   | Test Carrier|712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |SR42037   |Test Account | SR42037  |Test Group |010101     |123139     |SN003292P1| 
-		| AUTOC3691 | Test Carrier|712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |AUTO3690A |Test Account | AUTO3690G|Test Group |010101     |123139     |PLN3024M1| 
-   #| TESTOO13  | Test Carrier|712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT      |TESTAO13  |Test Account| TESTGO13  |Test Group |010101     |123139     |AUTOEGWP| 
-   # | VersiC14  | Test Carrier|712        |MAIL ADD  |City|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT   
-
+    | AMANPB001 | Test Carrier1|712        |MAIL ADD  |TEST|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT     |AMANPB001 | Test Account | AMANPB001 | Test Group | 010199 | 123129    | AMANPB001 |
+    | AMANPB002 | Test Carrier2|712        |MAIL ADD  |TEST|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT     |AMANPB002 | Test Account | AMANPB002 | Test Group | 010199 | 123129    | AMANPB002 |
+    | AMANPB003 | Test Carrier3|712        |MAIL ADD  |TEST|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT     |AMANPB003 | Test Account | AMANPB003 | Test Group | 010199 | 123129    | AMANPB003 |
+    | AMANPB004 | Test Carrier4|712        |MAIL ADD  |TEST|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT     |AMANPB004 | Test Account | AMANPB004 | Test Group | 010199 | 123129    | AMANPB004 |
+    | AMANPB005 | Test Carrier5|712        |MAIL ADD  |TEST|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT     |AMANPB005 | Test Account | AMANPB005 | Test Group | 010199 | 123129    | AMANPB005 |
+    | AMANPB006 | Test Carrier6|712        |MAIL ADD  |TEST|IL   |78654|010101        |123139        |*DEFAULT   |*DEFAULT     |AMANPB006 | Test Account | AMANPB006 | Test Group | 010199 | 123129    | AMANPB006 |
+    

@@ -21,8 +21,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(format = { "pretty", "json:target/cucumber.json" },
 
-		features = { "classpath:features/RxClaim/featureFiles/AgileTeams/Plan invincible 6/SR42334_Scripts/Drug_status_priority_schedule.feature" },
-
+		features = { "classpath:features/RxClaim/featureFiles/AgileTeams/Plan invincible 6/Sprint 16/Reprocessing.feature" },
 
 		plugin = { "rerun:target/rerun.txt", "com.cucumber.listener.ExtentCucumberFormatter:", "html:target/cucumber",
 				"json:target/cucumber.json" },
@@ -32,7 +31,6 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 
 )
-
 
 
 
@@ -67,7 +65,7 @@ public class RunDemoTest extends AbstractTestNGCucumberTests {
 	public static void teardown() throws Exception { 
 
 
-// 		Mainframe_GlobalFunctionLib.closeTE(); 
+ 		Mainframe_GlobalFunctionLib.closeTE(); 
 
 		SDK.cleanup(); 
 		 

@@ -64,7 +64,7 @@ public class FunctionalLibrary extends CommonHelper{
 		
 		
 		
-	public static void createCAG(String carrierID,String carrierName,String processor,String mail,String city,String state,String zip,String contractFromDate,String contractThruDate, String contractEnt,String businessType,String accountID,String accountName ,String groupID,String groupName,String gFromDate,String gThruDate,String planCode) throws Throwable
+	public static void createCAG(String carrierID,String carrierName,String processor,String mail,String city,String state,String zip,String contractFromDate,String contractThruDate, String contractEnt,String businessType, String planCode, String accountID, String accountName, String groupID, String groupName, String gFromDate, String gThruDate) throws Throwable
 	{			
 		try {
 			navigateToRxClaimPlanAdministrator();
